@@ -1,0 +1,27 @@
+{
+  "workflow": "workflow_api.json",
+  "params": {
+    "prompt": "REPLACE_NODE_ID.text",
+    "negative": "REPLACE_NODE_ID.text",
+    "seed": "REPLACE_NODE_ID.seed"
+  },
+  "defaults": {
+    "negative": "blurry, low quality, distorted, watermark, text"
+  },
+  "retries": 2,
+  "timeout_sec": 3600,
+  "shots": [
+    {
+      "id": "shot01",
+      "values": {
+        "prompt": "Wide establishing shot of a foggy pine forest at dawn, soft golden light through the trees, slow dolly forward"
+      }
+    },
+    {
+      "id": "shot02",
+      "values": {
+        "prompt": "Close-up of dew drops on a spider web, shallow depth of field, gentle breeze, macro lens"
+      }
+    }
+  ]
+}
