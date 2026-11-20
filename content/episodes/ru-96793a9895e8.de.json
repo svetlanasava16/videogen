@@ -1,0 +1,222 @@
+{
+  "id": "ru-96793a9895e8.de",
+  "jokeId": "ru-96793a9895e8",
+  "locale": "de",
+  "title": "Der nächtliche Gast",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Säufer hat sich auf dem Friedhof volllaufen lassen, ist in ein Grab gefallen und eingeschlafen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Nachts wacht er auf. Er schaut, da gräbt ein Totengräber ein Grab.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Na warte, den erschrecke ich mal.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Er wirft sich ein weißes Laken über den Kopf, geht zum Totengräber und heult ganz schaurig:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Huuuuuuu!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Totengräber schaut ihn gleichgültig an und gräbt weiter. Der Säufer kommt von der anderen Seite, noch lauter und schauriger:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Huuu! Huuu! Huuu! Huuuuuuu!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Dem Totengräber ist es wieder egal, Mist, überhaupt keine Reaktion.",
+      "uncensored": "Dem Totengräber ist es wieder egal, Scheiße, überhaupt keine Reaktion.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Enttäuscht geht der Säufer zum Ausgang und vergisst sogar das Laken. Am Tor holt ihn der Totengräber ein, haut ihm die Schaufel ins Gesicht und sagt ganz ruhig:",
+      "uncensored": "Enttäuscht geht der Säufer zum Ausgang und vergisst sogar das Laken. Am Tor holt ihn der Totengräber ein, haut ihm die Schaufel in die Fresse und sagt ganz ruhig:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-ryzhy",
+      "text": "Herumspazieren – meinetwegen, aber das Gelände verlässt du nicht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "robe-white"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "lamp"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

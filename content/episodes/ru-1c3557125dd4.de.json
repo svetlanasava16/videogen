@@ -1,0 +1,217 @@
+{
+  "id": "ru-1c3557125dd4.de",
+  "jokeId": "ru-1c3557125dd4",
+  "locale": "de",
+  "title": "Die Ausnüchterungszelle",
+  "location": "spalnya",
+  "place": "bedroom",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "husband"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann wacht morgens mit einem fürchterlichen Kater von einem Anruf auf. Es ist ein Freund, den er lange nicht gesehen hat.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Wo bist du denn?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Hilf mir, Kumpel, ich rufe aus der Ausnüchterungszelle an, nicht weit von dir.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "Ich habe kein Geld und brauche achtundsiebzig Euro, damit sie mich rauslassen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Mann verspricht es, legt auf, nimmt seine letzten Kräfte zusammen, steht auf und zieht sich langsam an, um nicht umzufallen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "zhena",
+      "text": "Wohin?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Er erklärt ehrlich die Lage. Seine Frau mustert lange sein verquollenes Gesicht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "zhena",
+      "text": "Nimm hundertsechsundfünfzig Euro mit!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "stubble"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

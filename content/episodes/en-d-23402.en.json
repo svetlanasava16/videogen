@@ -1,0 +1,102 @@
+{
+  "id": "en-d-23402.en",
+  "jokeId": "en-d-23402",
+  "locale": "en",
+  "title": "The Note",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "husband"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "I came home and saw a note from my wife stuck on the fridge.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "I'm sorry. This isn't working.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "You take things too literally. Goodbye.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "She will be so happy when she finds out I ordered a new one.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "fridge",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,24 +2,22 @@
   "id": "en-r-7xpiv9.de",
   "jokeId": "en-r-7xpiv9",
   "locale": "de",
-  "title": "Das Wunderlicht",
+  "title": "Puff, das Licht geht an",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ded",
-    "doktor",
-    "tyoshcha"
+    "doktor"
   ],
   "roles": {
     "ded": "old-man",
-    "doktor": "doctor",
-    "tyoshcha": "old-woman"
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Ihre Werte sind bestens. Und wie stehen Sie mit Gott?",
+      "character": "narrator",
+      "text": "Ein neunzigjähriger Mann geht zur Vorsorgeuntersuchung, und alle Werte sind normal.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,73 +25,242 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Gott und ich sind dicke Freunde. Er weiß, dass ich schlecht sehe.",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Larry, alles sieht großartig aus.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "Wenn ich nachts aufs Klo muss, puff, geht das Licht an.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Wie geht es Ihnen seelisch und emotional? Sind Sie im Reinen mit Gott?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Bin ich fertig, puff, geht es wieder aus.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Gott und ich, wir verstehen uns bestens. Er weiß, dass ich schlecht sehe,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "also hat Er es so eingerichtet, dass, wenn ich mitten in der Nacht aufs Klo gehe, puff! Das Licht angeht.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ded",
+      "text": "Und wenn ich fertig bin, puff! Geht das Licht aus.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "doktor",
-      "text": "Unglaublich.",
+      "text": "Wow, das ist unglaublich.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "doktor",
-      "text": "Hallo, hier ist der Doktor. Ihrem Mann geht es gut.",
-      "emotion": "happy",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Später am Tag ruft der Arzt Larrys Frau an.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "doktor",
-      "text": "Aber stimmt es, dass bei ihm nachts das Licht im Bad von selbst angeht?",
+      "text": "Bonnie, Larry geht es gut!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Aber ich musste Sie anrufen, weil mich seine Beziehung zu Gott tief beeindruckt.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "doktor",
+      "text": "Stimmt es, dass er nachts aufsteht, und puff, geht im Bad das Licht an, und wenn er fertig ist, puff, geht das Licht aus?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "tyoshcha",
       "text": "Ach du lieber Gott! Er pinkelt schon wieder in den Kühlschrank!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "ded",
+        "doktor"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "tyoshcha"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "fridge"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

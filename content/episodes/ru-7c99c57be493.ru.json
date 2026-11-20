@@ -2,22 +2,22 @@
   "id": "ru-7c99c57be493.ru",
   "jokeId": "ru-7c99c57be493",
   "locale": "ru",
-  "title": "Угадай, кто",
+  "title": "Отгадай кто",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
     "muzhik",
-    "devushka"
+    "zhena"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "devushka": "woman"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Полезный совет мужчинам.",
+      "text": "Очень полезный совет мужчинам.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,40 +26,50 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Если вам сзади закрыли глаза мягкие ручки, а в спину упёрся пухленький животик...",
+      "text": "Если ваши глаза закрыли мягкие ручки, в спину упёрлась пышная грудь и пухленький животик, а сзади послышалось:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "devushka",
-      "text": "Угадай, кто?",
-      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Отгадай кто?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "zhena"
+      ],
+      "exit": []
+    },
+    {
       "id": "l4",
       "character": "narrator",
-      "text": "В любом случае отвечайте одно и то же. Поверьте, так будет лучше.",
+      "text": "В любом случае отвечайте:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Серёга, ты, что ли?",
+      "text": "Серёга, ты что ли?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Поверьте, так будет лучше.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

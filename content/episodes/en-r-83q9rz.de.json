@@ -6,29 +6,27 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik",
+    "paren",
     "barmen"
   ],
   "roles": {
-    "muzhik": "customer",
+    "paren": "customer",
     "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Wie ist das WLAN-Passwort?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Sie müssen erst was bestellen.",
+      "text": "Du musst zuerst was zu trinken kaufen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,8 +34,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Okay. Eine Cola, bitte.",
+      "character": "paren",
+      "text": "Okay, ich nehm eine Cola.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,7 +52,7 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Klar. Was macht das?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -72,7 +70,7 @@
     },
     {
       "id": "l7",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Bitte schön. Also, wie ist das WLAN-Passwort?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
@@ -82,14 +80,94 @@
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Sie müssen erst was bestellen. Ohne Leerzeichen, alles klein.",
+      "text": "Du musst zuerst was zu trinken kaufen. Ohne Leerzeichen, alles klein.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "barmen"
+      ],
+      "roles": {
+        "paren": "customer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

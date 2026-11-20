@@ -2,7 +2,7 @@
   "id": "de-witze-1qq89sg.ru",
   "jokeId": "de-witze-1qq89sg",
   "locale": "ru",
-  "title": "Соляная лавка",
+  "title": "Соль",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Проезжий мужик заходит в сельский магазинчик.",
+      "text": "Мужик едет через городок и останавливается у продуктового магазина, чтобы купить чего-нибудь поесть.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Он заходит в магазин, а там всё в соли. Весь магазин, сплошная соль. Все полки, сверху донизу, даже на полу. Больше ничего, только соль.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "Ого! Да тут всё в соли! Полки, прилавок, даже пол!",
+      "text": "Ого! У вас тут, видно, огромный спрос на поваренную соль.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,19 +44,10 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Видно, у вас тут на соль огромный спрос.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
       "character": "barmen",
-      "text": "Да не особо. Честно говоря, вообще никакого.",
-      "emotion": "neutral",
+      "text": "Да не особо. Скорее маленький. Вообще-то никакого.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Тогда вы гений продаж, раз всё это распродаёте.",
+      "text": "Ах вот как. Ну тогда вы точно гений продаж, раз всё это у вас раскупают.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Какое там. Продавать — это не моё.",
+      "text": "Ноль. Продавать — это не то чтобы мой талант.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,20 +73,21 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Так зачем же у вас весь магазин забит солью?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Так зачем же у вас тогда весь магазин забит солью, ради бога?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Ну, а вот мужик, у которого я эту соль покупаю, — вот он продавать умеет.",
+      "text": "Ну как. Тот, у кого я закупаю соль, вот он по-настоящему хороший продавец.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

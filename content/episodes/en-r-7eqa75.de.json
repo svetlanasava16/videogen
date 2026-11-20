@@ -2,7 +2,7 @@
   "id": "en-r-7eqa75.de",
   "jokeId": "en-r-7eqa75",
   "locale": "de",
-  "title": "Der Freundschaftsdienst",
+  "title": "Die Frau vom Pfarrer",
   "location": "ulitsa",
   "place": "church",
   "cast": [
@@ -17,16 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Horst geht zu seinem Kumpel Günther und sagt...",
+      "text": "Jack geht zu seinem Kumpel Bob.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ich schlafe mit der Frau vom Pfarrer.",
+      "text": "Ich schlafe mit der Frau vom Pfarrer. Kannst du ihn nach dem Gottesdienst eine Stunde in der Kirche aufhalten?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,9 +34,9 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Kannst du ihn nach dem Gottesdienst eine Stunde in der Kirche aufhalten?",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Dem Freund gefällt das nicht, aber als Kumpel sagt er zu.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Dem Freund gefällt das nicht, aber als guter Kumpel sagt er zu.",
+      "text": "Nach dem Gottesdienst fängt Bob ein Gespräch mit dem Pfarrer an und stellt ihm alle möglichen dummen Fragen, nur um ihn zu beschäftigen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,15 +53,6 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Nach dem Gottesdienst stellt Günther dem Pfarrer alle möglichen dummen Fragen, nur um ihn zu beschäftigen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "narrator",
       "text": "Schließlich wird der Pfarrer ungehalten.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
@@ -69,45 +60,45 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "batyushka",
-      "text": "Was haben Sie eigentlich wirklich vor?",
+      "text": "Was hast du wirklich vor?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "narrator",
-      "text": "Günther fühlt sich schuldig und gesteht dem Pfarrer schließlich...",
+      "text": "Bob hat ein schlechtes Gewissen und gesteht dem Pfarrer schließlich alles.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "muzhik-sosed",
       "text": "Mein Freund schläft gerade mit Ihrer Frau, deshalb hat er mich gebeten, Sie zu beschäftigen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Der Pfarrer lächelt und legt Bob brüderlich die Hand auf die Schulter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "Der Pfarrer lächelt, legt Günther brüderlich die Hand auf die Schulter und sagt...",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "batyushka",
-      "text": "Sie sollten jetzt schnell nach Hause gehen. Meine Frau ist vor einem Jahr gestorben.",
+      "text": "Du beeilst dich jetzt besser, nach Hause zu kommen. Meine Frau ist vor einem Jahr gestorben.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -139,10 +130,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -150,23 +137,17 @@
     {
       "location": "tserkov",
       "cast": [
-        "muzhik-sosed",
-        "batyushka"
+        "batyushka",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-sosed": "friend",
-        "batyushka": "priest"
+        "batyushka": "priest",
+        "muzhik-sosed": "friend"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "altar"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -191,15 +172,6 @@
         {
           "type": "line",
           "ref": "l10"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "flyover"

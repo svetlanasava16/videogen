@@ -1,0 +1,140 @@
+{
+  "id": "ru-e0aa91bad922.de",
+  "jokeId": "ru-e0aa91bad922",
+  "locale": "de",
+  "title": "Such!",
+  "location": "spalnya",
+  "place": "bedroom",
+  "cast": [
+    "muzhik",
+    "pyos"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "pyos": "dog"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann wacht mit einem Mordskater auf — der Kopf wie mit Blei gefüllt, Arme und Beine wie fremd, er kriegt sie nicht hoch.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Irgendwie dreht er sich auf die Seite und stöhnt ganz jämmerlich, herzzerreißend:",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Bel-lo... Be-e-ello...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Der Hund kommt angelaufen, winselt, leckt ihn ab.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Mann haucht ihn kräftig an und sagt mit letzter Kraft:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Such!!!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "pyos": "dog"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

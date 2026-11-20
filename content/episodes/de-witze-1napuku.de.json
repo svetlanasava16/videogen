@@ -1,0 +1,124 @@
+{
+  "id": "de-witze-1napuku.de",
+  "jokeId": "de-witze-1napuku",
+  "locale": "de",
+  "title": "Moses und die zehn Gebote",
+  "location": "derevnya",
+  "place": "mountain",
+  "cast": [
+    "ded"
+  ],
+  "roles": {
+    "ded": "biblical-figure"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Moses, am Berg angekommen, lässt das Volk am Fuße warten und beginnt den Aufstieg zum Herrn, um die Gebote zu empfangen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Nach einer Woche kehrt er zurück und stellt sich vor die Menschen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Ich hab eine gute und eine schlechte Nachricht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "Die Gute zuerst: Ich hab ihn runter auf zehn!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Die Schlechte: Ehebruch ist immer noch dabei!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "mountain",
+      "cast": [
+        "ded"
+      ],
+      "roles": {
+        "ded": "biblical-figure"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

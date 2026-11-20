@@ -2,33 +2,31 @@
   "id": "en-r-95og9l.ru",
   "jokeId": "en-r-95og9l",
   "locale": "ru",
-  "title": "Гражданство",
+  "title": "Собеседование на гражданство",
   "location": "ofis",
   "place": "office",
   "cast": [
     "muzhik",
-    "nachalnik"
+    "sluzhivy"
   ],
   "roles": {
     "muzhik": "everyman",
-    "nachalnik": "bureaucrat"
+    "sluzhivy": "customs-officer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Здравствуйте, я насчёт австралийского гражданства.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Мужик подаёт документы на австралийское гражданство.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Так. Судимость у вас есть?",
+      "character": "sluzhivy",
+      "text": "У вас есть судимость?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -37,11 +35,12 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Нет. А что, это до сих пор обязательно?",
+      "text": "Нет. А это всё ещё обязательно?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

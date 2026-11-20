@@ -6,18 +6,18 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "devushka": "woman",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "zhena": "woman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Распродажа. Мужчина пытается пробиться к кассе с парой уценённых вещей, но дамы раз за разом оттесняют его назад.",
+      "text": "На распродаже мужчина пытается пробиться к кассе с парой уценённых вещей, но у него нет ни малейшего шанса.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,43 +26,139 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "В конце концов он пускает в ход локти и через минуту уже стоит у кассы.",
+      "text": "Каждый раз, когда он в толпе хоть немного продвигается вперёд, ещё более напористые дамы снова оттесняют его назад.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Мужчина! Вы не можете вести себя как джентльмен?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "В конце концов ему это так надоедает, что он решает пустить в ход локти, и вскоре уже стоит у кассы.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Я всё это время так и делал, сударыня.",
+      "character": "narrator",
+      "text": "Дамы, стоящие рядом, возмущены.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "zhena",
+      "text": "Вы что, не можете вести себя как джентльмен?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Не помогло. Вот и начал вести себя как дама.",
+      "text": "Я всё это время и пытался, сударыня.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Но когда у меня ничего не вышло, я начал вести себя как дама.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "zhena": "woman"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

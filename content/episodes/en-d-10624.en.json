@@ -6,19 +6,19 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "zhena",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Oh God, it hurts!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "A wife screams in pain during labor.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Honey, what's wrong?",
+      "text": "What's wrong?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,21 +37,77 @@
       "character": "zhena",
       "text": "These contractions are going to kill me!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "I'm sorry, honey. What is wrong?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "I am sorry, honey.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "What is wrong?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

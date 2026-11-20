@@ -1,0 +1,101 @@
+{
+  "id": "en-r-5qn4zn.en",
+  "jokeId": "en-r-5qn4zn",
+  "locale": "en",
+  "title": "The Note",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "paren"
+  ],
+  "roles": {
+    "paren": "boyfriend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "paren",
+      "text": "My girlfriend left a note on the fridge.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "\"This is not working, I'm going to my mum's house.\"",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "So, I opened the fridge's door, the light came on and the juice was cold.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "What the hell did she mean?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "boyfriend"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "fridge"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

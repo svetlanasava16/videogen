@@ -20,9 +20,7 @@
       "text": "Ein Student kommt zur Prüfung und stellt wortlos eine Flasche Cognac auf den Tisch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Der Student legt eine Schachtel Pralinen dazu.",
+      "text": "Der Student holt eine Schachtel Pralinen heraus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Obendrauf noch ein edler Füller.",
+      "text": "Der Student legt einen edlen Füller obendrauf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +62,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Sehr gut!",
+      "text": "Sehr gut.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,7 +71,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Der Student nimmt sein Studienbuch und packt alles wieder ein.",
+      "text": "Der Prüfer trägt die Note ins Studienbuch ein. Der Student nimmt das Studienbuch und rafft alles vom Tisch zusammen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -82,16 +80,100 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "So. Jetzt noch Physik.",
+      "text": "Jetzt muss ich noch Physik bestehen.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "paren"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

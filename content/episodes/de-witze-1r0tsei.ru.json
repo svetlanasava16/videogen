@@ -2,24 +2,24 @@
   "id": "de-witze-1r0tsei.ru",
   "jokeId": "de-witze-1r0tsei",
   "locale": "ru",
-  "title": "Адам, Ева и обезьяны",
+  "title": "Адам и Ева или Дарвин",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
     "vovochka",
+    "muzhik",
     "zhena"
   ],
   "roles": {
-    "muzhik": "father",
     "vovochka": "child",
+    "muzhik": "father",
     "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Пап, а откуда взялись люди?",
+      "text": "Как появились люди?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,16 +28,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "У Адама и Евы родились дети. Дети выросли, у них тоже родились дети. И так далее.",
+      "text": "Адам и Ева родили детей, потом их дети выросли и сами родили детей, и так далее.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "vovochka",
-      "text": "Мам, а откуда взялись люди?",
+      "text": "Как появились люди?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,16 +46,16 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Раньше мы были обезьянами. А потом эволюционировали и стали такими, как сейчас.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Раньше мы были обезьянами, а потом развились в то, что мы есть сегодня.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Пап, ты меня обманул!",
+      "text": "Ты меня обманул!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,14 +64,96 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Нет, сынок. Просто мама рассказывала про свою родню.",
+      "text": "Нет, просто твоя мама говорила о своей родне.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "tv"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -1,0 +1,199 @@
+{
+  "id": "de-witze-1vhh6l7.de",
+  "jokeId": "de-witze-1vhh6l7",
+  "locale": "de",
+  "title": "Damals in Paris",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "ded",
+    "paren"
+  ],
+  "roles": {
+    "ded": "grandpa",
+    "paren": "relative"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "ded",
+      "text": "Junge, ihr wisst heute gar nicht mehr, wie man richtig feiert.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Als wir damals in Paris waren, haben wir gesoffen bis zum Umfallen, die schönsten Frauen klargemacht, gefressen ohne Ende.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Im Café gegen die Theke gepinkelt, alles kurz und klein gehauen, uns geprügelt und sind abgehauen, ohne zu bezahlen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Zwei Wochen später kommt der Enkel zurück: blaues Auge, gebrochene Nase, Arm im Gips.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Junge, was ist denn mit dir passiert?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Ich hab genau das gemacht, was du erzählt hast.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "Mit wem warst du denn in Paris?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "Mit ein paar Kumpels.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "ded",
+      "text": "Junge... ich war damals ja auch mit der SS dort!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "paren"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "paren": "relative"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "paren"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "paren": "relative"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

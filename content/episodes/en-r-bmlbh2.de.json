@@ -2,7 +2,7 @@
   "id": "en-r-bmlbh2.de",
   "jokeId": "en-r-bmlbh2",
   "locale": "de",
-  "title": "Den Teufel heiraten",
+  "title": "Verwandtschaft",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,20 +13,46 @@
     "zhena": "wife",
     "muzhik": "husband"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Ich hätte den Teufel heiraten sollen! Der wäre ein besserer Ehemann gewesen als du!",
+      "text": "Ich hätte den Teufel heiraten sollen!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "zhena",
+      "text": "Der wäre ein besserer Ehemann gewesen als du!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "Das hätte euch kein Standesamt erlaubt. Ehen unter Verwandten sind bei uns verboten.",
+      "text": "Dann hätte man dich verhaftet,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "weil die Ehe zwischen Verwandten hierzulande verboten ist.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],

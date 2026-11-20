@@ -2,7 +2,7 @@
   "id": "de-witze-1j3l3f2.en",
   "jokeId": "de-witze-1j3l3f2",
   "locale": "en",
-  "title": "Two Gates",
+  "title": "The Two Gates",
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "One sign says: for henpecked husbands. The other says: for husbands who were never henpecked.",
+      "text": "The sign at one gate says: For men who were henpecked by their wives!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The first line stretches for miles. At the second gate stands one single man.",
+      "text": "The other one says: For men who were not henpecked by their wives!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,26 +43,118 @@
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "My son, why are you standing here all alone?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "ded"
-      ],
+      "character": "narrator",
+      "text": "In front of the first gate there's a huge line of men. In front of the second gate, just one.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "My son, why are you of all people standing here all alone at this gate?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "I'm not really sure. My wife told me to stand here.",
+      "text": "I don't really know either.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "My wife told me to stand in this line.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "saint-peter",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "lectern"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "gate"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

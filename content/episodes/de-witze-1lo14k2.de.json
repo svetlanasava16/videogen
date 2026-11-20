@@ -2,8 +2,8 @@
   "id": "de-witze-1lo14k2.de",
   "jokeId": "de-witze-1lo14k2",
   "locale": "de",
-  "title": "Der Notschirm",
-  "location": "samolet",
+  "title": "Der Fallschirm",
+  "location": "gostinaya",
   "place": "plane",
   "cast": [
     "muzhik",
@@ -11,13 +11,21 @@
   ],
   "roles": {
     "muzhik": "everyman",
-    "barmen": "craftsman"
+    "barmen": "plumber"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann springt mit dem Fallschirm aus dem Flugzeug.",
+      "text": "Springt ein Mann mit dem Fallschirm aus dem Flugzeug.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +33,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "So, jetzt die Reißleine.",
-      "emotion": "neutral",
+      "character": "narrator",
+      "text": "Nach einiger Zeit will er den Fallschirm öffnen, aber nichts passiert.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,17 +43,17 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Nichts. Macht nix, ich habe ja noch den Notschirm.",
-      "emotion": "surprised",
+      "text": "Macht nix, hab ja den Notschirm noch.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Auch nichts! Hilfe!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Er will ihn öffnen, doch nichts tut sich.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,8 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Da fliegt ihm von unten ein Mann mit Werkzeugkiste entgegen.",
-      "emotion": "neutral",
+      "text": "So langsam wird er panisch, als ihm plötzlich von unten ein Mann mit Werkzeugkiste entgegengeflogen kommt.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
         "barmen"
@@ -66,20 +74,19 @@
       "character": "muzhik",
       "text": "Sie schickt der Himmel! Reparieren Sie Fallschirme?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Nein. Gasleitungen.",
-      "emotion": "neutral",
+      "text": "Nein, Gasleitungen.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

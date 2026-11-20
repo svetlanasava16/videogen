@@ -6,40 +6,50 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-sosed",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "friend",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Yesterday my best friend Steven ran off with my wife.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Two guys are sitting over a beer at the bar.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "Yesterday my best friend Steven ran off with my wife.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik-sosed",
-      "text": "Wait. Since when is Steven your best friend?",
+      "text": "Since when is Steven your best friend?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Since yesterday.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

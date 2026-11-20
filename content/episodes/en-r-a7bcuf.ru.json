@@ -6,33 +6,50 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Вот ваш малыш. Мне очень жаль, но ваша жена не справилась.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "doktor"
-      ],
+      "character": "narrator",
+      "text": "Доктор протягивает молодому отцу новорождённого.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Тогда этого заберите и несите того, с которым она справилась.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Мне очень жаль, но ваша жена не справилась.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Отец возвращает ребёнка доктору.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Тогда принесите того, с которым моя жена справилась.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

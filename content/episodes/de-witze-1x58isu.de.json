@@ -12,54 +12,56 @@
   ],
   "roles": {
     "devochka": "child",
-    "paren": "teenager",
+    "paren": "child",
     "vovochka": "child"
+  },
+  "looks": {
+    "devochka": {
+      "clothes": "#4a6fa5",
+      "hairStyle": "short",
+      "add": [],
+      "remove": [
+        "bows"
+      ]
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devochka",
-      "text": "Mein Papa fährt einen Porsche. Dreihundert Stundenkilometer, locker!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Drei kleine Buben streiten sich darum, wessen Vater am schnellsten ist.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Pah, gar nichts. Mein Vater fliegt bei der Lufthansa eine Boeing. Mindestens siebenhundert!",
-      "emotion": "smug",
+      "character": "devochka",
+      "text": "Mein Vater fährt einen Porsche und erreicht locker dreihundert Stundenkilometer!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Das ist alles überhaupt nichts. Mein Vater ist Beamter.",
+      "character": "paren",
+      "text": "Ist doch gar nichts. Mein Vater ist Pilot bei der Lufthansa und fliegt eine Boeing, die mit mindestens siebenhundert Stundenkilometern abzischt!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Um fünf Uhr hat er Dienstschluss.",
-      "emotion": "neutral",
+      "text": "Das ist alles überhaupt nichts. Mein Vater ist Beamter. Um fünf Uhr abends hat er Dienstschluss und um halb vier ist er zu Hause!",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "vovochka",
-      "text": "Und um halb vier ist er zu Hause!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

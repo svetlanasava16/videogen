@@ -6,18 +6,16 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "devushka-ryzhaya",
-    "zhena"
+    "devushka-ryzhaya"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter",
-    "zhena": "mother"
+    "devushka-ryzhaya": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Three weeks after the wedding, a young bride calls her mother in tears.",
+      "text": "Three weeks after the wedding. A young wife calls her mother in tears.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +24,7 @@
     {
       "id": "l2",
       "character": "devushka-ryzhaya",
-      "text": "Mom, I don't know what to do! We just had a terrible fight!",
+      "text": "Mom, I just don't know what to do! We've had such a family scene here! It's awful!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,32 +33,96 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Calm down, sweetheart. Don't be upset.",
+      "text": "Calm down, sweetie, don't get upset. Every family has its first arguments and fights sooner or later.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "Every couple has their first fight.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "I know that. But what do I do with the body?",
-      "emotion": "sad",
+      "text": "Yeah, I know that. But what do I do with the body?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

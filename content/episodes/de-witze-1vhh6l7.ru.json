@@ -1,0 +1,199 @@
+{
+  "id": "de-witze-1vhh6l7.ru",
+  "jokeId": "de-witze-1vhh6l7",
+  "locale": "ru",
+  "title": "Тогда в Париже",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "ded",
+    "paren"
+  ],
+  "roles": {
+    "ded": "grandpa",
+    "paren": "relative"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "ded",
+      "text": "Внучок, вы сейчас вообще не умеете по-настоящему гулять.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Когда мы тогда были в Париже, мы пили до упаду, снимали самых красивых женщин, жрали без конца.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "В кафе мочились на стойку, разносили всё в щепки, дрались и смывались, не заплатив.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Через две недели внук возвращается: синяк под глазом, сломанный нос, рука в гипсе.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Внучок, что же с тобой случилось?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Я сделал ровно то, что ты рассказывал.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "А с кем ты был в Париже?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "С парой приятелей.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "ded",
+      "text": "Внучок... я-то там тогда был с эсэсовцами!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "paren"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "paren": "relative"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "paren"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "paren": "relative"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

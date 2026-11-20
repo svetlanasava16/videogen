@@ -2,82 +2,173 @@
   "id": "de-witze-1xf1dd7.ru",
   "jokeId": "de-witze-1xf1dd7",
   "locale": "ru",
-  "title": "Шкаф из Икеи",
+  "title": "Шкаф из ИКЕИ",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik",
-    "devushka",
-    "muzhik-sosed"
+    "zhena",
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "devushka": "woman",
-    "muzhik-sosed": "neighbor"
+    "zhena": "wife",
+    "muzhik-sosed": "neighbor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Видите? Как только мимо проезжает трамвай, мой новый шкаф из Икеи разваливается!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Женщина покупает шкаф в ИКЕЕ и собирает его. Но стоит мимо прогрохотать трамваю, как шкаф разваливается.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Странно. Залезу-ка я внутрь, посмотрю, в чём там дело.",
+      "character": "narrator",
+      "text": "Она собирает его снова, приходит трамвай, шкаф разваливается.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Тут домой возвращается муж и открывает новый шкаф.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Помогите мне, пожалуйста, со шкафом!",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "А ты что делаешь в нашем шкафу?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Но всё то же самое: шкаф готов, трамвай прогрохотал, шкаф развалился.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Слушай, бей сразу.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "text": "Я, пожалуй, встану внутрь, может, изнутри увижу, в чём проблема.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-sosed",
-      "text": "Всё равно не поверишь, что я тут трамвай жду.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Сказано, сделано: он встаёт в шкаф, и в этот момент домой приходит её муж.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Видит новый шкаф, хочет его рассмотреть и открывает дверцу. А внутри стоит сосед.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "Знаешь что, сразу бей. Если я тебе сейчас скажу, что жду трамвая, ты всё равно ударишь.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik-sosed": "neighbor",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "wardrobe"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

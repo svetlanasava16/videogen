@@ -1,0 +1,70 @@
+{
+  "id": "en-d-32263.en",
+  "jokeId": "en-d-32263",
+  "locale": "en",
+  "title": "Eclipse",
+  "location": "bar",
+  "place": "cafe",
+  "cast": [
+    "muzhik-ryzhy",
+    "devushka-blondinka"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "customer",
+    "devushka-blondinka": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "clothes": "#f5c518",
+      "add": [
+        "dark-glasses"
+      ],
+      "remove": []
+    },
+    "devushka-blondinka": {
+      "clothes": "#cfd8dc",
+      "add": [],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "The Sun and Moon walked into a coffee shop today...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Oh man, I forgot my wallet!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [
+        "muzhik-ryzhy",
+        "devushka-blondinka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-blondinka",
+      "text": "Don't worry, I'll cover you.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "en-r-f1nc5n.en",
+  "jokeId": "en-r-f1nc5n",
+  "locale": "en",
+  "title": "Paid in Advance",
+  "location": "bolnitsa",
+  "place": "doctor-office",
+  "cast": [
+    "muzhik",
+    "doktor"
+  ],
+  "roles": {
+    "muzhik": "patient",
+    "doktor": "therapist"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "I told my therapist that I am having suicidal thoughts.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "He now makes me pay in advance.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "patient",
+        "doktor": "therapist"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "bill",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

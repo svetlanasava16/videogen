@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Excuse me, Father. I'm seeing a church Wi-Fi network here. Could you tell me the password?",
+      "character": "narrator",
+      "text": "During mass, a man in the front row suddenly turns to the priest.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,125 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Good Lord! Have some decency. This is your late wife's funeral.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Excuse me. My phone shows an available Wi-Fi for the church.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Thanks. Is that all lowercase, no spaces?",
+      "text": "Could you quickly tell me the password?",
       "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "batyushka",
+      "text": "Good Lord! Please, have some decency.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "This is, after all, the funeral mass for your late wife.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Thanks. Is that all lowercase, with no spaces?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "batyushka": "priest"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#2b2b2b",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "pew-left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

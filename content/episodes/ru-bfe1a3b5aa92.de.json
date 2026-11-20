@@ -2,7 +2,7 @@
   "id": "ru-bfe1a3b5aa92.de",
   "jokeId": "ru-bfe1a3b5aa92",
   "locale": "de",
-  "title": "Selbsteinschätzung",
+  "title": "Die Nachprüfung",
   "location": "klass",
   "place": "university",
   "cast": [
@@ -17,16 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Prüfung bei einem alten Professor.",
+      "text": "Ein alter Professor bei der Prüfung:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Wer meint, er hat eine Eins verdient? Hand hoch. Gut, Eins.",
+      "text": "Also, wer meint, dass er den Stoff für eine Eins kann?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,51 +34,207 @@
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Wer eine Zwei? Bitte, Zwei.",
+      "character": "narrator",
+      "text": "Ein paar Studenten heben die Hand.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Eine Drei? Auch gut.",
+      "text": "Geben Sie mir Ihre Studienbücher.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Und er gibt eine Eins.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "doktor",
-      "text": "Alle anderen sind durchgefallen. Wiederholungsprüfung.",
-      "emotion": "angry",
+      "text": "Wer meint, dass er den Stoff für eine Zwei kann?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
+      "character": "narrator",
+      "text": "Etwa zehn Leute heben die Hand. Er sammelt auch ihre Studienbücher ein und gibt eine Zwei.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "doktor",
+      "text": "Wer meint, für eine Drei?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Hände gehen hoch, dasselbe Spiel.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Also gut, alle anderen sind durchgefallen, kommen Sie zur Nachprüfung.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "paren",
-      "text": "Und wann ist die Wiederholungsprüfung?",
+      "text": "Und wann ist die Nachprüfung?",
       "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "doktor",
+      "text": "Na-a-a, machen wir sie gleich jetzt.",
+      "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l13",
       "character": "doktor",
-      "text": "Hm... machen wir sie gleich jetzt. Also: Wer meint, er hat eine Eins verdient?",
-      "emotion": "happy",
+      "text": "Also, wer meint, dass er den Stoff für eine Eins kann?..",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses",
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

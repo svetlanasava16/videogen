@@ -18,75 +18,221 @@
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Видите пацана? Глупее ребёнка на свете нет. Сейчас докажу.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Маленький мальчик заходит в парикмахерскую.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Держи, малой. Тут сто рублей бумажкой, а тут две монетки по десять. Что берёшь?",
-      "emotion": "happy",
+      "text": "Это самый глупый мальчик на свете. Сейчас я вам докажу.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Монетки!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Парикмахер берёт в одну руку сторублёвую купюру, в другую две монеты по десять рублей и подзывает мальчика.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "vovochka"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Ну, что я говорил? Ничему не учится!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Что ты хочешь, мальчик?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Позже клиент встречает мальчика у киоска с мороженым.",
+      "text": "Мальчик берёт монеты и уходит.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "barmen",
+      "text": "Что я вам говорил? Этот мальчик никогда ничему не научится!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Позже, выходя от парикмахера, клиент видит того же мальчика, который выходит из кафе-мороженого.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "muzhik",
-      "text": "Слушай, а почему ты всегда берёшь монетки, а не сотню?",
+      "text": "Эй, мальчик! Можно задать тебе вопрос?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Почему ты взял монеты, а не сто рублей?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "vovochka",
-      "text": "Потому что как только я возьму сотню, игра закончится.",
+      "text": "Потому что игра закончится, как только я возьму сто рублей!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "craftsman",
+        "vovochka": "child"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

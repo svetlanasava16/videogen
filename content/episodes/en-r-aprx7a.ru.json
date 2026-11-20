@@ -2,24 +2,22 @@
   "id": "en-r-aprx7a.ru",
   "jokeId": "en-r-aprx7a",
   "locale": "ru",
-  "title": "В Техасе всё большое",
-  "location": "bar",
+  "title": "В Техасе всё больше",
+  "location": "spalnya",
   "place": "hotel",
   "cast": [
-    "paren",
     "muzhik",
-    "barmen"
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
     "muzhik": "disabled-person",
-    "barmen": "bartender"
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Слепой заселяется в отель в Техасе.",
+      "text": "Слепой приезжает в Техас. Зайдя в номер гостиницы, он ощупывает кровать.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ого, какая огромная кровать!",
+      "text": "Ого, какая большая кровать!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,30 +35,26 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "В Техасе всё большое, сэр.",
+      "text": "В Техасе всё больше.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "paren"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Ваше пиво.",
+      "character": "narrator",
+      "text": "Он спускается в бар, усаживается на огромный табурет и заказывает пиво. Ему вкладывают в руки кружку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ого, какая огромная кружка!",
-      "emotion": "surprised",
+      "text": "Ого, какие тут большие кружки!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -70,14 +64,14 @@
       "character": "barmen",
       "text": "В Техасе всё большое.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "А где тут туалет?",
+      "character": "narrator",
+      "text": "Выпив несколько кружек, слепой спрашивает, где туалет.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -95,7 +89,7 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Он открывает третью дверь и падает прямо в бассейн.",
+      "text": "Слепой идёт в туалет, но по ошибке открывает третью дверь, которая ведёт к бассейну, и падает в воду.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -104,14 +98,182 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Не смывайте! Не смывайте!",
+      "text": "Не смывайте, не смывайте!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "disabled-person",
+        "paren": "employee"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#b3262e",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "disabled-person",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "cowboy-hat",
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "plyazh",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "disabled-person"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "water"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

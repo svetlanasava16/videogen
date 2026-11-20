@@ -6,84 +6,161 @@
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "vovochka",
     "zhena",
-    "barmen"
+    "vovochka",
+    "devushka"
   ],
   "roles": {
-    "vovochka": "child",
     "zhena": "mother",
-    "barmen": "waiter"
+    "vovochka": "child",
+    "devushka": "waiter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "В ресторан заходит женщина с пятнадцатью мальчишками. Они носятся по залу.",
+      "text": "Женщина приходит в ресторан с пятнадцатью детьми.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka",
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Серёжа! А ну сел!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Пока она разговаривает с официанткой, дети начинают баловаться.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Все пятнадцать мальчишек тут же садятся.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Серёжа! Прекрати! А не то!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Подождите, их что, всех зовут Серёжа?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Все пятнадцать мальчиков тут же садятся, послушные и тихие.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "zhena",
-      "text": "Ну да. Так проще, не надо помнить, кто есть кто.",
-      "emotion": "smug",
+      "character": "devushka",
+      "text": "Вы правда назвали всех пятнадцать своих мальчиков Серёжами?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "А если вам нужен кто-то один?",
+      "character": "zhena",
+      "text": "Ага. Так проще, чем каждый чёртов раз вспоминать, кто из них кто.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "devushka",
+      "text": "А если вам зачем-то нужно поговорить только с одним из них?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "zhena",
-      "text": "Тогда я зову его по фамилии.",
-      "emotion": "smug",
+      "text": "Ну, тогда я просто зову их по фамилии.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "devushka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "child",
+        "devushka": "waiter"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "laugh"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "calm"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

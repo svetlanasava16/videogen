@@ -13,11 +13,19 @@
     "tyoshcha": "old-woman",
     "vovochka": "fritzchen"
   },
+  "looks": {
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "Hallo, Fritzchen! Wie geht's?",
+      "text": "Wie geht's, Fritzchen?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -37,7 +45,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Und in der Schule?",
+      "text": "Und wie ist es in der Schule?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,8 +63,8 @@
     {
       "id": "l5",
       "character": "tyoshcha",
-      "text": "Und gesundheitlich?",
-      "emotion": "surprised",
+      "text": "Und wie geht's der Gesundheit?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -73,20 +81,22 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "Sag mal, kennst du auch noch andere Wörter als gut?",
+      "text": "Sag mal, hast du in deinem Wortschatz noch andere Wörter außer diesem \"gut\"?",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "vovochka",
-      "text": "Schon. Aber Papa sagt, zu Erwachsenen darf ich nicht „Hau ab“ sagen.",
+      "text": "Papa hat gesagt, zu Erwachsenen darf man nicht \"hau ab\" sagen...",
+      "uncensored": "Papa hat gesagt, zu Erwachsenen darf man nicht \"verpiss dich\" sagen...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

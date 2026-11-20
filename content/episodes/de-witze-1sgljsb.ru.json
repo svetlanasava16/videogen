@@ -2,7 +2,7 @@
   "id": "de-witze-1sgljsb.ru",
   "jokeId": "de-witze-1sgljsb",
   "locale": "ru",
-  "title": "Уважение",
+  "title": "Порядочный",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -11,13 +11,13 @@
   ],
   "roles": {
     "muzhik-ryzhy": "fisherman",
-    "muzhik-sosed": "friend"
+    "muzhik-sosed": "fisherman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Два рыбака сидят на реке. Мимо идёт похоронная процессия.",
+      "text": "Сидят два рыбака на реке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Один встаёт, снимает шапку и стоит, опустив голову, пока все не пройдут.",
+      "text": "Мимо идёт похоронная процессия.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,18 +34,18 @@
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Ну ты даёшь!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Один рыбак встаёт, снимает шляпу и склоняет голову, пока процессия не пройдёт, а потом возвращается к рыбалке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Не ожидал от тебя такого уважения.",
-      "emotion": "happy",
+      "text": "Ого, уважаю, вот уж не думал, что в тебе столько порядочности.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -53,14 +53,56 @@
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Ну как-никак, сорок восемь лет женаты были.",
+      "text": "Мы ведь, в конце концов, сорок восемь лет прожили в браке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "fisherman",
+        "muzhik-sosed": "fisherman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

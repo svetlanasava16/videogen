@@ -2,7 +2,7 @@
   "id": "en-r-92xwwm.de",
   "jokeId": "en-r-92xwwm",
   "locale": "de",
-  "title": "Mein Anwalt ist präsent",
+  "title": "Anwalt präsent",
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -16,13 +16,11 @@
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Setzen Sie sich. Wo waren Sie gestern Abend?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Ein Mann wird festgenommen und in einen Verhörraum gebracht.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -37,20 +35,21 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Sie sind doch selbst der Anwalt.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "text": "Sie sind der Anwalt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Eben. Und wo bleibt mein Präsent?",
-      "emotion": "happy",
+      "text": "Eben. Also, wo ist mein Präsent?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

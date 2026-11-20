@@ -2,7 +2,7 @@
   "id": "en-r-9h7qsa.en",
   "jokeId": "en-r-9h7qsa",
   "locale": "en",
-  "title": "Here's Your Change",
+  "title": "Twenty Quarters",
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "customer",
     "barmen": "bartender"
   },
   "lines": [
@@ -19,19 +19,17 @@
       "character": "narrator",
       "text": "A guy walks into a bar.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "One beer, please.",
+      "text": "A beer, please.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -46,17 +44,17 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "The guy throws twenty quarters onto the floor. The next day, again. And the day after that.",
+      "text": "The guy throws twenty quarters onto the floor. Reluctantly, the bartender picks up the coins and serves the beer.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "Every single day I'm on my knees for one lousy beer.",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "The next day, the guy comes into the bar, asks for a beer, and throws twenty quarters onto the floor.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,32 +62,151 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "On the fourth day, he pays with a ten-dollar bill.",
+      "text": "The next day, again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "On the fourth day, he asks for a beer, and hands the bartender a ten-dollar bill.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "barmen",
-      "text": "Ha! Here's your change, buddy! Pick it up off the floor!",
+      "id": "l8",
+      "character": "narrator",
+      "text": "The bartender takes advantage of his chance for revenge, throws twenty quarters onto the floor and yells:",
       "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "muzhik",
-      "text": "I'll have another beer, please.",
-      "emotion": "happy",
+      "id": "l9",
+      "character": "barmen",
+      "text": "Here's your change, jerk!",
+      "uncensored": "Here's your change, asshole!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "I'll have another beer, please.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

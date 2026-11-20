@@ -2,14 +2,16 @@
   "id": "ru-a7859093366e.de",
   "jokeId": "ru-a7859093366e",
   "locale": "de",
-  "title": "Der sprechende Hund",
+  "title": "Mumu",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
+    "muzhik-ryzhy",
     "pyos",
     "muzhik"
   ],
   "roles": {
+    "muzhik-ryzhy": "janitor",
     "pyos": "dog",
     "muzhik": "everyman"
   },
@@ -17,34 +19,41 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein stummer Knecht bindet seinem Hund einen Stein um den Hals und wirft ihn in den Fluss.",
+      "text": "Gerasim, ein riesiger Hausknecht, der kein Wort sprechen konnte, wollte seinen kleinen Hund Mumu ertränken. Er band ihm einen Stein um den Hals, warf ihn in den Fluss und ruderte nach Hause.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Ein Mann rudert vorbei, zieht den Hund heraus und bindet den Stein los.",
-      "emotion": "neutral",
+      "text": "Der arme Mumu zappelt und versucht, sich zu befreien. Dabei entdeckt ihn ein anderer Mann, der gerade vorbeischwimmt.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "pyos",
-      "text": "Danke, guter Mann! Du hast mich gerettet!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Er zieht den Hund heraus, bindet den Stein los... und da:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "pyos",
+      "text": "Danke dir, guter Mann! Du hast mich gerettet!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
       "text": "Zum ersten Mal im Leben sehe ich einen sprechenden Hund!",
       "emotion": "surprised",
@@ -53,16 +62,89 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "pyos",
-      "text": "Und ich zum ersten Mal einen sprechenden Menschen!",
+      "text": "Zum ersten Mal im Leben sehe ich einen sprechenden Mann!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik-ryzhy",
+        "pyos",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "janitor",
+        "pyos": "dog",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

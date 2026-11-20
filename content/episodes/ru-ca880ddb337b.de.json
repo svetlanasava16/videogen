@@ -2,35 +2,33 @@
   "id": "ru-ca880ddb337b.de",
   "jokeId": "ru-ca880ddb337b",
   "locale": "de",
-  "title": "Wo sind die Bullen",
+  "title": "Wo sind die Bullen?",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "vovochka",
+    "sluzhivy",
     "muzhik",
-    "sluzhivy"
+    "vovochka"
   ],
   "roles": {
-    "vovochka": "child",
+    "sluzhivy": "traffic-cop",
     "muzhik": "father",
-    "sluzhivy": "traffic-cop"
+    "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Guten Tag. Verkehrskontrolle. Ihre Papiere, bitte.",
+      "character": "narrator",
+      "text": "Ein Polizist hält ein Auto an. Das Fenster geht runter, und der Fahrer lächelt unterwürfig:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Guten Tag, Herr Wachtmeister! Selbstverständlich!",
+      "text": "Guten Tag, Herr Wachtmeister!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Hier, bitte schön: Führerschein, Fahrzeugschein, Versicherung, natürlich. Alles, wie es sich gehört!",
+      "text": "Bitte schön, Führerschein, Fahrzeugschein, Vollmacht, Versicherung natürlich auch, alles wie es sich gehört, alles ordnungsgemäß...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -52,10 +50,73 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "father",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "car"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "certificate",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

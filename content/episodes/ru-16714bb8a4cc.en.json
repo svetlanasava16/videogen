@@ -1,0 +1,152 @@
+{
+  "id": "ru-16714bb8a4cc.en",
+  "jokeId": "ru-16714bb8a4cc",
+  "locale": "en",
+  "title": "The Professionals",
+  "location": "klass",
+  "place": "university",
+  "cast": [
+    "paren",
+    "doktor",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "student",
+    "doktor": "professor",
+    "nachalnik": "boss"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "An exam is under way. Everyone is writing as best they can, some on their own, but most from cheat sheets.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "But anyone caught using one is thrown out without mercy: the examiner is a beast and knows his job. The rows slowly thin out.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Hello, which group is this, what's the exam?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "doktor",
+      "text": "Group one hundred twelve, they're taking calculus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Amateur cheaters, I bet?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "doktor",
+      "text": "Oh no, the amateurs have long been out in the corridor. Only the professionals are left in here!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "doktor",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

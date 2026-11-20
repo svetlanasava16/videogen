@@ -17,19 +17,17 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Herr Doktor, ich bin völlig fertig.",
+      "text": "Herr Doktor, ich bin völlig fertig. Ich lege mich schlafen, und mir kommt vor, unter dem Bett ist jemand.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ich gehe ins Bett und habe das Gefühl, unterm Bett ist jemand. Ich krieche drunter, schaue genau hin, und da spüre ich: Jemand liegt auf meinem Bett.",
-      "emotion": "sad",
+      "text": "Ich krieche unters Bett, schaue genau hin, und da spüre ich, dass jemand auf meinem Bett liegt.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ich krieche raus, oben ist keiner. Ich lege mich hin und spüre: Doch, unterm Bett ist jemand.",
-      "emotion": "surprised",
+      "text": "Ich krieche raus, oben ist niemand, ich lege mich hin und spüre: Unter dem Bett ist doch jemand.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,25 +44,25 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Krieche ich wieder drunter, kommt's mir vor, oben ist jemand. Und so die ganze Nacht.",
+      "text": "Und wenn ich wieder unters Bett krieche, kommt mir vor, oben ist jemand. Und so die ganze Nacht.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Ja, das ist ein komplexes Syndrom. Wir behandeln Sie intensiv, zwei, drei Monate.",
+      "text": "Ja, das ist ein komplexes Syndrom. Wir werden Sie intensiv behandeln, zwei, drei Monate lang.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Wir sind allerdings teuer, aber wahrscheinlich heilen wir Sie.",
+      "text": "Wir sind zwar teuer, aber höchstwahrscheinlich heilen wir Sie.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -77,14 +75,12 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Er kam nie wieder. Einen Monat später trifft ihn der Arzt auf der Straße.",
+      "text": "Er kam nie wieder. Einen Monat später trifft der Arzt ihn zufällig auf der Straße.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,8 +89,8 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "Wie geht's?",
-      "emotion": "neutral",
+      "text": "Wie geht es Ihnen?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -102,7 +98,7 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Mich hat mein Nachbar für eine Flasche geheilt.",
+      "text": "Mich hat der Nachbar für eine Flasche geheilt.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -120,7 +116,7 @@
     {
       "id": "l12",
       "character": "muzhik",
-      "text": "Wir haben einen getrunken, und er sagt: Säg doch die verdammten Bettbeine ab.",
+      "text": "Wir haben einen getrunken, und er sagt zu mir: Säg doch die verdammten Bettbeine ab.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -145,6 +141,12 @@
           "type": "move",
           "who": "doktor",
           "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -173,6 +175,11 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         }
       ],
       "transition": "cut"
@@ -180,28 +187,23 @@
     {
       "location": "ulitsa",
       "cast": [
-        "doktor",
-        "muzhik"
+        "muzhik",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "doktor": "doctor"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "doktor",
-          "to": "left"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-right"
         },
         {
           "type": "line",
@@ -220,7 +222,7 @@
           "ref": "l12"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

@@ -1,0 +1,173 @@
+{
+  "id": "ru-d252ac6b344f.de",
+  "jokeId": "ru-d252ac6b344f",
+  "locale": "de",
+  "title": "Stirlitz in der Kneipe",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "muzhik",
+    "sluzhivy",
+    "barmen"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "sluzhivy": "stirlitz",
+    "barmen": "bartender"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Stirlitz, der sowjetische Spion, kam in eine vertraute Kneipe, um seinen Verbindungsmann zu treffen, und bestellte einen doppelten Wodka.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Der Wodka ist uns leider schon vor zwei Tagen ausgegangen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Na, dann einen doppelten Cognac.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Der Cognac ist gestern ausgegangen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Na, aber Bier habt ihr doch?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "barmen",
+      "text": "Leider seit heute Morgen alle.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "sluzhivy",
+      "text": "Also ist mein Verbindungsmann schon da.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "sluzhivy",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "sluzhivy": "stirlitz",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,22 +2,22 @@
   "id": "de-witze-1ax5hqq.de",
   "jokeId": "de-witze-1ax5hqq",
   "locale": "de",
-  "title": "Leise heimgekrochen",
-  "location": "spalnya",
+  "title": "Der Rollstuhl",
+  "location": "bar",
   "place": "bedroom",
   "cast": [
     "muzhik",
-    "zhena"
+    "barmen"
   ],
   "roles": {
     "muzhik": "drunk",
-    "zhena": "wife"
+    "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann trinkt in der Bar ein Bier nach dem anderen. Als er heimwill, fällt er vom Hocker und kommt nicht mehr hoch.",
+      "text": "Ein Mann sitzt gestresst in der Bar und zischt ein Bier nach dem anderen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,43 +26,263 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Also kriecht er nach Hause, ganz leise ins Bett, und seine Frau wacht nicht auf.",
+      "text": "Als es spät wird und er kaum mehr geradeaus schauen kann, beschließt er, nach Hause zu gehen. Er fällt dabei vom Barhocker und schafft es nicht mehr aufzustehen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Du warst schon wieder in der Bar und hast dich volllaufen lassen!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Er beschließt daraufhin, nach Hause zu kriechen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Woher weißt du das denn schon wieder?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Daheim robbt er extra leise durch die Wohnung und die Treppe hoch. Seine Frau soll nicht merken, dass er schon wieder total dicht nach Hause gekommen ist.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "Er schafft es ins Bett, ohne dass seine Frau aufwacht, und schläft zufrieden ein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Am nächsten Morgen ist seine Frau stinksauer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
-      "text": "Der Barkeeper hat heute Morgen angerufen. Du hast schon wieder deinen Rollstuhl dort vergessen.",
+      "text": "Du warst schon wieder in der Bar und hast dich zugesoffen!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Wie hast du das schon wieder mitbekommen?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "zhena",
+      "text": "Der Barkeeper hat heute Morgen angerufen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "zhena",
+      "text": "Du hast wieder deinen Rollstuhl in der Bar vergessen.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "drunk"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "drunk"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

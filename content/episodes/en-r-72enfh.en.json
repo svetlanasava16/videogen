@@ -1,0 +1,128 @@
+{
+  "id": "en-r-72enfh.en",
+  "jokeId": "en-r-72enfh",
+  "locale": "en",
+  "title": "A Word",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "muzhik",
+    "tyoshcha"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "tyoshcha": "old-woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "At a funeral.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Do you mind if I say a word?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "tyoshcha",
+      "text": "Please do.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Plethora.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "tyoshcha",
+      "text": "Thank you. That means a lot.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik",
+        "tyoshcha"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#1f1f1f",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "tyoshcha": {
+          "clothes": "#1f1f1f",
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

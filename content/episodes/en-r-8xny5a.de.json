@@ -2,7 +2,7 @@
   "id": "en-r-8xny5a.de",
   "jokeId": "en-r-8xny5a",
   "locale": "de",
-  "title": "Nicht unser Kind",
+  "title": "Wechsel das Baby",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Nach drei Jahren fällt der Frau auf, dass der Sohn ihnen gar nicht ähnlich sieht. Sie macht einen DNA-Test.",
+      "text": "Nach drei Jahren fängt die Frau an zu glauben, dass ihr Kind irgendwie anders aussieht, und beschließt, einen DNA-Test zu machen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,6 +27,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Sie findet heraus, dass das Kind in Wahrheit von ganz anderen Eltern stammt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
       "text": "Schatz, ich muss dir etwas sehr Ernstes sagen.",
       "emotion": "sad",
@@ -35,7 +44,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Was ist los?",
       "emotion": "neutral",
@@ -44,34 +53,96 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "zhena",
       "text": "Laut DNA-Test ist das nicht unser Kind.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Weißt du nicht mehr? Beim Verlassen des Krankenhauses hatte unser Baby eine nasse Windel.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Und du hast gesagt: Schatz, geh mal schnell das Baby wechseln, ich warte hier.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Na, weißt du nicht mehr?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Als wir aus dem Krankenhaus kamen, haben wir gemerkt, dass unser Baby eine nasse Windel hatte, und du hast gesagt: 'Schatz, geh und wechsle das Baby, ich warte hier auf dich.'",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "hair": "#c0392b",
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

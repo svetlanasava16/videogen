@@ -2,7 +2,7 @@
   "id": "en-r-7eqa75.ru",
   "jokeId": "en-r-7eqa75",
   "locale": "ru",
-  "title": "Дружеская услуга",
+  "title": "Жена батюшки",
   "location": "ulitsa",
   "place": "church",
   "cast": [
@@ -17,16 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик приходит к своему другу и говорит...",
+      "text": "Джек приходит к своему приятелю Бобу.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Я сплю с женой батюшки.",
+      "text": "Я сплю с женой батюшки. Можешь задержать его в церкви на часок после службы?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,15 +34,6 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Можешь задержать его в церкви на часок после службы?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "narrator",
       "text": "Другу это не нравится, но он же друг, и он соглашается.",
       "emotion": "neutral",
@@ -51,63 +42,63 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "narrator",
-      "text": "После службы друг заводит разговор с батюшкой и задаёт ему всякие дурацкие вопросы, лишь бы его занять.",
+      "text": "После службы Боб заговаривает с батюшкой и задаёт ему всякие глупые вопросы, лишь бы его занять.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
-      "text": "Наконец батюшке это надоедает.",
+      "text": "В конце концов батюшка начинает сердиться.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "batyushka",
-      "text": "Чего ты на самом деле добиваешься?",
+      "text": "Что ты на самом деле задумал?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "narrator",
-      "text": "Мучаясь совестью, друг наконец признаётся батюшке...",
+      "text": "Бобу стыдно, и он наконец во всём признаётся батюшке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Мой друг сейчас спит с вашей женой, вот он и попросил меня вас занять.",
+      "text": "Мой друг прямо сейчас спит с вашей женой, вот он и попросил меня вас занять.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Батюшка улыбается и по-братски кладёт Бобу руку на плечо.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "Батюшка улыбается, по-братски кладёт ему руку на плечо и говорит...",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "batyushka",
-      "text": "Беги-ка ты скорее домой. Моя жена умерла год назад.",
+      "text": "Тебе бы лучше поспешить домой. Моя жена умерла год назад.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -139,10 +130,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -150,23 +137,17 @@
     {
       "location": "tserkov",
       "cast": [
-        "muzhik-sosed",
-        "batyushka"
+        "batyushka",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-sosed": "friend",
-        "batyushka": "priest"
+        "batyushka": "priest",
+        "muzhik-sosed": "friend"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "altar"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -191,15 +172,6 @@
         {
           "type": "line",
           "ref": "l10"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "flyover"

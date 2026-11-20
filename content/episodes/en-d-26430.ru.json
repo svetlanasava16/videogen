@@ -1,0 +1,77 @@
+{
+  "id": "en-d-26430.ru",
+  "jokeId": "en-d-26430",
+  "locale": "ru",
+  "title": "Спиной вперёд",
+  "location": "samolet",
+  "place": "ship",
+  "cast": [
+    "vovochka",
+    "muzhik"
+  ],
+  "roles": {
+    "vovochka": "child",
+    "muzhik": "father"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "vovochka",
+      "text": "Пап, а почему аквалангисты переваливаются с лодки спиной назад?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Потому что, сынок, если бы они переваливались вперёд, они бы так и остались в лодке.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

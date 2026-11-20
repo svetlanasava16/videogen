@@ -16,19 +16,17 @@
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Good morning, professor! May I ask you something?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A professor is walking down a university corridor. A student comes the other way.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Of course, young man.",
+      "character": "paren",
+      "text": "Hello, professor. May I ask you something?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,64 +34,181 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "When you go to bed, do you put your beard over the blanket or under it?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "doktor",
+      "text": "Of course, ask away, young man.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "paren",
+      "text": "Tell me, professor, when you go to bed, do you put your beard over the blanket or under the blanket?",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "doktor",
-      "text": "Hmm. You know, I've never thought about it.",
+      "text": "Well, you know, I've never really thought about it.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "paren",
-      "text": "Sorry to bother you.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "paren"
-      ]
-    },
-    {
       "id": "l6",
-      "character": "narrator",
-      "text": "A week later. The professor is pale, with dark circles under his eyes.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "character": "paren",
+      "text": "Oh, I'm sorry, then.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "doktor",
-      "text": "You little rat!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "character": "narrator",
+      "text": "A week later, the professor, green in the face with dark circles under his eyes, runs into the same student in the corridor and grabs him by the collar.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "doktor",
-      "text": "I haven't slept in a week! Over the blanket is wrong, under the blanket is wrong!",
+      "text": "You little swine!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "I haven't slept for a week! It's uncomfortable this way, and it's uncomfortable that way!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "white-beard",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "white-beard",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

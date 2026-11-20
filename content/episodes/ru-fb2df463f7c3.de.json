@@ -2,7 +2,7 @@
   "id": "ru-fb2df463f7c3.de",
   "jokeId": "ru-fb2df463f7c3",
   "locale": "de",
-  "title": "Der Bremstest",
+  "title": "Die Bremsen",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -10,26 +10,24 @@
     "muzhik"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "sluzhivy": "traffic-cop",
+    "muzhik": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Polizist steht an der Straße. Da kommt ein VW Golf angefahren.",
+      "text": "Ein Polizist steht an der Straße, ein VW Golf fährt vorbei.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Halt! Sofort anhalten, oder ich schieße!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Plötzlich winkt der Polizist dem Fahrer heftig mit der Kelle, pfeift ohrenbetäubend und zieht die Pistole.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Der Fahrer macht eine Vollbremsung und steigt kreidebleich aus.",
+      "text": "Der Fahrer steigt sofort in die Eisen, fliegt fast durch die Windschutzscheibe und steigt kreidebleich mit weichen Knien aus:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,30 +46,86 @@
       "character": "muzhik",
       "text": "Was ist denn los?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Ach, nichts. Ich will mir auch einen Golf kaufen.",
+      "text": "Ach, nichts.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Aber man hört ja, die Bremsen sollen schwach sein.",
-      "emotion": "smug",
+      "text": "Ich will mir auch einen Golf kaufen, aber man sagt irgendwie, die Bremsen sind schwach...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

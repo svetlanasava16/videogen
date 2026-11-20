@@ -6,18 +6,18 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "paren",
-    "zhena"
+    "zhena",
+    "paren"
   ],
   "roles": {
-    "paren": "student",
-    "zhena": "mother"
+    "zhena": "mother",
+    "paren": "student"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Шотландец учится в английском университете и живёт в комнате с двумя англичанами.",
+      "text": "Ангус Макдональд приехал учиться из Шотландии в английский университет, где его поселили в одной комнате с ещё двумя студентами.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Здравствуй, сынок! Ну, как тебе английские студенты?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Когда он прожил там с месяц, к нему приехала мать, чтобы навестить его.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "zhena"
@@ -36,9 +36,9 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Ох, мама, ужасные, шумные люди!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "Ну и как тебе эти английские студенты, Ангус?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Один всю ночь колотится головой о стенку.",
+      "text": "Мама, они такие ужасные, шумные люди!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,29 +55,39 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "А второй кричит и кричит. И так каждую ночь.",
+      "text": "Тот, который с этой стороны, всю ночь без перерыва колотится головой о стенку, а с этой стороны кричит и кричит, и так каждую ночь.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "zhena",
-      "text": "Бедный мой! И как же ты с ними уживаешься?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "text": "Ах, Ангус, как же ты уживаешься с этими ужасными шумными англичанами?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "Да никак, мама. Я их просто не замечаю. Сижу всю ночь и играю на волынке.",
+      "text": "Мама, я ничего не делаю. Я их просто игнорирую.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "Сижу тут всю ночь и играю на своей волынке.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

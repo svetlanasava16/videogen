@@ -13,11 +13,19 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Waiter, could you cook these quails a little longer?",
+      "text": "Waiter, could you fry these quails a little more?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Why, are they underdone?",
+      "text": "Are they not cooked enough?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,8 +43,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "No idea, but they're eating my salad.",
-      "emotion": "sad",
+      "text": "I don't know, but they're gobbling up my salad.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

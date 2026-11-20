@@ -1,0 +1,118 @@
+{
+  "id": "ru-a79b9ea6bd8b.de",
+  "jokeId": "ru-a79b9ea6bd8b",
+  "locale": "de",
+  "title": "Medizin aus der Flasche",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Für eine bessere Verdauung trinke ich Bier, bei Appetitlosigkeit trinke ich Weißwein,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "bei niedrigem Blutdruck Rotwein, bei hohem Cognac, bei Halsentzündung Wodka.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Und Wasser?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Diese Krankheit hatte ich noch nicht...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

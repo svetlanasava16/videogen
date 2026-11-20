@@ -2,44 +2,43 @@
   "id": "en-r-efuo8i.ru",
   "jokeId": "en-r-efuo8i",
   "locale": "ru",
-  "title": "Сосед",
+  "title": "Привидения",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-sosed",
-    "chort"
+    "ded"
   ],
   "roles": {
-    "muzhik-sosed": "neighbor",
-    "chort": "monster"
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "monocle"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "У меня ночью кто-то вещи двигает.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "Мой сосед по дому говорит, что у нас водятся привидения.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Говорю тебе, в этом доме водятся привидения.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "chort",
-      "text": "Да брось. Я тут триста лет живу и ни черта не замечал.",
+      "character": "ded",
+      "text": "Я живу здесь уже триста лет и ни фига не замечал.",
+      "uncensored": "Я живу здесь уже триста лет и ни хрена не замечал.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

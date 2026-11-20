@@ -2,7 +2,7 @@
   "id": "de-witze-1qq89sg.de",
   "jokeId": "de-witze-1qq89sg",
   "locale": "de",
-  "title": "Der Salzladen",
+  "title": "Salz",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann auf der Durchreise hält an einem kleinen Dorfladen.",
+      "text": "Ein Typ ist auf der Durchreise und hält an einem Lebensmittelgeschäft, um ein bisschen was zu essen zu kaufen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Er betritt den Laden, und alles ist voller Salz. Der ganze Laden, alles Salz. Sämtliche Regale, von oben bis unten, selbst auf dem Boden. Nix anderes, nur Salz.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "Boah. Hier ist ja alles voller Salz! Die Regale, der Tresen, sogar der Boden!",
+      "text": "Boah! Sie müssen ja hier im Ort einen immensen Bedarf an Tafelsalz haben.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,19 +44,10 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Sie müssen hier im Ort einen riesigen Bedarf an Salz haben.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
       "character": "barmen",
-      "text": "Eigentlich nicht. Eigentlich gar keinen.",
-      "emotion": "neutral",
+      "text": "Eigentlich nicht so sehr. Eher wenig. Eigentlich gar nicht.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Dann sind Sie ein echtes Verkaufsgenie, wenn Sie das alles loswerden.",
+      "text": "Ah so. Dann sind Sie jedenfalls ein echtes Verkaufsgenie, wenn Sie das alles immer an den Mann bringen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Null. Verkaufen ist nicht so mein Talent.",
+      "text": "Null. Verkaufen ist nicht unbedingt mein Talent.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,20 +73,21 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Aber warum um Gottes willen ist dann der ganze Laden voller Salz?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Aber wieso haben Sie denn dann den ganzen Laden voll mit Salz, um Gottes willen?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Naja, der Mann, bei dem ich das Salz kaufe, der ist ein richtig guter Verkäufer.",
+      "text": "Naja. Der Mann, von dem ich das Salz beziehe, der ist ein richtig guter Verkäufer.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

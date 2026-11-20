@@ -13,20 +13,19 @@
     "devushka": "nurse",
     "muzhik": "patient"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "mustache"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Следующий! Как ваше имя?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "П-п-п-педро П-п-п-перес.",
+      "text": "Ваше имя?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,22 +34,32 @@
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "П-п-п-педро П-п-п-перес.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
       "character": "devushka",
-      "text": "Вы заикаетесь?",
+      "text": "Вы заика?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Нет. Заикался мой папа. А тот, кто меня регистрировал, был идиотом.",
-      "emotion": "angry",
+      "text": "Нет, мой папа был заика, а тот, кто меня регистрировал, был идиотом.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,82 +2,173 @@
   "id": "de-witze-1xf1dd7.en",
   "jokeId": "de-witze-1xf1dd7",
   "locale": "en",
-  "title": "Waiting for the Train",
+  "title": "The IKEA Wardrobe",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik",
-    "devushka",
-    "muzhik-sosed"
+    "zhena",
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "devushka": "woman",
-    "muzhik-sosed": "neighbor"
+    "zhena": "wife",
+    "muzhik-sosed": "neighbor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "See? Every time the train goes by, my new IKEA wardrobe falls apart!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "A woman buys a wardrobe from IKEA and puts it together. But as soon as the tram rumbles past, the thing collapses.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Weird. Let me get inside and see what's going on in there.",
+      "character": "narrator",
+      "text": "She builds it again, the tram comes, the wardrobe collapses.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Just then her husband comes home and opens the new wardrobe.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Could you please help me with my wardrobe?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "What are you doing in our wardrobe?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "But same story: wardrobe done, the tram rumbles past, the thing falls apart.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Look, just punch me now.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "text": "I'll stand inside, maybe from in there I can see what the problem is.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-sosed",
-      "text": "You're never going to believe I'm waiting for the train.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "No sooner said than done: he steps into the wardrobe, and at that moment her husband comes home.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "He sees the new wardrobe, wants a look, and opens it. Inside stands the neighbor.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "You know what, just hit me right now. If I tell you I'm waiting for the tram, you'll do it anyway.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik-sosed": "neighbor",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "wardrobe"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -13,11 +13,19 @@
     "ded": "old-man",
     "paren": "journalist"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A local paper interviews a man at a nursing home on his ninety-fifth birthday.",
+      "text": "On his ninety-fifth birthday, an old man in a retirement home is interviewed for a story in the local paper.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "So what does a typical day look like for you?",
+      "text": "How do you feel at your age and in these surroundings?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +43,7 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "First thing in the morning, I pee!",
+      "text": "Thank you, very well.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +52,8 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Any problems?",
-      "emotion": "surprised",
+      "text": "So what does your daily routine look like in here?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,9 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Not at all! Strong stream, no burning, healthy color!",
-      "emotion": "smug",
+      "text": "Mornings: first, a pee!",
+      "uncensored": "Mornings: first, a piss!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,26 +71,27 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "And then?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "text": "And? No problems?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ded",
-      "text": "Then a bowel movement.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Not at all! Strong stream, no burning, healthy color!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "Any trouble there?",
-      "emotion": "surprised",
+      "text": "And then?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -89,8 +99,8 @@
     {
       "id": "l9",
       "character": "ded",
-      "text": "None whatsoever. Regular as clockwork.",
-      "emotion": "smug",
+      "text": "Bowel movement.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -98,20 +108,39 @@
     {
       "id": "l10",
       "character": "paren",
-      "text": "And what comes next?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "text": "Any complaints?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
       "character": "ded",
-      "text": "Well, then I get out of bed.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Not a trace. Good pressure, no blood, a perfectly normal emptying of the bowels.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "paren",
+      "text": "And what happens next?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "ded",
+      "text": "Well, then I get up.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -6,33 +6,50 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Here's your baby. I'm so sorry, but your wife didn't make it.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "doktor"
-      ],
+      "character": "narrator",
+      "text": "The doctor hands a new father his newborn baby.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Then take this one back and bring me the one my wife made.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "I'm sorry, but your wife didn't make it.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "He hands the baby back.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Bring me the one my wife made.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,49 +2,131 @@
   "id": "de-witze-1qs3r8r.en",
   "jokeId": "de-witze-1qs3r8r",
   "locale": "en",
-  "title": "The Cap",
+  "title": "The Hat",
   "location": "gostinaya",
   "place": "street",
   "cast": [
-    "muzhik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "neighbor"
+    "muzhik-sosed": "neighbor",
+    "vovochka": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Are you the one who pulled my kid out of the pond this morning?",
+      "character": "narrator",
+      "text": "My neighbour, the stingiest man on the street, rings my doorbell.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Yes, that was me! Jumped right in!",
+      "text": "How can I help?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
-      "text": "So where's his cap?",
+      "text": "Are you the one who saved my kid from drowning and pulled him out of the pond earlier?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Yes, of course!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "So where's his hat?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor",
+        "vovochka": "child",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

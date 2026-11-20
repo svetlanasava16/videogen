@@ -2,22 +2,22 @@
   "id": "de-witze-1leukfr.en",
   "jokeId": "de-witze-1leukfr",
   "locale": "en",
-  "title": "House Call",
-  "location": "spalnya",
+  "title": "Sunday Emergency",
+  "location": "gostinaya",
   "place": "bathroom",
   "cast": [
-    "doktor",
-    "barmen"
+    "barmen",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "barmen": "plumber"
+    "barmen": "plumber",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Sunday night. A doctor's pipe has burst. He calls a plumber.",
+      "text": "A man goes to the doctor… no: a doctor goes to the plumber.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,50 +25,46 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Now? It's Sunday night, it's pouring rain, and I'm on my second beer.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Well, he calls him. Emergency, burst pipe, drama.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "My good man! I'm a doctor. When I have an emergency, I go out no matter what!",
-      "emotion": "angry",
+      "character": "barmen",
+      "text": "Yeah, okay, but it's Sunday night, it's pouring buckets, and I'm already on my second beer.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Fine, fine. I'm coming.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "My good man! I'm a doctor. When I have an emergency, I have to go out too, no matter what!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "An hour later, the plumber is in the bathroom. Everything is under water.",
+      "text": "Back and forth. The plumber gets in his car and drives over. The doctor leads him straight to the bathroom. Everything is under water.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "He tosses a handful of washers into the water.",
+      "text": "The plumber reaches into his pocket and tosses a handful of washers into the water.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -79,10 +75,108 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "ru-5ac09cf92c37.de",
   "jokeId": "ru-5ac09cf92c37",
   "locale": "de",
-  "title": "Paragraf hundertsiebenundvierzig",
+  "title": "Punkt hundertsiebenundvierzig",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -17,54 +17,177 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein General schlendert über eine Brücke. Ein Soldat, unerlaubt unterwegs, will sich an ihm vorbeischleichen.",
+      "text": "Ein General schlendert über eine Brücke, schaut sich träge um, und wie es der Zufall will, fällt ihm ein Soldat ins Auge.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Soldat! Was soll das? Warum grüßen Sie nicht?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Der Soldat ist wie immer unerlaubt unterwegs und will sich vorbeischleichen, als würde er den General nicht bemerken.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Laut Paragraf hundertsiebenundvierzig der Dienstvorschrift wird auf Brücken nicht gegrüßt!",
-      "emotion": "smug",
+      "character": "sluzhivy",
+      "text": "Soldat, verdammt nochmal, was soll das?!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "sluzhivy-ryadovoy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
+      "character": "sluzhivy",
+      "text": "Warum haben Sie nicht gegrüßt?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Laut Punkt hundertsiebenundvierzig der Dienstvorschrift wird auf einer Brücke nicht gegrüßt!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "narrator",
-      "text": "Der General grüßt verwirrt zurück. Zu Hause schlägt er die Vorschrift auf.",
+      "text": "Der General ist verdutzt, salutiert und geht sofort nach Hause.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Er kommt an, blättert in der Dienstvorschrift, findet den Punkt, liest und traut seinen Augen nicht:",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "sluzhivy",
-      "text": "Paragraf hundertsiebenundvierzig. Der Soldat muss findig und mutig sein.",
+      "text": "Punkt hundertsiebenundvierzig. Ein Soldat muss findig und mutig sein.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy": "officer",
+        "sluzhivy-ryadovoy": "soldier"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "sluzhivy"
+      ],
+      "roles": {
+        "sluzhivy": "officer"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

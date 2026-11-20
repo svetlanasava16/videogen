@@ -1,0 +1,136 @@
+{
+  "id": "ru-3d66ff1cd7f6.ru",
+  "jokeId": "ru-3d66ff1cd7f6",
+  "locale": "ru",
+  "title": "Ситилайн",
+  "location": "tserkov",
+  "place": "church",
+  "cast": [
+    "batyushka"
+  ],
+  "roles": {
+    "batyushka": "priest"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Идёт молитва в церкви. Чинно-спокойно льётся речь. Вдруг небеса разверзаются, и оттуда в лучах небесного света появляется лицо Бога.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Сыны и дочери мои, настал момент мне предст...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "ded"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Со страшным грохотом небеса захлопываются... Все прихожане в шоке! Никто не верит своим глазам... кто-то судорожно крестится...",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Вдруг небеса опять разверзаются, из сияния выглядывает омрачённый лик Господа, и он с ожесточением произносит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "ded"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Грёбаный Ситилайн!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka"
+      ],
+      "roles": {
+        "batyushka": "priest"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded"
+      ],
+      "roles": {
+        "ded": "god"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "halo"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

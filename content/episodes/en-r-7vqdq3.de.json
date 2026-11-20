@@ -19,72 +19,127 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Der Morgen nach einer durchzechten Nacht.",
+      "text": "Ein Mann wacht nach einer durchzechten Nacht auf, und seine Frau macht fröhlich Frühstück.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Guten Morgen, Schatz! Ich hol schnell frische Brötchen!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": [
-        "zhena"
-      ]
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Was war gestern Abend los?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Verwirrt geht er zu seiner Tochter und bittet sie, ihm die letzte Nacht zu erklären, als er nach Hause kam.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Du hast den Schlüssel nicht ins Schloss gekriegt und die Tür eingetreten.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Du hast die Tür eingetreten, weil du den Schlüssel nicht ins Schloss gekriegt hast, bist durch den Tisch gekracht, hast ihn zerbrochen und dir in die Hose gemacht.",
+      "uncensored": "Du hast die Tür eingetreten, weil du den Schlüssel nicht ins Schloss gekriegt hast, bist durch den Tisch gekracht, hast ihn zerbrochen und dir in die Hose gepisst.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Mein Gott! Warum zum Teufel hat sie dann so gute Laune?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Dann bist du durch den Tisch gekracht. Und in die Hose gemacht hast du auch.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Als sie dir die Hose ausziehen wollte, um sie zu waschen, hast du ihre Hand weggeschlagen und gesagt:",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Um Gottes willen! Und warum ist Mama so gut gelaunt?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "devushka-ryzhaya",
-      "text": "Sie wollte dir die Hose zum Waschen ausziehen, da hast du ihre Hand weggeschlagen und gesagt: Finger weg, ich bin verheiratet!",
-      "emotion": "smug",
+      "text": "Hände weg von mir! Ich bin verheiratet!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "devushka-ryzhaya": "daughter",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

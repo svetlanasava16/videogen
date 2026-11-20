@@ -17,16 +17,25 @@
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "Слушай, я тут тихонечко пукнула, совсем беззвучно. Что делать?",
+      "text": "Я только что беззвучно пукнула.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "tyoshcha",
+      "text": "Что мне делать?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "ded",
-      "text": "Батарейку в слуховом аппарате поменяй.",
+      "text": "Поменяй батарейку в слуховом аппарате.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,6 +44,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

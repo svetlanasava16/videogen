@@ -17,16 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Betrunkener steht in der Straßenbahn und pöbelt die Fahrgäste an.",
+      "text": "Ein betrunkener Mann steht in der Straßenbahn und beschimpft die Fahrgäste zu seiner Linken:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Links von mir lauter Idioten! Lauter Idioten!",
+      "text": "Lauter Idioten, lauter Idioten!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,33 +34,142 @@
     },
     {
       "id": "l3",
+      "character": "narrator",
+      "text": "Die Leute zu seiner Rechten brüllt er an:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "Und rechts lauter Ehebrecher! Lauter Ehebrecher!",
+      "text": "Lauter Ehebrecher, lauter Ehebrecher!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Plötzlich springt ein Mann auf und schreit ihn an:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Was fällt Ihnen ein? Ich bin seit zwanzig Jahren verheiratet und habe meine Frau noch nie betrogen!",
+      "text": "Was fällt Ihnen ein?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik-ryzhy",
+      "text": "Ich bin seit zwanzig Jahren verheiratet und habe meine Frau noch nie betrogen!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "muzhik",
       "text": "Dann setz dich rüber zu den Idioten!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

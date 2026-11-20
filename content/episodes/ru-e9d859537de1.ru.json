@@ -2,7 +2,7 @@
   "id": "ru-e9d859537de1.ru",
   "jokeId": "ru-e9d859537de1",
   "locale": "ru",
-  "title": "Тонут",
+  "title": "Плацебо",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Испытания нового лекарства. Половине пациентов дают пустышку.",
+      "text": "Идут испытания нового лекарства. Пациенты поделены на две группы — опытную и контрольную. Один из пациентов заходит к врачу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Доктор, а почему вы мне таблетки поменяли?",
-      "emotion": "surprised",
+      "text": "Доктор, почему вы заменили мой препарат?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -37,29 +37,21 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "А с чего вы взяли, что я их поменял?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "А что заставляет вас думать, что я его заменил?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ну как же. Раньше я их в унитаз кидал, и они плавали.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "А теперь тонут.",
+      "text": "Понимаете, раньше, когда я кидал эти таблетки в унитаз, они плавали, а теперь вдруг стали тонуть.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

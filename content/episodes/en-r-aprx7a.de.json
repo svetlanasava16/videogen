@@ -3,23 +3,21 @@
   "jokeId": "en-r-aprx7a",
   "locale": "de",
   "title": "In Texas ist alles größer",
-  "location": "bar",
+  "location": "spalnya",
   "place": "hotel",
   "cast": [
-    "paren",
     "muzhik",
-    "barmen"
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
     "muzhik": "disabled-person",
-    "barmen": "bartender"
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Blinder checkt in einem Hotel in Texas ein.",
+      "text": "Ein Blinder reist nach Texas. In seinem Hotelzimmer tastet er das Bett ab.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Wow, ist das Bett riesig!",
+      "text": "Wow, ist das Bett groß!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,30 +35,26 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "In Texas ist alles größer, mein Herr.",
+      "text": "In Texas ist alles größer.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "paren"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Ihr Bier.",
+      "character": "narrator",
+      "text": "Der Mann geht runter in die Bar, setzt sich auf einen riesigen Barhocker und bestellt ein Bier. Man drückt ihm einen Krug in die Hände.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Wow, ist der Krug riesig!",
-      "emotion": "surprised",
+      "text": "Wow, sind die Getränke groß!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -68,16 +62,16 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "In Texas ist alles größer.",
+      "text": "In Texas ist alles groß.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Wo ist hier die Toilette?",
+      "character": "narrator",
+      "text": "Nach ein paar Bier fragt der Blinde, wo die Toilette ist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -95,7 +89,7 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Er erwischt die dritte Tür und fällt direkt in den Pool.",
+      "text": "Der Blinde geht zur Toilette, erwischt aber aus Versehen die dritte Tür, die zum Schwimmbecken führt, und fällt hinein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -104,14 +98,182 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Nicht spülen! Nicht spülen!",
+      "text": "Nicht spülen, nicht spülen!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "disabled-person",
+        "paren": "employee"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#b3262e",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "disabled-person",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "cowboy-hat",
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "plyazh",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "disabled-person"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "water"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

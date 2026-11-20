@@ -2,23 +2,25 @@
   "id": "ru-e6c139796c79.de",
   "jokeId": "ru-e6c139796c79",
   "locale": "de",
-  "title": "Gesunde Lebensweise",
+  "title": "Das Geheimnis der Gesundheit",
   "location": "bar",
   "place": "bar",
   "cast": [
     "ded",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
     "ded": "old-man",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Ich war nie einen Tag krank. Weil ich immer einfach und geregelt gelebt habe.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Eine Gruppe Männer kam auf die Gesundheit zu sprechen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +28,8 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Von zwanzig bis vierzig bin ich jeden Abend um neun ins Bett und um sechs aufgestanden.",
-      "emotion": "neutral",
+      "text": "Ich war keinen einzigen Tag krank, und zwar, weil ich ein einfaches, geregeltes Leben geführt habe.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,20 +37,30 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "Von acht bis fünf gearbeitet, einfach gegessen, danach eine Stunde Sport...",
+      "text": "Von zwanzig bis vierzig bin ich jeden Tag um neun ins Bett gegangen und um sechs Uhr morgens aufgestanden.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "Von acht bis fünf habe ich gearbeitet, zu Mittag gegessen, und zwar einfache Kost, und dann eine Stunde Sport getrieben...",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Entschuldigung, und weswegen saßen Sie?",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Entschuldigung, und wofür haben Sie gesessen?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

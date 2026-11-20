@@ -6,27 +6,27 @@
   "location": "ofis",
   "place": "office",
   "cast": [
-    "uchilka",
-    "paren"
+    "paren",
+    "muzhik-sosed"
   ],
   "roles": {
-    "uchilka": "clerk",
-    "paren": "employee"
+    "paren": "employee",
+    "muzhik-sosed": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
+      "character": "paren",
       "text": "Слышал? Наш директор умер.",
-      "emotion": "sad",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Слышал. И всё думаю, кто же ещё умер вместе с ним.",
+      "character": "muzhik-sosed",
+      "text": "Да, и я всё время думаю, кто же умер вместе с ним.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,7 +34,7 @@
     },
     {
       "id": "l3",
-      "character": "uchilka",
+      "character": "paren",
       "text": "Почему вместе с ним?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
@@ -43,15 +43,54 @@
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Ну в некрологе же написано: с его смертью мы потеряли одного из самых способных сотрудников.",
+      "character": "muzhik-sosed",
+      "text": "Ну как же, в некрологе ведь написано: вместе с ним умер один из наших самых способных сотрудников.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik-sosed": "employee"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

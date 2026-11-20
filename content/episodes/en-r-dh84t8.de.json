@@ -2,23 +2,21 @@
   "id": "en-r-dh84t8.de",
   "jokeId": "en-r-dh84t8",
   "locale": "de",
-  "title": "Erhörtes Gebet",
+  "title": "Das Gebet",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "vovochka": "child"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Kumpel, du fehlst mir so.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Ein Mann hat vor Kurzem seinen besten Freund verloren. Trauernd an seinem Grab sagt er:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,43 +24,140 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Meine Frau ist im achten Monat. Komm doch als mein Sohn zurück.",
+      "text": "Kumpel, ich vermisse dich wirklich.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Einen Monat später kommt ein kräftiger Junge zur Welt. Jahre vergehen.",
+      "character": "muzhik",
+      "text": "Meine Frau ist jetzt seit acht Monaten schwanger.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Schau, Kumpel. Deine Nase, deine Ohren, sogar dein Lachen.",
+      "text": "Wie wäre es, wenn du als mein Kind wiedergeboren wirst?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Mein Gebet hat tatsächlich funktioniert!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Einen Monat später bringt seine Frau einen kräftigen Jungen zur Welt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Mit jedem Tag wird das Kind älter, und er merkt, dass es seinem besten Freund sehr ähnlich sieht.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Ich bin wirklich froh, dass mein Gebet gewirkt hat.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#1f1f1f",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "flowers",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

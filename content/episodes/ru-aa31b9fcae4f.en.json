@@ -2,7 +2,7 @@
   "id": "ru-aa31b9fcae4f.en",
   "jokeId": "ru-aa31b9fcae4f",
   "locale": "en",
-  "title": "Round Number",
+  "title": "To Round It Off",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -17,8 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Damn, I forgot my wallet, and I'm ten bucks short. Can you lend me some?",
-      "emotion": "sad",
+      "text": "Oh, damn, I forgot my wallet, and I'm ten dollars short. Lend me ten?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Sure, here.",
+      "text": "Well, here you go.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,8 +34,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Do I owe you ten?",
+      "character": "narrator",
+      "text": "The next day.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,6 +43,15 @@
     },
     {
       "id": "l4",
+      "character": "muzhik",
+      "text": "Do I owe you ten?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik-sosed",
       "text": "Yes.",
       "emotion": "neutral",
@@ -51,34 +60,133 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Forgot my wallet again. Lend me forty more, and I'll owe you an even fifty.",
+      "text": "I forgot my wallet again. Lend me another forty, and I'll owe you an even fifty.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "narrator",
-      "text": "Then he borrowed a hundred and fifty more, and then three hundred, to make it a round number.",
+      "id": "l7",
+      "character": "muzhik-sosed",
+      "text": "Well, all right.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
+      "character": "narrator",
+      "text": "The next day.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Do I owe you fifty dollars?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-sosed",
+      "text": "Yes.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "No wallet on me again today. Come on, lend me another hundred and fifty, and then I'll pay you back two hundred.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "muzhik-sosed",
+      "text": "Well, okay.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "narrator",
+      "text": "The next day.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "muzhik",
+      "text": "Do I owe you two hundred?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "muzhik-sosed",
+      "text": "Well, of course.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
+      "character": "muzhik",
+      "text": "Let me borrow another three hundred, just to round it off, and then I'll pay you back five hundred in one go.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l17",
+      "character": "muzhik-sosed",
+      "text": "Well, what can I do. Here.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l18",
+      "character": "narrator",
+      "text": "The next day.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l19",
       "character": "muzhik",
       "text": "Do I owe you five hundred?",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l20",
       "character": "muzhik-sosed",
       "text": "No!",
       "emotion": "angry",
@@ -106,30 +214,16 @@
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
           "type": "prop",
           "who": "muzhik-sosed",
           "item": "money",
           "action": "give",
           "to": "muzhik"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "cast": [
-        "muzhik",
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik": "everyman",
-        "muzhik-sosed": "friend"
-      },
-      "beats": [
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
         {
           "type": "line",
           "ref": "l3"
@@ -143,6 +237,10 @@
           "ref": "l5"
         },
         {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
           "type": "prop",
           "who": "muzhik-sosed",
           "item": "money",
@@ -151,32 +249,76 @@
         },
         {
           "type": "line",
-          "ref": "l6"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "ulitsa",
-      "cast": [
-        "muzhik",
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik": "everyman",
-        "muzhik-sosed": "friend"
-      },
-      "beats": [
-        {
-          "type": "line",
           "ref": "l7"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l17"
+        },
+        {
+          "type": "line",
+          "ref": "l18"
+        },
+        {
+          "type": "line",
+          "ref": "l19"
+        },
+        {
+          "type": "line",
+          "ref": "l20"
         }
       ],
-      "transition": "wipe"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

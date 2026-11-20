@@ -2,22 +2,22 @@
   "id": "ru-4b1671537586.de",
   "jokeId": "ru-4b1671537586",
   "locale": "de",
-  "title": "Der Klempner",
+  "title": "Der Neurochirurg",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
-    "barmen",
-    "doktor"
+    "doktor",
+    "barmen"
   ],
   "roles": {
-    "barmen": "plumber",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "barmen": "plumber"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Bei einem Neurochirurgen ist das Klo verstopft. Der Klempner klopft zweimal mit dem Hammer und zieht eine Mutter fest.",
+      "text": "Bei einem Arzt zu Hause ist die Toilette verstopft. Er ruft einen Klempner.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Fertig, alles läuft wieder. Macht dreihundert Euro.",
+      "character": "narrator",
+      "text": "Der Klempner kommt, klopft ein paarmal irgendwo mit dem Hammer, wechselt eine Dichtung, zieht eine Mutter fest. Dann sagt er:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,17 +34,35 @@
     },
     {
       "id": "l3",
+      "character": "barmen",
+      "text": "Fertig, alles funktioniert. Das macht zweihundert Euro.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "doktor",
-      "text": "Dreihundert Euro für fünf Minuten? Ich bin Neurochirurg, ich habe zwölf Jahre studiert, und mir zahlt keiner so viel für fünf Minuten!",
+      "text": "Wie, zweihundert Euro? Für fünf Minuten Arbeit?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "doktor",
+      "text": "Ich bin Neurochirurg, ich habe zwölf Jahre mein Fach studiert, aber mir zahlt keiner zweihundert Euro für fünf Minuten Arbeit.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "barmen",
-      "text": "Ganz normal. Als ich Neurochirurg war, hat man mir das auch nicht gezahlt.",
+      "text": "Ist doch normal. Als ich Neurochirurg war, hat man mir auch nicht so viel gezahlt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,24 +75,34 @@
     {
       "location": "spalnya",
       "cast": [
-        "barmen",
-        "doktor"
+        "doktor",
+        "barmen"
       ],
       "roles": {
-        "barmen": "plumber",
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "barmen": "plumber"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "barmen",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
           "type": "prop",
           "who": "barmen",
-          "item": "certificate",
-          "action": "give",
-          "to": "doktor"
+          "item": "wrench",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -87,6 +115,14 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

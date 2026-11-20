@@ -1,0 +1,131 @@
+{
+  "id": "en-r-chlmli.de",
+  "jokeId": "en-r-chlmli",
+  "locale": "de",
+  "title": "Segen",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "devushka"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "devushka": "woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann trifft vor einem Einkaufszentrum ein weinendes Mädchen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Was ist los?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka",
+      "text": "Ich habe zweihundert Euro verloren.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Also gibt er ihr vierzig Euro von den zweihundert, die er am Eingang aufgehoben hat.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Wenn Gott dich segnet, musst du andere segnen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "devushka": "woman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "devushka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

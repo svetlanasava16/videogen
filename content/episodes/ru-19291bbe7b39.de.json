@@ -1,0 +1,126 @@
+{
+  "id": "ru-19291bbe7b39.de",
+  "jokeId": "ru-19291bbe7b39",
+  "locale": "de",
+  "title": "Die Insel",
+  "location": "plyazh",
+  "place": "ship",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "homeless"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Dampfer fährt an einer kleinen Insel im Ozean vorbei, auf der ein bärtiger Mann etwas schreit und verzweifelt mit den Armen fuchtelt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Wer ist das?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Keine Ahnung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Jedes Jahr, wenn wir hier vorbeifahren, dreht er genauso durch.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "plyazh",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "homeless"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "muzhik-sosed",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "sluzhivy-ryadovoy": "sailor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,55 +2,63 @@
   "id": "ru-fe7f9114a1e2.en",
   "jokeId": "ru-fe7f9114a1e2",
   "locale": "en",
-  "title": "No Rush",
+  "title": "The Fire",
   "location": "ofis",
   "place": "police-station",
   "cast": [
-    "sluzhivy-ryadovoy",
-    "sluzhivy"
+    "muzhik",
+    "muzhik-ryzhy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "sluzhivy-ryadovoy": "firefighter",
-    "sluzhivy": "officer"
+    "muzhik": "firefighter",
+    "muzhik-ryzhy": "firefighter",
+    "sluzhivy-ryadovoy": "firefighter"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Alright, boys, we've got a call.",
+      "character": "narrator",
+      "text": "The fire chief strolls, hands in his pockets, into the room where the crew sits waiting for a call, and says, nice and calm:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "sluzhivy"
+        "sluzhivy-ryadovoy"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Gear up nice and slow. Finish your coffee. No rush.",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Guys, start getting ready, nice and slow...",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy-ryadovoy",
-      "text": "So what's on fire, chief?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "sluzhivy",
-      "text": "The tax office.",
+      "text": "The tax office is on fire...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -6,18 +6,18 @@
   "location": "nebesa",
   "place": "hell",
   "cast": [
-    "muzhik",
-    "chort"
+    "chort",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "chort": "devil"
+    "chort": "devil",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Horst kommt in die Hölle.",
+      "text": "Hannes kommt in die Hölle. Satan führt ihn in einen Flur mit drei Türen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "chort",
-      "text": "Du darfst dir aussuchen, in welchem Zimmer du die Ewigkeit verbringst.",
+      "text": "In einem dieser drei Zimmer wirst du nun die Ewigkeit verbringen, aber du darfst wählen, in welchem!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,26 +34,27 @@
     },
     {
       "id": "l3",
-      "character": "chort",
-      "text": "Zimmer eins: Handstand auf glühenden Kohlen.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Satan öffnet die erste Tür. Dahinter müssen Dutzende Leute Handstand auf glühenden Kohlen machen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "chort",
-      "text": "Zimmer zwei: Handstand auf rostigen Nägeln.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Dann zeigt Satan ihm das zweite Zimmer. In diesem machen unzählige Menschen Handstand auf rostigen Nägeln.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "chort",
-      "text": "Zimmer drei: Alle stehen knietief in Jauche und trinken Kaffee.",
+      "character": "narrator",
+      "text": "Schließlich führt Satan ihn zum dritten Zimmer. Hier stehen alle knietief in Mist und trinken Kaffee.",
+      "uncensored": "Schließlich führt Satan ihn zum dritten Zimmer. Hier stehen alle knietief in Scheiße und trinken Kaffee.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,27 +63,26 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Das ist gar nicht so schlecht. Ich nehme das dritte.",
+      "text": "Das ist gar nicht so schlecht. Dieses Zimmer nehme ich.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "chort",
-      "text": "Wie du willst.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Er gesellt sich zu den anderen in den Mist und nimmt sich eine Tasse.",
+      "uncensored": "Er gesellt sich zu den anderen in die Scheiße und nimmt sich eine Tasse.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "chort"
-      ]
+      "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Horst nimmt sich eine Tasse. Nach ein paar Minuten geht die Tür auf.",
+      "text": "Nach ein paar Minuten betritt ein Diener Satans das Zimmer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
@@ -90,17 +90,108 @@
     },
     {
       "id": "l9",
-      "character": "chort",
+      "character": "paren",
       "text": "So, Jungs! Kaffeepause vorbei! Alle wieder auf die Hände!",
-      "emotion": "angry",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "chort"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "chort",
+        "muzhik"
+      ],
+      "roles": {
+        "chort": "devil",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "paren": "devil"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "horns"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

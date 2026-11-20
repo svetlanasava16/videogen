@@ -16,22 +16,22 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Hey! Long time no see!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Two men ran into each other. They hadn't seen each other in a long time.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Come on, this calls for a drink!",
+      "text": "Come on, let's drink to this, after all, we haven't seen each other in ages.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik-sosed"
+      ],
       "exit": []
     },
     {
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "What? Why?",
+      "text": "Why?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Remember last summer?",
+      "text": "Well, remember last summer?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "muzhik-sosed",
-      "text": "Sure.",
+      "text": "Yes.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -73,11 +73,12 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Well, I don't.",
+      "text": "Well, I don't!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

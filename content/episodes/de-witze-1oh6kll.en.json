@@ -2,22 +2,31 @@
   "id": "de-witze-1oh6kll.en",
   "jokeId": "de-witze-1oh6kll",
   "locale": "en",
-  "title": "Who Comes First?",
+  "title": "At the Doctor's",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ptitsa",
+    "vovochka",
     "doktor"
   ],
   "roles": {
     "ptitsa": "chicken",
+    "vovochka": "child",
     "doktor": "doctor"
+  },
+  "looks": {
+    "vovochka": {
+      "clothes": "#f3ead8",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A chicken and an egg are waiting at the doctor's office.",
+      "text": "A chicken and an egg have been sitting in the waiting room since early morning.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +37,7 @@
       "character": "doktor",
       "text": "Right, let's get started. Which of you comes first?",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [
         "doktor"
       ],
@@ -36,12 +45,13 @@
     },
     {
       "id": "l3",
-      "character": "ptitsa",
+      "character": "vovochka",
       "text": "Ugh, I am so sick of that question!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

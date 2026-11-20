@@ -2,7 +2,7 @@
   "id": "ru-e9d859537de1.de",
   "jokeId": "ru-e9d859537de1",
   "locale": "de",
-  "title": "Schwimmt oder sinkt",
+  "title": "Das Placebo",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein neues Medikament wird getestet. Die Hälfte der Patienten bekommt ein Placebo.",
+      "text": "Ein neues Medikament wird getestet. Die Patienten sind in zwei Gruppen aufgeteilt, eine Versuchsgruppe und eine Kontrollgruppe. Einer der Patienten kommt zum Arzt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Herr Doktor, warum haben Sie meine Tabletten ausgetauscht?",
-      "emotion": "surprised",
+      "text": "Herr Doktor, warum haben Sie mein Präparat ausgetauscht?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -37,29 +37,21 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Wie kommen Sie denn darauf?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "Und wie kommen Sie darauf, dass ich es ausgetauscht habe?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Na ja, früher hab ich sie ins Klo geworfen, und sie sind geschwommen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Jetzt gehen sie unter.",
+      "text": "Wissen Sie, früher, wenn ich die Tabletten ins Klo geworfen habe, sind sie geschwommen, und jetzt gehen sie plötzlich unter.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

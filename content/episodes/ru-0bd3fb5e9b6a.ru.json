@@ -2,34 +2,31 @@
   "id": "ru-0bd3fb5e9b6a.ru",
   "jokeId": "ru-0bd3fb5e9b6a",
   "locale": "ru",
-  "title": "Мыши и сырость",
-  "location": "spalnya",
+  "title": "Мыши в общаге",
+  "location": "ofis",
   "place": "bedroom",
   "cast": [
     "paren",
-    "barmen"
+    "uchilka"
   ],
   "roles": {
     "paren": "student",
-    "barmen": "janitor"
+    "uchilka": "clerk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Студент привёл коменданта общаги к себе в комнату.",
+      "text": "Студент приходит к коменданту общаги.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren",
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "paren",
-      "text": "Жить тут невозможно. Кошмар! Мышей полно!",
+      "text": "В нашей комнате жить просто невозможно. Кошмар!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,9 +34,9 @@
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Да быть такого не может.",
-      "emotion": "smug",
+      "character": "uchilka",
+      "text": "А что такое?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -47,16 +44,16 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Смотрите. Бросаю крошки.",
-      "emotion": "neutral",
+      "text": "Ну, например, мышей куча!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "Одна мышь... вторая... третья...",
+      "character": "uchilka",
+      "text": "Не может быть!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,33 +61,175 @@
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Стоп. Это что, рыбка была?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Пойдёмте, покажу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "barmen",
-      "text": "И опять мышь. Ну ладно, завелись немножко. А рыбка-то откуда?",
+      "character": "narrator",
+      "text": "Приходят в комнату. Студент берёт хлебные крошки, бросает на пол.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Появляется мышь, за ней вторая, третья, потом маленькая рыбка, потом четвёртая мышь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "uchilka",
+      "text": "Да, немножко мышки завелись.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "uchilka",
+      "text": "А что это за рыбка была?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "paren",
-      "text": "Так, насчёт мышей убедились? Теперь давайте разберёмся с сыростью!",
+      "text": "Так, насчёт мышей убедились?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "paren",
+      "text": "Теперь давайте разберёмся с сыростью!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "paren": "student",
+        "uchilka": "clerk"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "paren": "student",
+        "uchilka": "clerk"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

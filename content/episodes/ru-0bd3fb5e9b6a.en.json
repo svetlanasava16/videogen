@@ -2,34 +2,31 @@
   "id": "ru-0bd3fb5e9b6a.en",
   "jokeId": "ru-0bd3fb5e9b6a",
   "locale": "en",
-  "title": "Mice and Damp",
-  "location": "spalnya",
+  "title": "Dorm Mice",
+  "location": "ofis",
   "place": "bedroom",
   "cast": [
     "paren",
-    "barmen"
+    "uchilka"
   ],
   "roles": {
     "paren": "student",
-    "barmen": "janitor"
+    "uchilka": "clerk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A student drags the dorm manager into his room.",
+      "text": "A student comes to the dorm warden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren",
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "paren",
-      "text": "Nobody can live in here. It's a nightmare! Mice everywhere!",
+      "text": "It's simply impossible to live in our room. It's a nightmare!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,9 +34,9 @@
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Come on, no way.",
-      "emotion": "smug",
+      "character": "uchilka",
+      "text": "What's the matter?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -47,16 +44,16 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Watch. I'll drop some crumbs.",
-      "emotion": "neutral",
+      "text": "Well, for example, there are loads of mice!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "One mouse... two... three...",
+      "character": "uchilka",
+      "text": "That can't be!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,33 +61,175 @@
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Hang on. Was that a little fish?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Come on, I'll show you.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "barmen",
-      "text": "And another mouse. Fine, you've got a few mice. But what's with the fish?",
+      "character": "narrator",
+      "text": "They come into the room. The student takes some bread crumbs and throws them on the floor.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "A mouse appears, then a second one, a third, then a little fish, then a fourth mouse.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "uchilka",
+      "text": "Yes, a few mice have moved in.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "uchilka",
+      "text": "And what was that little fish?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "paren",
-      "text": "Right, so we agree on the mice? Now let's talk about the damp!",
+      "text": "Right, so you're convinced about the mice?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "paren",
+      "text": "Now let's deal with the damp!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "paren": "student",
+        "uchilka": "clerk"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "paren": "student",
+        "uchilka": "clerk"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

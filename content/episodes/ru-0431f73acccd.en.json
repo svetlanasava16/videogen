@@ -2,7 +2,7 @@
   "id": "ru-0431f73acccd.en",
   "jokeId": "ru-0431f73acccd",
   "locale": "en",
-  "title": "Chef's Choice",
+  "title": "To Your Taste",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -10,47 +10,47 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "customer",
     "barmen": "waiter"
+  },
+  "looks": {
+    "barmen": {
+      "add": [
+        "red-nose"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Good evening, sir. What can I get you?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "A carafe of vodka.",
+      "character": "narrator",
+      "text": "A man walks into a restaurant and says to the waiter:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "And something you'd pick for yourself.",
+      "text": "A carafe of vodka, and something to your taste.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "barmen",
-      "text": "Very good. Two carafes of vodka.",
+      "text": "Writing that down: two carafes of vodka.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

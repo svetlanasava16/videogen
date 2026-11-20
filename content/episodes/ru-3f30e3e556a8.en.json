@@ -2,49 +2,56 @@
   "id": "ru-3f30e3e556a8.en",
   "jokeId": "ru-3f30e3e556a8",
   "locale": "en",
-  "title": "License, Please",
+  "title": "The License",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "devushka-blondinka",
-    "sluzhivy"
+    "sluzhivy",
+    "devushka-blondinka"
   ],
   "roles": {
-    "devushka-blondinka": "blonde",
-    "sluzhivy": "traffic-cop"
+    "sluzhivy": "traffic-cop",
+    "devushka-blondinka": "blonde"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Good afternoon. License, please.",
+      "character": "narrator",
+      "text": "A cop pulls over a car with a blonde at the wheel.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka-blondinka",
-      "text": "Huh?",
-      "emotion": "surprised",
+      "character": "sluzhivy",
+      "text": "Your license, please.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Your license, please.",
-      "emotion": "angry",
+      "character": "devushka-blondinka",
+      "text": "What?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "sluzhivy",
+      "text": "License, please.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "devushka-blondinka",
       "text": "What's a license?",
       "emotion": "surprised",
@@ -53,31 +60,59 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "sluzhivy",
-      "text": "It's a little thing with your picture in it.",
+      "text": "It's that little thing with your picture on it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "devushka-blondinka",
-      "text": "Oh, that! Here, take my compact mirror.",
+      "text": "Ohhh.",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "sluzhivy",
-      "text": "Oh. Why didn't you tell me you were a police officer?",
-      "emotion": "surprised",
+      "id": "l8",
+      "character": "narrator",
+      "text": "She rummages in her handbag and pulls out a little mirror.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devushka-blondinka",
+      "text": "Here you go.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "The cop looks into the mirror.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "sluzhivy",
+      "text": "Well, why didn't you say right away that you're a cop?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

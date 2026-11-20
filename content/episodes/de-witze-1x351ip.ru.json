@@ -2,80 +2,178 @@
   "id": "de-witze-1x351ip.ru",
   "jokeId": "de-witze-1x351ip",
   "locale": "ru",
-  "title": "Второй ботинок",
+  "title": "Сосед по номеру",
   "location": "bar",
   "place": "hotel",
   "cast": [
-    "uchilka",
     "nachalnik",
-    "muzhik-sosed"
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "clerk",
     "nachalnik": "businessman",
-    "muzhik-sosed": "neighbor"
+    "uchilka": "clerk"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "Ваш ключ. Только потише, пожалуйста: сосед за стенкой очень нервный и плохо спит.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "uchilka"
-      ]
-    },
-    {
-      "id": "l2",
       "character": "narrator",
-      "text": "В номере уставший постоялец с грохотом роняет на пол первый ботинок.",
+      "text": "Бизнесмен забронировал номер в гостинице.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "uchilka",
+      "text": "Мужчина в соседнем номере очень нервный и с трудом засыпает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Ой, нервный сосед! Второй поставлю тихонько.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "После долгого рабочего дня бизнесмен очень устал. Он сел на кровать, довольно громко снял один ботинок и уронил его на пол.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Через два часа в дверь громко стучат.",
+      "text": "В этот момент он вспомнил, что сказала администратор, и второй ботинок поставил совсем тихо.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Потом он лёг спать. Через два часа его разбудил громкий стук в дверь.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "nachalnik",
-      "text": "Кто там?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "text": "Что случилось?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik-sosed",
-      "text": "Это сосед. Вы второй ботинок снимать будете или нет?",
+      "text": "Я мужчина из соседнего номера. Не могли бы вы наконец снять и второй ботинок?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik-sosed"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "uchilka"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "uchilka": "clerk"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "robe-white"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

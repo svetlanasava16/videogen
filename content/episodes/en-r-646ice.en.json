@@ -17,14 +17,23 @@
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "Psst. I just let out one of those silent farts. What do I do?",
+      "text": "I've let out one of those silent farts.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "tyoshcha",
+      "text": "What do I do?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "ded",
       "text": "Change the battery in your hearing aid.",
       "emotion": "neutral",
@@ -35,6 +44,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

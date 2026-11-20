@@ -1,0 +1,217 @@
+{
+  "id": "de-witze-17izoxj.en",
+  "jokeId": "de-witze-17izoxj",
+  "locale": "en",
+  "title": "Church Acoustics",
+  "location": "tserkov",
+  "place": "church",
+  "cast": [
+    "batyushka",
+    "vovochka"
+  ],
+  "roles": {
+    "batyushka": "priest",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A priest confronts the altar boy in church.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "batyushka",
+      "text": "Boy, I know you've been getting drunk on the communion wine!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "batyushka",
+      "text": "Boy, why don't you react? Can't you hear me?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "No, Father, I can't.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "vovochka",
+      "text": "From where I'm standing, I can't hear your voice.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "batyushka",
+      "text": "Tell me, are you pulling my leg?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "vovochka",
+      "text": "Father, I can prove it.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "vovochka",
+      "text": "You stand here, and I'll stand over there, where you're standing now.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "vovochka",
+      "text": "Oh, by the way, Father, they say a big part of the collection money has gone missing.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Would you happen to know anything about that?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "batyushka",
+      "text": "You're right. From here you really can't hear a thing.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka",
+        "vovochka"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "vovochka": "child"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "robe-white"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

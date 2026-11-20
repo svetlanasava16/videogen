@@ -6,40 +6,41 @@
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka",
-    "devushka-blondinka"
+    "zhena",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "devushka-blondinka": "woman"
+    "zhena": "wife",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Мой муж так часто разговаривает во сне, просто жуть!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "Мой муж так часто разговаривает во сне, что просто жуть!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
+      "character": "zhena",
       "text": "А твой разговаривает?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka-blondinka",
-      "text": "Нет. Только улыбается... Сволочь!",
+      "character": "devushka",
+      "text": "Нет, только улыбается... сволочь!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

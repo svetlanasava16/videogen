@@ -3,21 +3,21 @@
   "jokeId": "ru-9d24f41254be",
   "locale": "de",
   "title": "Der zweite Blinddarm",
-  "location": "bolnitsa",
+  "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "doktor"
+    "devushka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "doktor": "doctor"
+    "devushka": "wife",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Herr Doktor, bitte kommen Sie sofort mit! Meine Frau hat eine schlimme Blinddarmentzündung!",
+      "text": "Herr Doktor, ich flehe Sie an, kommen Sie sofort. Meine Frau hat einen schweren Blinddarmanfall!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,17 +26,17 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Beruhigen Sie sich. Ich habe Ihrer Frau vor zwei Jahren den Blinddarm entfernt. Einen zweiten Blinddarm bekommt niemand.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "text": "Keine Sorge. Vor zwei Jahren habe ich Ihre Frau operiert und ihr den Blinddarm entfernt. Ein Mensch kann keinen zweiten Blinddarm bekommen!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Stimmt, Herr Doktor. Aber eine zweite Frau kann man schon bekommen.",
-      "emotion": "smug",
+      "text": "Richtig, Herr Doktor. Aber ein Mensch kann eine zweite Frau bekommen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -46,29 +46,82 @@
   "explicit": false,
   "scenes": [
     {
+      "location": "gostinaya",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
       "location": "bolnitsa",
       "cast": [
-        "muzhik",
         "doktor"
       ],
       "roles": {
-        "muzhik": "husband",
         "doktor": "doctor"
       },
       "beats": [
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
+          "who": "doktor",
+          "to": "desk"
         },
         {
-          "type": "line",
-          "ref": "l1"
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "line",

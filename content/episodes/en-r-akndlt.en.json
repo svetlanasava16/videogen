@@ -3,21 +3,23 @@
   "jokeId": "en-r-akndlt",
   "locale": "en",
   "title": "Excuse My French",
-  "location": "klass",
+  "location": "gostinaya",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "muzhik",
+    "vovochka",
+    "zhena"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "child"
+    "muzhik": "father",
+    "vovochka": "vovochka",
+    "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Every time Johnny's dad swore, he said: excuse my French.",
+      "text": "When he was a kid, his parents would always say Excuse my French after a swear word.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,42 +27,109 @@
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Good morning, class. Does anyone know any French?",
-      "emotion": "happy",
+      "character": "muzhik",
+      "text": "Excuse my French.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Me! I know loads!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Excuse my French.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
-      "text": "Wonderful, Johnny! Go on, say something.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "He'll never forget that first day at school.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "vovochka",
-      "text": "Okay! Dad's best French is when he hits his thumb with a hammer.",
-      "emotion": "smug",
+      "character": "uchilka",
+      "text": "Do any of you know any French?",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "vovochka",
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "vovochka"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "vovochka": "vovochka"
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "board"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "student-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

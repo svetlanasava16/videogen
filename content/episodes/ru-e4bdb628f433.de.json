@@ -3,7 +3,7 @@
   "jokeId": "ru-e4bdb628f433",
   "locale": "de",
   "title": "Keiner zu Hause",
-  "location": "ulitsa",
+  "location": "derevnya",
   "place": "street",
   "cast": [
     "muzhik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann klopft am Tor seines Nachbarn.",
+      "text": "Ein Mann kommt an das Tor seines Nachbarn und klopft.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hallo? Ist jemand zu Hause?",
+      "character": "narrator",
+      "text": "Er klopft und klopft, aber niemand antwortet. Er klopft stärker.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,28 +34,26 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Aufmachen!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Leise kommt ein Hund ans Tor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "pyos",
-      "text": "Hör auf zu klopfen, Mann. Es ist keiner da.",
+      "text": "Mann, hör auf zu klopfen, es ist keiner zu Hause.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "pyos"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Mann fällt in Ohnmacht. Eine Minute später kommt er zu sich.",
+      "text": "Der Mann fällt auf der Stelle in Ohnmacht. Als er wieder zu sich kommt, sieht er den Hund an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,23 +62,80 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Kannst du nicht bellen wie ein normaler Hund?",
+      "text": "Was ist los mit dir, Hund, kannst du nicht bellen?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "pyos",
-      "text": "Kann ich. Ich wollte dich bloß nicht erschrecken.",
-      "emotion": "smug",
+      "text": "Doch, aber ich wollte dich nicht erschrecken.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

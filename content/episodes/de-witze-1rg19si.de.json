@@ -7,17 +7,17 @@
   "place": "forest",
   "cast": [
     "muzhik-ryzhy",
-    "uchilka"
+    "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "hunter",
-    "uchilka": "operator"
+    "muzhik": "hunter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Jäger im Wald. Plötzlich bricht einer zusammen. Der andere ruft den Notruf.",
+      "text": "Zwei Jäger gehen durch den Wald, als einer plötzlich zusammenbricht. Der andere ruft panisch den Notruf an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Hilfe! Mein Freund ist tot! Was soll ich tun?",
+      "text": "Mein Freund ist tot! Was soll ich tun?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,41 +35,133 @@
     {
       "id": "l3",
       "character": "uchilka",
-      "text": "Beruhigen Sie sich. Zuerst müssen wir sicher sein, dass er wirklich tot ist.",
+      "text": "Beruhigen Sie sich. Erstmal müssen wir sichergehen, dass er wirklich tot ist.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Gut. Einen Moment.",
+      "character": "narrator",
+      "text": "Stille am Telefon, dann hört man einen Schuss.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Stille. Dann fällt ein Schuss.",
+      "character": "muzhik-ryzhy",
+      "text": "Okay, und jetzt?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "So. Und jetzt?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "hunter",
+        "muzhik": "hunter"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tyrolean-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka"
+      ],
+      "roles": {
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "hunter",
+        "muzhik": "hunter"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tyrolean-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

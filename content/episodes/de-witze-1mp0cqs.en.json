@@ -1,0 +1,112 @@
+{
+  "id": "de-witze-1mp0cqs.en",
+  "jokeId": "de-witze-1mp0cqs",
+  "locale": "en",
+  "title": "Voodoo",
+  "location": "spalnya",
+  "place": "home-living-room",
+  "cast": [
+    "zhena"
+  ],
+  "roles": {
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Do you ever get stabbing pains all over your body, as if someone had a voodoo doll of you and was sticking pins in it?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "No.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "And now?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

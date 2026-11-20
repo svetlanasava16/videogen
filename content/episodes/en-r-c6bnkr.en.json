@@ -2,7 +2,7 @@
   "id": "en-r-c6bnkr.en",
   "jokeId": "en-r-c6bnkr",
   "locale": "en",
-  "title": "Great Grandfather",
+  "title": "Mind Your Business",
   "location": "ulitsa",
   "place": "park",
   "cast": [
@@ -16,15 +16,24 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Eating that many chocolate bars is bad for you.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "A seven-year-old is sitting on a park bench eating a chocolate bar.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "Eating that many chocolate bars is bad for you.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "vovochka",
       "text": "My great grandfather lived to be one hundred and five.",
       "emotion": "neutral",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "And he ate that much chocolate?",
       "emotion": "surprised",
@@ -42,11 +51,11 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "vovochka",
-      "text": "No, but he minded his own freaking business.",
-      "uncensored": "No, but he minded his own fucking business.",
-      "emotion": "angry",
+      "text": "No. But he minded his own freaking business.",
+      "uncensored": "No. But he minded his own fucking business.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -78,6 +87,12 @@
           "to": "right"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -92,6 +107,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

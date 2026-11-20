@@ -2,22 +2,24 @@
   "id": "en-r-akndlt.de",
   "jokeId": "en-r-akndlt",
   "locale": "de",
-  "title": "Küchenlatein",
-  "location": "klass",
+  "title": "Das war Latein",
+  "location": "gostinaya",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "muzhik",
+    "vovochka",
+    "zhena"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "child"
+    "muzhik": "father",
+    "vovochka": "vovochka",
+    "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Wenn Fritzchens Papa fluchte, sagte er immer: Entschuldigung, das war Küchenlatein.",
+      "text": "Als er klein war, sagten seine Eltern nach jedem Schimpfwort immer: Pardon, das war Latein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,42 +27,109 @@
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Guten Morgen, Kinder. Kann schon jemand ein bisschen Latein?",
-      "emotion": "happy",
+      "character": "muzhik",
+      "text": "Pardon, das war Latein.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Ich! Ganz viel!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Pardon, das war Latein.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
-      "text": "Prima, Fritzchen! Sag doch mal was.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Seinen ersten Schultag wird er nie vergessen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "vovochka",
-      "text": "Am besten kann ich das, was Papa sagt, wenn er sich mit dem Hammer auf den Daumen haut!",
-      "emotion": "smug",
+      "character": "uchilka",
+      "text": "Kann von euch schon jemand ein bisschen Latein?",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "vovochka",
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "vovochka"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "vovochka": "vovochka"
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "board"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "student-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

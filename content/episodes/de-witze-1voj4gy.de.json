@@ -2,22 +2,22 @@
   "id": "de-witze-1voj4gy.de",
   "jokeId": "de-witze-1voj4gy",
   "locale": "de",
-  "title": "Die Verfolgungsjagd",
+  "title": "Verfolgungsjagd",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Nach einer wilden Verfolgungsjagd stoppt die Polizei endlich einen Mann.",
+      "text": "Ein Mann wird von der Polizei verfolgt, und sie liefern sich eine wilde Verfolgungsjagd.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,35 +25,90 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Wenn Sie jetzt keinen wirklich triftigen Grund für diese Fahrweise haben, kriegen Sie mächtig Ärger.",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Irgendwann erwischt die Polizei den Mann doch.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Entschuldigung. Meine Frau ist vor zwei Wochen mit einem Polizisten durchgebrannt.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "character": "sluzhivy",
+      "text": "Wenn Sie jetzt nicht einen wirklich triftigen Grund für Ihre Fahrweise und die Flucht haben, werden Sie mächtig Ärger bekommen.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ich dachte, Sie wollen sie mir zurückbringen.",
+      "text": "Entschuldigung, aber meine Frau ist vor zwei Wochen mit einem Polizisten durchgebrannt.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Und ich dachte, er will sie mir zurückbringen.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

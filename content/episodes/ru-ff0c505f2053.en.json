@@ -6,18 +6,18 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "paren",
-    "zhena"
+    "zhena",
+    "paren"
   ],
   "roles": {
-    "paren": "student",
-    "zhena": "mother"
+    "zhena": "mother",
+    "paren": "student"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Scottish lad studies at an English university and shares a room with two English students.",
+      "text": "Angus MacDonald came from Scotland to study at an English university, where he was put in a room with two other students.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Hello, son! So, how are you getting on with the English boys?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "When he had lived there for about a month, his mother came to visit him.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "zhena"
@@ -36,9 +36,9 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Oh, Mum, they're dreadful, noisy people!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "So, how do you like these English students, Angus?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "One of them bangs his head against the wall all night long.",
+      "text": "Mum, they're such awful, noisy people!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,29 +55,39 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "The other one just screams and screams. Every single night.",
+      "text": "The one on this side bangs his head against the wall all night without a break, and the one on that side screams and screams, and it's like that every night.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "zhena",
-      "text": "Oh, you poor thing! How do you put up with them?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "text": "Oh, Angus, how do you get along with these awful, noisy Englishmen?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "I don't, Mum. I just ignore them. I sit here all night and play my bagpipes.",
+      "text": "Mum, I don't do anything. I just ignore them.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "I sit here all night and play my bagpipes.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

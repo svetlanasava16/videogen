@@ -1,0 +1,204 @@
+{
+  "id": "ru-b6c8189e53eb.en",
+  "jokeId": "ru-b6c8189e53eb",
+  "locale": "en",
+  "title": "The Ice Cream",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "tyoshcha",
+    "paren",
+    "devushka"
+  ],
+  "roles": {
+    "tyoshcha": "old-woman",
+    "paren": "customer",
+    "devushka": "cashier"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "In a supermarket, an elderly woman comes up to a young man.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "tyoshcha",
+      "text": "You look so much like my late son! Would you do me a kindness?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Well, all right.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "tyoshcha",
+      "text": "You know, when I went shopping with him and was already standing at the checkout, at the very last moment he would always suddenly shout: Mom, we forgot to buy ice cream!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "tyoshcha",
+      "text": "And he'd run off for ice cream. I always remember that. Please, shout the same at the checkout.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Well, sure.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Mom, we forgot to buy ice cream!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "tyoshcha",
+      "text": "Well, run along, son, go get some.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "tyoshcha",
+      "text": "Well, I'll be going, my son will pay.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "tyoshcha"
+      ],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "tyoshcha",
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "paren": "customer",
+        "devushka": "cashier"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

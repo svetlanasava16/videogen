@@ -1,0 +1,126 @@
+{
+  "id": "ru-87596a6e68f1.de",
+  "jokeId": "ru-87596a6e68f1",
+  "locale": "de",
+  "title": "Die Suppe",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "muzhik",
+    "zhena"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Liebling! Wenn ich sterbe, trauere nicht, heirate gleich wieder.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Sei glücklich.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Nur eine Bitte habe ich: Er soll die Söhne richtig erziehen!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Du gehst mir so auf die Nerven!",
+      "uncensored": "Du gehst mir so auf die Eier!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Die Suppe ist ganz normal!!! Wenn du nicht willst, iss halt nicht...",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

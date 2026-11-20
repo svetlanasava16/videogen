@@ -3,21 +3,21 @@
   "jokeId": "de-witze-1ptmsrw",
   "locale": "ru",
   "title": "По дороге домой",
-  "location": "ulitsa",
+  "location": "doroga",
   "place": "street",
   "cast": [
-    "paren",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
-    "paren": "son",
+    "vovochka": "child",
     "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мальчик идёт из школы домой. Рядом с ним притормаживает машина.",
+      "text": "Мальчик идёт пешком из школы домой.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,18 +25,25 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Эй, садись, подвезу.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Сзади подъезжает машина, и водитель опускает стекло.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "paren",
+      "character": "muzhik",
+      "text": "Эй, садись.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
       "text": "Ни за что. Я лучше пешком.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
@@ -44,52 +51,128 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik",
-      "text": "Ну давай, у меня для тебя и леденец есть.",
+      "text": "Ну давай, у меня тут и леденец для тебя есть.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "paren",
-      "text": "Да хоть два! Я к тебе в машину не сяду.",
+      "id": "l6",
+      "character": "vovochka",
+      "text": "Мне всё равно, я к тебе в машину не сяду!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "Слушай. Ты садишься, мы едем есть мороженое, а потом я куплю тебе любую видеоигру.",
+      "text": "Слушай, я сейчас остановлюсь, ты сядешь ко мне, мы вместе поедем есть мороженое, а потом я куплю тебе любую видеоигру на выбор.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Разве не здорово?",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "paren",
-      "text": "Даже не мечтай! Это ты купил «Запорожец».",
+      "id": "l9",
+      "character": "vovochka",
+      "text": "Даже не мечтай! Я ни за что и никогда не сяду в твою машину.",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "paren",
-      "text": "Вот сам на нём и позорься, пап.",
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Это ты купил «Оку», вот сам с ней и разбирайся, папа.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

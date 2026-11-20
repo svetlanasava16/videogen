@@ -2,7 +2,7 @@
   "id": "en-r-aw3sud.de",
   "jokeId": "en-r-aw3sud",
   "locale": "de",
-  "title": "Der deutsche Schäfer",
+  "title": "Der Deutsche Schäfer",
   "location": "derevnya",
   "place": "garden",
   "cast": [
@@ -15,11 +15,20 @@
     "muzhik-ryzhy": "farmer",
     "pyos": "dog"
   },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "tyrolean-hat"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Jeden Tag kommt so ein deutscher Schäfer und kackt mir auf den Rasen.",
+      "text": "Dieser Deutsche Schäfer kommt jeden Tag und kackt auf meinen Rasen.",
+      "uncensored": "Dieser Deutsche Schäfer kommt jeden Tag und scheißt auf meinen Rasen.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -35,7 +44,8 @@
         "muzhik-ryzhy",
         "pyos"
       ],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

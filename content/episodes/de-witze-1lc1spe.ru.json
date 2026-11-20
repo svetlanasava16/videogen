@@ -16,9 +16,9 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Доктор, у меня всё болит!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Мужчина с болями приходит в больницу. Врач осматривает его.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "У вас тяжёлая болезнь. Придётся оставить вас в больнице.",
+      "text": "У вас тяжёлая болезнь.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,29 +37,30 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "На строгой диете: пицца и яичница.",
+      "text": "Нам придётся оставить вас здесь и посадить на строгую диету: пицца и яичница-глазунья!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "И от этого я поправлюсь?",
+      "text": "И от этого я выздоровею?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Понятия не имею. Зато это отлично пролезает под дверь.",
-      "emotion": "smug",
+      "text": "Понятия не имею, но это отлично пролезает под дверью.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

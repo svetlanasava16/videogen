@@ -1,0 +1,194 @@
+{
+  "id": "ru-77ec5ffd81ea.en",
+  "jokeId": "ru-77ec5ffd81ea",
+  "locale": "en",
+  "title": "Red Riding Hood and the Wolf",
+  "location": "derevnya",
+  "place": "forest",
+  "cast": [
+    "devochka",
+    "pyos"
+  ],
+  "roles": {
+    "devochka": "red-riding-hood",
+    "pyos": "wolf"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Little Red Riding Hood was walking and walking through the forest. Suddenly she sees the Big Bad Wolf sitting under a tree.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devochka",
+      "text": "What big eyes you have, Wolf!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "The Wolf jumped up and ran away.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Little Red Riding Hood walks on. She crosses a forest stream. Suddenly she sees the Wolf hiding behind a stump.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devochka",
+      "text": "What big ears you have, Wolf!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The Wolf just shot her a glare. And ran off.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "She walks on. She pushes through the thicket. And look! There in the thicket, under a little pine, sits the Wolf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "devochka",
+      "text": "What big teeth you have, Wolf!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "pyos",
+      "text": "Freaking heck, will you let me take a crap or not?",
+      "uncensored": "Fucking hell, will you let me take a shit or not?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devochka",
+        "pyos"
+      ],
+      "roles": {
+        "devochka": "red-riding-hood",
+        "pyos": "wolf"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "tree"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

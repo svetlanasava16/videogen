@@ -17,54 +17,177 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Генерал вальяжно гуляет по мосту. Мимо пытается проскочить солдат в самоволке.",
+      "text": "Генерал вразвалочку идет по мосту, смотрит вокруг ленивым взором, и надо ж было, ему на глаза попался солдат.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Солдат! Это что такое? Почему честь не отдали?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Солдат как обычно в самоволке и хочет проскочить мимо, делая вид, что не замечает генерала.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Согласно пункту сто сорок семь устава, на мосту честь не отдаётся!",
-      "emotion": "smug",
+      "character": "sluzhivy",
+      "text": "Солдат, мать вашу, это что такое?!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "sluzhivy-ryadovoy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
+      "character": "sluzhivy",
+      "text": "Почему честь не отдали?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Согласно сто сорок седьмому пункту устава честь на мосту не отдается!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "narrator",
-      "text": "Генерал растерянно козыряет в ответ, а дома открывает устав.",
+      "text": "Генерал растерялся, козырнул и сразу домой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Пришел, полистал устав, нашел нужный пункт, читает и офигивает:",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "sluzhivy",
       "text": "Пункт сто сорок семь. Солдат должен быть находчив и смел.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy": "officer",
+        "sluzhivy-ryadovoy": "soldier"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "sluzhivy"
+      ],
+      "roles": {
+        "sluzhivy": "officer"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

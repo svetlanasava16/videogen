@@ -2,22 +2,41 @@
   "id": "ru-de53c1b2a49d.en",
   "jokeId": "ru-de53c1b2a49d",
   "locale": "en",
-  "title": "The Perfect Gift",
+  "title": "The Birthday Present",
   "location": "doroga",
   "place": "road",
   "cast": [
     "sluzhivy",
-    "sluzhivy-ryadovoy"
+    "sluzhivy-ryadovoy",
+    "muzhik-ryzhy"
   ],
   "roles": {
     "sluzhivy": "customs-officer",
-    "sluzhivy-ryadovoy": "customs-officer"
+    "sluzhivy-ryadovoy": "customs-officer",
+    "muzhik-ryzhy": "customs-officer"
+  },
+  "looks": {
+    "sluzhivy-ryadovoy": {
+      "add": [
+        "police-cap",
+        "dark-glasses"
+      ],
+      "remove": [
+        "army-cap"
+      ]
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Two customs officers are choosing a birthday present for a colleague.",
+      "text": "Three customs officers are sitting around, thinking what to give a fourth one for his birthday.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +45,7 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "How about a new Mercedes?",
+      "text": "How about we give him a new Mercedes?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,9 +53,9 @@
     },
     {
       "id": "l3",
-      "character": "sluzhivy-ryadovoy",
-      "text": "He's got one. We gave him that last year.",
-      "emotion": "sad",
+      "character": "muzhik-ryzhy",
+      "text": "Nah, he's already got one, we gave him that last birthday.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,8 +63,8 @@
     {
       "id": "l4",
       "character": "sluzhivy-ryadovoy",
-      "text": "Then a beach house in the Canaries.",
-      "emotion": "happy",
+      "text": "Then let's give him a bungalow in the Canary Islands.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,29 +72,30 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "He's got one of those too.",
-      "emotion": "neutral",
+      "text": "Nah, he's already got one.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "sluzhivy",
-      "text": "I've got it! We let him work a whole shift alone!",
+      "character": "muzhik-ryzhy",
+      "text": "I've got it! For his present, let's leave him to work the whole shift alone!",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "Are you out of your mind? That's way too expensive!",
-      "emotion": "surprised",
+      "text": "What, are you nuts? That's way too expensive a present!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

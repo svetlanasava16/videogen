@@ -1,0 +1,113 @@
+{
+  "id": "de-witze-1w9uyyg.ru",
+  "jokeId": "de-witze-1w9uyyg",
+  "locale": "ru",
+  "title": "Истец",
+  "location": "sud",
+  "place": "courtroom",
+  "cast": [
+    "nachalnik",
+    "muzhik"
+  ],
+  "roles": {
+    "nachalnik": "judge",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Судья спрашивает истца:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Итак, господин Майер, ответчик заявил, что вы козёл. Это так?",
+      "uncensored": "Итак, господин Майер, ответчик заявил, что вы мудак. Это так?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Так точно, ваша честь.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Тогда почему вы подаёте в суд?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "nachalnik",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "judge",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "witness"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

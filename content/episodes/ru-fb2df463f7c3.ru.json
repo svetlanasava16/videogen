@@ -10,14 +10,14 @@
     "muzhik"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "sluzhivy": "traffic-cop",
+    "muzhik": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мимо постового проезжает «Фольксваген Гольф».",
+      "text": "Стоит милиционер, мимо проезжает Фольксваген-Гольф.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Стоять! Стоять, стрелять буду!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Вдруг милиционер резко машет водителю жезлом, оглушительно свистит и выхватывает пистолет.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Водитель бьёт по тормозам и чуть не вылетает через лобовое стекло.",
+      "text": "Водитель сразу по тормозам, чуть не вылетает через лобовое стекло, выходит весь бледный, на ватных ногах:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,12 +44,10 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Что случилось, командир?",
+      "text": "Что такое?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
@@ -57,30 +55,77 @@
       "character": "sluzhivy",
       "text": "Да ничего.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Я вот тоже Гольф купить хочу.",
+      "text": "Я вот хочу тоже Гольф купить, да чего-то говорят, у него тормоза слабые...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "sluzhivy",
-      "text": "Да говорят, у него тормоза слабые.",
-      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

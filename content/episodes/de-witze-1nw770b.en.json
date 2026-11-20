@@ -1,0 +1,231 @@
+{
+  "id": "de-witze-1nw770b.en",
+  "jokeId": "de-witze-1nw770b",
+  "locale": "en",
+  "title": "Country Folk",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "muzhik-ryzhy",
+    "paren",
+    "tyoshcha",
+    "devushka"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "farmer",
+    "paren": "son",
+    "tyoshcha": "old-woman",
+    "devushka": "woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A farmer and his son come in from the country for the first time, to the new shopping mall.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "In the parking garage, an old woman is waiting for the elevator.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Pa, look. What's that, then?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Boy, that's an old granny!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Nah, Pa, I mean the silver thing.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "No idea, son. Hang on, I'll just ask the granny.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Just then the doors open, the old woman steps into the elevator, and the doors close.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Father and son stand rooted to the spot.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "A moment later the doors open again, and a young, attractive lady steps out.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-ryzhy",
+      "text": "Son, I've no idea what kind of box that is, but you drive straight back to the farm right now and fetch your mother!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-ryzhy",
+        "paren",
+        "tyoshcha",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer",
+        "paren": "son",
+        "tyoshcha": "old-woman",
+        "devushka": "woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        },
+        "devushka": {
+          "add": [
+            "lipstick",
+            "earrings"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,55 +2,63 @@
   "id": "ru-fe7f9114a1e2.de",
   "jokeId": "ru-fe7f9114a1e2",
   "locale": "de",
-  "title": "Keine Eile",
+  "title": "Der Brand",
   "location": "ofis",
   "place": "police-station",
   "cast": [
-    "sluzhivy-ryadovoy",
-    "sluzhivy"
+    "muzhik",
+    "muzhik-ryzhy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "sluzhivy-ryadovoy": "firefighter",
-    "sluzhivy": "officer"
+    "muzhik": "firefighter",
+    "muzhik-ryzhy": "firefighter",
+    "sluzhivy-ryadovoy": "firefighter"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Männer, wir haben einen Einsatz.",
+      "character": "narrator",
+      "text": "Der Feuerwehrchef schlendert, die Hände in den Taschen, in den Raum, wo die Mannschaft auf einen Einsatz wartet, und sagt ganz ruhig:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "sluzhivy"
+        "sluzhivy-ryadovoy"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Zieht euch ganz gemütlich an. Trinkt erst mal euren Kaffee aus.",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Jungs, macht euch mal ganz langsam fertig...",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy-ryadovoy",
-      "text": "Was brennt denn, Chef?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "sluzhivy",
-      "text": "Das Finanzamt.",
+      "text": "Das Finanzamt brennt...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

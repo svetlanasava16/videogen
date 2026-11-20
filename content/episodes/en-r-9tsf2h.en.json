@@ -2,23 +2,23 @@
   "id": "en-r-9tsf2h.en",
   "jokeId": "en-r-9tsf2h",
   "locale": "en",
-  "title": "The Photo",
+  "title": "You Should See My Girlfriend",
   "location": "samolet",
   "place": "train",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "husband",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-ryzhy",
-      "text": "Here, mate, have a look. That's my wife.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "The guy sat next to him on the train pulled out a photo of his wife.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -27,16 +27,16 @@
       "id": "l2",
       "character": "muzhik-ryzhy",
       "text": "She's beautiful, isn't she?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "If you think she's beautiful, you should see my girlfriend.",
-      "emotion": "neutral",
+      "text": "If you think she's beautiful, you should see my girlfriend, mate.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,21 +46,68 @@
       "character": "muzhik-ryzhy",
       "text": "Why? Is she a stunner?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "No. She's an optician.",
+      "text": "No, she's an optician.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-ryzhy": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

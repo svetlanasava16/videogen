@@ -2,25 +2,25 @@
   "id": "en-r-dswgsp.de",
   "jokeId": "en-r-dswgsp",
   "locale": "de",
-  "title": "Der Mann hinter uns",
+  "title": "Im Bus",
   "location": "doroga",
   "place": "bus",
   "cast": [
+    "paren",
     "muzhik",
-    "muzhik-sosed",
     "ded"
   ],
   "roles": {
+    "paren": "everyman",
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
     "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Kennst du den? Was macht man, wenn ein Epileptiker in der Badewanne einen Anfall hat?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Ein Typ saß mit einem Kumpel im Bus, und der Kumpel erzählte ihm einen Witz.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -28,59 +28,42 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Was?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Man wirft die Wäsche rein.",
+      "text": "Was machst du, wenn ein Epileptiker in der Badewanne einen Anfall hat?",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "ded",
-      "text": "Das finde ich widerlich.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Du wirfst deine Wäsche rein.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "ded",
-      "text": "Mein Sohn ist bei einem Anfall in der Badewanne gestorben.",
-      "emotion": "sad",
+      "text": "Ich finde das widerlich. Mein Sohn ist in der Badewanne bei einem Anfall gestorben.",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Oh nein. Das tut uns furchtbar leid.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "Wirklich, entschuldigen Sie.",
-      "emotion": "sad",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Beide wurden kreidebleich und entschuldigten sich. Der Mann stand auf, um auszusteigen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l6",
       "character": "ded",
       "text": "Er ist an einer Socke erstickt.",
       "emotion": "neutral",
@@ -88,10 +71,54 @@
       "enter": [],
       "exit": [
         "ded"
-      ]
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "paren",
+        "muzhik",
+        "ded"
+      ],
+      "roles": {
+        "paren": "everyman",
+        "muzhik": "everyman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

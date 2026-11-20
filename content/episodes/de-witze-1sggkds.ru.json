@@ -6,18 +6,18 @@
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "muzhik",
+    "paren",
     "muzhik-sosed"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "paren": "neighbor",
     "muzhik-sosed": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Слушай, у тебя же такая же квартира, как у меня. Сколько рулонов обоев ты брал на прихожую?",
+      "character": "narrator",
+      "text": "Новый жилец спрашивает соседа сверху:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Десять рулонов.",
+      "character": "paren",
+      "text": "Слушай, у тебя ведь такая же квартира, как у меня.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,6 +34,24 @@
     },
     {
       "id": "l3",
+      "character": "paren",
+      "text": "Сколько рулонов обоев ты купил, чтобы оклеить прихожую?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "Десять рулонов.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "narrator",
       "text": "Через неделю они встречаются на лестнице.",
       "emotion": "neutral",
@@ -42,22 +60,23 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Слушай, а у меня пять рулонов осталось!",
+      "id": "l6",
+      "character": "paren",
+      "text": "Слушай, а у меня пять рулонов осталось.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "muzhik-sosed",
-      "text": "Ага, у меня тогда тоже.",
+      "text": "Да, у меня тогда тоже.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

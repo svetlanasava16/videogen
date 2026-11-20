@@ -2,7 +2,7 @@
   "id": "de-witze-1q0z0zh.de",
   "jokeId": "de-witze-1q0z0zh",
   "locale": "de",
-  "title": "Gäste-WLAN",
+  "title": "Gäste-WLAN in der Kirche",
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Entschuldigung, Herr Pfarrer. Mir wird hier ein WLAN der Kirche angezeigt. Können Sie mir kurz das Passwort sagen?",
+      "character": "narrator",
+      "text": "Während der Messe wendet sich plötzlich ein Mann aus der ersten Reihe an den Priester.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,125 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Gütiger Gott! Haben Sie doch bitte Anstand. Das ist die Totenmesse für Ihre verstorbene Ehefrau.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Entschuldigung. Mir wird hier ein verfügbares WLAN für die Kirche angezeigt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
+      "text": "Könnten Sie mir kurz das Passwort nennen?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "batyushka",
+      "text": "Gütiger Gott! So haben Sie doch bitte Anstand.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "Dies ist schließlich die Totenmesse für Ihre verstorbene Ehefrau.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
       "text": "Danke. Schreibt man das alles klein und ohne Leerzeichen?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "batyushka": "priest"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#2b2b2b",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "pew-left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

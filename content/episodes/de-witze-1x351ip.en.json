@@ -2,80 +2,178 @@
   "id": "de-witze-1x351ip.en",
   "jokeId": "de-witze-1x351ip",
   "locale": "en",
-  "title": "The Other Shoe",
+  "title": "The Man Next Door",
   "location": "bar",
   "place": "hotel",
   "cast": [
-    "uchilka",
     "nachalnik",
-    "muzhik-sosed"
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "clerk",
     "nachalnik": "businessman",
-    "muzhik-sosed": "neighbor"
+    "uchilka": "clerk"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "Here's your key. Please keep it down, the man next door is very nervous and sleeps badly.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "uchilka"
-      ]
-    },
-    {
-      "id": "l2",
       "character": "narrator",
-      "text": "Upstairs, dead tired, he drops one shoe on the floor with a loud thud.",
+      "text": "A businessman had booked a hotel room.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "uchilka",
+      "text": "The man in the room next door is very nervous and has a hard time falling asleep.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Oh, the nervous neighbor! I'll set the other one down quietly.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "After a long day at work the businessman was very tired. He sat down on the bed, took off one of his shoes rather loudly and let it drop to the floor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Two hours later, someone pounds on his door.",
+      "text": "At that moment he remembered what the receptionist had said, and he set the second shoe down very quietly.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Then he went to sleep. Two hours later he was woken by loud knocking at his door.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "nachalnik",
-      "text": "Who is it?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "text": "What's going on?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik-sosed",
-      "text": "Your neighbor. For heaven's sake, drop the other shoe already!",
+      "text": "I'm the man from the room next door. Would you please, finally, drop the other shoe?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik-sosed"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "uchilka"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "uchilka": "clerk"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "robe-white"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

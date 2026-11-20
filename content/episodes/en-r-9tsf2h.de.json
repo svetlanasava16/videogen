@@ -2,23 +2,23 @@
   "id": "en-r-9tsf2h.de",
   "jokeId": "en-r-9tsf2h",
   "locale": "de",
-  "title": "Das Foto",
+  "title": "Geh mal zu meiner Freundin",
   "location": "samolet",
   "place": "train",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "husband",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-ryzhy",
-      "text": "Schau mal, das ist meine Frau.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Der Typ neben ihm im Zug zieht ein Foto seiner Frau heraus.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,17 +26,17 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Hübsch, oder?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Sie ist wunderschön, oder?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Wenn du die hübsch findest, solltest du mal zu meiner Freundin gehen.",
-      "emotion": "neutral",
+      "text": "Wenn du die schön findest, solltest du mal zu meiner Freundin gehen, Kumpel.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,23 +44,70 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Wieso? Ist die noch hübscher?",
+      "text": "Wieso? Ist sie so eine Wucht?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Nein. Die ist Augenärztin.",
+      "text": "Nein, sie ist Optikerin.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-ryzhy": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

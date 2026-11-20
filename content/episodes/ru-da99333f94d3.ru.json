@@ -3,21 +3,21 @@
   "jokeId": "ru-da99333f94d3",
   "locale": "ru",
   "title": "Жених",
-  "location": "ofis",
+  "location": "doroga",
   "place": "police-station",
   "cast": [
-    "sluzhivy",
-    "muzhik"
+    "paren",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "paren": "driver",
+    "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Полицейский задерживает водителя за превышение скорости.",
+      "text": "Полицейский останавливает нарушителя, который значительно превысил скорость.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,46 +25,44 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Командир, я всё могу объяснить!",
+      "character": "paren",
+      "text": "Но, сэр, я могу все объяснить!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Объяснишь моему шефу. А пока посидишь в камере.",
+      "text": "Объяснишь все моему шефу, а пока посидишь в камере!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Но я хочу сказать...",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Молчать!",
+      "text": "Заткнись...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Проходит несколько часов.",
+      "text": "Через несколько часов полицейский заходит в камеру к нарушителю.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,25 +71,125 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "Тебе повезло. Шеф сейчас на свадьбе у дочери. Приедет добрый.",
+      "text": "Тебе повезло, шеф сейчас на свадьбе у своей дочери, когда он приедет, то будет в хорошем настроении!",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "pauseAfterSec": 0.8,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Не рассчитывайте. Я жених.",
+      "character": "paren",
+      "text": "И не рассчитывайте — я жених.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "driver",
+        "sluzhivy": "police-officer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "driver",
+        "sluzhivy": "police-officer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

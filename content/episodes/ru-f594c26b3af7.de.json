@@ -6,40 +6,41 @@
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka",
-    "devushka-blondinka"
+    "zhena",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "devushka-blondinka": "woman"
+    "zhena": "wife",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Mein Mann redet ständig im Schlaf. Schrecklich!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "Mein Mann redet so oft im Schlaf, das ist einfach furchtbar!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
+      "character": "zhena",
       "text": "Redet deiner auch?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka-blondinka",
-      "text": "Nein. Er lächelt nur... der Mistkerl!",
+      "character": "devushka",
+      "text": "Nein, er lächelt nur... der Mistkerl!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

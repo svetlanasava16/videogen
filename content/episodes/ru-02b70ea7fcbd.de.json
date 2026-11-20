@@ -2,7 +2,7 @@
   "id": "ru-02b70ea7fcbd.de",
   "jokeId": "ru-02b70ea7fcbd",
   "locale": "de",
-  "title": "Abstimmung",
+  "title": "Die Abstimmung",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,8 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Herr Doktor, es gibt doch so eine Operation, nach der man garantiert keine Kinder mehr bekommt. Die hätte ich gern.",
-      "emotion": "neutral",
+      "text": "Herr Doktor, ich habe gehört, es gibt so eine Operation, nach der man gar keine Kinder mehr bekommen kann.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -27,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Aber, mein Lieber, so eine Entscheidung bricht man nicht übers Knie.",
+      "character": "muzhik",
+      "text": "Machen Sie mir so eine.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,29 +37,39 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Heute wollen Sie keine Kinder, morgen vielleicht doch. Überlegen Sie es sich gut, besprechen Sie es mit der Familie.",
-      "emotion": "smug",
+      "text": "Na, mein Lieber, solche Entscheidungen trifft man nicht aus dem Bauch heraus.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Haben wir schon.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "character": "doktor",
+      "text": "Heute wollen Sie keine Kinder, und morgen wollen Sie doch welche.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "doktor",
+      "text": "Wägen Sie alles ab, besprechen Sie es mit der Familie...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Ergebnis der Abstimmung: zwei dagegen, siebzehn dafür.",
+      "text": "Haben wir schon. Die Abstimmung: zwei dagegen, siebzehn dafür.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

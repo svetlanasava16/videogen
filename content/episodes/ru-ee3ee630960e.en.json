@@ -2,7 +2,7 @@
   "id": "ru-ee3ee630960e.en",
   "jokeId": "ru-ee3ee630960e",
   "locale": "en",
-  "title": "Fend for Yourself",
+  "title": "The Salary",
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -13,35 +13,44 @@
     "sluzhivy": "police-officer",
     "nachalnik": "boss"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "A young guy joins the police, and for three months he hasn't collected his salary.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
-      "text": "Officer, you've been here three months and never picked up a single paycheck. What's going on?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "text": "So how long is it now that you haven't collected your salary?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
       "enter": [
         "nachalnik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "sluzhivy",
-      "text": "Wait, there's pay too?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "I thought the deal was, here's your gun, go fend for yourself.",
-      "emotion": "smug",
+      "text": "Oh, I thought they give you a pistol and you fend for yourself...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

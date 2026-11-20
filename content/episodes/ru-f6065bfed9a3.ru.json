@@ -6,32 +6,29 @@
   "location": "nebesa",
   "place": "hell",
   "cast": [
-    "muzhik",
     "chort",
+    "muzhik",
     "inostranets"
   ],
   "roles": {
-    "muzhik": "everyman",
     "chort": "devil",
+    "muzhik": "everyman",
     "inostranets": "foreigner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Русский и американец умерли и попали в ад.",
+      "text": "После смерти русский и американец попали в ад. Дьявол спрашивает их:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "inostranets"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "chort",
-      "text": "Вам в какой ад, в русский или в американский?",
+      "text": "В какой ад пойдете, в русский или в американский?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "inostranets",
+      "character": "muzhik",
       "text": "А какая разница?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -49,16 +46,16 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "В американском каждый день съедаешь ведро дерьма. А в русском два.",
+      "text": "В американском надо съедать каждый день по ведру говна, а в русском по два.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "inostranets",
-      "text": "Мне в американский.",
+      "character": "narrator",
+      "text": "Американец выбрал американский, а русский подумал:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,16 +64,16 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Я всю жизнь в России прожил. Чего уж менять.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Всю жизнь в России прожил, чего уж менять?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Через месяц они встречаются.",
+      "text": "Через месяц встречаются. Русский спрашивает:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -94,23 +91,122 @@
     {
       "id": "l9",
       "character": "inostranets",
-      "text": "Отлично. Утром съел ведро, и весь день свободен. А у вас?",
+      "text": "Прекрасно, съел с утра ведро говна и целый день свободен.",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "inostranets",
+      "text": "А у вас?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik",
-      "text": "Как всегда. То дерьмо не завезли, то вёдер на всех не хватает.",
+      "text": "А как всегда: то говна не завезли, то ведер на всех не хватает.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "chort",
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "chort": "devil",
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "inostranets",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -6,19 +6,28 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "bartender",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Zwei Bier und zwei Korn, bitte.",
+      "character": "narrator",
+      "text": "Ein Mann kommt in die Kneipe und bestellt:",
       "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Zwei Bier und zwei Korn.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -26,27 +35,18 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "narrator",
-      "text": "Ein paar Tage später das Gleiche. Und dann wieder.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "barmen",
-      "text": "Sag mal, warum bestellst du immer alles doppelt?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Ein paar Tage später das Gleiche.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Mein Kumpel und ich haben ein Ritual. Wenn einer allein unterwegs ist, trinkt er für den anderen mit.",
+      "text": "Zwei Bier und zwei Korn.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,38 +55,66 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Das geht eine Weile so. Eines Tages:",
+      "text": "Nach dem dritten Mal fragt der Wirt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Ein Bier und ein Korn, bitte.",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "Warum bestellst du alles doppelt?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "Mein Kumpel und ich haben ein Ritual, bei dem wir für den anderen mittrinken, wenn wir allein unterwegs sind.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Das geht eine Weile so weiter. Eines Tages bestellt er nur:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Ein Bier und ein Korn.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "barmen",
-      "text": "Oh nein. Ist dein Kumpel verstorben?",
+      "text": "Was ist passiert, ist dein Kumpel verstorben?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l11",
       "character": "muzhik",
-      "text": "Nee. Ich hab aufgehört zu trinken.",
-      "emotion": "smug",
+      "text": "Ne, aber ich habe aufgehört zu trinken.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

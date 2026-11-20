@@ -11,12 +11,20 @@
   "roles": {
     "muzhik": "everyman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Zu spät, zu spät! Wo soll ich hier bloß parken?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Ein Mann fährt zu einem Termin. Er ist spät dran, nervös und findet keinen Parkplatz.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -24,7 +32,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Lieber Gott, bitte hilf mir, einen Parkplatz zu finden!",
+      "text": "Herrgott, hilf mir, einen Parkplatz zu finden.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -41,9 +49,9 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Moment... da ist ja einer frei!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Plötzlich wird wie durch ein Wunder ein Parkplatz frei.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -51,11 +59,12 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ach, lass gut sein, lieber Gott. Hab schon einen!",
-      "emotion": "smug",
+      "text": "Ach, schon gut, hat sich erledigt. Hab einen gefunden!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

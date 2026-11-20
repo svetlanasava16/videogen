@@ -2,22 +2,41 @@
   "id": "ru-de53c1b2a49d.ru",
   "jokeId": "ru-de53c1b2a49d",
   "locale": "ru",
-  "title": "Подарок таможеннику",
+  "title": "Подарок",
   "location": "doroga",
   "place": "road",
   "cast": [
     "sluzhivy",
-    "sluzhivy-ryadovoy"
+    "sluzhivy-ryadovoy",
+    "muzhik-ryzhy"
   ],
   "roles": {
     "sluzhivy": "customs-officer",
-    "sluzhivy-ryadovoy": "customs-officer"
+    "sluzhivy-ryadovoy": "customs-officer",
+    "muzhik-ryzhy": "customs-officer"
+  },
+  "looks": {
+    "sluzhivy-ryadovoy": {
+      "add": [
+        "police-cap",
+        "dark-glasses"
+      ],
+      "remove": [
+        "army-cap"
+      ]
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Таможенники думают, что подарить коллеге на день рождения.",
+      "text": "Сидят три таможенника и думают, что подарить четвертому на день рождения.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +45,7 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Может, шестисотый мерс подарим?",
+      "text": "Давайте подарим шестисотый мерс?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,9 +53,9 @@
     },
     {
       "id": "l3",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Есть уже. В прошлом году дарили.",
-      "emotion": "sad",
+      "character": "muzhik-ryzhy",
+      "text": "Да не, у него уже есть, на прошлый день рождения подарили.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,8 +63,8 @@
     {
       "id": "l4",
       "character": "sluzhivy-ryadovoy",
-      "text": "Тогда бунгало на Канарах.",
-      "emotion": "happy",
+      "text": "Тогда давайте подарим бунгало на Канарах.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,29 +72,30 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Да есть у него бунгало.",
-      "emotion": "neutral",
+      "text": "Да не, у него есть уже.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "sluzhivy",
-      "text": "Придумал! Пусть отработает целую смену один!",
+      "character": "muzhik-ryzhy",
+      "text": "Придумал! Давайте в подарок оставим его одного работать всю смену!",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "Ты что, обалдел? Такой дорогой подарок!",
-      "emotion": "surprised",
+      "text": "Да ты че, обалдел, такой дорогой подарок дарить!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -6,18 +6,18 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "ded",
-    "zhena"
+    "tyoshcha",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "zhena": "wife"
+    "tyoshcha": "old-woman",
+    "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "An old man lies dying, his wife at his bedside.",
+      "text": "An old, very sick man lies dying and says to his wife:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Linda, since our wedding day we have never been apart.",
+      "text": "Elfriede, since the day of our wedding we have never been apart.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "When I got badly hurt skiing, you sat by my bed.",
-      "emotion": "neutral",
+      "text": "When I got badly hurt on that ski holiday, you were next to me.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,8 +62,8 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "When inflation ate up all my savings, you stayed.",
-      "emotion": "sad",
+      "text": "When inflation ate up my savings and I had nothing left, even then you were there, and you stayed.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "And now I'm dying, and you're still here.",
+      "text": "Now I'm dying, and you're still here.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -80,14 +80,73 @@
     {
       "id": "l8",
       "character": "ded",
-      "text": "Linda, you have brought me nothing but bad luck!",
+      "text": "Elfriede, you've never brought me anything but bad luck!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

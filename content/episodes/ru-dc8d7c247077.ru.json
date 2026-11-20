@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Жара, дорога в гору. Выдохшийся велосипедист останавливается на мосту возле рыбака.",
+      "text": "Мужик едет на велосипеде в свою деревню. Жара, дорога в гору, замучился. На мосту решил отдохнуть.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,6 +25,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Видит, на мосту один с удочкой стоит, на поплавок смотрит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
       "text": "Ну что, рыбку ловим?",
       "emotion": "happy",
@@ -35,7 +44,16 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
+      "character": "narrator",
+      "text": "Рыбак молчит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
       "text": "Я говорю, рыбку ловим?",
       "emotion": "surprised",
@@ -44,10 +62,28 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Опять молчание.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "Глухой, что ли? Рыбку, говорю, ловим?",
+      "text": "Ну чего, глухой? Спрашиваю, рыбку ловим?",
       "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Тот все на поплавок смотрит. Мужик плюнул, сел на велик и дальше весь в поту в гору пилит.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": [
@@ -55,27 +91,98 @@
       ]
     },
     {
-      "id": "l5",
+      "id": "l9",
       "character": "narrator",
-      "text": "Мужик плюнул и в поту покатил дальше в гору. Через три километра оборачивается, а рыбак машет ему изо всех сил: возвращайся!",
+      "text": "Отъехал уж километра три, обернулся и видит: рыбак ему машет изо всех сил, мол, возвращайся скорей.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Ну что, на велосипеде катаемся?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "id": "l10",
+      "character": "narrator",
+      "text": "Ну, развернулся, съехал обратно.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [
         "muzhik"
       ],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik-ryzhy",
+      "text": "Ну что, на велосипеде катаемся?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "de-witze-1j3l3f2.de",
   "jokeId": "de-witze-1j3l3f2",
   "locale": "de",
-  "title": "Die zwei Himmelstore",
+  "title": "Die zwei Tore",
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Vor dem Himmel gibt es zwei Tore.",
+      "text": "Am Eingang zum Himmel befinden sich zwei Tore.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Auf dem einen steht: Für Männer, die von ihren Frauen bevormundet wurden. Auf dem anderen: Für Männer, die nicht bevormundet wurden.",
+      "text": "An einem Eingang steht ein Schild: Für Männer, die von ihren Frauen bevormundet wurden!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Vor dem ersten Tor eine endlose Schlange. Vor dem zweiten steht nur einer.",
+      "text": "Am anderen Eingang steht: Für Männer, die nicht von ihren Frauen bevormundet wurden!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,26 +43,118 @@
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "Mein Sohn, warum stehst ausgerechnet du ganz allein vor diesem Tor?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "ded"
-      ],
+      "character": "narrator",
+      "text": "Vor dem ersten Tor steht eine riesige Schlange von Männern. Vor dem zweiten Tor nur einer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "Mein Sohn, warum stehst ausgerechnet du ganz alleine vor diesem Tor?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Das weiß ich eigentlich auch nicht. Meine Frau hat gesagt, ich soll mich hier anstellen.",
+      "text": "Das weiß ich eigentlich auch nicht.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Meine Frau hat gesagt, ich soll mich hier anstellen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "saint-peter",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "lectern"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "gate"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

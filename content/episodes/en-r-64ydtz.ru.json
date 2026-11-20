@@ -1,0 +1,84 @@
+{
+  "id": "en-r-64ydtz.ru",
+  "jokeId": "en-r-64ydtz",
+  "locale": "ru",
+  "title": "Молоко и яйца",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "zhena",
+    "paren"
+  ],
+  "roles": {
+    "zhena": "wife",
+    "paren": "programmer"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Жена просит мужа-программиста сходить в магазин.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Сходи в магазин, купи литр молока, а если будут яйца, возьми шесть.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "paren"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Через какое-то время он возвращается домой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Нафига тебе шесть литров молока?",
+      "uncensored": "Нахуя тебе шесть литров молока?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Яйца были.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

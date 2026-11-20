@@ -1,0 +1,202 @@
+{
+  "id": "de-witze-1ihr0u4.ru",
+  "jokeId": "de-witze-1ihr0u4",
+  "locale": "ru",
+  "title": "Контактные линзы",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "paren",
+    "devushka-blondinka"
+  ],
+  "roles": {
+    "paren": "employee",
+    "devushka-blondinka": "secretary"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "В приёмной начальника отдела кадров несколько мужчин ждут собеседования. Один за другим они очень быстро выходят обратно, белые как мел, и сломя голову покидают заведение.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Что там внутри происходит?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-blondinka",
+      "text": "У шефа нет ушей, и он смертельно не выносит, когда с ним об этом заговаривают.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Большое спасибо!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Молодого человека вызывают. Беседа идёт непринуждённо.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "Молодой человек, посмотрите-ка на меня очень внимательно! Вам во мне ничего не бросается в глаза?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Вы носите контактные линзы!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "nachalnik",
+      "text": "Ничего себе, да вы отличный наблюдатель! Как же вы это так быстро заметили?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "paren",
+      "text": "Если бы у вас были уши, вы бы носили очки.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "paren": "employee",
+        "devushka-blondinka": "secretary"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "flee"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

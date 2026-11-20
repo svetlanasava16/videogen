@@ -1,0 +1,126 @@
+{
+  "id": "de-witze-1qtyil7.de",
+  "jokeId": "de-witze-1qtyil7",
+  "locale": "de",
+  "title": "Der Schnurrbart",
+  "location": "samolet",
+  "place": "train",
+  "cast": [
+    "muzhik",
+    "nachalnik"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Im Zug starrt Müller seinen Gegenüber unentwegt an.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Was gucken Sie denn so?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Entschuldigen Sie, aber bis auf den Schnurrbart sind Sie meiner Frau wie aus dem Gesicht geschnitten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Aber ich habe doch gar keinen Schnurrbart!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Sie nicht.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "train",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [],
+          "remove": [
+            "mustache"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

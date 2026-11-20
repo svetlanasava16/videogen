@@ -6,18 +6,32 @@
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "sluzhivy",
-    "paren"
+    "paren",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "pilot",
-    "paren": "artist"
+    "paren": "journalist",
+    "sluzhivy": "pilot"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    },
+    "sluzhivy": {
+      "add": [
+        "headset"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Fotograf soll einen großen Waldbrand von oben fotografieren. Am Flugplatz wartet schon eine kleine Maschine.",
+      "text": "Ein Fotograf einer Natur- und Wissenschaftszeitschrift erhielt den Auftrag, Fotos von einem großen Waldbrand zu machen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +39,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Sein Verleger hatte ein kleines Flugzeug für ihn gemietet, damit er ein paar Luftaufnahmen machen konnte. Der Pilot wartete bereits auf einem lokalen Flugplatz in der Nähe.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "paren",
-      "text": "Schnell! Wir fliegen sofort los!",
+      "text": "Komm schnell! Wir fliegen sofort los!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,25 +58,25 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "narrator",
-      "text": "Die Maschine hebt ab.",
+      "text": "Während das Flugzeug abhob, gab der Fotograf dem Piloten Anweisungen:",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "paren",
-      "text": "Flieg über die Nordseite des Brandes. Drei- oder viermal, ganz tief.",
+      "text": "Ich möchte, dass du über die Nordseite des Brandherds fliegst und drei- oder viermal ganz tief darüber hinwegfliegst.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "sluzhivy",
       "text": "Warum?",
       "emotion": "surprised",
@@ -62,22 +85,32 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "paren",
-      "text": "Was heißt hier warum? Damit ich Fotos machen kann! Ich bin Fotograf, und ein Fotograf macht Fotos!",
+      "text": "Was meinst du mit warum?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
+      "character": "paren",
+      "text": "Damit ich ein paar Fotos machen kann natürlich! Ich bin Fotograf, und ein Fotograf macht Fotos!",
+      "emotion": "angry",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "sluzhivy",
-      "text": "Du meinst also... du bist gar nicht mein Fluglehrer?",
+      "text": "Du meinst also... dass du nicht der Fluglehrer bist?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

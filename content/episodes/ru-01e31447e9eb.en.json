@@ -2,7 +2,7 @@
   "id": "ru-01e31447e9eb.en",
   "jokeId": "ru-01e31447e9eb",
   "locale": "en",
-  "title": "Song Request",
+  "title": "A Nice Song",
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -16,9 +16,9 @@
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Good morning, caller, you're live on the air!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A girl calls a radio station.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,41 +26,76 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Hi! So yesterday I found a wallet.",
+      "text": "Yesterday I found a wallet. There were five thousand dollars, six hundred and eighteen euros and a business card for Gary Mitchell, nineteen Maple Avenue...",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka",
-      "text": "It had five thousand dollars, six hundred eighteen euros and a business card.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "devushka",
-      "text": "Gary Miller, nineteen Maple Street.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "devushka",
       "text": "Could you please play him a nice song?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "devushka"
+      ],
+      "roles": {
+        "nachalnik": "tv-host",
+        "devushka": "woman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "devushka",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,23 +2,30 @@
   "id": "ru-1edb9435fb23.ru",
   "jokeId": "ru-1edb9435fb23",
   "locale": "ru",
-  "title": "Натуральный мех",
+  "title": "Шуба",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "vovochka"
+    "vovochka",
+    "zhena"
   ],
   "roles": {
-    "zhena": "mother",
-    "vovochka": "vovochka"
+    "vovochka": "vovochka",
+    "zhena": "mother"
+  },
+  "looks": {
+    "zhena": {
+      "clothes": "#7a5232",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Ну как, Вовочка? Натуральный мех!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Мама примеряет новую шубу из натурального меха.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +33,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "Мама, а ты понимаешь, что эта шуба результат ужасных страданий бедного, несчастного животного?",
-      "emotion": "sad",
+      "text": "Мама, а ты понимаешь, что эта шуба — результат ужасных страданий бедного, несчастного животного?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -39,7 +46,8 @@
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

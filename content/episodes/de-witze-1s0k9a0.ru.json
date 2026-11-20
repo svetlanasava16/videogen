@@ -2,8 +2,8 @@
   "id": "de-witze-1s0k9a0.ru",
   "jokeId": "de-witze-1s0k9a0",
   "locale": "ru",
-  "title": "Москва-река или Яуза",
-  "location": "derevnya",
+  "title": "Рейн или Дунай",
+  "location": "ulitsa",
   "place": "river-lake",
   "cast": [
     "devushka-blondinka",
@@ -12,6 +12,13 @@
   "roles": {
     "devushka-blondinka": "blonde",
     "devushka": "blonde"
+  },
+  "looks": {
+    "devushka": {
+      "hair": "#f2d16b",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -26,7 +33,7 @@
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Это Москва-река!",
+      "text": "Это Рейн!",
       "emotion": "smug",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -35,7 +42,7 @@
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Ерунда, это Яуза!",
+      "text": "Что за чушь, это Дунай!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -44,7 +51,7 @@
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "Москва-река!",
+      "text": "Рейн!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -53,7 +60,7 @@
     {
       "id": "l5",
       "character": "devushka",
-      "text": "Яуза!",
+      "text": "Дунай!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -62,7 +69,7 @@
     {
       "id": "l6",
       "character": "devushka-blondinka",
-      "text": "Москва-река!",
+      "text": "Рейн!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -71,7 +78,7 @@
     {
       "id": "l7",
       "character": "devushka",
-      "text": "Яуза!",
+      "text": "Дунай!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -79,19 +86,28 @@
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "После долгой жаркой перепалки одна из них говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "devushka-blondinka",
-      "text": "Всё, спущусь и спрошу.",
+      "text": "Сейчас спущусь и спрошу.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [
         "devushka-blondinka"
       ]
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "narrator",
-      "text": "Через десять минут она возвращается. Растрёпанная, в ссадинах, с переломами.",
+      "text": "Через десять минут она возвращается вся растрёпанная – одежда изодрана, переломы, ссадины.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -100,22 +116,23 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l11",
       "character": "devushka",
-      "text": "Ну что? Москва-река или Яуза?",
+      "text": "Ну что? Рейн или Дунай?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l12",
       "character": "devushka-blondinka",
-      "text": "МКАД!",
+      "text": "Трасса!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

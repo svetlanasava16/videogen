@@ -1,0 +1,176 @@
+{
+  "id": "de-witze-1llergn.ru",
+  "jokeId": "de-witze-1llergn",
+  "locale": "ru",
+  "title": "Зеркало",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "nachalnik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "nachalnik": "boss",
+    "muzhik-ryzhy": "driver"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ночной звонок начальнику транспортной компании. Звонит один из его водителей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Шеф, извините, что разбудил, но я попал в аварию и не могу доставить груз.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Боже мой, вы в порядке?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Да, всё нормально, но дальше ехать не могу: зеркало с пассажирской стороны разбито.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Что за ерунда, с этим же можно спокойно ехать дальше!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Не, никак.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "nachalnik",
+      "text": "Вы что, с ума сошли? Из-за зеркала?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Ну, на нём фура лежит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "nachalnik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "nachalnik": "boss",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -6,10 +6,12 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
+    "vovochka",
     "zhena",
     "doktor"
   ],
   "roles": {
+    "vovochka": "child",
     "zhena": "mother",
     "doktor": "doctor"
   },
@@ -17,19 +19,20 @@
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Herr Doktor, mein Kind hat Sand gegessen!",
-      "emotion": "surprised",
+      "text": "Herr Doktor, mein Kind hat Sand gegessen.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
-        "zhena"
+        "zhena",
+        "vovochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Ich habe ihm viel Wasser gegeben. Was jetzt?",
-      "emotion": "sad",
+      "text": "Ich habe ihm viel Wasser gegeben, und was jetzt?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -37,11 +40,12 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Jetzt halten Sie ihn bloß von Zement fern.",
+      "text": "Passen Sie auf, dass er nicht in die Nähe von Zement kommt!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

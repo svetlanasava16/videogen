@@ -1,0 +1,72 @@
+{
+  "id": "en-d-22095.de",
+  "jokeId": "en-d-22095",
+  "locale": "de",
+  "title": "Keine Fenster",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Ich hab im Apple Store gefurzt, und alle waren sauer.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Ist doch nicht meine Schuld, dass die da kein einziges Fenster haben. Nicht mal Windows!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

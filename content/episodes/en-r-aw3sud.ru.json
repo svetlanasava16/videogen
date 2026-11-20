@@ -1,0 +1,58 @@
+{
+  "id": "en-r-aw3sud.ru",
+  "jokeId": "en-r-aw3sud",
+  "locale": "ru",
+  "title": "Немецкий овчар",
+  "location": "derevnya",
+  "place": "garden",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy",
+    "pyos"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-ryzhy": "farmer",
+    "pyos": "dog"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "tyrolean-hat"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Этот немецкий овчар каждый день приходит и гадит у меня на газоне.",
+      "uncensored": "Этот немецкий овчар каждый день приходит и срёт у меня на газоне.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "А вчера он привёл с собой свою собаку.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "muzhik-ryzhy",
+        "pyos"
+      ],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,23 +2,38 @@
   "id": "ru-d88f9a70f981.ru",
   "jokeId": "ru-d88f9a70f981",
   "locale": "ru",
-  "title": "Ночная жизнь",
+  "title": "Куда сходить",
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "devushka",
-    "tyoshcha"
+    "tyoshcha",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "tyoshcha": "grandma"
+    "tyoshcha": "grandma",
+    "devushka": "woman"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "earrings",
+        "lipstick"
+      ],
+      "remove": []
+    },
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Бабуль, привет! Я из Москвы прямо к тебе.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Гламурная москвичка приезжает погостить в деревню к бабушке.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "devushka"
@@ -27,30 +42,22 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Ой, внученька приехала!",
+      "character": "devushka",
+      "text": "Бабуль, куда у вас тут ночью сходить можно?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Бабуль, а куда у вас тут ночью сходить можно?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "tyoshcha",
       "text": "В ведро.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

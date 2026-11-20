@@ -1,0 +1,95 @@
+{
+  "id": "ru-2a4364700139.ru",
+  "jokeId": "ru-2a4364700139",
+  "locale": "ru",
+  "title": "Тромбон",
+  "location": "spalnya",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Три часа ночи. Разъярённый мужик стучит в стену соседу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Если ты, зараза такая, сейчас же не перестанешь играть на своём грёбаном тромбоне, я сойду с ума!",
+      "uncensored": "Если ты, сука такая, сейчас же не перестанешь играть на своём ёбаном тромбоне, я сойду с ума!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Боюсь, что ты опоздал, дорогой. Я уже часа два как не играю...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

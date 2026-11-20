@@ -6,18 +6,26 @@
   "location": "nebesa",
   "place": "heaven",
   "cast": [
-    "ded",
-    "muzhik"
+    "muzhik",
+    "ded"
   ],
   "roles": {
-    "ded": "saint-peter",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "ded": "saint-peter"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stubble"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man dies and finds himself at the pearly gates.",
+      "text": "A man dies and finds himself at the gates of heaven, where Saint Peter is waiting for him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,7 +36,7 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Well, my son, you weren't exactly a good man. Name one good deed.",
+      "text": "Well, my son! You weren't exactly a good person in your life.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,8 +44,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Once, a gang of bikers was harassing some nuns.",
+      "character": "ded",
+      "text": "Can you name one good deed on the basis of which I can let you in here?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,29 +54,57 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "So I walked up to their leader. Huge guy, tattoos, nose ring. Grabbed him by the ring, slapped him and said: now apologise to the ladies!",
-      "emotion": "smug",
+      "text": "Yes. Once some bikers were harassing a few nuns.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "I can't find that in my book. When did this happen?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "So I went up to their leader, a big tattooed guy with a nose ring,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "About a minute or two ago.",
-      "emotion": "sad",
+      "text": "grabbed him by the ring, slapped him across the face and said: And now you apologize to the ladies!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Saint Peter leafs through his book.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ded",
+      "text": "I can't find anything like that here! Tell me, when did this happen?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "About one or two minutes ago.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

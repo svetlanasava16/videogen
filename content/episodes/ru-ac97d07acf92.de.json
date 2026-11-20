@@ -2,7 +2,7 @@
   "id": "ru-ac97d07acf92.de",
   "jokeId": "ru-ac97d07acf92",
   "locale": "de",
-  "title": "Der Verehrer",
+  "title": "Der arme Junge",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,11 +13,19 @@
     "zhena": "mother",
     "devushka-ryzhaya": "daughter"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Schätzchen, der Junge ist Waise. Und er hinkt auch noch.",
+      "text": "Schätzchen, dieser Junge ist Waise, und außerdem hinkt er.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,28 +35,38 @@
       "id": "l2",
       "character": "zhena",
       "text": "Heirate ihn nicht.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Mama, ich brauche keinen Schönling.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "text": "Ich brauche keinen Schönling.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Darum geht es doch nicht. Hab Mitleid mit dem Jungen. Das Leben hat ihn schon genug gestraft.",
+      "text": "Darum geht es nicht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Hab Mitleid mit dem Jungen, das Leben hat ihm schon genug mitgespielt.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

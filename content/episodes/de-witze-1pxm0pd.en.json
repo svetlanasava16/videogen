@@ -2,22 +2,40 @@
   "id": "de-witze-1pxm0pd.en",
   "jokeId": "de-witze-1pxm0pd",
   "locale": "en",
-  "title": "The Widow Meyer",
+  "title": "Widow Meyer",
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
     "zhena",
-    "sluzhivy"
+    "sluzhivy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
     "zhena": "wife",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "sluzhivy-ryadovoy": "police-officer"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    },
+    "sluzhivy-ryadovoy": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": [
+        "army-cap"
+      ]
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Yes? Can I help you?",
+      "character": "narrator",
+      "text": "The doorbell rings. A woman opens the door.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,18 +44,19 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Good afternoon. The widow Meyer?",
+      "text": "Good afternoon. Widow Meyer?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "sluzhivy"
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
       ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "I'm Mrs. Meyer, yes. But I'm not a widow.",
+      "text": "Meyer, yes. But not a widow.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -47,10 +66,11 @@
       "id": "l4",
       "character": "sluzhivy",
       "text": "Wanna bet?",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

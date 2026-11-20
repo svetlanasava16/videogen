@@ -6,63 +6,79 @@
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "muzhik",
-    "muzhik-sosed",
-    "sluzhivy"
+    "sluzhivy",
+    "paren",
+    "devushka",
+    "devushka-ryzhaya",
+    "devushka-blondinka"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "friend",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "paren": "everyman",
+    "devushka": "woman",
+    "devushka-ryzhaya": "woman",
+    "devushka-blondinka": "woman"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "dark-glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "sluzhivy",
-      "text": "Stop right there! Do you know why I pulled you over?",
+      "text": "Halt, stop! Do you know why I pulled you over?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [
-        "muzhik",
-        "muzhik-sosed"
+        "paren",
+        "devushka",
+        "devushka-ryzhaya",
+        "devushka-blondinka"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Because we're too sexy?",
+      "character": "paren",
+      "text": "Too sexy?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Very funny. You do know there are five of you on one e-scooter?",
+      "text": "Very funny. You do know there are five of you riding one e-scooter?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Wait. Did you say five?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
+      "character": "paren",
       "text": "Guys, we lost Nadine!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

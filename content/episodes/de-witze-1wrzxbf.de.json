@@ -2,7 +2,7 @@
   "id": "de-witze-1wrzxbf.de",
   "jokeId": "de-witze-1wrzxbf",
   "locale": "de",
-  "title": "Lautlos",
+  "title": "Lautlos und geruchlos",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -16,20 +16,18 @@
   "lines": [
     {
       "id": "l1",
-      "character": "tyoshcha",
-      "text": "Herr Doktor, ich habe ständig Blähungen.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Eine alte Frau sitzt beim Arzt und klagt über schreckliche Blähungen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "tyoshcha",
-      "text": "Zum Glück sind sie ganz lautlos und riechen überhaupt nicht.",
-      "emotion": "happy",
+      "text": "Wissen Sie, Herr Doktor, ich habe ständig Blähungen.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Sehen Sie, gerade ist mir wieder einer entwichen. Man merkt gar nichts.",
+      "text": "Zum Glück sind sie immer lautlos und stinken überhaupt nicht.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +43,18 @@
     },
     {
       "id": "l4",
+      "character": "tyoshcha",
+      "text": "Sehen Sie, gerade ist mir wieder einer entwichen. Man bekommt es gar nicht mit.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
       "character": "doktor",
-      "text": "Ich verschreibe Ihnen etwas. Kommen Sie in zwei Wochen wieder.",
+      "text": "Ich verschreibe Ihnen ein Medikament. Das nehmen Sie und kommen dann in zwei Wochen wieder.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,19 +63,10 @@
       ]
     },
     {
-      "id": "l5",
-      "character": "narrator",
-      "text": "Zwei Wochen später.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l6",
-      "character": "tyoshcha",
-      "text": "Herr Doktor, was haben Sie mir da verschrieben?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Gesagt, getan. Zwei Wochen später sitzt die Frau wieder beim Arzt und beklagt sich.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "tyoshcha"
@@ -77,20 +76,39 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "Die Blähungen sind nicht besser, aber jetzt stinken sie fürchterlich!",
+      "text": "Herr Doktor, was haben Sie mir denn da verschrieben?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "doktor",
-      "text": "Sehr gut, die Nase ist gesund. Als Nächstes kümmern wir uns um die Ohren.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "tyoshcha",
+      "text": "Die Blähungen sind nicht besser geworden, aber dafür stinken sie jetzt fürchterlich!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "Sehr gut, die Nase ist gesund.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Als Nächstes kümmern wir uns um die Ohren.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

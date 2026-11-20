@@ -1,0 +1,198 @@
+{
+  "id": "ru-e58e4ae2b6db.ru",
+  "jokeId": "ru-e58e4ae2b6db",
+  "locale": "ru",
+  "title": "Кто свистел",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "sluzhivy",
+    "ded",
+    "nachalnik"
+  ],
+  "roles": {
+    "sluzhivy": "traffic-cop",
+    "ded": "old-man",
+    "nachalnik": "gangster"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Стоит гаишник под знаком «сорок километров».",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Мимо едет запор, скорость сорок один километр. Гаишник свистит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Вы превысили скорость. Будете платить штраф, или я заберу права.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "Нету денег у меня.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Тогда заберу права.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Тут мимо летит иномарка. Гаишник свистит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "nachalnik",
+      "text": "А ну, кто свистел?!",
+      "emotion": "angry",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ded",
+      "text": "Отдай права, а то скажу, кто свистел!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "ded",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ded": "old-man",
+        "nachalnik": "gangster"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "certificate",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

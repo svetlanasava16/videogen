@@ -7,17 +7,50 @@
   "place": "road",
   "cast": [
     "muzhik",
-    "nachalnik"
+    "nachalnik",
+    "muzhik-ryzhy",
+    "paren"
   ],
   "roles": {
     "muzhik": "everyman",
-    "nachalnik": "gangster"
+    "nachalnik": "gangster",
+    "muzhik-ryzhy": "gangster",
+    "paren": "gangster"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "nachalnik": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "paren": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "На перекрёстке «Вольво» цепляет джип. Из джипа вываливаются ребята в спортивных костюмах.",
+      "text": "Вольво цепляет на перекрестке джип.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,17 +58,28 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Ну всё, мужик, ты попал!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Все останавливаются, из джипа вываливают ребята в спортивной форме и подходят к водителю Вольво.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "nachalnik",
+      "text": "Ну все, мужик, ты попал!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [
+        "nachalnik",
+        "muzhik-ryzhy",
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "nachalnik",
       "text": "Продавай машину, продавай квартиру, с тебя деньги!",
       "emotion": "angry",
@@ -44,40 +88,41 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Ребята, а вы вообще кто такие?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "nachalnik",
-      "text": "Мы? Мы спортсмены!",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Ребята, а кто вы такие?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "nachalnik",
+      "text": "Мы? Мы спортсмены!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "narrator",
-      "text": "Мужик молча достаёт пистолет.",
+      "text": "Мужик достает пистолет и, заряжая его:",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Ну тогда на старт! Внимание!",
+      "text": "Ну тогда на старт! Внимание!..",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

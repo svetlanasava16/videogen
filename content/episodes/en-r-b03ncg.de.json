@@ -2,22 +2,20 @@
   "id": "en-r-b03ncg.de",
   "jokeId": "en-r-b03ncg",
   "locale": "de",
-  "title": "Die Voodoo-Puppe",
-  "location": "ofis",
+  "title": "Und jetzt?",
+  "location": "gostinaya",
   "place": "office",
   "cast": [
-    "zhena",
     "muzhik"
   ],
   "roles": {
-    "zhena": "wife",
     "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Schatz, kurze Frage. Hast du manchmal so einen stechenden Schmerz im ganzen Körper?",
+      "character": "narrator",
+      "text": "Ein Mann ruft seine Frau bei der Arbeit an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,16 +24,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Als hätte jemand eine Voodoo-Puppe von dir und würde hineinstechen?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Hast du manchmal einen stechenden Schmerz im ganzen Körper, als hätte jemand eine Voodoo-Puppe von dir und würde hineinstechen?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Nein. Ist was passiert?",
+      "text": "Nein.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -48,10 +46,83 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

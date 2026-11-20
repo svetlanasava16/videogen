@@ -6,49 +6,58 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "zhena",
-    "muzhik"
+    "tyoshcha",
+    "ded"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "tyoshcha": "wife",
+    "ded": "husband"
+  },
+  "looks": {
+    "tyoshcha": {
+      "add": [
+        "curlers"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Joe. Joe! Are you asleep?",
+      "character": "narrator",
+      "text": "An old married couple is lying in bed one evening. She keeps tossing and turning, waking him up again and again.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Not anymore.",
+      "character": "tyoshcha",
+      "text": "Grandpa, I can't sleep.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "I just can't sleep.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "ded",
+      "text": "That's normal.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "That's normal. Evil never sleeps.",
+      "character": "ded",
+      "text": "Evil never sleeps.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

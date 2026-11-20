@@ -6,18 +6,20 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "vovochka",
+    "devochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "father",
-    "vovochka": "child"
+    "vovochka": "child",
+    "devochka": "child",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Papa, was gibt's zum Abendessen?",
+      "text": "Was gibt's zum Abendessen?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,48 +30,101 @@
       "character": "muzhik",
       "text": "Reste.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Reste?!",
+      "character": "narrator",
+      "text": "Sie fingen an zu weinen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Hör auf zu heulen. Weißt du, wie schwer man bei diesen Hamsterkäufen an Essen kommt?",
+      "text": "Verwöhnte Gören. Wegen der Hamsterkäufe ist es gerade echt schwer, an Essen zu kommen.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Verwöhnter Bengel.",
-      "emotion": "angry",
+      "text": "Und es war sowieso ein blöder Name für einen Hund.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Und Reste war sowieso ein blöder Name für einen Hund.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "vovochka",
+        "devochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "devochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stove"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

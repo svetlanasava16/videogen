@@ -6,19 +6,28 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "bartender",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Two beers and two whiskey shots, please.",
+      "character": "narrator",
+      "text": "A man walks into a bar and orders:",
       "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Two beers and two whiskeys.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -26,27 +35,18 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "narrator",
-      "text": "A few days later, the same order. And again.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "barmen",
-      "text": "Hey, why do you always order everything in twos?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A few days later, the same thing.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "My buddy and I have a ritual. When one of us drinks alone, he drinks for the other one too.",
+      "text": "Two beers and two whiskeys.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,38 +55,66 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "This goes on for months. Then one day:",
+      "text": "After the third time, the bartender asks:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "One beer and one whiskey, please.",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "Why do you order everything twice?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "My buddy and I have a ritual: when one of us goes out alone, he drinks for the other one too.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "This goes on for a while. Then one day he orders just:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "One beer and one whiskey.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "barmen",
-      "text": "Oh no. Did your buddy pass away?",
+      "text": "What happened, did your buddy pass away?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l11",
       "character": "muzhik",
-      "text": "Nope. I quit drinking.",
-      "emotion": "smug",
+      "text": "Nah, but I quit drinking.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

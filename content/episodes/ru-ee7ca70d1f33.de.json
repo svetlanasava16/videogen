@@ -2,7 +2,7 @@
   "id": "ru-ee7ca70d1f33.de",
   "jokeId": "ru-ee7ca70d1f33",
   "locale": "de",
-  "title": "Danke, Chef",
+  "title": "Früher gehen",
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -13,35 +13,51 @@
     "paren": "employee",
     "nachalnik": "boss"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Chef, dürfte ich heute früher gehen? Meine Frau will mit mir einkaufen gehen.",
+      "text": "Darf ich heute früher von der Arbeit gehen, Chef?",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Auf keinen Fall! Sie bleiben hier und arbeiten!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "paren",
+      "text": "Meine Frau will mit mir einkaufen gehen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "nachalnik",
+      "text": "Auf keinen Fall! Sie bleiben sitzen und arbeiten!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "paren",
       "text": "Vielen, vielen Dank, Chef!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

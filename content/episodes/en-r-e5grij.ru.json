@@ -1,0 +1,98 @@
+{
+  "id": "en-r-e5grij.ru",
+  "jokeId": "en-r-e5grij",
+  "locale": "ru",
+  "title": "После рекламы",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "zhena",
+    "muzhik"
+  ],
+  "roles": {
+    "zhena": "wife",
+    "muzhik": "husband"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Жена грозится выгнать меня из дома из-за того, что я помешался на манере ведущего новостей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Подробнее об этом — после рекламы.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "fridge"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

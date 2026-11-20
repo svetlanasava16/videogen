@@ -136,10 +136,15 @@ const STAGES: Record<string, Stage> = {
       if (!bds.has(row.location)) pr.push(`unknown backdrop ${row.location}`);
       for (const c of row.cast) if (!ids.has(c)) pr.push(`unknown puppet ${c}`);
       if (new Set(row.cast).size !== row.cast.length) pr.push("duplicate puppet in cast");
+      // метка говорящего — только имя/id куклы или «рассказчик» с двоеточием в начале («Слушай:» — нормальная речь)
+      const labels = new Set(
+        [...C.puppets.flatMap((p) => [p.id, ...Object.values(p.name)]), "narrator", "рассказчик", "erzähler", "автор"].map((s) => s.toLowerCase()),
+      );
       for (const l of row.lines) {
         // со сценами состав проверяется по каждой сцене (sceneProblems): говорящий может появиться только во второй
         if (!row.scenes?.length && l.character !== NARRATOR && !row.cast.includes(l.character)) pr.push(`line by ${l.character} not in cast`);
-        if (/[()\[\]*#]|^\s*[\p{L}]+\s*:/u.test(l.text)) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
+        const label = l.text.match(/^\s*([\p{L}-]+)\s*:/u)?.[1]?.toLowerCase();
+        if (/[()\[\]*#]/u.test(l.text) || (label && labels.has(label))) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
         if (l.uncensored !== undefined && l.uncensored.trim() === l.text.trim()) pr.push(`uncensored equals text — omit it: "${l.text.slice(0, 40)}"`);
       }
       for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
@@ -172,7 +177,8 @@ const STAGES: Record<string, Stage> = {
       const count = (t: string) => t.split(/\s+/).filter(Boolean).length;
       const words = row.lines.reduce((n, l) => n + count(l.text), 0);
       const narration = row.lines.filter((l) => l.character === NARRATOR).reduce((n, l) => n + count(l.text), 0);
-      if (words > Number(input.maxWords ?? 110) * 1.15 && narration > words * 0.1)
+      // короткое вступление рассказчика (до 25 слов) допустимо всегда
+      if (words > Number(input.maxWords ?? 110) * 1.15 && narration > Math.max(25, words * 0.1))
         pr.push(`too long: ${words} words, ${narration} of them narration — shorten the narration only, never the spoken lines`);
       return pr;
     },

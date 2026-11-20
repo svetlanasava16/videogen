@@ -2,23 +2,21 @@
   "id": "en-r-dh84t8.en",
   "jokeId": "en-r-dh84t8",
   "locale": "en",
-  "title": "Answered Prayer",
+  "title": "The Prayer",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "vovochka": "child"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Buddy, I miss you so much.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "His best friend passed away recently. Grieving before his grave, he said:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,43 +24,146 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "My wife is eight months pregnant. Why don't you come back as my son?",
+      "text": "Bro, I really miss you.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "A month later, a big baby boy is born. Years go by.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "My wife has been pregnant for eight months now.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Look, buddy. He's got your nose, your ears, even your laugh.",
+      "text": "How about you reincarnate as my child?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "A month later, his wife gave birth to a big boy.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "My prayer actually worked!",
-      "emotion": "happy",
+      "text": "As my child grew older each day, I realized he looks a lot like my best friend.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "I'm really happy that my prayer worked.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#2b2b2b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "flowers",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -7,18 +7,22 @@
   "place": "bar",
   "cast": [
     "muzhik",
+    "vovochka",
+    "paren",
     "zhena"
   ],
   "roles": {
     "muzhik": "husband",
+    "vovochka": "child",
+    "paren": "son",
     "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Another round of tequila for me and the boys!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A wife storms into the pub as her husband and the boys are downing shots of tequila.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +30,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "You're coming home right now!",
+      "text": "You're coming home now!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -37,7 +41,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "No, I'm not!",
+      "text": "No, I'm not.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -50,10 +54,65 @@
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "vovochka",
+        "paren",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "vovochka": "child",
+        "paren": "son",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

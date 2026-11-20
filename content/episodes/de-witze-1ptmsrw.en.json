@@ -2,22 +2,22 @@
   "id": "de-witze-1ptmsrw.en",
   "jokeId": "de-witze-1ptmsrw",
   "locale": "en",
-  "title": "Walking Home",
-  "location": "ulitsa",
+  "title": "The Ride Home",
+  "location": "doroga",
   "place": "street",
   "cast": [
-    "paren",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
-    "paren": "son",
+    "vovochka": "child",
     "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A boy is walking home from school. A car pulls up beside him.",
+      "text": "A boy is walking home from school.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,18 +25,25 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hey, get in.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A car comes up from behind, and the driver rolls down the window.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "paren",
+      "character": "muzhik",
+      "text": "Hey, get in.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
       "text": "No way. I'd rather walk.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
@@ -44,52 +51,128 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik",
-      "text": "Come on, I've got a lollipop for you.",
+      "text": "Oh, come on, I've even got a lollipop for you here.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "paren",
-      "text": "I don't care! I'm not getting in your car.",
+      "id": "l6",
+      "character": "vovochka",
+      "text": "I don't care, I'm not getting in your car!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "Listen. You get in, we go get ice cream, and then I'll buy you any video game you want.",
+      "text": "Listen, I'll pull over now, you get in, then we'll go get ice cream together, and after that I'll buy you any video game you want.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Wouldn't that be nice?",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "paren",
-      "text": "Forget it! You're the one who bought the PT Cruiser.",
+      "id": "l9",
+      "character": "vovochka",
+      "text": "Forget it! I am never, ever getting in your car.",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "paren",
-      "text": "You can deal with it yourself, Dad.",
+      "id": "l10",
+      "character": "vovochka",
+      "text": "You bought the Prius, so you deal with it yourself, Dad.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

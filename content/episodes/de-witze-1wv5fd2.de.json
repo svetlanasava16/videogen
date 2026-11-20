@@ -1,0 +1,216 @@
+{
+  "id": "de-witze-1wv5fd2.de",
+  "jokeId": "de-witze-1wv5fd2",
+  "locale": "de",
+  "title": "Stierkampf",
+  "location": "bar",
+  "place": "restaurant",
+  "cast": [
+    "muzhik-sosed",
+    "barmen"
+  ],
+  "roles": {
+    "muzhik-sosed": "tourist",
+    "barmen": "waiter"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Tourist besucht ein traditionelles Restaurant direkt neben der Stierkampfarena in Madrid.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Er sieht, wie am Nachbartisch eine Spezialität des Hauses serviert wird: zwei riesige, köstliche Fleischbällchen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Was ist das?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Señor, das sind die Hoden des Stiers, der heute Nachmittag in der Arena gekämpft hat.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "barmen",
+      "text": "Eine absolute Delikatesse!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Tourist ist begeistert und bestellt das Gericht für den nächsten Abend vor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Am folgenden Abend bekommt er seinen Teller serviert, doch darauf liegen zwei winzig kleine Fleischbällchen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "Sagen Sie, gestern waren die Fleischbällchen aber dreimal so groß!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-sosed",
+      "text": "Was ist passiert?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "barmen",
+      "text": "Ay, Señor... Manchmal gewinnt eben auch der Stier.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

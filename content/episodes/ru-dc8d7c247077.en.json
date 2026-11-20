@@ -2,7 +2,7 @@
   "id": "ru-dc8d7c247077.en",
   "jokeId": "ru-dc8d7c247077",
   "locale": "en",
-  "title": "Fishing, Are We?",
+  "title": "Catching Fish, Are We?",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A hot day, a steep hill. A worn-out cyclist stops on a bridge next to a fisherman.",
+      "text": "A man is riding his bike home to his village. It's hot, the road goes uphill, he's worn out. He decides to rest on the bridge.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "He sees a guy standing on the bridge with a fishing rod, watching his float.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "So, fishing, are we?",
+      "text": "So, catching fish, are we?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,19 +44,46 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
+      "character": "narrator",
+      "text": "The fisherman says nothing.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
-      "text": "I said, fishing, are we?",
+      "text": "I said, catching fish, are we?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Silence again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "What, are you deaf? I asked if we're fishing!",
+      "text": "What, are you deaf? I'm asking, catching fish, are we?",
       "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "The guy just keeps watching his float. The man spits, gets on his bike and grinds on uphill, all sweaty.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": [
@@ -55,27 +91,98 @@
       ]
     },
     {
-      "id": "l5",
+      "id": "l9",
       "character": "narrator",
-      "text": "He spits and pedals on uphill, dripping with sweat. Two miles later he looks back, and the fisherman is waving like mad for him to come back.",
+      "text": "He's gone about two miles when he looks back and sees the fisherman waving at him with all his might: come back, quick.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "So, cycling, are we?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "id": "l10",
+      "character": "narrator",
+      "text": "So he turns around and rolls back down.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [
         "muzhik"
       ],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik-ryzhy",
+      "text": "So, riding a bike, are we?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

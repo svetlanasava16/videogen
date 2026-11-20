@@ -2,21 +2,21 @@
   "id": "de-witze-1roy2h7.de",
   "jokeId": "de-witze-1roy2h7",
   "locale": "de",
-  "title": "Die Traueranzeige",
+  "title": "Der fähigste Mitarbeiter",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "uchilka",
-    "paren"
+    "paren",
+    "devushka"
   ],
   "roles": {
-    "uchilka": "clerk",
-    "paren": "employee"
+    "paren": "employee",
+    "devushka": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
+      "character": "paren",
       "text": "Hast du gehört? Unser Direktor ist gestorben.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
@@ -25,16 +25,16 @@
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Ja. Und ich frag mich die ganze Zeit, wer da mit ihm gestorben ist.",
-      "emotion": "neutral",
+      "character": "devushka",
+      "text": "Ja, und ich frage mich die ganze Zeit, wer da mit ihm gestorben ist.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "uchilka",
+      "character": "paren",
       "text": "Wieso mit ihm?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
@@ -43,15 +43,64 @@
     },
     {
       "id": "l4",
-      "character": "paren",
+      "character": "devushka",
       "text": "Na, in der Anzeige stand doch: Mit ihm starb einer unserer fähigsten Mitarbeiter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "employee",
+        "devushka": "employee"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "devushka",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

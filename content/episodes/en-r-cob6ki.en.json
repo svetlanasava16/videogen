@@ -2,7 +2,7 @@
   "id": "en-r-cob6ki.en",
   "jokeId": "en-r-cob6ki",
   "locale": "en",
-  "title": "You Are What You Eat",
+  "title": "What You Eat",
   "location": "sud",
   "place": "courtroom",
   "cast": [
@@ -19,14 +19,23 @@
       "character": "narrator",
       "text": "A man is on trial for cannibalism.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Well, your honor, if you truly are what you eat, then I am an innocent man.",
+      "text": "Well, your honor, if you truly are what you eat,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "then I am an innocent man.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,6 +44,51 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "prisoner",
+        "nachalnik": "judge"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#f07a1a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "dock"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

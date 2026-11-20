@@ -6,29 +6,27 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "salesman",
-    "muzhik": "customer"
+    "muzhik": "customer",
+    "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Hi, I'm looking for a Barbie doll.",
+      "character": "narrator",
+      "text": "In a toy store, a customer is asking about Barbie dolls.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Sure. Here's Pool Party Barbie, eighteen ninety-nine.",
+      "text": "This is Pool Party Barbie, eighteen ninety-nine.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "College Barbie, also eighteen ninety-nine.",
-      "emotion": "neutral",
+      "text": "This is College Barbie, eighteen ninety-nine.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "barmen",
-      "text": "And this is Divorced Barbie. One hundred ninety-nine ninety-nine.",
+      "text": "And this is Divorced Barbie, one hundred ninety-nine ninety-nine.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "What? Why is she so expensive?",
+      "text": "How much?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,11 +62,12 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Divorced Barbie comes with Ken's house, Ken's car and Ken's helicopter.",
+      "text": "The Divorced Barbie set comes with Ken's house, Ken's car and Ken's helicopter.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

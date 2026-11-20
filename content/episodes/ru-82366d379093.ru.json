@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
+    "devushka": "customer",
     "barmen": "salesman"
   },
   "lines": [
@@ -26,18 +26,16 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Слава богу, успела! Курицы есть?",
+      "text": "Слава Богу, успела!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Последняя. Ровно килограмм.",
+      "character": "devushka",
+      "text": "У вас куры есть?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,18 +43,18 @@
     },
     {
       "id": "l4",
-      "character": "devushka",
-      "text": "Хм… А побольше нет?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Мясник достаёт из морозилки единственную курицу и кладёт на весы. Весы показывают килограмм.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "Сейчас поищу.",
-      "emotion": "neutral",
+      "character": "devushka",
+      "text": "Н-да... А побольше нет?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,32 +62,87 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Мясник уносит ту же курицу, приносит обратно и прижимает весы пальцем.",
+      "text": "Мясник убирает курицу обратно, потом достаёт её же, поворачивает, кладёт на весы и прижимает пальцем. Весы показывают полтора кило.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "barmen",
-      "text": "Вот. Полтора кило.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
       "character": "devushka",
-      "text": "Отлично! Будьте добры, обе.",
+      "text": "Отлично! Мне, будьте добры, обе.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "devushka",
+        "barmen"
+      ],
+      "roles": {
+        "devushka": "customer",
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

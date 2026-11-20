@@ -6,18 +6,16 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "doktor",
-    "paren"
+    "doktor"
   ],
   "roles": {
-    "doktor": "professor",
-    "paren": "student"
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "The night before the exam. The professor's phone rings.",
+      "text": "The night before the exam. The phone rings in the professor's apartment.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +24,7 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Hello! Who is this?",
+      "text": "Hello?!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,32 +33,92 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Sleeping, are you, you rat?",
+      "text": "What, sleeping, you pest?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Excuse me?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "paren",
-      "text": "Well, we're studying.",
-      "emotion": "smug",
+      "text": "And we're studying.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "bed"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "student"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

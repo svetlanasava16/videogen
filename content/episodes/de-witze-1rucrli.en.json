@@ -2,7 +2,7 @@
   "id": "de-witze-1rucrli.en",
   "jokeId": "de-witze-1rucrli",
   "locale": "en",
-  "title": "F and B",
+  "title": "The Towels",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -15,11 +15,25 @@
     "devushka-ryzhaya": "daughter",
     "muzhik": "father"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    },
+    "muzhik": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Sweetie, now that you're married, here's a little housekeeping tip.",
+      "character": "narrator",
+      "text": "A mother gives her newly married daughter a few tips on running a home.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,9 +41,9 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Yes, Mom?",
-      "emotion": "happy",
+      "character": "zhena",
+      "text": "For example, on the towels in the bathroom I always have a B for Brow and an H for Hindquarters.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,29 +51,30 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "I always stitch a letter on the towels. F for face and B for bottom.",
-      "emotion": "smug",
+      "text": "That way I never mix up the towels.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "That way I never mix them up.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "Hold on, what?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Wait, B is for bottom? I thought B was for beard!",
+      "text": "I always thought it meant Butt and Head.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

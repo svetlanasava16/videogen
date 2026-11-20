@@ -6,20 +6,20 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "nachalnik",
+    "sluzhivy",
     "barmen",
-    "sluzhivy"
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "new-russian",
+    "sluzhivy": "traffic-cop",
     "barmen": "construction-worker",
-    "sluzhivy": "traffic-cop"
+    "nachalnik": "new-russian"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein dicker Mercedes kracht von hinten in eine Straßenwalze.",
+      "text": "Ein Mercedes S-Klasse fährt einer Straßenwalze hinten drauf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,9 +27,9 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Hallo, ich bin's. Hier hat mir eine Straßenwalze den Weg versperrt. Komm her und regel das.",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Aus dem Wagen steigt ein riesiger Kerl und ruft mit dem Handy seinen eigenen Verkehrspolizisten an.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,34 +37,106 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Bald hält ein Streifenwagen, und der Polizist nimmt den Walzenfahrer zur Seite.",
+      "text": "Nach einer Weile hält ein Streifenwagen, der Polizist steigt aus, geht zum Fahrer der Walze, nimmt ihn beiseite und flüstert vertraulich:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "So, mein Freund. Jetzt erzähl mal.",
+      "text": "Na, erzähl mal.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Wie du ihn überholt hast. Wie du ihn geschnitten hast.",
+      "text": "Wie du überholt hast... Wie du ihn geschnitten hast...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "barmen",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "barmen": "construction-worker",
+        "nachalnik": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "roadside"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

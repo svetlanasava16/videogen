@@ -1,0 +1,77 @@
+{
+  "id": "en-d-26430.de",
+  "jokeId": "en-d-26430",
+  "locale": "de",
+  "title": "Rückwärts",
+  "location": "samolet",
+  "place": "ship",
+  "cast": [
+    "vovochka",
+    "muzhik"
+  ],
+  "roles": {
+    "vovochka": "child",
+    "muzhik": "father"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "vovochka",
+      "text": "Papa, warum lassen sich Taucher rückwärts aus dem Boot fallen?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Weil, mein Sohn, wenn sie sich vorwärts fallen lassen würden, wären sie immer noch im Boot.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,35 +2,41 @@
   "id": "ru-b6956f74350f.ru",
   "jokeId": "ru-b6956f74350f",
   "locale": "ru",
-  "title": "Школа хороших манер",
+  "title": "Школа манер",
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka-blondinka",
-    "devushka"
+    "devushka",
+    "devushka-blondinka"
   ],
   "roles": {
-    "devushka-blondinka": "blonde",
-    "devushka": "woman"
+    "devushka": "woman",
+    "devushka-blondinka": "woman"
+  },
+  "looks": {
+    "devushka-blondinka": {
+      "add": [
+        "earrings"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Привет! Как дела?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "text": "Как дела?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Замечательно! Любовник обещал купить мне норковую шубу.",
+      "text": "Замечательно! Ты знаешь, любовник обещал купить мне норковую шубу...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -39,16 +45,16 @@
       "character": "devushka",
       "text": "Потрясающе!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "А ещё он обещал мне Ягуар.",
+      "text": "...а ещё он обещал мне купить «Ягуар»...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -57,16 +63,16 @@
       "character": "devushka",
       "text": "Потрясающе!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
-      "text": "А летом мы летим на Канары!",
+      "text": "...а ещё мы с ним поедем отдыхать на Канарские острова!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -82,7 +88,7 @@
     {
       "id": "l8",
       "character": "devushka-blondinka",
-      "text": "А у тебя что нового?",
+      "text": "А что у тебя нового?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -91,7 +97,7 @@
     {
       "id": "l9",
       "character": "devushka",
-      "text": "Я хожу в школу хороших манер.",
+      "text": "Я учусь в школе хороших манер.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -100,7 +106,7 @@
     {
       "id": "l10",
       "character": "devushka-blondinka",
-      "text": "И чему там учат?",
+      "text": "И чему же там учат?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -109,11 +115,13 @@
     {
       "id": "l11",
       "character": "devushka",
-      "text": "Например, вчера нас учили вместо «Не свисти!» говорить «Потрясающе!»",
+      "text": "Ну вот, например, на последнем занятии нас учили вместо «Не звезди!» говорить «Потрясающе!»",
+      "uncensored": "Ну вот, например, на последнем занятии нас учили вместо «Не пизди!» говорить «Потрясающе!»",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

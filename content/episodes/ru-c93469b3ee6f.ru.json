@@ -6,12 +6,20 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "barmen",
-    "doktor"
+    "doktor",
+    "devushka"
   ],
   "roles": {
-    "barmen": "salesman",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "devushka": "cashier"
+  },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -20,15 +28,13 @@
       "text": "Дайте мне, пожалуйста, вон ту красную плюшевую жопу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Мужчина, это не жопа, это сердце!",
+      "character": "devushka",
+      "text": "Мужчина, это не жопа, а сердце!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -39,7 +45,7 @@
       "character": "doktor",
       "text": "Знаете, я двадцать лет кардиохирургом работаю.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -50,7 +56,8 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

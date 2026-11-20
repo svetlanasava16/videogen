@@ -1,0 +1,63 @@
+{
+  "id": "ru-973450b2c26d.de",
+  "jokeId": "ru-973450b2c26d",
+  "locale": "de",
+  "title": "Der Besitzer",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "sluzhivy",
+    "nachalnik"
+  ],
+  "roles": {
+    "sluzhivy": "guard",
+    "nachalnik": "gangster"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ins Büro kommt ein bulliger Kerl mit einer dicken Kette um den Hals. Er geht zum Wachmann und fragt von oben herab:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "nachalnik"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Wo ist der Besitzer?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Besitzer verloren? Dann bell mal.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "id": "de-witze-1i42ee2.ru",
+  "jokeId": "de-witze-1i42ee2",
+  "locale": "ru",
+  "title": "Женщина с ребёнком",
+  "location": "doroga",
+  "place": "bus",
+  "cast": [
+    "muzhik-ryzhy",
+    "zhena",
+    "vovochka",
+    "ded"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "driver",
+    "zhena": "mother",
+    "vovochka": "child",
+    "ded": "old-man"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Женщина с младенцем сидит в конце автобуса.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Вдруг рядом с ней садится пожилой мужчина, смотрит на ребёнка и говорит ей:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Какой же у вас на редкость уродливый ребёнок!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Женщина совсем растерялась и не знает, как реагировать. Возмущённая, она идёт к водителю и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Вон тот тип сзади только что взял и оскорбил моего ребёнка!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Что? Это никуда не годится!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik-ryzhy",
+      "text": "Идите сейчас же к нему и выскажите ему всё как следует!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "А я пока подержу вашу обезьянку.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik-ryzhy",
+        "zhena",
+        "vovochka",
+        "ded"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "zhena": "mother",
+        "vovochka": "child",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "car",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

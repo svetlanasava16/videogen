@@ -2,23 +2,25 @@
   "id": "ru-e6c139796c79.ru",
   "jokeId": "ru-e6c139796c79",
   "locale": "ru",
-  "title": "Здоровый образ жизни",
+  "title": "Секрет здоровья",
   "location": "bar",
   "place": "bar",
   "cast": [
     "ded",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
     "ded": "old-man",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Я за всю жизнь ни дня не болел. А всё потому, что жил просто и размеренно.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Группа мужчин завела разговор о здоровье.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +28,8 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "С двадцати до сорока лет каждый день ложился в девять, вставал в шесть.",
-      "emotion": "neutral",
+      "text": "Я ни дня не болел, и это потому, что вёл простой, размеренный образ жизни.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,20 +37,30 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "С восьми до пяти работал, ел простую пищу, потом час занимался спортом...",
+      "text": "В возрасте от двадцати до сорока лет я ежедневно ложился спать в девять, а вставал в шесть утра.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "С восьми до пяти я работал, обедал, причём ел незатейливую пищу, а потом час занимался спортом...",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Извините, а за что сидели?",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Извините, а за что вы сидели?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

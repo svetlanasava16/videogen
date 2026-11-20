@@ -2,22 +2,22 @@
   "id": "de-witze-1leukfr.de",
   "jokeId": "de-witze-1leukfr",
   "locale": "de",
-  "title": "Der Klempner-Notdienst",
-  "location": "spalnya",
+  "title": "Notfall am Sonntag",
+  "location": "gostinaya",
   "place": "bathroom",
   "cast": [
-    "doktor",
-    "barmen"
+    "barmen",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "barmen": "plumber"
+    "barmen": "plumber",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Sonntagabend. Bei einem Arzt ist ein Rohr geplatzt. Er ruft den Klempner an.",
+      "text": "Kommt ein Mann zum Arzt… nein: Kommt ein Arzt zum Klempner.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,50 +25,46 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Jetzt? Es ist Sonntagabend, es gießt wie aus Eimern, und ich bin schon beim zweiten Bier.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Also, er ruft an. Notfall und so, Rohrbruch, Drama.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Guter Mann! Ich bin Arzt. Wenn bei mir ein Notfall ist, muss ich auch raus, egal was ist!",
-      "emotion": "angry",
+      "character": "barmen",
+      "text": "Ja gut, aber es ist Sonntagabend, es gießt wie aus Eimern und ich hab auch schon das zweite Bier am Wickel.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Na gut, na gut. Ich komme.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Guter Mann! Ich bin Arzt, wenn bei mir ein Notfall ist, muss ich auch raus, egal was ist!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Eine Stunde später steht der Klempner im Badezimmer. Alles unter Wasser.",
+      "text": "Hin und Her. Der Klempner hockt sich ins Auto und fährt hin. Der Arzt führt ihn direkt ins Badezimmer. Alles unter Wasser.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Er wirft eine Handvoll Dichtungsringe ins Wasser.",
+      "text": "Der Klempner greift in die Hosentasche und schmeißt 'ne Handvoll Dichtungsringe ins Wasser.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -79,10 +75,108 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

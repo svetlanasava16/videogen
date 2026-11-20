@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "Техподдержка, здравствуйте.",
+      "character": "muzhik",
+      "text": "Здравствуйте, я недавно установил Windows.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Здравствуйте, я тут недавно поставил винду.",
+      "character": "uchilka",
+      "text": "Да?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,33 +34,81 @@
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "Так?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "muzhik",
-      "text": "И теперь у меня компьютер нормально не работает.",
+      "text": "И теперь мой компьютер работает неправильно.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "uchilka",
-      "text": "Это вы уже сказали.",
+      "text": "Вы это уже говорили.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

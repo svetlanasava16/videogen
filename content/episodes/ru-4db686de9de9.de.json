@@ -6,27 +6,27 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "zhena",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Schatz, ich habe nicht mehr lange.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "John lag im Sterben und atmete schwer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Erfüllst du mir einen letzten Wunsch?",
+      "text": "Erfüllst du mir meinen letzten Wunsch?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Natürlich, Horst.",
+      "text": "Natürlich, John.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,32 +44,96 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ein halbes Jahr nach meinem Tod heiratest du Klaus.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Ich will, dass du sechs Monate nach meinem Tod Joe heiratest...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Aber ich dachte, du hasst ihn!",
+      "text": "Aber ich dachte, du hasst ihn?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Mit dem letzten Atemzug brachte John hervor:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "Und wie ich ihn hasse.",
+      "text": "Und wie ich ihn hasse...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

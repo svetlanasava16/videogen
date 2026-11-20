@@ -7,28 +7,26 @@
   "place": "office",
   "cast": [
     "muzhik",
-    "nachalnik"
+    "sluzhivy"
   ],
   "roles": {
     "muzhik": "everyman",
-    "nachalnik": "bureaucrat"
+    "sluzhivy": "customs-officer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Hello, I'm here about Australian citizenship.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A man is applying for Australian citizenship.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Right. Do you have a criminal record?",
+      "character": "sluzhivy",
+      "text": "Do you have a criminal record?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -41,7 +39,8 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

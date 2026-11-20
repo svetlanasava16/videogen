@@ -1,0 +1,88 @@
+{
+  "id": "en-r-4yp0ex.en",
+  "jokeId": "en-r-4yp0ex",
+  "locale": "en",
+  "title": "In the Hospital",
+  "location": "bolnitsa",
+  "place": "hospital",
+  "cast": [
+    "paren"
+  ],
+  "roles": {
+    "paren": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "paren",
+      "text": "Mom? Don't freak out, but I'm in the hospital...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Peter, you've been a doctor for over eight years now, please stop starting every phone conversation we have with that.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

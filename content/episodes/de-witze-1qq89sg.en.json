@@ -2,7 +2,7 @@
   "id": "de-witze-1qq89sg.en",
   "jokeId": "de-witze-1qq89sg",
   "locale": "en",
-  "title": "The Salt Shop",
+  "title": "Salt",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man passing through stops at a little country store.",
+      "text": "A guy is passing through and stops at a grocery store to buy a bite to eat.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "He walks in, and everything is full of salt. The whole store, all salt. Every shelf, top to bottom, even the floor. Nothing else, just salt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "Whoa. Everything in here is salt! The shelves, the counter, even the floor!",
+      "text": "Wow! You must have a huge demand for table salt around here.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,19 +44,10 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "There must be a huge demand for salt around here.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
       "character": "barmen",
-      "text": "Not really. Actually, none at all.",
-      "emotion": "neutral",
+      "text": "Not really. Pretty low, actually. None at all, actually.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Then you must be a sales genius to move all this.",
+      "text": "I see. Then you must be a real sales genius if you always manage to sell all this.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Nope. Selling isn't really my thing.",
+      "text": "Zero. Selling isn't exactly my talent.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,20 +73,21 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Then why on earth is your whole store full of salt?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "But then why is your whole store full of salt, for heaven's sake?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Well, the guy who sells me the salt, now he's a really good salesman.",
+      "text": "Well. The guy I buy the salt from, now he's a really good salesman.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

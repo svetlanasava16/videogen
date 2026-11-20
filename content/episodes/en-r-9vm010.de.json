@@ -1,0 +1,138 @@
+{
+  "id": "en-r-9vm010.de",
+  "jokeId": "en-r-9vm010",
+  "locale": "de",
+  "title": "Zurück ins Einkaufszentrum",
+  "location": "gostinaya",
+  "place": "shop",
+  "cast": [
+    "muzhik",
+    "vovochka"
+  ],
+  "roles": {
+    "muzhik": "father",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Mein Sohn ist drei Jahre alt, und ich war mit ihm einkaufen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Als wir nach Hause kamen, hatte er einen Schokoriegel in der Tasche.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Also, ich habe ihn nicht gekauft, und er hat ihn ganz bestimmt nicht gekauft.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Also bin ich mit ihm sofort zurück ins Einkaufszentrum marschiert",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "und zum Juwelier gegangen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

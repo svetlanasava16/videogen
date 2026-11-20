@@ -1,0 +1,154 @@
+{
+  "id": "ru-dc2f64f4e0fc.de",
+  "jokeId": "ru-dc2f64f4e0fc",
+  "locale": "de",
+  "title": "Die Klimaanlage",
+  "location": "bar",
+  "place": "restaurant",
+  "cast": [
+    "nachalnik",
+    "barmen",
+    "muzhik"
+  ],
+  "roles": {
+    "nachalnik": "businessman",
+    "barmen": "waiter",
+    "muzhik": "customer"
+  },
+  "looks": {
+    "nachalnik": {
+      "clothes": "#a3122a",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Im Restaurant sitzt ein neureicher Protz und winkt den Kellner heran.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "He, Mann, dreh mal die Klimaanlage runter, ist echt kalt hier!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "barmen"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Fünf Minuten später.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Hör mal, Garçon!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Dreh mal die Klimaanlage hoch, Bruder, irgendwie ist es heiß geworden...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "barmen"
+      ],
+      "exit": [
+        "barmen"
+      ]
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Fünf Minuten später.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "nachalnik",
+      "text": "Ey, Alter...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "nachalnik",
+      "text": "...dreh mal die Klimaanlage runter, schon wieder kalt.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "barmen"
+      ],
+      "exit": [
+        "barmen"
+      ]
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Ein Mann am Nebentisch winkt den Kellner heran und fragt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "barmen"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Wie halten Sie den bloß aus?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "barmen",
+      "text": "Kein Problem! Wir haben nicht mal eine Klimaanlage!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

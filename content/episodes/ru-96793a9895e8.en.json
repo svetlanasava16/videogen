@@ -1,0 +1,222 @@
+{
+  "id": "ru-96793a9895e8.en",
+  "jokeId": "ru-96793a9895e8",
+  "locale": "en",
+  "title": "The Night Visitor",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A drunk got wasted at the cemetery, fell into a grave and fell asleep.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "He wakes up at night and figures out he's in a cemetery. He looks, and there's a gravedigger digging a grave.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Let me give him a scare.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "He finds some white sheet, throws it over his head, walks up to the gravedigger and wails in a scary voice:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Woooooooo!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The gravedigger gives him a totally couldn't-care-less look and keeps digging. The drunk is puzzled, comes up from the other side, even louder and scarier:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Woooo! Woooo! Woooo! Woooooooo!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Again the gravedigger couldn't care less, looks at him, damn it, no reaction at all.",
+      "uncensored": "Again the gravedigger couldn't care less, looks at him, fuck me, no reaction at all.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "So the drunk gets upset and heads for the cemetery exit, even forgets to take off the sheet. He reaches the gate, the gravedigger catches up, smacks him in the face with the shovel and calmly says:",
+      "uncensored": "So the drunk gets upset and heads for the cemetery exit, even forgets to take off the sheet. He reaches the gate, the gravedigger catches up, smacks him in the fucking face with the shovel and calmly says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-ryzhy",
+      "text": "Wander around all you like, but don't leave the grounds.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "robe-white"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "lamp"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -6,48 +6,36 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik",
     "ded",
-    "paren"
+    "paren",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
     "ded": "grandpa",
-    "paren": "hipster"
+    "paren": "hipster",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Grandpa walks in with a young guy in skinny jeans, eating avocado toast.",
+      "text": "My grandpa just walked into my room with a young guy wearing skinny jeans and eating avocado toast.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ded",
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Nice room, man. Very retro.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Who is this guy?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Grandpa, who is this guy?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "ded",
       "text": "This is my hip replacement.",
       "emotion": "smug",
@@ -58,6 +46,68 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "ded",
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "paren": "hipster",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "beard",
+            "round-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

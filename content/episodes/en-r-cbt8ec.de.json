@@ -15,28 +15,26 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Schatz, ich bin zu Hause!",
-      "emotion": "happy",
+      "text": "Ich komme nach Hause, und meine Frau hat einen Zettel am Kühlschrank hinterlassen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ein Zettel am Kühlschrank. Das funktioniert nicht mehr. Ich bin bei meiner Mutter.",
+      "text": "Darauf steht: Das funktioniert nicht mehr, ich gehe zu meiner Mutter.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Funktioniert nicht?",
-      "emotion": "surprised",
+      "text": "Ich habe den Kühlschrank aufgemacht.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,8 +42,8 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Das Licht geht an. Das Bier ist kalt.",
-      "emotion": "neutral",
+      "text": "Das Licht war an und das Bier war kalt.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -53,14 +51,67 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Keine Ahnung, was sie meint.",
+      "text": "Ich weiß nicht genau, wovon sie redet.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "fridge",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

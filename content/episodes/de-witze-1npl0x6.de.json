@@ -2,7 +2,7 @@
   "id": "de-witze-1npl0x6.de",
   "jokeId": "de-witze-1npl0x6",
   "locale": "de",
-  "title": "Scheidung mit Ü90",
+  "title": "Mit Ü90 beim Scheidungsanwalt",
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -15,12 +15,20 @@
     "tyoshcha": "old-woman",
     "nachalnik": "lawyer"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
-      "text": "Entschuldigen Sie die Frage. Sie sind vierundneunzig und achtundneunzig Jahre alt.",
-      "emotion": "neutral",
+      "text": "Entschuldigen Sie die Frage, aber Sie sind vierundneunzig und achtundneunzig Jahre alt und seit über sechzig Jahren verheiratet.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -28,7 +36,7 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Und seit über sechzig Jahren verheiratet. Warum wollen Sie sich ausgerechnet jetzt scheiden lassen?",
+      "text": "Warum wollen Sie sich jetzt scheiden lassen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -37,11 +45,12 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Naja, es läuft schon länger nicht mehr. Aber wir wollten warten, bis die Kinder tot sind.",
+      "text": "Naja, es läuft schon länger nicht mehr, aber wir wollten warten, bis die Kinder tot sind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

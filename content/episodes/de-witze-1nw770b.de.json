@@ -1,0 +1,231 @@
+{
+  "id": "de-witze-1nw770b.de",
+  "jokeId": "de-witze-1nw770b",
+  "locale": "de",
+  "title": "Weltfremd",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "muzhik-ryzhy",
+    "paren",
+    "tyoshcha",
+    "devushka"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "farmer",
+    "paren": "son",
+    "tyoshcha": "old-woman",
+    "devushka": "woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Bauer Hein kommt mit seinem Sohn Jürgen das erste Mal vom Land in das neu eröffnete Shopping-Center.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Im Parkhaus wartet eine alte Frau gerade auf den Fahrstuhl.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Vattern, guck ma. Wat is dat denn?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Jung, dat is 'ne alte Omma!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Nee Vattern, ich mein dat silberne Ding.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Keine Ahnung, Sohn. Warte mal, ich frag die Omma eben.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "In dem Moment öffnet sich die Kabinentür, die alte Frau steigt in den Fahrstuhl und die Türe schließt sich.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Vater und Sohn bleiben wie angewurzelt stehen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Einen Augenblick später öffnet sich die Türe wieder, und eine junge, attraktive Dame steigt aus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-ryzhy",
+      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'ne Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-ryzhy",
+        "paren",
+        "tyoshcha",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer",
+        "paren": "son",
+        "tyoshcha": "old-woman",
+        "devushka": "woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        },
+        "devushka": {
+          "add": [
+            "lipstick",
+            "earrings"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

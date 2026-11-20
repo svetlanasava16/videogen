@@ -2,7 +2,7 @@
   "id": "ru-ff0c505f2053.de",
   "jokeId": "ru-ff0c505f2053",
   "locale": "de",
-  "title": "Die lauten Engländer",
+  "title": "Laute Mitbewohner",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein junger Schotte studiert in England und teilt sich ein Zimmer mit zwei Engländern.",
+      "text": "Angus MacDonald kam aus Schottland zum Studium an eine englische Universität, wo man ihn mit zwei anderen Studenten in ein Zimmer steckte.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Na, mein Junge, wie sind denn die englischen Studenten so?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Als er dort etwa einen Monat gewohnt hatte, kam seine Mutter ihn besuchen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "zhena"
@@ -36,9 +36,9 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Mama, schreckliche, laute Leute!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "Na, wie findest du diese englischen Studenten, Angus?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,8 +46,8 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Der auf der einen Seite schlägt die ganze Nacht mit dem Kopf gegen die Wand.",
-      "emotion": "angry",
+      "text": "Mama, das sind so schreckliche, laute Leute!",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,29 +55,39 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Und der auf der anderen Seite schreit und schreit. Jede Nacht.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Der auf dieser Seite schlägt die ganze Nacht ohne Pause mit dem Kopf gegen die Wand, und der auf der anderen Seite schreit und schreit, und so jede Nacht.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "zhena",
-      "text": "Ach, Junge, wie hältst du das bloß aus?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "text": "Ach, Angus, wie kommst du denn mit diesen schrecklichen, lauten Engländern aus?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "Ich ignoriere sie einfach. Ich sitze die ganze Nacht hier und spiele Dudelsack.",
+      "text": "Mama, ich mache gar nichts. Ich ignoriere sie einfach.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "Ich sitze hier die ganze Nacht und spiele auf meinem Dudelsack.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

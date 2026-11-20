@@ -7,25 +7,25 @@
   "place": "school-classroom",
   "cast": [
     "uchilka",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "uchilka": "teacher",
-    "paren": "student"
+    "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
-      "text": "Sag mal, wie möchtest du einmal sterben?",
+      "text": "Wie möchtest du einmal sterben?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
+      "character": "vovochka",
       "text": "So wie mein Opa.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "uchilka",
-      "text": "Und wie ist dein Opa gestorben?",
+      "text": "Wie ist dein Opa denn gestorben?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,7 +43,7 @@
     },
     {
       "id": "l4",
-      "character": "paren",
+      "character": "vovochka",
       "text": "Er ist eingeschlafen.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
@@ -53,20 +53,30 @@
     {
       "id": "l5",
       "character": "uchilka",
-      "text": "Das ist ein schöner Tod. So möchte ich auch sterben. Und wie möchtest du nicht sterben?",
+      "text": "Ja, das ist ein schöner Tod, so würde ich auch sterben wollen.",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "So wie die zwei, die bei Opa mitgefahren sind.",
+      "character": "uchilka",
+      "text": "Und wie würdest du nicht sterben wollen?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "vovochka",
+      "text": "So wie die zwei, die mit Opa mitgefahren sind.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

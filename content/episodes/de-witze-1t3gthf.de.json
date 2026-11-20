@@ -2,7 +2,7 @@
   "id": "de-witze-1t3gthf.de",
   "jokeId": "de-witze-1t3gthf",
   "locale": "de",
-  "title": "Fünf Jahre",
+  "title": "Der Jahrestag",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,12 +13,20 @@
     "paren": "boyfriend",
     "devushka": "girlfriend"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Mein Schatz, wir sind jetzt fünf Jahre zusammen.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Zum fünften Jahrestag in der Beziehung.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Willst du meine Frau…",
-      "emotion": "neutral",
+      "text": "Mein Schatz, wir sind jetzt fünf Jahre zusammen, willst du meine Frau…",
+      "emotion": "happy",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -35,7 +43,7 @@
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Ja! Ja, ich will!",
+      "text": "Ja, ja, ich will!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -45,10 +53,11 @@
       "id": "l4",
       "character": "paren",
       "text": "…kennenlernen?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

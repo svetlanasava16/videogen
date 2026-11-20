@@ -2,24 +2,38 @@
   "id": "de-witze-1icpswn.en",
   "jokeId": "de-witze-1icpswn",
   "locale": "en",
-  "title": "The Hypnotist",
+  "title": "You Again?",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "zhena",
     "uchilka",
-    "paren"
+    "zhena",
+    "doktor"
   ],
   "roles": {
-    "zhena": "wife",
     "uchilka": "clerk",
-    "paren": "magician"
+    "zhena": "wife",
+    "doktor": "therapist"
+  },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "headset"
+      ],
+      "remove": []
+    },
+    "doktor": {
+      "add": [
+        "goatee"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A woman walks into a hypnotist's office.",
+      "text": "Mrs. Müller cheated on her husband after ten years of marriage.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +41,17 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Hello. I need you to erase a memory.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Because the mistake weighs on her so much, she wants a hypnotist to erase the memory of it.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "May I ask why?",
+      "character": "narrator",
+      "text": "At the practice, she explains her reasons to the receptionist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +60,7 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "In ten years of marriage, I cheated on my husband just once.",
+      "text": "I've made one single mistake in ten years.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,22 +69,32 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "I don't want one mistake to ruin my whole life.",
+      "text": "I don't want it to ruin my whole life.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Oh, hello! You again?",
+      "character": "narrator",
+      "text": "Suddenly the hypnotist walks into the room.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "doktor",
+      "text": "Oh, Mrs. Müller! You again?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [
-        "paren"
+        "doktor"
       ],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

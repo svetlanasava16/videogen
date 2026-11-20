@@ -1,0 +1,102 @@
+{
+  "id": "ru-2d24764c6d49.en",
+  "jokeId": "ru-2d24764c6d49",
+  "locale": "en",
+  "title": "The Twenty-First Century",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "ded",
+    "devushka-ryzhaya"
+  ],
+  "roles": {
+    "ded": "old-man",
+    "devushka-ryzhaya": "daughter"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "ded",
+      "text": "I was visiting my daughter recently. When I asked her for a newspaper, she said:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka-ryzhaya",
+      "text": "Dad, it's the twenty-first century, take my iPad.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "What can I say... That fly never knew what killed it.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "devushka-ryzhaya": "daughter"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "give",
+          "to": "ded"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

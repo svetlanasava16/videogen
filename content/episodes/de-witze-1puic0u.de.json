@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Männer sitzen sich im Zug gegenüber. Einer kaut alle paar Minuten etwas.",
+      "text": "Sitzen sich zwei im Zugabteil gegenüber. Einer wirft sich alle paar Minuten etwas ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Apfelkerne. Gut fürs Gehirn, schärfen die Sinne.",
+      "text": "Apfelkerne, gut für das Gehirn. Und schärft die Sinne.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Kann ich auch welche haben?",
+      "text": "Kann ich auch welche bekommen?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "Zehn Stück, fünf Euro.",
-      "emotion": "neutral",
+      "text": "Kosten aber, zehn Stück fünf Euro.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,32 +62,112 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ganz schön teuer. Aber egal, her damit.",
+      "text": "Ist aber teuer, aber egal.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Moment mal! Für fünf Euro hätte ich locker fünf Kilo Äpfel bekommen!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Er kauft zehn Stück und beginnt sofort zu kauen. Nach drei Stück meint er zum Verkäufer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "barmen",
-      "text": "Sehen Sie? Es wirkt schon.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Für fünf Euro hätte ich mir locker fünf Kilo Äpfel kaufen können.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "barmen",
+      "text": "Schön, dass es schon wirkt.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "train",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

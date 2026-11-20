@@ -2,22 +2,23 @@
   "id": "ru-a8c1d8f0ec4b.ru",
   "jokeId": "ru-a8c1d8f0ec4b",
   "locale": "ru",
-  "title": "Семёныч",
+  "title": "Семеныч",
   "location": "derevnya",
   "place": "farm",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik-sosed"
+    "paren",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "driver",
-    "muzhik-sosed": "farmer"
+    "paren": "driver",
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "На ферме молодой тракторист опрокинул прицеп с навозом.",
+      "text": "На совхозной свиноферме молоденький тракторист неловко подавал задом, ну здоровенный прицеп с навозом и навернулся набок.",
+      "uncensored": "На совхозной свиноферме молоденький тракторист неловко подавал задом, ну здоровенный прицеп с навозом и наебнулся набок.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,27 +26,28 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Да не суетись ты. Давай перекурим, обмозгуем.",
+      "character": "narrator",
+      "text": "Парнишка бегает вокруг, суетится.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Некогда! Семёныч ругаться будет.",
-      "emotion": "surprised",
+      "text": "Да фигли ты тут переживаешь, давай перекурим это дело, обмозгуем как и что...",
+      "uncensored": "Да хули ты тут переживаешь, давай перекурим это дело, обмозгуем как и что...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Тут работы на полдня. Пошли пообедаем, а то голодным останешься.",
-      "emotion": "neutral",
+      "character": "paren",
+      "text": "Некогда, Семеныч ругаться будет.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,16 +55,16 @@
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Не могу, Семёныч осерчает.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Да ладно тебе, давай закуривай.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Пообедали. Зоотехник достаёт бутылку.",
+      "text": "Закурили.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -70,60 +72,262 @@
     },
     {
       "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "Ну, давай по маленькой.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik-ryzhy",
+      "text": "Такие дела... Ты тут теперь полдня будешь корячиться...",
+      "uncensored": "Такие дела... Ты тут теперь полдня будешь ебаться...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "muzhik-ryzhy",
-      "text": "Семёныч узнает, разорётся.",
-      "emotion": "sad",
+      "text": "Надо пойти пожрать, а то гляди, ты с этим навозом без обеда останешься.",
+      "uncensored": "Надо пойти пожрать, а то гляди, ты с этим гавном без обеда останешься.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "muzhik-sosed",
-      "text": "Не бойся, всё успеешь. А теперь бы пивка.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik-ryzhy",
-      "text": "Я лучше пойду. Семёныч совсем разозлится.",
+      "character": "paren",
+      "text": "Не могу, надо торопиться, а то Семеныч осерчает.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Ладно, пошли, плотно закусили. Зоотехник достает пузырь со спиртом.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l11",
-      "character": "muzhik-sosed",
-      "text": "Да где он, этот твой Семёныч?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik-ryzhy",
+      "text": "Ну, давай-ка жахнем по-маленькой...",
+      "uncensored": "Ну, давай-ка ебнем по-маленькой...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "paren",
+      "text": "Да я не могу, Семеныч узнает, разорется.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "muzhik-ryzhy",
-      "text": "Там остался. Его прицепом придавило.",
+      "text": "Фигня это, не дрейфь, все успеешь.",
+      "uncensored": "Хуйня это, не ссы, все успеешь.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "narrator",
+      "text": "Налили по маленькой, выпили.",
       "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "muzhik-ryzhy",
+      "text": "Вот теперь хорошо бы пивком усугубить...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
+      "character": "paren",
+      "text": "Да я лучше пойду, а то, боюсь, Семеныч сильно распсихуется.",
+      "uncensored": "Да я лучше пойду, а то, боюсь, Семеныч сильно распиздится.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l17",
+      "character": "muzhik-ryzhy",
+      "text": "Да где этот твой Семеныч?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l18",
+      "character": "paren",
+      "text": "А там остался, его под прицепом завалило.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "paren",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "paren": "driver",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "paren": "driver",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l17"
+        },
+        {
+          "type": "line",
+          "ref": "l18"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

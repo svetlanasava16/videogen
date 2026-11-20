@@ -1,0 +1,129 @@
+{
+  "id": "en-r-8ah5f8.de",
+  "jokeId": "en-r-8ah5f8",
+  "locale": "de",
+  "title": "Doppelte Bejahung",
+  "location": "klass",
+  "place": "university",
+  "cast": [
+    "doktor",
+    "paren"
+  ],
+  "roles": {
+    "doktor": "professor",
+    "paren": "student"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Linguistikprofessor vom Massachusetts Institute of Technology hielt neulich eine Vorlesung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "doktor",
+      "text": "Im Englischen ergibt eine doppelte Verneinung eine Bejahung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "In manchen Sprachen jedoch, etwa im Russischen, bleibt eine doppelte Verneinung eine Verneinung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "doktor",
+      "text": "Aber es gibt keine einzige Sprache, nicht eine, in der eine doppelte Bejahung eine Verneinung ausdrücken kann.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Ja, ja.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "hood"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "board"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

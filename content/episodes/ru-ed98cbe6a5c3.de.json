@@ -13,11 +13,19 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Herr Ober, können Sie die Wachteln noch ein bisschen braten?",
+      "text": "Herr Ober, kann man diese Wachteln noch ein bisschen braten?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Wieso, sind sie nicht durch?",
+      "text": "Sind sie denn nicht richtig durch?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,8 +43,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Keine Ahnung, aber sie fressen mir den Salat weg.",
-      "emotion": "sad",
+      "text": "Weiß ich nicht, aber sie fressen meinen Salat.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

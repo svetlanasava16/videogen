@@ -1,0 +1,160 @@
+{
+  "id": "ru-ee82443c4954.ru",
+  "jokeId": "ru-ee82443c4954",
+  "locale": "ru",
+  "title": "Ограбление",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "vor",
+    "sluzhivy-ryadovoy",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "vor": "thief",
+    "sluzhivy-ryadovoy": "thief",
+    "muzhik-sosed": "employee"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "В фирме, в разгар рабочего дня раздаются дикие крики, врываются парни в камуфляже и в масках.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Все на измене, тут крик:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "vor",
+      "text": "Лежать, это ограбление!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Главный бухгалтер, опускаясь на пол:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Напугали, сволочи, я-то думал — налоговая полиция...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "vor",
+        "sluzhivy-ryadovoy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "vor": "thief",
+        "sluzhivy-ryadovoy": "thief",
+        "muzhik-sosed": "employee"
+      },
+      "looks": {
+        "vor": {
+          "add": [
+            "eye-mask"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "eye-mask"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

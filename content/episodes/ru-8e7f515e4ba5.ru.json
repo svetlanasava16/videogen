@@ -13,11 +13,19 @@
     "tyoshcha": "old-woman",
     "vovochka": "vovochka"
   },
+  "looks": {
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "О, Вовочка! Как дела?",
+      "text": "Как дела, Вовочка?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -56,7 +64,7 @@
       "id": "l5",
       "character": "tyoshcha",
       "text": "А здоровье как?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -73,20 +81,22 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "Слушай, а ты другие слова, кроме «нормально», вообще знаешь?",
+      "text": "Слушай, а в твоём лексиконе есть другие слова, кроме этого «нормально»?",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "vovochka",
-      "text": "Знаю. Но папа сказал, что взрослым нельзя говорить «отвали».",
+      "text": "Папа сказал, что взрослым нельзя говорить «отвали»...",
+      "uncensored": "Папа сказал, что взрослым нельзя говорить «отъебись»...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

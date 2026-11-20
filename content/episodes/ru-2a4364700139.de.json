@@ -1,0 +1,95 @@
+{
+  "id": "ru-2a4364700139.de",
+  "jokeId": "ru-2a4364700139",
+  "locale": "de",
+  "title": "Die Posaune",
+  "location": "spalnya",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Drei Uhr nachts. Ein wütender Mann hämmert gegen die Wand zum Nachbarn.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Wenn du Mistkerl nicht sofort aufhörst, auf deiner verdammten Posaune zu spielen, werde ich verrückt!",
+      "uncensored": "Wenn du Scheißkerl nicht sofort aufhörst, auf deiner verfickten Posaune zu spielen, werde ich verrückt!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Ich fürchte, du kommst zu spät, mein Lieber. Ich spiele schon seit gut zwei Stunden nicht mehr...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

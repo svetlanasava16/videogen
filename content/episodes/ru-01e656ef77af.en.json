@@ -1,0 +1,105 @@
+{
+  "id": "ru-01e656ef77af.en",
+  "jokeId": "ru-01e656ef77af",
+  "locale": "en",
+  "title": "The Doctors' Protest",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "doktor",
+    "nachalnik"
+  ],
+  "roles": {
+    "doktor": "doctor",
+    "nachalnik": "bureaucrat"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Doctors have taken to the streets in protest.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "The authorities can't understand what the doctors want,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "because nobody can make out what exactly is written on their placards.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "doktor",
+        "nachalnik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "nachalnik": "bureaucrat"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

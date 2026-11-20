@@ -7,29 +7,32 @@
   "place": "doctor-office",
   "cast": [
     "zhena",
+    "vovochka",
     "doktor"
   ],
   "roles": {
     "zhena": "mother",
+    "vovochka": "child",
     "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Доктор, мой ребёнок наелся песка!",
-      "emotion": "surprised",
+      "text": "Доктор, мой ребенок наелся песка.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
-        "zhena"
+        "zhena",
+        "vovochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Я дала ему много воды. А что теперь?",
-      "emotion": "sad",
+      "text": "Я дала ему много воды, а что теперь?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -37,11 +40,12 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Теперь следите, чтобы он не подходил к цементу.",
+      "text": "Следите, чтоб он не подходил к цементу!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

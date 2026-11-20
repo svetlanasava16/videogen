@@ -13,20 +13,19 @@
     "devushka": "nurse",
     "muzhik": "patient"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "mustache"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Der Nächste! Ihr Name, bitte?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "P-p-p-pedro P-p-p-perez.",
+      "text": "Ihr Name, bitte?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,22 +34,32 @@
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "P-p-p-Pedro P-p-p-Perez.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
       "character": "devushka",
       "text": "Stottern Sie?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Nein. Mein Vater hat gestottert. Und der Mann im Standesamt war ein Idiot.",
-      "emotion": "angry",
+      "text": "Nein, mein Vater hat gestottert, und der, der mich angemeldet hat, war ein Idiot.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

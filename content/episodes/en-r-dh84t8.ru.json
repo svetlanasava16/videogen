@@ -2,23 +2,21 @@
   "id": "en-r-dh84t8.ru",
   "jokeId": "en-r-dh84t8",
   "locale": "ru",
-  "title": "Молитва услышана",
+  "title": "Молитва",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "vovochka": "child"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Братан, как же мне тебя не хватает.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "У мужика недавно умер лучший друг, и, скорбя у его могилы, он сказал:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,43 +24,140 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Жена на восьмом месяце. Может, родишься у нас сыном?",
+      "text": "Братан, я очень по тебе скучаю.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Через месяц родился крепкий мальчик. Прошли годы.",
+      "character": "muzhik",
+      "text": "Моя жена уже восемь месяцев беременна.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Смотри, братан. Твой нос, твои уши, даже смеётся как ты.",
+      "text": "Может, переродишься моим ребёнком?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Сработала моя молитва!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Через месяц жена родила крепкого мальчика.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "С каждым днём сын подрастал, и он понял, что тот очень похож на его лучшего друга.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Я очень рад, что моя молитва сработала.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#1f1f1f",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "flowers",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

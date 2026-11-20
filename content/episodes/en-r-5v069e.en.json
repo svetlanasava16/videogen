@@ -2,22 +2,22 @@
   "id": "en-r-5v069e.en",
   "jokeId": "en-r-5v069e",
   "locale": "en",
-  "title": "Rock, Paper, Ticket",
+  "title": "Rematch",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "traffic-cop"
+    "sluzhivy": "traffic-cop",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man gets pulled over by the police.",
+      "text": "He got pulled over by the police.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,42 +29,116 @@
       "text": "Papers.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Scissors. I win!",
-      "emotion": "happy",
+      "text": "Scissors. I win.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "He's been chasing me for an hour now.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "And he drove off.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Somebody really wants a rematch.",
-      "emotion": "smug",
+      "text": "He must be desperate for a rematch, as he's been chasing me for ages!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

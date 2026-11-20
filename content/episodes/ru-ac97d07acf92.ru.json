@@ -2,7 +2,7 @@
   "id": "ru-ac97d07acf92.ru",
   "jokeId": "ru-ac97d07acf92",
   "locale": "ru",
-  "title": "Жених",
+  "title": "Пожалей парня",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,11 +13,19 @@
     "zhena": "mother",
     "devushka-ryzhaya": "daughter"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Доченька, этот парень сирота. Да ещё и хромой.",
+      "text": "Доченька, этот парень сирота, к тому же он хромой.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,29 +34,39 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Не выходи за него.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Не выходи за него замуж.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Мама, мне красавец и не нужен.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "text": "А мне не нужен красавец.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Я не о том. Пожалей парня, ему и так от жизни досталось.",
+      "text": "Я не о том.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Пожалей парня, ему и так досталось от жизни.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

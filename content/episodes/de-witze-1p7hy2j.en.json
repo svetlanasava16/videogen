@@ -1,0 +1,175 @@
+{
+  "id": "de-witze-1p7hy2j.en",
+  "jokeId": "de-witze-1p7hy2j",
+  "locale": "en",
+  "title": "Wishes with a Catch",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik",
+    "chort"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "chort": "genie"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A man discovers a genie in a bottle.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "chort",
+      "text": "I will grant you three wishes.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "chort"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "chort",
+      "text": "But whatever you wish for, your mother-in-law gets double.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "First, I wish for a big house with a pool and a sprawling garden.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "The genie nods, and just like that the man owns a fabulous property, while his mother-in-law gets two whole estates.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Next, I wish for a brand-new Lamborghini in my garage.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Again the genie nods, and the car appears in the man's garage, while his mother-in-law gets two sports cars.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "chort",
+      "text": "So, what is your last wish?",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Okay, then I'd like a fever of a hundred and one degrees.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "chort": {
+          "add": [
+            "turban"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

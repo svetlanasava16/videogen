@@ -6,54 +6,82 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "neighbor"
+    "muzhik-sosed": "neighbor",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "N'Abend, Nachbar.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "muzhik",
-      "text": "Abend? Es ist halb drei in der Nacht!",
+      "text": "Mein Nachbar hat heute Nacht um halb drei an meine Tür geklopft.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Wer klopft denn um halb drei bei anderen Leuten?",
+      "text": "Können Sie sich das vorstellen? Um halb drei!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
-      "text": "Zum Glück war ich noch wach und hab Dudelsack gespielt.",
+      "text": "Zum Glück für ihn war ich noch wach und hab Dudelsack gespielt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

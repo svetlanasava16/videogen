@@ -7,25 +7,25 @@
   "place": "school-classroom",
   "cast": [
     "uchilka",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "uchilka": "teacher",
-    "paren": "student"
+    "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
-      "text": "Скажи, а как бы ты хотел умереть?",
+      "text": "Как бы ты хотел умереть?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
+      "character": "vovochka",
       "text": "Как мой дедушка.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -43,8 +43,8 @@
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Он заснул.",
+      "character": "vovochka",
+      "text": "Он уснул.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,20 +53,30 @@
     {
       "id": "l5",
       "character": "uchilka",
-      "text": "Прекрасная смерть. Я бы тоже так хотела. А как бы ты умирать не хотел?",
+      "text": "Да, это прекрасная смерть, я бы тоже хотела так умереть.",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Как те двое, что ехали с ним в машине.",
+      "character": "uchilka",
+      "text": "А как бы ты не хотел умереть?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "vovochka",
+      "text": "Как те двое, которые ехали с дедушкой.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

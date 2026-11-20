@@ -6,40 +6,58 @@
   "location": "ofis",
   "place": "front-door",
   "cast": [
-    "ded",
-    "paren"
+    "muzhik",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "paren": "employee"
+    "muzhik": "customer",
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Одиннадцатый этаж. Хорошего дня, сынок.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Мужик поднимается на лифте на одиннадцатый этаж, и когда он выходит, лифтёр говорит:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Не называйте меня сынком. Вы мне не отец.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "ded",
+      "text": "Хорошего дня, сынок.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "Не отец. Но поднял-то тебя я.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Не называй меня сынком. Ты мне не отец.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "Нет, но поднял-то тебя я, разве нет?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

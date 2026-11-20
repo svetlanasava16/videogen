@@ -7,28 +7,28 @@
   "place": "school-classroom",
   "cast": [
     "vovochka",
-    "uchilka",
-    "paren"
+    "paren",
+    "uchilka"
   ],
   "roles": {
     "vovochka": "child",
-    "uchilka": "teacher",
-    "paren": "student"
+    "paren": "student",
+    "uchilka": "teacher"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Meine war größer!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "character": "narrator",
+      "text": "Zwei Jungen streiten sich, als die Lehrerin ins Klassenzimmer kommt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Gar nicht, meine!",
+      "character": "uchilka",
+      "text": "Worüber streitet ihr zwei?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,20 +36,18 @@
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "Worüber streitet ihr euch?",
-      "emotion": "angry",
+      "character": "vovochka",
+      "text": "Wir haben einen Zehn-Euro-Schein gefunden und beschlossen: Wer die größte Lüge erzählt, darf ihn behalten.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "vovochka",
-      "text": "Wir haben zehn Euro gefunden. Wer am dicksten lügt, kriegt sie.",
-      "emotion": "neutral",
+      "character": "uchilka",
+      "text": "Ihr beiden solltet euch schämen.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -57,32 +55,109 @@
     {
       "id": "l5",
       "character": "uchilka",
-      "text": "Schämt euch!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "uchilka",
-      "text": "In eurem Alter wusste ich nicht mal, was eine Lüge ist.",
+      "text": "Als ich in eurem Alter war, wusste ich nicht einmal, was eine Lüge ist.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "vovochka",
-      "text": "Okay, Sie haben gewonnen. Hier sind die zehn Euro.",
-      "emotion": "sad",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Die Jungen sahen sich an und gaben der Lehrerin die zehn Euro.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "paren": "student",
+        "uchilka": "teacher"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        },
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "give",
+          "to": "uchilka"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

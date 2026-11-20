@@ -11,12 +11,20 @@
   "roles": {
     "muzhik": "everyman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Late, late, late! Where am I supposed to park?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "A man is driving to a meeting. He's late, he's nervous, and he can't find a parking spot.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -24,7 +32,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Lord, please help me find a parking space!",
+      "text": "Lord, help me find a parking spot.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -33,7 +41,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "I'll quit drinking and go to church every Sunday, I swear!",
+      "text": "Then I'll quit drinking and go to church every Sunday!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -41,9 +49,9 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Wait... a free spot!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Suddenly, as if by a miracle, a free spot appears.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -51,11 +59,12 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Never mind, Lord. Found one!",
-      "emotion": "smug",
+      "text": "Oh, never mind. Found one!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

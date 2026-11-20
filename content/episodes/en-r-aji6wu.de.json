@@ -2,7 +2,7 @@
   "id": "en-r-aji6wu.de",
   "jokeId": "en-r-aji6wu",
   "locale": "de",
-  "title": "Kriegsgeschichten",
+  "title": "Fünfzehn Menschen",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,27 +13,26 @@
     "muzhik": "father",
     "paren": "son"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "army-cap"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Setz dich, mein Sohn. Es ist Zeit für die Wahrheit.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "Im Irak habe ich fünfzehn Menschen getötet.",
+      "text": "Sohn, im Irak habe ich fünfzehn Menschen getötet.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "paren",
       "text": "Papa, du warst Hubschraubermechaniker.",
       "emotion": "neutral",
@@ -42,13 +41,14 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "Ich hab nie gesagt, dass ich ein guter war.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

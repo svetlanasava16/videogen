@@ -2,24 +2,22 @@
   "id": "en-r-7xpiv9.ru",
   "jokeId": "en-r-7xpiv9",
   "locale": "ru",
-  "title": "Чудесный свет",
+  "title": "Пуф, и свет включается",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ded",
-    "doktor",
-    "tyoshcha"
+    "doktor"
   ],
   "roles": {
     "ded": "old-man",
-    "doktor": "doctor",
-    "tyoshcha": "old-woman"
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Анализы у вас отличные. А как у вас с Богом?",
+      "character": "narrator",
+      "text": "Девяностолетний старик приходит на медосмотр, и все анализы у него в норме.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,73 +25,242 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "С Богом у нас полное взаимопонимание. Он знает, что я плохо вижу.",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Ларри, всё выглядит отлично.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "Встаю ночью в туалет, пуф, и свет загорается.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Как вы себя чувствуете душевно и эмоционально? Вы в мире с Богом?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Закончил, пуф, и свет гаснет.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Мы с Богом не разлей вода. Он знает, что у меня плохое зрение,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "поэтому Он устроил так, что когда я посреди ночи встаю в туалет, пуф! И свет включается.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ded",
+      "text": "А когда я заканчиваю, пуф! И свет выключается.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "doktor",
-      "text": "Поразительно.",
+      "text": "Ого, это невероятно.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "doktor",
-      "text": "Алло, это доктор. С вашим мужем всё в порядке.",
-      "emotion": "happy",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Чуть позже в тот же день доктор звонит жене Ларри.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "doktor",
-      "text": "Но правда, что ночью у него в туалете свет сам загорается?",
+      "text": "Бонни, у Ларри всё хорошо!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Но я должен был вам позвонить, потому что я в восторге от его отношений с Богом.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "doktor",
+      "text": "Это правда, что он встаёт ночью, и пуф, в туалете включается свет, а когда он заканчивает, пуф, свет выключается?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "tyoshcha",
-      "text": "Господи! Опять он в холодильник писает!",
+      "text": "Господи Иисусе! Он опять писает в холодильник!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "ded",
+        "doktor"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "tyoshcha"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "fridge"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

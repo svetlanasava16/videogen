@@ -2,7 +2,7 @@
   "id": "ru-19a7da93045c.ru",
   "jokeId": "ru-19a7da93045c",
   "locale": "ru",
-  "title": "Место для парковки",
+  "title": "Парковка",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -11,12 +11,20 @@
   "roles": {
     "muzhik": "everyman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Опаздываю, опаздываю! Ну где тут встать-то?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Мужик едет на встречу, опаздывает, нервничает, не может найти место припарковаться.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -24,7 +32,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Господи, помоги мне найти место для парковки!",
+      "text": "Господи, помоги мне найти место для парковки.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -33,7 +41,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Я брошу пить и буду каждое воскресенье ходить в церковь!",
+      "text": "Я тогда брошу пить и буду каждое воскресенье ходить в церковь!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -41,9 +49,9 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ой... Свободное место!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Вдруг чудесным образом появляется свободное местечко.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -51,11 +59,12 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "А, всё, Господи, не надо. Нашёл!",
-      "emotion": "smug",
+      "text": "А, всё, не надо. Нашёл!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

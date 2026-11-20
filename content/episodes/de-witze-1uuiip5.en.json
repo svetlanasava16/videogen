@@ -2,42 +2,40 @@
   "id": "de-witze-1uuiip5.en",
   "jokeId": "de-witze-1uuiip5",
   "locale": "en",
-  "title": "Fiber in Three Years",
+  "title": "Fiber Optics",
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "barmen",
+    "paren",
     "muzhik"
   ],
   "roles": {
-    "barmen": "salesman",
+    "paren": "employee",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Good afternoon! Super fast fiber internet!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A door-to-door salesman is selling a man a fiber-optic connection.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Sign today, and in just three years you'll be streaming at lightning speed!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "So, if you sign today, you'll be surfing at top speed in just three years!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Three years? Hmm. Morning or afternoon?",
+      "text": "In three years? Hmm… Morning or afternoon?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +43,8 @@
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "What difference does that make? It's three years from now!",
+      "character": "paren",
+      "text": "What difference does that make? It's three years away.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -59,10 +57,71 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

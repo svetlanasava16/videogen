@@ -2,44 +2,43 @@
   "id": "en-r-efuo8i.de",
   "jokeId": "en-r-efuo8i",
   "locale": "de",
-  "title": "Der Mitbewohner",
+  "title": "Es spukt",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-sosed",
-    "chort"
+    "ded"
   ],
   "roles": {
-    "muzhik-sosed": "neighbor",
-    "chort": "monster"
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "monocle"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Nachts verschiebt jemand meine Sachen.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "Mein Mitbewohner sagt, in unserem Haus spukt es.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Ich sag's dir, in diesem Haus spukt es.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "chort",
-      "text": "Ach was. Ich wohne hier seit dreihundert Jahren und hab verdammt noch mal nichts gemerkt.",
+      "character": "ded",
+      "text": "Ich wohne hier seit dreihundert Jahren und hab einen Dreck gemerkt.",
+      "uncensored": "Ich wohne hier seit dreihundert Jahren und hab einen Scheiß gemerkt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

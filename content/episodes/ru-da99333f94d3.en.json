@@ -3,21 +3,21 @@
   "jokeId": "ru-da99333f94d3",
   "locale": "en",
   "title": "The Groom",
-  "location": "ofis",
+  "location": "doroga",
   "place": "police-station",
   "cast": [
     "sluzhivy",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A cop pulls over a driver for speeding.",
+      "text": "A cop pulls over a driver who was going way over the speed limit.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Officer, I can explain everything!",
+      "character": "paren",
+      "text": "But sir, I can explain everything!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Explain it to my chief. Until then, you're going in a cell.",
+      "text": "You'll explain everything to my chief, and meanwhile you'll sit in a cell!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,28 +43,26 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "But I'm trying to tell you...",
+      "character": "paren",
+      "text": "But I want to say...",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Quiet!",
+      "text": "Shut up...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "A few hours later.",
+      "text": "A few hours later the cop walks into the driver's cell and says:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,25 +71,125 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "You're in luck. The chief is at his daughter's wedding. He'll be in a great mood.",
+      "text": "You're lucky, the chief is at his daughter's wedding right now, so when he gets here he'll be in a good mood!",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "pauseAfterSec": 0.8,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
+      "character": "paren",
       "text": "Don't count on it. I'm the groom.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1f1f24",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1f1f24",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

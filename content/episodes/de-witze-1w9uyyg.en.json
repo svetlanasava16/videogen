@@ -1,0 +1,113 @@
+{
+  "id": "de-witze-1w9uyyg.en",
+  "jokeId": "de-witze-1w9uyyg",
+  "locale": "en",
+  "title": "The Plaintiff",
+  "location": "sud",
+  "place": "courtroom",
+  "cast": [
+    "nachalnik",
+    "muzhik"
+  ],
+  "roles": {
+    "nachalnik": "judge",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "The judge asks the plaintiff:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "So, Mr. Meier, the defendant claimed that you are a jerk. Is that true?",
+      "uncensored": "So, Mr. Meier, the defendant claimed that you are an asshole. Is that true?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Yes indeed, Your Honour.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Then why are you suing?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "nachalnik",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "judge",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "witness"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

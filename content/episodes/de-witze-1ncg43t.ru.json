@@ -2,7 +2,7 @@
   "id": "de-witze-1ncg43t.ru",
   "jokeId": "de-witze-1ncg43t",
   "locale": "ru",
-  "title": "Задний ход",
+  "title": "Задним ходом",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Водитель сорокатонной фуры задом заезжает на крутой горный серпантин.",
+      "text": "Водитель на сорокатонной фуре задним ходом поднимается по крутому серпантину длиной пять километров.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,64 +25,152 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Эй, шеф! Ты чего задом едешь?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Через два километра его останавливает какой-то мужик.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Мне наверху груз сдавать. А начальник сказал, что там не развернуться.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Ты чего задом едешь?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Через шесть часов фура спускается обратно. Опять задом.",
+      "character": "muzhik-ryzhy",
+      "text": "Мне наверху надо груз доставить, а начальник сказал, что там наверху развернуться нельзя.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "А вниз-то ты чего задом?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Через шесть часов он спускается обратно. Задним ходом!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Вот и видно, что начальник в вождении ничего не смыслит.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "А вниз-то ты чего задом едешь?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "Развернуться-то я там смог!",
+      "text": "Вот лишний раз видно, что начальник в вождении ничего не смыслит.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Я же смог развернуться!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

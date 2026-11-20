@@ -2,24 +2,22 @@
   "id": "ru-3a049c5b9532.en",
   "jokeId": "ru-3a049c5b9532",
   "locale": "en",
-  "title": "Give Me a Push",
+  "title": "A Little Push",
   "location": "gostinaya",
   "place": "park",
   "cast": [
-    "zhena",
-    "muzhik",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "muzhik"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband",
-    "muzhik-ryzhy": "drunk"
+    "muzhik-ryzhy": "drunk",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Three in the morning. The doorbell rings.",
+      "text": "Three in the morning. A husband and wife are asleep. Suddenly the doorbell rings. Swearing, the husband goes to open it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,24 +26,20 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Buddy, help me out! It's just round the corner. Give me a push.",
+      "text": "Buddy, come with me, it's just around the corner, you can give me a push.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Are you crazy? It's three in the morning! Go ask someone else.",
+      "text": "Have you lost your mind, man? It's three in the morning. Go ask somebody else.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
@@ -59,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Some drunk got stuck and wanted a push. I told him to get lost.",
+      "text": "Oh, some idiot got stuck and wanted a push. I told him to get lost.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,7 +62,7 @@
     {
       "id": "l6",
       "character": "zhena",
-      "text": "You animal! Remember when our engine died in the rain and some guy pushed us for a whole hour?",
+      "text": "You're a real beast, you know that? Remember when our engine died, in the rain, and some guy pushed us for a whole hour?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -79,24 +73,24 @@
       "character": "zhena",
       "text": "And you can't help a person out?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Fine, fine, I'm going.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Swearing again, the husband climbs out of bed and gets dressed. He goes out into the yard. It's pitch dark.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Hey, buddy! Where are you?",
-      "emotion": "neutral",
+      "text": "Hey, man! Where are you?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -104,20 +98,18 @@
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Over here! Come on!",
+      "text": "Over here! Come here!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l11",
       "character": "muzhik",
       "text": "Where's here?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -128,10 +120,162 @@
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "drunk",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "door"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "muzhik-ryzhy": "drunk"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "bench"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

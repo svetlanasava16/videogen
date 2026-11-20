@@ -1,0 +1,175 @@
+{
+  "id": "de-witze-1p7hy2j.ru",
+  "jokeId": "de-witze-1p7hy2j",
+  "locale": "ru",
+  "title": "Желания с подвохом",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik",
+    "chort"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "chort": "genie"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужчина находит джинна из бутылки.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "chort",
+      "text": "Я исполню три твоих желания.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "chort"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "chort",
+      "text": "Но учти: что бы ты ни пожелал, твоя тёща получит вдвойне.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Для начала я хочу большой дом с бассейном и просторным садом.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Джинн кивает, и вот мужчина уже владелец шикарного дома, а его тёща получает сразу два поместья.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Дальше я хочу новенький Ламборгини у себя в гараже.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Джинн снова кивает, и машина тут же появляется у мужчины в гараже, а его тёща получает сразу две спортивные машины.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "chort",
+      "text": "Ну, какое твоё последнее желание?",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Ладно, тогда я бы хотел температуру тридцать восемь градусов.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "chort": {
+          "add": [
+            "turban"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

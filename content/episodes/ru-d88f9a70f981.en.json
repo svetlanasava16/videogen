@@ -2,23 +2,38 @@
   "id": "ru-d88f9a70f981.en",
   "jokeId": "ru-d88f9a70f981",
   "locale": "en",
-  "title": "Nightlife",
+  "title": "Night Out",
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "devushka",
-    "tyoshcha"
+    "tyoshcha",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "tyoshcha": "grandma"
+    "tyoshcha": "grandma",
+    "devushka": "woman"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "earrings",
+        "lipstick"
+      ],
+      "remove": []
+    },
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Hi, Grandma! Straight from the city to you!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A glamorous girl from the big city comes to stay with her grandma in the village.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "devushka"
@@ -27,30 +42,22 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Oh, my little sweetheart is here!",
+      "character": "devushka",
+      "text": "Granny, where can you go around here at night?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Grandma, where can you go around here at night?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "tyoshcha",
       "text": "In the bucket.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

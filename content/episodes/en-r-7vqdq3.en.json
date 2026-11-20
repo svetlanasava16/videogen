@@ -19,72 +19,128 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "The morning after a heavy night of drinking.",
+      "text": "A man wakes up after a heavy night of drinking to his wife happily cooking breakfast.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Good morning, darling! I'll pop out for some fresh bread!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": [
-        "zhena"
-      ]
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "What happened last night?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Confused, he approaches his daughter for an explanation of last night when he arrived home.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "You couldn't get your key in the lock, so you kicked the door in.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "You kicked in the door when you couldn't get your key in the lock, fell through the table and broke it, and peed your pants.",
+      "uncensored": "You kicked in the door when you couldn't get your key in the lock, fell through the table and broke it, and pissed your pants.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Geez! So then why the hell is she in such a good mood?",
+      "uncensored": "Jesus! So then why the hell is she in such a good mood?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Then you fell through the table and broke it. And you wet your pants.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "When she tried to take your pants off to wash them, you slapped her hand away and said,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Good Lord! So why is she in such a good mood?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "devushka-ryzhaya",
-      "text": "When she tried to take your pants off to wash them, you slapped her hand away and said: Get your hands off me, I'm married!",
-      "emotion": "smug",
+      "text": "Get your hands off me! I'm married!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "devushka-ryzhaya": "daughter",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

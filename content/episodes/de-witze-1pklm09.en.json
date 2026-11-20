@@ -6,36 +6,43 @@
   "location": "magazin",
   "place": "pharmacy",
   "cast": [
-    "uchilka",
-    "muzhik"
+    "muzhik",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "pharmacist",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "uchilka": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Hi. A small bottle of arsenic, please.",
+      "character": "narrator",
+      "text": "A man walks into a pharmacy.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "That's deadly poison! I can't sell you that.",
-      "emotion": "surprised",
+      "character": "muzhik",
+      "text": "Please give me a little bottle of arsenic.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "uchilka",
+      "text": "That stuff is highly poisonous, I'm not allowed to sell anything like that!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
       "text": "But I want to poison my wife!",
       "emotion": "neutral",
@@ -44,43 +51,102 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "uchilka",
-      "text": "Are you crazy? I'm calling the police!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Take a look at this photo. That's my wife. And the guy she's kissing, do you recognise him?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "uchilka",
+      "text": "You must be crazy! That's illegal, I'm calling the police right now!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "uchilka",
-      "text": "That's... my husband!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "The man pulls out a photo of his wife, who in the picture is kissing the pharmacist's husband, and puts it on the counter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "uchilka",
-      "text": "Oh. Why didn't you say you had a prescription?",
+      "text": "Oh, I see, you have a prescription...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "uchilka": "pharmacist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

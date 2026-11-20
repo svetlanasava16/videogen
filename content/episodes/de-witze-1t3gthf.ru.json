@@ -2,7 +2,7 @@
   "id": "de-witze-1t3gthf.ru",
   "jokeId": "de-witze-1t3gthf",
   "locale": "ru",
-  "title": "Пять лет",
+  "title": "Годовщина",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,12 +13,20 @@
     "paren": "boyfriend",
     "devushka": "girlfriend"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Милая, мы уже пять лет вместе.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "На пятую годовщину отношений.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Хочешь стать…",
-      "emotion": "neutral",
+      "text": "Милая, мы уже пять лет вместе, хочешь мою жену…",
+      "emotion": "happy",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -35,7 +43,7 @@
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Да! Да, хочу!",
+      "text": "Да, да, хочу!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -44,11 +52,12 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "…подругой моей жены?",
-      "emotion": "surprised",
+      "text": "…увидеть?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

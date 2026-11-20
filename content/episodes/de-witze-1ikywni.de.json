@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann will heimlich die Katze seiner Frau loswerden.",
+      "text": "Ein Mann will die Katze seiner Frau heimlich loswerden und beschließt, sie auszusetzen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,66 +25,207 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Zwanzig Häuser weit reicht. Raus mit dir!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Er nimmt sie mit ins Auto, fährt zwanzig Häuser weit, setzt die Katze aus und fährt heim. Zehn Minuten später ist die Katze auch wieder da.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "kot"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Zehn Minuten später ist die Katze wieder zu Hause. Nach fünf Kilometern auch.",
+      "character": "muzhik",
+      "text": "Na gut, war vielleicht ein wenig zu kurz die Strecke.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "kot"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Jetzt reicht's! Zwanzig Kilometer, durch den Wald, über die Brücke, rechts, links. Raus!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Er setzt sich wieder mit der Katze ins Auto, fährt fünf Kilometer weit und setzt sie aus. Zwanzig Minuten später ist die Katze wieder zu Hause.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "kot"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Eine halbe Stunde später ruft er zu Hause an.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Jetzt reicht's!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Schatz, ist die Katze schon da?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Er fährt zwanzig Kilometer, dann durch den Wald, über eine Brücke, rechts, links, und setzt die Katze schließlich mitten im Wald auf einer Lichtung aus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Eine halbe Stunde später ruft der Mann zu Hause an.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "muzhik",
-      "text": "Gut. Hol sie mal ans Telefon. Ich hab mich verfahren.",
-      "emotion": "sad",
+      "text": "Ist die Katze da?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "zhena",
+      "text": "Ja, warum?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Hol sie mal ans Telefon, ich habe mich verfahren.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "tv"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

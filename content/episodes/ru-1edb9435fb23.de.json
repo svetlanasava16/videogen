@@ -6,19 +6,34 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "vovochka"
+    "vovochka",
+    "zhena"
   ],
   "roles": {
-    "zhena": "mother",
-    "vovochka": "vovochka"
+    "vovochka": "vovochka",
+    "zhena": "mother"
+  },
+  "looks": {
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    },
+    "zhena": {
+      "clothes": "#6b4423",
+      "add": [
+        "earrings"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Na, Fritzchen, wie steht mir mein neuer Pelzmantel?",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Fritzchen schaut zu, wie Mama einen neuen Mantel aus echtem Pelz anprobiert.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +41,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "Mama, ist dir eigentlich klar, dass dieser Mantel das Ergebnis schrecklicher Qualen eines armen, unglücklichen Tieres ist?",
-      "emotion": "sad",
+      "text": "Mama, ist dir eigentlich klar, dass dieser Pelzmantel das Ergebnis schrecklicher Leiden eines armen, unglücklichen Tieres ist?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -39,7 +54,8 @@
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

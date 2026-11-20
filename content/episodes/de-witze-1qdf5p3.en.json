@@ -2,7 +2,7 @@
   "id": "de-witze-1qdf5p3.en",
   "jokeId": "de-witze-1qdf5p3",
   "locale": "en",
-  "title": "The Warm Thumb",
+  "title": "At the Restaurant",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,53 +13,70 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Your schnitzel, sir.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "Hang on! Why is your thumb on my schnitzel? Ever heard of hygiene?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "At a restaurant, the waiter serves a customer his schnitzel, and the customer sees that the waiter has his thumb on the schnitzel.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Excuse me, but what is your thumb doing on my schnitzel?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "barmen",
-      "text": "Sorry, sir. I've got an abscess on my thumb, and the doctor told me to keep it warm.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Ever heard of hygiene?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Not on my schnitzel! Stick it up your backside!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "barmen",
+      "text": "Yes, I'm sorry, but I've got a fistula on my thumb, and the doctor said I should keep it warm whenever I can!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "muzhik",
+      "text": "But not on my schnitzel! For all I care, stick your thumb up your butt!",
+      "uncensored": "But not on my schnitzel! For all I care, stick your thumb up your ass!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "barmen",
-      "text": "That's where I usually keep it. But I do have to serve now and then.",
+      "text": "That's where I keep it most of the time, but every now and then I also have to serve!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

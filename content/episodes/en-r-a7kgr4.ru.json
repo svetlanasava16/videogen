@@ -2,22 +2,22 @@
   "id": "en-r-a7kgr4.ru",
   "jokeId": "en-r-a7kgr4",
   "locale": "ru",
-  "title": "Опытный отец",
+  "title": "Присутствовал при родах",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Доктор, у меня жена беременна.",
+      "text": "Моя жена беременна.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Поздравляю. А вы когда-нибудь присутствовали при родах?",
+      "text": "Вы когда-нибудь раньше присутствовали при родах?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +37,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Да, один раз.",
-      "emotion": "smug",
+      "text": "Да, всего один раз.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,20 +46,21 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "И как впечатления?",
+      "text": "И как это было?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Сначала было темно, а потом вдруг очень ярко.",
-      "emotion": "neutral",
+      "text": "Сначала было темно, а потом вдруг стало очень светло.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

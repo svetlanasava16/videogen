@@ -2,23 +2,23 @@
   "id": "en-r-9tsf2h.ru",
   "jokeId": "en-r-9tsf2h",
   "locale": "ru",
-  "title": "Фотография",
+  "title": "Сходи к моей девушке",
   "location": "samolet",
   "place": "train",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "husband",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-ryzhy",
-      "text": "Глянь, это моя жена.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Сосед в поезде достал фотографию своей жены.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,17 +26,17 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Красавица, правда?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Красивая, правда?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Если она тебе кажется красавицей, тебе надо к моей девушке сходить.",
-      "emotion": "neutral",
+      "text": "Если ты считаешь, что она красивая, тебе надо сходить к моей девушке, приятель.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,23 +44,70 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "А что, она ещё красивее?",
+      "text": "Зачем? Она что, такая красотка?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Нет. Она окулист.",
+      "text": "Нет, она окулист.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-ryzhy": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

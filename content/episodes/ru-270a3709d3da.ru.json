@@ -1,0 +1,182 @@
+{
+  "id": "ru-270a3709d3da.ru",
+  "jokeId": "ru-270a3709d3da",
+  "locale": "ru",
+  "title": "Чей дядя",
+  "location": "gostinaya",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "ded",
+    "zhena"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "ded": "old-man",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Жили-были муж с женой, и жили бы они очень счастливо, но поселился у них родственник — дядя.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Оказался этот дядюшка большой сволочью. Вечно всем был недоволен: то в семье мало зарабатывают, то готовят невкусно, то внимания ему мало уделяют.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Капризами своими всех просто забодал. Но семья была деликатной и всё это терпела.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Наконец этот старый паразит умер.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "И, возвращаясь с похорон, муж сказал жене:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Признаюсь тебе, дорогая, что, если бы я не любил тебя так сильно, я бы этого твоего дядю давно выгнал.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "zhena",
+      "text": "Как? Моего дядю?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "zhena",
+      "text": "Я была всегда уверена, что это твой дядя!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "ded",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "ded": "old-man",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

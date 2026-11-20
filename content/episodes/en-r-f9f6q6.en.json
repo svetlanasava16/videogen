@@ -2,65 +2,69 @@
   "id": "en-r-f9f6q6.en",
   "jokeId": "en-r-f9f6q6",
   "locale": "en",
-  "title": "Smoking or Non-Smoking",
+  "title": "Smoking or Non-smoking",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "paren",
-    "nachalnik"
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "nachalnik": "boss"
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "You're fired.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "I got fired from my job because I kept asking my customers whether they would prefer smoking or non-smoking.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "paren",
-      "text": "Why? I'm always polite with the customers!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "You ask every single one of them: smoking or non-smoking?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "paren",
-      "text": "It's a simple question!",
-      "emotion": "smug",
+      "text": "Apparently the correct terms are cremation and burial.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "nachalnik",
-      "text": "Here we say cremation or burial!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "employee"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1c1c1c",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

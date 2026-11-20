@@ -2,7 +2,7 @@
   "id": "ru-c6575f7db356.en",
   "jokeId": "ru-c6575f7db356",
   "locale": "en",
-  "title": "The New Game",
+  "title": "The Game",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,11 +13,19 @@
     "vovochka": "child",
     "zhena": "maid"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A little boy is tearing through the apartment, knocking everything over.",
+      "text": "A little boy is running around the apartment.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +33,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "He knocks the books off the sideboard, throws clothes everywhere, tips over the chairs.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
-      "text": "What are you doing?!",
+      "text": "What are you doing?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,31 +52,33 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "vovochka",
-      "text": "Playing a game.",
+      "text": "I'm playing a game.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "zhena",
-      "text": "What game?",
-      "emotion": "neutral",
+      "text": "Which game?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "vovochka",
-      "text": "Goddammit, where are the car keys?!",
+      "text": "Where the heck are the car keys!",
+      "uncensored": "Where the fuck are the car keys!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

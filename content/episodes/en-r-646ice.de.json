@@ -2,7 +2,7 @@
   "id": "en-r-646ice.de",
   "jokeId": "en-r-646ice",
   "locale": "de",
-  "title": "Ganz leise",
+  "title": "Lautlos",
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -17,16 +17,25 @@
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "Du, mir ist gerade ein ganz leiser Pups entwischt. Was mach ich jetzt?",
+      "text": "Ich habe gerade einen von diesen lautlosen Pupsern losgelassen.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "tyoshcha",
+      "text": "Was soll ich tun?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "ded",
-      "text": "Wechsel mal die Batterie in deinem Hörgerät.",
+      "text": "Wechsel die Batterie in deinem Hörgerät.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,6 +44,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

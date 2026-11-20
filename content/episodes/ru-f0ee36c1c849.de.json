@@ -1,0 +1,112 @@
+{
+  "id": "ru-f0ee36c1c849.de",
+  "jokeId": "ru-f0ee36c1c849",
+  "locale": "de",
+  "title": "Ohne Frauen",
+  "location": "ofis",
+  "place": "conference-hall",
+  "cast": [
+    "devushka",
+    "muzhik"
+  ],
+  "roles": {
+    "devushka": "woman",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Treffen feministischer Organisationen. Am Rednerpult wettert mal wieder eine Rednerin.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka",
+      "text": "Was würden diese Männer jetzt ohne Frauen machen?! Was würden sie bloß ohne uns machen?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka",
+      "text": "Na?! Ich frage Sie!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Was, was?! Kokosnüsse würden wir im Paradies futtern!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "muzhik": "everyman"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

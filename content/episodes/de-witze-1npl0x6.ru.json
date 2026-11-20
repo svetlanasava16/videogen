@@ -15,12 +15,20 @@
     "tyoshcha": "old-woman",
     "nachalnik": "lawyer"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
-      "text": "Простите за вопрос. Вам девяносто четыре и девяносто восемь лет.",
-      "emotion": "neutral",
+      "text": "Простите за вопрос, но вам девяносто четыре и девяносто восемь лет, и вы женаты больше шестидесяти лет.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -28,7 +36,7 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Вы женаты больше шестидесяти лет. Почему вы решили развестись именно сейчас?",
+      "text": "Почему вы хотите развестись именно сейчас?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -37,11 +45,12 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Ну, у нас давно уже не ладится. Просто мы ждали, пока дети умрут.",
+      "text": "Ну, у нас уже давно не ладится, но мы хотели подождать, пока дети умрут.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

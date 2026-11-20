@@ -1,0 +1,316 @@
+{
+  "id": "de-witze-1otfre9.ru",
+  "jokeId": "de-witze-1otfre9",
+  "locale": "ru",
+  "title": "Развод",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "ded",
+    "tyoshcha",
+    "paren"
+  ],
+  "roles": {
+    "ded": "old-man",
+    "tyoshcha": "old-woman",
+    "paren": "son"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Старик звонит сыну.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Слушай, мы с твоей матерью разводимся.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Сорок пять лет этой фигни — и хватит.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Ты что такое говоришь, папа?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Мы просто больше не выносим друг друга. Я на неё уже смотреть не могу, хватит.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ded",
+      "text": "Я не хочу это обсуждать. Позвони сестре и скажи ей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Сын в полной панике тут же звонит сестре.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "devushka-ryzhaya",
+      "text": "Ничего они не разведутся!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Она сразу звонит отцу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "devushka-ryzhaya",
+      "text": "Ты не разводишься! Только попробуй что-нибудь подписать!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "devushka-ryzhaya",
+      "text": "Мы завтра оба приедем домой и во всём разберёмся. Никаких адвокатов, никаких бумаг, ничего! Понял?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "devushka-ryzhaya"
+      ]
+    },
+    {
+      "id": "l12",
+      "character": "ded",
+      "text": "Так. Оба приедут на Новый год. И в этот раз даже билеты на самолёт сами оплатят.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "tyoshcha",
+        "paren"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "tyoshcha": "old-woman",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "paren": "son",
+        "devushka-ryzhaya": "daughter"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "tyoshcha",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "tyoshcha": "old-woman",
+        "devushka-ryzhaya": "daughter"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "phone",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

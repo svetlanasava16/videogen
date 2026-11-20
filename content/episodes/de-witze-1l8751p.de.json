@@ -2,22 +2,31 @@
   "id": "de-witze-1l8751p.de",
   "jokeId": "de-witze-1l8751p",
   "locale": "de",
-  "title": "Der müde Beamte",
+  "title": "Der Beamte",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Kommt ein Mann zum Arzt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
-      "text": "Herr Doktor, ich fühle mich seit Wochen so matt und schlapp. Was kann das sein?",
+      "text": "Herr Doktor, ich fühl mich die letzten Wochen immer so matt und schlaff, was kann das sein?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,7 +35,7 @@
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "Was machen Sie denn beruflich?",
       "emotion": "neutral",
@@ -35,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Ich bin Beamter.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "doktor",
-      "text": "Aha. Und wie waren die letzten Wochen so?",
+      "character": "muzhik",
+      "text": "Beamter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,21 +54,31 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Na ja, eigentlich bin ich gerade im Urlaub.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Ah, und in den letzten Wochen, wie war es da so?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "muzhik",
+      "text": "Also, eigentlich bin ich zur Zeit im Urlaub...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "doktor",
-      "text": "Na, dann ist ja alles klar. Ihnen fehlt der Schlaf!",
+      "text": "Na dann ist ja alles klar, Ihnen fehlt der Schlaf!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

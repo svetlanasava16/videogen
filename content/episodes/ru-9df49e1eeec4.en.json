@@ -1,0 +1,152 @@
+{
+  "id": "ru-9df49e1eeec4.en",
+  "jokeId": "ru-9df49e1eeec4",
+  "locale": "en",
+  "title": "Top Secret",
+  "location": "ofis",
+  "place": "bathroom",
+  "cast": [
+    "sluzhivy",
+    "paren"
+  ],
+  "roles": {
+    "sluzhivy": "officer",
+    "paren": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "The secret service is hiring.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "After the first interview, everyone was handed an envelope stamped 'Top Secret!' and asked to take it to a certain office.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "One guy stopped by the restroom on the way and opened his envelope. It said:",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "You're just what we need! Come back!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "letter",
+          "action": "give",
+          "to": "paren"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

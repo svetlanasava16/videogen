@@ -1,0 +1,136 @@
+{
+  "id": "ru-7c0f2cfde3f5.de",
+  "jokeId": "ru-7c0f2cfde3f5",
+  "locale": "de",
+  "title": "Opas Asche",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "paren",
+    "devushka"
+  ],
+  "roles": {
+    "paren": "boyfriend",
+    "devushka": "girlfriend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Typ kommt zu einem Mädchen nach Hause. Er läuft herum und sieht sich die Wohnung an.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Plötzlich sieht er neben dem Sofa eine schöne, teure chinesische Vase. Er schaut hinein, sieht etwas, steckt die Hand hinein und fragt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Oh, was ist denn das hier?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Ach, das! Das ist die Asche von meinem Opa...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Typ zieht erschrocken die Hand heraus.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "...er ist nämlich zu faul, für einen Aschenbecher in die Küche zu gehen!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

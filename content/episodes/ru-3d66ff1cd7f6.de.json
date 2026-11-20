@@ -1,0 +1,160 @@
+{
+  "id": "ru-3d66ff1cd7f6.de",
+  "jokeId": "ru-3d66ff1cd7f6",
+  "locale": "de",
+  "title": "Verbindung unterbrochen",
+  "location": "tserkov",
+  "place": "church",
+  "cast": [
+    "batyushka",
+    "ded"
+  ],
+  "roles": {
+    "batyushka": "priest",
+    "ded": "god"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "In der Kirche wird gebetet. Ruhig und feierlich fließen die Worte.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Plötzlich tut sich der Himmel auf, und in himmlischen Strahlen erscheint das Antlitz Gottes.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ded"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Meine Söhne und Töchter, der Moment ist gekommen, da ich vor euch tre...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ded"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Mit fürchterlichem Krachen schlägt der Himmel wieder zu.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Alle Gemeindemitglieder stehen unter Schock! Keiner traut seinen Augen, jemand bekreuzigt sich hastig.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Plötzlich öffnet sich der Himmel erneut, aus dem Glanz blickt das finstere Antlitz des Herrn, und er sagt erbittert:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [
+        "ded"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "Dieses verdammte Mist-WLAN!",
+      "uncensored": "Dieses verdammte Scheiß-WLAN!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka",
+        "ded"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "ded": "god"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "halo"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

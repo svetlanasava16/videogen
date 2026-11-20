@@ -2,7 +2,7 @@
   "id": "ru-bcafdbeab440.ru",
   "jokeId": "ru-bcafdbeab440",
   "locale": "ru",
-  "title": "Последний день на службе",
+  "title": "Последний день службы",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -10,14 +10,14 @@
     "sluzhivy"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "driver",
     "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик мчится по шоссе на кабриолете, а за ним гонится полиция.",
+      "text": "Едет мужик на открытом Мерсе по хай-уэю. Ветерок дует, солнышко светит. Все по кайфу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Ха! На такой машине меня не догонят!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Вдруг откуда ни возьмись появляется машина дорожной полиции и начинает гнаться за мужиком.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,52 +35,146 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Двести сорок, а они всё на хвосте. Ладно, сдаюсь.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "sluzhivy",
-      "text": "Добрый день, сэр. Сегодня мой последний день на службе, и штрафы выписывать неохота.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "sluzhivy",
-      "text": "Придумаете хорошее объяснение, и я вас отпущу.",
+      "text": "Я на такой машине! Не догонят...",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Втопил, скорость растет, уже за сто перевалило. Полиция на хвосте и не отстает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "На спидометре сто двадцать — полиция не отстает. Мужик отжал кик-даун и набрал все сто пятьдесят. Полиция не отстает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Понимаете, неделю назад моя жена сбежала с полицейским.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Надо останавливаться и сдаваться. Мужик останавливается на обочине.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "sluzhivy",
+      "text": "Добрый день, сэр. Я сегодня последний день на службе — ухожу в отставку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "sluzhivy",
+      "text": "Так что мне не очень-то хочется выписывать штрафы. Если вы придумаете хорошее объяснение ваших действий — я вас отпущу.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik",
-      "text": "Я подумал, вы хотите мне её вернуть!",
+      "text": "О! Дело в том, что неделю назад моя жена сбежала с полицейским, и я подумал, что мне пытаются ее вернуть...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "muzhik": "driver",
+        "sluzhivy": "traffic-cop"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

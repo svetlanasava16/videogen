@@ -2,34 +2,32 @@
   "id": "ru-007e59e5f139.de",
   "jokeId": "ru-007e59e5f139",
   "locale": "de",
-  "title": "Frisches Wasser",
+  "title": "Mit beiden Händen",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
     "muzhik",
-    "muzhik-sosed"
+    "inostranets"
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "tourist"
+    "inostranets": "foreigner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann geht am See entlang. Ein Fremder schöpft mit der Hand Wasser und trinkt.",
+      "text": "Ein Mann geht am Seeufer entlang und sieht, wie irgendein Kerl mit der Hand Wasser aus dem See schöpft und trinkt. Der Mann ruft:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "He, trinkst du etwa dieses Wasser?",
-      "emotion": "surprised",
+      "text": "Warum trinkst du dieses dreckige Wasser?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,15 +35,16 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Hier wirft jeder seinen Müll rein! Die Fabrik leitet ihre Abwässer ein! Das ganze Dorf spült sein Klo hier rein!",
+      "text": "Hier wirft jeder seinen Müll rein, die Fabriken leiten ihre Abwässer ein, und aus dem ganzen Dorf läuft Mist hier rein!",
+      "uncensored": "Hier wirft jeder seinen Müll rein, die Fabriken leiten ihre Abwässer ein, und aus dem ganzen Dorf läuft Scheiße hier rein!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
+      "character": "inostranets",
       "text": "What did you say?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
@@ -55,14 +54,63 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ich sagte, nimm beide Hände!",
+      "text": "Ich sag ja: Schöpf mit beiden Händen!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "inostranets",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

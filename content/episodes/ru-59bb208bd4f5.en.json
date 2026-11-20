@@ -1,0 +1,96 @@
+{
+  "id": "ru-59bb208bd4f5.en",
+  "jokeId": "ru-59bb208bd4f5",
+  "locale": "en",
+  "title": "Which One Is Yours?",
+  "location": "klass",
+  "place": "school-classroom",
+  "cast": [
+    "muzhik",
+    "uchilka"
+  ],
+  "roles": {
+    "muzhik": "father",
+    "uchilka": "teacher"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A father comes to the kindergarten to pick up his son.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "uchilka",
+      "text": "Which one is yours?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "What difference does it make? I have to bring him back tomorrow anyway.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "uchilka": "teacher"
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

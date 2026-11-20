@@ -2,7 +2,7 @@
   "id": "ru-01e31447e9eb.ru",
   "jokeId": "ru-01e31447e9eb",
   "locale": "ru",
-  "title": "Звонок в эфир",
+  "title": "Хорошая песня",
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -16,9 +16,9 @@
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Доброе утро, вы в прямом эфире!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Звонит герла на радио.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,41 +26,76 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Здравствуйте! Я вчера нашла кошелёк.",
+      "text": "Вчера нашла кошелёк, там было пять тысяч долларов, шестьсот восемнадцать марок и визитка на имя Гарика Марикяна, проспект Шверника, девятнадцать...",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Там было пять тысяч долларов, шестьсот восемнадцать евро и визитка.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "devushka",
-      "text": "Гарик Марикян, проспект Шверника, дом девятнадцать.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "devushka",
       "text": "Поставьте ему, пожалуйста, какую-нибудь хорошую песню!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "devushka"
+      ],
+      "roles": {
+        "nachalnik": "tv-host",
+        "devushka": "woman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "devushka",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

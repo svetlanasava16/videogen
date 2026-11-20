@@ -2,24 +2,22 @@
   "id": "en-r-7xpiv9.en",
   "jokeId": "en-r-7xpiv9",
   "locale": "en",
-  "title": "The Miracle Light",
+  "title": "Poof, the Light Goes On",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ded",
-    "doktor",
-    "tyoshcha"
+    "doktor"
   ],
   "roles": {
     "ded": "old-man",
-    "doktor": "doctor",
-    "tyoshcha": "old-woman"
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Your tests are perfect. And how are things between you and God?",
+      "character": "narrator",
+      "text": "A ninety-year-old man goes for a physical and all of his tests come back normal.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,73 +25,242 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "God and I are tight. He knows my eyes are bad.",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Larry, everything looks great.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "When I get up at night to go to the bathroom, poof, the light goes on.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "How are you doing mentally and emotionally? Are you at peace with God?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "When I'm done, poof, the light goes off.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "God and I are tight. He knows I have poor eyesight,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "so He's fixed it so when I get up in the middle of the night to go to the bathroom, poof! The light goes on.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ded",
+      "text": "When I'm done, poof! The light goes off.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "doktor",
-      "text": "Incredible.",
+      "text": "Wow, that's incredible.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "doktor",
-      "text": "Hello, it's the doctor. Your husband is doing fine.",
-      "emotion": "happy",
+      "id": "l8",
+      "character": "narrator",
+      "text": "A little later in the day, the doctor calls Larry's wife.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "doktor",
-      "text": "But is it true that at night, poof, the bathroom light just turns on for him?",
+      "text": "Bonnie, Larry is doing fine!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "But I had to call you because I'm in awe of his relationship with God.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "doktor",
+      "text": "Is it true that he gets up during the night, and poof, the light goes on in the bathroom, and when he's done, poof, the light goes off?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "tyoshcha",
-      "text": "Oh, good Lord. He's peeing in the fridge again!",
+      "text": "Oh sweet Jesus! He's peeing in the refrigerator again!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "ded",
+        "doktor"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "tyoshcha"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "fridge"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

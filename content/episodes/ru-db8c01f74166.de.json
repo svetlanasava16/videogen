@@ -17,12 +17,10 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Verkehrspolizist stirbt und steht vor Gott.",
+      "text": "Ein Verkehrspolizist starb. Er stand vor Gott.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Manchmal.",
-      "emotion": "happy",
+      "text": "Ja, kam vor.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Das auch.",
+      "text": "Das kam auch vor.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,20 +62,30 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Dann hast du hier zwei Wege. Einer in den Himmel, einer in die Hölle. Wähle.",
+      "text": "Nun, hier sind zwei Wege für dich, einer in den Himmel, der andere in die Hölle.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "Welchen du wählst, dorthin kommst du.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "sluzhivy",
       "text": "Kann ich nicht einfach hier an der Kreuzung bleiben?",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

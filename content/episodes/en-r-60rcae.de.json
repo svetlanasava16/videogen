@@ -2,7 +2,7 @@
   "id": "en-r-60rcae.de",
   "jokeId": "en-r-60rcae",
   "locale": "de",
-  "title": "Das Geständnis",
+  "title": "Die Beichte",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Schatz, ich sterbe. Ich muss dir etwas gestehen.",
+      "character": "narrator",
+      "text": "Meine Frau lag im Sterben. Ich saß an ihrem Bett.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,26 +25,44 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Pst. Du musst gar nichts gestehen. Alles ist gut.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Ich muss dir etwas gestehen.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Pssst. Es gibt nichts zu gestehen. Alles ist gut.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "zhena",
-      "text": "Doch. Ich will in Frieden sterben. Ich habe mit deinem Bruder geschlafen, mit deinem besten Freund, mit dessen bestem Freund und mit deinem Vater.",
+      "text": "Nein, ich muss in Frieden sterben.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Ich hatte Sex mit deinem Bruder, deinem besten Freund, seinem besten Freund und deinem Vater.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Ich weiß. Deshalb habe ich dich ja vergiftet.",
+      "text": "Ich weiß. Deshalb habe ich dich vergiftet.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -53,6 +71,56 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -8,18 +8,20 @@
   "cast": [
     "muzhik-ryzhy",
     "muzhik",
-    "vovochka"
+    "vovochka",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-ryzhy": "everyman",
+    "muzhik-ryzhy": "friend",
     "muzhik": "father",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Dad is playing poker at home with his friends. The pot is huge.",
+      "text": "A father is playing poker at home with his buddies. A decent pot builds up, and a round of betting is going on.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,18 +29,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "I raise. Your move.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
-      "text": "Dad, are four aces good?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Just then his four-year-old son runs up to him and peeks at his cards.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "vovochka"
@@ -46,43 +39,95 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Yes, son. Very good.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "id": "l3",
+      "character": "vovochka",
+      "text": "Oh, Daddy, are four aces good?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Yes! Son...",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l5",
-      "character": "muzhik-ryzhy",
-      "text": "I fold.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
       "character": "narrator",
-      "text": "Everyone folds. Dad rakes in the pot.",
+      "text": "Everyone folds at once, and dad rakes in the huge pot.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "vovochka",
-      "text": "Too bad you didn't have any, Dad.",
+      "text": "Too bad, Daddy, you didn't have them...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik",
+        "vovochka",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "friend",
+        "muzhik": "father",
+        "vovochka": "child",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

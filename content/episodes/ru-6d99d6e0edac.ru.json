@@ -13,11 +13,19 @@
     "muzhik": "customer",
     "nachalnik": "businessman"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Ваш банк даёт кредиты под честное слово?",
+      "text": "Ваш банк дает кредиты под честное слово?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Без проблем.",
-      "emotion": "happy",
+      "text": "Без проблем...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -45,7 +53,7 @@
       "id": "l4",
       "character": "nachalnik",
       "text": "Вам будет стыдно перед Всевышним, когда предстанете.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ну, когда это ещё будет.",
-      "emotion": "smug",
+      "text": "Когда это еще будет...",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -62,11 +70,12 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Если пятого не вернёте, шестого и предстанете.",
+      "text": "Вот, если пятого не вернете, шестого предстанете.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -1,0 +1,136 @@
+{
+  "id": "en-r-5xgmuu.en",
+  "jokeId": "en-r-5xgmuu",
+  "locale": "en",
+  "title": "The Knife",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-ryzhy": "disabled-person",
+    "muzhik-sosed": "disabled-person"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Two blind guys were about to fight.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "I bet the one with the knife wins!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Both started running away.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "disabled-person",
+        "muzhik-sosed": "disabled-person"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "lamp"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

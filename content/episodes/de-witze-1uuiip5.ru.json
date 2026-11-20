@@ -2,42 +2,40 @@
   "id": "de-witze-1uuiip5.ru",
   "jokeId": "de-witze-1uuiip5",
   "locale": "ru",
-  "title": "Оптоволокно через три года",
+  "title": "Оптоволокно",
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "barmen",
+    "paren",
     "muzhik"
   ],
   "roles": {
-    "barmen": "salesman",
+    "paren": "employee",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Добрый день! Скоростной интернет, оптоволокно!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Мужчине прямо у входной двери продают подключение к оптоволокну.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Подпишете договор сегодня, и уже через три года будете летать в интернете!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Итак, если подпишете сегодня, уже через три года у вас будет быстрый интернет!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Через три года? Хм. А до обеда или после обеда?",
+      "text": "Через три года? Хм… До обеда или после обеда?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +43,8 @@
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Да какая разница? Это же через три года!",
+      "character": "paren",
+      "text": "Какая разница? Это же только через три года.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -59,10 +57,71 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

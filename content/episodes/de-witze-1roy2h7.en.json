@@ -6,27 +6,27 @@
   "location": "ofis",
   "place": "office",
   "cast": [
-    "uchilka",
-    "paren"
+    "paren",
+    "muzhik-sosed"
   ],
   "roles": {
-    "uchilka": "clerk",
-    "paren": "employee"
+    "paren": "employee",
+    "muzhik-sosed": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "Did you hear? The director died.",
-      "emotion": "sad",
+      "character": "paren",
+      "text": "Did you hear? Our director died.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "I did. And I keep wondering who died with him.",
+      "character": "muzhik-sosed",
+      "text": "Yes, and I keep wondering who died with him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,8 +34,8 @@
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "With him?",
+      "character": "paren",
+      "text": "Why with him?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -43,15 +43,54 @@
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Well, the obituary said: with him, the company lost one of its most capable employees.",
+      "character": "muzhik-sosed",
+      "text": "Well, the notice in the paper said: With him died one of our most capable employees.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik-sosed": "employee"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

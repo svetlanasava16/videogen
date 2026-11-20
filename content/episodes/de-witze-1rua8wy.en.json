@@ -2,7 +2,7 @@
   "id": "de-witze-1rua8wy.en",
   "jokeId": "de-witze-1rua8wy",
   "locale": "en",
-  "title": "Divorce at a Hundred",
+  "title": "Old Folks",
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -15,11 +15,19 @@
     "tyoshcha": "old-woman",
     "nachalnik": "lawyer"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A couple, both well over a hundred, sit in a lawyer's office.",
+      "text": "A very old couple, both well over a hundred, sit at a lawyer's office and tell him they want a divorce.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,9 +35,9 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "We want a divorce.",
-      "emotion": "neutral",
+      "character": "nachalnik",
+      "text": "After such a long marriage, and at such an advanced age, you still want a divorce?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,17 +45,17 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "A divorce? After all these years? At your age?",
+      "text": "Have you thought this through?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "Have you really thought this through?",
-      "emotion": "surprised",
+      "character": "tyoshcha",
+      "text": "Yes, we have, for a long time.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -55,11 +63,12 @@
     {
       "id": "l5",
       "character": "tyoshcha",
-      "text": "Oh, for ages. We were just waiting for the children to die.",
+      "text": "We just wanted to wait until the children were dead.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

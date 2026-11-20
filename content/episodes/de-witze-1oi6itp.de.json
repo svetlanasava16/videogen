@@ -2,7 +2,7 @@
   "id": "de-witze-1oi6itp.de",
   "jokeId": "de-witze-1oi6itp",
   "locale": "de",
-  "title": "Die Küken",
+  "title": "Die Küken im Wald",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann kommt vom Einkaufen und geht durch den Wald. Da kommt ihm ein Küken entgegen, komplett zugeschissen.",
+      "text": "Ein Mann läuft nach dem Einkaufen mit einer vollen Einkaufstüte durch den Wald.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,17 +27,20 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Du armes Ding. Zum Glück hab ich Klopapier gekauft.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Da kommt ihm ein kleines Küken entgegen – komplett zugekackt.",
+      "uncensored": "Da kommt ihm ein kleines Küken entgegen – komplett zugeschissen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "ptitsa"
+      ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Er putzt es sauber. Dann kommen drei weitere Küken. Dann noch fünf. Alle zugeschissen.",
+      "text": "Dem Mann tut das Küken leid. Also holt er eine Rolle Klopapier aus seiner Tüte und putzt es sauber.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,35 +48,150 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Mist, das Papier ist alle. Und das letzte ist noch dreckig.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugekackt. Der Mann putzt auch diese sauber.",
+      "uncensored": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugeschissen. Der Mann putzt auch diese sauber.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Entschuldigung! Hätten Sie vielleicht etwas Klopapier?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "character": "narrator",
+      "text": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugekackt.",
+      "uncensored": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugeschissen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Er putzt auch diese ab, aber beim letzten Küken ist das Klopapier leer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Weil ihm das letzte Küken leid tut, geht er weiter in den Wald, um etwas anderes zu finden.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Da kommt ihm ein Bauer auf einem Traktor entgegen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Entschuldigung, hätten Sie vielleicht etwas Klopapier?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Klopapier? Nehmen Sie doch einfach ein Küken!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

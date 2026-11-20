@@ -13,11 +13,19 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Официант, можно этих перепелов ещё немного пожарить?",
+      "text": "Официант, можно ещё немного пожарить этих перепелов?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "barmen",
-      "text": "А что, плохо прожарены?",
+      "text": "Разве они плохо прожарены?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,8 +43,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Не знаю, но они у меня салат жрут.",
-      "emotion": "sad",
+      "text": "Я не знаю, но они у меня салат жрут.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

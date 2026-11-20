@@ -2,7 +2,7 @@
   "id": "de-witze-1rua8wy.ru",
   "jokeId": "de-witze-1rua8wy",
   "locale": "ru",
-  "title": "Развод в сто лет",
+  "title": "Старые люди",
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -15,11 +15,19 @@
     "tyoshcha": "old-woman",
     "nachalnik": "lawyer"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Супруги, обоим далеко за сто, сидят у адвоката.",
+      "text": "Очень пожилая супружеская пара, обоим далеко за сто, сидит у адвоката и сообщает ему, что они хотят развестись.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,9 +35,9 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Мы хотим развестись.",
-      "emotion": "neutral",
+      "character": "nachalnik",
+      "text": "После такого долгого брака и в таком преклонном возрасте вы ещё хотите развестись?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,17 +45,17 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Как? После стольких лет? В вашем возрасте?",
+      "text": "Вы это хорошо обдумали?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "Вы хорошо подумали?",
-      "emotion": "surprised",
+      "character": "tyoshcha",
+      "text": "Да, обдумали, уже давно.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -55,11 +63,12 @@
     {
       "id": "l5",
       "character": "tyoshcha",
-      "text": "Да давно уже подумали. Ждали только, пока дети помрут.",
+      "text": "Мы просто хотели дождаться, пока умрут дети.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

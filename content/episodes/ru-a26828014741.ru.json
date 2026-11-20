@@ -2,22 +2,30 @@
   "id": "ru-a26828014741.ru",
   "jokeId": "ru-a26828014741",
   "locale": "ru",
-  "title": "Первый день",
+  "title": "Катафалк",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "muzhik",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "customer",
-    "muzhik-ryzhy": "driver"
+    "muzhik-ryzhy": "driver",
+    "muzhik": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Пассажир такси хочет что-то спросить и хлопает водителя по плечу.",
+      "text": "Пассажир такси, решив обратиться к водителю с вопросом, похлопал того по плечу. Водитель дико вскрикнул и потерял управление.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,44 +33,44 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "А-а-а-а!",
+      "character": "narrator",
+      "text": "Такси чуть не врезалось в автобус, вылетело на тротуар и остановилось в сантиметре от витрины магазина.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Такси вылетает на тротуар и замирает в сантиметре от витрины.",
+      "text": "На секунду в кабине воцарилась тишина, после чего таксист хрипло произнёс:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Слушай, приятель, больше так не делай. Я чуть не обделался.",
+      "text": "Послушай, приятель, больше так не делай. Я чуть не обделался...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Простите! Я не думал, что вас так напугаю.",
+      "text": "Извините. Я и подумать не мог, что лёгкий хлопок по плечу так вас напугает.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Да ты не виноват. Просто я сегодня первый день на такси.",
+      "text": "Да в общем-то твоей вины здесь нет... Просто сегодня я первый день работаю на такси.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -71,11 +79,12 @@
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "А до этого двадцать пять лет водил катафалк.",
+      "text": "А до этого двадцать пять лет водил катафалк!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

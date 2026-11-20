@@ -2,22 +2,22 @@
   "id": "de-witze-1q9oxt2.ru",
   "jokeId": "de-witze-1q9oxt2",
   "locale": "ru",
-  "title": "Холостяк на кассе",
+  "title": "На кассе",
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "muzhik",
+    "paren",
     "devushka"
   ],
   "roles": {
-    "muzhik": "customer",
+    "paren": "customer",
     "devushka": "cashier"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Две пачки пельменей. Упаковка пива.",
+      "character": "narrator",
+      "text": "Молодой человек стоит на кассе в супермаркете, на ленте у него две банки равиоли и упаковка из шести банок пива.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Спорим, вы не женаты?",
+      "text": "Спорим, вы холостяк!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,21 +34,22 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Угадали! По покупкам поняли?",
+      "character": "paren",
+      "text": "Да, точно! Вы это по моим покупкам поняли?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "devushka",
-      "text": "Нет. По лицу.",
+      "text": "Не, по вашему лицу!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

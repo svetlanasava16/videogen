@@ -7,17 +7,50 @@
   "place": "road",
   "cast": [
     "muzhik",
-    "nachalnik"
+    "nachalnik",
+    "muzhik-ryzhy",
+    "paren"
   ],
   "roles": {
     "muzhik": "everyman",
-    "nachalnik": "gangster"
+    "nachalnik": "gangster",
+    "muzhik-ryzhy": "gangster",
+    "paren": "gangster"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "nachalnik": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "paren": {
+      "clothes": "#1f4fa8",
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Volvo clips an SUV at an intersection. Out pile some guys in tracksuits.",
+      "text": "A Volvo clips a jeep at an intersection.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,59 +58,71 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "That's it, buddy, you're done!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "Sell your car, sell your apartment, you owe us!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Everyone stops, a bunch of guys in tracksuits pile out of the jeep and walk up to the Volvo driver.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "That's it, man, you're done!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [
+        "nachalnik",
+        "muzhik-ryzhy",
+        "paren"
+      ],
+      "exit": []
+    },
+    {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Guys, who are you, anyway?",
-      "emotion": "surprised",
+      "character": "nachalnik",
+      "text": "Sell your car, sell your apartment, you owe us money!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "nachalnik",
-      "text": "Us? We're athletes!",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Guys, and who are you?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "nachalnik",
+      "text": "Us? We're athletes!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "narrator",
-      "text": "The man calmly pulls out a pistol.",
+      "text": "The man pulls out a pistol and, loading it, says:",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Well then. On your marks! Get set!",
+      "text": "Well then, on your marks! Get set!..",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

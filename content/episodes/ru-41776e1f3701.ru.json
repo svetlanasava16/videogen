@@ -2,35 +2,59 @@
   "id": "ru-41776e1f3701.ru",
   "jokeId": "ru-41776e1f3701",
   "locale": "ru",
-  "title": "Путь в рай",
+  "title": "Каким мальчиком",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
+    "doktor",
     "vovochka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "vovochka"
+    "doktor": "professor",
+    "vovochka": "child"
+  },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "А сейчас Вовочка расскажет нам, каким мальчиком надо быть, чтобы попасть в рай.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "На уроке Закона Божьего.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Мёртвым.",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "А сейчас Джимми расскажет нам, каким мальчиком надо быть, чтобы попасть в рай.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "vovochka",
+      "text": "Мёртвым, сэр...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

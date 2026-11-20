@@ -2,7 +2,7 @@
   "id": "en-r-8xny5a.en",
   "jokeId": "en-r-8xny5a",
   "locale": "en",
-  "title": "Not Our Child",
+  "title": "Go Change the Baby",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Three years in, the wife notices their son looks nothing like them. She orders a DNA test.",
+      "text": "After three years, the wife starts to think that their child looks different, so she decides to do a DNA test.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,6 +27,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "She finds out that the child is actually from completely different parents.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
       "text": "Honey, I have something very serious to tell you.",
       "emotion": "sad",
@@ -35,7 +44,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "What's up?",
       "emotion": "neutral",
@@ -44,34 +53,96 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "zhena",
-      "text": "According to the DNA test, this is not our child.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Don't you remember? We were leaving the hospital, and our baby had a wet diaper.",
+      "character": "zhena",
+      "text": "According to DNA test results, this is not our child.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "And you said, honey, go change the baby, I'll wait here.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Well, don't you remember?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "When we were leaving the hospital, we noticed that our baby had a wet diaper and you said, 'Honey, go change the baby, I'll wait for you here.'",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "hair": "#c0392b",
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

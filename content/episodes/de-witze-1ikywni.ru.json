@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик решил тайком избавиться от кота жены.",
+      "text": "Мужик решил тайком избавиться от кота жены и выбросить его.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,66 +25,207 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Двадцать домов отъехали, хватит. Вылезай!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Он сажает кота в машину, отъезжает на двадцать домов, высаживает его и едет домой. Через десять минут кот уже снова тут.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "kot"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Через десять минут кот уже дома. Отвёз за пять километров, опять вернулся.",
+      "character": "muzhik",
+      "text": "Ну ладно, наверное, расстояние было маловато.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "kot"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ну всё! Двадцать километров, через лес, через мост, направо, налево. Вылезай!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Он снова садится с котом в машину, отъезжает на пять километров и высаживает его. Через двадцать минут кот опять дома.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "kot"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Через полчаса он звонит домой.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Ну всё, хватит!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Дорогая, кот дома?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Он едет двадцать километров, потом через лес, через мост, направо, налево, и наконец высаживает кота посреди леса на поляне.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Через полчаса мужик звонит домой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "muzhik",
-      "text": "Ага. Тогда дай ему трубку. Я заблудился.",
-      "emotion": "sad",
+      "text": "Кот дома?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "zhena",
+      "text": "Да, а что?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Позови-ка его к телефону, я заблудился.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "tv"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -1,0 +1,64 @@
+{
+  "id": "en-r-d4p25q.ru",
+  "jokeId": "en-r-d4p25q",
+  "locale": "ru",
+  "title": "Библиотека",
+  "location": "klass",
+  "place": "university",
+  "cast": [
+    "muzhik",
+    "uchilka"
+  ],
+  "roles": {
+    "muzhik": "customer",
+    "uchilka": "clerk"
+  },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужик зашёл в библиотеку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Дайте мне книгу о том, как покончить с собой.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "muzhik"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "uchilka",
+      "text": "Пошёл нафиг, ты её всё равно не вернёшь.",
+      "uncensored": "Пошёл нахуй, ты её всё равно не вернёшь.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,7 +2,7 @@
   "id": "ru-dc8d7c247077.de",
   "jokeId": "ru-dc8d7c247077",
   "locale": "de",
-  "title": "Na, wir angeln?",
+  "title": "Na, angeln wir?",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Hitze, es geht bergauf. Ein völlig erschöpfter Radfahrer hält auf einer Brücke neben einem Angler.",
+      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Hitze, es geht bergauf, er ist fix und fertig. Auf der Brücke beschließt er, sich auszuruhen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Da sieht er: Auf der Brücke steht einer mit einer Angel und schaut auf seinen Schwimmer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
-      "text": "Na, wir angeln, ja?",
+      "text": "Na, angeln wir ein bisschen?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,19 +44,46 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
+      "character": "narrator",
+      "text": "Der Angler schweigt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
-      "text": "Ich sage, wir angeln, ja?",
+      "text": "Ich sag, angeln wir ein bisschen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Wieder Schweigen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "Bist du taub? Ich frage, ob wir angeln!",
+      "text": "Was ist, bist du taub? Ich frage, angeln wir ein bisschen?",
       "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Der schaut nur weiter auf den Schwimmer. Der Mann spuckt aus, steigt aufs Rad und strampelt schweißgebadet weiter bergauf.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": [
@@ -55,27 +91,98 @@
       ]
     },
     {
-      "id": "l5",
+      "id": "l9",
       "character": "narrator",
-      "text": "Er spuckt aus und strampelt schweißgebadet weiter bergauf. Drei Kilometer später dreht er sich um: Der Angler winkt wie wild, er soll zurückkommen.",
+      "text": "Nach etwa drei Kilometern dreht er sich um und sieht: Der Angler winkt ihm wie wild, er soll schnell zurückkommen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Na, wir fahren Fahrrad, ja?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "id": "l10",
+      "character": "narrator",
+      "text": "Also dreht er um und rollt wieder hinunter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [
         "muzhik"
       ],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik-ryzhy",
+      "text": "Na, fahren wir ein bisschen Fahrrad?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

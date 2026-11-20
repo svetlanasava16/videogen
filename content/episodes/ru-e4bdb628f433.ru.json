@@ -2,8 +2,8 @@
   "id": "ru-e4bdb628f433.ru",
   "jokeId": "ru-e4bdb628f433",
   "locale": "ru",
-  "title": "Никого нет дома",
-  "location": "ulitsa",
+  "title": "Никого дома нет",
+  "location": "derevnya",
   "place": "street",
   "cast": [
     "muzhik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик стучится в ворота к соседу.",
+      "text": "Подходит мужик к воротам своего соседа и стучится.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Хозяева! Есть кто дома?",
+      "character": "narrator",
+      "text": "Стучит, стучит, но никто не отвечает. Стучит сильнее.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,28 +34,26 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Открывайте!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "К воротам тихо подходит собака.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "pyos",
-      "text": "Мужик, не стучи. Никого дома нет.",
+      "text": "Мужик, не стучи, никого дома нет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "pyos"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Мужик падает в обморок. Через минуту приходит в себя.",
+      "text": "Тут мужик падает сразу в обморок. После пришел в себя, смотрит на собаку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,23 +62,80 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ты чего, пёс, лаять не умеешь?",
+      "text": "Ты чего, собака, гавкать не умеешь?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "pyos",
-      "text": "Умею. Просто не хотел тебя пугать.",
-      "emotion": "smug",
+      "text": "Умею, но не хотел тебя пугать.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

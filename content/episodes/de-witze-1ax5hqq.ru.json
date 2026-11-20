@@ -2,22 +2,22 @@
   "id": "de-witze-1ax5hqq.ru",
   "jokeId": "de-witze-1ax5hqq",
   "locale": "ru",
-  "title": "Тихо приполз",
-  "location": "spalnya",
+  "title": "Коляска",
+  "location": "bar",
   "place": "bedroom",
   "cast": [
     "muzhik",
-    "zhena"
+    "barmen"
   ],
   "roles": {
     "muzhik": "drunk",
-    "zhena": "wife"
+    "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик весь вечер пьёт в баре пиво. Собрался домой, свалился с табурета и встать уже не смог.",
+      "text": "Мужик в баре снимает стресс и глушит одно пиво за другим.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,43 +26,263 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Пополз домой, тихонько забрался в постель, жена даже не проснулась.",
+      "text": "Когда становится поздно и он уже еле смотрит прямо, он решает пойти домой. При этом он падает с барного стула и больше не может подняться.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Опять в баре надрался!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Тогда он решает ползти домой.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Да как ты узнала-то?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Дома он тихо-тихо ползёт через квартиру и вверх по лестнице. Жена не должна заметить, что он опять вернулся в стельку пьяный.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "Он добирается до кровати, не разбудив жену, и довольный засыпает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Наутро жена в бешенстве.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
-      "text": "Бармен утром звонил. Ты опять там свою инвалидную коляску забыл.",
+      "text": "Ты опять был в баре и напился!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Как ты опять узнала?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "zhena",
+      "text": "Бармен сегодня утром звонил.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "zhena",
+      "text": "Ты опять забыл в баре свою инвалидную коляску.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "drunk"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "drunk"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

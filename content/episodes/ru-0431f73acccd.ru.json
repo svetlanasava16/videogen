@@ -10,47 +10,47 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "customer",
     "barmen": "waiter"
+  },
+  "looks": {
+    "barmen": {
+      "add": [
+        "red-nose"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Добрый вечер! Что будем заказывать?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "Графинчик водочки.",
+      "character": "narrator",
+      "text": "Мужик приходит в ресторан и говорит официанту:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "И что-нибудь на ваш вкус.",
+      "text": "Графин водочки, и что-нибудь на ваш вкус.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "barmen",
-      "text": "Так и запишем. Два графинчика водочки.",
+      "text": "Так и запишем — два графина водочки.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

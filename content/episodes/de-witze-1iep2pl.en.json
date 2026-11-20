@@ -6,52 +6,79 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-sosed",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "tourist",
-    "sluzhivy": "pirate"
+    "sluzhivy": "pirate",
+    "muzhik-sosed": "tourist"
+  },
+  "looks": {
+    "sluzhivy": {
+      "add": [
+        "black-hat"
+      ],
+      "remove": [
+        "helmet"
+      ]
+    },
+    "muzhik-sosed": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Excuse me, how did you lose your leg?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "In a harbor pub, a typical pirate sits at the bar: eye patch, wooden leg, a hook for a hand.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Cannonball. In a sea battle off Trinidad.",
-      "emotion": "smug",
+      "character": "muzhik-sosed",
+      "text": "So where did you lose your leg?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik-sosed"
+      ],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "And your hand?",
-      "emotion": "surprised",
+      "character": "sluzhivy",
+      "text": "It got shot off in a battle off Trinidad.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "sluzhivy",
-      "text": "A cutlass, while we were boarding a frigate.",
-      "emotion": "smug",
+      "character": "muzhik-sosed",
+      "text": "And what happened to your hand?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "sluzhivy",
+      "text": "A saber blow, when we boarded a frigate.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik-sosed",
       "text": "And the eye?",
       "emotion": "neutral",
@@ -60,31 +87,33 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "sluzhivy",
-      "text": "A seagull pooped in it.",
+      "text": "A seagull crapped in it.",
+      "uncensored": "A seagull shat in it.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik-sosed",
-      "text": "But you can't lose an eye from that!",
+      "text": "But you don't lose an eye from that?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "sluzhivy",
-      "text": "You can if you've only had the hook for two days.",
+      "text": "You do, if you've only had the hook for two days.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

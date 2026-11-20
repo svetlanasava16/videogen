@@ -2,25 +2,25 @@
   "id": "en-r-dswgsp.ru",
   "jokeId": "en-r-dswgsp",
   "locale": "ru",
-  "title": "Сосед по автобусу",
+  "title": "В автобусе",
   "location": "doroga",
   "place": "bus",
   "cast": [
+    "paren",
     "muzhik",
-    "muzhik-sosed",
     "ded"
   ],
   "roles": {
+    "paren": "everyman",
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
     "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Анекдот хочешь? Что делать, если у эпилептика припадок в ванне?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Парень ехал в автобусе с другом, и друг рассказал ему анекдот.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -28,59 +28,42 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Что?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Закинуть туда бельё.",
+      "text": "Что делать, если видишь, как у эпилептика припадок в ванне?",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "ded",
-      "text": "Как вам не стыдно.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Закинуть туда бельё.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "ded",
-      "text": "Мой сын умер в ванне во время припадка.",
-      "emotion": "sad",
+      "text": "По-моему, это отвратительно. Мой сын умер в ванне во время припадка.",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Простите, ради бога.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "Мы правда не знали.",
-      "emotion": "sad",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Оба побелели и извинились. Мужчина встал, чтобы выйти.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l6",
       "character": "ded",
       "text": "Он подавился носком.",
       "emotion": "neutral",
@@ -88,10 +71,54 @@
       "enter": [],
       "exit": [
         "ded"
-      ]
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "paren",
+        "muzhik",
+        "ded"
+      ],
+      "roles": {
+        "paren": "everyman",
+        "muzhik": "everyman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

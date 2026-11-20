@@ -2,24 +2,22 @@
   "id": "ru-4b75a0e1bc8d.en",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "en",
-  "title": "Hiccups",
+  "title": "The Hiccups",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "tyoshcha",
-    "doktor",
+    "zhena",
     "paren"
   ],
   "roles": {
-    "tyoshcha": "old-woman",
-    "doktor": "doctor",
+    "zhena": "patient",
     "paren": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Mrs. Peterson went to the doctor. She was booked with a very young doctor, fresh out of medical school.",
+      "text": "Mrs. Peterson went to the doctor. She got an appointment with a very young doctor, fresh out of medical school.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,8 +26,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "After a few minutes in his office, Mrs. Peterson burst out of it, shrieking and wailing, and tore off down the corridor.",
-      "emotion": "neutral",
+      "text": "After a few minutes in his office, Mrs. Peterson burst out of there with wild screams and shrieks and tore off down the corridor.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,17 +62,26 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Mrs. Peterson is fifty-five, she has a grown daughter, a grandchild on the way, and you tell her she's pregnant!",
+      "text": "Mrs. Peterson is going on fifty-six, she has a grown-up daughter, a grandchild on the way, and you tell her she's pregnant!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "paren",
-      "text": "But the hiccups did go away, didn't they?",
+      "character": "narrator",
+      "text": "The young doctor, still writing something in her chart, replied:",
       "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "But her hiccups are gone, aren't they?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -86,25 +93,23 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "tyoshcha",
-        "doktor",
+        "zhena",
         "paren"
       ],
       "roles": {
-        "tyoshcha": "old-woman",
-        "doktor": "doctor",
+        "zhena": "patient",
         "paren": "doctor"
       },
       "beats": [
         {
           "type": "move",
-          "who": "paren",
-          "to": "desk"
+          "who": "zhena",
+          "to": "couch"
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "center"
+          "who": "paren",
+          "to": "desk"
         },
         {
           "type": "line",
@@ -116,12 +121,62 @@
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "off-left"
+          "who": "zhena",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "zhena"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "zhena": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -144,9 +199,13 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

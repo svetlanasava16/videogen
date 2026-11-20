@@ -6,10 +6,12 @@
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
+    "muzhik-ryzhy",
     "pyos",
     "muzhik"
   ],
   "roles": {
+    "muzhik-ryzhy": "janitor",
     "pyos": "dog",
     "muzhik": "everyman"
   },
@@ -17,34 +19,41 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Герасим привязал Муму камень на шею, бросил в реку и уплыл домой.",
+      "text": "Повёз Герасим Муму топить. Камешек на шею собачке привязал и в речку бросил. Бросил и поплыл домой.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Мимо проплывает мужик, вытаскивает собаку и отвязывает камень.",
-      "emotion": "neutral",
+      "text": "Муму, бедолага, барахтается, освободиться пытается. За этим занятием её другой, проплывающий мимо, мужичок и застал.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "pyos",
-      "text": "Спасибо тебе, добрый человек! Спас ты меня!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Вытащил он её, камень отвязал... и тут:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "pyos",
+      "text": "Спасибо тебе, добрый человек! Спас ты меня!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
       "text": "Первый раз в жизни вижу говорящую собаку!",
       "emotion": "surprised",
@@ -53,16 +62,89 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "pyos",
-      "text": "А я первый раз в жизни вижу говорящего мужика!",
+      "text": "Первый раз в жизни вижу говорящего мужика!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik-ryzhy",
+        "pyos",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "janitor",
+        "pyos": "dog",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -6,18 +6,22 @@
   "location": "derevnya",
   "place": "farm",
   "cast": [
-    "muzhik",
-    "zhena"
+    "zhena",
+    "sluzhivy",
+    "sluzhivy-ryadovoy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "prisoner",
-    "zhena": "wife"
+    "zhena": "wife",
+    "sluzhivy": "police-officer",
+    "sluzhivy-ryadovoy": "police-officer",
+    "muzhik": "prisoner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A farmer is in prison for theft. His wife writes to him.",
+      "text": "A farmer goes to prison for theft. His wife writes to him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +30,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Don't think I'm digging up the potato field all by myself.",
+      "text": "Don't you think I'm going to dig up the potato field all by myself now.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,51 +38,188 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Don't touch that field! That's where I buried the loot.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "The farmer writes back.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "A week later.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Hands off the potato field! That's where all the loot is.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "zhena",
-      "text": "Someone in that prison must have read your letter. Yesterday the farm was crawling with police.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A week later his wife writes again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "zhena",
-      "text": "They dug up the whole field. They found nothing.",
+      "text": "Someone in the prison must have read your letter.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "zhena",
+      "text": "Yesterday there were countless police officers here. They dug up the whole field.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "zhena",
+      "text": "But they didn't find a thing.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "muzhik",
-      "text": "Perfect. Now you can plant the potatoes.",
+      "text": "Excellent, now you can plant the potatoes.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "garden",
+      "cast": [
+        "zhena",
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "sluzhivy": "police-officer",
+        "sluzhivy-ryadovoy": "police-officer",
+        "muzhik": "prisoner"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "headscarf",
+            "apron"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

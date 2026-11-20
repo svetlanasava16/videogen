@@ -1,0 +1,132 @@
+{
+  "id": "de-witze-1kv8mer.ru",
+  "jokeId": "de-witze-1kv8mer",
+  "locale": "ru",
+  "title": "Тринадцать",
+  "location": "derevnya",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Идёт мужик мимо забора и слышит, как на той стороне несколько человек кричат:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Тринадцать, тринадцать, тринадцать!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Интересно, что они там делают?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Через пару шагов в заборе дырка, и он в неё заглядывает. В этот момент с той стороны ему тычут пальцем в глаз, и люди кричат:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Четырнадцать, четырнадцать, четырнадцать!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "muzhik-ryzhy": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "tree"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "fence"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

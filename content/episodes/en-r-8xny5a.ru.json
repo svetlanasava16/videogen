@@ -2,7 +2,7 @@
   "id": "en-r-8xny5a.ru",
   "jokeId": "en-r-8xny5a",
   "locale": "ru",
-  "title": "Не наш ребёнок",
+  "title": "Поменяй ребёнка",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Через три года жена замечает, что сын совсем на них не похож. Она делает тест ДНК.",
+      "text": "Спустя три года жена начинает думать, что их ребёнок выглядит как-то иначе, и решает сделать тест ДНК.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,51 +27,122 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Дорогой, мне надо сказать тебе очень серьёзную вещь.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Она узнаёт, что у ребёнка на самом деле совсем другие родители.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Что случилось?",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Дорогой, мне нужно сказать тебе кое-что очень серьёзное.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "По тесту ДНК это не наш ребёнок.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "muzhik",
+      "text": "Что такое?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Ты что, не помнишь? Выходим из роддома, а у малыша мокрый подгузник.",
+      "character": "zhena",
+      "text": "По результатам теста ДНК это не наш ребёнок.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "И ты говоришь: дорогой, сходи поменяй ребёнка, я тут подожду.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Ну ты что, не помнишь?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Когда мы выходили из роддома, мы заметили, что у малыша мокрый подгузник, и ты сказала: «Дорогой, иди поменяй ребёнка, я тебя здесь подожду».",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "vovochka": {
+          "hair": "#c0392b",
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

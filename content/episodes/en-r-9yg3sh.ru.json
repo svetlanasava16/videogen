@@ -2,7 +2,7 @@
   "id": "en-r-9yg3sh.ru",
   "jokeId": "en-r-9yg3sh",
   "locale": "ru",
-  "title": "Нужна помощь?",
+  "title": "Вам помочь?",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,12 +13,20 @@
     "muzhik": "customer",
     "barmen": "salesman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stubble"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Мужчина, вы уже полчаса на бутылки смотрите.",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Мужик разглядывает полки в винном магазине.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,20 +34,23 @@
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Вам нужна помощь?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
+      "text": "Вам помочь?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "barmen"
+      ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Нужна. Но я пришёл за виски.",
-      "emotion": "sad",
+      "text": "Да, но вместо этого я пришёл за виски.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

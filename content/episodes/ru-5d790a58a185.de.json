@@ -2,7 +2,7 @@
   "id": "ru-5d790a58a185.de",
   "jokeId": "ru-5d790a58a185",
   "locale": "de",
-  "title": "Der Butler",
+  "title": "Das Hörgerät",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein englischer Lord kommt nach Hause.",
+      "text": "Ein englischer Lord kommt nach Hause. Der Butler öffnet ihm.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,22 +29,81 @@
       "text": "Na, du alter Sack, wieder gesoffen und den Weibern nachgestiegen?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Nein, James. Ich war ein Hörgerät kaufen.",
-      "emotion": "smug",
+      "text": "Nein, John, ich war ein Hörgerät kaufen...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "barmen",
+        "nachalnik"
+      ],
+      "roles": {
+        "barmen": "waiter",
+        "nachalnik": "aristocrat"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "monocle",
+            "black-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "door"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

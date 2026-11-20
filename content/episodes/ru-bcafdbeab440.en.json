@@ -2,7 +2,7 @@
   "id": "ru-bcafdbeab440.en",
   "jokeId": "ru-bcafdbeab440",
   "locale": "en",
-  "title": "Last Day on the Job",
+  "title": "Last Day on Duty",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -10,14 +10,14 @@
     "sluzhivy"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "driver",
     "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man is flying down the highway in his convertible, with the police right behind him.",
+      "text": "A man is driving his convertible Mercedes down the highway. A breeze is blowing, the sun is shining. Life is good.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Ha! They'll never catch me in this baby!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Suddenly, out of nowhere, a highway patrol car appears and starts chasing him.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,52 +35,146 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "A hundred and fifty, and they're still on my tail. Fine, I give up.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "sluzhivy",
-      "text": "Good afternoon, sir. It's my last day before retirement, and I really don't feel like writing tickets.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "sluzhivy",
-      "text": "Give me a good excuse, and I'll let you go.",
+      "text": "I'm in a car like this! They'll never catch me...",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l4",
+      "character": "narrator",
+      "text": "He floors it, the speed climbs past a hundred. The police are on his tail and don't fall behind.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "A hundred and twenty on the speedometer, the police don't fall behind. He kicks it all the way down and hits a full hundred and fifty. The police don't fall behind.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Well, officer, last week my wife ran off with a cop.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Time to stop and give up. He pulls over onto the shoulder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "sluzhivy",
+      "text": "Good afternoon, sir. Today is my last day on duty, I'm retiring.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "sluzhivy",
+      "text": "So I don't really feel like writing tickets. If you can come up with a good explanation for what you did, I'll let you go.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik",
-      "text": "I thought you were trying to bring her back!",
+      "text": "Oh! You see, a week ago my wife ran off with a policeman, and I thought you were trying to bring her back...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "muzhik": "driver",
+        "sluzhivy": "traffic-cop"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

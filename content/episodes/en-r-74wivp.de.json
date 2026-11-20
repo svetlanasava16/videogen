@@ -3,21 +3,19 @@
   "jokeId": "en-r-74wivp",
   "locale": "de",
   "title": "Ich bin verheiratet!",
-  "location": "kukhnya",
+  "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "paren"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "paren": "son"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann wacht mit einem fürchterlichen Kater und einem blauen Auge auf.",
+      "text": "Horst wacht mit einem fürchterlichen Kater und einem pochenden blauen Auge auf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,28 +23,26 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Eine Rose? Frühstück? Und ein Zettel: Ich liebe dich, Schatz?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Kevin, was war gestern los?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Als Erstes sieht er eine einzelne Rose auf dem Nachttisch und einen Zettel von seiner Frau.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Schatz, das Frühstück ist fertig. Ich bin einkaufen, um dir heute Abend dein Lieblingsessen zu kochen. Ich liebe dich!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l4",
-      "character": "paren",
-      "text": "Du kamst betrunken heim und bist über einen Stuhl gefallen.",
+      "character": "narrator",
+      "text": "Er torkelt in die Küche, und tatsächlich, da steht das Frühstück.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,8 +51,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Und warum ist Mama so lieb zu mir?",
-      "emotion": "surprised",
+      "text": "Kevin, was war gestern Abend los?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,23 +60,144 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Mama hat dich ins Schlafzimmer geschleppt und wollte dich ausziehen.",
+      "text": "Du bist sturzbetrunken nach Hause gekommen und hast dir das blaue Auge geholt, als du über einen Stuhl gestolpert bist.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "Und warum dann die Rose, das Frühstück und der liebe Zettel von deiner Mutter?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "paren",
-      "text": "Und du hast geschrien: Lassen Sie mich, ich bin verheiratet!",
+      "text": "Ach, das.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "paren",
+      "text": "Mama hat dich ins Schlafzimmer geschleppt, und als sie dich ausziehen wollte, hast du geschrien: Lass mich in Ruhe, ich bin verheiratet!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "son",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

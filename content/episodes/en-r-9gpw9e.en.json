@@ -6,18 +6,18 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Doc, I ate one of those little packets that say do not eat.",
+      "text": "Doc, I ate one of those 'Do not eat' silica packets.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -39,18 +39,20 @@
       "character": "doktor",
       "text": "Well, everyone is going to die eventually.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Everyone? Oh my God, what have I done?",
+      "text": "Everyone? Holy crap, what have I done?",
+      "uncensored": "Everyone? Holy shit, what have I done?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

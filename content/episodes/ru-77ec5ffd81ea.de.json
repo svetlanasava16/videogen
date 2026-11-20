@@ -1,0 +1,194 @@
+{
+  "id": "ru-77ec5ffd81ea.de",
+  "jokeId": "ru-77ec5ffd81ea",
+  "locale": "de",
+  "title": "Rotkäppchen und der Wolf",
+  "location": "derevnya",
+  "place": "forest",
+  "cast": [
+    "devochka",
+    "pyos"
+  ],
+  "roles": {
+    "devochka": "red-riding-hood",
+    "pyos": "wolf"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Rotkäppchen ging und ging durch den Wald. Plötzlich sieht es den bösen Wolf unter einem Baum sitzen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devochka",
+      "text": "Was hast du für große Augen, Wolf!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Der Wolf sprang auf und lief davon.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Rotkäppchen geht weiter. Es überquert einen Waldbach. Plötzlich sieht es den Wolf hinter einem Baumstumpf lauern.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devochka",
+      "text": "Was hast du für große Ohren, Wolf!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Wolf wirft Rotkäppchen nur einen finsteren Blick zu. Und haut ab.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Es geht weiter. Es kämpft sich durchs Dickicht. Und siehe da! Im Dickicht unter einer kleinen Kiefer sitzt der Wolf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "devochka",
+      "text": "Was hast du für große Zähne, Wolf!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "pyos",
+      "text": "Verdammter Mist, lässt du mich jetzt in Ruhe kacken oder nicht?",
+      "uncensored": "Verdammte Scheiße, lässt du mich jetzt in Ruhe scheißen oder nicht?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devochka",
+        "pyos"
+      ],
+      "roles": {
+        "devochka": "red-riding-hood",
+        "pyos": "wolf"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "tree"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

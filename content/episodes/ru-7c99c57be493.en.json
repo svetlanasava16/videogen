@@ -7,17 +7,17 @@
   "place": "home-living-room",
   "cast": [
     "muzhik",
-    "devushka"
+    "zhena"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "devushka": "woman"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A very useful tip for men.",
+      "text": "A very useful piece of advice for men.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,40 +26,50 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Soft little hands cover your eyes. Something warm and round presses into your back.",
+      "text": "If soft little hands cover your eyes, a full bosom and a chubby little tummy press into your back, and from behind you hear:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "devushka",
-      "text": "Guess who?",
-      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Guess who?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "zhena"
+      ],
+      "exit": []
+    },
+    {
       "id": "l4",
       "character": "narrator",
-      "text": "Whatever happens, there is only one right answer.",
+      "text": "Whatever happens, answer:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Bob, is that you?",
+      "text": "Dave, is that you?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Trust me, it's better that way.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

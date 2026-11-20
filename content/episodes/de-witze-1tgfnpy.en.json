@@ -2,7 +2,7 @@
   "id": "de-witze-1tgfnpy.en",
   "jokeId": "de-witze-1tgfnpy",
   "locale": "en",
-  "title": "If They Have Eggs",
+  "title": "Milk and Eggs",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,11 +13,19 @@
     "zhena": "wife",
     "paren": "programmer"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Honey, run to the store. Get a carton of milk. And if they have eggs, get ten.",
+      "character": "narrator",
+      "text": "A nerdy programmer gets sent to the store by his wife.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,10 +33,10 @@
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Got it.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Bring a gallon of milk. And if they have eggs, bring ten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [
         "paren"
@@ -37,17 +45,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Half an hour later.",
+      "text": "He comes back with ten gallons of milk.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "paren",
-      "text": "I'm back!",
-      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
         "paren"
@@ -55,22 +54,23 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "zhena",
-      "text": "What is this? Why did you buy ten cartons of milk?",
+      "text": "Why did you bring ten gallons of milk?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "paren",
-      "text": "Because they had eggs!",
-      "emotion": "smug",
+      "text": "Well, because they had eggs!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

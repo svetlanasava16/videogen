@@ -1,0 +1,110 @@
+{
+  "id": "de-witze-1opsl8s.en",
+  "jokeId": "de-witze-1opsl8s",
+  "locale": "en",
+  "title": "The Secret of Success",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "devushka-blondinka",
+    "nachalnik"
+  ],
+  "roles": {
+    "devushka-blondinka": "secretary",
+    "nachalnik": "boss"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "devushka-blondinka",
+      "text": "Sir, there's someone here who'd like to ask you about the secret of your success.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka-blondinka",
+      "text": "He's asking for an appointment.",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Journalist or police?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "devushka-blondinka",
+        "nachalnik"
+      ],
+      "roles": {
+        "devushka-blondinka": "secretary",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "devushka-blondinka": {
+          "add": [
+            "headset",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "pause",
+          "sec": 2
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

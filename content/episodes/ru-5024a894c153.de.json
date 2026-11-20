@@ -2,22 +2,20 @@
   "id": "ru-5024a894c153.de",
   "jokeId": "ru-5024a894c153",
   "locale": "de",
-  "title": "Falsch gelandet",
+  "title": "Danebengelegen",
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "muzhik-ryzhy",
-    "sluzhivy-ryadovoy"
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "farmer",
-    "sluzhivy-ryadovoy": "soldier"
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik-ryzhy",
-      "text": "Hallo, ist da der Stützpunkt?",
+      "text": "Hallo, ist da die Basis?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +24,7 @@
     {
       "id": "l2",
       "character": "sluzhivy-ryadovoy",
-      "text": "Da sind Sie falsch gelandet. Das hier ist ein Raketenstützpunkt.",
+      "text": "Da liegen Sie daneben. Das hier ist ein Raketenstützpunkt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -35,14 +33,83 @@
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Nein, eure Rakete ist falsch gelandet! Wer bezahlt mir jetzt meine Scheune?",
+      "text": "Nein, Sie liegen daneben! Wer bezahlt mir meinen Schuppen?!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "soldier"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

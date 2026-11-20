@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "В купе напротив друг друга сидят двое. Один то и дело что-то жуёт.",
+      "text": "Двое сидят друг напротив друга в купе поезда. Один каждые несколько минут что-то закидывает в рот.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "А что это вы жуёте?",
+      "text": "Что это вы там жуёте?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Яблочные семечки. Полезны для мозга, обостряют ум.",
+      "text": "Яблочные семечки, полезно для мозга. И обостряет чувства.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "А мне можно?",
+      "text": "А мне можно немного?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "Десять штук за пятьсот рублей.",
-      "emotion": "neutral",
+      "text": "Только они стоят: десять штук пятьсот рублей.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,32 +62,112 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Дороговато. Ну ладно, давайте.",
+      "text": "Дороговато, ну да ладно.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Погодите! На пятьсот рублей я бы целый мешок яблок купил!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Он покупает десять штук и сразу начинает жевать. После третьей говорит продавцу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "barmen",
-      "text": "Вот видите? Уже действует.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "За пятьсот рублей я бы запросто купил пять кило яблок.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "barmen",
+      "text": "Отлично, уже действует.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "train",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,27 +2,25 @@
   "id": "de-witze-1pdcxm0.en",
   "jokeId": "de-witze-1pdcxm0",
   "locale": "en",
-  "title": "The Night Call",
+  "title": "A Late House Call",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "patient",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "patient"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "In the middle of the night, a doctor is called out to an emergency.",
+      "text": "In the middle of the night, the doctor is called out to an emergency. After examining the patient thoroughly, he finally says:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -46,8 +44,8 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Call a lawyer right now. And get your closest relatives over here!",
-      "emotion": "neutral",
+      "text": "Get a lawyer over here right away, and call your closest relatives!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Does that mean I'm dying?",
+      "text": "Does that mean this is the end for me?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,14 +62,65 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "No. I just don't want to be the only one dragged out of bed in the middle of the night for nothing.",
-      "emotion": "angry",
+      "text": "Not that, but I don't want to be the only one dragged out of bed in the middle of the night for nothing.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

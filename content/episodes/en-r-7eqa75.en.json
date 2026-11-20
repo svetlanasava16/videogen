@@ -2,7 +2,7 @@
   "id": "en-r-7eqa75.en",
   "jokeId": "en-r-7eqa75",
   "locale": "en",
-  "title": "The Favour",
+  "title": "The Priest's Wife",
   "location": "ulitsa",
   "place": "church",
   "cast": [
@@ -17,16 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Joe goes to his buddy Bob and says...",
+      "text": "Jack goes to his buddy Bob.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "I'm sleeping with the priest's wife.",
+      "text": "I'm sleeping with the priest's wife. Can you hold him in church for an hour after mass for me?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,15 +34,6 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Can you hold him in church for an hour after mass for me?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "narrator",
       "text": "The friend doesn't like it but being a buddy, he agrees.",
       "emotion": "neutral",
@@ -51,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "narrator",
       "text": "After mass, Bob starts talking to the priest, asking him all sorts of stupid questions, just to keep him occupied.",
       "emotion": "neutral",
@@ -60,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
       "text": "Finally the priest gets annoyed.",
       "emotion": "neutral",
@@ -69,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "batyushka",
       "text": "What are you really up to?",
       "emotion": "angry",
@@ -78,34 +69,34 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "narrator",
-      "text": "Bob, feeling guilty, finally confesses to the priest...",
+      "text": "Bob, feeling guilty, finally confesses to the priest.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "muzhik-sosed",
       "text": "My friend is sleeping with your wife right now, so he asked me to keep you occupied.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "The priest smiles and puts a brotherly hand on Bob's shoulder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "The priest smiles, puts a brotherly hand on Bob's shoulder and says...",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "batyushka",
       "text": "You better hurry home now. My wife died a year ago.",
       "emotion": "happy",
@@ -139,10 +130,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -150,23 +137,17 @@
     {
       "location": "tserkov",
       "cast": [
-        "muzhik-sosed",
-        "batyushka"
+        "batyushka",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-sosed": "friend",
-        "batyushka": "priest"
+        "batyushka": "priest",
+        "muzhik-sosed": "friend"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "altar"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -191,15 +172,6 @@
         {
           "type": "line",
           "ref": "l10"
-        },
-        {
-          "type": "move",
-          "who": "batyushka",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "flyover"

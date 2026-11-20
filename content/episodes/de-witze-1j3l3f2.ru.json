@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "У входа в рай двое ворот.",
+      "text": "У входа в рай – двое ворот.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "На одних написано: для подкаблучников. На других: для тех, кто никогда не был подкаблучником.",
+      "text": "На одних висит табличка: Для мужчин, которыми помыкали жёны!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "У первых ворот огромная очередь. У вторых стоит один-единственный мужик.",
+      "text": "На других написано: Для мужчин, которыми жёны не помыкали!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,26 +43,118 @@
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "Сын мой, а ты почему стоишь тут совсем один?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "ded"
-      ],
+      "character": "narrator",
+      "text": "Перед первыми воротами стоит огромная очередь мужчин. Перед вторыми – всего один.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "Сын мой, почему именно ты стоишь совсем один у этих ворот?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Да я и сам не знаю. Жена сказала тут встать.",
+      "text": "Я и сам, честно говоря, не знаю.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Жена сказала, чтобы я встал сюда.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "saint-peter",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "keys"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "lectern"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "gate"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

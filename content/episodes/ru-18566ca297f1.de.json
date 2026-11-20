@@ -2,58 +2,109 @@
   "id": "ru-18566ca297f1.de",
   "jokeId": "ru-18566ca297f1",
   "locale": "de",
-  "title": "Neun Wörter",
+  "title": "Das Telegramm",
   "location": "ofis",
   "place": "government-office",
   "cast": [
-    "pyos",
-    "uchilka"
+    "uchilka",
+    "pyos"
   ],
   "roles": {
-    "pyos": "dog",
-    "uchilka": "clerk"
+    "uchilka": "clerk",
+    "pyos": "dog"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "pyos",
-      "text": "Guten Tag. Ich möchte ein Telegramm aufgeben.",
+      "character": "narrator",
+      "text": "Ein riesiger Deutscher Schäferhund kommt in die Post, nimmt ein Telegrammformular und schreibt: Wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "pyos"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "uchilka",
-      "text": "Mal sehen. Wuff, wuff, wuff, wuff, wuff, wuff, wuff, wuff, wuff.",
-      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "uchilka",
-      "text": "Das sind nur neun Wörter. Für denselben Preis dürfen Sie noch ein zehntes dazuschreiben.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "text": "Das sind nur neun Wörter. Sie können zum gleichen Preis noch ein Wort dazuschreiben.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "pyos",
-      "text": "Nein danke. Dann ergibt es ja keinen Sinn mehr.",
+      "text": "Ach nein, dann kommt ja nur Mist dabei raus...",
+      "uncensored": "Ach nein, dann kommt ja nur Scheiße dabei raus...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka",
+        "pyos"
+      ],
+      "roles": {
+        "uchilka": "clerk",
+        "pyos": "dog"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "certificate",
+          "action": "give",
+          "to": "uchilka"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

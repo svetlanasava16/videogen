@@ -1,0 +1,304 @@
+{
+  "id": "en-r-6l4a85.de",
+  "jokeId": "en-r-6l4a85",
+  "locale": "de",
+  "title": "Ich weiß alles",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "paren",
+    "vovochka",
+    "zhena",
+    "muzhik"
+  ],
+  "roles": {
+    "paren": "postman",
+    "vovochka": "fritzchen",
+    "zhena": "mother",
+    "muzhik": "father"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Fritzchens Freunde erzählen ihm, dass Erwachsene ein dunkles Geheimnis haben und sich leicht manipulieren lassen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Fritzchen will das testen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "vovochka",
+      "text": "Mama, ich weiß alles.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Mama bringt ihn zum Schweigen und gibt ihm zehn Euro.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Aber sag Papa nichts.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka",
+      "text": "Hey, es funktioniert!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Eine Stunde später kommt Papa von der Arbeit.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "vovochka",
+      "text": "Papa, ich weiß alles.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Papa gibt Fritzchen hundert Euro.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Sag Mama nichts.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Da klopft der Briefträger an die Tür.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "vovochka",
+      "text": "Ich weiß alles, mein Herr.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "narrator",
+      "text": "Der Briefträger lässt die ganze Post fallen, ihm kommen die Tränen, und er sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "paren",
+      "text": "Na dann, Fritzchen, komm und drück deinen Papi.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "vovochka",
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "postman",
+        "vovochka": "fritzchen",
+        "zhena": "mother",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "tv"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

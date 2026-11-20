@@ -2,7 +2,7 @@
   "id": "ru-ee3358d5ef71.de",
   "jokeId": "ru-ee3358d5ef71",
   "locale": "de",
-  "title": "Gute Manieren",
+  "title": "Ich schon",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -13,20 +13,30 @@
     "paren": "student",
     "doktor": "professor"
   },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Student trifft auf der Straße den Professor, der ihn gestern durch die Prüfung fallen ließ.",
+      "text": "Ein Student geht die Straße entlang. Ihm entgegen kommt der Professor, der ihn am Vortag durch die Prüfung fallen ließ.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "doktor"
+      ],
       "exit": []
     },
     {
       "id": "l2",
       "character": "paren",
-      "text": "Guten Tag, Herr Professor!",
+      "text": "Guten Tag.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +47,7 @@
       "character": "doktor",
       "text": "Dummköpfe grüße ich nicht.",
       "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -48,7 +58,8 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

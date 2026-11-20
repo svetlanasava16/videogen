@@ -2,23 +2,25 @@
   "id": "ru-137ebb1cfb31.ru",
   "jokeId": "ru-137ebb1cfb31",
   "locale": "ru",
-  "title": "Свобода",
+  "title": "Я с тобой",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
-    "muzhik"
+    "zhena",
+    "muzhik",
+    "paren"
   ],
   "roles": {
-    "paren": "son",
-    "muzhik": "father"
+    "zhena": "mother",
+    "muzhik": "father",
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Надоело! Вечно с вами, вечно приходить вовремя!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Сын ссорится с родителями:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +28,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Я хочу романтики, свободы, пива и девчонок!",
+      "text": "Мне надоело постоянно быть с вами, всегда приходить вовремя!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +37,7 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Я ухожу! И не пытайтесь меня удержать!",
+      "text": "Я хочу романтики, свободы, пива, девчонок!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,36 +45,114 @@
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "У двери его догоняет отец.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Я ухожу, и не пытайтесь меня удержать!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "paren",
-      "text": "Папа, я же сказал, не останавливай меня!",
+      "text": "Папа, я же сказал: не пытайтесь меня останавливать!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Я не останавливаю, сынок. Я с тобой!",
+      "text": "Я не останавливаю, сынок.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Я с тобой!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "paren",
-        "muzhik"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

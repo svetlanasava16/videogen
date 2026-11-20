@@ -6,36 +6,36 @@
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "muzhik",
-    "zhena"
+    "ded",
+    "tyoshcha"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "ded": "husband",
+    "tyoshcha": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Дорогая, пятьдесят лет вместе. И никогда никаких тайн друг от друга.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Супруги празднуют пятидесятую годовщину свадьбы.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Но одно не даёт мне покоя.",
-      "emotion": "sad",
+      "character": "ded",
+      "text": "Дорогая, мы вместе уже полвека.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Что такое, любимый?",
+      "character": "ded",
+      "text": "За все эти годы у нас не было друг от друга секретов.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,48 +43,94 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Наш восьмой, Миша. Рыжий, на две головы выше остальных семерых.",
+      "character": "ded",
+      "text": "Но одна вещь просто не выходит у меня из головы...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "tyoshcha",
+      "text": "Что такое, мой любимый?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ded",
+      "text": "Наш восьмой ребёнок, Миша.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Скажи честно. У него другой отец?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "zhena",
-      "text": "Да... Прости меня. У него другой отец.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l7",
-      "character": "muzhik",
-      "text": "После стольких лет я тебя прощаю. Но скажи: кто он?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "ded",
+      "text": "Он совсем не похож на своих семерых старших братьев и сестёр.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "zhena",
-      "text": "Ты.",
+      "character": "ded",
+      "text": "У него рыжие волосы, он на две головы выше, и черты лица совсем другие.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "ded",
+      "text": "Прошу, будь со мной честна... у него другой отец?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "tyoshcha",
+      "text": "Да, мне так жаль... Да, у него другой отец.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "ded",
+      "text": "Ну что ж... после стольких лет я тебя прощаю.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "ded",
+      "text": "Но скажи мне: кто он?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "tyoshcha",
+      "text": "Ты.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

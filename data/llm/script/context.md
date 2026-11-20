@@ -139,6 +139,7 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | photo | фотография | photo | Foto |
 | ticket | билет | ticket | Fahrkarte |
 | cane | трость | walking stick | Gehstock |
+| white-cane | белая трость слепого | white cane of a blind person | Blindenstock |
 | bill | счёт / чек | bill / receipt | Rechnung |
 | wrench | гаечный ключ / инструмент | wrench / tool | Schraubenschlüssel |
 
@@ -148,4 +149,4 @@ aerodrome-cap, apron, army-cap, badge, baguette, beard, beret, black-hat, bow-ti
 
 ## Crowd
 
-Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm. At most 5 puppets per scene plus the crowd.
+Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most 5 puppets per scene plus the crowd.

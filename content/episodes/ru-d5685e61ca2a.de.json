@@ -2,7 +2,7 @@
   "id": "ru-d5685e61ca2a.de",
   "jokeId": "ru-d5685e61ca2a",
   "locale": "de",
-  "title": "Der kriechende Patient",
+  "title": "Die kleine Schlange",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -10,14 +10,14 @@
     "paren"
   ],
   "roles": {
-    "doktor": "doctor",
+    "doktor": "therapist",
     "paren": "programmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Psychiater langweilt sich in seiner Praxis.",
+      "text": "Ein Psychiater sitzt in seiner Praxis und langweilt sich. Keine Patienten kommen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Da kriecht ein Mann auf allen vieren herein und zieht etwas hinter sich her.",
+      "text": "Da öffnet sich leise die Tür, und ein Mann kriecht auf allen vieren herein, etwas zwischen den Zähnen und in den Händen, und hinter ihm schleift noch etwas her.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Ach, wer kriecht denn da zu uns? Ist das eine kleine Schlange?",
+      "text": "Oh, wer kriecht denn da zu uns! Das ist bestimmt eine kleine Schlange.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Komm rein, kleine Schlange, der Doktor hilft dir.",
+      "text": "Kriech rein, Schlange, kriech rein, Kleine, der Doktor hilft dir.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,9 +54,9 @@
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "Nein? Dann ist das bestimmt eine kleine Schildkröte!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Der Mann schüttelt den Kopf.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Kletter auf den Sessel und erzähl dem Onkel Doktor alles.",
+      "text": "Aha, dann hat uns bestimmt eine kleine Schildkröte besucht.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,20 +73,40 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Auch nicht? Wer sind wir denn dann? Ein kleines Würmchen?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Kriech in den Sessel, Schildkröte, und erzähl dem Onkel Doktor, was mit dir passiert ist.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "paren",
-      "text": "Herr Doktor, Sie können mich mal! Ich bin der Admin, ich verlege Ihr Netzwerkkabel!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Der Mann schüttelt den Kopf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "Wer ist denn das bei uns? Bestimmt ein kleines Würmchen?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "paren",
+      "text": "Doktor, hauen Sie ab, ich bin der Systemadmin, ich verlege Ihnen das Netzwerk!",
+      "uncensored": "Doktor, verpissen Sie sich, ich bin der Systemadmin, ich verlege Ihnen das Netzwerk!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -12,7 +12,7 @@
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
+    "muzhik-sosed": "everyman",
     "barmen": "bartender"
   },
   "lines": [
@@ -27,44 +27,114 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Meine Frau hat mir Brote geschmiert. Mit Liebe.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Sie packen die Butterbrote aus, die ihre Frauen liebevoll für sie geschmiert haben, und fangen an zu essen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Meine auch.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "barmen",
+      "text": "Sie dürfen hier nicht Ihr eigenes Essen essen.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Leute, eigenes Essen ist hier verboten.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Hast du gehört? Kein eigenes Essen. Wir tauschen.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Also tauschten sie ihre Butterbrote.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

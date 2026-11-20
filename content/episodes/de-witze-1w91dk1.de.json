@@ -6,18 +6,26 @@
   "location": "doroga",
   "place": "car",
   "cast": [
-    "ded",
-    "sluzhivy"
+    "sluzhivy",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "red-nose"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Uhr nachts. Die Polizei hält einen älteren Herrn an.",
+      "text": "Ein älterer Herr wird um zwei Uhr früh von der Polizei angehalten.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,20 +34,18 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Guten Abend. Wo wollen Sie denn um diese Uhrzeit noch hin?",
+      "text": "Wo fahren Sie denn um diese Zeit in der Nacht noch hin?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "Zu einem Vortrag. Über Alkoholmissbrauch, die Folgen für den Körper, übers Rauchen und übers späte Nachhausekommen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Ich bin auf dem Weg zu einem Vortrag über Alkoholmissbrauch, die Auswirkungen auf den menschlichen Körper, sowie die Einflüsse durch Rauchen und spätes nach Hause kommen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -48,18 +54,19 @@
       "character": "sluzhivy",
       "text": "Wirklich? Und wer hält um diese Zeit noch solche Vorträge?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "ded",
-      "text": "Meine Frau.",
+      "text": "Meine Frau!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

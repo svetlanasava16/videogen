@@ -3,21 +3,19 @@
   "jokeId": "en-r-74wivp",
   "locale": "ru",
   "title": "Я женат!",
-  "location": "kukhnya",
+  "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "paren"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "paren": "son"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик просыпается с жутким похмельем и фингалом под глазом.",
+      "text": "Мужик просыпается с жутким похмельем и ноющим фингалом под глазом.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,28 +23,26 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Роза? Завтрак? И записка: люблю тебя, милый?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Сынок, что вчера было?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Первое, что он видит, — одна роза на тумбочке и записка от жены.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Дорогой, завтрак готов. Я ушла в магазин, чтобы приготовить тебе на ужин твоё любимое блюдо. Люблю тебя!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l4",
-      "character": "paren",
-      "text": "Ты пришёл пьяный и споткнулся о стул. Отсюда и фингал.",
+      "character": "narrator",
+      "text": "Он, шатаясь, бредёт на кухню, и там действительно завтрак.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,8 +51,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "А чего мама такая ласковая?",
-      "emotion": "surprised",
+      "text": "Сынок, что вчера было?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,23 +60,144 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Мама дотащила тебя до спальни и стала раздевать.",
+      "text": "Ты пришёл домой в стельку пьяный и заработал фингал, споткнувшись о стул.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "А откуда тогда роза, завтрак и нежная записка от мамы?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "paren",
-      "text": "А ты как заорёшь: отстаньте, я женат!",
+      "text": "А, это.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "paren",
+      "text": "Мама дотащила тебя до спальни, а когда стала тебя раздевать, ты заорал: Отстань, я женат!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "son",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

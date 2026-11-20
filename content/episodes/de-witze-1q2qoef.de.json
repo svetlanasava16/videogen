@@ -1,0 +1,152 @@
+{
+  "id": "de-witze-1q2qoef.de",
+  "jokeId": "de-witze-1q2qoef",
+  "locale": "de",
+  "title": "Ladendiebstahl",
+  "location": "sud",
+  "place": "courtroom",
+  "cast": [
+    "devushka",
+    "nachalnik",
+    "muzhik"
+  ],
+  "roles": {
+    "devushka": "woman",
+    "nachalnik": "judge",
+    "muzhik": "husband"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Eine uneinsichtige Frau steht wegen Ladendiebstahls vor Gericht. Der Richter fällt sein Urteil.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Trotz eindeutiger Beweise sind Sie nicht geständig und ohne Reue.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Sie haben nachweislich eine Tüte Pfefferminzbonbons gestohlen.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Ich verurteile Sie zu Schadenersatz und zwölf Tagen Haft, ein Tag für jedes Bonbon in der Packung.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Da steht plötzlich der Ehemann der Angeklagten auf und ruft dem Richter zu.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Machen wir doch gleich reinen Tisch!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Sie hat außerdem eine Packung Reis geklaut!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "devushka",
+        "nachalnik",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "nachalnik": "judge",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "dock"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "witness"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

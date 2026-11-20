@@ -6,52 +6,65 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik": "relative"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
-      "text": "Uncle, look! I made a telephone!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A man's seven year old nephew showed him with pride the telephone he had just made from a string and two tin cans.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Out of two tin cans and a string? Nice.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
-      "text": "It really works!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Cute. But look at my iPhone. Kids your age make these in China.",
+      "text": "That's nice, but look at what kids your age make in China!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "relative"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

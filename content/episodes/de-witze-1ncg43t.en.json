@@ -2,7 +2,7 @@
   "id": "de-witze-1ncg43t.en",
   "jokeId": "de-witze-1ncg43t",
   "locale": "en",
-  "title": "Reverse Gear",
+  "title": "In Reverse",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A trucker is reversing his forty-ton rig up a steep mountain road.",
+      "text": "A trucker is backing his forty-ton rig up a steep, winding mountain road three miles long.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,64 +25,152 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hey, buddy! Why are you driving backwards?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "After a mile or so, a guy flags him down.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "I've got a delivery up top. My boss said there's no room to turn around up there.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Why are you driving backwards?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Six hours later the truck comes back down. Backwards again.",
+      "character": "muzhik-ryzhy",
+      "text": "I've got a delivery up top, and my boss said you can't turn around up there.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "So why are you reversing down too?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Six hours later he comes back down. Backwards!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Just goes to show, my boss knows nothing about driving.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "Why are you driving back down backwards?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "I turned around up there just fine!",
+      "text": "Just goes to show, the boss has no clue about driving.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "I could turn around after all!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

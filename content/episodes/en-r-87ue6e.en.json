@@ -2,7 +2,7 @@
   "id": "en-r-87ue6e.en",
   "jokeId": "en-r-87ue6e",
   "locale": "en",
-  "title": "Poisonous",
+  "title": "Venomous",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -26,25 +26,25 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "No, that snake isn't poisonous at all.",
+      "text": "No, that snake's not poisonous at all.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Ow! It bit me! I can't feel my legs!",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "So the boy picks up the snake, which bites him, and the boy starts to spasm and foam at the mouth as the other kids look on in horror.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "paren",
-      "text": "Right. Technically, it's venomous.",
+      "text": "But that snake is venomous.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Poison is swallowed. Venom is injected.",
-      "emotion": "neutral",
+      "text": "Poison is ingested or absorbed, while venom is injected.",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -66,10 +66,74 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "vovochka",
+        "paren"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "paren": "athlete"
+      },
+      "looks": {
+        "vovochka": {
+          "clothes": "#8a7f4e",
+          "add": [],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#8a7f4e",
+          "add": [
+            "cowboy-hat"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

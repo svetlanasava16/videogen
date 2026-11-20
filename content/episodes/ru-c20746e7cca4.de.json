@@ -1,0 +1,173 @@
+{
+  "id": "ru-c20746e7cca4.de",
+  "jokeId": "ru-c20746e7cca4",
+  "locale": "de",
+  "title": "Der Spatz",
+  "location": "doroga",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik-ryzhy",
+    "ptitsa"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "biker",
+    "ptitsa": "bird"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Motorradfahrer rast mit hoher Geschwindigkeit dahin und sieht plötzlich, wie etwas direkt auf ihn zufliegt… ein Spatz!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Er steigt in die Bremsen, versucht mit aller Kraft auszuweichen, streift den Spatz aber doch mit dem Helm. Der Spatz fliegt zur Seite und fällt herunter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Dem Motorradfahrer tut der arme Vogel leid. Mit Mühe findet er den Spatz am Boden und nimmt ihn mit.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Er bringt ihn nach Hause, setzt ihn in einen Käfig, stellt ihm ein Schälchen Wasser hin, streut Brotkrumen und geht dann schlafen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Am Morgen kommt der Spatz zu sich, schaut sich um und sagt zu sich selbst:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ptitsa",
+      "text": "Wo bin ich?.. Soso… Gitter… eine Schale Wasser… Brot…",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ptitsa",
+      "text": "Wie schrecklich! Ich habe den Motorradfahrer umgebracht!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "biker",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        },
+        "ptitsa": {
+          "clothes": "#8a6a45",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "biker",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#8a6a45",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

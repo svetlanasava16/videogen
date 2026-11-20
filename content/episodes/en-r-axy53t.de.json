@@ -7,77 +7,114 @@
   "place": "car",
   "cast": [
     "muzhik-ryzhy",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
-    "muzhik": "customer"
+    "paren": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Taxifahrer hat seinen allerersten Fahrgast. Die Fahrt verläuft in totaler Stille.",
+      "text": "Ein Taxifahrer, neu im Job, nimmt seinen ersten Fahrgast auf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Sag mal...",
+      "character": "narrator",
+      "text": "Ein paar Minuten vergehen, und die ganze Fahrt über ist es still. Nicht mal das Radio läuft.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Aaah! Ach du lieber Himmel!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Der Fahrgast ist sehr gesellig, also fängt er ein Gespräch an, um die Stille zu brechen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Spinnst du? Warum bremst du so?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Hey, Ma—",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Tut mir leid. Mein erster Tag. Ich bin noch an meinen alten Job gewöhnt.",
+      "text": "Verdammter Mist!",
+      "uncensored": "Verdammte Scheiße!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Fahrer steigt abrupt in die Bremsen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Alter, was soll der Mist?!",
+      "uncensored": "Alter, was soll die Scheiße?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Tut mir leid, Mann. Ist mein erster Tag im Job, und ich hab mich von meinem alten Job noch nicht umgestellt.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
+      "id": "l9",
+      "character": "paren",
       "text": "Was hast du denn vorher gemacht?",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Ich bin Leichenwagen gefahren.",
-      "emotion": "sad",
+      "text": "Ich bin einen Leichenwagen gefahren.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

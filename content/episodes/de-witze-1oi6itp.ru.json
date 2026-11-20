@@ -2,7 +2,7 @@
   "id": "de-witze-1oi6itp.ru",
   "jokeId": "de-witze-1oi6itp",
   "locale": "ru",
-  "title": "Цыплята",
+  "title": "Цыплята в лесу",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик идёт из магазина через лес. Навстречу ему цыплёнок, весь в какашках.",
+      "text": "Мужик после магазина идёт через лес с полным пакетом покупок.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,17 +27,20 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Бедняга. Хорошо, что я туалетную бумагу купил.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Навстречу ему маленький цыплёнок — весь обгаженный.",
+      "uncensored": "Навстречу ему маленький цыплёнок — весь обосранный.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "ptitsa"
+      ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Он вытирает цыплёнка. Потом ещё троих. Потом ещё пятерых. И все в какашках.",
+      "text": "Мужику жалко цыплёнка. Он достаёт из пакета рулон туалетной бумаги и вытирает его дочиста.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,35 +48,150 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Всё, бумага кончилась. А последний так и остался грязным.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Вскоре навстречу ему ещё три цыплёнка, тоже все обгаженные. Мужик вытирает и их.",
+      "uncensored": "Вскоре навстречу ему ещё три цыплёнка, тоже все обосранные. Мужик вытирает и их.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Мужчина! У вас туалетной бумаги не найдётся?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "character": "narrator",
+      "text": "Чуть дальше ему попадаются ещё пять цыплят, опять все обгаженные.",
+      "uncensored": "Чуть дальше ему попадаются ещё пять цыплят, опять все обосранные.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Он вытирает и этих, но на последнем цыплёнке бумага кончается.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Последнего цыплёнка ему жалко, и он идёт дальше в лес, чтобы найти что-нибудь другое.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Тут навстречу ему едет фермер на тракторе.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Простите, у вас не найдётся туалетной бумаги?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Бумаги? Да возьмите цыплёнка!",
+      "text": "Туалетной бумаги? Да возьмите просто цыплёнка!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

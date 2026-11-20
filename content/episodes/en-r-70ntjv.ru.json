@@ -1,0 +1,105 @@
+{
+  "id": "en-r-70ntjv.ru",
+  "jokeId": "en-r-70ntjv",
+  "locale": "ru",
+  "title": "Деньги на обед",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "muzhik",
+    "barmen"
+  ],
+  "roles": {
+    "muzhik": "customer",
+    "barmen": "cook"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "До сих пор тот пацан, который издевался надо мной в школе, отбирает у меня деньги на обед.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Зато он делает отличные сэндвичи в Сабвее.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "cook"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

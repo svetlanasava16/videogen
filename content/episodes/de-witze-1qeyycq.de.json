@@ -7,68 +7,76 @@
   "place": "heaven",
   "cast": [
     "ded",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Willkommen an der Himmelspforte. Hast du denn eine gute Tat vorzuweisen?",
+      "character": "narrator",
+      "text": "Ein junger Mann steht vor der Himmelspforte.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Oh ja! Ich habe zwei hübschen Frauen geholfen, die von einer Rockerbande belästigt wurden!",
+      "character": "ded",
+      "text": "Hast du denn eine gute Tat vorzuweisen, die dich zur Aufnahme ins Himmelreich berechtigen würde?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Ich habe zwei hübschen Damen geholfen, die von einer Rockergang belästigt wurden!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "ded",
-      "text": "Respekt. Und wie genau hast du das angestellt?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ich habe mich mutig vor sie gestellt und den Rockern klargemacht, dass ich das nicht zulasse!",
-      "emotion": "smug",
+      "character": "ded",
+      "text": "Und wie genau hast du das bewerkstelligt?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "Und wann war das?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "paren",
+      "text": "Na, ich habe mich mutig vor sie gestellt und den Rockern klar gemacht, dass ich das nicht zulassen werde!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
+      "character": "ded",
+      "text": "Und wann soll das gewesen sein?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
       "text": "Vor ungefähr drei Minuten.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

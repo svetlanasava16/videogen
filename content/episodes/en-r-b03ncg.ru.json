@@ -2,22 +2,20 @@
   "id": "en-r-b03ncg.ru",
   "jokeId": "en-r-b03ncg",
   "locale": "ru",
-  "title": "Кукла вуду",
-  "location": "ofis",
+  "title": "А сейчас?",
+  "location": "gostinaya",
   "place": "office",
   "cast": [
-    "zhena",
     "muzhik"
   ],
   "roles": {
-    "zhena": "wife",
     "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Алло, дорогая. Скажи, у тебя бывает такая резкая боль во всём теле?",
+      "character": "narrator",
+      "text": "Мужик звонит жене на работу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,16 +24,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Как будто кто-то сделал твою куклу вуду и тычет в неё иголкой?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "У тебя бывает такая стреляющая боль по всему телу, как будто у кого-то есть твоя кукла вуду и он её протыкает?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Нет. А что случилось?",
+      "text": "Нет.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -48,10 +46,83 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

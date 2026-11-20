@@ -2,7 +2,7 @@
   "id": "de-witze-1tgfnpy.ru",
   "jokeId": "de-witze-1tgfnpy",
   "locale": "ru",
-  "title": "Если будут яйца",
+  "title": "Молоко и яйца",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,11 +13,19 @@
     "zhena": "wife",
     "paren": "programmer"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Милый, сходи в магазин. Купи литр молока. А если будут яйца, возьми десять.",
+      "character": "narrator",
+      "text": "Жена отправляет программиста-ботаника в магазин.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,10 +33,10 @@
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Понял.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Купи литр молока. А если будут яйца, возьми десять.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [
         "paren"
@@ -37,17 +45,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Через полчаса.",
+      "text": "Он возвращается с десятью литрами молока.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "paren",
-      "text": "Я вернулся!",
-      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
         "paren"
@@ -55,22 +54,23 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "zhena",
-      "text": "Это что такое? Зачем ты притащил десять литров молока?",
+      "text": "Зачем ты принёс десять литров молока?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "paren",
-      "text": "Так яйца же были!",
-      "emotion": "smug",
+      "text": "Ну так яйца же были!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

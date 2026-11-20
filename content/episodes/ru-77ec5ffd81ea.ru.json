@@ -1,0 +1,194 @@
+{
+  "id": "ru-77ec5ffd81ea.ru",
+  "jokeId": "ru-77ec5ffd81ea",
+  "locale": "ru",
+  "title": "Красная Шапочка и Волк",
+  "location": "derevnya",
+  "place": "forest",
+  "cast": [
+    "devochka",
+    "pyos"
+  ],
+  "roles": {
+    "devochka": "red-riding-hood",
+    "pyos": "wolf"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Шла-шла Красная Шапочка по лесу. Вдруг видит — сидит Серый Волк под деревом.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devochka",
+      "text": "Какие у тебя большие глаза, Серый Волк!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Серый Волк сорвался с места и убежал.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Идёт Красная Шапочка дальше. Перешла ручеёк лесной. Вдруг видит — Серый Волк за пеньком притаился.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devochka",
+      "text": "Какие у тебя большие уши, Серый Волк!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "А Серый Волк только — зырк! — на Красную Шапочку. И сбежал.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Идёт она дальше. Пробирается через чащобу. Вдруг — глядь! — в чащобе под сосенкой Серый Волк сидит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "devochka",
+      "text": "Какие у тебя зубищи, Серый Волк!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "pyos",
+      "text": "Ёлки-палки, ты мне покакать дашь или нет?",
+      "uncensored": "Ёб твою мать, ты мне посрать дашь или нет?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devochka",
+        "pyos"
+      ],
+      "roles": {
+        "devochka": "red-riding-hood",
+        "pyos": "wolf"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "tree"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

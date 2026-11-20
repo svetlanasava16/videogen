@@ -1,0 +1,128 @@
+{
+  "id": "ru-821c18686de8.de",
+  "jokeId": "ru-821c18686de8",
+  "locale": "de",
+  "title": "Der Schulkamerad",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik-ryzhy",
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "husband",
+    "muzhik": "drunk"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Trauerzug zieht die Straße entlang. Ihm entgegen kommt ein betrunkener Mann.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Ste-e-effen! Alter Schulkame-e-erad, lange nicht gesehen!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Hör mal, entschuldige, ich trauere gerade — meine Frau ist gestorben.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Du hast geheiratet?! Glückwunsch!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "husband",
+        "muzhik": "drunk"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#1f1f24",
+          "add": [],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

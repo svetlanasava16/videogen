@@ -6,51 +6,61 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
+    "zhena",
     "muzhik",
-    "paren",
-    "zhena"
+    "paren"
   ],
   "roles": {
+    "zhena": "mother",
     "muzhik": "father",
-    "paren": "son",
-    "zhena": "mother"
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Mein Sohn, ich muss dir etwas sagen. Du wurdest adoptiert.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "paren",
-      "text": "Was? Ihr seid gar nicht meine leiblichen Eltern?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Eine Familie sitzt beim Abendessen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Was? Natürlich sind wir deine leiblichen Eltern.",
+      "text": "Mein Sohn, ich muss dir etwas sagen: Du wurdest adoptiert.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Was? Ihr seid überhaupt nicht meine leiblichen Eltern?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
+      "text": "Was? Natürlich sind wir deine leiblichen Eltern.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
       "text": "Und jetzt pack deine Tasche.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

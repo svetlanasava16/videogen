@@ -2,91 +2,230 @@
   "id": "de-witze-1izjujj.ru",
   "jokeId": "de-witze-1izjujj",
   "locale": "ru",
-  "title": "Самый глупый ребёнок",
+  "title": "Самый глупый ребёнок в городе",
   "location": "magazin",
   "place": "barbershop",
   "cast": [
-    "muzhik",
+    "vovochka",
     "barmen",
-    "vovochka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "customer",
+    "vovochka": "vovochka",
     "barmen": "craftsman",
-    "vovochka": "vovochka"
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Видите пацана? Самый глупый ребёнок в городе. Сейчас покажу.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Вовочка заходит в парикмахерскую.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Ну что, Вовочка, вот сто рублей бумажкой, а вот двадцать монетками. Что берёшь?",
-      "emotion": "happy",
+      "text": "Это самый глупый ребёнок в городе! Минутку, сейчас я вам покажу.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Монетки.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Он берёт в одну руку сторублёвую купюру, а в другую две монеты по десять рублей.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "vovochka"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Ну, что я говорил? Каждый раз одно и то же! Ничему не учится.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Ну, мальчик, выбирай руку. Какую хочешь?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Позже клиент видит Вовочку на улице с мороженым.",
+      "text": "Вовочка берёт две монеты и уходит.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "barmen",
+      "text": "Ну, что я вам говорил? Каждый раз, ну буквально каждый раз!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "barmen",
+      "text": "Этот сорванец никогда в жизни не научится!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Чуть позже клиент выходит из парикмахерской на улицу и видит Вовочку у киоска с мороженым.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik",
-      "text": "Слушай, малой, а почему ты всегда берёшь монетки, а не сотню?",
+      "text": "Эй, малыш, можно вопрос? Почему ты берёшь две монеты, а не сторублёвку?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "vovochka",
-      "text": "Как только я возьму сотню, игра закончится.",
+      "text": "В тот день, когда я возьму бумажку, игра закончится.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "barmen": "craftsman",
+        "muzhik": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "muzhik": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

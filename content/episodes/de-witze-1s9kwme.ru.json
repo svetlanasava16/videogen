@@ -6,18 +6,32 @@
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "sluzhivy",
-    "paren"
+    "paren",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "pilot",
-    "paren": "artist"
+    "paren": "journalist",
+    "sluzhivy": "pilot"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    },
+    "sluzhivy": {
+      "add": [
+        "headset"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Фотографа отправили снять с воздуха большой лесной пожар. На аэродроме его уже ждёт маленький самолёт.",
+      "text": "Фотограф журнала о природе и науке получил задание сфотографировать большой лесной пожар.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +39,17 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "У земли было слишком много дыма, и издатель арендовал для него маленький самолёт, чтобы сделать снимки с воздуха. Пилот уже ждал на местном аэродроме неподалёку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "paren",
-      "text": "Быстрее! Взлетаем прямо сейчас!",
+      "text": "Быстрее! Вылетаем немедленно!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,25 +58,25 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "narrator",
-      "text": "Самолёт взлетает.",
+      "text": "Пока самолёт взлетал, фотограф давал пилоту указания:",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "paren",
-      "text": "Зайди с северной стороны пожара и пройди над ним три-четыре раза, пониже.",
+      "text": "Я хочу, чтобы ты пролетел над северной стороной очага пожара и три или четыре раза прошёл совсем низко над ним.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "sluzhivy",
       "text": "Зачем?",
       "emotion": "surprised",
@@ -62,22 +85,32 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "paren",
-      "text": "Как это зачем? Чтобы я сделал снимки! Я фотограф, а фотограф фотографирует!",
+      "text": "Что значит зачем?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
+      "character": "paren",
+      "text": "Чтобы я мог сделать пару снимков, конечно! Я фотограф, а фотограф делает фотографии!",
+      "emotion": "angry",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "sluzhivy",
-      "text": "Подожди... Так ты не мой инструктор?",
+      "text": "То есть... ты не лётный инструктор?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

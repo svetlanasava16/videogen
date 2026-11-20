@@ -1,0 +1,92 @@
+{
+  "id": "en-d-38706.ru",
+  "jokeId": "en-d-38706",
+  "locale": "ru",
+  "title": "Другой берег",
+  "location": "derevnya",
+  "place": "river-lake",
+  "cast": [
+    "muzhik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужик на одном берегу реки кричит мужику на другом берегу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Эй, как мне попасть на другой берег реки?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Ты на другом берегу реки.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -6,87 +6,226 @@
   "location": "magazin",
   "place": "barbershop",
   "cast": [
-    "muzhik",
+    "vovochka",
     "barmen",
-    "vovochka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "customer",
+    "vovochka": "fritzchen",
     "barmen": "craftsman",
-    "vovochka": "fritzchen"
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Sehen Sie den Jungen? Das dümmste Kind der Stadt. Ich zeig's Ihnen.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Fritzchen geht in einen Friseursalon.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Na, Fritzchen, hier ein Fünf-Euro-Schein, da zwei Euromünzen. Such dir was aus.",
-      "emotion": "happy",
+      "text": "Das ist das dümmste Kind der Stadt! Moment, ich zeige es Ihnen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Die zwei Münzen, bitte.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Er nimmt einen Fünf-Euro-Schein in eine Hand und zwei Eurostücke in die andere.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "vovochka"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Was hab ich gesagt? Jedes Mal, wirklich jedes Mal! Der lernt es nie.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Na, Junge, such dir eine Hand aus. Welche willst du?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Später sieht der Kunde Fritzchen draußen mit einem Eis.",
+      "text": "Fritzchen nimmt die zwei Münzen und geht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "barmen",
+      "text": "Na, was habe ich Ihnen gesagt? Jedesmal, wirklich jedesmal!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "barmen",
+      "text": "Der Bengel lernt es nie und nimmer!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Etwas später verlässt der Kunde den Salon und geht auf die Straße. Dort sieht er Fritzchen an der Eisdiele sitzen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik",
-      "text": "Sag mal, Kleiner, warum nimmst du nie den Schein?",
+      "text": "He, Kleiner, ich habe mal eine Frage. Warum nimmst du lieber die zwei Euro und nicht den Fünf-Euro-Schein?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "vovochka",
       "text": "An dem Tag, an dem ich den Schein nehme, ist das Spiel vorbei.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "fritzchen",
+        "barmen": "craftsman",
+        "muzhik": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "fritzchen",
+        "muzhik": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -11,13 +11,13 @@
   ],
   "roles": {
     "sluzhivy": "pilot",
-    "muzhik": "everyman"
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Meine Damen und Herren, hier spricht Ihr Kapitän.",
+      "character": "narrator",
+      "text": "Ein Flugzeug in der Luft. Der Pilot spricht über Lautsprecher.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,35 +26,36 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Wir fliegen in zehntausend Metern Höhe mit neunhundert Stundenkilometern, die Außentemperatur beträgt...",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "text": "Sehr geehrte Damen und Herren, hier spricht Ihr Kapitän. Hören Sie einige Informationen zu unserem Flug.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Aaah! Was ist das denn?! Oh nein, jetzt ist alles aus!",
+      "text": "Wir fliegen in einer Höhe von zehntausend Metern mit neunhundert Kilometern pro Stunde, die Außentemperatur beträgt...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy",
+      "text": "Mist! Aaaah! Was ist das?! Na, jetzt ist alles im Eimer...",
+      "uncensored": "Scheiße! Aaaah! Was ist das?! Na, jetzt ist alles im Arsch...",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "narrator",
-      "text": "Totenstille in der Kabine.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Entschuldigen Sie bitte. Die Stewardess hat mir heißen Kaffee übergekippt.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "In der Kabine Totenstille. Eine Minute später wieder über Lautsprecher.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,23 +63,126 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Sie sollten mal meine weiße Hose von vorne sehen!",
+      "text": "Ich bitte unsere verehrten Passagiere um Entschuldigung. Unsere Stewardess hat mir nur heißen Kaffee übergekippt.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Deine Hose ist gar nichts! Du solltest mal meine von hinten sehen!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "sluzhivy",
+      "text": "Sie sollten jetzt mal meine weiße Hose von vorne sehen...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Pfeif auf deine Hose!",
+      "uncensored": "Scheiß auf deine Hose!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Du solltest mal meine Hose von hinten sehen...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "crowd",
+          "react": "calm"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

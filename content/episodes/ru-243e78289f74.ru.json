@@ -7,19 +7,18 @@
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devushka-ryzhaya",
-    "doktor"
+    "devochka"
   ],
   "roles": {
     "zhena": "mother",
-    "devushka-ryzhaya": "daughter",
-    "doktor": "doctor"
+    "devochka": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Слепая девочка за обедом всегда ощупывает тарелку и ноет.",
+      "text": "Жила-была девочка, которая ну ни фигашеньки не видела. Короче, слепая.",
+      "uncensored": "Жила-была девочка, которая ну ни херашеньки не видела. Короче, слепая.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,39 +26,35 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Ну вот, мне опять меньше всех положили! Раз я не вижу, можно и обделить! Жмоты!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "narrator",
-      "text": "Мама не выдерживает и зовёт психолога.",
+      "text": "Каждый раз, когда семья садилась за стол и мама подавала еду, девочка долго ощупывала содержимое тарелки руками и каждый раз ныла:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "doktor",
-      "text": "Сварите ей целый таз пельменей. И пусть ест.",
-      "emotion": "smug",
+      "id": "l3",
+      "character": "devochka",
+      "text": "Ну вот, как всегда мне меньше всех положили!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
-      "exit": [
-        "doktor"
-      ]
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devochka",
+      "text": "Раз ничего не вижу, значит и обделить можно! Жмоты...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "На следующий день мама ставит перед дочкой целый таз пельменей.",
+      "text": "Маме всё это надоело, и решила она проконсультироваться с психологом.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,24 +62,162 @@
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Ешь, доченька. Это всё тебе.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Вы сварите целый тазик пельменей! Ну как на Маланьину свадьбу. Ну и пусть ест!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "devushka-ryzhaya",
-      "text": "Ничего себе... Представляю, сколько вы себе наложили!",
+      "character": "narrator",
+      "text": "На следующий день мама накрывает на стол и ставит перед девочкой парашу пельменей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Девочка двигает к себе нехилую порцию пельменей, долго ощупывает содержимое руками и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devochka",
+      "text": "Представляю, сколько вы себе нафигачили...",
+      "uncensored": "Представляю, сколько вы себе нахерачили...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "doktor": "therapist"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

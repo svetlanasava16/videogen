@@ -2,65 +2,78 @@
   "id": "en-r-cs4y8h.de",
   "jokeId": "en-r-cs4y8h",
   "locale": "de",
-  "title": "Immer noch achtzehn",
+  "title": "Der Körper eines Achtzehnjährigen",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "zhena"
+    "zhena",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "zhena": "wife",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Weißt du, ich habe immer noch den Körper eines Achtzehnjährigen.",
+      "text": "Meine Frau hat gelacht, als ich sagte, ich hätte noch den Körper eines Achtzehnjährigen.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Du? Ach, hör auf!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "zhena",
-      "text": "Ich hol mir Eis. Darauf brauche ich einen Drink.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "zhena",
-      "text": "Schatz... warum liegt ein Körper in der Tiefkühltruhe?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "muzhik",
-      "text": "Sag ich doch. Achtzehn.",
+      "text": "Bis sie in die Gefriertruhe geschaut hat.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "fridge"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,24 +2,22 @@
   "id": "en-r-6gu5bg.ru",
   "jokeId": "en-r-6gu5bg",
   "locale": "ru",
-  "title": "Патронов не хватит",
+  "title": "Больше патронов",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-ryzhy",
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "drunk",
-    "barmen": "bartender",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "muzhik-ryzhy": "drunk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "В переполненный бар врывается мужик с пистолетом.",
+      "text": "Мужик заходит в переполненный местный бар с пистолетом в руке и кричит:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,18 +26,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "У меня сорок пятый калибр. Семь патронов в обойме и один в стволе.",
+      "text": "У меня тут пистолет сорок пятого калибра, семь патронов в стволе плюс один в патроннике,",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Я хочу знать, кто спит с моей женой!",
+      "text": "и я хочу знать, кто спал с моей женой!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -48,14 +44,80 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Мужик, тебе патронов не хватит.",
+      "text": "Тебе понадобится больше патронов.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "muzhik-ryzhy": "drunk"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "stool-right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

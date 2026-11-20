@@ -2,24 +2,20 @@
   "id": "ru-9cc0dee1c1f9.de",
   "jokeId": "ru-9cc0dee1c1f9",
   "locale": "de",
-  "title": "Drei Leichen",
+  "title": "Keine freie Streife",
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "muzhik",
-    "sluzhivy",
-    "vor"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "police-officer",
-    "vor": "thief"
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Spätabends sieht ein Mann Taschenlampenlicht in seinem Schuppen.",
+      "text": "Ein Mann kommt spät abends nach Hause und sieht im Schuppen das Licht einer Taschenlampe.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +24,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Hallo, Polizei? In meinem Schuppen sind Einbrecher!",
+      "text": "Hallo, Polizei? In meinem Schuppen stöbert jemand herum, ich glaube, das sind Einbrecher!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,17 +32,17 @@
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Die Zentrale sagt: Alle Streifenwagen sind im Einsatz. In ein, zwei Stunden vielleicht.",
+      "character": "uchilka",
+      "text": "Mein Herr, leider sind gerade alle Streifenwagen im Einsatz, wir schicken eine Streife, sobald jemand frei ist, in ein, zwei Stunden...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Hallo, ich bin's nochmal. Da ja keiner frei ist, hab ich sie selbst erschossen.",
+      "character": "narrator",
+      "text": "Drei Minuten später ruft er wieder an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,45 +51,230 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Schicken Sie also gleich ein paar Krankenwagen mit. Für die Leichen.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Hallo, ich bin's noch mal.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Eine Minute später wimmelt der Hof von Polizei. Die Einbrecher kommen raus und ergeben sich.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vor"
-      ],
+      "character": "muzhik",
+      "text": "Da Sie keine freie Streife haben, musste ich die Einbrecher selbst erschießen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "sluzhivy",
-      "text": "Sie sagten, hier liegen mindestens drei Leichen!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "character": "muzhik",
+      "text": "Wenn Ihre Streife also frei ist, schicken Sie gleich zwei, drei Krankenwagen mit, um die Leichen abzuholen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Und Sie sagten, es ist keiner frei.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Eine Minute später rasen fünf Streifenwagen mit Sirenen vors Haus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Die Einbrecher stürzen aus dem Schuppen und ergeben sich.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "sluzhivy",
+      "text": "Sie sagten, hier lägen mindestens drei Leichen!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "Na, und Sie sagten, in der ganzen Gegend gäbe es keine freie Streife...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka"
+      ],
+      "roles": {
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "cast": [
+        "sluzhivy-ryadovoy",
+        "sluzhivy",
+        "muzhik",
+        "vor",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "police-officer",
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman",
+        "vor": "thief",
+        "paren": "thief"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "paren": {
+          "clothes": "#2b2b33",
+          "add": [
+            "hood"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

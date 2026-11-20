@@ -2,7 +2,7 @@
   "id": "ru-ee3ee630960e.de",
   "jokeId": "ru-ee3ee630960e",
   "locale": "de",
-  "title": "Selbst sehen, wo man bleibt",
+  "title": "Das Gehalt",
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -13,35 +13,44 @@
     "sluzhivy": "police-officer",
     "nachalnik": "boss"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Ein junger Mann fängt bei der Polizei an und holt schon seit drei Monaten sein Gehalt nicht ab.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
-      "text": "Sagen Sie mal, Sie sind seit drei Monaten bei uns und haben nie Ihr Gehalt abgeholt. Was ist los?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "text": "Sag mal, wie lange holst du dein Gehalt schon nicht ab?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
       "enter": [
         "nachalnik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "sluzhivy",
-      "text": "Es gibt auch noch Gehalt?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Ich dachte, man kriegt eine Pistole und muss dann selbst sehen, wo man bleibt.",
-      "emotion": "smug",
+      "text": "Ach, ich dachte, man kriegt eine Pistole, und dann muss man selbst sehen, wie man klarkommt...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,22 +2,31 @@
   "id": "de-witze-1oh6kll.ru",
   "jokeId": "de-witze-1oh6kll",
   "locale": "ru",
-  "title": "Кто первый?",
+  "title": "У врача",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ptitsa",
+    "vovochka",
     "doktor"
   ],
   "roles": {
     "ptitsa": "chicken",
+    "vovochka": "child",
     "doktor": "doctor"
+  },
+  "looks": {
+    "vovochka": {
+      "clothes": "#f3ead8",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "С самого утра в приёмной у врача сидят курица и яйцо.",
+      "text": "Курица и яйцо с самого утра сидят в приёмной.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,9 +35,9 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Так, начинаем. Кто из вас первый?",
+      "text": "Так, можно начинать. Кто из вас первый?",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [
         "doktor"
       ],
@@ -36,12 +45,13 @@
     },
     {
       "id": "l3",
-      "character": "ptitsa",
-      "text": "Ой, как же меня достал этот вопрос!",
+      "character": "vovochka",
+      "text": "Ох, как же меня достал этот вопрос!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

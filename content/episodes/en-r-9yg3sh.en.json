@@ -2,7 +2,7 @@
   "id": "en-r-9yg3sh.en",
   "jokeId": "en-r-9yg3sh",
   "locale": "en",
-  "title": "Need Help?",
+  "title": "Do You Need Help?",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,12 +13,20 @@
     "muzhik": "customer",
     "barmen": "salesman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stubble"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Sir, you've been staring at these bottles for half an hour.",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "A man is browsing in a liquor store.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -27,19 +35,22 @@
       "id": "l2",
       "character": "barmen",
       "text": "Do you need help?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "barmen"
+      ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Yes. But I'm here for the whiskey instead.",
-      "emotion": "sad",
+      "text": "Yes, but I'm here to get whiskey instead.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -15,11 +15,27 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
+  "looks": {
+    "ptitsa": {
+      "clothes": "#8a8a7a",
+      "add": [],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Kommt ein Kunde in eine Tierhandlung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
-      "text": "Was kostet denn dieser Papagei?",
+      "text": "Was kostet denn dieser Papagei da?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "barmen",
-      "text": "Tausend Euro. Der spricht fließend und zählt bis hundert.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Und der daneben?",
+      "character": "barmen",
+      "text": "Tausend Euro.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -47,26 +54,26 @@
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Tausendfünfhundert. Spricht drei Sprachen und kann den ganzen Goethe auswendig.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Wieso ist der denn so teuer?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Und der kleine alte Hässliche da hinten? Der ist doch sicher billiger.",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "Das ist ein sehr begabter Vogel, er kann fließend sprechen und bis hundert zählen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Dreitausend Euro.",
+      "character": "muzhik",
+      "text": "Und was kostet der da?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,30 +81,76 @@
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Wie bitte? Was kann der denn?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Tausendfünfhundert Euro.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "barmen",
-      "text": "Keine Ahnung. Der hat noch nie ein Wort gesagt.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "So teuer schon wieder?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "barmen",
-      "text": "Aber die anderen beiden nennen ihn Chef.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Oh, das ist ein noch begabterer Vogel, der spricht fließend drei Sprachen und kann die gesamten Werke von Goethe auswendig!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Da sieht der Kunde in der Ecke einen kleinen alten hässlichen Papagei.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "Und der da hinten, der kostet doch sicher viel weniger?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "barmen",
+      "text": "Nein, der kostet dreitausend Euro.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "muzhik",
+      "text": "Wie bitte? Was kann der denn?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "barmen",
+      "text": "Ich weiß es auch nicht, der hat noch nie gesprochen, aber die beiden anderen nennen ihn Chef.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

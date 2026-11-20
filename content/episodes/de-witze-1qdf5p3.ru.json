@@ -2,7 +2,7 @@
   "id": "de-witze-1qdf5p3.ru",
   "jokeId": "de-witze-1qdf5p3",
   "locale": "ru",
-  "title": "Тёплый палец",
+  "title": "В ресторане",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,53 +13,70 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Ваш шницель, пожалуйста.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "Минуточку! Что ваш палец делает в моём шницеле? Про гигиену не слышали?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "В ресторане официант подаёт посетителю шницель, и посетитель видит, что официант держит большой палец прямо на шницеле.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Простите, а что делает ваш палец на моём шницеле?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "barmen",
-      "text": "Простите. У меня свищ на пальце, и врач велел держать его в тепле.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Вы о гигиене когда-нибудь слышали?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Но не в моём же шницеле! Засуньте его себе в задницу!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "barmen",
+      "text": "Да, извините, но у меня на пальце свищ, и врач сказал по возможности держать его в тепле!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "muzhik",
+      "text": "Но не на моём же шницеле! Засуньте себе этот палец хоть в задницу!",
+      "uncensored": "Но не на моём же шницеле! Засуньте себе этот палец хоть в жопу!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "barmen",
-      "text": "Так я обычно и делаю. Но иногда приходится и блюда разносить.",
+      "text": "Так я обычно так и делаю, но мне же иногда ещё и подавать приходится!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

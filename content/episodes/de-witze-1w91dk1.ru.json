@@ -6,18 +6,26 @@
   "location": "doroga",
   "place": "car",
   "cast": [
-    "ded",
-    "sluzhivy"
+    "sluzhivy",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "red-nose"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Два часа ночи. Полиция останавливает пожилого водителя.",
+      "text": "Пожилого мужчину в два часа ночи останавливает полиция.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,40 +34,39 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Добрый вечер. И куда это вы едете в такое время?",
+      "text": "И куда же вы едете в такое время ночью?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "На лекцию. О вреде алкоголя, о его влиянии на организм, о курении и о поздних возвращениях домой.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Я еду на лекцию о злоупотреблении алкоголем, его влиянии на человеческий организм, а также о вреде курения и поздних возвращений домой.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Серьёзно? И кто же читает такие лекции в два часа ночи?",
+      "text": "Правда? И кто же читает такие лекции в такое время?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "ded",
-      "text": "Моя жена.",
+      "text": "Моя жена!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

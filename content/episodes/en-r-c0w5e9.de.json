@@ -7,15 +7,34 @@
   "place": "office",
   "cast": [
     "nachalnik",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "nachalnik": "boss",
-    "paren": "student"
+    "vovochka": "child"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Eines Tages kommt ein Schüler ins Büro des Direktors.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
       "text": "Wie heißt du, mein Junge?",
       "emotion": "neutral",
@@ -24,28 +43,38 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "paren",
-      "text": "D-D-D-Dav-Dav-David.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Oh. Stotterst du?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "vovochka",
+      "text": "D-d-d-Dav-Dav-David, Herr Direktor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Nein. Mein Vater stottert. Aber der Beamte im Standesamt war ein echter Mistkerl.",
-      "emotion": "smug",
+      "character": "nachalnik",
+      "text": "Oh, stotterst du?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "vovochka",
+      "text": "Nein, Herr Direktor, mein Vater stottert,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka",
+      "text": "aber der Typ, der meinen Namen eingetragen hat, war ein Blödmann.",
+      "uncensored": "aber der Typ, der meinen Namen eingetragen hat, war ein Arschloch.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -53,49 +82,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "ofis",
-      "cast": [
-        "nachalnik",
-        "paren"
-      ],
-      "roles": {
-        "nachalnik": "boss",
-        "paren": "student"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "desk"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

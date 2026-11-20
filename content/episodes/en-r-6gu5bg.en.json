@@ -6,20 +6,18 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-ryzhy",
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "drunk",
-    "barmen": "bartender",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "muzhik-ryzhy": "drunk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man bursts into a crowded bar, waving a pistol.",
+      "text": "A guy walks into a crowded local bar, holding a pistol in his hand and yelling:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,18 +26,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "This is a forty-five. Seven rounds in the clip, one in the chamber.",
+      "text": "I have a forty-five caliber pistol here with seven rounds in the barrel plus one in the chamber,",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Now who's been sleeping with my wife?",
+      "text": "and I want to know who's been sleeping with my wife!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -48,14 +44,80 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Buddy, you're gonna need more ammo.",
+      "text": "You'll need more ammo.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "muzhik-ryzhy": "drunk"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "stool-right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

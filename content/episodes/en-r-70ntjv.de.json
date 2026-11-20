@@ -1,0 +1,105 @@
+{
+  "id": "en-r-70ntjv.de",
+  "jokeId": "en-r-70ntjv",
+  "locale": "de",
+  "title": "Essensgeld",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "muzhik",
+    "barmen"
+  ],
+  "roles": {
+    "muzhik": "customer",
+    "barmen": "cook"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Bis heute nimmt mir der Junge, der mich in der Schule gemobbt hat, mein Essensgeld ab.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Das Gute daran: Er macht großartige Subway-Sandwiches.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "cook"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

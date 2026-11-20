@@ -6,30 +6,42 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "nachalnik",
-    "paren"
+    "paren",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "boss",
-    "paren": "employee"
+    "paren": "employee",
+    "nachalnik": "boss"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "nachalnik": {
+      "add": [
+        "badge"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Guten Morgen, ich bin der Neue!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Ein junger Mann sucht einen Nebenjob und bewirbt sich beim nahegelegenen Supermarkt.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Willkommen! Als Erstes kehren Sie bitte den Eingang.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Er bekommt den Job und erhält am ersten Tag vom Filialleiter den Auftrag, den Eingang zu kehren.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,20 +49,39 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Kehren? Entschuldigung, aber Sie wissen schon, dass ich Philosophie und Germanistik studiert habe?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "text": "Kehren?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "paren",
+      "text": "Entschuldigung, aber Sie wissen schon, dass ich Philosophie und Germanistik studiert habe!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "nachalnik",
-      "text": "Nein, das wusste ich tatsächlich nicht. Aber kein Problem, ich zeige Ihnen, wie es geht!",
+      "text": "Nein. Das wusste ich tatsächlich nicht.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "Ist aber kein Problem, ich zeige Ihnen, wie es geht!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

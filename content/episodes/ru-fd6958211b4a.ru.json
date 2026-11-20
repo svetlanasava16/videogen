@@ -7,17 +7,19 @@
   "place": "cemetery",
   "cast": [
     "paren",
+    "barmen",
     "sluzhivy"
   ],
   "roles": {
     "paren": "employee",
+    "barmen": "craftsman",
     "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Похороны на кладбище. Бригадир гробовщиков видит: у покойника из нагрудного кармана торчит пятьдесят рублей.",
+      "text": "На кладбище во время похорон бригадир гробовщиков видит, что у покойника из нагрудного кармана пиджака торчит пятидесятирублёвая купюра.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Граждане, отойдите от гроба, нам надо крышку проверить.",
+      "character": "narrator",
+      "text": "Он тут же просит одного из своей бригады под любым предлогом оттеснить людей от гроба.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,18 +36,37 @@
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Налоговая полиция! Контрольное захоронение!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Когда это было сделано, и он потянулся к купюре, покойник вдруг хватает его за руку и кричит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "У тебя своя работа, а у меня своя. Мужики, гвозди!",
-      "emotion": "smug",
+      "character": "sluzhivy",
+      "text": "Налоговая полиция! Контрольное захоронение!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
+      "character": "barmen",
+      "text": "У тебя своя работа, а у меня своя.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "И забил в крышку гроба гвозди.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -56,15 +77,44 @@
   "scenes": [
     {
       "location": "ulitsa",
+      "place": "cemetery",
       "cast": [
         "paren",
+        "barmen",
         "sluzhivy"
       ],
       "roles": {
         "paren": "employee",
+        "barmen": "craftsman",
         "sluzhivy": "police-officer"
       },
+      "looks": {
+        "sluzhivy": {
+          "clothes": "#2b2b30",
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "police-cap"
+          ]
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "money",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -74,9 +124,8 @@
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "paren",
-          "to": "center"
+          "type": "crowd",
+          "react": "flee"
         },
         {
           "type": "line",
@@ -85,6 +134,20 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

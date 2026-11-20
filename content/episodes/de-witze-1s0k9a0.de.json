@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1s0k9a0",
   "locale": "de",
   "title": "Rhein oder Donau",
-  "location": "derevnya",
+  "location": "ulitsa",
   "place": "river-lake",
   "cast": [
     "devushka-blondinka",
@@ -12,6 +12,13 @@
   "roles": {
     "devushka-blondinka": "blonde",
     "devushka": "blonde"
+  },
+  "looks": {
+    "devushka": {
+      "hair": "#f2d16b",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -79,19 +86,28 @@
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Nach einiger Zeit harten Wortgefechts meint die eine:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "devushka-blondinka",
-      "text": "Gut, ich geh jetzt runter und frag mal nach.",
+      "text": "Ich gehe jetzt runter und frag mal nach.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [
         "devushka-blondinka"
       ]
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "narrator",
-      "text": "Zehn Minuten später kommt sie zurück. Zerzaust, zerkratzt, mit gebrochenen Knochen.",
+      "text": "Zehn Minuten später kommt sie total zerzaust zurück – abgeschrammte Klamotten, Knochenbrüche, Platzwunden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -100,22 +116,23 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l11",
       "character": "devushka",
       "text": "Und? Rhein oder Donau?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l12",
       "character": "devushka-blondinka",
-      "text": "Die A zwei!",
+      "text": "Die A-Zwei!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -19,72 +19,127 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Утро после бурной пьянки.",
+      "text": "Мужик просыпается после тяжёлой пьянки, а жена радостно готовит завтрак.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Доброе утро, милый! Сбегаю за свежим хлебом!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": [
-        "zhena"
-      ]
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Доча, что вчера было?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Ничего не понимая, он подходит к дочери, чтобы она объяснила, что было вчера, когда он вернулся домой.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Ты не попал ключом в замок и выбил дверь.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Ты выбил дверь, потому что не мог попасть ключом в замок, упал на стол и сломал его, и описался.",
+      "uncensored": "Ты выбил дверь, потому что не мог попасть ключом в замок, упал на стол и сломал его, и обоссался.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Господи! Так какого чёрта она в таком хорошем настроении?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Потом рухнул на стол и сломал его. И ещё описался.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Когда она попыталась снять с тебя штаны, чтобы постирать, ты оттолкнул её руку и сказал:",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Господи! А чего мама тогда такая довольная?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "devushka-ryzhaya",
-      "text": "Она хотела снять с тебя штаны, чтобы постирать, а ты оттолкнул её руку и сказал: руки прочь, я женат!",
-      "emotion": "smug",
+      "text": "Убери от меня руки! Я женат!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "devushka-ryzhaya": "daughter",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

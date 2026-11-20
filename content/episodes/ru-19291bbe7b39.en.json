@@ -1,0 +1,126 @@
+{
+  "id": "ru-19291bbe7b39.en",
+  "jokeId": "ru-19291bbe7b39",
+  "locale": "en",
+  "title": "The Island",
+  "location": "plyazh",
+  "place": "ship",
+  "cast": [
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik": "homeless"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A steamship sails past a small island in the ocean, where a bearded man is shouting something, waving his arms desperately.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Who's that?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy-ryadovoy",
+      "text": "No idea.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Every year when we sail past here, he goes crazy just like that.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "plyazh",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "homeless"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "muzhik-sosed",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "sluzhivy-ryadovoy": "sailor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

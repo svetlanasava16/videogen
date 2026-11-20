@@ -2,22 +2,24 @@
   "id": "ru-fd6958211b4a.de",
   "jokeId": "ru-fd6958211b4a",
   "locale": "de",
-  "title": "Testbeerdigung",
+  "title": "Die Testbeerdigung",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
     "paren",
+    "barmen",
     "sluzhivy"
   ],
   "roles": {
     "paren": "employee",
+    "barmen": "craftsman",
     "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Beerdigung auf dem Friedhof. Der Chef der Totengräber sieht einen Fünfzigeuroschein aus der Brusttasche des Toten ragen.",
+      "text": "Auf dem Friedhof, während einer Beerdigung, sieht der Vorarbeiter der Totengräber, dass aus der Brusttasche vom Jackett des Toten ein Fünfzig-Euro-Schein ragt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Leute, treten Sie bitte vom Sarg zurück, wir müssen den Deckel prüfen.",
+      "character": "narrator",
+      "text": "Sofort bittet er einen aus seiner Truppe, die Leute unter irgendeinem Vorwand vom Sarg wegzudrängen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,18 +36,37 @@
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Steuerfahndung! Testbeerdigung!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Als das erledigt ist und er nach dem Schein greift, packt ihn der Tote plötzlich an der Hand und schreit:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Du machst deinen Job, ich mach meinen. Jungs, die Nägel!",
-      "emotion": "smug",
+      "character": "sluzhivy",
+      "text": "Steuerfahndung! Testbeerdigung!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
+      "character": "barmen",
+      "text": "Du hast deine Arbeit, und ich hab meine.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Und er nagelte den Sargdeckel zu.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -56,15 +77,44 @@
   "scenes": [
     {
       "location": "ulitsa",
+      "place": "cemetery",
       "cast": [
         "paren",
+        "barmen",
         "sluzhivy"
       ],
       "roles": {
         "paren": "employee",
+        "barmen": "craftsman",
         "sluzhivy": "police-officer"
       },
+      "looks": {
+        "sluzhivy": {
+          "clothes": "#2b2b30",
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "police-cap"
+          ]
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "money",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -74,9 +124,8 @@
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "paren",
-          "to": "center"
+          "type": "crowd",
+          "react": "flee"
         },
         {
           "type": "line",
@@ -85,6 +134,20 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

@@ -1,0 +1,251 @@
+{
+  "id": "de-witze-1wvoq61.en",
+  "jokeId": "de-witze-1wvoq61",
+  "locale": "en",
+  "title": "Spackle",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "ptitsa",
+    "barmen"
+  ],
+  "roles": {
+    "ptitsa": "chicken",
+    "barmen": "salesman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A chicken walks into a hardware store.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ptitsa",
+      "text": "Do you have any spackle?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "barmen",
+      "text": "No, sorry.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "The next day the chicken comes back.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ptitsa",
+      "text": "Do you have any spackle?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "barmen",
+      "text": "No, we don't!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "On the third day the chicken comes back again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ptitsa",
+      "text": "Do you have any spackle?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "barmen",
+      "text": "Listen here, you bag of feathers!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "barmen",
+      "text": "If you ask me for spackle one more time, I'll nail your feet to the counter!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "On the fourth day the chicken comes back.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "ptitsa",
+      "text": "Do you have any nails?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "barmen",
+      "text": "No, not today.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "ptitsa",
+      "text": "Good... Do you have any spackle?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "ptitsa",
+        "barmen"
+      ],
+      "roles": {
+        "ptitsa": "chicken",
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "clothes": "#c0392b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

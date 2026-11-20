@@ -3,23 +3,23 @@
   "jokeId": "de-witze-1rytv02",
   "locale": "ru",
   "title": "Пингвин",
-  "location": "ulitsa",
+  "location": "ofis",
   "place": "street",
   "cast": [
-    "muzhik",
     "ptitsa",
+    "muzhik",
     "sluzhivy"
   ],
   "roles": {
-    "muzhik": "everyman",
     "ptitsa": "bird",
+    "muzhik": "everyman",
     "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик находит посреди города пингвина.",
+      "text": "Посреди города мужик находит пингвина и приводит его в полицейский участок.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,68 +28,166 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Командир, вот пингвина нашёл. Что мне с ним делать?",
+      "text": "Что мне делать с этим животным?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Ну, гражданин, я бы отвёл его в зоопарк.",
-      "emotion": "neutral",
+      "text": "Ну что ж, любезный, я бы на вашем месте сходил с пингвином в зоопарк.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Спасибо, командир!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Мужик благодарит и топает с пингвином прочь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "muzhik",
-        "ptitsa"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "На следующий день полицейский снова встречает их на улице.",
+      "text": "На следующий день полицейский случайно встречает мужика с пингвином в городе.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Я же вам сказал отвести пингвина в зоопарк!",
+      "text": "Послушайте, разве я вам не говорил сходить с пингвином в зоопарк?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Так мы вчера в зоопарке были. А сегодня идём в кино.",
+      "text": "Ну да, мы там вчера были, а сегодня идём в кино.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "ptitsa",
+        "muzhik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "ptitsa": "bird",
+        "muzhik": "everyman",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "ptitsa",
+        "muzhik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "ptitsa": "bird",
+        "muzhik": "everyman",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

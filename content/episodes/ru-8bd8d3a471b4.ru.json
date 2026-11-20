@@ -1,0 +1,138 @@
+{
+  "id": "ru-8bd8d3a471b4.ru",
+  "jokeId": "ru-8bd8d3a471b4",
+  "locale": "ru",
+  "title": "Рассказал коту",
+  "location": "ulitsa",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik-sosed",
+    "pyos",
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik-sosed": "everyman",
+    "pyos": "dog",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Сегодня на улице я был свидетелем, как мужик разговаривает со своей собакой.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Было видно, что он думает, будто пёс его понимает!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Пришёл домой, рассказал коту.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Долго смеялись.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik-sosed",
+        "pyos",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "everyman",
+        "pyos": "dog",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "shop"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

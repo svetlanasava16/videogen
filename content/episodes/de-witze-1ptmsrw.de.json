@@ -3,21 +3,21 @@
   "jokeId": "de-witze-1ptmsrw",
   "locale": "de",
   "title": "Auf dem Heimweg",
-  "location": "ulitsa",
+  "location": "doroga",
   "place": "street",
   "cast": [
-    "paren",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
-    "paren": "son",
+    "vovochka": "child",
     "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Junge geht von der Schule nach Hause. Neben ihm hält ein Auto.",
+      "text": "Ein Junge geht von der Schule zu Fuß nach Hause.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,71 +25,154 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hey, steig ein.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Ein Auto nähert sich von hinten, und der Fahrer lässt die Seitenscheibe herunter.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Auf gar keinen Fall. Ich geh lieber zu Fuß.",
-      "emotion": "angry",
+      "character": "muzhik",
+      "text": "Hey, steig ein.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Komm schon, ich hab auch einen Lolli für dich.",
-      "emotion": "happy",
+      "character": "vovochka",
+      "text": "Auf gar keinen Fall. Ich gehe lieber zu Fuß.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "paren",
-      "text": "Ist mir egal! Ich steig nicht zu dir ins Auto.",
-      "emotion": "angry",
+      "character": "muzhik",
+      "text": "Na komm schon, ich hab hier auch einen Lolli für dich.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "vovochka",
+      "text": "Ist mir egal, ich steig nicht zu dir ins Auto!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "Hör zu. Du steigst ein, wir gehen Eis essen, und danach kauf ich dir ein Videospiel deiner Wahl.",
+      "text": "Hör zu: Ich halte jetzt an, du steigst bei mir ein, dann fahren wir zusammen ein Eis essen und danach kaufe ich dir noch ein Videospiel deiner Wahl.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Wäre das nicht schön?",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "paren",
-      "text": "Vergiss es! Du hast den Fiat gekauft.",
+      "id": "l9",
+      "character": "vovochka",
+      "text": "Das kannst du voll vergessen! Ich steig auf gar keinen Fall jemals in dein Auto.",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "paren",
-      "text": "Also komm auch allein damit klar, Papa.",
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Du hast den Fiat gekauft, also komm damit auch allein klar, Dad.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

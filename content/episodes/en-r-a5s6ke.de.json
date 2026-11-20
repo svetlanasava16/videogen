@@ -2,7 +2,7 @@
   "id": "en-r-a5s6ke.de",
   "jokeId": "en-r-a5s6ke",
   "locale": "de",
-  "title": "Micha, der Briefträger",
+  "title": "Paul, der Postbote",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -12,6 +12,14 @@
   "roles": {
     "devushka-ryzhaya": "daughter",
     "zhena": "mother"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -27,7 +35,7 @@
       "id": "l2",
       "character": "zhena",
       "text": "Mit wem denn, Schatz?",
-      "emotion": "happy",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,8 +43,8 @@
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Mit Micha, dem Briefträger.",
-      "emotion": "smug",
+      "text": "Mit Paul, dem Postboten.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,16 +52,16 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Mit Micha, dem Briefträger? Der könnte dein Vater sein!",
+      "text": "Mit Paul, dem Postboten? Aber er könnte dein Vater sein!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Mama, Alter ist doch nur eine Zahl.",
+      "text": "Aber Mama, Alter ist doch nur eine Zahl.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -66,7 +74,8 @@
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

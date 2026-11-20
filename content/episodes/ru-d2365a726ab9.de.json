@@ -2,7 +2,7 @@
   "id": "ru-d2365a726ab9.de",
   "jokeId": "ru-d2365a726ab9",
   "locale": "de",
-  "title": "Himmel und Hölle",
+  "title": "Lebend",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,11 +13,23 @@
     "uchilka": "teacher",
     "vovochka": "vovochka"
   },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
+  },
+  "crowd": {
+    "who": "pupils",
+    "size": "few"
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "So, das war der Religionsunterricht für heute. Und merkt euch, Kinder!",
+      "character": "narrator",
+      "text": "Religionsunterricht.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +38,8 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Wer Einsen und Zweien schreibt, kommt in den Himmel.",
-      "emotion": "happy",
+      "text": "Und vergesst nicht, Kinder! Wer Einsen und Zweien schreibt, kommt in den Himmel.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,11 +56,12 @@
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Frau Müller, kann man die Schule eigentlich auch lebend abschließen?",
+      "text": "Frau Müller, kann man die Schule denn gar nicht lebend abschließen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

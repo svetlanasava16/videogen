@@ -7,15 +7,34 @@
   "place": "office",
   "cast": [
     "nachalnik",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "nachalnik": "boss",
-    "paren": "student"
+    "vovochka": "child"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Однажды ученик приходит в кабинет директора.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
       "text": "Как тебя зовут, сынок?",
       "emotion": "neutral",
@@ -24,28 +43,38 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "paren",
+      "id": "l3",
+      "character": "vovochka",
       "text": "Д-д-д-дав-дав-Давид.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "Ты что, заикаешься?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Нет. Это папа заикается. А тётка в загсе попалась вредная.",
-      "emotion": "smug",
+      "character": "nachalnik",
+      "text": "О, ты заикаешься?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "vovochka",
+      "text": "Нет, это мой папа заикается,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka",
+      "text": "а вот тот, кто записывал моё имя, был козлом.",
+      "uncensored": "а вот тот, кто записывал моё имя, был мудаком.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -53,49 +82,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "ofis",
-      "cast": [
-        "nachalnik",
-        "paren"
-      ],
-      "roles": {
-        "nachalnik": "boss",
-        "paren": "student"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "desk"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

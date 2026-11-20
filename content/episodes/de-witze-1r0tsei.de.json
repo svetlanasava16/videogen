@@ -2,24 +2,24 @@
   "id": "de-witze-1r0tsei.de",
   "jokeId": "de-witze-1r0tsei",
   "locale": "de",
-  "title": "Adam, Eva und die Affen",
+  "title": "Adam und Eva oder Darwin",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
     "vovochka",
+    "muzhik",
     "zhena"
   ],
   "roles": {
-    "muzhik": "father",
     "vovochka": "child",
+    "muzhik": "father",
     "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Papa, wie sind eigentlich die Menschen entstanden?",
+      "text": "Wie sind Menschen entstanden?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,16 +28,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Adam und Eva bekamen Kinder. Die wurden groß und bekamen auch Kinder. Und so weiter.",
+      "text": "Adam und Eva bekamen Kinder, dann wurden ihre Kinder erwachsen und bekamen selbst Kinder und so weiter.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "vovochka",
-      "text": "Mama, wie sind die Menschen entstanden?",
+      "text": "Wie sind Menschen entstanden?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,16 +46,16 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Früher waren wir Affen. Dann haben wir uns zu dem entwickelt, was wir heute sind.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Wir waren früher Affen, dann haben wir uns zu dem entwickelt, was wir heute sind.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Papa, du hast mich angelogen!",
+      "text": "Du hast mich angelogen!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,14 +64,96 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Nein. Deine Mutter hat nur von ihrer Seite der Familie erzählt.",
+      "text": "Nein, deine Mutter hat nur von ihrer Seite der Familie gesprochen.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "tv"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

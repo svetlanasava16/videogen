@@ -2,24 +2,20 @@
   "id": "ru-9cc0dee1c1f9.ru",
   "jokeId": "ru-9cc0dee1c1f9",
   "locale": "ru",
-  "title": "Три трупа",
+  "title": "Нет свободного наряда",
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "muzhik",
-    "sluzhivy",
-    "vor"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "police-officer",
-    "vor": "thief"
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Поздно вечером мужик видит в своём сарае свет фонарика.",
+      "text": "Мужик возвращается домой поздно вечером и видит сквозь щель двери сарая во дворе свет ручного фонаря. Он тут же звонит в полицию.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +24,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Алло, полиция? У меня в сарае воры!",
+      "text": "Алло, полиция? У меня в сарае кто-то шарит, я подозреваю это воры!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,17 +32,17 @@
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Ему отвечают: все патрули заняты, ждите час-другой.",
+      "character": "uchilka",
+      "text": "Сэр, к сожалению сейчас все патрульные машины заняты, мы вышлем наряд как только кто-нибудь освободится, через час-другой...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Алло, это снова я. Раз патрулей нет, я их сам перестрелял.",
+      "character": "narrator",
+      "text": "Мужик кладет трубку и перезванивает в полицию через три минуты.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,45 +51,230 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Так что пришлите заодно пару машин скорой. Трупы забрать.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Алло, это опять я.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Через минуту двор полон полиции. Воры выбегают из сарая и сдаются.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vor"
-      ],
+      "character": "muzhik",
+      "text": "Поскольку свободного патруля у вас нет, я был вынужден перестрелять воров самостоятельно.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "sluzhivy",
-      "text": "Вы же сказали, тут как минимум три трупа!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "character": "muzhik",
+      "text": "Так что когда патруль освободится, вышлите с ними заодно пару-тройку санитарных машин, забрать трупы.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "А вы сказали, что свободных патрулей нет.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Через минуту к дому с воем подлетает штук пять полицейских машин.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Перепуганные воры вылетают из сарая и сдаются.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "sluzhivy",
+      "text": "Вы говорили, что тут по крайней мере три трупа!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "Ну, а вы говорили, что в округе нету свободного полицейского наряда...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka"
+      ],
+      "roles": {
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "cast": [
+        "sluzhivy-ryadovoy",
+        "sluzhivy",
+        "muzhik",
+        "vor",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "police-officer",
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman",
+        "vor": "thief",
+        "paren": "thief"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "paren": {
+          "clothes": "#2b2b33",
+          "add": [
+            "hood"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

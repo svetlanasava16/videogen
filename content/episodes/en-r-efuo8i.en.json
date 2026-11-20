@@ -2,44 +2,43 @@
   "id": "en-r-efuo8i.en",
   "jokeId": "en-r-efuo8i",
   "locale": "en",
-  "title": "The Roommate",
+  "title": "Haunted",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-sosed",
-    "chort"
+    "ded"
   ],
   "roles": {
-    "muzhik-sosed": "neighbor",
-    "chort": "monster"
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "monocle"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Something keeps moving my stuff at night.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "My roommate says our house is haunted.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "I'm telling you, this house is haunted.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "chort",
-      "text": "Relax. I've been living here for three hundred years and I haven't noticed a damn thing.",
+      "character": "ded",
+      "text": "I've been living here for three hundred years and I haven't noticed crap.",
+      "uncensored": "I've been living here for three hundred years and I haven't noticed shit.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

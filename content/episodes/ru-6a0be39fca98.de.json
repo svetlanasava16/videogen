@@ -2,34 +2,32 @@
   "id": "ru-6a0be39fca98.de",
   "jokeId": "ru-6a0be39fca98",
   "locale": "de",
-  "title": "Die Prüfung",
+  "title": "Passte nicht rein",
   "location": "klass",
   "place": "university",
   "cast": [
-    "doktor",
-    "paren"
+    "paren",
+    "doktor"
   ],
   "roles": {
-    "doktor": "professor",
-    "paren": "student"
+    "paren": "student",
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Nun, wo ist Ihre Antwort?",
+      "character": "narrator",
+      "text": "Es ist Prüfung.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Im Kopf.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Ein Student kommt zum Antworten nach vorne, mit einem kleinen Zettel, auf dem ein paar kurze Sätze stehen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,23 +35,112 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Und was ist das hier? Das sind ja zwei Zeilen.",
+      "text": "Und wo ist Ihre Antwort?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "paren",
-      "text": "Das hat nicht mehr reingepasst.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "text": "Im Kopf.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "doktor",
+      "text": "Und was ist das?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Das hat nicht mehr reingepasst.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses",
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

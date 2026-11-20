@@ -1,0 +1,70 @@
+{
+  "id": "en-d-32263.ru",
+  "jokeId": "en-d-32263",
+  "locale": "ru",
+  "title": "Затмение",
+  "location": "bar",
+  "place": "cafe",
+  "cast": [
+    "muzhik-ryzhy",
+    "devushka-blondinka"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "customer",
+    "devushka-blondinka": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "clothes": "#f5c518",
+      "add": [
+        "dark-glasses"
+      ],
+      "remove": []
+    },
+    "devushka-blondinka": {
+      "clothes": "#cfd8dc",
+      "add": [],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Солнце и Луна сегодня зашли в кофейню...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Вот чёрт, я забыл кошелёк!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [
+        "muzhik-ryzhy",
+        "devushka-blondinka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-blondinka",
+      "text": "Не волнуйся, я тебя прикрою.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

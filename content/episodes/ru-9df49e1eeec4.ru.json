@@ -1,0 +1,152 @@
+{
+  "id": "ru-9df49e1eeec4.ru",
+  "jokeId": "ru-9df49e1eeec4",
+  "locale": "ru",
+  "title": "Совершенно секретно",
+  "location": "ofis",
+  "place": "bathroom",
+  "cast": [
+    "sluzhivy",
+    "paren"
+  ],
+  "roles": {
+    "sluzhivy": "officer",
+    "paren": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "В ФСБ набирают работников.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "После предварительного собеседования всем вручили конверты с грифом «Совершенно секретно!» и попросили отнести в такой-то кабинет.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Один чувак зашёл по пути в сортир и вскрыл конверт. Там написано:",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Вы нам подходите! Возвращайтесь обратно!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "letter",
+          "action": "give",
+          "to": "paren"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

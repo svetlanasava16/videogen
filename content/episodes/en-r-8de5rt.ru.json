@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик встречает на улице бывшего одноклассника.",
+      "text": "Мужик встречает старого школьного друга.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,44 +25,54 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Смотри, как я поднялся! Должность, зарплата, спортивная машина.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "А это моя жена. Красавица, правда?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Если она тебе кажется красавицей, тебе надо показаться моей девушке.",
+      "character": "narrator",
+      "text": "Тот начинает хвастаться своей высокооплачиваемой работой и дорогой спортивной машиной.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l3",
+      "character": "narrator",
+      "text": "Потом достаёт фотографию жены.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "nachalnik",
-      "text": "А что, она ещё красивее?",
+      "text": "Красавица, правда?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Если ты считаешь её красавицей, тебе надо показаться моей девушке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "А что? Она такая красотка?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "Нет. Она окулист.",
+      "text": "Нет, она, блин, окулист.",
+      "uncensored": "Нет, она, блядь, окулист.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -88,24 +98,18 @@
           "ref": "l1"
         },
         {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "photo",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -118,6 +122,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

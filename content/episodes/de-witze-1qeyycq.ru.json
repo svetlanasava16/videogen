@@ -7,68 +7,76 @@
   "place": "heaven",
   "cast": [
     "ded",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Добро пожаловать к вратам рая. Ну, какое доброе дело ты совершил?",
+      "character": "narrator",
+      "text": "Молодой человек стоит у небесных врат.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Я заступился за двух красивых девушек, к ним приставала банда байкеров!",
+      "character": "ded",
+      "text": "Совершил ли ты доброе дело, которое дало бы тебе право войти в Царствие Небесное?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Я помог двум красивым девушкам, к которым приставала банда байкеров!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "ded",
-      "text": "Похвально. И как же ты это сделал?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Встал перед ними и твёрдо сказал байкерам, что я этого не допущу!",
-      "emotion": "smug",
+      "character": "ded",
+      "text": "И как именно тебе это удалось?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "И когда это было?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "paren",
+      "text": "Ну, я смело встал перед ними и дал байкерам понять, что я этого не допущу!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
+      "character": "ded",
+      "text": "И когда же это было?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
       "text": "Минуты три назад.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

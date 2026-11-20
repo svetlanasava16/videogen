@@ -1,0 +1,122 @@
+{
+  "id": "de-witze-1w1142k.de",
+  "jokeId": "de-witze-1w1142k",
+  "locale": "de",
+  "title": "Der Anhalter",
+  "location": "doroga",
+  "place": "car",
+  "cast": [
+    "muzhik-ryzhy",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "driver",
+    "muzhik-sosed": "tourist"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Autofahrer nimmt einen Anhalter mit.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Danke, dass Sie mich mitgenommen haben.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Ich hoffe, Sie nehmen nicht an, dass ich ein Serienmörder bin.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Nein, das halte ich für sehr unwahrscheinlich.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Ich glaube, die Chancen sind sehr gering, dass sich zwei Serienmörder in Freiheit begegnen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "muzhik-sosed": "tourist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "roadside"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

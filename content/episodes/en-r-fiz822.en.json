@@ -7,11 +7,13 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "uchilka"
+    "devochka",
+    "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "uchilka": "pharmacist"
+    "devochka": "child",
+    "doktor": "pharmacist"
   },
   "lines": [
     {
@@ -21,16 +23,17 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "vovochka"
+        "vovochka",
+        "devochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
+      "character": "doktor",
       "text": "Son, how old are you?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -39,15 +42,15 @@
       "character": "vovochka",
       "text": "Eight.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
+      "character": "doktor",
       "text": "Do you know what these are used for?",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +58,7 @@
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Not exactly, but they aren't for me. They're for him...",
+      "text": "Not exactly, but they aren't for me.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +67,7 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "He's my brother. He's four.",
+      "text": "They're for him... He's my brother. He's four.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,7 +78,7 @@
       "character": "vovochka",
       "text": "We saw on TV that if you use these, you will be able to swim and ride a bike.",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },

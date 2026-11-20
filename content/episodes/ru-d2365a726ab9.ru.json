@@ -2,7 +2,7 @@
   "id": "ru-d2365a726ab9.ru",
   "jokeId": "ru-d2365a726ab9",
   "locale": "ru",
-  "title": "Рай и ад",
+  "title": "Живым",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,11 +13,23 @@
     "uchilka": "teacher",
     "vovochka": "vovochka"
   },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
+  },
+  "crowd": {
+    "who": "pupils",
+    "size": "few"
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "На этом урок основ православной культуры окончен. И запомните, дети!",
+      "character": "narrator",
+      "text": "Урок «Основы православной культуры».",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +38,8 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Кто будет учиться на четвёрки и пятёрки, попадёт в рай.",
-      "emotion": "happy",
+      "text": "И помните, дети! Те, кто будет учиться на четыре и пять, попадут в рай.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +47,7 @@
     {
       "id": "l3",
       "character": "uchilka",
-      "text": "А кто на двойки и тройки, попадёт в ад!",
+      "text": "А те, кто будет учиться на два и три, — в ад!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -44,11 +56,12 @@
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Марьиванна, а что, закончить школу живым нельзя?",
+      "text": "Мариванна, а что, закончить школу живым нельзя?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

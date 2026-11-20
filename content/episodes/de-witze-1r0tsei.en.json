@@ -2,24 +2,24 @@
   "id": "de-witze-1r0tsei.en",
   "jokeId": "de-witze-1r0tsei",
   "locale": "en",
-  "title": "Adam, Eve and the Apes",
+  "title": "Adam and Eve or Darwin",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
     "vovochka",
+    "muzhik",
     "zhena"
   ],
   "roles": {
-    "muzhik": "father",
     "vovochka": "child",
+    "muzhik": "father",
     "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Dad, where did people come from?",
+      "text": "How did people come about?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,16 +28,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Adam and Eve had children. The children grew up and had children of their own. And so on.",
+      "text": "Adam and Eve had children, then their children grew up and had children of their own, and so on.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "vovochka",
-      "text": "Mom, where did people come from?",
+      "text": "How did people come about?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,16 +46,16 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "We used to be apes. Then we evolved into what we are today.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "We used to be monkeys, then we evolved into what we are today.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Dad, you lied to me!",
+      "text": "You lied to me!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,14 +64,96 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "No, son. Your mother was just talking about her side of the family.",
+      "text": "No, your mother was only talking about her side of the family.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "tv"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

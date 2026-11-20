@@ -12,14 +12,14 @@
   ],
   "roles": {
     "uchilka": "nun",
-    "muzhik": "drunk",
+    "muzhik": "customer",
     "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик сидит в баре и пьёт. Мимо проходит монашка.",
+      "text": "Сидит мужик в кафе. Квасит. Мимо проходит монашка.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,19 +28,17 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Как ты можешь прожигать жизнь в этом вертепе разврата!",
+      "text": "Как ты можешь прожигать свою жизнь в этом пристанище блуда и разврата!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Да какой тут разврат, сестра...",
-      "emotion": "surprised",
+      "text": "Да нет тут никакого разврата, сестра...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
     {
       "id": "l4",
       "character": "uchilka",
-      "text": "Анна!",
+      "text": "Анна.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,8 +55,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Сестра Анна, всё нормально. Я просто пью.",
-      "emotion": "neutral",
+      "text": "Да, Анна. Всё нормально. Я просто пью.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,7 +64,7 @@
     {
       "id": "l6",
       "character": "uchilka",
-      "text": "И это противно Господу!",
+      "text": "И это противно Господу.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,7 +73,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "А ты сама хоть раз пробовала?",
+      "text": "Ты сама-то, сестра Анна, пробовала хоть раз?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,8 +91,8 @@
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Как же ты можешь судить? Давай я тебе возьму, попробуешь.",
-      "emotion": "happy",
+      "text": "Как же ты можешь утверждать? Вот, я сейчас куплю тебе выпивку, и ты попробуешь...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -102,7 +100,7 @@
     {
       "id": "l10",
       "character": "uchilka",
-      "text": "Никогда! Чтобы люди видели, как монашка пьёт?",
+      "text": "Никогда! Чтобы люди увидели, как монашка пьёт спиртное?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -111,25 +109,25 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Я попрошу налить тебе в чайную чашку.",
-      "emotion": "smug",
+      "text": "Я попрошу, чтобы тебе налили в чашку.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
-      "character": "uchilka",
-      "text": "Ну ладно.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Монашка неохотно соглашается. Мужик подходит к стойке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Слышь, две водки. Только одну налей в чайную чашку.",
+      "text": "Слышь, дай мне два стакана водки, но один налей в чайную чашку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -142,10 +140,112 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "uchilka",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "uchilka": "nun",
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -6,19 +6,34 @@
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "devushka",
-    "tyoshcha"
+    "tyoshcha",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "tyoshcha": "grandma"
+    "tyoshcha": "grandma",
+    "devushka": "woman"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "earrings",
+        "lipstick"
+      ],
+      "remove": []
+    },
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Hallo, Omi! Direkt aus der Großstadt zu dir!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Eine glamouröse Großstädterin besucht ihre Oma auf dem Dorf.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "devushka"
@@ -27,30 +42,22 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Ach, mein Enkelkind ist da!",
+      "character": "devushka",
+      "text": "Omi, wo kann man hier nachts mal hin?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Omi, wo kann man hier nachts mal hin?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "tyoshcha",
       "text": "In den Eimer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,7 +2,7 @@
   "id": "en-r-7cmu4c.en",
   "jokeId": "en-r-7cmu4c",
   "locale": "en",
-  "title": "The Alarm Salesman",
+  "title": "Door to Door",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -15,41 +15,76 @@
     {
       "id": "l1",
       "character": "barmen",
-      "text": "I used to sell security alarms door to door.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "I used to sell security alarms door to door, and I was really good at it.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "And I was really good at it.",
+      "text": "If no one was home, I would just leave a brochure on the kitchen table.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "barmen",
-      "text": "If nobody was home,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "barmen",
-      "text": "I'd just leave a brochure on the kitchen table.",
-      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "barmen"
+      ],
+      "roles": {
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "letter",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

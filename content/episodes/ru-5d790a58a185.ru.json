@@ -2,7 +2,7 @@
   "id": "ru-5d790a58a185.ru",
   "jokeId": "ru-5d790a58a185",
   "locale": "ru",
-  "title": "Дворецкий",
+  "title": "Слуховой аппарат",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Английский лорд возвращается домой.",
+      "text": "Приходит английский лорд домой. Ему открывает дворецкий.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,22 +29,81 @@
       "text": "Ну что, старый хрен, опять бухал и шлялся по девкам?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Нет, Джон. Ходил покупать слуховой аппарат.",
-      "emotion": "smug",
+      "text": "Нет, Джон, ходил покупать слуховой аппарат...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "barmen",
+        "nachalnik"
+      ],
+      "roles": {
+        "barmen": "waiter",
+        "nachalnik": "aristocrat"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "monocle",
+            "black-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "door"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

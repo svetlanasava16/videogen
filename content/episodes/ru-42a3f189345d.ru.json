@@ -1,0 +1,166 @@
+{
+  "id": "ru-42a3f189345d.ru",
+  "jokeId": "ru-42a3f189345d",
+  "locale": "ru",
+  "title": "Мост",
+  "location": "derevnya",
+  "place": "river-lake",
+  "cast": [
+    "ded",
+    "nachalnik"
+  ],
+  "roles": {
+    "ded": "old-man",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Россия. Течёт речка, на берегу речки стоит деревня.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Старый дед сидит, наблюдает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "По дороге едет трактор, перед мостом тормозит, сворачивает направо, пересекает речку вброд, поворачивает налево на дорогу и продолжает движение.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Едет грузовик, перед мостом тормозит, сворачивает направо, пересекает речку вброд, поворачивает налево на дорогу и продолжает движение.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "По дороге едет жигулёнок, перед мостом тормозит, сворачивает направо, пересекает речку вброд, поворачивает налево на дорогу и продолжает движение.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "По дороге несётся Мерседес, не снижая скорости, влетает на мост, мост с грохотом рушится, Мерседес падает в речку.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "Вот, развелось тут идиотов. Носятся.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ded",
+      "text": "Даже моста не замечают.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "ded",
+        "nachalnik"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

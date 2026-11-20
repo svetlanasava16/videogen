@@ -2,22 +2,22 @@
   "id": "de-witze-1leukfr.ru",
   "jokeId": "de-witze-1leukfr",
   "locale": "ru",
-  "title": "Вызов сантехника",
-  "location": "spalnya",
+  "title": "Экстренный вызов",
+  "location": "gostinaya",
   "place": "bathroom",
   "cast": [
-    "doktor",
-    "barmen"
+    "barmen",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "barmen": "plumber"
+    "barmen": "plumber",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Воскресный вечер. У врача прорвало трубу. Он звонит сантехнику.",
+      "text": "Приходит мужик к врачу… нет: приходит врач к сантехнику.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,64 +25,158 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Сейчас? Воскресенье, вечер, льёт как из ведра, а я уже на второй бутылке пива.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "В общем, звонит он. Авария, трубу прорвало, драма.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Любезный! Я врач. Когда у меня экстренный случай, я тоже выезжаю, в любую погоду!",
-      "emotion": "angry",
+      "character": "barmen",
+      "text": "Ну ладно, но сейчас воскресенье вечер, льёт как из ведра, и я уже за второе пиво взялся.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Ладно, ладно. Еду.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Любезный! Я врач, когда у меня экстренный случай, я тоже обязан ехать, что бы ни было!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Через час сантехник стоит в ванной. Всё залито водой.",
+      "text": "Слово за слово. Сантехник садится в машину и едет. Врач ведёт его прямо в ванную. Всё под водой.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Он бросает в воду горсть уплотнительных колец.",
+      "text": "Сантехник лезет в карман и бросает в воду горсть прокладок.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Если к утру не полегчает, звоните ещё раз!",
+      "text": "Если до завтра не станет лучше, позвоните ещё раз!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

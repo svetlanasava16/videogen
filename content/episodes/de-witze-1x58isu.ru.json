@@ -2,7 +2,7 @@
   "id": "de-witze-1x58isu.ru",
   "jokeId": "de-witze-1x58isu",
   "locale": "ru",
-  "title": "Самый быстрый папа",
+  "title": "Кто быстрее",
   "location": "ulitsa",
   "place": "park",
   "cast": [
@@ -12,54 +12,56 @@
   ],
   "roles": {
     "devochka": "child",
-    "paren": "teenager",
+    "paren": "child",
     "vovochka": "child"
+  },
+  "looks": {
+    "devochka": {
+      "clothes": "#4a6fa5",
+      "hairStyle": "short",
+      "add": [],
+      "remove": [
+        "bows"
+      ]
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devochka",
-      "text": "А мой папа ездит на Порше. Триста километров в час!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Трое маленьких мальчишек спорят, чей папа самый быстрый.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Подумаешь. Мой папа пилот, летает на Боинге. Семьсот в час!",
-      "emotion": "smug",
+      "character": "devochka",
+      "text": "Мой папа ездит на «Порше» и легко разгоняется до трёхсот километров в час!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Это всё ерунда. Мой папа чиновник.",
+      "character": "paren",
+      "text": "Да это вообще ничего. Мой папа лётчик в «Аэрофлоте» и летает на «Боинге», который несётся минимум семьсот километров в час!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "У него рабочий день до пяти.",
-      "emotion": "neutral",
+      "text": "Это всё вообще ерунда. Мой папа чиновник. Рабочий день у него заканчивается в пять вечера, а в половине четвёртого он уже дома!",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "vovochka",
-      "text": "А в полчетвёртого он уже дома!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

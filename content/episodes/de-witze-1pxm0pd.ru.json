@@ -7,17 +7,35 @@
   "place": "front-door",
   "cast": [
     "zhena",
-    "sluzhivy"
+    "sluzhivy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
     "zhena": "wife",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "sluzhivy-ryadovoy": "police-officer"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    },
+    "sluzhivy-ryadovoy": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": [
+        "army-cap"
+      ]
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Да? Кто там?",
+      "character": "narrator",
+      "text": "В дверь звонят. Женщина открывает.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -30,14 +48,15 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "sluzhivy"
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
       ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Майер, да. Но не вдова.",
+      "text": "Майер — да, а вот вдова — нет.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -47,10 +66,11 @@
       "id": "l4",
       "character": "sluzhivy",
       "text": "Спорим?",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

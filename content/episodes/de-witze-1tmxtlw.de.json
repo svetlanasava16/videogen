@@ -6,32 +6,29 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "paren",
-    "muzhik",
+    "barmen",
+    "muzhik-ryzhy",
     "ptitsa"
   ],
   "roles": {
-    "paren": "employee",
-    "muzhik": "everyman",
+    "barmen": "mechanic",
+    "muzhik-ryzhy": "driver",
     "ptitsa": "bird"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann hält an einer Tankstelle, auf seinem Rücksitz sitzen fünf Pinguine.",
+      "text": "Ein Mann fährt an eine Tankstelle, und der Tankwart bemerkt, dass auf dem Rücksitz fünf Pinguine sitzen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Was zum Teufel? Du hast fünf Pinguine auf dem Rücksitz!",
+      "character": "barmen",
+      "text": "Was zum Teufel – du hast fünf Pinguine auf dem Rücksitz.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,8 +36,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Ich weiß! Die sind an der Ampel eingesprungen. Was soll ich denn jetzt machen?",
+      "character": "muzhik-ryzhy",
+      "text": "Ich weiß! Die sind an der Ampel eingesprungen, und jetzt weiß ich nicht, was ich tun soll.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,41 +45,35 @@
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "Ich sag dir, was ich machen würde. Ich würde sie in den Zoo bringen.",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "Ich sag dir, was ich tun würde – ich würde sie in den Zoo bringen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Super Idee!",
+      "character": "muzhik-ryzhy",
+      "text": "Das ist eine super Idee!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "muzhik",
-        "ptitsa"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Eine Woche später. Derselbe Mann, dieselben Pinguine, aber jetzt mit Sonnenbrillen.",
+      "text": "Eine Woche später fährt derselbe Fahrer mit denselben fünf Pinguinen vor, nur dass sie jetzt Sonnenbrillen tragen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "paren",
-      "text": "Was machst du denn da? Ich hab dir doch gesagt, bring sie in den Zoo!",
+      "character": "barmen",
+      "text": "Was machst du denn da – ich dachte, ich hätte dir gesagt, du sollst die Pinguine in den Zoo bringen!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -90,15 +81,144 @@
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Da waren wir doch! War total toll! Heute fahren wir an den Strand!",
+      "character": "muzhik-ryzhy",
+      "text": "Wir waren doch dort! Wir hatten eine tolle Zeit! Heute fahren wir an den Strand!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "barmen",
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "barmen": "mechanic",
+        "muzhik-ryzhy": "driver",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "barmen",
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "barmen": "mechanic",
+        "muzhik-ryzhy": "driver",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "ptitsa": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

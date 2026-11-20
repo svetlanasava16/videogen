@@ -2,22 +2,22 @@
   "id": "ru-439efbf4839a.de",
   "jokeId": "ru-439efbf4839a",
   "locale": "de",
-  "title": "Kopf oder Zahl",
+  "title": "Ich prüfe nach",
   "location": "klass",
   "place": "university",
   "cast": [
-    "paren",
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
-    "paren": "student",
-    "doktor": "professor"
+    "doktor": "professor",
+    "paren": "student"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Prüfung. Jede Frage im Test wird mit Ja oder Nein beantwortet. Ein Student wirft eine Münze und schreibt die Ergebnisse auf.",
+      "text": "Es ist eine Prüfung, ein Test mit Fragen, die man mit Ja oder Nein beantworten muss.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,26 +25,26 @@
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Na, der ist als Erster fertig.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "narrator",
-      "text": "Eine Stunde später sind alle längst weg, aber er sitzt immer noch da und wirft seine Münze.",
+      "text": "Einer der Studenten wirft eine Münze und schreibt die Ergebnisse auf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "doktor",
-      "text": "Na, haben Sie die Fragen beantwortet?",
+      "text": "Na, der wird als Erster fertig.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Die Prüfung ist vorbei, die anderen Studenten haben abgegeben und sind gegangen, aber der sitzt immer noch da und wirft seine Münze.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,8 +52,8 @@
     },
     {
       "id": "l5",
-      "character": "paren",
-      "text": "Ja.",
+      "character": "narrator",
+      "text": "Dem Dozenten reicht es, er geht hin und fragt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,17 +62,35 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Und was machen Sie dann noch?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "Na, hast du die Fragen beantwortet?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
+      "text": "Ja.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "doktor",
+      "text": "Und was machst du dann noch?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "paren",
       "text": "Ich prüfe nach.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -84,23 +102,41 @@
     {
       "location": "klass",
       "cast": [
-        "paren",
-        "doktor"
+        "doktor",
+        "paren"
       ],
       "roles": {
-        "paren": "student",
-        "doktor": "professor"
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
         {
           "type": "move",
           "who": "paren",
           "to": "student-desk"
         },
         {
-          "type": "move",
-          "who": "doktor",
-          "to": "teacher-desk"
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -115,17 +151,21 @@
           "ref": "l3"
         },
         {
-          "type": "move",
-          "who": "doktor",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
         {
+          "type": "crowd",
+          "react": "flee"
+        },
+        {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
         },
         {
           "type": "line",
@@ -134,6 +174,14 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

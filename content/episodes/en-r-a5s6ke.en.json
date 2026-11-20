@@ -13,6 +13,14 @@
     "devushka-ryzhaya": "daughter",
     "zhena": "mother"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Who, sweetheart?",
-      "emotion": "happy",
+      "text": "Whom, sweetheart?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -36,7 +44,7 @@
       "id": "l3",
       "character": "devushka-ryzhaya",
       "text": "Mike the mailman.",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,14 +54,14 @@
       "character": "zhena",
       "text": "Mike the mailman? But he could be your father!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Mom, age is just a number.",
+      "text": "But mom, age is just a number.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -66,7 +74,8 @@
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

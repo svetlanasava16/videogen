@@ -6,32 +6,29 @@
   "location": "nebesa",
   "place": "hell",
   "cast": [
-    "muzhik",
     "chort",
+    "muzhik",
     "inostranets"
   ],
   "roles": {
-    "muzhik": "everyman",
     "chort": "devil",
+    "muzhik": "everyman",
     "inostranets": "foreigner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Russe und ein Amerikaner sterben und kommen in die Hölle.",
+      "text": "Nach dem Tod kommen ein Russe und ein Amerikaner in die Hölle. Der Teufel fragt sie:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "inostranets"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "chort",
-      "text": "Welche Hölle hättet ihr gern, die russische oder die amerikanische?",
+      "text": "In welche Hölle wollt ihr, in die russische oder in die amerikanische?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,8 +36,8 @@
     },
     {
       "id": "l3",
-      "character": "inostranets",
-      "text": "Wo ist der Unterschied?",
+      "character": "muzhik",
+      "text": "Was ist der Unterschied?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -49,16 +46,17 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "In der amerikanischen isst man jeden Tag einen Eimer Mist. In der russischen zwei.",
+      "text": "In der amerikanischen muss man jeden Tag einen Eimer Mist essen, in der russischen zwei.",
+      "uncensored": "In der amerikanischen muss man jeden Tag einen Eimer Scheiße essen, in der russischen zwei.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "inostranets",
-      "text": "Ich nehme die amerikanische.",
+      "character": "narrator",
+      "text": "Der Amerikaner wählt die amerikanische, und der Russe denkt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,16 +65,16 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ich habe mein ganzes Leben in Russland gelebt. Warum jetzt was ändern?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Mein ganzes Leben hab ich in Russland gelebt, warum jetzt was ändern?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Einen Monat später treffen sie sich.",
+      "text": "Einen Monat später treffen sie sich. Der Russe fragt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -94,23 +92,124 @@
     {
       "id": "l9",
       "character": "inostranets",
-      "text": "Super. Morgens esse ich meinen Eimer, dann habe ich den ganzen Tag frei. Und bei euch?",
+      "text": "Wunderbar. Morgens einen Eimer Mist gegessen, und den ganzen Tag frei.",
+      "uncensored": "Wunderbar. Morgens einen Eimer Scheiße gegessen, und den ganzen Tag frei.",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "inostranets",
+      "text": "Und bei euch?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik",
-      "text": "Wie immer. Mal wird kein Mist geliefert, mal reichen die Eimer nicht für alle.",
+      "text": "Wie immer: mal wurde kein Mist geliefert, mal reichen die Eimer nicht für alle.",
+      "uncensored": "Wie immer: mal wurde keine Scheiße geliefert, mal reichen die Eimer nicht für alle.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "chort",
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "chort": "devil",
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "inostranets",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

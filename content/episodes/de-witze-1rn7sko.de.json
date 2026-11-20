@@ -6,18 +6,22 @@
   "location": "derevnya",
   "place": "farm",
   "cast": [
-    "muzhik",
-    "zhena"
+    "zhena",
+    "sluzhivy",
+    "sluzhivy-ryadovoy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "prisoner",
-    "zhena": "wife"
+    "zhena": "wife",
+    "sluzhivy": "police-officer",
+    "sluzhivy-ryadovoy": "police-officer",
+    "muzhik": "prisoner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Bauer sitzt wegen Diebstahls im Gefängnis. Seine Frau schreibt ihm.",
+      "text": "Ein Bauer muss wegen Diebstahls ins Gefängnis. Die Bäuerin schreibt ihm.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +30,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Glaub bloß nicht, dass ich den Kartoffelacker jetzt allein umgrabe.",
+      "text": "Glaub bloß nicht, dass ich nun den Kartoffelacker allein umgrabe.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,51 +38,188 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Hände weg vom Kartoffelacker! Da ist doch die ganze Beute drin.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Der Bauer schreibt zurück.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Eine Woche später.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Hände weg vom Kartoffelacker! Da ist doch die ganze Beute drin.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "zhena",
-      "text": "Jemand im Gefängnis muss deinen Brief gelesen haben. Gestern waren unzählige Polizisten hier.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Eine Woche später schreibt die Bäuerin.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "zhena",
-      "text": "Sie haben den ganzen Acker umgegraben. Gefunden haben sie nichts.",
+      "text": "Jemand im Gefängnis muss deinen Brief gelesen haben.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "zhena",
+      "text": "Gestern waren unzählige Polizisten hier. Sie haben den ganzen Acker umgegraben.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "zhena",
+      "text": "Gefunden haben sie jedoch nichts.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "muzhik",
-      "text": "Bestens. Jetzt kannst du die Kartoffeln setzen.",
+      "text": "Bestens, jetzt kannst du die Kartoffeln setzen.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "garden",
+      "cast": [
+        "zhena",
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "sluzhivy": "police-officer",
+        "sluzhivy-ryadovoy": "police-officer",
+        "muzhik": "prisoner"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "headscarf",
+            "apron"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

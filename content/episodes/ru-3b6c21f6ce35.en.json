@@ -2,24 +2,24 @@
   "id": "ru-3b6c21f6ce35.en",
   "jokeId": "ru-3b6c21f6ce35",
   "locale": "en",
-  "title": "The Seventeenth Man",
+  "title": "The Accordion Player",
   "location": "doroga",
   "place": "road",
   "cast": [
     "sluzhivy",
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "muzhik-ryzhy": "driver",
-    "muzhik": "drunk"
+    "muzhik": "everyman",
+    "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "One night a cop pulls over a tiny old Mini. Inside are seventeen men, all completely drunk.",
+      "text": "At night a traffic cop pulls over a tiny old Beetle. He looks inside, and there are seventeen men, dead drunk.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,18 +27,18 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Seventeen? In a Mini?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "He's so stunned he doesn't even fine them.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "I won't fine you. But tomorrow you all come back. Sober. Same seventeen.",
-      "emotion": "angry",
+      "text": "Just make sure you all show up here tomorrow, same crew, and sober!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Next morning, sixteen of them squeeze in. The seventeenth just won't fit.",
+      "text": "Next morning they start cramming into the car. Sixteen fit in, but the seventeenth just won't, no matter what.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Listen, maybe you weren't actually with us last night?",
+      "text": "Listen, maybe you weren't with us?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,14 +64,122 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Excuse me? Then who was playing the accordion?",
+      "text": "Well, hello! Then who was playing the accordion for you last night?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

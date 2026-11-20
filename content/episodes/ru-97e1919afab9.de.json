@@ -13,11 +13,19 @@
     "muzhik": "everyman",
     "chort": "genie"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Hitze. Ein Mann trägt einen Kanister Bier aus der Sauna nach Hause, kickt eine alte Flasche weg, und heraus kommt ein Flaschengeist.",
+      "text": "Sommer, Sonne, Hitze. Ein Mann kommt aus der Sauna, mit einem Kanister Bier. Er freut sich schon auf ein kaltes Bier zu Hause.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +33,18 @@
     },
     {
       "id": "l2",
-      "character": "chort",
-      "text": "Dein Wunsch ist mir Befehl!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Auf der Straße liegt eine Flasche. Der Mann tritt dagegen, und sie zerschellt an einem Stein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Wie üblich: ein Dschinn, ein Wunsch.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "chort"
@@ -35,51 +52,34 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Ich will, dass das Bier in diesem Kanister nie alle wird!",
+      "text": "Ich will, dass das Bier in meinem Kanister nie ausgeht.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "chort",
-      "text": "Gewährt!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Dschinn zaubert und verschwindet.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": [
         "chort"
       ]
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Na dann, prost. Moment. Wie geht der denn auf?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l6",
       "character": "narrator",
-      "text": "Zehn Jahre später.",
+      "text": "Und der Mann versucht bis heute, den Kanister aufzukriegen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik",
-      "text": "Immer noch zu. Aber das Bier wird nie alle. Er hat Wort gehalten.",
-      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

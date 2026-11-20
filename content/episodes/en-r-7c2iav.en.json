@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "The World Cup final. A fan takes his seat and notices the one next to him is empty.",
+      "text": "A man takes his seat at the World Cup final.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Who on earth would miss the World Cup final?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "He looks over and notices there's an extra seat in between himself and the next guy.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "That was my wife's seat.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Who would ever miss the World Cup final?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "We went to the last five finals together. Sadly, she passed away.",
+      "text": "Well, that was my wife's seat.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,24 +52,98 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "I'm so sorry. But couldn't someone else from the family come with you?",
+      "character": "muzhik-ryzhy",
+      "text": "We have been to the last five World Cup finals together, but sadly she passed away.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "muzhik",
+      "text": "That's terrible, but couldn't you get another close family member to come with you?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "No. They're all at the funeral.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "stadium",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "husband"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "de-witze-1s8know.de",
   "jokeId": "de-witze-1s8know",
   "locale": "de",
-  "title": "Der schnellste Vater",
+  "title": "Schnelle Väter",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -11,15 +11,23 @@
     "vovochka"
   ],
   "roles": {
-    "paren": "teenager",
+    "paren": "child",
     "devochka": "child",
     "vovochka": "child"
+  },
+  "looks": {
+    "devochka": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Drei Kinder sitzen auf einer Mauer und geben mit ihren Vätern an.",
+      "text": "Drei Jungs sitzen auf der Mauer und prahlen mit ihren Vätern.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,8 +36,8 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Mein Vater ist Formel-eins-Fahrer. Wenn der Gas gibt, brennt der Asphalt!",
-      "emotion": "smug",
+      "text": "Mein Vater ist Formel-eins-Fahrer. Der ist so schnell, wenn der auf das Gas tritt, brennt der Asphalt!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +45,7 @@
     {
       "id": "l3",
       "character": "devochka",
-      "text": "Pah! Mein Vater ist Jetpilot. Der ist so schnell, der überholt seinen eigenen Schall!",
+      "text": "Pah, mein Vater ist Jet-Pilot. Der ist so schnell, der überholt seinen eigenen Schall!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,18 +56,19 @@
       "character": "vovochka",
       "text": "Alles Anfänger. Mein Vater ist Beamter.",
       "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Der hat bis fünf Dienst, ist aber schon um vier zu Hause.",
+      "text": "Der hat zwar bis siebzehn Uhr Dienst, aber zu Hause ist er schon um sechzehn Uhr.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

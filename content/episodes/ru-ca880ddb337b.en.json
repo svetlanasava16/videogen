@@ -2,35 +2,33 @@
   "id": "ru-ca880ddb337b.en",
   "jokeId": "ru-ca880ddb337b",
   "locale": "en",
-  "title": "Where Are the Pigs",
+  "title": "Where Are the Pigs?",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "vovochka",
+    "sluzhivy",
     "muzhik",
-    "sluzhivy"
+    "vovochka"
   ],
   "roles": {
-    "vovochka": "child",
+    "sluzhivy": "traffic-cop",
     "muzhik": "father",
-    "sluzhivy": "traffic-cop"
+    "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Good afternoon. License and registration, please.",
+      "character": "narrator",
+      "text": "A traffic cop pulls a car over. The window rolls down, and the driver smiles ingratiatingly:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Good afternoon, officer! Yes, sir!",
+      "text": "Good day to you, Officer, sir!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Here you go: license, registration, insurance, of course. All in order, just the way it should be!",
+      "text": "Here you go, my license, registration, power of attorney, insurance of course, everything just as it should be, all in order...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -52,10 +50,73 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "father",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "car"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "certificate",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

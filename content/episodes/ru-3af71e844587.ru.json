@@ -1,0 +1,173 @@
+{
+  "id": "ru-3af71e844587.ru",
+  "jokeId": "ru-3af71e844587",
+  "locale": "ru",
+  "title": "Артрит",
+  "location": "doroga",
+  "place": "bus",
+  "cast": [
+    "muzhik",
+    "batyushka"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "batyushka": "priest"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Пьянючий чувак в разорванной рубашке, на морде у которого следы помады, в карманах — пустые бутылки, заходит в автобус и садится рядом с попом.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Пьяный разворачивает газету и что-то там читает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "А вы не знаете, отец, от чего бывает артрит?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "batyushka",
+      "text": "Артрит, сын мой, бывает у тех людей, кто сбился с пути истинного, кто спит с падшими женщинами и злоупотребляет алкоголем!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Ни фига себе...",
+      "uncensored": "Ни хрена себе...",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Пьяный замолкает и смотрит задумчивым взглядом в пол. Поп пожалел, что высказался так резко.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "batyushka",
+      "text": "Ну ладно, сын мой! Давно ли у тебя артрит?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Да вы что! У меня нет артрита! Тут в газете пишут, что артрит у Папы Римского!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "batyushka": "priest"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "ru-714732497bfc.en",
+  "jokeId": "ru-714732497bfc",
+  "locale": "en",
+  "title": "Day Two",
+  "location": "nebesa",
+  "place": "space",
+  "cast": [
+    "paren",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "paren": "astronaut",
+    "muzhik-ryzhy": "engineer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Day one. A giant asteroid is approaching Earth.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "A team of brave drillers has set off to plant a nuclear bomb on it.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Day two. A giant asteroid with a nuclear bomb is approaching Earth.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "space",
+      "cast": [
+        "paren",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "paren": "astronaut",
+        "muzhik-ryzhy": "engineer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-right"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "id": "de-witze-17izoxj.de",
+  "jokeId": "de-witze-17izoxj",
+  "locale": "de",
+  "title": "Kirchenakustik",
+  "location": "tserkov",
+  "place": "church",
+  "cast": [
+    "batyushka",
+    "vovochka"
+  ],
+  "roles": {
+    "batyushka": "priest",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Priester konfrontiert in der Kirche den Messdiener.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "batyushka",
+      "text": "Junge, ich weiß, dass du dich am Messwein berauschst!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "batyushka",
+      "text": "Junge, warum reagierst du nicht? Kannst du mich nicht verstehen?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "Nein, Vater, das kann ich nicht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "vovochka",
+      "text": "Hier, wo ich stehe, kann ich Ihre Stimme nicht vernehmen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "batyushka",
+      "text": "Sag mal, willst du mich auf den Arm nehmen?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "vovochka",
+      "text": "Vater, ich kann es beweisen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "vovochka",
+      "text": "Stellen Sie sich mal hier hin, und ich stelle mich dort hin, wo Sie jetzt stehen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "vovochka",
+      "text": "Ach übrigens, Vater, man sagt, dass ein großer Teil der Kollekte verschwunden sei.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Wissen Sie zufällig etwas darüber?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "batyushka",
+      "text": "Du hast Recht. Von hier aus kann man tatsächlich rein gar nichts verstehen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka",
+        "vovochka"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "vovochka": "child"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "robe-white"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "id": "ru-b0ecacc4cdf7.de",
+  "jokeId": "ru-b0ecacc4cdf7",
+  "locale": "de",
+  "title": "Flugangst",
+  "location": "samolet",
+  "place": "plane",
+  "cast": [
+    "devushka-blondinka",
+    "muzhik"
+  ],
+  "roles": {
+    "devushka-blondinka": "flight-attendant",
+    "muzhik": "customer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Als die Stewardess durch die Kabine ging, bemerkte sie einen schweißgebadeten Mann, der zitterte und an den Nägeln kaute.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka-blondinka",
+      "text": "Vielleicht bringe ich Ihnen ein Gläschen Cognac, dann geht es Ihnen besser?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Nach einem sichtbaren Kampf mit sich selbst flüsterte der Mann:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Na gut...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Als die Stewardess wieder nach demselben Passagier sah, fand sie ihn in einem noch jämmerlicheren Zustand.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka-blondinka",
+      "text": "Ein zweites Gläschen?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Der Mann sagte nichts und nickte nur.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Als die Stewardess zum dritten Mal zu dem Passagier kam, schluchzte er hemmungslos.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devushka-blondinka",
+      "text": "Ich habe noch nie jemanden gesehen, der solche Angst vorm Fliegen hat.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Ich habe überhaupt keine Angst vorm Fliegen, ich versuche, mit dem Trinken aufzuhören!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "devushka-blondinka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka-blondinka": "flight-attendant",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

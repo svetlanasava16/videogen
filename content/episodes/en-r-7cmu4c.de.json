@@ -2,7 +2,7 @@
   "id": "en-r-7cmu4c.de",
   "jokeId": "en-r-7cmu4c",
   "locale": "de",
-  "title": "Der Alarmanlagen-Vertreter",
+  "title": "Alarmanlagen",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -15,41 +15,76 @@
     {
       "id": "l1",
       "character": "barmen",
-      "text": "Ich hab früher Alarmanlagen verkauft, von Tür zu Tür.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Früher habe ich Alarmanlagen an der Haustür verkauft, und ich war richtig gut darin.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Und ich war richtig gut darin.",
+      "text": "Wenn niemand zu Hause war, habe ich einfach eine Broschüre auf dem Küchentisch liegen lassen.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "barmen",
-      "text": "Wenn niemand zu Hause war,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "barmen",
-      "text": "hab ich einfach einen Prospekt auf den Küchentisch gelegt.",
-      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "barmen"
+      ],
+      "roles": {
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "letter",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

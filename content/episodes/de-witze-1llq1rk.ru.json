@@ -2,24 +2,24 @@
   "id": "de-witze-1llq1rk.ru",
   "jokeId": "de-witze-1llq1rk",
   "locale": "ru",
-  "title": "Прицел",
+  "title": "Таксист",
   "location": "doroga",
   "place": "car",
   "cast": [
+    "ded",
     "muzhik-ryzhy",
-    "muzhik-sosed",
-    "ded"
+    "muzhik-sosed"
   ],
   "roles": {
+    "ded": "old-man",
     "muzhik-ryzhy": "driver",
-    "muzhik-sosed": "farmer",
-    "ded": "old-man"
+    "muzhik-sosed": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Деревенский мужик впервые в городе и едет на такси. На мерседесе.",
+      "text": "Деревенский мужик первый раз приехал в город и едет на такси, на «Мерседесе».",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Слышь, командир, а звезда эта на капоте зачем?",
+      "text": "А для чего вот эта звезда на капоте?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Это прицел. На пенсионеров.",
+      "text": "Ну погоди, сейчас я тебя разыграю.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,37 +46,35 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "За каждого сбитого мне премия. Пятьдесят тысяч рублей.",
-      "emotion": "smug",
+      "text": "Это прицел, чтобы сбивать пенсионеров.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "Да ну?",
-      "emotion": "surprised",
+      "character": "muzhik-ryzhy",
+      "text": "За каждого, кого собью, мне дают премию пятьдесят тысяч рублей.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Смотри.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "С этими словами он несётся прямо на пенсионера, но в самый последний момент сворачивает.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Таксист жмёт прямо на деда и в последний момент уворачивается. Но раздаётся глухой удар.",
-      "emotion": "neutral",
+      "text": "И всё равно раздаётся глухой удар, и пенсионер лежит на земле.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -84,14 +82,114 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Если б я в последний момент дверь не распахнул, плакала бы наша премия!",
+      "text": "Если бы я в последний момент не распахнул дверь, плакала бы наша премия.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "ded",
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "muzhik-ryzhy": "driver",
+        "muzhik-sosed": "customer"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "mustache"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "roadside",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -13,12 +13,20 @@
     "muzhik": "customer",
     "barmen": "salesman"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stubble"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Sie stehen schon eine halbe Stunde vor den Flaschen.",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Ein Mann stöbert in einem Spirituosenladen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -27,19 +35,22 @@
       "id": "l2",
       "character": "barmen",
       "text": "Brauchen Sie Hilfe?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "barmen"
+      ],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ja. Aber heute bin ich nur wegen Whisky hier.",
-      "emotion": "sad",
+      "text": "Ja, aber ich bin stattdessen wegen Whiskey hier.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

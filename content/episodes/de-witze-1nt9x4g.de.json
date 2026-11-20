@@ -13,11 +13,19 @@
     "ded": "old-man",
     "paren": "journalist"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Greis im Altersheim wird zu seinem fünfundneunzigsten Geburtstag für die Lokalzeitung interviewt.",
+      "text": "Anlässlich seines fünfundneunzigsten Geburtstags wird ein greiser Herr im Altersheim für einen Bericht in der Lokalzeitung interviewt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Wie sieht denn Ihr Tagesablauf hier aus?",
+      "text": "Wie fühlen Sie sich in Ihrem Alter und in dieser Umgebung?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +43,7 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "Morgens erst mal pinkeln!",
+      "text": "Danke, sehr gut.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +52,8 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Und? Keine Probleme?",
-      "emotion": "surprised",
+      "text": "Wie sieht denn Ihr Tagesablauf hier drin aus?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,9 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Ach wo! Harter Strahl, kein Brennen, gesunde Farbe!",
-      "emotion": "smug",
+      "text": "Morgens: Erst mal pinkeln!",
+      "uncensored": "Morgens: Erst mal pissen!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,23 +71,42 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Und dann?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "text": "Und? Keine Probleme?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ded",
-      "text": "Stuhlgang.",
-      "emotion": "happy",
+      "text": "Ach wo! Harter Strahl, kein Brennen, gesunde Farbe!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l8",
+      "character": "paren",
+      "text": "Und dann?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
+      "character": "ded",
+      "text": "Stuhlgang.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "paren",
       "text": "Irgendwelche Beschwerden?",
       "emotion": "surprised",
@@ -87,31 +115,32 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "ded",
-      "text": "Keine Spur. Guter Druck, alles ganz normal.",
+      "text": "Keine Spur. Ausreichender Druck, kein Blut, ganz normale Darmentleerung.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "paren",
-      "text": "Und wie geht es dann weiter?",
+      "text": "Wie geht es dann weiter?",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l13",
       "character": "ded",
-      "text": "Na ja. Dann stehe ich auf.",
-      "emotion": "neutral",
+      "text": "Nun ja, dann stehe ich auf.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,7 +2,7 @@
   "id": "de-witze-1qvkbdj.de",
   "jokeId": "de-witze-1qvkbdj",
   "locale": "de",
-  "title": "Der dümmste Junge der Welt",
+  "title": "Der dümmste Junge",
   "location": "magazin",
   "place": "barbershop",
   "cast": [
@@ -18,75 +18,221 @@
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Sehen Sie den Kleinen da? Der dümmste Junge der Welt. Passen Sie auf.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Ein kleiner Junge betritt einen Friseursalon.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Na, mein Junge, hier ein Fünf-Euro-Schein, da zwei Euromünzen. Was möchtest du?",
-      "emotion": "happy",
+      "text": "Das ist der dümmste Junge der Welt. Ich werde es Ihnen beweisen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Die Münzen, bitte!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Der Friseur nimmt einen Dollarschein in die eine Hand und zwei Vierteldollarstücke in die andere und ruft den Jungen zu sich.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "vovochka"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Was hab ich gesagt? Der lernt es nie!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Was möchtest du, mein Junge?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Später trifft der Kunde den Jungen vor der Eisdiele.",
+      "text": "Der Junge nimmt die Vierteldollarstücke und geht.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "barmen",
+      "text": "Was habe ich dir gesagt? Dieser Junge lernt nie dazu!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Später, als der Kunde geht, sieht er denselben Jungen aus der Eisdiele kommen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "muzhik",
-      "text": "Sag mal, warum nimmst du immer die Münzen und nicht den Schein?",
+      "text": "Hey, mein Junge! Darf ich dir eine Frage stellen?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Warum hast du die Vierteldollar-Münzen genommen statt den Dollarschein?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "vovochka",
-      "text": "Weil das Spiel vorbei ist, sobald ich den Schein nehme.",
+      "text": "Weil das Spiel vorbei ist, sobald ich den Dollar nehme!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "craftsman",
+        "vovochka": "child"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

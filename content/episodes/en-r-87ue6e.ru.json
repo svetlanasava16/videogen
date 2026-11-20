@@ -2,7 +2,7 @@
   "id": "en-r-87ue6e.ru",
   "jokeId": "en-r-87ue6e",
   "locale": "ru",
-  "title": "Не кусается",
+  "title": "Ядоносная",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Вожатый, а эта змея не кусается?",
+      "text": "Скажите, эта змея ядовитая?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,25 +26,25 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Нет, эта змея совсем не кусается.",
+      "text": "Нет, эта змея совсем не ядовитая.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Ай! Она меня цапнула! Я ног не чувствую!",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Мальчик берёт змею в руки, она его кусает, и у мальчика начинаются судороги и пена изо рта, а остальные дети в ужасе смотрят.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "paren",
-      "text": "Не цапнула, а ужалила.",
+      "text": "Но эта змея ядоносная.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Кусаются собаки. Змеи жалят.",
-      "emotion": "neutral",
+      "text": "Ядовитое отравляет, если его съесть или потрогать, а ядоносное само впрыскивает яд.",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -62,14 +62,78 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "В следующий раз формулируйте точнее, ребята.",
+      "text": "В следующий раз давайте точнее, ребята.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "vovochka",
+        "paren"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "paren": "athlete"
+      },
+      "looks": {
+        "vovochka": {
+          "clothes": "#8a7f4e",
+          "add": [],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#8a7f4e",
+          "add": [
+            "cowboy-hat"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

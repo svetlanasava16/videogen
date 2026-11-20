@@ -6,13 +6,13 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
+    "muzhik-ryzhy",
     "vor",
-    "muzhik",
     "barmen"
   ],
   "roles": {
+    "muzhik-ryzhy": "customer",
     "vor": "thief",
-    "muzhik": "everyman",
     "barmen": "cook"
   },
   "lines": [
@@ -36,25 +36,16 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "That's just simple thievery.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "I'll show you how to do it the honest way and get the same results.",
+      "character": "muzhik-ryzhy",
+      "text": "That's just simple thievery. I'll show you how to do it the honest way and get the same results.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
+      "id": "l4",
+      "character": "muzhik-ryzhy",
       "text": "Sir, I want to show you a magic trick.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
@@ -62,64 +53,35 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
-      "text": "The owner is intrigued, so he comes over to see the magic trick.",
+      "text": "The owner was intrigued, so he came over to see the magic trick.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The Irishman asked him for a bun and then he proceeded to eat it. He asked two more times, and after he ate them too, the owner said:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "May I have a bun?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "character": "barmen",
+      "text": "Okay my friend, where's the magic trick?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "And he eats it.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "muzhik",
-      "text": "Another one, please.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "And one more.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
-      "character": "barmen",
-      "text": "Okay my friend, where's the magic trick?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l12",
-      "character": "muzhik",
+      "character": "muzhik-ryzhy",
       "text": "Look in the Englishman's pockets.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
@@ -129,6 +91,94 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-ryzhy",
+        "vor",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "customer",
+        "vor": "thief",
+        "barmen": "cook"
+      },
+      "looks": {
+        "vor": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "beard"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron",
+            "chef-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "shelf"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

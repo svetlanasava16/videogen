@@ -15,9 +15,25 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
+  "looks": {
+    "ptitsa": {
+      "clothes": "#8a8a7a",
+      "add": [],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Покупатель заходит в зоомагазин.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Сколько стоит вот этот попугай?",
       "emotion": "neutral",
@@ -28,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "barmen",
-      "text": "Сто тысяч рублей. Свободно говорит и считает до ста.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "muzhik",
-      "text": "А вот этот?",
+      "character": "barmen",
+      "text": "Сто тысяч рублей.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -47,26 +54,26 @@
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Сто пятьдесят. Знает три языка и всего Пушкина наизусть.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "А почему так дорого?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "А тот старый страшненький в углу? Он-то наверняка дешевле?",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "Это очень одарённая птица, он бегло говорит и умеет считать до ста.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Триста тысяч.",
+      "character": "muzhik",
+      "text": "А вот этот сколько стоит?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,30 +81,76 @@
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Сколько? А он что умеет?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Сто пятьдесят тысяч рублей.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "barmen",
-      "text": "Понятия не имею. Он ни разу слова не сказал.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Опять так дорого?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "barmen",
-      "text": "Но те двое зовут его шефом.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "О, это птица ещё одарённее, он свободно говорит на трёх языках и знает наизусть всего Пушкина!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Тут покупатель видит в углу маленького, старого, страшненького попугая.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "А вон тот, в углу, наверняка стоит гораздо меньше?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "barmen",
+      "text": "Нет, он стоит триста тысяч рублей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "muzhik",
+      "text": "Как это? А он-то что умеет?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "barmen",
+      "text": "Я и сам не знаю, он ещё ни разу не говорил, но те двое называют его шефом.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

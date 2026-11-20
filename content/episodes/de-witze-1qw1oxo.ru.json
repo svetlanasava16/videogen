@@ -1,0 +1,121 @@
+{
+  "id": "de-witze-1qw1oxo.ru",
+  "jokeId": "de-witze-1qw1oxo",
+  "locale": "ru",
+  "title": "Чёрный юмор",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "zhena",
+    "vovochka"
+  ],
+  "roles": {
+    "zhena": "mother",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "vovochka",
+      "text": "Мама, а что такое чёрный юмор?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Видишь вон там мужчину без рук?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Подойди к нему и скажи, чтобы он похлопал в ладоши!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "Но мама, как же я его увижу, я ведь слепой...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Вот именно!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "child"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

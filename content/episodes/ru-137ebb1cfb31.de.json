@@ -2,23 +2,25 @@
   "id": "ru-137ebb1cfb31.de",
   "jokeId": "ru-137ebb1cfb31",
   "locale": "de",
-  "title": "Freiheit",
+  "title": "Ich komme mit",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
-    "muzhik"
+    "zhena",
+    "muzhik",
+    "paren"
   ],
   "roles": {
-    "paren": "son",
-    "muzhik": "father"
+    "zhena": "mother",
+    "muzhik": "father",
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Mir reicht's! Immer nur mit euch, immer pünktlich zu Hause!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Ein Sohn streitet mit seinen Eltern:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +28,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Ich will Romantik, Freiheit, Bier und Mädchen!",
+      "text": "Ich hab es satt, ständig mit euch zusammen zu sein und immer pünktlich nach Hause zu kommen!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +37,7 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Ich gehe! Und versucht ja nicht, mich aufzuhalten!",
+      "text": "Ich will Romantik, Freiheit, Bier, Mädels!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,36 +45,114 @@
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "An der Tür holt ihn sein Vater ein.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Ich gehe, und versucht nicht, mich aufzuhalten!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "paren",
-      "text": "Papa, ich hab doch gesagt, halt mich nicht auf!",
+      "text": "Papa, ich hab doch gesagt: Versucht nicht, mich aufzuhalten!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ich halte dich nicht auf, mein Sohn. Ich komme mit!",
+      "text": "Ich halte dich nicht auf, mein Sohn.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Ich komme mit!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "paren",
-        "muzhik"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

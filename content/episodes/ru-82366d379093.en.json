@@ -10,14 +10,14 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
+    "devushka": "customer",
     "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A butcher shop, one minute to closing.",
+      "text": "A butcher's shop, one minute before closing.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,18 +26,16 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Thank God, I made it! Do you have any chicken?",
+      "text": "Thank God, I made it!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Last one. Exactly two pounds.",
+      "character": "devushka",
+      "text": "Do you have any chickens?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,18 +43,18 @@
     },
     {
       "id": "l4",
-      "character": "devushka",
-      "text": "Hmm. Nothing bigger?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "The butcher takes the only chicken out of the freezer and puts it on the scale. The scale shows two pounds.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "Let me check.",
-      "emotion": "neutral",
+      "character": "devushka",
+      "text": "Hmm... Don't you have a bigger one?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,32 +62,87 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "He carries the same chicken away, brings it right back, and presses the scale with his thumb.",
+      "text": "The butcher puts the chicken back, then takes out the same one, turns it around, puts it on the scale and presses down with his finger. The scale shows three pounds.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "barmen",
-      "text": "Here. Three pounds.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
       "character": "devushka",
-      "text": "Perfect! I'll take both.",
+      "text": "Perfect! I'll take both, please.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "devushka",
+        "barmen"
+      ],
+      "roles": {
+        "devushka": "customer",
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -1,0 +1,141 @@
+{
+  "id": "de-witze-1sfumi9.ru",
+  "jokeId": "de-witze-1sfumi9",
+  "locale": "ru",
+  "title": "Собака",
+  "location": "ulitsa",
+  "place": "park",
+  "cast": [
+    "muzhik",
+    "muzhik-sosed",
+    "pyos"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "pyos": "dog"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужчина гуляет в парке и видит другого мужчину, который сидит рядом с собакой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Ваша собака кусается?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Нет, моя собака не кусается.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Мужчина наклоняется, чтобы погладить собаку. Собака тут же кусает его и до крови прокусывает ему руку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Я думал, ваша собака не кусается!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-sosed",
+      "text": "А это и не моя собака.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "bench"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

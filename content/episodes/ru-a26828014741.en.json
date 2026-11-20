@@ -2,22 +2,30 @@
   "id": "ru-a26828014741.en",
   "jokeId": "ru-a26828014741",
   "locale": "en",
-  "title": "First Day on the Job",
+  "title": "The Hearse",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "muzhik",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "customer",
-    "muzhik-ryzhy": "driver"
+    "muzhik-ryzhy": "driver",
+    "muzhik": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A taxi passenger taps the driver on the shoulder to ask something.",
+      "text": "A taxi passenger wanted to ask the driver a question and tapped him on the shoulder. The driver screamed wildly and lost control.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,44 +33,44 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Aaaah!",
+      "character": "narrator",
+      "text": "The taxi nearly hit a bus, flew up onto the sidewalk and stopped an inch from a shop window.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The cab swerves onto the sidewalk and stops an inch from a shop window.",
+      "text": "For a second there was silence in the cab, and then the driver said hoarsely:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Buddy, don't ever do that again. I nearly wet myself.",
+      "text": "Listen, pal, don't ever do that again. I nearly crapped myself...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Sorry! I had no idea a little tap would scare you like that.",
+      "text": "Sorry. I never imagined a light tap on the shoulder could scare you like that.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "It's not your fault. Today's my first day driving a cab.",
+      "text": "Actually, it's not really your fault... It's just my first day driving a taxi.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -71,11 +79,12 @@
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "Before that, I drove a hearse for twenty-five years.",
+      "text": "Before that, I drove a hearse for twenty-five years!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

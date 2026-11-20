@@ -2,7 +2,7 @@
   "id": "ru-1bb631e0641a.de",
   "jokeId": "ru-1bb631e0641a",
   "locale": "de",
-  "title": "Der Anhänger",
+  "title": "Ein Geschenk für die Freundin",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -12,6 +12,15 @@
   "roles": {
     "muzhik": "everyman",
     "devushka": "cashier"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "earrings",
+        "lipstick"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -28,23 +37,32 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Ach, der Herr, wie schön, dass Sie zu uns kommen! Zum Valentinstag haben wir zwei Wochen lang zwanzig Prozent Rabatt, kaufen Sie doch etwas für Ihre Freundin.",
+      "text": "Oh, der Herr, wie schön, dass Sie zu uns kommen!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Hier, ein goldener Anhänger in Herzform, der wird Ihrer Freundin sehr gefallen.",
+      "text": "Zum Valentinstag haben wir zwei Wochen lang zwanzig Prozent Rabatt, kaufen Sie doch etwas als Geschenk für Ihre Freundin.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "devushka",
+      "text": "Hier, ein goldener Anhänger in Herzform, der wird Ihrer Freundin sehr gefallen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
       "text": "Ich habe keine Freundin...",
       "emotion": "sad",
@@ -53,16 +71,16 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "devushka",
-      "text": "Das kann doch nicht sein! So ein stattlicher, schöner, großer Mann, und keine Freundin? Warum denn?!",
+      "text": "Das kann doch nicht sein, so ein stattlicher, gutaussehender, großer Mann und keine Freundin? Warum denn?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "Meine Frau erlaubt es nicht...",
       "emotion": "sad",

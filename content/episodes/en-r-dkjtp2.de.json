@@ -2,24 +2,26 @@
   "id": "en-r-dkjtp2.de",
   "jokeId": "en-r-dkjtp2",
   "locale": "de",
-  "title": "Die Jungs",
+  "title": "Ab nach Hause",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "zhena",
     "muzhik",
-    "vovochka"
+    "vovochka",
+    "paren",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
     "muzhik": "husband",
-    "vovochka": "child"
+    "vovochka": "child",
+    "paren": "son",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Freitagabend in der Kneipe. Ein Mann kippt mit den Jungs Tequila.",
+      "text": "Eine Frau stürmt in die Kneipe, als ihr Mann mit den Jungs gerade Tequila-Shots kippt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +30,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Schluss jetzt! Ab nach Hause, sofort!",
+      "text": "Ab nach Hause, und zwar sofort!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -39,8 +41,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Nein, ich bleibe hier!",
-      "emotion": "smug",
+      "text": "Nein, ich komme nicht.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -52,10 +54,65 @@
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "vovochka",
+        "paren",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "vovochka": "child",
+        "paren": "son",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

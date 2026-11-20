@@ -2,7 +2,7 @@
   "id": "ru-5f4ed9870399.de",
   "jokeId": "ru-5f4ed9870399",
   "locale": "de",
-  "title": "Gründlich ausgeräumt",
+  "title": "Alles sauber",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Schatz, hast du mein Sakko gereinigt?",
+      "character": "narrator",
+      "text": "Ein Mann macht sich für die Arbeit fertig und fragt seine Frau.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,24 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Ja, Liebling. Gründlich ausgeräumt.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Hast du mein Sakko sauber gemacht?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "zhena",
+      "text": "Ja, Schatz.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
       "text": "Und die Hose?",
       "emotion": "neutral",
@@ -42,34 +51,99 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "zhena",
-      "text": "Natürlich, Liebling. Auch ausgeräumt.",
+      "text": "Natürlich, Schatz.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Und die Schuhe, hast du die geputzt?",
+      "text": "Und die Schuhe?",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "zhena",
-      "text": "Wieso, haben die etwa auch Taschen?",
+      "text": "Haben die etwa auch Taschen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

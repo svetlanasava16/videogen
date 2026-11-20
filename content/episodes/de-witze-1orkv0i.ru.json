@@ -2,22 +2,22 @@
   "id": "de-witze-1orkv0i.ru",
   "jokeId": "de-witze-1orkv0i",
   "locale": "ru",
-  "title": "Верная жена",
+  "title": "Оглядываясь назад",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "ded",
-    "zhena"
+    "tyoshcha",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "zhena": "wife"
+    "tyoshcha": "old-woman",
+    "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Старик умирает. У его постели сидит жена.",
+      "text": "Старый, тяжело больной человек лежит при смерти и говорит жене:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Галя, со дня свадьбы мы ни разу не расставались.",
+      "text": "Эльфрида, со дня нашей свадьбы мы ни разу не расставались.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "Когда меня уволили, ты была рядом.",
+      "text": "Когда я потерял работу, ты была со мной.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Когда я разбился на лыжах, ты сидела у моей кровати.",
-      "emotion": "neutral",
+      "text": "Когда я тогда на лыжном курорте сильно покалечился, ты была возле меня.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,8 +62,8 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Когда инфляция съела все мои сбережения, ты не ушла.",
-      "emotion": "sad",
+      "text": "Когда всё моё состояние съела инфляция и у меня ничего не осталось, даже тогда ты была рядом и осталась.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "А теперь я умираю, и ты опять здесь.",
+      "text": "Теперь я смертельно болен, а ты всё ещё здесь.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -80,14 +80,73 @@
     {
       "id": "l8",
       "character": "ded",
-      "text": "Галя, от тебя одни несчастья!",
+      "text": "Эльфрида, ты всегда приносила мне одни несчастья!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

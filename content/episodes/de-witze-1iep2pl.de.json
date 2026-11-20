@@ -6,43 +6,70 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-sosed",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "tourist",
-    "sluzhivy": "pirate"
+    "sluzhivy": "pirate",
+    "muzhik-sosed": "tourist"
+  },
+  "looks": {
+    "sluzhivy": {
+      "add": [
+        "black-hat"
+      ],
+      "remove": [
+        "helmet"
+      ]
+    },
+    "muzhik-sosed": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Entschuldigung, wo haben Sie denn Ihr Bein verloren?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "In einer Hafenkneipe sitzt ein typischer Pirat an der Theke: Augenklappe, Holzbein, Haken als Hand.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Wo haben Sie denn das Bein verloren?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik-sosed"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "sluzhivy",
-      "text": "Weggeschossen. In einer Seeschlacht vor Trinidad.",
+      "text": "Das hat man mir bei einem Kampf vor Trinidad weggeschossen.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Und die Hand?",
+      "text": "Und was war mit Ihrer Hand?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "sluzhivy",
       "text": "Ein Säbelhieb, als wir eine Fregatte geentert haben.",
       "emotion": "smug",
@@ -51,7 +78,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik-sosed",
       "text": "Und das Auge?",
       "emotion": "neutral",
@@ -60,31 +87,33 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "sluzhivy",
-      "text": "Da hat mir eine Möwe reingekackt.",
+      "text": "Da hat mir eine Möwe reingemacht.",
+      "uncensored": "Da hat mir eine Möwe reingeschissen.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Aber davon verliert man doch kein Auge!",
+      "text": "Aber dadurch verliert man doch kein Auge?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "sluzhivy",
-      "text": "Doch. Da hatte ich den Haken erst seit zwei Tagen.",
+      "text": "Doch, da hatte ich den Haken gerade erst zwei Tage.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

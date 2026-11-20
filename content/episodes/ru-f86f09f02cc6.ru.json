@@ -16,8 +16,17 @@
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Встретились два мужика, долго не виделись.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Здорово! Сколько лет, сколько зим!",
+      "text": "Пойдем, встречу отметим, как-никак столько времени не виделись.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,18 +35,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Пойдём, отметим встречу!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "muzhik",
-      "text": "Не, я завязал.",
+      "text": "Да нет, я пить завязал.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Помнишь прошлое лето?",
+      "text": "Ну помнишь прошлое лето?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "muzhik-sosed",
-      "text": "Ну, помню.",
+      "text": "Да.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -73,11 +73,12 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "А я нет.",
+      "text": "А я нет!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

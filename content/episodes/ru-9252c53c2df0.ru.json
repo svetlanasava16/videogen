@@ -2,32 +2,32 @@
   "id": "ru-9252c53c2df0.ru",
   "jokeId": "ru-9252c53c2df0",
   "locale": "ru",
-  "title": "Знающий пассажир",
+  "title": "Пилот",
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "pilot"
+    "muzhik-sosed": "pilot",
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Посреди полёта корпус самолёта вдруг начинает скрипеть и скрежетать.",
+      "text": "Во время полета вдруг послышался в салоне скрежет и скрип корпуса.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Господи... Вы это слышали?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Один из пассажиров побледнел, у него выступил холодный пот на лбу, и он вцепился пальцами в кресло.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Да не волнуйтесь вы так! Я часто летаю.",
+      "text": "Не надо так волноваться!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ребята там в кабине знают, что делают.",
+      "text": "Я часто летаю и могу вас заверить, что ребята там в кабине знают, что делают!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -52,15 +52,76 @@
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Я пилот. Я знаю, что они там делают!",
+      "character": "muzhik-sosed",
+      "text": "Я пилот! Я знаю, что они там делают!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "pilot",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

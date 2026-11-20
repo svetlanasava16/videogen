@@ -6,13 +6,13 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
+    "muzhik-ryzhy",
     "vor",
-    "muzhik",
     "barmen"
   ],
   "roles": {
+    "muzhik-ryzhy": "customer",
     "vor": "thief",
-    "muzhik": "everyman",
     "barmen": "cook"
   },
   "lines": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "vor",
-      "text": "Es hat großes Geschick und List gebraucht, diese Brötchen zu klauen. Der Besitzer hat mich nicht mal gesehen.",
+      "text": "Es hat großes Geschick und viel List gebraucht, diese Brötchen zu klauen. Der Besitzer hat mich nicht mal gesehen.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,25 +36,16 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Das ist einfach nur Diebstahl.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Ich zeig dir, wie man das auf die ehrliche Art macht und dasselbe Ergebnis bekommt.",
+      "character": "muzhik-ryzhy",
+      "text": "Das ist doch nur gewöhnlicher Diebstahl. Ich zeige dir, wie man es auf die ehrliche Art macht und dasselbe erreicht.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
+      "id": "l4",
+      "character": "muzhik-ryzhy",
       "text": "Mein Herr, ich möchte Ihnen einen Zaubertrick zeigen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
@@ -62,65 +53,36 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
-      "text": "Der Bäcker ist neugierig und kommt herüber.",
+      "text": "Der Besitzer wurde neugierig und kam herüber, um sich den Zaubertrick anzusehen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Ire bat ihn um ein Brötchen und aß es auf. Er bat noch zwei weitere Male, und als er auch die gegessen hatte, sagte der Besitzer:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Darf ich ein Brötchen haben?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "character": "barmen",
+      "text": "Okay, mein Freund, wo ist denn jetzt der Zaubertrick?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "Und er isst es auf.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "muzhik",
-      "text": "Noch eins, bitte.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "Und noch eins.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
-      "character": "barmen",
-      "text": "Na gut, mein Freund, wo ist denn jetzt der Zaubertrick?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l12",
-      "character": "muzhik",
-      "text": "Schauen Sie in die Taschen des Engländers.",
+      "character": "muzhik-ryzhy",
+      "text": "Schauen Sie mal in die Taschen des Engländers.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -129,6 +91,94 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-ryzhy",
+        "vor",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "customer",
+        "vor": "thief",
+        "barmen": "cook"
+      },
+      "looks": {
+        "vor": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "beard"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron",
+            "chef-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "shelf"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -6,27 +6,54 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "sluzhivy-ryadovoy",
-    "doktor"
+    "doktor",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "sluzhivy-ryadovoy": "firefighter",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "sluzhivy-ryadovoy": "firefighter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Die Feuerwehr hat gerade einen Brand im Krankenhaus gelöscht.",
+      "text": "Gewidmet unserer tapferen Feuerwehr...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Die Feuerwehr rückte aus, um im Krankenhaus einen Brand zu löschen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
+      "character": "narrator",
+      "text": "Sie machten alles, wie es sich für echte Helden gehört: Feuer gelöscht, sich nicht blamiert.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Nach dem Einsatz meldet der Zugführer dem Chefarzt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "sluzhivy-ryadovoy",
-      "text": "Herr Doktor, Einsatz erfolgreich. Das Feuer ist aus.",
+      "text": "Auftrag erfüllt, Brand gelöscht.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,49 +62,59 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l6",
       "character": "sluzhivy-ryadovoy",
-      "text": "Leider gab es Opfer. Neun Personen.",
+      "text": "Allerdings... gibt es Opfer. Neun Personen.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "Sieben konnten wir wiederbeleben.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Zwei haben es leider nicht geschafft.",
+      "text": "Sieben haben wir wiederbelebt, zwei konnten wir leider nicht retten.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Bei diesen Worten fällt der Chefarzt in Ohnmacht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Als er zu sich kommt, stammelt er, kaum dass er die Worte herausbringt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "doktor",
-      "text": "Sieben wiederbelebt?!",
+      "text": "Wieso sieben?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l11",
       "character": "doktor",
-      "text": "Leute, es hat doch in der Leichenhalle gebrannt!",
-      "emotion": "surprised",
+      "text": "Jungs, ihr habt doch die Leichenhalle gelöscht...",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

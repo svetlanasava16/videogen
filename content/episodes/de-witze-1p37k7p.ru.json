@@ -2,44 +2,48 @@
   "id": "de-witze-1p37k7p.ru",
   "jokeId": "de-witze-1p37k7p",
   "locale": "ru",
-  "title": "С каждым вздохом",
+  "title": "Каждый вздох",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "vovochka"
+    "vovochka": "vovochka",
+    "uchilka": "teacher"
+  },
+  "looks": {
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
+  },
+  "crowd": {
+    "who": "pupils",
+    "size": "few"
   },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
-      "text": "Дети, послушайте.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "С каждым моим вздохом умирает один человек.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "С каждым моим вздохом на земле умирает один человек.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "vovochka",
-      "text": "А может, вам зубы почистить?",
+      "text": "А может, вам попробовать чистить зубы?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

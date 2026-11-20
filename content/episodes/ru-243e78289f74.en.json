@@ -7,19 +7,18 @@
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devushka-ryzhaya",
-    "doktor"
+    "devochka"
   ],
   "roles": {
     "zhena": "mother",
-    "devushka-ryzhaya": "daughter",
-    "doktor": "doctor"
+    "devochka": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A blind girl always feels her plate at dinner and whines.",
+      "text": "Once upon a time there was a girl who couldn't see a freaking thing. Basically, she was blind.",
+      "uncensored": "Once upon a time there was a girl who couldn't see a fucking thing. Basically, she was blind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,39 +26,35 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Great, I got the smallest portion again! Just because I can't see! Cheapskates!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "narrator",
-      "text": "Mom can't take it anymore and calls a psychologist.",
+      "text": "Every time the family sat down to eat and her mom served the food, the girl spent ages feeling what was on her plate with her hands, and every time she whined:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "doktor",
-      "text": "Cook her a whole tub of dumplings. Let her eat.",
-      "emotion": "smug",
+      "id": "l3",
+      "character": "devochka",
+      "text": "There you go, as always you gave me the least of all!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
-      "exit": [
-        "doktor"
-      ]
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devochka",
+      "text": "I can't see anything, so you can short me! Cheapskates...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The next day, Mom sets a whole tub of dumplings in front of her.",
+      "text": "Her mom got sick of it and decided to consult a psychologist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,24 +62,162 @@
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Eat up, sweetie. It's all yours.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Cook a whole tub of dumplings! Enough for a wedding feast. And let her eat!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "devushka-ryzhaya",
-      "text": "Wow... I can only imagine how much you took for yourselves!",
+      "character": "narrator",
+      "text": "The next day the mom sets the table and puts a giant bucket of dumplings in front of the girl.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "The girl pulls the hefty portion toward her, feels it over with her hands for a long time and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devochka",
+      "text": "I can only imagine how much you freaking piled up for yourselves...",
+      "uncensored": "I can only imagine how much you fucking piled up for yourselves...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "doktor": "therapist"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

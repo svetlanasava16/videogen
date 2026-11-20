@@ -2,7 +2,7 @@
   "id": "en-r-c6bnkr.ru",
   "jokeId": "en-r-c6bnkr",
   "locale": "ru",
-  "title": "Прадедушка",
+  "title": "Не в своё дело",
   "location": "ulitsa",
   "place": "park",
   "cast": [
@@ -16,15 +16,24 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Есть столько шоколадок вредно.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Семилетний мальчик сидит на скамейке в парке и ест шоколадку.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "Есть столько шоколадок вредно.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "vovochka",
       "text": "Мой прадедушка дожил до ста пяти лет.",
       "emotion": "neutral",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "И он ел столько шоколада?",
       "emotion": "surprised",
@@ -42,11 +51,11 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "vovochka",
-      "text": "Нет. Но он не лез не в своё, блин, дело.",
-      "uncensored": "Нет. Но он не лез не в своё, блядь, дело.",
-      "emotion": "angry",
+      "text": "Нет. Но он, блин, не лез не в своё дело.",
+      "uncensored": "Нет. Но он, блядь, не лез не в своё дело.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -78,6 +87,12 @@
           "to": "right"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -92,6 +107,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

@@ -6,61 +6,65 @@
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "paren",
-    "nachalnik"
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "nachalnik": "boss"
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Ты уволен.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Меня уволили с работы, потому что я всё время спрашивал клиентов, что они предпочитают: для курящих или для некурящих.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "paren",
-      "text": "За что? Я со всеми клиентами вежлив!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "Ты каждого спрашиваешь: вам для курящих или для некурящих?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "paren",
-      "text": "Нормальный же вопрос!",
-      "emotion": "smug",
+      "text": "Оказывается, правильно говорить: кремация или захоронение.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "nachalnik",
-      "text": "У нас говорят: кремация или погребение!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "employee"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1c1c1c",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

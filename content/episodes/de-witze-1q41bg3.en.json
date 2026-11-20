@@ -2,23 +2,23 @@
   "id": "de-witze-1q41bg3.en",
   "jokeId": "de-witze-1q41bg3",
   "locale": "en",
-  "title": "First Time",
+  "title": "Before the Operation",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Okay, Gary, I know this is your first heart operation, but there's nothing to be afraid of.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Just before the operation.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,29 +26,39 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Everything's going to be just fine!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "So, Gary, even though it's your first heart operation,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "doktor",
+      "text": "you don't need to be scared, everything's going to be fine!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "Sorry, doctor, but my name isn't Gary.",
+      "text": "Excuse me, doctor, my name isn't Gary!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "doktor",
-      "text": "No, but mine is.",
-      "emotion": "smug",
+      "text": "But mine is!",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

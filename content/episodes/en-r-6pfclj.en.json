@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A cop pulls over a van. In the back sit ten penguins.",
+      "text": "One day a cop pulls a van over, and when he walks up to the window he sees ten penguins in the back.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -31,15 +31,13 @@
       "text": "Are those your penguins?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Yes, officer. They're my pets.",
+      "text": "Yes, they are my pets.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,45 +46,167 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Take them to the zoo. Right now.",
+      "text": "You need to take them to the zoo right now.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The next day, the same cop stops the same van. The penguins are all wearing sunglasses.",
+      "text": "So the man agrees and drives off.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The next day the cop pulls over the same van, walks up to the window and sees the ten penguins all wearing sunglasses.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "sluzhivy",
-      "text": "I told you to take those penguins to the zoo!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
-    },
-    {
       "id": "l7",
-      "character": "muzhik",
-      "text": "I did. Today we're going to the beach!",
-      "emotion": "happy",
+      "character": "sluzhivy",
+      "text": "I thought I told you to take those penguins to the zoo.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "I did, today we are going to the beach!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "ptitsa"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman",
+        "ptitsa": "bird"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "ptitsa"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "ptitsa": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

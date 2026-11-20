@@ -2,7 +2,7 @@
   "id": "ru-d0a8d6c5c75e.ru",
   "jokeId": "ru-d0a8d6c5c75e",
   "locale": "ru",
-  "title": "Домовой",
+  "title": "Конфеты",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -29,7 +29,7 @@
       "id": "l2",
       "character": "vovochka",
       "text": "Домовой.",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -38,15 +38,69 @@
       "id": "l3",
       "character": "ded",
       "text": "Не звезди!",
+      "uncensored": "Не пизди!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "ded"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "vovochka",
+        "ded": "wizard"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "stove",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

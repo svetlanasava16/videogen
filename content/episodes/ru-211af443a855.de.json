@@ -2,33 +2,31 @@
   "id": "ru-211af443a855.de",
   "jokeId": "ru-211af443a855",
   "locale": "de",
-  "title": "Die Geschiedene Barbie",
+  "title": "Geschiedene Barbie",
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "salesman",
-    "muzhik": "customer"
+    "muzhik": "customer",
+    "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Guten Tag, ich suche eine Barbie.",
+      "character": "narrator",
+      "text": "In einem Spielzeugladen erkundigt sich ein Kunde nach Barbie-Puppen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Bitte sehr. Barbie am Pool, achtzehn neunundneunzig.",
+      "text": "Das ist Barbie im Schwimmbad, achtzehn Euro neunundneunzig.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Barbie an der Uni, ebenfalls achtzehn neunundneunzig.",
-      "emotion": "neutral",
+      "text": "Das ist Barbie im College, achtzehn Euro neunundneunzig.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Und das ist die Geschiedene Barbie. Hundertneunundneunzig neunundneunzig.",
+      "text": "Und das ist die geschiedene Barbie, hundertneunundneunzig Euro neunundneunzig.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Wie bitte? Warum ist die so teuer?",
+      "text": "Wie viel?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,11 +62,12 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Bei der Geschiedenen Barbie sind Kens Haus, Kens Auto und Kens Hubschrauber dabei.",
+      "text": "Im Set „Geschiedene Barbie“ sind Kens Haus, Kens Auto und Kens Hubschrauber mit dabei.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

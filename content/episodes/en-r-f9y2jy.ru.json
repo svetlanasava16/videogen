@@ -6,13 +6,13 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
+    "muzhik-ryzhy",
     "vor",
-    "muzhik",
     "barmen"
   ],
   "roles": {
+    "muzhik-ryzhy": "customer",
     "vor": "thief",
-    "muzhik": "everyman",
     "barmen": "cook"
   },
   "lines": [
@@ -36,27 +36,27 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Это просто обычное воровство.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Я покажу тебе, как сделать это честно и получить тот же результат.",
+      "character": "muzhik-ryzhy",
+      "text": "Это просто воровство. Я покажу тебе, как сделать это честно и получить то же самое.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Хозяин! Хочу показать вам фокус.",
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Уважаемый, я хочу показать вам фокус.",
       "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Хозяину стало любопытно, и он подошёл посмотреть на фокус.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,62 +64,24 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Хозяину любопытно, и он подходит посмотреть на фокус.",
+      "text": "Ирландец попросил у него булочку и съел её. Он попросил ещё два раза, и когда съел и эти, хозяин сказал:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Дайте мне булочку.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "character": "barmen",
+      "text": "Ну хорошо, друг мой, и где же фокус?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "И съедает её.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "muzhik",
-      "text": "Ещё одну, пожалуйста.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "И ещё одну.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
-      "character": "barmen",
-      "text": "Ну хорошо, друг мой, а где же фокус?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l12",
-      "character": "muzhik",
+      "character": "muzhik-ryzhy",
       "text": "Загляните в карманы англичанина.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
@@ -129,6 +91,94 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-ryzhy",
+        "vor",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "customer",
+        "vor": "thief",
+        "barmen": "cook"
+      },
+      "looks": {
+        "vor": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "beard"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron",
+            "chef-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "shelf"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

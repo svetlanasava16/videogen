@@ -13,11 +13,28 @@
     "devochka": "child",
     "barmen": "salesman"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Маленькая девочка заходит в зоомагазин.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "devochka",
-      "text": "Здравствуйте! Я хочу купить кролика.",
+      "text": "Я хотела бы купить кролика.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,40 +43,24 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "barmen",
-      "text": "Какого, солнышко?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "barmen",
-      "text": "Вот этого маленького серенького, с огромными грустными глазками?",
+      "text": "Хочешь купить этого маленького серенького симпатягу с огромными печальными глазами или этого мохнатого ленивого белого кролика?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Или вот этого пушистого ленивого беленького?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "devochka",
-      "text": "А моему удаву без разницы.",
+      "text": "А моему удаву пофиг!",
+      "uncensored": "А моему удаву похуй!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

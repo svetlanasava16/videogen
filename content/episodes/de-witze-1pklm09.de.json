@@ -6,81 +6,147 @@
   "location": "magazin",
   "place": "pharmacy",
   "cast": [
-    "uchilka",
-    "muzhik"
+    "muzhik",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "pharmacist",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "uchilka": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Guten Tag. Ein Fläschchen Arsen, bitte.",
+      "character": "narrator",
+      "text": "Kommt ein Mann in die Apotheke.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Das ist hochgiftig! So etwas darf ich nicht verkaufen.",
-      "emotion": "surprised",
+      "character": "muzhik",
+      "text": "Geben Sie mir bitte ein Fläschchen Arsen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Aber ich will doch meine Frau vergiften!",
-      "emotion": "neutral",
+      "character": "uchilka",
+      "text": "Das Zeug ist hochgiftig, so etwas darf ich nicht verkaufen!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
-      "text": "Sind Sie verrückt? Ich rufe sofort die Polizei!",
-      "emotion": "angry",
+      "character": "muzhik",
+      "text": "Aber ich möchte doch meine Frau vergiften!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Schauen Sie mal auf das Foto. Das ist meine Frau. Und den, den sie küsst, kennen Sie den?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "uchilka",
+      "text": "Sie sind wohl verrückt! Das ist verboten, ich werde gleich die Polizei rufen!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "uchilka",
-      "text": "Das ist ja... mein Mann!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Der Mann holt ein Foto von seiner Frau heraus, die auf dem Bild gerade den Mann der Apothekerin küsst, und legt es auf den Tresen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "uchilka",
-      "text": "Ach so. Warum sagen Sie nicht gleich, dass Sie ein Rezept haben?",
+      "text": "Ach so, Sie haben ein Rezept dabei...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "uchilka": "pharmacist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

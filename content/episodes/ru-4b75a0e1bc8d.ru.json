@@ -6,13 +6,11 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "tyoshcha",
-    "doktor",
+    "zhena",
     "paren"
   ],
   "roles": {
-    "tyoshcha": "old-woman",
-    "doktor": "doctor",
+    "zhena": "patient",
     "paren": "doctor"
   },
   "lines": [
@@ -28,8 +26,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Через несколько минут Мария Петровна выскочила из кабинета с дикими криками и воплями и понеслась вдоль по коридору.",
-      "emotion": "neutral",
+      "text": "После нескольких минут пребывания в его кабинете Мария Петровна выскочила оттуда с дикими криками и воплями и понеслась вдоль по коридору.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,15 +64,24 @@
       "character": "doktor",
       "text": "Марии Петровне пошёл пятьдесят шестой год, у неё взрослая дочь, скоро внук будет, а ты ей говоришь, что она беременна!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Молодой врач, продолжая писать что-то в карточке, ответил:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "paren",
       "text": "Но икоточка-то у неё прошла?",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -86,25 +93,23 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "tyoshcha",
-        "doktor",
+        "zhena",
         "paren"
       ],
       "roles": {
-        "tyoshcha": "old-woman",
-        "doktor": "doctor",
+        "zhena": "patient",
         "paren": "doctor"
       },
       "beats": [
         {
           "type": "move",
-          "who": "paren",
-          "to": "desk"
+          "who": "zhena",
+          "to": "couch"
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "center"
+          "who": "paren",
+          "to": "desk"
         },
         {
           "type": "line",
@@ -116,12 +121,62 @@
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "off-left"
+          "who": "zhena",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "zhena"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "zhena": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -144,9 +199,13 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

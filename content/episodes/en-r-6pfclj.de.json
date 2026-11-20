@@ -7,19 +7,19 @@
   "place": "road",
   "cast": [
     "sluzhivy",
-    "muzhik",
-    "ptitsa"
+    "ptitsa",
+    "muzhik"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "muzhik": "everyman",
-    "ptitsa": "bird"
+    "ptitsa": "bird",
+    "muzhik": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Polizist hält einen Lieferwagen an. Hinten sitzen zehn Pinguine.",
+      "text": "Ein Polizist hält einen Lieferwagen an. Als er ans Fenster tritt, sieht er hinten zehn Pinguine sitzen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -31,15 +31,13 @@
       "text": "Sind das Ihre Pinguine?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ja. Das sind meine Haustiere.",
+      "text": "Ja, das sind meine Haustiere.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,18 +46,16 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Bringen Sie die sofort in den Zoo.",
+      "text": "Sie müssen sie sofort in den Zoo bringen.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Am nächsten Tag hält er denselben Wagen wieder an. Die Pinguine tragen Sonnenbrillen.",
+      "text": "Der Mann ist einverstanden und fährt los. Am nächsten Tag hält der Polizist denselben Lieferwagen an, tritt ans Fenster und sieht die zehn Pinguine, alle mit Sonnenbrillen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,25 +64,126 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Ich hab Ihnen doch gesagt, Sie sollen die Pinguine in den Zoo bringen!",
+      "text": "Ich dachte, ich hätte Ihnen gesagt, Sie sollen die Pinguine in den Zoo bringen.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Hab ich. Und heute fahren wir an den Strand!",
+      "text": "Hab ich! Heute fahren wir an den Strand!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "ptitsa",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ptitsa": "bird",
+        "muzhik": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "ptitsa",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ptitsa": "bird",
+        "muzhik": "driver"
+      },
+      "looks": {
+        "ptitsa": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

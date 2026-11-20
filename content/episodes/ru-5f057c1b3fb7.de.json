@@ -7,28 +7,28 @@
   "place": "forest",
   "cast": [
     "nachalnik",
+    "muzhik-ryzhy",
     "muzhik"
   ],
   "roles": {
     "nachalnik": "new-russian",
+    "muzhik-ryzhy": "gangster",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Entschuldigung, Jungs. Ist das euer Bullterrier, der hier rumläuft?",
-      "emotion": "sad",
+      "text": "Jungs, ist das euer Bullterrier, der hier rumläuft?!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Ja, unserer. Was willst du?",
+      "text": "Ja, unserer. Und was willst du, verdammt?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Also, wir machen gleich nebenan Picknick. Und mein Hund hat euren aus Versehen umgebracht.",
+      "text": "Wissen Sie, wir machen hier in der Nähe auch Picknick, und mein Hündchen hat aus Versehen euren totgemacht!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +45,9 @@
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "Bitte was?! Was hast du denn für ein Vieh?",
+      "character": "muzhik-ryzhy",
+      "text": "Verdammter Mist!? Was hast du denn für ein Vieh?",
+      "uncensored": "Verdammte Scheiße!? Was hast du denn für ein Vieh?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,32 +56,98 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "So einen kleinen Pudel.",
+      "text": "Ach, so ein kleiner Pudel!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "nachalnik",
-      "text": "Was?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "muzhik",
-      "text": "Eurer hat sich an ihm verschluckt.",
+      "text": "Eurer hat sich an ihm verschluckt!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "nachalnik",
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "new-russian",
+        "muzhik-ryzhy": "gangster",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "gold-chain",
+            "stubble"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

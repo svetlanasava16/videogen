@@ -6,27 +6,54 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "sluzhivy-ryadovoy",
-    "doktor"
+    "doktor",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "sluzhivy-ryadovoy": "firefighter",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "sluzhivy-ryadovoy": "firefighter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Пожарные только что потушили пожар в больнице.",
+      "text": "Доблестной Пожарной Охране посвящается...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Приехали пожарные на вызов тушить больницу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
+      "character": "narrator",
+      "text": "Ну, все сделали как и подобает настоящим героям: пожар потушили, в грязь лицом не упали.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "После окончания тушения командир расчета докладывает главному врачу:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "sluzhivy-ryadovoy",
-      "text": "Товарищ главврач, задача выполнена. Возгорание ликвидировано.",
+      "text": "Задача выполнена, возгорание ликвидировано.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,34 +62,43 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l6",
       "character": "sluzhivy-ryadovoy",
-      "text": "Правда, есть пострадавшие. Девять человек.",
+      "text": "Правда... есть пострадавшие. Девять человек.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "Семерых мы откачали.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "sluzhivy-ryadovoy",
-      "text": "А двоих, к сожалению, спасти не удалось.",
+      "text": "Семерых мы откачали, а двоих, к сожалению, спасти не удалось.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
+      "character": "narrator",
+      "text": "После этих слов главврач падает в обморок.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Очнувшись, заикаясь и едва выговаривая слова, говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "doktor",
       "text": "Как семерых?!",
       "emotion": "surprised",
@@ -71,13 +107,14 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l11",
       "character": "doktor",
-      "text": "Ребята, вы же морг тушили!",
-      "emotion": "surprised",
+      "text": "Ребята, вы же морг тушили...",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

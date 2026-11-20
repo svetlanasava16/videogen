@@ -1,0 +1,125 @@
+{
+  "id": "de-witze-1l0ln4k.ru",
+  "jokeId": "de-witze-1l0ln4k",
+  "locale": "ru",
+  "title": "Новый спорткар",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "employee",
+    "nachalnik": "boss"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Утром начальник подъезжает на новеньком, очень дорогом спортивном автомобиле.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Какая у вас классная новая машина! Прямо завидно становится.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Знаете, если вы весь год будете усердно работать, вкладывать все силы в успех фирмы и перекроете результат прошлого финансового года,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "то в следующем году я смогу позволить себе машину ещё лучше.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "keys",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

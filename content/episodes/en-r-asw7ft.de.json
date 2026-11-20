@@ -6,84 +6,161 @@
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "vovochka",
     "zhena",
-    "barmen"
+    "vovochka",
+    "devushka"
   ],
   "roles": {
-    "vovochka": "child",
     "zhena": "mother",
-    "barmen": "waiter"
+    "vovochka": "child",
+    "devushka": "waiter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau kommt mit fünfzehn Jungs in ein Restaurant. Die toben wild herum.",
+      "text": "Eine Frau geht mit fünfzehn Kindern in ein Restaurant.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka",
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Eddy! Sofort hinsetzen!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Während sie mit der Kellnerin spricht, fangen die Kinder an herumzualbern.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Alle fünfzehn Jungs setzen sich auf der Stelle hin.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Eddy! Hör auf damit! Sonst gibt's was!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Moment, die heißen alle Eddy?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Alle fünfzehn Jungen setzen sich sofort hin, brav und still.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "zhena",
-      "text": "Klar. Dann muss ich mir nicht merken, wer wer ist.",
-      "emotion": "smug",
+      "character": "devushka",
+      "text": "Haben Sie wirklich alle fünfzehn Jungen Eddy genannt?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Und wenn Sie nur einen von ihnen meinen?",
+      "character": "zhena",
+      "text": "Jep. Das ist einfacher, als sich jedes verdammte Mal zu merken, wer wer ist.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "devushka",
+      "text": "Und wenn Sie aus irgendeinem Grund nur mit einem von ihnen reden wollen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "zhena",
-      "text": "Dann rufe ich ihn beim Nachnamen.",
-      "emotion": "smug",
+      "text": "Na, dann rufe ich sie einfach beim Nachnamen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "devushka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "child",
+        "devushka": "waiter"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "laugh"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "calm"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

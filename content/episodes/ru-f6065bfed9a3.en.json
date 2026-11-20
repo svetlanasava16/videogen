@@ -2,36 +2,33 @@
   "id": "ru-f6065bfed9a3.en",
   "jokeId": "ru-f6065bfed9a3",
   "locale": "en",
-  "title": "Russian Hell",
+  "title": "The Russian Hell",
   "location": "nebesa",
   "place": "hell",
   "cast": [
-    "muzhik",
     "chort",
+    "muzhik",
     "inostranets"
   ],
   "roles": {
-    "muzhik": "everyman",
     "chort": "devil",
+    "muzhik": "everyman",
     "inostranets": "foreigner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Russian and an American die and go to hell.",
+      "text": "After they died, a Russian and an American ended up in hell. The devil asks them:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "inostranets"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "chort",
-      "text": "Which hell would you like, Russian or American?",
+      "text": "Which hell will you go to, the Russian one or the American one?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "inostranets",
+      "character": "muzhik",
       "text": "What's the difference?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -49,16 +46,17 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "In the American one, you eat a bucket of crap every day. In the Russian one, two.",
+      "text": "In the American one you have to eat a bucket of crap every day, and in the Russian one, two.",
+      "uncensored": "In the American one you have to eat a bucket of shit every day, and in the Russian one, two.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "inostranets",
-      "text": "American, please.",
+      "character": "narrator",
+      "text": "The American chose the American one, and the Russian thought:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,16 +65,16 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "I lived in Russia all my life. Why change now?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "I've lived my whole life in Russia, why change now?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "A month later they meet.",
+      "text": "A month later they meet. The Russian asks:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -85,7 +83,7 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "So, how is it over there?",
+      "text": "So how is it over there?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -94,23 +92,124 @@
     {
       "id": "l9",
       "character": "inostranets",
-      "text": "Great. I eat my bucket in the morning and I'm free all day. You?",
+      "text": "Wonderful. I eat a bucket of crap in the morning and I'm free all day.",
+      "uncensored": "Wonderful. I eat a bucket of shit in the morning and I'm free all day.",
       "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "inostranets",
+      "text": "And how about you?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik",
-      "text": "Same as always. Either the crap doesn't get delivered, or there aren't enough buckets to go round.",
+      "text": "Same as always: either they didn't deliver the crap, or there aren't enough buckets to go around.",
+      "uncensored": "Same as always: either they didn't deliver the shit, or there aren't enough buckets to go around.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "chort",
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "chort": "devil",
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "inostranets",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

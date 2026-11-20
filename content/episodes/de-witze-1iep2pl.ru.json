@@ -6,52 +6,79 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-sosed",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "tourist",
-    "sluzhivy": "pirate"
+    "sluzhivy": "pirate",
+    "muzhik-sosed": "tourist"
+  },
+  "looks": {
+    "sluzhivy": {
+      "add": [
+        "black-hat"
+      ],
+      "remove": [
+        "helmet"
+      ]
+    },
+    "muzhik-sosed": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-sosed",
-      "text": "Простите, а где вы потеряли ногу?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "В портовом кабаке у стойки сидит типичный пират: повязка на глазу, деревянная нога, крюк вместо руки.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Отстрелили. В морском бою у Тринидада.",
-      "emotion": "smug",
+      "character": "muzhik-sosed",
+      "text": "Где же вы потеряли ногу?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik-sosed"
+      ],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "А руку?",
-      "emotion": "surprised",
+      "character": "sluzhivy",
+      "text": "Её мне отстрелили в бою у Тринидада.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "sluzhivy",
-      "text": "Саблей отрубили, когда брали фрегат на абордаж.",
-      "emotion": "smug",
+      "character": "muzhik-sosed",
+      "text": "А что случилось с рукой?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "sluzhivy",
+      "text": "Удар саблей, когда мы брали на абордаж фрегат.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik-sosed",
       "text": "А глаз?",
       "emotion": "neutral",
@@ -60,31 +87,33 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "sluzhivy",
-      "text": "Чайка в него нагадила.",
+      "text": "Мне в него чайка нагадила.",
+      "uncensored": "Мне в него чайка насрала.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Но от этого же глаз не теряют!",
+      "text": "Но от этого же глаз не теряют?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "sluzhivy",
-      "text": "Ещё как теряют. Я тогда всего второй день ходил с крюком.",
+      "text": "Ещё как теряют, я тогда всего второй день ходил с крюком.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

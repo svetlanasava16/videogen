@@ -2,29 +2,38 @@
   "id": "de-witze-1qvgx6e.en",
   "jokeId": "de-witze-1qvgx6e",
   "locale": "en",
-  "title": "Five Rings",
+  "title": "The Phone",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "nachalnik",
-    "paren"
+    "paren",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "boss",
-    "paren": "employee"
+    "paren": "employee",
+    "nachalnik": "boss"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Kevin, the phone's ringing! Pick it up, for crying out loud!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "In the office. The phone rings once, twice...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "nachalnik",
+      "text": "Meier, it's ringing! Now answer it, damn it!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "paren",
       "text": "Boss, I always let it ring five times. People should think I'm really busy.",
       "emotion": "smug",
@@ -33,25 +42,91 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "nachalnik",
-      "text": "Pick it up!",
+      "text": "Answer it!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Meier sighs, picks up and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "paren",
-      "text": "Nine-one-one, what's your emergency?",
+      "text": "Police emergency line. How can we help you?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,42 +2,74 @@
   "id": "ru-3ab9f2fbf6fe.en",
   "jokeId": "ru-3ab9f2fbf6fe",
   "locale": "en",
-  "title": "Daddy's Home",
+  "title": "Without Daddy",
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "muzhik",
     "zhena",
-    "vovochka"
+    "devochka",
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "drunk",
     "zhena": "wife",
-    "vovochka": "child"
+    "devochka": "child",
+    "vovochka": "child",
+    "muzhik": "drunk"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "curlers"
+      ],
+      "remove": []
+    },
+    "muzhik": {
+      "add": [
+        "red-nose",
+        "tie"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Three in the morning. A drunk husband crawls home and brings down the whole hallway: buckets, skis, a bicycle.",
+      "text": "A drunk husband crawls home at three in the morning.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "What on earth was that?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "In the hallway he falls, knocks over the coat rack, there's a terrible crash and everything comes down: basins, skis, a bicycle...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "narrator",
+      "text": "His wife and two kids run out of the room in horror.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "zhena",
+        "devochka",
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "What's the matter, couldn't sleep without Daddy?",
+      "text": "So what, can't sleep without daddy?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -46,60 +78,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik",
-        "zhena",
-        "vovochka"
-      ],
-      "roles": {
-        "muzhik": "drunk",
-        "zhena": "wife",
-        "vovochka": "child"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "door",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "bottle",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "vovochka",
-          "to": "tv",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

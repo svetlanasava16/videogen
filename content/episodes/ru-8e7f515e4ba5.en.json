@@ -13,11 +13,19 @@
     "tyoshcha": "old-woman",
     "vovochka": "vovochka"
   },
+  "looks": {
+    "tyoshcha": {
+      "add": [
+        "headscarf"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "tyoshcha",
-      "text": "Oh, hi, Johnny! How are you?",
+      "text": "How are you, Johnny?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -37,7 +45,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "How's school?",
+      "text": "And how's school?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,7 +64,7 @@
       "id": "l5",
       "character": "tyoshcha",
       "text": "And how's your health?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -73,20 +81,22 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "Do you know any other words besides fine?",
+      "text": "Listen, do you have any other words in your vocabulary besides this \"fine\"?",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "vovochka",
-      "text": "I do. But Dad says I'm not allowed to tell grown-ups to get lost.",
+      "text": "Dad said you're not allowed to tell grown-ups to \"get lost\"...",
+      "uncensored": "Dad said you're not allowed to tell grown-ups to \"fuck off\"...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

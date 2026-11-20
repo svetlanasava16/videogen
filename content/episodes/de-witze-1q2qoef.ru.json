@@ -1,0 +1,152 @@
+{
+  "id": "de-witze-1q2qoef.ru",
+  "jokeId": "de-witze-1q2qoef",
+  "locale": "ru",
+  "title": "Магазинная кража",
+  "location": "sud",
+  "place": "courtroom",
+  "cast": [
+    "devushka",
+    "nachalnik",
+    "muzhik"
+  ],
+  "roles": {
+    "devushka": "woman",
+    "nachalnik": "judge",
+    "muzhik": "husband"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Несговорчивая женщина предстаёт перед судом за кражу в магазине. Судья выносит приговор.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Несмотря на неопровержимые доказательства, вы не признаёте вину и не раскаиваетесь.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Доказано, что вы украли пакетик мятных леденцов.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Приговариваю вас к возмещению ущерба и двенадцати суткам ареста, по одним суткам за каждый леденец в пакетике.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Тут вдруг встаёт муж подсудимой и кричит судье.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Давайте уж сразу всё начистоту!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Она ещё и пачку риса стащила!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "devushka",
+        "nachalnik",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "nachalnik": "judge",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "dock"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "witness"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

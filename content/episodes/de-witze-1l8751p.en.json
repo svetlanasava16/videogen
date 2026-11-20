@@ -2,22 +2,31 @@
   "id": "de-witze-1l8751p.en",
   "jokeId": "de-witze-1l8751p",
   "locale": "en",
-  "title": "The Tired Civil Servant",
+  "title": "The Civil Servant",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "A man goes to the doctor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
-      "text": "Doctor, for weeks now I've felt so tired and sluggish. What could it be?",
+      "text": "Doctor, these last few weeks I've been feeling so weak and limp all the time. What could it be?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,7 +35,7 @@
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "What do you do for a living?",
       "emotion": "neutral",
@@ -35,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "I'm a civil servant.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "doktor",
-      "text": "I see. And how have these last few weeks been?",
+      "character": "muzhik",
+      "text": "Civil servant.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,21 +54,31 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Well, actually, I'm on vacation right now.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Ah, and these last few weeks, how have they been?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "muzhik",
+      "text": "Well, actually, I'm on vacation at the moment...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "doktor",
-      "text": "Well, that explains it. You're not getting enough sleep!",
+      "text": "Well then, it's all clear. You're missing your sleep!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

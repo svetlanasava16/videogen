@@ -17,8 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Доктор, говорят, есть такая операция, чтобы детей больше точно не было. Сделайте мне такую.",
-      "emotion": "neutral",
+      "text": "Доктор, я слышал, что можно сделать такую операцию, что потом детей уже никак не может быть.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -27,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Ну что вы, голубчик, такие решения с кондачка не принимают.",
+      "character": "muzhik",
+      "text": "Вот сделайте мне такую.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,29 +37,39 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Сегодня вы детей не хотите, а завтра захотите. Взвесьте всё, обсудите с семьёй.",
-      "emotion": "smug",
+      "text": "Ну, мой дорогой, такие решения с кондачка не принимают.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Да обсуждали уже.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "character": "doktor",
+      "text": "Сегодня вы детей не хотите, а завтра захотите.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "doktor",
+      "text": "Взвесьте все, обсудите с семьей...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Голосование такое: двое против, семнадцать за.",
+      "text": "Да уж обсуждали. Голосование такое: два против, семнадцать за.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

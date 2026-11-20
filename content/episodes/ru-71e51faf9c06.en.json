@@ -7,53 +7,98 @@
   "place": "home-kitchen",
   "cast": [
     "vor",
+    "muzhik-ryzhy",
     "kot"
   ],
   "roles": {
     "vor": "thief",
+    "muzhik-ryzhy": "thief",
     "kot": "cat"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "One night, a burglar breaks into an apartment.",
+      "text": "Seeing only two magnets on the fridge, one from Alcatraz and one from San Quentin,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vor",
-      "text": "Okay, the fridge. Let's see who lives here.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vor"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vor",
-      "text": "Two magnets. Alcatraz… and San Quentin.",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "the burglars fed the cat and washed the dishes.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "vor",
-      "text": "Right. Feed the cat, do the dishes, and we leave very quietly.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "vor",
+        "muzhik-ryzhy",
+        "kot"
+      ],
+      "roles": {
+        "vor": "thief",
+        "muzhik-ryzhy": "thief",
+        "kot": "cat"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "eye-mask",
+            "striped-shirt"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "fridge",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "stove"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

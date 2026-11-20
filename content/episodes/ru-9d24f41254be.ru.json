@@ -2,52 +2,41 @@
   "id": "ru-9d24f41254be.ru",
   "jokeId": "ru-9d24f41254be",
   "locale": "ru",
-  "title": "Вторая жена",
-  "location": "bolnitsa",
+  "title": "Второй аппендикс",
+  "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "doktor",
+    "devushka",
     "muzhik"
   ],
   "roles": {
-    "doktor": "doctor",
+    "devushka": "wife",
     "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Доктор, умоляю, поедемте скорее! У жены сильный приступ аппендицита!",
+      "text": "Доктор, умоляю, приезжайте немедленно. У жены сильный приступ аппендицита!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "doktor",
-      "text": "Не волнуйтесь. Два года назад я сам оперировал вашу жену и удалил ей аппендикс.",
-      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "doktor",
-      "text": "Второй аппендикс у человека появиться не может!",
+      "text": "Не волнуйтесь. Два года назад я сделал вашей жене операцию и удалил слепой отросток. У человека не может появиться второй аппендикс!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
-      "text": "Верно, доктор. Но у человека может появиться вторая жена.",
-      "emotion": "smug",
+      "text": "Правильно, доктор. Но у человека может появиться вторая жена.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -55,6 +44,93 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

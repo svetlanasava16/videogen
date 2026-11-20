@@ -1,0 +1,118 @@
+{
+  "id": "de-witze-1nirrry.ru",
+  "jokeId": "de-witze-1nirrry",
+  "locale": "ru",
+  "title": "Разговор в автобусе",
+  "location": "doroga",
+  "place": "bus",
+  "cast": [
+    "muzhik",
+    "zhena",
+    "vovochka"
+  ],
+  "roles": {
+    "muzhik": "customer",
+    "zhena": "mother",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Ох, ну и страшный же вон тот мальчишка.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Эй, это мой сын.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Ой, извините, я не знал, что вы его отец.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Эй!! Я его мать!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "zhena": "mother",
+        "vovochka": "child"
+      },
+      "looks": {
+        "zhena": {
+          "clothes": "#5a6470",
+          "hairStyle": "short",
+          "add": [],
+          "remove": []
+        },
+        "vovochka": {
+          "add": [
+            "freckles",
+            "cowlick"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

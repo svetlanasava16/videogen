@@ -2,7 +2,7 @@
   "id": "ru-6d99d6e0edac.de",
   "jokeId": "ru-6d99d6e0edac",
   "locale": "de",
-  "title": "Kredit auf Ehrenwort",
+  "title": "Auf Ehrenwort",
   "location": "ofis",
   "place": "bank",
   "cast": [
@@ -12,6 +12,14 @@
   "roles": {
     "muzhik": "customer",
     "nachalnik": "businessman"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Kein Problem.",
-      "emotion": "happy",
+      "text": "Kein Problem...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,8 +52,8 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Dann werden Sie sich vor dem Allmächtigen schämen, wenn Sie vor ihm stehen.",
-      "emotion": "smug",
+      "text": "Dann werden Sie sich vor dem Allmächtigen schämen, wenn Sie vor ihn treten.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Na, bis dahin ist ja noch lange hin.",
-      "emotion": "smug",
+      "text": "Bis dahin ist es ja noch lange hin...",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -62,11 +70,12 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Wenn Sie am Fünften nicht zahlen, stehen Sie am Sechsten vor ihm.",
+      "text": "Na ja, wenn Sie am Fünften nicht zurückzahlen, treten Sie am Sechsten vor ihn.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

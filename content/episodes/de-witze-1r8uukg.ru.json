@@ -1,0 +1,166 @@
+{
+  "id": "de-witze-1r8uukg.ru",
+  "jokeId": "de-witze-1r8uukg",
+  "locale": "ru",
+  "title": "Водитель автобуса",
+  "location": "doroga",
+  "place": "bus",
+  "cast": [
+    "muzhik-ryzhy",
+    "zhena",
+    "vovochka",
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "driver",
+    "zhena": "mother",
+    "vovochka": "child",
+    "muzhik": "customer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Женщина с младенцем на руках заходит в автобус через переднюю дверь, рядом с водителем.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "zhena",
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Это, пожалуй, самый уродливый ребёнок, которого я когда-либо видел.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Женщина в шоке, но не может вымолвить ни слова. Она садится рядом с мужчиной, который видит, что с ней что-то не так.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Милая женщина, что-то случилось?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Меня только что оскорбил водитель автобуса.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Это просто возмутительно, и вы не обязаны такое терпеть.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Давайте сделаем так.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Вы идёте к водителю и требуете извинений, а я пока подержу вашу обезьянку.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik-ryzhy",
+        "zhena",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "zhena": "mother",
+        "vovochka": "child",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

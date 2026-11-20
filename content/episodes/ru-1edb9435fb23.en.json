@@ -2,23 +2,30 @@
   "id": "ru-1edb9435fb23.en",
   "jokeId": "ru-1edb9435fb23",
   "locale": "en",
-  "title": "Real Fur",
+  "title": "The Fur Coat",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "vovochka"
+    "vovochka",
+    "zhena"
   ],
   "roles": {
-    "zhena": "mother",
-    "vovochka": "vovochka"
+    "vovochka": "vovochka",
+    "zhena": "mother"
+  },
+  "looks": {
+    "zhena": {
+      "clothes": "#7a5232",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Well, Johnny? Real fur!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Johnny's mom is trying on a new real fur coat.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +33,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "Mom, do you realize this coat is the result of the terrible suffering of some poor, miserable animal?",
-      "emotion": "sad",
+      "text": "Mom, do you realise this coat is the result of the terrible suffering of a poor, miserable animal?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -39,7 +46,8 @@
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

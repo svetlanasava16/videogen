@@ -7,30 +7,33 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "uchilka"
+    "devochka",
+    "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "uchilka": "pharmacist"
+    "devochka": "child",
+    "doktor": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei kleine Jungs gingen in eine Apotheke, suchten sich eine Packung Tampons aus und gingen zur Kasse.",
+      "text": "Zwei kleine Jungs gingen in eine Apotheke, nahmen eine Packung Tampons und gingen zur Kasse.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "vovochka"
+        "vovochka",
+        "devochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Na, mein Junge, wie alt bist du?",
+      "character": "doktor",
+      "text": "Junge, wie alt bist du?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -39,15 +42,15 @@
       "character": "vovochka",
       "text": "Acht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
-      "text": "Weißt du, wofür man die benutzt?",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "Weißt du, wofür die sind?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +58,7 @@
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Nicht genau, aber die sind nicht für mich. Die sind für ihn...",
+      "text": "Nicht genau, aber die sind nicht für mich.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +67,7 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Das ist mein Bruder. Er ist vier.",
+      "text": "Die sind für ihn... Das ist mein Bruder. Er ist vier.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,16 +76,16 @@
     {
       "id": "l7",
       "character": "vovochka",
-      "text": "Wir haben im Fernsehen gesehen, dass man, wenn man die benutzt, schwimmen und Fahrrad fahren kann.",
+      "text": "Wir haben im Fernsehen gesehen, dass man damit schwimmen und Fahrrad fahren kann.",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "vovochka",
-      "text": "Im Moment kann er beides nicht.",
+      "text": "Und im Moment kann er beides nicht.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],

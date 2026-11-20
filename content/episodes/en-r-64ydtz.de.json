@@ -1,0 +1,83 @@
+{
+  "id": "en-r-64ydtz.de",
+  "jokeId": "en-r-64ydtz",
+  "locale": "de",
+  "title": "Milch und Eier",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "zhena",
+    "paren"
+  ],
+  "roles": {
+    "zhena": "wife",
+    "paren": "programmer"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Eine Frau bittet ihren Mann, einen Programmierer, einkaufen zu gehen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Kannst du runter zum Laden gehen und einen Liter Milch holen, und wenn sie Eier haben, nimm sechs.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "paren"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Später kommt er nach Hause.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Warum zum Teufel hast du sechs Liter Milch?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Sie hatten Eier.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

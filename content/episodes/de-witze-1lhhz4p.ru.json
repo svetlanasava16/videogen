@@ -2,94 +2,190 @@
   "id": "de-witze-1lhhz4p.ru",
   "jokeId": "de-witze-1lhhz4p",
   "locale": "ru",
-  "title": "Глухая жена",
-  "location": "kukhnya",
+  "title": "Глуховата",
+  "location": "bolnitsa",
   "place": "home-kitchen",
   "cast": [
     "muzhik",
-    "zhena"
+    "doktor"
   ],
   "roles": {
     "muzhik": "husband",
-    "zhena": "wife"
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Мужчине кажется, что жена стала плохо слышать.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Доктор, мне кажется, моя жена плохо слышит.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "doktor",
+      "text": "Заговорите с ней со спины. По тому, с какого расстояния она отреагирует, можно будет судить.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "narrator",
-      "text": "Врач советует: спросите её что-нибудь сзади и посмотрите, с какого расстояния она ответит.",
+      "text": "Мужик приходит домой и застаёт жену на кухне, она готовит ужин.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Дорогая, что у нас сегодня на ужин?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "narrator",
-      "text": "Он ничего не слышит. Подходит на метр ближе.",
+      "character": "muzhik",
+      "text": "Дорогая, что у нас сегодня поесть?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Дорогая, что у нас на ужин?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Дорогая, что у нас сегодня на ужин?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Опять тишина. Ещё метр.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Дорогая, а что у нас сегодня поесть?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Дорогая, а что сегодня на ужин?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
       "character": "zhena",
-      "text": "Я тебе в третий раз говорю: курица!",
+      "text": "Я тебе уже в третий раз говорю: будет курица!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

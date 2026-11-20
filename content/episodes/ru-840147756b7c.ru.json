@@ -6,26 +6,24 @@
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "devushka",
     "muzhik",
+    "devushka",
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
     "muzhik": "customer",
+    "devushka": "woman",
     "barmen": "waiter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Официант, что посоветуете к вашему фирменному блюду? Сухое или полусухое?",
+      "text": "Официант, что вы порекомендуете к вашему фирменному блюду, сухое или полусухое?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "devushka"
-      ]
+      "exit": []
     },
     {
       "id": "l2",
@@ -59,7 +57,7 @@
       "character": "muzhik",
       "text": "Ну да.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -70,10 +68,97 @@
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "devushka",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "devushka": "woman",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "devushka": {
+          "clothes": "#ff3fb4",
+          "add": [
+            "lipstick",
+            "mole",
+            "earrings"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "bow-tie",
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "stool-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

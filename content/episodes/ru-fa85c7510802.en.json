@@ -13,20 +13,19 @@
     "devushka": "nurse",
     "muzhik": "patient"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "mustache"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Next! Your name, please?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "P-p-p-pedro P-p-p-perez.",
+      "text": "Your name, please?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,22 +34,32 @@
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "P-p-p-Pedro P-p-p-Perez.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
       "character": "devushka",
       "text": "Do you stutter?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "No. My father stuttered. And the guy who registered my birth was an idiot.",
-      "emotion": "angry",
+      "text": "No, my dad stuttered, and the guy who registered me was an idiot.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

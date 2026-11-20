@@ -6,18 +6,20 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "vovochka",
+    "devochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "father",
-    "vovochka": "child"
+    "vovochka": "child",
+    "devochka": "child",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Dad, what's for dinner?",
+      "text": "What's for dinner?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,48 +30,101 @@
       "character": "muzhik",
       "text": "Scraps.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Scraps?!",
+      "character": "narrator",
+      "text": "They started crying.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Stop crying. Do you know how hard it is to find food with all this panic buying?",
+      "text": "Spoiled brats. It's really hard to get food at the moment, thanks to the panic buying.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Spoiled brat.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "muzhik",
       "text": "And it was a stupid name for a dog anyway.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "vovochka",
+        "devochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "devochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stove"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

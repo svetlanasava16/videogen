@@ -10,47 +10,47 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "customer",
     "barmen": "waiter"
+  },
+  "looks": {
+    "barmen": {
+      "add": [
+        "red-nose"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Guten Abend! Was darf es sein?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "muzhik",
-      "text": "Eine Karaffe Wodka.",
+      "character": "narrator",
+      "text": "Ein Mann kommt in ein Restaurant und sagt zum Kellner:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Und dazu etwas nach Ihrem Geschmack.",
+      "text": "Eine Karaffe Wodka und etwas nach Ihrem Geschmack.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "barmen",
-      "text": "Sehr wohl. Also zwei Karaffen Wodka.",
+      "text": "Dann schreiben wir auf: zwei Karaffen Wodka.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

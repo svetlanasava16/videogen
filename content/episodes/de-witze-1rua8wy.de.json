@@ -2,24 +2,24 @@
   "id": "de-witze-1rua8wy.de",
   "jokeId": "de-witze-1rua8wy",
   "locale": "de",
-  "title": "Scheidung mit hundert",
+  "title": "Alte Leute",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "ded",
+    "nachalnik",
     "tyoshcha",
-    "nachalnik"
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
+    "nachalnik": "lawyer",
     "tyoshcha": "old-woman",
-    "nachalnik": "lawyer"
+    "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Ehepaar, beide weit über hundert, sitzt beim Anwalt.",
+      "text": "Ein hochbetagtes Ehepaar, beide weit über hundert Jahre alt, sitzt beim Anwalt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,7 +27,7 @@
     },
     {
       "id": "l2",
-      "character": "ded",
+      "character": "tyoshcha",
       "text": "Wir wollen uns scheiden lassen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Wie bitte? Nach so langer Ehe? In Ihrem Alter?",
+      "text": "Nach so langer Ehe und in dem hohen Alter wollen Sie sich noch scheiden lassen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,21 +48,102 @@
       "character": "nachalnik",
       "text": "Haben Sie sich das gut überlegt?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "tyoshcha",
-      "text": "Ja, schon lange. Wir wollten nur noch warten, bis die Kinder tot sind.",
+      "text": "Ja, haben wir schon lange.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "tyoshcha",
+      "text": "Wir wollten nur noch warten, bis die Kinder tot sind.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "nachalnik": "lawyer",
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "window"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

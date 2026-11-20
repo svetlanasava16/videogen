@@ -15,11 +15,27 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
+  "looks": {
+    "ptitsa": {
+      "clothes": "#8a8a7a",
+      "add": [],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "A customer walks into a pet shop.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
-      "text": "How much for this parrot?",
+      "text": "How much is this parrot here?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "barmen",
-      "text": "A thousand dollars. He talks fluently and counts to a hundred.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "muzhik",
-      "text": "And that one?",
+      "character": "barmen",
+      "text": "A thousand dollars.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -47,26 +54,26 @@
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Fifteen hundred. Speaks three languages and knows all of Shakespeare by heart.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Why is he so expensive?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "And the scruffy old one in the corner? He's got to be cheaper.",
-      "emotion": "neutral",
+      "character": "barmen",
+      "text": "He's a very gifted bird. He speaks fluently and can count to a hundred.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Three thousand.",
+      "character": "muzhik",
+      "text": "And how much is that one?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,30 +81,76 @@
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "What? What can he do?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Fifteen hundred dollars.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "barmen",
-      "text": "No idea. Never heard him say a word.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "That expensive again?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "barmen",
-      "text": "But the other two call him boss.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Oh, he's an even more gifted bird. He speaks three languages fluently and knows the complete works of Shakespeare by heart!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Then the customer spots a small, old, ugly parrot in the corner.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "And the one back there, surely he costs a lot less?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "barmen",
+      "text": "No, he costs three thousand dollars.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "muzhik",
+      "text": "Excuse me? What can he do?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "barmen",
+      "text": "I don't know either. He's never said a word, but the other two call him boss.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

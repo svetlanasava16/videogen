@@ -2,35 +2,31 @@
   "id": "ru-9a110b9b52ff.ru",
   "jokeId": "ru-9a110b9b52ff",
   "locale": "ru",
-  "title": "Ветеран на уроке",
+  "title": "Самый запомнившийся бой",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
     "uchilka",
-    "ded",
-    "vovochka"
+    "ded"
   ],
   "roles": {
     "uchilka": "teacher",
-    "ded": "old-man",
-    "vovochka": "child"
+    "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "На урок истории в третий класс пригласили ветерана.",
+      "text": "Пригласили один раз ветерана войны на урок истории в третий класс.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Расскажите детям, какой бой вам запомнился больше всего.",
+      "text": "Расскажите самый запомнившийся вам бой.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +44,8 @@
     {
       "id": "l4",
       "character": "ded",
-      "text": "Хренак, слева немцы! Хренак, справа немцы! И спереди тоже немцы!",
+      "text": "Бац слева немцы, бац справа немцы и спереди немцы.",
+      "uncensored": "Хуяк слева немцы, хуяк справа немцы и спереди немцы.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -59,21 +56,89 @@
       "character": "uchilka",
       "text": "Это же дети!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "ded",
-      "text": "Какие, на хрен, дети? Фашисты!",
+      "text": "Какие на фиг дети?! Фашисты!",
+      "uncensored": "Какие на хуй дети?! Фашисты!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "ded"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

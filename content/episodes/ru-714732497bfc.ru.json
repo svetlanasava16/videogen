@@ -1,0 +1,104 @@
+{
+  "id": "ru-714732497bfc.ru",
+  "jokeId": "ru-714732497bfc",
+  "locale": "ru",
+  "title": "День второй",
+  "location": "nebesa",
+  "place": "space",
+  "cast": [
+    "paren",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "paren": "astronaut",
+    "muzhik-ryzhy": "engineer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "День первый. К Земле приближается гигантский астероид.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Группа отважных бурильщиков отправилась к нему для установки ядерного заряда.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "День второй. К Земле приближается гигантский астероид с ядерным зарядом.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "space",
+      "cast": [
+        "paren",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "paren": "astronaut",
+        "muzhik-ryzhy": "engineer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-right"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

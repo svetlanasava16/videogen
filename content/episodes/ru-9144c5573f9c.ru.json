@@ -2,7 +2,7 @@
   "id": "ru-9144c5573f9c.ru",
   "jokeId": "ru-9144c5573f9c",
   "locale": "ru",
-  "title": "Ножки у кровати",
+  "title": "Ножки кровати",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,19 +17,17 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Доктор, я совсем замучился.",
+      "text": "Доктор, я совсем замучился. Ложусь спать, а мне кажется, что под кроватью кто-то есть.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ложусь спать, а мне кажется, что под кроватью кто-то есть. Лезу под кровать, смотрю внимательно, и тут чую, что кто-то на моей кровати лежит.",
-      "emotion": "sad",
+      "text": "Лезу под кровать, смотрю внимательно, и тут чую, что кто-то на моей кровати лежит.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Вылезаю из-под кровати, наверху никого нет. Ложусь, чувствую — всё-таки кто-то есть под кроватью.",
-      "emotion": "surprised",
+      "text": "Вылезаю из-под кровати, наверху никого нет, ложусь, чувствую — всё-таки кто-то есть под кроватью.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
       "character": "muzhik",
       "text": "А когда снова лезу под кровать, мне кажется, что сверху кто-то есть. И так всю ночь.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -57,7 +55,7 @@
       "character": "doktor",
       "text": "Да, это есть такой сложный синдром. Будем вас интенсивно лечить, месяца два-три.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -77,9 +75,7 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l8",
@@ -94,7 +90,7 @@
       "id": "l9",
       "character": "doktor",
       "text": "Как дела?",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -120,7 +116,7 @@
     {
       "id": "l12",
       "character": "muzhik",
-      "text": "Да выпили мы с ним, он мне и говорит: отпили ты нафиг ножки у кровати.",
+      "text": "Да выпили мы с ним, он мне и говорит: отпили ты на фиг ножки у кровати.",
       "uncensored": "Да выпили мы с ним, он мне и говорит: отпили ты на хрен ножки у кровати.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
@@ -146,6 +142,12 @@
           "type": "move",
           "who": "doktor",
           "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -174,6 +176,11 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         }
       ],
       "transition": "cut"
@@ -181,28 +188,23 @@
     {
       "location": "ulitsa",
       "cast": [
-        "doktor",
-        "muzhik"
+        "muzhik",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "doktor": "doctor"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "doktor",
-          "to": "left"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-right"
         },
         {
           "type": "line",
@@ -221,7 +223,7 @@
           "ref": "l12"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

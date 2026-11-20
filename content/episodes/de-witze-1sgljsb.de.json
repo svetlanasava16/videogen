@@ -2,7 +2,7 @@
   "id": "de-witze-1sgljsb.de",
   "jokeId": "de-witze-1sgljsb",
   "locale": "de",
-  "title": "Anstand",
+  "title": "Anständig",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -11,13 +11,13 @@
   ],
   "roles": {
     "muzhik-ryzhy": "fisherman",
-    "muzhik-sosed": "friend"
+    "muzhik-sosed": "fisherman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Angler sitzen am Fluss, als ein Trauerzug vorbeizieht.",
+      "text": "Sitzen zwei Angler am Fluss.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Einer steht auf, nimmt den Hut ab und senkt den Kopf, bis alle vorbei sind.",
+      "text": "Kommt ein Trauerzug vorbei.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,18 +34,18 @@
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Wow, Respekt.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Ein Angler steht auf, nimmt den Hut ab und senkt den Kopf, bis die Trauergemeinde vorbeigezogen ist, und geht dann wieder zurück zum Angeln.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "So viel Anstand hätte ich dir gar nicht zugetraut.",
-      "emotion": "happy",
+      "text": "Wow, Respekt, so viel Anstand hätte ich dir gar nicht zugetraut.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -53,14 +53,56 @@
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Na ja, wir waren immerhin achtundvierzig Jahre verheiratet.",
+      "text": "Wir waren ja schließlich auch achtundvierzig Jahre miteinander verheiratet.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "fisherman",
+        "muzhik-sosed": "fisherman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

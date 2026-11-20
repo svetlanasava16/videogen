@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann trifft auf der Hauptstraße einen alten Schulfreund.",
+      "text": "Ein Mann trifft einen alten Schulfreund.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,44 +25,53 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Schau mich an! Toller Job, dickes Gehalt, ein nagelneuer Sportwagen.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "Und das ist meine Frau. Wunderschön, oder?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Wenn du die schön findest, solltest du mal zu meiner Freundin gehen.",
+      "character": "narrator",
+      "text": "Der fängt an anzugeben, erzählt von seinem gut bezahlten Job und seinem teuren Sportwagen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l3",
+      "character": "narrator",
+      "text": "Dann zieht er ein Foto seiner Frau heraus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "nachalnik",
-      "text": "Warum? Ist die noch schöner?",
+      "text": "Sie ist wunderschön, oder?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Wenn du die schon hinreißend findest, dann geh mal zu meiner Freundin.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "Wieso? Ist sie eine Wucht?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "Nein. Die ist Augenärztin.",
+      "text": "Nein, sie ist eine verdammte Augenärztin.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -88,24 +97,18 @@
           "ref": "l1"
         },
         {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "photo",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -118,6 +121,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

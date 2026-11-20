@@ -16,19 +16,17 @@
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Здравствуйте, профессор! Можно вас спросить?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "По коридору вуза идёт профессор. Навстречу студент.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Конечно, молодой человек.",
+      "character": "paren",
+      "text": "Здравствуйте, профессор. Можно вас спросить?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,46 +34,51 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Когда вы ложитесь спать, бороду кладёте на одеяло или под одеяло?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "doktor",
+      "text": "Конечно, спрашивайте, молодой человек.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "paren",
+      "text": "Скажите, профессор, вы когда спать ложитесь, бороду на одеяло или под одеяло кладёте?",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "doktor",
-      "text": "Хм. Знаете, как-то не задумывался.",
+      "text": "Да, знаете, как-то не задумывался.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "paren",
-      "text": "Извините, пожалуйста.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "paren"
-      ]
-    },
-    {
       "id": "l6",
-      "character": "narrator",
-      "text": "Через неделю. Профессор зелёный, с кругами под глазами.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "character": "paren",
+      "text": "Ну, извините, пожалуйста.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Через неделю зелёный профессор с кругами под глазами встречает в коридоре того же студента и хватает за грудки.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "doktor",
       "text": "Ну ты и сволочь!",
       "emotion": "angry",
@@ -84,16 +87,128 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "doktor",
-      "text": "Неделю спать не могу! И так неудобно, и так неудобно!",
+      "text": "Неделю уже спать не могу — и так неудобно, и так неудобно!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "white-beard",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "white-beard",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

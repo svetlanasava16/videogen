@@ -3,23 +3,21 @@
   "jokeId": "en-r-cmdzgc",
   "locale": "en",
   "title": "The Palindrome",
-  "location": "ofis",
+  "location": "klass",
   "place": "bank",
   "cast": [
-    "uchilka",
-    "paren",
-    "vor"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "paren": "student",
-    "vor": "thief"
+    "vovochka": "child",
+    "uchilka": "teacher"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Miss, what's a palindrome?",
+      "character": "vovochka",
+      "text": "What's a palindrome?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,18 +26,16 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "A word that reads the same backwards. Like racecar.",
+      "text": "Racecar.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "uchilka"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Ten years later. A bank robbery.",
+      "text": "Ten years later.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +44,7 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Go, go, go! Where's the palindrome?",
+      "text": "Where's the palindrome?",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -56,17 +52,96 @@
     },
     {
       "id": "l5",
-      "character": "vor",
-      "text": "Right here, boss! Hop in the kayak!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "The getaway driver is sitting in a kayak.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "vor"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "uchilka": "teacher"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "board"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "vor"
+      ],
+      "roles": {
+        "paren": "student",
+        "vor": "thief"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "eye-mask",
+            "loot-bag"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

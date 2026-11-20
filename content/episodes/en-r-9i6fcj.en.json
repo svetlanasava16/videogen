@@ -1,0 +1,130 @@
+{
+  "id": "en-r-9i6fcj.en",
+  "jokeId": "en-r-9i6fcj",
+  "locale": "en",
+  "title": "Confession",
+  "location": "spalnya",
+  "place": "bedroom",
+  "cast": [
+    "devushka",
+    "paren"
+  ],
+  "roles": {
+    "devushka": "girlfriend",
+    "paren": "boyfriend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "devushka",
+      "text": "My boyfriend was dying.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "There's something I must confess.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka",
+      "text": "Shhh. There's nothing to confess. Everything is alright.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "No, I must die in peace.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "I had sex with your sister, your best friend and your co-worker.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "I know. That's why I poisoned you... Now close your eyes.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "devushka",
+        "paren"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "paren": "boyfriend"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "en-r-4yp0ex.ru",
+  "jokeId": "en-r-4yp0ex",
+  "locale": "ru",
+  "title": "Я в больнице",
+  "location": "bolnitsa",
+  "place": "hospital",
+  "cast": [
+    "paren"
+  ],
+  "roles": {
+    "paren": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "paren",
+      "text": "Мам? Только не волнуйся, но я в больнице...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Петя, ты уже больше восьми лет работаешь врачом, перестань, пожалуйста, начинать с этого каждый наш телефонный разговор.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

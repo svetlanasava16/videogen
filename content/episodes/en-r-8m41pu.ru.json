@@ -2,7 +2,7 @@
   "id": "en-r-8m41pu.ru",
   "jokeId": "en-r-8m41pu",
   "locale": "ru",
-  "title": "Конфиденциальность",
+  "title": "Политика конфиденциальности",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -16,26 +16,79 @@
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Пап, ты что делаешь с моей дверью?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "paren"
-      ],
+      "character": "narrator",
+      "text": "Сын пришёл домой, когда отец снимал его дверь с петель.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Мы обновили политику конфиденциальности.",
-      "emotion": "smug",
+      "character": "paren",
+      "text": "Пап, ты что делаешь?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Мы обновили нашу политику конфиденциальности.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

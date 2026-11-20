@@ -2,7 +2,7 @@
   "id": "ru-607e7dca2e52.de",
   "jokeId": "ru-607e7dca2e52",
   "locale": "de",
-  "title": "Die vergiftete Melone",
+  "title": "Wassermelonen",
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -14,9 +14,9 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik-ryzhy",
-      "text": "Schon wieder Melonen geklaut! Jede Nacht dasselbe!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Einem Bauern wurden ständig Wassermelonen geklaut, und schließlich stellte er auf dem Feld ein Schild auf.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -24,51 +24,30 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Na wartet. Dafür gibt es jetzt ein Schild.",
+      "text": "Vorsicht! In einer der Wassermelonen ist Rattengift!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Achtung! Eine dieser Wassermelonen enthält Rattengift!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Am nächsten Tag sah er, dass nichts geklaut worden war, aber auf dem Schild stand ein Zusatz.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Am nächsten Morgen fehlt keine einzige Melone.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Ha, hat funktioniert! Moment, da hat jemand was druntergeschrieben.",
+      "text": "Jetzt sind es zwei!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Jetzt sind es zwei.",
-      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

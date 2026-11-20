@@ -17,8 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Doctor, I hear there's an operation so you can never have kids again. I'd like that one.",
-      "emotion": "neutral",
+      "text": "Doctor, I heard there's an operation after which you just can't have any more children.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -27,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Now, my dear man, you don't make a decision like that on a whim.",
+      "character": "muzhik",
+      "text": "Do that one for me.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,29 +37,39 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Today you don't want children, tomorrow you might. Think it over. Talk it through with your family.",
-      "emotion": "smug",
+      "text": "Now, my dear man, decisions like that aren't made on a whim.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Oh, we talked.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "character": "doktor",
+      "text": "Today you don't want children, but tomorrow you will.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "doktor",
+      "text": "Weigh it all up, discuss it with your family...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "The vote was two against, seventeen for.",
+      "text": "Oh, we did. The vote was: two against, seventeen in favour.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

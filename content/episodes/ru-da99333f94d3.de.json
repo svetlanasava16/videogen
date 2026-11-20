@@ -3,21 +3,21 @@
   "jokeId": "ru-da99333f94d3",
   "locale": "de",
   "title": "Der Bräutigam",
-  "location": "ofis",
+  "location": "doroga",
   "place": "police-station",
   "cast": [
     "sluzhivy",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Polizist hält einen Raser an.",
+      "text": "Ein Polizist hält einen Raser an, der viel zu schnell gefahren ist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Herr Wachtmeister, ich kann alles erklären!",
+      "character": "paren",
+      "text": "Aber, Herr Polizist, ich kann alles erklären!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Erklären Sie das meinem Chef. Bis dahin ab in die Zelle.",
+      "text": "Das erklärst du alles meinem Chef, und bis dahin sitzt du in der Zelle!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,28 +43,26 @@
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Aber ich wollte doch nur sagen...",
+      "character": "paren",
+      "text": "Aber ich will doch sagen...",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Ruhe!",
+      "text": "Halt den Mund...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Ein paar Stunden später.",
+      "text": "Ein paar Stunden später kommt der Polizist in die Zelle und sagt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,25 +71,125 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "Sie haben Glück. Der Chef ist auf der Hochzeit seiner Tochter. Der kommt bestimmt gut gelaunt.",
+      "text": "Du hast Glück, der Chef ist gerade auf der Hochzeit seiner Tochter. Wenn er kommt, hat er bestimmt gute Laune!",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "pauseAfterSec": 0.8,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Darauf würde ich nicht wetten. Ich bin der Bräutigam.",
+      "character": "paren",
+      "text": "Darauf würde ich nicht zählen. Ich bin der Bräutigam.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1f1f24",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "sluzhivy",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#1f1f24",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

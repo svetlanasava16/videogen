@@ -2,24 +2,24 @@
   "id": "de-witze-1llq1rk.en",
   "jokeId": "de-witze-1llq1rk",
   "locale": "en",
-  "title": "The Hood Ornament",
+  "title": "The Cabbie",
   "location": "doroga",
   "place": "car",
   "cast": [
+    "ded",
     "muzhik-ryzhy",
-    "muzhik-sosed",
-    "ded"
+    "muzhik-sosed"
   ],
   "roles": {
+    "ded": "old-man",
     "muzhik-ryzhy": "driver",
-    "muzhik-sosed": "farmer",
-    "ded": "old-man"
+    "muzhik-sosed": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A farmer comes to the city and takes a taxi for the first time. A Mercedes.",
+      "text": "A country bumpkin in the city for the first time takes a ride in a Mercedes taxi.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Say, what's that star on the hood for?",
+      "text": "What's that star on the hood for?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "That? It's a sight. For aiming at old folks.",
+      "text": "Just you wait, I'll pull your leg.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,37 +46,35 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Every one I hit, I get a five hundred dollar bonus.",
-      "emotion": "smug",
+      "text": "That's a sight for hitting pensioners.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "No kidding?",
-      "emotion": "surprised",
+      "character": "muzhik-ryzhy",
+      "text": "For every one I get, I get a five hundred dollar bonus.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Watch this.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "With that he heads straight for a pensioner, but swerves at the very last moment.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "He floors it straight at an old man and swerves at the very last second. Still, there's a dull thud.",
-      "emotion": "neutral",
+      "text": "Still, there's a dull thud, and the pensioner is lying on the ground.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -84,14 +82,114 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Good thing I flung my door open at the last second, or we'd have lost that bonus!",
+      "text": "If I hadn't flung the door open at the last moment, we'd have lost that bonus for sure!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "ded",
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "muzhik-ryzhy": "driver",
+        "muzhik-sosed": "customer"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "mustache"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "roadside",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

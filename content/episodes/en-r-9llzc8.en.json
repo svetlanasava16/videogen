@@ -16,18 +16,18 @@
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Oh no! I locked my keys in the car!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Finding a woman sobbing that she had locked her keys in her car, a passing soldier assures her that he can help.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Don't cry, ma'am. I can help.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "She looks on amazed as he removes his trousers, rolls them into a tight ball and rubs them against the car door.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,8 +35,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "He takes off his trousers, rolls them into a tight ball and rubs them on the car door. It opens.",
-      "emotion": "neutral",
+      "text": "Magically it opens.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -44,9 +44,9 @@
     {
       "id": "l4",
       "character": "devushka",
-      "text": "That's so clever! How did you do it?",
+      "text": "That's so clever. How did you do it?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -80,10 +80,6 @@
           "to": "right"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "sluzhivy-ryadovoy",
           "to": "center",
@@ -91,12 +87,16 @@
         },
         {
           "type": "line",
-          "ref": "l2"
+          "ref": "l1"
         },
         {
           "type": "move",
           "who": "sluzhivy-ryadovoy",
           "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
         },
         {
           "type": "line",

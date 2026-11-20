@@ -16,20 +16,18 @@
   "lines": [
     {
       "id": "l1",
-      "character": "tyoshcha",
-      "text": "Doctor, I have terrible gas.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "An old lady is at the doctor's, complaining about terrible gas.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "tyoshcha",
-      "text": "Luckily it's always silent and it never smells.",
-      "emotion": "happy",
+      "text": "You know, doctor, I have gas all the time.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "See, I just let one go right now. Nobody would ever notice.",
+      "text": "Luckily, it's always silent and doesn't smell at all.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +43,18 @@
     },
     {
       "id": "l4",
+      "character": "tyoshcha",
+      "text": "Look, one just slipped out again. You can't even tell.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
       "character": "doktor",
-      "text": "I'll prescribe you something. Come back in two weeks.",
+      "text": "I'll prescribe you some medicine. Take it and come back in two weeks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,19 +63,10 @@
       ]
     },
     {
-      "id": "l5",
-      "character": "narrator",
-      "text": "Two weeks later.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l6",
-      "character": "tyoshcha",
-      "text": "Doctor, what did you give me?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "No sooner said than done. Two weeks later the lady is back at the doctor's, complaining.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "tyoshcha"
@@ -77,20 +76,39 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "The gas is no better, and now it stinks something awful!",
+      "text": "Doctor, what on earth did you prescribe me?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "doktor",
-      "text": "Excellent. Your nose is fixed. Next we'll work on your ears.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "tyoshcha",
+      "text": "The gas isn't any better, but now it smells awful!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "Very good, your nose is fine.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Next, we'll take care of your ears.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

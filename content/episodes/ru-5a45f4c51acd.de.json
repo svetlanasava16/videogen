@@ -8,18 +8,20 @@
   "cast": [
     "muzhik-ryzhy",
     "muzhik",
-    "vovochka"
+    "vovochka",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-ryzhy": "everyman",
+    "muzhik-ryzhy": "friend",
     "muzhik": "father",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Papa spielt zu Hause mit seinen Freunden Poker. Im Pott liegt ein Vermögen.",
+      "text": "Ein Vater spielt zu Hause mit seinen Kumpels Poker. Im Pott liegt schon ordentlich was, und die Bietrunde läuft.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,18 +29,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Ich erhöhe. Du bist dran.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
-      "text": "Papa, sind vier Asse gut?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Da kommt sein vierjähriger Sohn angerannt und schaut ihm in die Karten.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "vovochka"
@@ -46,43 +39,95 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Ja, mein Sohn. Sehr gut.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "id": "l3",
+      "character": "vovochka",
+      "text": "Oh, Papa, sind vier Asse gut?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Ja! Mein Sohn...",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l5",
-      "character": "muzhik-ryzhy",
-      "text": "Ich bin raus.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
       "character": "narrator",
-      "text": "Alle steigen aus. Papa streicht den Pott ein.",
+      "text": "Alle steigen sofort aus, und Papa streicht den riesigen Pott ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "vovochka",
-      "text": "Schade, Papa, dass du keine hattest.",
+      "text": "Schade, Papa, dass du sie nicht hattest...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik",
+        "vovochka",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "friend",
+        "muzhik": "father",
+        "vovochka": "child",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

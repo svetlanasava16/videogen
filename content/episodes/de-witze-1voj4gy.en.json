@@ -6,18 +6,18 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "After a wild car chase, the police finally pull a man over.",
+      "text": "A man is being chased by the police, and they have a wild car chase.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,35 +25,90 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Unless you have a really good reason for driving like that, you are in big trouble.",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Eventually the police catch him after all.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Sorry, officer. Two weeks ago my wife ran off with a policeman.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "character": "sluzhivy",
+      "text": "If you don't have a really good reason for your driving and for running away, you're going to be in big trouble.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "I thought you were trying to bring her back.",
+      "text": "Sorry, but two weeks ago my wife ran off with a policeman.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "And I thought he wanted to bring her back to me.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

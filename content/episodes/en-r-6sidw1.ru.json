@@ -15,11 +15,20 @@
     "vovochka": "child",
     "muzhik": "husband"
   },
+  "looks": {
+    "vovochka": {
+      "hair": "#f2c94c",
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Через десять лет жене показалось, что сын какой-то странный, и она сделала тест ДНК.",
+      "text": "Через десять лет жене начинает казаться, что их ребёнок выглядит как-то странно. И она решает сделать тест ДНК.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,15 +36,24 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Оказывается, у ребёнка совсем другие родители.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
-      "text": "Дорогой, мне нужно сказать тебе что-то очень серьёзное.",
+      "text": "Дорогой, мне нужно сказать тебе кое-что очень серьёзное.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Что случилось?",
       "emotion": "neutral",
@@ -44,40 +62,41 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "zhena",
-      "text": "Тест ДНК показал, что это не наш ребёнок.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "muzhik",
-      "text": "А ты не помнишь?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "По результатам теста ДНК это не наш ребёнок.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Когда нас выписывали из роддома, малыш обкакался.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "text": "Ты что, не помнишь?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "И ты сказала: иди поменяй ребёнка, я тут подожду.",
+      "text": "Когда мы выходили из роддома, мы заметили, что наш малыш покакал.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Ты сказала: иди поменяй ребёнка, я тебя здесь подожду.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

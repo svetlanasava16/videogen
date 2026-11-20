@@ -1,0 +1,180 @@
+{
+  "id": "de-witze-1k7q09h.ru",
+  "jokeId": "de-witze-1k7q09h",
+  "locale": "ru",
+  "title": "Спьяну",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "paren",
+    "muzhik",
+    "barmen"
+  ],
+  "roles": {
+    "paren": "everyman",
+    "muzhik": "drunk",
+    "barmen": "bartender"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Двое парней сидят в баре на сорок пятом этаже небоскрёба и напиваются в стельку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Щас мы с тобой уже сто-о-олько выпили, мы мжем летать.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "paren"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Он открывает окно, выпрыгивает, облетает вокруг здания и залетает обратно.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Щас ты!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Второй всё ещё в полном шоке от того, что сейчас увидел, но в его состоянии он ещё и полон решимости.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik"
+      ]
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Он подходит к окну, прыгает и… разбивается насмерть.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "barmen",
+      "text": "Как только ты напьёшься, ты становишься настоящим гадом, Супермен.",
+      "uncensored": "Как только ты напьёшься, ты становишься настоящим засранцем, Супермен.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "paren": "everyman",
+        "muzhik": "drunk",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses",
+            "tie"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,7 +2,7 @@
   "id": "ru-6d99d6e0edac.en",
   "jokeId": "ru-6d99d6e0edac",
   "locale": "en",
-  "title": "A Loan on Your Word",
+  "title": "On Your Word of Honor",
   "location": "ofis",
   "place": "bank",
   "cast": [
@@ -12,6 +12,14 @@
   "roles": {
     "muzhik": "customer",
     "nachalnik": "businessman"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "gold-chain"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "No problem at all.",
-      "emotion": "happy",
+      "text": "No problem...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,8 +52,8 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Then you'll be ashamed when you stand before your Maker.",
-      "emotion": "smug",
+      "text": "You'll be ashamed before the Almighty when you meet Him.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Well, that won't be any time soon.",
-      "emotion": "smug",
+      "text": "That won't be for a long while...",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -62,11 +70,12 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "If you don't pay by the fifth, you'll meet him on the sixth.",
+      "text": "Well, if you don't pay it back on the fifth, you'll meet Him on the sixth.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

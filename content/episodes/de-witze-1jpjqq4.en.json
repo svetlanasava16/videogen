@@ -6,54 +6,174 @@
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
-    "muzhik-ryzhy",
-    "batyushka"
+    "batyushka",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "fisherman",
-    "batyushka": "priest"
+    "batyushka": "priest",
+    "muzhik-ryzhy": "fisherman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A funeral procession passes a lake. An angler stands up, takes off his hat and bows.",
+      "text": "On the way from the church to the cemetery, the funeral procession passes a lake where an angler is sitting.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "He sees the procession, stands up, takes off his hat and bows to it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "batyushka",
-      "text": "Excuse me, sir. The way you bowed to that procession earlier really touched me.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "batyushka",
-      "text": "You don't see that kind of respect anymore.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "After the burial, the priest passes the lake again on his way back.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Well, Father. After thirty years of marriage, it's the least I could do.",
-      "emotion": "sad",
+      "character": "batyushka",
+      "text": "That gesture from the angler was wonderful, I must tell him so.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "Your gesture earlier really impressed me.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Oh, you know, Father, after thirty years of marriage...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "batyushka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "batyushka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "fence"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "en-r-7rh7qn.en",
   "jokeId": "en-r-7rh7qn",
   "locale": "en",
-  "title": "Gun and Badge",
+  "title": "Turn In Your Badge",
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,42 +13,42 @@
     "barmen": "waiter",
     "nachalnik": "boss"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "badge"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
       "text": "You're fired.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "I knew this day would come.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "The waiter solemnly turns in his gun and badge.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Here. My gun. And my badge.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "nachalnik",
-      "text": "You're a waiter. Where did you even get those?",
+      "text": "You're a waiter. Where did you get those?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

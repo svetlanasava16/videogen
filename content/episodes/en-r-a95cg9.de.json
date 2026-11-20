@@ -2,7 +2,7 @@
   "id": "en-r-a95cg9.de",
   "jokeId": "en-r-a95cg9",
   "locale": "de",
-  "title": "Lang und qualvoll",
+  "title": "Ein qualvoller Tod",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -16,18 +16,18 @@
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Schluss! Deine Koffer sind gepackt. Raus!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Eine Frau war so wütend auf ihren Mann, dass sie seine Koffer packte.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Schon gut. Ich gehe.",
-      "emotion": "sad",
+      "character": "zhena",
+      "text": "Raus!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,23 +35,77 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Und ich hoffe, du stirbst einen langen, langsamen, qualvollen Tod!",
+      "text": "Ich hoffe, du stirbst einen langen, langsamen, qualvollen Tod.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Heißt das, ich soll bleiben?",
-      "emotion": "surprised",
+      "text": "Also willst du, dass ich bleibe?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

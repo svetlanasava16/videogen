@@ -2,7 +2,7 @@
   "id": "en-r-6tmic8.ru",
   "jokeId": "en-r-6tmic8",
   "locale": "ru",
-  "title": "Падающее дерево",
+  "title": "Если в лесу падает дерево",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "muzhik-ryzhy",
-      "text": "Если в лесу падает дерево и никто этого не слышит...",
+      "text": "Если в лесу падает дерево и рядом нет никого, кто бы это услышал...",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -24,14 +24,50 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "значит, мой бизнес по незаконной вырубке процветает.",
+      "text": "значит, мой бизнес по незаконной вырубке идёт успешно.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#a8322d",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

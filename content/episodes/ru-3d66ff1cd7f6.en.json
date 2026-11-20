@@ -1,0 +1,136 @@
+{
+  "id": "ru-3d66ff1cd7f6.en",
+  "jokeId": "ru-3d66ff1cd7f6",
+  "locale": "en",
+  "title": "Bad Connection",
+  "location": "tserkov",
+  "place": "church",
+  "cast": [
+    "batyushka"
+  ],
+  "roles": {
+    "batyushka": "priest"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A prayer service in church. The words flow calmly and solemnly. Suddenly the heavens open, and in rays of heavenly light the face of God appears.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "My sons and daughters, the moment has come for me to rev...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "ded"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "With a terrible crash the heavens slam shut... The parishioners are in shock! Nobody can believe their eyes... someone is frantically crossing himself...",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Suddenly the heavens open again, the gloomy face of the Lord peers out of the radiance, and he says furiously:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "ded"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ded",
+      "text": "Frigging Wi-Fi!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka"
+      ],
+      "roles": {
+        "batyushka": "priest"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded"
+      ],
+      "roles": {
+        "ded": "god"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "halo"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

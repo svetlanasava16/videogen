@@ -15,11 +15,20 @@
     "vovochka": "child",
     "muzhik": "husband"
   },
+  "looks": {
+    "vovochka": {
+      "hair": "#f2c94c",
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ten years in, the wife thinks their son looks a bit strange, so she does a DNA test.",
+      "text": "After ten years, the wife starts to think their kid looks kind of strange. So she decides to do a DNA test.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,6 +36,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "She finds out that the kid is actually from completely different parents.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
       "text": "Honey, I have something very serious to tell you.",
       "emotion": "sad",
@@ -35,7 +53,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "What's up?",
       "emotion": "neutral",
@@ -44,40 +62,41 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "zhena",
-      "text": "According to the DNA test, this is not our kid.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "muzhik",
-      "text": "You don't remember?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "According to the DNA test results, this is not our kid.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "When we were leaving the hospital, our baby had pooped.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "text": "Well you don't remember, do you?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "And you said: go change the baby, I'll wait here.",
+      "text": "When we were leaving the hospital, we noticed that our baby had pooped.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "You said: Please go change the baby, I'll wait for you here.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

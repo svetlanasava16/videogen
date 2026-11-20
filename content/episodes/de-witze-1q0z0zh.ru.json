@@ -2,7 +2,7 @@
   "id": "de-witze-1q0z0zh.ru",
   "jokeId": "de-witze-1q0z0zh",
   "locale": "ru",
-  "title": "Пароль от вай-фая",
+  "title": "Вайфай в церкви",
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Простите, батюшка. У меня тут церковный вай-фай ловится. Не подскажете пароль?",
+      "character": "narrator",
+      "text": "Во время службы мужчина из первого ряда вдруг обращается к священнику.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,125 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Господи помилуй! Имейте совесть, это же отпевание вашей покойной жены!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Извините. У меня тут высвечивается доступный вайфай церкви.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
+      "text": "Не могли бы вы быстренько сказать мне пароль?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "batyushka",
+      "text": "Боже милостивый! Имейте же совесть.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "Это ведь заупокойная служба по вашей покойной супруге.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
       "text": "Спасибо. Это всё маленькими буквами и без пробелов?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "batyushka": "priest"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#2b2b2b",
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "pew-left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

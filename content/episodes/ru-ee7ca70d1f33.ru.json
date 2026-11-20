@@ -2,22 +2,30 @@
   "id": "ru-ee7ca70d1f33.ru",
   "jokeId": "ru-ee7ca70d1f33",
   "locale": "ru",
-  "title": "Спасибо, шеф",
+  "title": "Отпросился",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "paren",
-    "nachalnik"
+    "nachalnik",
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "nachalnik": "boss"
+    "nachalnik": "boss",
+    "paren": "employee"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Семён Семёнович, можно я сегодня уйду пораньше? Жена хочет пойти со мной по магазинам.",
+      "text": "Позвольте мне сегодня уйти с работы пораньше, Семен Семенович.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -27,6 +35,15 @@
     },
     {
       "id": "l2",
+      "character": "paren",
+      "text": "Жена хочет пойти со мной за покупками.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "nachalnik",
       "text": "Ни в коем случае! Сидите и работайте!",
       "emotion": "angry",
@@ -35,13 +52,14 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "paren",
-      "text": "Огромное спасибо, Семён Семёнович!",
+      "text": "Огромное спасибо, Семен Семенович!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

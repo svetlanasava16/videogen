@@ -2,33 +2,33 @@
   "id": "en-r-b7er2b.ru",
   "jokeId": "en-r-b7er2b",
   "locale": "ru",
-  "title": "Самое большое враньё",
+  "title": "Самая большая ложь",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
     "vovochka",
-    "uchilka",
-    "paren"
+    "paren",
+    "uchilka"
   ],
   "roles": {
     "vovochka": "child",
-    "uchilka": "teacher",
-    "paren": "student"
+    "paren": "student",
+    "uchilka": "teacher"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Моё враньё круче!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "character": "narrator",
+      "text": "Двое мальчишек спорят, и тут в класс входит учительница.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Ничего подобного, моё!",
+      "character": "uchilka",
+      "text": "О чём вы двое спорите?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,20 +36,18 @@
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "О чём спорим?",
-      "emotion": "angry",
+      "character": "vovochka",
+      "text": "Мы нашли тысячу рублей и решили, что кто соврёт сильнее всех, тот её и заберёт.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "vovochka",
-      "text": "Мы нашли тысячу рублей. Кто соврёт круче, тот и забирает.",
-      "emotion": "neutral",
+      "character": "uchilka",
+      "text": "Как вам обоим не стыдно!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -57,32 +55,109 @@
     {
       "id": "l5",
       "character": "uchilka",
-      "text": "Как вам не стыдно!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "uchilka",
-      "text": "Я в вашем возрасте вообще не знала, что такое враньё.",
+      "text": "Когда я была в вашем возрасте, я даже не знала, что такое ложь.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "vovochka",
-      "text": "Ладно, вы выиграли. Забирайте тысячу.",
-      "emotion": "sad",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Мальчишки переглянулись и отдали тысячу рублей учительнице.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "paren",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "paren": "student",
+        "uchilka": "teacher"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        },
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "money",
+          "action": "give",
+          "to": "uchilka"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

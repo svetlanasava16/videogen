@@ -2,7 +2,7 @@
   "id": "de-witze-1oi1ian.en",
   "jokeId": "de-witze-1oi1ian",
   "locale": "en",
-  "title": "Christmas Present",
+  "title": "Santa's Gift",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -27,9 +27,9 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Well now, did Santa bring you that bike for Christmas?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Suddenly a police officer on horseback comes by. He stops the girl.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "sluzhivy",
@@ -39,8 +39,8 @@
     },
     {
       "id": "l3",
-      "character": "devochka",
-      "text": "Yes! It's exactly what I wished for.",
+      "character": "sluzhivy",
+      "text": "So, did Santa bring you a bike for Christmas?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,9 +48,9 @@
     },
     {
       "id": "l4",
-      "character": "sluzhivy",
-      "text": "Lovely. But I'm afraid I still have to give you a ticket.",
-      "emotion": "sad",
+      "character": "devochka",
+      "text": "Yes, he did. I wished for it really, really hard.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -58,38 +58,49 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Santa forgot to put reflectors on it.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Well, that's great.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "sluzhivy",
+      "text": "Unfortunately, I have to give you a ticket, because Santa forgot to put reflectors on your bike.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "devochka",
-      "text": "Did Santa bring you your horse too?",
+      "text": "Is your horse from Santa too?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "sluzhivy",
-      "text": "He sure did.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "id": "l8",
+      "character": "narrator",
+      "text": "The officer smiles and nods.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "devochka",
-      "text": "Then tell Santa next year the horse's ass goes at the back, not on top!",
+      "text": "Well then, tell Santa next year the butt goes at the back, not on top!",
+      "uncensored": "Well then, tell Santa next year the asshole goes at the back, not on top!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

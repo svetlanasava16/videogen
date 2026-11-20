@@ -7,28 +7,29 @@
   "place": "forest",
   "cast": [
     "nachalnik",
+    "muzhik-ryzhy",
     "muzhik"
   ],
   "roles": {
     "nachalnik": "new-russian",
+    "muzhik-ryzhy": "gangster",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Excuse me, guys. Is that your bull terrier running around?",
-      "emotion": "sad",
+      "text": "Guys, is that your bull terrier running around here?!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Yeah, it's ours. What's it to you?",
+      "text": "Yeah, it's ours. What the heck do you want?",
+      "uncensored": "Yeah, it's ours. What the fuck do you want?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +38,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "See, we're having a picnic nearby. And my dog accidentally killed yours.",
+      "text": "You see, we're having a picnic nearby too, and my little dog accidentally killed yours!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +46,9 @@
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "You're kidding! What kind of beast have you got?",
+      "character": "muzhik-ryzhy",
+      "text": "No freaking way!? What kind of beast have you got?",
+      "uncensored": "No fucking way!? What kind of beast have you got?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,32 +57,98 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Just a little poodle.",
+      "text": "Oh, just a tiny little poodle!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "nachalnik",
-      "text": "What?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "muzhik",
-      "text": "Yours choked on it.",
+      "text": "Yours choked on it!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "nachalnik",
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "new-russian",
+        "muzhik-ryzhy": "gangster",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "gold-chain",
+            "stubble"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

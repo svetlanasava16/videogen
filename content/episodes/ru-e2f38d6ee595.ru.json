@@ -16,30 +16,26 @@
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Сто грамм водки, пожалуйста.",
+      "character": "narrator",
+      "text": "В крутой кабак заходит мужик и говорит бармену:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Контрольная закупка! Здесь семьдесят пять. Штраф пятьдесят долларов.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Мне сто грамм водки.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "nachalnik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Следующий вечер.",
+      "text": "Бармен наливает, подает. Мужик достает из кармана мензурку и удостоверение:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,19 +44,17 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Сто грамм водки.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "text": "Контрольная закупка. Семьдесят пять грамм! Штраф пятьдесят долларов.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "nachalnik",
-      "text": "Опять семьдесят пять! Штраф!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Следующий вечер. Те же лица. Мужик снова измеряет мензуркой и снимает полтинник штрафа.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -68,23 +62,124 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Слушай, ты же меня узнал. Почему всё равно недолил?",
+      "text": "Слушай, ты же меня узнал, почему все равно недолил?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Да мне проще полтинник отдать, чем руку сбивать из-за таких умников.",
+      "text": "Да мне проще тебе полтинник отдать, чем руку сбивать из-за таких придурков...",
+      "uncensored": "Да мне проще тебе полтинник отдать, чем руку сбивать из-за таких мудаков...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "bureaucrat",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "bureaucrat",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

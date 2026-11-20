@@ -7,30 +7,33 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "uchilka"
+    "devochka",
+    "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "uchilka": "pharmacist"
+    "devochka": "child",
+    "doktor": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Два маленьких мальчика зашли в аптеку, выбрали коробку тампонов и подошли к кассе.",
+      "text": "Двое мальчишек зашли в аптеку, взяли коробку тампонов и пошли к кассе.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
-        "vovochka"
+        "vovochka",
+        "devochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Сынок, тебе сколько лет?",
+      "character": "doktor",
+      "text": "Сынок, сколько тебе лет?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -39,15 +42,15 @@
       "character": "vovochka",
       "text": "Восемь.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "uchilka",
-      "text": "А ты знаешь, для чего они?",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "А ты знаешь, для чего это?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,7 +58,7 @@
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Не совсем, но они не для меня. Они для него...",
+      "text": "Не совсем, но это не для меня.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +67,7 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Это мой брат. Ему четыре.",
+      "text": "Это для него... Это мой брат. Ему четыре.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,9 +76,9 @@
     {
       "id": "l7",
       "character": "vovochka",
-      "text": "Мы видели по телевизору, что если ими пользоваться, то сможешь плавать и кататься на велосипеде.",
+      "text": "Мы видели по телевизору, что если этим пользоваться, сможешь плавать и кататься на велосипеде.",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },

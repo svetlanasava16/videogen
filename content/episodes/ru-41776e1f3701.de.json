@@ -2,35 +2,59 @@
   "id": "ru-41776e1f3701.de",
   "jokeId": "ru-41776e1f3701",
   "locale": "de",
-  "title": "Der Weg in den Himmel",
+  "title": "Was für ein Junge",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
+    "doktor",
     "vovochka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "fritzchen"
+    "doktor": "professor",
+    "vovochka": "child"
+  },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "Und jetzt erzählt uns Fritzchen, was für ein Junge in den Himmel kommt.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Im Religionsunterricht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Ein toter.",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "Und jetzt erzählt uns Jimmy, was für ein Junge man sein muss, um in den Himmel zu kommen.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "vovochka",
+      "text": "Ein toter, Herr Lehrer...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

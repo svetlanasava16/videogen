@@ -2,14 +2,16 @@
   "id": "de-witze-1osvbc7.de",
   "jokeId": "de-witze-1osvbc7",
   "locale": "de",
-  "title": "Gelogen",
+  "title": "Gelogen beim Alter",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
+    "muzhik",
     "nachalnik",
     "muzhik-sosed"
   ],
   "roles": {
+    "muzhik": "everyman",
     "nachalnik": "businessman",
     "muzhik-sosed": "friend"
   },
@@ -17,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein sechzigjähriger Milliardär feiert seine Hochzeit mit einer Fünfundzwanzigjährigen.",
+      "text": "Ein sechzigjähriger Milliardär heiratet eine heiße Fünfundzwanzigjährige.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,42 +27,123 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Sag mal, wie hast du so eine junge Frau rumgekriegt?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Nach der Hochzeitsreise feiern sie eine große Party.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Ganz einfach. Ich habe bei meinem Alter gelogen.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Wie hast du es geschafft, so eine junge Frau zu bekommen?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "nachalnik",
+      "text": "Ganz einfach. Ich habe bei meinem Alter gelogen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Na gut, aber selbst für einen Vierzigjährigen wäre sie unglaublich. Was hast du ihr denn gesagt?",
+      "text": "Ja gut, aber selbst für einen Vierzig- oder Fünfundvierzigjährigen ist sie ja unglaublich.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-sosed",
+      "text": "Welches Alter hast du ihr denn gesagt?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "nachalnik",
       "text": "Fünfundachtzig.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "businessman",
+        "muzhik-sosed": "friend"
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

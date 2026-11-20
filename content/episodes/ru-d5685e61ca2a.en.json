@@ -2,7 +2,7 @@
   "id": "ru-d5685e61ca2a.en",
   "jokeId": "ru-d5685e61ca2a",
   "locale": "en",
-  "title": "The Crawling Patient",
+  "title": "The Little Snake",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -10,14 +10,14 @@
     "paren"
   ],
   "roles": {
-    "doktor": "doctor",
+    "doktor": "therapist",
     "paren": "programmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A psychiatrist sits in his office, bored. No patients.",
+      "text": "A psychiatrist sits in his office, bored. No patients are coming.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Then a man crawls in on all fours, dragging something behind him.",
+      "text": "Then the door quietly opens, and a man crawls in on all fours, clutching something in his teeth and hands, with something else dragging behind him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Oh, who's crawling in to see us? Is it a little snake?",
+      "text": "Oh, who's this crawling in to see us! It must be a little snake.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Come in, little snake, come in. The doctor will help you.",
+      "text": "Crawl in, little snake, crawl in, little one, the doctor will help you.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,9 +54,9 @@
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "No? Then it must be a little turtle come to visit!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "The man shakes his head.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Climb into the chair, turtle, and tell the nice doctor what happened.",
+      "text": "Ah, it must be a little turtle who's come to visit us.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,20 +73,40 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Not a turtle either? So who are we? A teeny little worm?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Crawl into the armchair, little turtle, and tell Uncle Doctor what happened to you.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "paren",
-      "text": "Doc, get lost! I'm the sysadmin! I'm running your network cable!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "The man shakes his head.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "So who have we got here? A little worm, maybe?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "paren",
+      "text": "Doctor, buzz off, I'm the sysadmin, I'm wiring your network!",
+      "uncensored": "Doctor, fuck off, I'm the sysadmin, I'm wiring your network!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

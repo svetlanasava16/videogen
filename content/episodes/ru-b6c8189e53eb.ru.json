@@ -1,0 +1,204 @@
+{
+  "id": "ru-b6c8189e53eb.ru",
+  "jokeId": "ru-b6c8189e53eb",
+  "locale": "ru",
+  "title": "Мороженое",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "tyoshcha",
+    "paren",
+    "devushka"
+  ],
+  "roles": {
+    "tyoshcha": "old-woman",
+    "paren": "customer",
+    "devushka": "cashier"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "В супермаркете к парню подходит пожилая женщина.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "tyoshcha",
+      "text": "Вы так похожи на моего покойного сына! Не окажете ли мне любезность?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Ну, давайте.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "tyoshcha",
+      "text": "Вы знаете, когда я с ним делала покупки и уже стояла у кассы, он всегда в самый последний момент вдруг кричал — мама, а мы же мороженое не купили!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "tyoshcha",
+      "text": "И бежал за мороженым. Я всегда это вспоминаю. Крикните, пожалуйста, так же у кассы.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Ну, пожалуйста.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Мама, а мы же мороженое не купили!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "tyoshcha",
+      "text": "Ну беги, сынок, возьми.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "tyoshcha",
+      "text": "Ну я пойду, сынок расплатится.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "tyoshcha"
+      ],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "tyoshcha",
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "paren": "customer",
+        "devushka": "cashier"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

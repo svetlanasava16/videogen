@@ -13,11 +13,28 @@
     "devochka": "child",
     "barmen": "salesman"
   },
+  "looks": {
+    "barmen": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Ein kleines Mädchen kommt in eine Zoohandlung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "devochka",
-      "text": "Hallo! Ich möchte ein Kaninchen kaufen.",
+      "text": "Ich möchte gern ein Kaninchen kaufen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,40 +43,24 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "barmen",
-      "text": "Welches denn, Kleine?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "barmen",
-      "text": "Dieses kleine graue mit den großen traurigen Augen?",
+      "text": "Möchtest du dieses kleine graue Schätzchen mit den riesigen traurigen Augen oder dieses flauschige, faule weiße Kaninchen?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Oder dieses flauschige, faule weiße?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "devochka",
-      "text": "Meiner Boa ist das völlig egal.",
+      "text": "Meiner Boa ist das piepegal!",
+      "uncensored": "Meiner Boa ist das scheißegal!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

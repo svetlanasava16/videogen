@@ -7,28 +7,26 @@
   "place": "office",
   "cast": [
     "muzhik",
-    "nachalnik"
+    "sluzhivy"
   ],
   "roles": {
     "muzhik": "everyman",
-    "nachalnik": "bureaucrat"
+    "sluzhivy": "customs-officer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Guten Tag, ich komme wegen der australischen Staatsbürgerschaft.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Ein Mann beantragt die australische Staatsbürgerschaft.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Gut. Sind Sie vorbestraft?",
+      "character": "sluzhivy",
+      "text": "Sind Sie vorbestraft?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -41,7 +39,8 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

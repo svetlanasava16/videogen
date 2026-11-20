@@ -7,18 +7,18 @@
   "place": "street",
   "cast": [
     "muzhik",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "muzhik": "father",
-    "paren": "son"
+    "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
+      "character": "vovochka",
       "text": "Dad, what's an alcoholic?",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "See those four trees over there?",
-      "emotion": "neutral",
+      "text": "Do you see those four trees?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "An alcoholic would see eight.",
+      "text": "Well, an alcoholic would see eight.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -43,15 +43,69 @@
     },
     {
       "id": "l4",
-      "character": "paren",
+      "character": "vovochka",
       "text": "But Dad, I only see two.",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "muzhik",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "child"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "de-witze-1wrzxbf.ru",
   "jokeId": "de-witze-1wrzxbf",
   "locale": "ru",
-  "title": "Бесшумно",
+  "title": "Беззвучно и без запаха",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -16,20 +16,18 @@
   "lines": [
     {
       "id": "l1",
-      "character": "tyoshcha",
-      "text": "Доктор, меня замучили газы.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Старушка сидит у врача и жалуется на ужасные газы.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "tyoshcha",
-      "text": "Хорошо хоть, они совсем бесшумные и ничем не пахнут.",
-      "emotion": "happy",
+      "text": "Знаете, доктор, у меня постоянно газы.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Вот, видите, только что опять вышел. И никто не заметил.",
+      "text": "К счастью, они всегда беззвучные и совсем не пахнут.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +43,18 @@
     },
     {
       "id": "l4",
+      "character": "tyoshcha",
+      "text": "Вот видите, только что опять один вышел. Никто и не заметит.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l5",
       "character": "doktor",
-      "text": "Я выпишу вам лекарство. Приходите через две недели.",
+      "text": "Я выпишу вам лекарство. Принимайте его и приходите через две недели.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,19 +63,10 @@
       ]
     },
     {
-      "id": "l5",
-      "character": "narrator",
-      "text": "Через две недели.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l6",
-      "character": "tyoshcha",
-      "text": "Доктор, что вы мне выписали?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Сказано — сделано. Через две недели старушка снова сидит у врача и жалуется.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "tyoshcha"
@@ -77,20 +76,39 @@
     {
       "id": "l7",
       "character": "tyoshcha",
-      "text": "Газов меньше не стало, зато теперь они ужасно воняют!",
+      "text": "Доктор, что же вы мне такое выписали?",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "doktor",
-      "text": "Отлично, нос мы вылечили. Теперь займёмся ушами.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "tyoshcha",
+      "text": "Газов меньше не стало, зато теперь они ужасно воняют!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "Отлично, нос в порядке.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "doktor",
+      "text": "Теперь займёмся ушами.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

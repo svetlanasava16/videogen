@@ -2,7 +2,7 @@
   "id": "en-r-87ue6e.de",
   "jokeId": "en-r-87ue6e",
   "locale": "de",
-  "title": "Beißt die?",
+  "title": "Venomös",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Herr Gruppenleiter, beißt die Schlange?",
+      "text": "Herr Gruppenleiter, ist die Schlange giftig?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,25 +26,25 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Nein, die Schlange beißt überhaupt nicht.",
+      "text": "Nein, die Schlange ist überhaupt nicht giftig.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Au! Sie hat mich gebissen! Ich spür meine Beine nicht!",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Der Junge hebt die Schlange auf, sie beißt ihn, und er bekommt Krämpfe und Schaum vor dem Mund, während die anderen Kinder entsetzt zusehen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "paren",
-      "text": "Nicht gebissen. Eine Schlange schlägt zu.",
+      "text": "Aber die Schlange ist venomös.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Beißen tun Hunde.",
-      "emotion": "neutral",
+      "text": "Giftig ist, was man schluckt oder berührt, venomös ist, was injiziert wird.",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -62,14 +62,78 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Nächstes Mal bitte präziser fragen, Jungs.",
+      "text": "Nächstes Mal machen wir es richtig, Jungs.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "vovochka",
+        "paren"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "paren": "athlete"
+      },
+      "looks": {
+        "vovochka": {
+          "clothes": "#8a7f4e",
+          "add": [],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#8a7f4e",
+          "add": [
+            "cowboy-hat"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

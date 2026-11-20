@@ -6,18 +6,18 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "doktor",
-      "text": "Wollen Sie zuerst die gute oder die schlechte Nachricht?",
+      "text": "Wollen Sie zuerst die gute oder die schlechte Nachricht hören?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Erst die gute, bitte, Herr Doktor!",
+      "text": "Zuerst die gute, bitte, Herr Doktor!",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -39,7 +39,8 @@
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

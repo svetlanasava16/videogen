@@ -11,13 +11,13 @@
   ],
   "roles": {
     "sluzhivy": "pilot",
-    "muzhik": "everyman"
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "sluzhivy",
-      "text": "Ladies and gentlemen, this is your captain speaking.",
+      "character": "narrator",
+      "text": "A plane is in flight. The pilot comes on the intercom.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,35 +26,36 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "We are cruising at thirty-three thousand feet, at five hundred and sixty miles per hour, the outside temperature is...",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "text": "Ladies and gentlemen, this is your captain speaking. Here is some information about our flight.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Aaah! What the hell is that?! Oh no, we're done for!",
+      "text": "We are flying at an altitude of thirty-three thousand feet at five hundred and sixty miles an hour, the outside temperature is...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy",
+      "text": "Crap! Aaaah! What is that?! Well, we're screwed...",
+      "uncensored": "Shit! Aaaah! What is that?! Well, we're fucked...",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "narrator",
-      "text": "Dead silence in the cabin.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "My apologies, folks. The flight attendant just spilled hot coffee on me.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Dead silence in the cabin. A minute later, the radio comes on again.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,23 +63,126 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "You should see the front of my white pants!",
+      "text": "My apologies to our dear passengers. It's just that our flight attendant spilled hot coffee on me.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Your pants are nothing! You should see the back of mine!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "sluzhivy",
+      "text": "You should see the front of my white pants now...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Screw your pants!",
+      "uncensored": "Fuck your pants!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "You should see the back of mine...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "crowd",
+          "react": "calm"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

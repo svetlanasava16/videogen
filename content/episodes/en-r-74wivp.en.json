@@ -3,21 +3,19 @@
   "jokeId": "en-r-74wivp",
   "locale": "en",
   "title": "I'm Married!",
-  "location": "kukhnya",
+  "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
-    "paren"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "paren": "son"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man wakes up with a terrible hangover and a black eye.",
+      "text": "Joe wakes up with a horrible hangover and a throbbing black eye.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,28 +23,26 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "A rose? Breakfast? And a note: I love you, darling?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Kevin, what happened last night?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "The first thing he sees is a single rose on the side table and a note from his wife.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Dear, breakfast is made. I've gone shopping to make you your favorite dinner tonight. I love you!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l4",
-      "character": "paren",
-      "text": "You came home drunk and tripped over a chair. That's the eye.",
+      "character": "narrator",
+      "text": "He stumbles to the kitchen and, sure enough, there's breakfast.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,8 +51,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Then why is your mom being so sweet?",
-      "emotion": "surprised",
+      "text": "Kevin, what happened last night?",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,23 +60,144 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Mom dragged you to the bedroom and tried to take your clothes off.",
+      "text": "You came home soused and got that black eye tripping over a chair.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "So, why the rose, breakfast, and sweet note from your mother?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "paren",
-      "text": "And you yelled: leave me alone, I'm married!",
+      "text": "Oh, that.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "paren",
+      "text": "Mom dragged you to the bedroom, and when she tried to take off your clothes, you screamed: Leave me alone, I'm married!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "son",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

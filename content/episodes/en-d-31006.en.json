@@ -6,43 +6,75 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "devushka-ryzhaya",
-    "muzhik"
+    "muzhik",
+    "devushka-ryzhaya"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter",
-    "muzhik": "father"
+    "muzhik": "father",
+    "devushka-ryzhaya": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "devushka-ryzhaya",
-      "text": "So that's the whole story. Dad? Dad!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Daaaaaad, you haven't listened to one word I've said, have you!?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Daaad, you haven't listened to a single word I've said, have you?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "muzhik",
-      "text": "What a strange way to start a conversation.",
+      "text": "What a strange way to start a conversation with me.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "devushka-ryzhaya": "daughter"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

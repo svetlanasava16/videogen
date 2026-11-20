@@ -1,0 +1,73 @@
+{
+  "id": "ru-08a949c47cb3.en",
+  "jokeId": "ru-08a949c47cb3",
+  "locale": "en",
+  "title": "Own Food",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "nachalnik",
+    "paren",
+    "barmen"
+  ],
+  "roles": {
+    "nachalnik": "lawyer",
+    "paren": "lawyer",
+    "barmen": "bartender"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "tie",
+        "glasses"
+      ],
+      "remove": []
+    },
+    "barmen": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Two lawyers walk into a cafe, order drinks and take out their sandwiches.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "nachalnik",
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Excuse me, but you can't eat your own food here.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "The lawyers look at each other, shrug and swap sandwiches.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "id": "de-witze-1wvoq61.de",
+  "jokeId": "de-witze-1wvoq61",
+  "locale": "de",
+  "title": "Spachtelmasse",
+  "location": "magazin",
+  "place": "shop",
+  "cast": [
+    "ptitsa",
+    "barmen"
+  ],
+  "roles": {
+    "ptitsa": "chicken",
+    "barmen": "salesman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Huhn kommt in den Baumarkt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ptitsa",
+      "text": "Haben Sie Spachtelmasse?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "barmen",
+      "text": "Nein, tut mir leid.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Am nächsten Tag kommt das Huhn wieder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "ptitsa",
+      "text": "Haben Sie Spachtelmasse?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "barmen",
+      "text": "Nein, haben wir nicht!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Am dritten Tag kommt das Huhn wieder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ptitsa",
+      "text": "Haben Sie Spachtelmasse?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "barmen",
+      "text": "Hör mal zu, du Federvieh!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "barmen",
+      "text": "Wenn du mich noch einmal nach Spachtelmasse fragst, dann nagel ich deine Füße am Tresen fest!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "ptitsa"
+      ],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Am vierten Tag kommt das Huhn wieder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "ptitsa",
+      "text": "Haben Sie Nägel?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "barmen",
+      "text": "Nein, heute nicht.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "ptitsa",
+      "text": "Gut... Haben Sie Spachtelmasse?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "ptitsa",
+        "barmen"
+      ],
+      "roles": {
+        "ptitsa": "chicken",
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "clothes": "#c0392b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

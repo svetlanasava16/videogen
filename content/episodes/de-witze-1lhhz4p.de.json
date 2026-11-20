@@ -3,93 +3,189 @@
   "jokeId": "de-witze-1lhhz4p",
   "locale": "de",
   "title": "Schwerhörig",
-  "location": "kukhnya",
+  "location": "bolnitsa",
   "place": "home-kitchen",
   "cast": [
     "muzhik",
-    "zhena"
+    "doktor"
   ],
   "roles": {
     "muzhik": "husband",
-    "zhena": "wife"
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Ein Mann glaubt, seine Frau hört schlecht.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Herr Doktor, ich glaube, meine Frau ist schwerhörig.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "doktor",
+      "text": "Sprechen Sie sie von hinten an. Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "narrator",
-      "text": "Der Arzt rät ihm: Sprechen Sie sie von hinten an und achten Sie darauf, ab welchem Abstand sie antwortet.",
+      "text": "Der Mann geht nach Hause und findet seine Frau in der Küche beim Zubereiten des Abendessens.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Schatz, was gibt es heute zu essen?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "narrator",
-      "text": "Er hört nichts. Er tritt einen Meter näher.",
+      "character": "muzhik",
+      "text": "Schatz, was gibt es denn zu essen heute?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Schatz, was gibt es denn heute zum Abendessen?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Schatz, was gibt es denn zum Abendessen heute?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Wieder nichts. Noch ein Meter.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Schatz, was gibt es denn heute zu essen?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Schatz, was gibt es denn heute zu essen?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
       "character": "zhena",
       "text": "Ich sag's dir jetzt zum dritten Mal: Es gibt Hühnchen!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "stove"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

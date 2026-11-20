@@ -6,33 +6,34 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
+    "vovochka",
     "muzhik",
-    "vovochka"
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik": "father",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
-      "text": "Papa, warum hast du eigentlich Mama geheiratet?",
+      "text": "Papa! Und warum hast du Mama geheiratet?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Hörst du? Sogar das Kind wundert sich!",
+      "text": "Siehst du, sogar das Kind wundert sich!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -6,29 +6,35 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "barmen",
-    "doktor"
+    "doktor",
+    "devushka"
   ],
   "roles": {
-    "barmen": "salesman",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "devushka": "cashier"
+  },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "doktor",
-      "text": "Geben Sie mir bitte den roten Plüschhintern da drüben.",
+      "text": "Geben Sie mir bitte den roten Plüscharsch da drüben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Mein Herr, das ist kein Hintern, das ist ein Herz!",
+      "character": "devushka",
+      "text": "Mein Herr, das ist kein Arsch, das ist ein Herz!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -37,20 +43,21 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Wissen Sie, ich bin seit zwanzig Jahren Herzchirurg.",
+      "text": "Wissen Sie, ich arbeite seit zwanzig Jahren als Herzchirurg.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Geben Sie mir den roten Plüschhintern da drüben.",
+      "text": "Geben Sie mir den roten Plüscharsch da drüben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

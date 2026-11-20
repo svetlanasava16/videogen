@@ -6,19 +6,19 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "zhena"
+    "zhena",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "zhena": "wife",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Tag elf der Selbstisolation.",
-      "emotion": "sad",
+      "text": "Wir sind seit elf Tagen in Selbstisolation.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,50 +26,75 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Es bricht mir das Herz: Meine Frau steht am Wohnzimmerfenster.",
+      "text": "Und es tut mir wirklich weh, meine Frau am Wohnzimmerfenster stehen zu sehen, wie sie ziellos ins Leere starrt und ihr die Tränen über die Wangen laufen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Sie starrt ins Leere, Tränen laufen ihr über die Wangen.",
+      "text": "Versteht mich nicht falsch, ich fühle mit ihr.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Versteht mich nicht falsch, sie tut mir echt leid.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Ich hab schon oft überlegt, sie reinzulassen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Aber Regeln sind Regeln.",
+      "text": "Ich habe schon oft überlegt, sie reinzulassen, aber Regeln sind Regeln.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

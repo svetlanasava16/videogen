@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man bumps into an old school friend on Main Street.",
+      "text": "A man bumps into an old school friend.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,33 +25,42 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Well, well! Look at me now. Big job, big salary, a brand new sports car.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "nachalnik",
-      "text": "And this is my wife. Beautiful, isn't she?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "If you think she's gorgeous, you should see my girlfriend.",
+      "character": "narrator",
+      "text": "The friend starts showing off, talking about his well paid job and expensive sports car.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Then he pulls out a photo of his wife.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "She's beautiful, isn't she?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l5",
+      "character": "muzhik",
+      "text": "If you think she's gorgeous, you should see my girlfriend.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "nachalnik",
       "text": "Why? Is she a stunner?",
       "emotion": "surprised",
@@ -60,9 +69,10 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "No. She's an optician.",
+      "text": "No, she's a freaking optician.",
+      "uncensored": "No, she's a fucking optician.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -88,24 +98,18 @@
           "ref": "l1"
         },
         {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "photo",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -118,6 +122,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

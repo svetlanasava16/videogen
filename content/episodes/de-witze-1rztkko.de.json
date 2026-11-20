@@ -2,53 +2,62 @@
   "id": "de-witze-1rztkko.de",
   "jokeId": "de-witze-1rztkko",
   "locale": "de",
-  "title": "Das Böse schläft nie",
+  "title": "Das Böse",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "zhena",
-    "muzhik"
+    "tyoshcha",
+    "ded"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "tyoshcha": "wife",
+    "ded": "husband"
+  },
+  "looks": {
+    "tyoshcha": {
+      "add": [
+        "curlers"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Horst. Horst! Schläfst du?",
+      "character": "narrator",
+      "text": "Ein altes Ehepaar liegt abends im Bett. Sie wälzt sich unruhig hin und her, weckt ihn damit immer wieder auf.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Jetzt nicht mehr.",
+      "character": "tyoshcha",
+      "text": "Karl-Heinz, ich kann nicht schlafen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Ich kann einfach nicht schlafen.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "ded",
+      "text": "Das ist normal.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Das ist normal. Das Böse schläft nie.",
+      "character": "ded",
+      "text": "Das Böse schläft nie.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -6,27 +6,54 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "sluzhivy-ryadovoy",
-    "doktor"
+    "doktor",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "sluzhivy-ryadovoy": "firefighter",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "sluzhivy-ryadovoy": "firefighter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Firefighters have just put out a fire at the hospital.",
+      "text": "Dedicated to our valiant Fire Brigade...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Firefighters were called out to put out a fire at the hospital.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
+      "character": "narrator",
+      "text": "They did everything the way real heroes should: put out the fire and didn't fall flat on their faces.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "When it was over, the crew commander reported to the head doctor:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "sluzhivy-ryadovoy",
-      "text": "Mission accomplished, Doctor. The fire is out.",
+      "text": "Mission accomplished, the fire has been eliminated.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,49 +62,59 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l6",
       "character": "sluzhivy-ryadovoy",
-      "text": "We did have some casualties, though. Nine people.",
+      "text": "Although... there are casualties. Nine people.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "We managed to revive seven.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Sadly, we lost the other two.",
+      "text": "We revived seven, but two, unfortunately, could not be saved.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
+      "character": "narrator",
+      "text": "At these words the head doctor faints.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Coming to, stammering and barely getting the words out, he says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "doktor",
-      "text": "You revived seven?!",
+      "text": "What do you mean, seven?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l11",
       "character": "doktor",
-      "text": "Guys, the fire was in the morgue!",
-      "emotion": "surprised",
+      "text": "Guys, you were putting out the morgue...",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

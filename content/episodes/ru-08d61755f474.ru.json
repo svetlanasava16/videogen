@@ -2,24 +2,24 @@
   "id": "ru-08d61755f474.ru",
   "jokeId": "ru-08d61755f474",
   "locale": "ru",
-  "title": "Конец близок",
+  "title": "Мост разрушен",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "batyushka-molodoy",
     "batyushka",
+    "batyushka-molodoy",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "batyushka-molodoy": "priest",
     "batyushka": "priest",
+    "batyushka-molodoy": "priest",
     "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Два священника ставят у дороги щит.",
+      "text": "Два священника устанавливают на дороге щит с надписью: «Остановись, конец уже близок! Поверни, пока не поздно!»",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +27,19 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Остановись, конец уже близок! Поверни, пока не поздно!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Мимо них на огромной скорости проезжает фура.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Проклятые сектанты, достали уже!",
+      "text": "Проклятые сектанты, достали вы уже!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik-ryzhy"
       ],
@@ -50,20 +50,21 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Фура скрывается за поворотом. Грохот. И громкий бульк.",
+      "text": "Машина скрывается за поворотом, оттуда слышен грохот и громкий бульк.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "batyushka",
-      "text": "Похоже, ты был прав. Надо было просто написать «Мост разрушен».",
+      "text": "Похоже, ты был прав, надо было написать просто «Мост разрушен».",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

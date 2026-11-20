@@ -7,19 +7,19 @@
   "place": "farm",
   "cast": [
     "muzhik-ryzhy",
-    "muzhik-sosed",
-    "ptitsa"
+    "ptitsa",
+    "muzhik-sosed"
   ],
   "roles": {
     "muzhik-ryzhy": "hunter",
-    "muzhik-sosed": "farmer",
-    "ptitsa": "duck"
+    "ptitsa": "duck",
+    "muzhik-sosed": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Städter schießt auf der Jagd eine Ente, doch sie fällt auf den Hof eines Bauern.",
+      "text": "Ein Einwohner aus der Großstadt fährt zur Entenjagd aufs Land. Als er eine Ente sieht, zielt er und schießt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,20 +27,18 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Das ist mein Vogel! Geben Sie ihn her!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Doch der Vogel fällt auf den Hof eines Bauern, und der rückt die Beute nicht heraus.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Bei uns auf dem Land klärt man so was mit einem Tritt zwischen die Beine.",
-      "emotion": "smug",
+      "character": "muzhik-ryzhy",
+      "text": "Das ist mein Vogel.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Wer weniger schreit, kriegt die Ente.",
+      "text": "Wie auf dem Land üblich, legen wir den Streit mit einem Tritt in den Unterleib bei.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,17 +54,17 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-ryzhy",
-      "text": "Einverstanden.",
-      "emotion": "angry",
+      "character": "muzhik-sosed",
+      "text": "Wer weniger schreit, kriegt den Vogel.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Der Bauer tritt zu. Der Städter liegt zwanzig Minuten am Boden.",
+      "character": "muzhik-ryzhy",
+      "text": "Einverstanden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,15 +72,33 @@
     },
     {
       "id": "l7",
-      "character": "muzhik-ryzhy",
-      "text": "Okay. Jetzt bin ich dran.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Der Bauer holt aus und landet einen gewaltigen Tritt in den Weichteilen des Mannes.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Der bricht zusammen und bleibt zwanzig Minuten am Boden liegen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Okay, jetzt bin ich dran.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "muzhik-sosed",
       "text": "Nee. Hier, nehmen Sie die Ente.",
       "emotion": "neutral",
@@ -90,10 +106,98 @@
       "enter": [],
       "exit": [
         "muzhik-sosed"
-      ]
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "hunter",
+        "ptitsa": "duck",
+        "muzhik-sosed": "farmer"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "house"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

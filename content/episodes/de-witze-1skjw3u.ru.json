@@ -6,40 +6,50 @@
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik-sosed",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "friend",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Вчера мой лучший друг Серёга сбежал с моей женой.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Два мужика сидят за пивом в баре.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "Вчера мой лучший друг Стивен сбежал с моей женой.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik-sosed",
-      "text": "Погоди. С каких это пор Серёга твой лучший друг?",
+      "text": "С каких это пор Стивен твой лучший друг?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Со вчерашнего дня.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

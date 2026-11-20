@@ -6,10 +6,12 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
+    "muzhik",
     "nachalnik",
     "muzhik-sosed"
   ],
   "roles": {
+    "muzhik": "everyman",
     "nachalnik": "businessman",
     "muzhik-sosed": "friend"
   },
@@ -17,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Шестидесятилетний миллиардер празднует свадьбу с двадцатипятилетней красавицей.",
+      "text": "Шестидесятилетний миллиардер женится на горячей двадцатипятилетней красотке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,42 +27,123 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Слушай, как ты заполучил такую молодую жену?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "После медового месяца они закатывают большую вечеринку.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Очень просто. Я соврал про свой возраст.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Как тебе удалось заполучить такую молодую жену?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "nachalnik",
+      "text": "Очень просто. Я соврал про свой возраст.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Ну ладно, но она и для сорокалетнего была бы подарком. Сколько же ты ей сказал?",
+      "text": "Ну ладно, но она невероятна даже для сорока- или сорокапятилетнего.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-sosed",
+      "text": "Какой же возраст ты ей назвал?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "nachalnik",
       "text": "Восемьдесят пять.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "businessman",
+        "muzhik-sosed": "friend"
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

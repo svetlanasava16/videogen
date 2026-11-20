@@ -6,63 +6,91 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "nachalnik",
     "devushka",
+    "nachalnik",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "nachalnik": "businessman",
     "devushka": "girlfriend",
+    "nachalnik": "businessman",
     "muzhik-ryzhy": "driver"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "dark-glasses"
+      ],
+      "remove": []
+    },
+    "nachalnik": {
+      "add": [
+        "dark-glasses",
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Парень на Порше догоняет грузовик.",
+      "text": "Тип на «Порше» равняется с грузовиком и кричит водителю:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Меня зовут Вован, бабла у меня чемодан, рядом зайка — шарман, а ты, дядя, груз теряешь!",
+      "text": "Меня зовут Серёжка, я деньги гребу ложкой, рядом моя крошка, а ты груз теряешь!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [
-        "nachalnik",
-        "devushka"
-      ],
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Водитель качает головой. Но Порше догоняет его снова и снова.",
+      "text": "Водитель грузовика качает головой и едет дальше. Тут «Порше» снова его догоняет:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Меня зовут Вован, бабла у меня чемодан, рядом зайка — шарман, а ты, дядя, груз теряешь!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "text": "Меня зовут Серёжка, я деньги гребу ложкой, рядом моя крошка, а ты груз теряешь!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "Грузовик снова едет дальше. Так повторяется несколько раз, пока водителю это не надоедает, и он кричит в ответ:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Меня зовут Фома, на дворе зима, а я дорогу посыпаю!",
+      "text": "Меня зовут Кузьма, на дворе зима, и это пескоразбрасыватель!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

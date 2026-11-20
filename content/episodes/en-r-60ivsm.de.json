@@ -1,0 +1,209 @@
+{
+  "id": "en-r-60ivsm.de",
+  "jokeId": "en-r-60ivsm",
+  "locale": "de",
+  "title": "Anhalten oder abbremsen",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "sluzhivy",
+    "nachalnik"
+  ],
+  "roles": {
+    "sluzhivy": "police-officer",
+    "nachalnik": "lawyer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Anwalt wird von einem Polizisten angehalten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy",
+      "text": "Wissen Sie, warum ich Sie angehalten habe?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Ich habe nicht die leiseste Ahnung.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy",
+      "text": "Sie haben am Stoppschild da hinten nicht vollständig angehalten. Sie haben nur abgebremst.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Anwalt überlegt ein paar Sekunden.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "Wenn Sie mir den Unterschied zwischen Anhalten und Abbremsen beweisen können, übernehme ich die volle Verantwortung.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "nachalnik",
+      "text": "Ansonsten lassen Sie mich mit einer Verwarnung davonkommen. Klingt fair?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Der Polizist überlegt kurz und nickt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "sluzhivy",
+      "text": "Klingt fair. Würden Sie bitte aus dem Auto steigen?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Kaum ist der Anwalt ausgestiegen und hat die Tür zugeschlagen, zieht der Polizist seinen Schlagstock und prügelt auf ihn ein.",
+      "emotion": "surprised",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "sluzhivy",
+      "text": "So, soll ich jetzt anhalten oder abbremsen?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "nachalnik": "lawyer"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

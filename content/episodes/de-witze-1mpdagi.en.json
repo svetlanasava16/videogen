@@ -1,0 +1,255 @@
+{
+  "id": "de-witze-1mpdagi.en",
+  "jokeId": "de-witze-1mpdagi",
+  "locale": "en",
+  "title": "Don't Step on the Dogs",
+  "location": "nebesa",
+  "place": "heaven",
+  "cast": [
+    "ded",
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy",
+    "pyos"
+  ],
+  "roles": {
+    "ded": "god",
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman",
+    "pyos": "dog"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Three men die and go to heaven.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "There are no big rules here, just one: don't step on the dogs.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "The three of them think that can't be so hard, until they see dogs lying everywhere.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "The first one tries and steps on a dog.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "As punishment, he gets the ugliest woman in heaven by his side.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "tyoshcha"
+      ],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The second one fails too, steps on a dog and gets one of the ugliest women in heaven by his side.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "uchilka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "The third one is smarter. He stands still all day and doesn't step on a single dog.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "He gets a gorgeous woman by his side.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "devushka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Oh, what did I do to get such a beautiful woman?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "devushka",
+      "text": "No idea what you did. I stepped on a dog.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik",
+        "muzhik-sosed",
+        "muzhik-ryzhy",
+        "pyos"
+      ],
+      "roles": {
+        "ded": "god",
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "muzhik-ryzhy": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "lectern"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik",
+        "tyoshcha",
+        "muzhik-sosed",
+        "uchilka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "tyoshcha": "everyman",
+        "muzhik-sosed": "everyman",
+        "uchilka": "everyman",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "mole",
+            "curlers"
+          ],
+          "remove": []
+        },
+        "uchilka": {
+          "add": [
+            "mole",
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik-ryzhy",
+        "devushka",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "everyman",
+        "devushka": "woman",
+        "pyos": "dog"
+      },
+      "looks": {
+        "devushka": {
+          "clothes": "#ffffff",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,7 +2,7 @@
   "id": "ru-e2f38d6ee595.en",
   "jokeId": "ru-e2f38d6ee595",
   "locale": "en",
-  "title": "The Inspector",
+  "title": "Test Purchase",
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -16,30 +16,26 @@
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "A double vodka, please.",
+      "character": "narrator",
+      "text": "A man walks into a fancy bar and says to the bartender:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Liquor inspection! That's an ounce and a half, not two. Fifty-dollar fine.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "A hundred grams of vodka.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "nachalnik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The next evening.",
+      "text": "The bartender pours it and serves it. The man takes a measuring beaker and an ID out of his pocket:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,19 +44,17 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "A double vodka.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
+      "text": "Test purchase. Seventy-five grams! That's a fifty-dollar fine.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "nachalnik",
-      "text": "Short again! Fine!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "The next evening. Same faces. The man measures with his beaker again and collects another fifty-dollar fine.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -68,23 +62,124 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Come on, you recognized me. Why did you still short me?",
+      "text": "Listen, you recognized me, so why did you still pour short?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Paying you fifty bucks is easier than throwing off my pour for jerks like you.",
+      "text": "It's easier for me to hand you fifty bucks than to throw off my pouring hand because of jerks like you...",
+      "uncensored": "It's easier for me to hand you fifty bucks than to throw off my pouring hand because of assholes like you...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "bureaucrat",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "bureaucrat",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

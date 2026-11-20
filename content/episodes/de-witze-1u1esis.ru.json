@@ -6,51 +6,61 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
+    "zhena",
     "muzhik",
-    "paren",
-    "zhena"
+    "paren"
   ],
   "roles": {
+    "zhena": "mother",
     "muzhik": "father",
-    "paren": "son",
-    "zhena": "mother"
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Сынок, мне надо тебе кое-что сказать. Тебя усыновили.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "paren",
-      "text": "Что? Так вы мне не родные?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Семья сидит за ужином.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Почему? Конечно, родные.",
+      "text": "Сынок, я должен тебе кое-что сказать: тебя усыновили.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Что? Вы вообще не мои родные родители?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "А теперь иди собирай вещи.",
+      "text": "Что? Конечно, мы твои родные родители.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "А теперь собирай сумку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

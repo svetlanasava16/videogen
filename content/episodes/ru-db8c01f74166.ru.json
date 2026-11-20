@@ -17,18 +17,16 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Умер гаишник и предстал перед Богом.",
+      "text": "Умер гаишник. Предстал перед богом.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "ded",
-      "text": "Ну что, сын мой, делал ли ты людям добро?",
+      "text": "Ну что ты, сын мой, делал ли ты людям добро?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Бывало.",
-      "emotion": "happy",
+      "text": "Да, бывало.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,20 +62,30 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Тогда вот тебе две дороги. Одна в рай, другая в ад. Выбирай.",
+      "text": "Ну, вот тебе две дороги, одна в рай, другая в ад.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ded",
+      "text": "Какую выберешь, туда и попадешь.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "sluzhivy",
-      "text": "А можно я здесь, на перекрёстке, останусь?",
-      "emotion": "smug",
+      "text": "А можно я здесь, на перекрестке останусь?",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

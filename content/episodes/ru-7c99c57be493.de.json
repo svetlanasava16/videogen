@@ -7,17 +7,17 @@
   "place": "home-living-room",
   "cast": [
     "muzhik",
-    "devushka"
+    "zhena"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "devushka": "woman"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein sehr nützlicher Tipp für Männer.",
+      "text": "Ein sehr nützlicher Rat für Männer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,40 +26,50 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Zarte Händchen halten Ihnen die Augen zu. Etwas Weiches, Rundes drückt sich an Ihren Rücken.",
+      "text": "Wenn weiche Händchen Ihnen die Augen zuhalten, sich ein üppiger Busen und ein rundes Bäuchlein an Ihren Rücken drücken und Sie von hinten hören:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "devushka",
-      "text": "Rate mal, wer?",
-      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Rate mal, wer?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "zhena"
+      ],
+      "exit": []
+    },
+    {
       "id": "l4",
       "character": "narrator",
-      "text": "Egal, was passiert, es gibt nur eine richtige Antwort.",
+      "text": "Antworten Sie auf jeden Fall:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Günther, bist du's?",
+      "text": "Jürgen, bist du das?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Glauben Sie mir, so ist es besser.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

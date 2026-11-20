@@ -2,69 +2,182 @@
   "id": "en-r-bqdvz9.en",
   "jokeId": "en-r-bqdvz9",
   "locale": "en",
-  "title": "Sell Me This Laptop",
+  "title": "Sell Me This",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "nachalnik",
-    "muzhik"
+    "paren",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "boss",
-    "muzhik": "everyman"
+    "paren": "employee",
+    "nachalnik": "boss"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "nachalnik",
-      "text": "Here's my laptop. Try to sell it to me.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "At a job interview, the manager hands the candidate his laptop.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Sure.",
-      "emotion": "neutral",
+      "character": "nachalnik",
+      "text": "I want you to try to sell this to me.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "That evening, the manager calls him.",
+      "text": "So he puts it under his arm, walks out of the building, and goes home.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "Bring my laptop back right now!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Eventually the manager calls him.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Two hundred dollars, and it's yours.",
+      "character": "nachalnik",
+      "text": "Bring my laptop back here right now!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Two hundred dollars and it's yours.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik"
+      ],
+      "roles": {
+        "nachalnik": "boss"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "employee"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

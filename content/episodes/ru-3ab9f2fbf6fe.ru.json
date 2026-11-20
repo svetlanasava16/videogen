@@ -6,36 +6,68 @@
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "muzhik",
     "zhena",
-    "vovochka"
+    "devochka",
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "drunk",
     "zhena": "wife",
-    "vovochka": "child"
+    "devochka": "child",
+    "vovochka": "child",
+    "muzhik": "drunk"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "curlers"
+      ],
+      "remove": []
+    },
+    "muzhik": {
+      "add": [
+        "red-nose",
+        "tie"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Три часа ночи. Пьяный муж ползком возвращается домой и обрушивает в прихожей всё: тазы, лыжи, велосипед.",
+      "text": "Пьяный муж возвращается домой ползком в три часа ночи.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Это что тут так грохнуло?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "В прихожей падает, задевает вешалку, раздаётся страшный грохот и всё рушится — тазы, лыжи, велосипед...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "narrator",
+      "text": "Из комнаты в ужасе выбегают жена и двое детей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "zhena",
+        "devochka",
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
       "text": "Ну что, не спится без папки-то?",
       "emotion": "happy",
@@ -46,60 +78,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik",
-        "zhena",
-        "vovochka"
-      ],
-      "roles": {
-        "muzhik": "drunk",
-        "zhena": "wife",
-        "vovochka": "child"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "door",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "bottle",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "vovochka",
-          "to": "tv",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

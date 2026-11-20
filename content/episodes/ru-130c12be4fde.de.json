@@ -17,16 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Dank eines neuen Hörgeräts hört ein Achtzigjähriger wieder wie in jungen Jahren.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "ded",
-      "text": "Guten Tag, Herr Doktor. Ich komme zur Kontrolle.",
+      "text": "Ein achtzigjähriger Mann, der seit vielen Jahren fast nichts mehr hört, geht endlich zum Facharzt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,10 +26,19 @@
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Der Arzt passt ihm problemlos ein kleines Hörgerät an, und er hört wieder wie in seiner Jugend.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "doktor",
-      "text": "Na, alles bestens.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Einen Monat später geht der alte Mann wieder zum Arzt, zur Kontrolle.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,25 +46,25 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Ihre Familie ist sicher begeistert, dass Sie wieder so gut hören.",
-      "emotion": "happy",
+      "text": "Nun, alles in bester Ordnung.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "Ach, denen habe ich noch nichts gesagt.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Sagen Sie, Ihre Familie ist sicher begeistert, dass Sie wieder alles so gut hören?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "ded",
-      "text": "Ich sitze einfach da und höre zu, worüber sie reden.",
+      "text": "Oh, ich habe ihnen noch nichts gesagt. Ich sitze da und höre ihren Gesprächen zu.",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -73,11 +73,12 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "Mein Testament habe ich schon dreimal geändert.",
+      "text": "Ich musste schon dreimal mein Testament ändern...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

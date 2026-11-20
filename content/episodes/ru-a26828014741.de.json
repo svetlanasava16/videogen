@@ -2,22 +2,30 @@
   "id": "ru-a26828014741.de",
   "jokeId": "ru-a26828014741",
   "locale": "de",
-  "title": "Der erste Tag",
+  "title": "Der Leichenwagen",
   "location": "doroga",
   "place": "car",
   "cast": [
-    "muzhik",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "customer",
-    "muzhik-ryzhy": "driver"
+    "muzhik-ryzhy": "driver",
+    "muzhik": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Fahrgast tippt dem Taxifahrer auf die Schulter, um etwas zu fragen.",
+      "text": "Ein Taxifahrgast wollte dem Fahrer eine Frage stellen und tippte ihm auf die Schulter. Der Fahrer schrie wild auf und verlor die Kontrolle über den Wagen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,44 +33,44 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Aaaah!",
+      "character": "narrator",
+      "text": "Das Taxi krachte fast in einen Bus, schoss auf den Gehweg und blieb einen Zentimeter vor einem Schaufenster stehen.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Das Taxi schießt auf den Gehweg und hält einen Zentimeter vor einem Schaufenster.",
+      "text": "Einen Moment lang herrschte Stille im Wagen, dann sagte der Fahrer heiser:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Mann, mach das nie wieder. Ich hätte mir fast in die Hose gemacht.",
+      "text": "Hör mal, Kumpel, mach das nie wieder. Ich hätte mir fast in die Hose gemacht...",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Entschuldigung! Ich wusste nicht, dass Sie so erschrecken.",
+      "text": "Entschuldigung. Ich hätte nie gedacht, dass ein leichtes Klopfen auf die Schulter Sie so erschrecken kann.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Ist nicht deine Schuld. Heute ist mein erster Tag im Taxi.",
+      "text": "Eigentlich bist du gar nicht schuld... Heute ist einfach mein erster Tag als Taxifahrer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -71,11 +79,12 @@
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "Davor bin ich fünfundzwanzig Jahre lang einen Leichenwagen gefahren.",
+      "text": "Davor bin ich fünfundzwanzig Jahre lang einen Leichenwagen gefahren!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

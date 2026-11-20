@@ -7,19 +7,19 @@
   "place": "farm",
   "cast": [
     "muzhik-ryzhy",
-    "ptitsa",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "ptitsa"
   ],
   "roles": {
     "muzhik-ryzhy": "hunter",
-    "ptitsa": "duck",
-    "muzhik-sosed": "farmer"
+    "muzhik-sosed": "farmer",
+    "ptitsa": "duck"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Städter schießt auf der Jagd eine Ente. Sie fällt auf einen Bauernhof.",
+      "text": "Ein Stadtbewohner fährt zur Entenjagd aufs Land. Als er die erste Ente sieht, zielt er und schießt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +27,17 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Guten Tag. Das ist meine Ente, ich hab sie geschossen.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Die getroffene Ente fällt vom Himmel herab und landet auf einem Bauernhof.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
-      "text": "Sie liegt auf meinem Hof. Also gehört sie mir.",
+      "text": "Die Ente rücke ich nicht heraus.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -47,9 +45,9 @@
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Klären wir das nach Dorfsitte. Wir treten uns abwechselnd in den Unterleib.",
-      "emotion": "smug",
+      "character": "muzhik-ryzhy",
+      "text": "Das ist jetzt meine Jagdbeute!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -57,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Wer weniger schreit, kriegt die Ente.",
+      "text": "Dann klären wir das nach den Sitten, die auf dem Land gelten.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -65,8 +63,8 @@
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Na gut. Einverstanden.",
+      "character": "muzhik-sosed",
+      "text": "Wir machen es so: wir treten uns nacheinander gegenseitig in den Unterleib.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,35 +72,163 @@
     },
     {
       "id": "l7",
+      "character": "muzhik-sosed",
+      "text": "Derjenige, der am wenigsten schreit, bekommt die Ente.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "narrator",
-      "text": "Der Bauer tritt zu. Der Städter wälzt sich eine Viertelstunde stöhnend am Boden.",
+      "text": "Der Städter ist nach kurzer Überlegung einverstanden.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Der Bauer holt aus und landet einen üblen Treffer mitten in die Weichteile des Städters. Der geht zu Boden und wälzt sich stöhnend vor Schmerzen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
+      "character": "narrator",
+      "text": "Nach einer Viertelstunde ist der Städter wieder auf den Beinen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "So. Jetzt bin ich dran.",
+      "text": "Machen Sie sich bereit, jetzt bin ich an der Reihe.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l12",
       "character": "muzhik-sosed",
       "text": "Nee. Nehmen Sie einfach die Ente.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [
         "muzhik-sosed"
-      ]
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik-sosed",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "hunter",
+        "muzhik-sosed": "farmer",
+        "ptitsa": "duck"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "fence"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "house"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -512,7 +512,7 @@ export function sceneProblems(
         if (l && !first.has(l.character)) first.set(l.character, "out");
         for (const id of l?.exit ?? []) if (!first.has(id)) first.set(id, "out");
       } else if (b.type === "move" && !first.has(b.who)) first.set(b.who, b.from ? "in" : "out");
-      else if (b.type === "prop" && !first.has(b.who)) first.set(b.who, "out");
+      // prop не решает, где кукла: можно взять цветы за кадром и войти с ними
     }
     const here = new Set(sc.cast.filter((id) => first.get(id) !== "in"));
     const need = (who: string, what: string) => {
@@ -536,7 +536,9 @@ export function sceneProblems(
         else if (marks && marks.length && !marks.includes(b.to)) pr.push(`${tag}: unknown mark "${b.to}" at ${sc.location} (marks: ${marks.join(", ")})`);
         else if (!marks?.length) pr.push(`${tag}: ${sc.location} has no marks; use enter/exit on lines instead of move`);
       } else if (b.type === "prop") {
-        need(b.who, `uses ${b.item}`);
+        // взять в руки можно и за кадром (войдёт уже с предметом); отдать/уронить/положить — только в кадре
+        if (b.action === "hold") { if (!sc.cast.includes(b.who)) pr.push(`${tag}: ${b.who} holds ${b.item} but is not in the scene cast`); }
+        else need(b.who, `uses ${b.item}`);
         if (!opts.props.includes(b.item)) pr.push(`${tag}: unknown prop "${b.item}" (props: ${opts.props.join(", ")})`);
         if (b.action === "give" && b.to && !here.has(b.to)) pr.push(`${tag}: ${b.who} gives ${b.item} to ${b.to} who is not on stage`);
       } else if (b.type === "camera" && b.on) need(b.on, "is the camera target");

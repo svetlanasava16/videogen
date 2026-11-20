@@ -6,33 +6,50 @@
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Hier ist Ihr Baby. Es tut mir sehr leid, aber Ihre Frau hat es nicht geschafft.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "doktor"
-      ],
+      "character": "narrator",
+      "text": "Der Arzt reicht einem frischgebackenen Vater sein neugeborenes Baby.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Dann nehmen Sie das hier zurück und bringen Sie mir das, das meine Frau geschaffen hat.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Es tut mir leid, aber Ihre Frau hat es nicht geschafft.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Er gibt dem Arzt das Baby zurück.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Bringen Sie mir das Kind, das meine Frau geschaffen hat.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

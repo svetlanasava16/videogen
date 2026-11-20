@@ -2,34 +2,34 @@
   "id": "en-r-803wqh.en",
   "jokeId": "en-r-803wqh",
   "locale": "en",
-  "title": "Own Food",
+  "title": "Your Own Food",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "barmen",
     "muzhik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "barmen"
   ],
   "roles": {
-    "barmen": "bartender",
-    "muzhik": "everyman",
-    "muzhik-sosed": "friend"
+    "muzhik": "customer",
+    "muzhik-sosed": "customer",
+    "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Look, my wife made me a sandwich.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Two men are drinking in a bar.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Mine too. With love, she said.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "They pull out the sandwiches their wives had lovingly prepared and tuck in.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,32 +37,104 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Hey! You can't eat your own food in here.",
+      "text": "You can't eat your own food in here.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Fair enough.",
+      "character": "narrator",
+      "text": "So they swapped sandwiches.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Here, you eat mine, I'll eat yours.",
-      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-sosed": "customer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

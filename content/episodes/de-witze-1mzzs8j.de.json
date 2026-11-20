@@ -6,18 +6,26 @@
   "location": "nebesa",
   "place": "heaven",
   "cast": [
-    "ded",
-    "muzhik"
+    "muzhik",
+    "ded"
   ],
   "roles": {
-    "ded": "saint-peter",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "ded": "saint-peter"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stubble"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann stirbt und steht vor dem Himmelstor.",
+      "text": "Ein Mann stirbt und findet sich am Himmelstor wieder, wo ihn der heilige Petrus erwartet.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,7 +36,7 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Nun, mein Sohn. Ein guter Mensch warst du nicht gerade. Nenn mir eine gute Tat.",
+      "text": "Nun, mein Sohn! Du warst in deinem Leben nicht gerade ein guter Mensch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,8 +44,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Einmal haben Rocker ein paar Nonnen belästigt.",
+      "character": "ded",
+      "text": "Kannst du mir eine gute Tat nennen, auf deren Grundlage ich dich hier hineinlassen kann?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,29 +54,57 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ich bin zu ihrem Anführer. Ein Riese mit Tattoos und Nasenring. Hab ihn am Ring gepackt, ihm eine geknallt und gesagt: Entschuldige dich bei den Damen!",
-      "emotion": "smug",
+      "text": "Ja. Einmal haben ein paar Motorradfahrer einige Nonnen belästigt.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "Davon steht nichts in meinem Buch. Wann war das?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "Da bin ich zu ihrem Anführer gegangen, ein großer, tätowierter Kerl mit Nasenring,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "So vor ein, zwei Minuten.",
-      "emotion": "sad",
+      "text": "habe ihn am Ring gepackt, ihm eine Ohrfeige verpasst und gesagt: Und jetzt entschuldigst du dich bei den Damen!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Der heilige Petrus blättert in seinem Buch.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ded",
+      "text": "So etwas finde ich hier nicht! Sag mir, wann ist das passiert?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Vor ungefähr ein bis zwei Minuten.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

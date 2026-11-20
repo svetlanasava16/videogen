@@ -6,20 +6,20 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "zhena",
     "muzhik",
-    "muzhik-ryzhy"
+    "zhena",
+    "paren"
   ],
   "roles": {
+    "muzhik": "husband",
     "zhena": "wife",
-    "muzhik": "everyman",
-    "muzhik-ryzhy": "husband"
+    "paren": "lover"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau liegt mit ihrem Liebhaber im Bett, da hört sie ihren Mann heimkommen.",
+      "text": "Eine Frau und ihr Liebhaber lagen im Bett, als die Frau hörte, wie ihr Mann nach Hause kam.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Schnell! Pudere dich mit Babypuder ein und rühr dich nicht. Du bist eine Statue.",
+      "text": "Schnell! Reib dich mit Babypuder ein und tu so, als wärst du eine Statue.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,53 +36,241 @@
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Schatz, was macht denn die Statue hier?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Der Liebhaber tat es.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "Die Meiers haben auch eine, da wollte ich auch eine.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Schatz, was macht denn diese Statue hier?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "zhena",
+      "text": "Ich habe gesehen, dass die Schmidts eine haben, also wollte ich auch eine.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "narrator",
-      "text": "Nachts, als seine Frau schläft, bringt der Mann der Statue ein Brot und ein Glas Milch.",
+      "text": "Der Mann ging ins Bett, und die Frau schlief ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Hier, iss was.",
+      "id": "l7",
+      "character": "narrator",
+      "text": "Ein paar Stunden später vergewisserte er sich, dass seine Frau schlief, stand leise auf, ging in die Küche, schmierte sich ein Brot und holte ein Glas Milch.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "muzhik-ryzhy",
-      "text": "Ich stand drei Tage wie ein Idiot bei den Meiers, und keiner hat mir was angeboten!",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Er kam zurück und ging zur Statue.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Hier, iss und trink was.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Ich habe drei Tage wie ein Idiot bei den Schmidts rumgestanden, und keiner hat mir was zu essen angeboten!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "paren": "lover"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#f2f2ee",
+          "hair": "#f2f2ee",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "wardrobe"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "fridge"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "paren": "lover",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#f2f2ee",
+          "hair": "#f2f2ee",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "wardrobe"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "give",
+          "to": "paren"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

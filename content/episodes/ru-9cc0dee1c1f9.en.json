@@ -2,24 +2,20 @@
   "id": "ru-9cc0dee1c1f9.en",
   "jokeId": "ru-9cc0dee1c1f9",
   "locale": "en",
-  "title": "Three Bodies",
+  "title": "No Free Patrol",
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "muzhik",
-    "sluzhivy",
-    "vor"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "police-officer",
-    "vor": "thief"
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Late at night, a man sees a flashlight moving in his shed.",
+      "text": "A man comes home late one evening and sees the light of a flashlight through a crack in his shed door. He immediately calls the police.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +24,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Hello, police? There are burglars in my shed!",
+      "text": "Hello, police? Someone's rummaging around in my shed, I think it's burglars!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,17 +32,17 @@
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "The dispatcher says every patrol car is busy. Maybe in an hour or two.",
+      "character": "uchilka",
+      "text": "Sir, unfortunately all our patrol cars are busy right now, we'll send a unit as soon as someone is free, in an hour or two...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Hello, it's me again. Since nobody's free, I shot them myself.",
+      "character": "narrator",
+      "text": "The man hangs up and calls the police again three minutes later.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,45 +51,230 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "So when a car frees up, send a couple of ambulances for the bodies.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Hello, it's me again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "One minute later the yard is full of police. The burglars run out and surrender.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vor"
-      ],
+      "character": "muzhik",
+      "text": "Since you don't have a free patrol, I had to shoot the burglars myself.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "sluzhivy",
-      "text": "You said there were at least three bodies!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "character": "muzhik",
+      "text": "So when your patrol is free, send two or three ambulances along with them to pick up the bodies.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "And you said nobody was free.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "A minute later about five police cars come screaming up to the house.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "The terrified burglars fly out of the shed and give themselves up.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "sluzhivy",
+      "text": "You said there were at least three bodies here!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "muzhik",
+      "text": "Well, and you said there wasn't a single free patrol in the area...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka"
+      ],
+      "roles": {
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "cast": [
+        "sluzhivy-ryadovoy",
+        "sluzhivy",
+        "muzhik",
+        "vor",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "police-officer",
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman",
+        "vor": "thief",
+        "paren": "thief"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "paren": {
+          "clothes": "#2b2b33",
+          "add": [
+            "hood"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

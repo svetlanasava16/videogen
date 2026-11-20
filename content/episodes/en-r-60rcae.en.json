@@ -2,7 +2,7 @@
   "id": "en-r-60rcae.en",
   "jokeId": "en-r-60rcae",
   "locale": "en",
-  "title": "Deathbed Confession",
+  "title": "Confession",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Darling, I'm dying. There's something I must confess.",
+      "character": "narrator",
+      "text": "My wife was dying. I was by her bedside.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,42 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Shh. There's nothing to confess. Everything's all right.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "There's something I must confess.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Shhh. There's nothing to confess. Everything's alright.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "zhena",
-      "text": "No. I want to die in peace. I slept with your brother, your best friend, his best friend and your father.",
+      "text": "No, I must die in peace.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "I had sex with your brother, your best friend, his best friend and your father.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "muzhik",
       "text": "I know. That's why I poisoned you.",
       "emotion": "smug",
@@ -53,6 +71,56 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

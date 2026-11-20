@@ -2,7 +2,7 @@
   "id": "en-r-a5s6ke.ru",
   "jokeId": "en-r-a5s6ke",
   "locale": "ru",
-  "title": "Миша-почтальон",
+  "title": "Почтальон Петя",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -12,6 +12,14 @@
   "roles": {
     "devushka-ryzhaya": "daughter",
     "zhena": "mother"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -26,8 +34,8 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "С кем, солнышко?",
-      "emotion": "happy",
+      "text": "С кем, милая?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,8 +43,8 @@
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "С Мишей-почтальоном.",
-      "emotion": "smug",
+      "text": "С почтальоном Петей.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,9 +52,9 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "С Мишей-почтальоном? Но он же может быть твоим отцом!",
+      "text": "С почтальоном Петей? Но он же тебе в отцы годится!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -62,11 +70,12 @@
     {
       "id": "l6",
       "character": "zhena",
-      "text": "Солнышко, ты меня не поняла.",
+      "text": "Доченька, по-моему, ты не поняла.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

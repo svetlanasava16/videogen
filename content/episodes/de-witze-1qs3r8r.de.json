@@ -6,18 +6,20 @@
   "location": "gostinaya",
   "place": "street",
   "cast": [
-    "muzhik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "neighbor"
+    "muzhik-sosed": "neighbor",
+    "vovochka": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Der schwäbische Nachbar klingelt an der Tür.",
+      "text": "Mein schwäbischer Nachbar klingelt an meiner Tür.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,35 +27,106 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Hast du heute mein Kind aus dem Teich gezogen?",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Wie kann ich helfen?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-sosed"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Ja, klar! Das war ich!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik-sosed",
+      "text": "Hasch du mei Kind vorm Versaufa grettet ond vorhin aus em Deich zoga?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "muzhik",
+      "text": "Ja klar!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Und wo ist die Mütze?",
+      "text": "Wo isch denn d'Mütze?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed",
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor",
+        "vovochka": "child",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

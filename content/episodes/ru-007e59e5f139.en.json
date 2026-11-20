@@ -2,34 +2,32 @@
   "id": "ru-007e59e5f139.en",
   "jokeId": "ru-007e59e5f139",
   "locale": "en",
-  "title": "Fresh Water",
+  "title": "Both Hands",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
     "muzhik",
-    "muzhik-sosed"
+    "inostranets"
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "tourist"
+    "inostranets": "foreigner"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man is walking along a lake. Some guy is scooping up the water with his hand and drinking it.",
+      "text": "A man is walking along the lake shore and sees some guy scooping up lake water with his hand and drinking it. The man shouts:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Hey, are you drinking that?",
-      "emotion": "surprised",
+      "text": "Why are you drinking this dirty water?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,16 +35,17 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Everybody dumps their trash here! The factory pours its waste in! The whole village's sewage ends up in this lake!",
+      "text": "Everybody dumps their trash here, the factories pour their waste in, and all the crap from the whole village drains in here!",
+      "uncensored": "Everybody dumps their trash here, the factories pour their waste in, and all the shit from the whole village drains in here!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Pardon, monsieur? Qu'est-ce que vous dites?",
+      "character": "inostranets",
+      "text": "Pardon? Qu'est-ce que vous avez dit?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -55,14 +54,63 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "I said, use both hands!",
+      "text": "I said: scoop with both hands!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "muzhik",
+        "inostranets"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "inostranets": "foreigner"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "inostranets",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

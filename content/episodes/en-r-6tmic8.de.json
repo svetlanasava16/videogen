@@ -2,7 +2,7 @@
   "id": "en-r-6tmic8.de",
   "jokeId": "en-r-6tmic8",
   "locale": "de",
-  "title": "Der fallende Baum",
+  "title": "Wenn ein Baum umfällt",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "muzhik-ryzhy",
-      "text": "Wenn im Wald ein Baum umfällt und niemand ist da, der es hört...",
+      "text": "Wenn im Wald ein Baum umfällt und niemand in der Nähe ist, der es hört...",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -24,14 +24,50 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "dann läuft mein illegaler Holzschlag bestens.",
+      "text": "dann ist mein illegaler Holzeinschlag ein voller Erfolg.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#a8322d",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

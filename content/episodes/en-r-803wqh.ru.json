@@ -11,8 +11,8 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "friend",
+    "muzhik": "customer",
+    "muzhik-sosed": "customer",
     "barmen": "bartender"
   },
   "lines": [
@@ -27,44 +27,114 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Жена бутерброды сделала. С любовью.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Достают бутерброды, которые им с любовью приготовили жёны, и принимаются за еду.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "И моя тоже.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "barmen",
+      "text": "Свою еду здесь есть нельзя.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "barmen",
-      "text": "Мужики, со своей едой сюда нельзя.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Слышал? Своё нельзя. Меняемся.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Тогда они поменялись бутербродами.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-sosed": "customer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

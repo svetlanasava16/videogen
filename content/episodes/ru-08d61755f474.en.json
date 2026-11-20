@@ -2,24 +2,24 @@
   "id": "ru-08d61755f474.en",
   "jokeId": "ru-08d61755f474",
   "locale": "en",
-  "title": "The End Is Near",
+  "title": "Bridge Out",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "batyushka-molodoy",
     "batyushka",
+    "batyushka-molodoy",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "batyushka-molodoy": "priest",
     "batyushka": "priest",
+    "batyushka-molodoy": "priest",
     "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Two priests are putting up a sign by the road.",
+      "text": "Two priests are putting up a sign by the road: “Stop, the end is near! Turn back before it's too late!”",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +27,19 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Stop! The end is near! Turn back before it's too late!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A truck races past them at full speed.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Damn cultists, give it a rest!",
+      "text": "Damn cultists, I've had it with you!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik-ryzhy"
       ],
@@ -50,20 +50,21 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "The truck disappears around the bend. A crash. Then a big splash.",
+      "text": "The truck disappears around the bend, and from there comes a crash and a loud splash.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "batyushka",
-      "text": "Looks like you were right. We should have just written “Bridge out”.",
+      "text": "Looks like you were right. We should have just written “Bridge Out”.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

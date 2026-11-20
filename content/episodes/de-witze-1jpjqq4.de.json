@@ -2,58 +2,178 @@
   "id": "de-witze-1jpjqq4.de",
   "jokeId": "de-witze-1jpjqq4",
   "locale": "de",
-  "title": "Der Angler am See",
+  "title": "Angler am See",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
-    "muzhik-ryzhy",
-    "batyushka"
+    "batyushka",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "fisherman",
-    "batyushka": "priest"
+    "batyushka": "priest",
+    "muzhik-ryzhy": "fisherman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Leichenzug kommt an einem See vorbei. Ein Angler steht auf, nimmt den Hut ab und verneigt sich.",
+      "text": "Auf dem Weg zwischen Kirche und Friedhof kommt der Leichenzug an einem See vorbei, an dem ein Angler sitzt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Dieser sieht den Zug, steht auf, nimmt seinen Hut ab und verneigt sich vor dem Leichenzug.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "batyushka",
-      "text": "Entschuldigen Sie. Wie Sie sich vorhin vor dem Leichenzug verneigt haben, das hat mich tief beeindruckt.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "batyushka",
-      "text": "So viel Respekt sieht man heute selten.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Nach der Beerdigung kommt der Pfarrer auf dem Rückweg wieder an dem See vorbei.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Ach, wissen Sie, Herr Pfarrer. Wenn man dreißig Jahre miteinander verheiratet war.",
-      "emotion": "sad",
+      "character": "batyushka",
+      "text": "Diese Geste von dem Angler fand ich gerade toll, ich muss ihn mal darauf ansprechen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "Ihre Geste vorhin hat mich wirklich beeindruckt.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Ach wissen Sie, Herr Pfarrer, wenn man dreißig Jahre miteinander verheiratet war...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "batyushka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "river-lake",
+      "cast": [
+        "batyushka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "muzhik-ryzhy": "fisherman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "fence"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

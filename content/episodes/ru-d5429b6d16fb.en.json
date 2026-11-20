@@ -12,14 +12,14 @@
   ],
   "roles": {
     "uchilka": "nun",
-    "muzhik": "drunk",
+    "muzhik": "customer",
     "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man sits in a bar, drinking. A nun walks past.",
+      "text": "A man sits in a café, getting drunk. A nun walks past.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,19 +28,17 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "How can you waste your life in this den of sin!",
+      "text": "How can you waste your life in this den of lust and debauchery!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "There's no sin here, Sister...",
-      "emotion": "surprised",
+      "text": "There's no debauchery here, Sister...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
     {
       "id": "l4",
       "character": "uchilka",
-      "text": "Anna!",
+      "text": "Anna.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,8 +55,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Sister Anna. It's fine. I'm just having a drink.",
-      "emotion": "neutral",
+      "text": "Yes, Anna. It's all fine. I'm just drinking.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,7 +64,7 @@
     {
       "id": "l6",
       "character": "uchilka",
-      "text": "And that offends the Lord!",
+      "text": "And that is hateful to the Lord.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,7 +73,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Have you ever tried it yourself?",
+      "text": "Have you ever tried it yourself, Sister Anna?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -84,7 +82,7 @@
     {
       "id": "l8",
       "character": "uchilka",
-      "text": "Never!",
+      "text": "No!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,8 +91,8 @@
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Then how can you judge? Let me buy you one.",
-      "emotion": "happy",
+      "text": "Then how can you say that? Here, I'll buy you a drink, and you'll try it...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -102,7 +100,7 @@
     {
       "id": "l10",
       "character": "uchilka",
-      "text": "What? And let people see a nun drinking?",
+      "text": "Never! So people can see a nun drinking alcohol?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -111,25 +109,25 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "I'll have them pour it into a teacup.",
-      "emotion": "smug",
+      "text": "I'll ask them to pour yours into a cup.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
-      "character": "uchilka",
-      "text": "Well, all right.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "The nun reluctantly agrees. The man goes up to the bar.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Two whiskeys, please. And pour one of them into a teacup.",
+      "text": "Hey, give me two glasses of vodka, but pour one into a teacup.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -138,14 +136,116 @@
     {
       "id": "l14",
       "character": "barmen",
-      "text": "Sister Anna again?",
+      "text": "What, Sister Anna again?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "uchilka",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "uchilka": "nun",
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

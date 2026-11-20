@@ -2,24 +2,24 @@
   "id": "de-witze-1ojc7ux.en",
   "jokeId": "de-witze-1ojc7ux",
   "locale": "en",
-  "title": "City Guy vs Farmer",
+  "title": "City vs. Country",
   "location": "derevnya",
   "place": "farm",
   "cast": [
-    "muzhik-ryzhy",
+    "muzhik",
     "ptitsa",
-    "muzhik-sosed"
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "hunter",
+    "muzhik": "hunter",
     "ptitsa": "duck",
-    "muzhik-sosed": "farmer"
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A city guy goes duck hunting and shoots one. It lands on a farm.",
+      "text": "A city man goes out to the country to hunt ducks. When he sees the first duck, he aims and shoots.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,28 +27,28 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Afternoon. That's my duck. I shot it.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "It landed on my farm. So it's mine.",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "The duck he hit falls from the sky and lands on a farm. The farmer won't hand it over.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "That duck is my game now!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik"
+      ],
+      "exit": []
+    },
+    {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Let's settle it the country way. We take turns kicking each other between the legs.",
+      "character": "muzhik-ryzhy",
+      "text": "Let's settle it the way things are done in the country.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,18 +56,18 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "Whoever yells less gets the duck.",
+      "character": "muzhik-ryzhy",
+      "text": "Here's how we'll do it: we take turns kicking each other in the groin.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Fine. Deal.",
-      "emotion": "neutral",
+      "text": "Whoever screams the least gets the duck.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -75,31 +75,50 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "The farmer kicks first. The city guy rolls on the ground groaning for fifteen minutes.",
+      "text": "The city man thinks it over for a moment and agrees.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "The farmer winds up and lands a nasty kick right in the city man's privates. The man drops to the ground, rolling and groaning in pain.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "muzhik-ryzhy",
-      "text": "Okay. Now it's my turn.",
+      "id": "l9",
+      "character": "narrator",
+      "text": "A quarter of an hour later the city man is back on his feet.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Get ready, now it's my turn.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
-      "character": "muzhik-sosed",
+      "id": "l11",
+      "character": "muzhik-ryzhy",
       "text": "Nah. Just take the duck.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [
-        "muzhik-sosed"
-      ]
+        "muzhik-ryzhy"
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,

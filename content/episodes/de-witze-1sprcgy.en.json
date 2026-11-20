@@ -6,18 +6,18 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "devushka": "woman",
-    "muzhik": "everyman"
+    "muzhik": "customer",
+    "zhena": "woman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "It's the big sale. A man is trying to reach the checkout, but the ladies keep shoving him to the back.",
+      "text": "During a sale, a man is trying to get to the checkout with a few discounted items, but he doesn't stand a chance.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,43 +26,139 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Finally he's had enough. Out come the elbows, and in no time he's at the register.",
+      "text": "Every time he gets a little further forward in the crowd, the even pushier ladies shove him back again.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Excuse me! Can't you behave like a gentleman?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "At some point he's so fed up that he decides to use his elbows, and shortly after he's standing at the checkout.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "I've been doing that all along, ma'am.",
+      "character": "narrator",
+      "text": "The ladies standing next to him are outraged.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "zhena",
+      "text": "Can't you behave like a gentleman?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "It got me nowhere. So now I'm behaving like a lady.",
+      "text": "I've been trying that the whole time, madam.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "But when it got me nowhere, I started behaving like a lady.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "zhena": "woman"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

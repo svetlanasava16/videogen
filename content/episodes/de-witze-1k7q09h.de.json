@@ -1,0 +1,180 @@
+{
+  "id": "de-witze-1k7q09h.de",
+  "jokeId": "de-witze-1k7q09h",
+  "locale": "de",
+  "title": "Im Suff",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "paren",
+    "muzhik",
+    "barmen"
+  ],
+  "roles": {
+    "paren": "everyman",
+    "muzhik": "drunk",
+    "barmen": "bartender"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Zwei Typen sitzen im fünfundvierzigsten Stock eines Wolkenkratzers an der Bar und lassen sich volllaufen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Jetsch habm wir beie schon sooooo viel getrungn, wir könn fliegn.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "paren"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Er öffnet ein Fenster, springt raus, fliegt eine Runde um das Gebäude und kommt wieder rein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Jetsch du!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der andere ist immer noch total verblüfft wegen dem, was er gerade gesehen hat, aber in seinem Zustand auch total motiviert.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik"
+      ]
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Er geht zum Fenster, springt raus und… stürzt in den Tod.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "barmen",
+      "text": "Sobald du betrunken bist, wirst du echt zum Ekel, Superman.",
+      "uncensored": "Sobald du betrunken bist, wirst du echt zum Arsch, Superman.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "paren": "everyman",
+        "muzhik": "drunk",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses",
+            "tie"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "stool-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

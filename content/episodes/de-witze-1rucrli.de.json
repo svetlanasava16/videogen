@@ -2,7 +2,7 @@
   "id": "de-witze-1rucrli.de",
   "jokeId": "de-witze-1rucrli",
   "locale": "de",
-  "title": "A und G",
+  "title": "Die Handtücher",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -15,11 +15,25 @@
     "devushka-ryzhaya": "daughter",
     "muzhik": "father"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    },
+    "muzhik": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Kind, jetzt wo du verheiratet bist, noch ein Tipp für den Haushalt.",
+      "character": "narrator",
+      "text": "Die Mutter gibt ihrer Tochter, die gerade geheiratet hat, einige Tipps zum Haushalt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,9 +41,9 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Ja, Mama?",
-      "emotion": "happy",
+      "character": "zhena",
+      "text": "Also ich habe zum Beispiel auf den Handtüchern im Bad immer ein A für Antlitz und ein G für Gesäß stehen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,29 +51,30 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Auf meinen Handtüchern steht immer ein A für Antlitz und ein G für Gesäß.",
-      "emotion": "smug",
+      "text": "So verwechsle ich die Handtücher nicht.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "So verwechsle ich sie nie.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "Wie jetzt?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Wie jetzt?! Ich dachte immer, das heißt Arsch und Gesicht.",
+      "text": "Ich dachte immer, es heißt Arsch und Gesicht.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

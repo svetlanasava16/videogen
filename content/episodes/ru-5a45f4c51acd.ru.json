@@ -8,18 +8,20 @@
   "cast": [
     "muzhik-ryzhy",
     "muzhik",
+    "muzhik-sosed",
     "vovochka"
   ],
   "roles": {
-    "muzhik-ryzhy": "everyman",
+    "muzhik-ryzhy": "friend",
     "muzhik": "father",
+    "muzhik-sosed": "friend",
     "vovochka": "child"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Отец с друзьями играет дома в покер. На кону приличный банк.",
+      "text": "Отец дома с приятелями играет в покер. Тут образовывается приличный банк, идет круг торговли.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,53 +29,136 @@
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Ой, папа, а четыре туза это хорошо?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "В этот момент к отцу подбегает четырехлетний сынишка и заглядывает в карты:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Да, сынок. Хорошо.",
-      "emotion": "angry",
+      "character": "vovochka",
+      "text": "Ой, папа, а четыре туза это хорошо?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Пас.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Отец сквозь зубы:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Все пасуют, и отец забирает весь банк.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik",
+      "text": "Да! Сынок...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Все сразу уходят в пас, батя гребет банчище.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "vovochka",
-      "text": "Жалко, папа, что у тебя их не было.",
+      "text": "Жаль, папа, что у тебя их не было...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik",
+        "muzhik-sosed",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "friend",
+        "muzhik": "father",
+        "muzhik-sosed": "friend",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "tv"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

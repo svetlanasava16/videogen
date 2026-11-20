@@ -7,68 +7,76 @@
   "place": "heaven",
   "cast": [
     "ded",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Welcome to the pearly gates. So, any good deeds to show for yourself?",
+      "character": "narrator",
+      "text": "A young man is standing at the gates of Heaven.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Yes! I saved two pretty girls from a biker gang that was harassing them!",
+      "character": "ded",
+      "text": "Do you have a good deed to show that would earn you a place in the Kingdom of Heaven?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "I helped two pretty ladies who were being harassed by a biker gang!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "ded",
-      "text": "Impressive. And how exactly did you do that?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "muzhik",
-      "text": "I stepped right in front of them and told those bikers I wasn't going to allow it!",
-      "emotion": "smug",
+      "character": "ded",
+      "text": "And how exactly did you manage that?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "And when was this?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "character": "paren",
+      "text": "Well, I bravely stood in front of them and made it clear to the bikers that I wasn't going to allow it!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
+      "character": "ded",
+      "text": "And when was this supposed to have happened?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
       "text": "About three minutes ago.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

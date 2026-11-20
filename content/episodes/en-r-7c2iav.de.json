@@ -2,7 +2,7 @@
   "id": "en-r-7c2iav.de",
   "jokeId": "en-r-7c2iav",
   "locale": "de",
-  "title": "Der leere Platz",
+  "title": "Der freie Platz",
   "location": "ulitsa",
   "place": "stadium",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Finale der Weltmeisterschaft. Ein Fan setzt sich und sieht, dass der Platz neben ihm frei ist.",
+      "text": "Ein Mann setzt sich beim WM-Finale auf seinen Platz.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Wer verpasst denn bitte ein Weltmeisterschaftsfinale?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Er schaut zur Seite und bemerkt, dass zwischen ihm und dem Nächsten ein Platz frei ist.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Das war der Platz meiner Frau.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Wer verpasst denn bitte ein WM-Finale?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Wir waren bei den letzten fünf Endspielen zusammen. Leider ist sie gestorben.",
+      "text": "Nun, das war der Platz meiner Frau.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,24 +52,98 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Das tut mir leid. Aber hätte nicht jemand aus der Familie mitkommen können?",
+      "character": "muzhik-ryzhy",
+      "text": "Wir waren zusammen bei den letzten fünf WM-Endspielen, aber leider ist sie verstorben.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "muzhik",
+      "text": "Das ist schrecklich, aber hätten Sie nicht ein anderes nahes Familienmitglied mitnehmen können?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Nein. Die sind alle auf der Beerdigung.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "stadium",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "husband"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

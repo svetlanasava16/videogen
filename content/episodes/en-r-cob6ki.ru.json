@@ -2,7 +2,7 @@
   "id": "en-r-cob6ki.ru",
   "jokeId": "en-r-cob6ki",
   "locale": "ru",
-  "title": "Мы то, что мы едим",
+  "title": "То, что мы едим",
   "location": "sud",
   "place": "courtroom",
   "cast": [
@@ -17,16 +17,25 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужика судят за людоедство.",
+      "text": "Мужчину судят за каннибализм.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ну, ваша честь, если мы и правда то, что мы едим, то я невинный человек.",
+      "text": "Ну, ваша честь, если мы и правда то, что мы едим,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "то я невинный человек.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -35,6 +44,51 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "prisoner",
+        "nachalnik": "judge"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#f07a1a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "dock"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

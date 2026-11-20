@@ -2,7 +2,7 @@
   "id": "ru-e83b816c03db.de",
   "jokeId": "ru-e83b816c03db",
   "locale": "de",
-  "title": "Das Wechselgeld",
+  "title": "Drei Euro",
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "muzhik": "customer",
     "barmen": "bartender"
   },
   "lines": [
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Einen Euro legt er vor sich auf den Tresen, den zweiten ans linke Ende, den dritten ans rechte Ende.",
+      "text": "Einen Euro legt er vor sich hin, den zweiten ans linke Ende der Theke, den dritten ans rechte.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Wirt flucht leise und holt sich das Geld rechts und links.",
+      "text": "Der Wirt geht leise fluchend hin und her und sammelt das Geld ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Am nächsten Tag dasselbe: Wieder verteilt der Mann seine Münzen an beide Enden. Der Wirt ärgert sich, aber er läuft.",
+      "text": "Am nächsten Tag kommt der Mann wieder und verteilt die Münzen wieder an die Enden der Theke. Der Wirt ärgert sich, holt aber das Geld.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,16 +71,16 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Und so geht das Tag für Tag.",
+      "text": "So geht das Tag für Tag.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Eines Tages zieht der Mann einen Fünf-Euro-Schein heraus.",
+      "text": "Eines Tages bestellt er einen Whisky und zieht einen Fünf-Euro-Schein heraus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,8 +89,8 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Der Wirt lächelt rachsüchtig, legt einen Euro Wechselgeld ans linke Ende und den zweiten ans rechte.",
-      "emotion": "neutral",
+      "text": "Der Wirt schnappt ihn sich, lächelt rachsüchtig und legt die zwei Euro Wechselgeld ans linke und ans rechte Ende der Theke. Dann sieht er den Mann schadenfroh an.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -98,26 +98,17 @@
     {
       "id": "l10",
       "character": "narrator",
-      "text": "Dann kommt er zurück und schaut den Mann schadenfroh an.",
+      "text": "Der Mann trinkt in Ruhe aus, legt einen Euro vor sich hin und sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
-      "character": "narrator",
-      "text": "Der Mann trinkt in aller Ruhe aus, holt einen Euro heraus und legt ihn vor sich hin.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l12",
       "character": "muzhik",
       "text": "Ich glaube, ich nehme noch einen.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -133,7 +124,7 @@
         "barmen"
       ],
       "roles": {
-        "muzhik": "everyman",
+        "muzhik": "customer",
         "barmen": "bartender"
       },
       "beats": [
@@ -143,14 +134,14 @@
           "to": "counter"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
           "to": "center",
           "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -161,20 +152,14 @@
           "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
           "type": "prop",
           "who": "muzhik",
           "item": "money",
           "action": "hold"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "put"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "move",
@@ -182,33 +167,9 @@
           "to": "stool-left"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "put"
-        },
-        {
           "type": "move",
           "who": "muzhik",
           "to": "stool-right"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "put"
         },
         {
           "type": "move",
@@ -222,12 +183,12 @@
         {
           "type": "move",
           "who": "barmen",
-          "to": "stool-left"
+          "to": "stool-right"
         },
         {
           "type": "move",
           "who": "barmen",
-          "to": "stool-right"
+          "to": "stool-left"
         },
         {
           "type": "move",
@@ -241,6 +202,36 @@
         {
           "type": "line",
           "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -263,32 +254,20 @@
           "to": "stool-left"
         },
         {
-          "type": "prop",
-          "who": "barmen",
-          "item": "money",
-          "action": "put"
-        },
-        {
           "type": "move",
           "who": "barmen",
           "to": "stool-right"
         },
         {
-          "type": "prop",
-          "who": "barmen",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "money",
-          "action": "put"
-        },
-        {
           "type": "move",
           "who": "barmen",
           "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -297,25 +276,9 @@
         {
           "type": "line",
           "ref": "l11"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "put"
-        },
-        {
-          "type": "line",
-          "ref": "l12"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

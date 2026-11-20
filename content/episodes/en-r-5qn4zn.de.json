@@ -1,0 +1,101 @@
+{
+  "id": "en-r-5qn4zn.de",
+  "jokeId": "en-r-5qn4zn",
+  "locale": "de",
+  "title": "Der Zettel",
+  "location": "kukhnya",
+  "place": "home-kitchen",
+  "cast": [
+    "paren"
+  ],
+  "roles": {
+    "paren": "boyfriend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "paren",
+      "text": "Meine Freundin hat einen Zettel am Kühlschrank hinterlassen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "„Das funktioniert nicht. Ich gehe zu meiner Mutter.“",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Also hab ich die Kühlschranktür aufgemacht, das Licht ging an und der Saft war kalt.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Was zum Teufel meinte sie damit?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "boyfriend"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "fridge"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

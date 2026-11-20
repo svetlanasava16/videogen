@@ -2,35 +2,41 @@
   "id": "ru-b6956f74350f.de",
   "jokeId": "ru-b6956f74350f",
   "locale": "de",
-  "title": "Der Benimmkurs",
+  "title": "Die Benimmschule",
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka-blondinka",
-    "devushka"
+    "devushka",
+    "devushka-blondinka"
   ],
   "roles": {
-    "devushka-blondinka": "blonde",
-    "devushka": "woman"
+    "devushka": "woman",
+    "devushka-blondinka": "woman"
+  },
+  "looks": {
+    "devushka-blondinka": {
+      "add": [
+        "earrings"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Hallo! Wie geht's?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "text": "Wie geht's?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Wunderbar! Mein Liebhaber will mir einen Nerzmantel kaufen.",
+      "text": "Wunderbar! Weißt du, mein Liebhaber hat versprochen, mir einen Nerzmantel zu kaufen...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -39,16 +45,16 @@
       "character": "devushka",
       "text": "Fantastisch!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "Und einen Jaguar hat er mir auch versprochen.",
+      "text": "...und er hat versprochen, mir einen Jaguar zu kaufen...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -57,16 +63,16 @@
       "character": "devushka",
       "text": "Fantastisch!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
-      "text": "Und dann fliegen wir auf die Kanaren!",
+      "text": "...und wir fahren zusammen in den Urlaub auf die Kanaren!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -91,7 +97,7 @@
     {
       "id": "l9",
       "character": "devushka",
-      "text": "Ich mache einen Benimmkurs.",
+      "text": "Ich gehe auf eine Benimmschule.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -109,11 +115,13 @@
     {
       "id": "l11",
       "character": "devushka",
-      "text": "Zum Beispiel sagt man statt 'Red keinen Mist!' jetzt 'Fantastisch!'",
+      "text": "Na, zum Beispiel haben sie uns in der letzten Stunde beigebracht, statt „Erzähl keinen Mist!“ zu sagen: „Fantastisch!“",
+      "uncensored": "Na, zum Beispiel haben sie uns in der letzten Stunde beigebracht, statt „Erzähl keinen Scheiß!“ zu sagen: „Fantastisch!“",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

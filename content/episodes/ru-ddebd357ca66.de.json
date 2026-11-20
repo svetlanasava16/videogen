@@ -13,6 +13,20 @@
     "sluzhivy": "police-officer",
     "doktor": "doctor"
   },
+  "looks": {
+    "sluzhivy": {
+      "add": [],
+      "remove": [
+        "police-cap"
+      ]
+    },
+    "doktor": {
+      "add": [
+        "mustache"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
@@ -26,7 +40,7 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Lassen Sie mich raten. Tabak Queen Virginia mit Kirschblättern, die Jubiläumsausgabe in der Samtdose?",
+      "text": "Lassen Sie mich raten: Tabak Königin Virginia mit Kirschblättern, aus der Jubiläumsausgabe in der Samtverpackung?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,11 +58,12 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Na hören Sie mal, Watson! Mrs Hudson wird mir die letzte Packung wohl kaum aus dem Zimmer geklaut haben!",
+      "text": "Herrgott, Watson! Mrs. Hudson wird mir ja wohl kaum die letzte Packung aus dem Zimmer geklaut haben, verdammt nochmal!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

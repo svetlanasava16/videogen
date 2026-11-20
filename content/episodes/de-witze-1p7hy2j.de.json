@@ -1,0 +1,175 @@
+{
+  "id": "de-witze-1p7hy2j.de",
+  "jokeId": "de-witze-1p7hy2j",
+  "locale": "de",
+  "title": "Wünsche mit Haken",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik",
+    "chort"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "chort": "genie"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann entdeckt einen Flaschengeist.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "chort",
+      "text": "Ich erfülle dir drei Wünsche.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "chort"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "chort",
+      "text": "Allerdings: Was immer du dir wünschst, deine Schwiegermutter bekommt es doppelt.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Als Erstes wünsche ich mir ein großes Haus mit Pool und weitläufigem Garten.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Flaschengeist nickt, und schon ist der Mann um eine tolle Immobilie reicher, während seine Schwiegermutter gleich zwei Anwesen bekommt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Als Nächstes wünsche ich mir einen nagelneuen Lamborghini in meiner Garage.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Wieder nickt der Flaschengeist, und schon taucht das Gefährt in der Garage des Mannes auf, während seine Schwiegermutter gleich zwei Sportwagen bekommt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "chort",
+      "text": "Nun, was ist dein letzter Wunsch?",
+      "emotion": "neutral",
+      "pauseAfterSec": 1,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Okay, dann hätte ich gerne mal achtunddreißig Grad Fieber.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "chort": {
+          "add": [
+            "turban"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

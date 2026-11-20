@@ -2,22 +2,22 @@
   "id": "de-witze-1orkv0i.de",
   "jokeId": "de-witze-1orkv0i",
   "locale": "de",
-  "title": "Rückblick",
+  "title": "Retrospektive",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "ded",
-    "zhena"
+    "tyoshcha",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "zhena": "wife"
+    "tyoshcha": "old-woman",
+    "ded": "old-man"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein alter Mann liegt im Sterben, seine Frau sitzt an seinem Bett.",
+      "text": "Ein alter, sehr kranker Mann liegt im Sterben und sagt zu seiner Frau:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Gabi, seit unserer Hochzeit waren wir nie getrennt.",
+      "text": "Elfriede, seit dem Tage unserer Hochzeit waren wir nie getrennt.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,8 +53,8 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Als ich mich beim Skifahren schwer verletzt habe, warst du neben mir.",
-      "emotion": "neutral",
+      "text": "Als ich mich damals im Ski-Urlaub schwer verletzt habe, warst du neben mir.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,8 +62,8 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Als die Inflation mein ganzes Vermögen gefressen hat, bist du geblieben.",
-      "emotion": "sad",
+      "text": "Als mein Vermögen der Inflation zum Opfer fiel und ich nichts mehr hatte, selbst zu der Zeit warst du da und bist geblieben.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "Und jetzt bin ich todkrank, und du bist immer noch hier.",
+      "text": "Jetzt bin ich sterbenskrank und du bist immer noch hier.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -80,14 +80,73 @@
     {
       "id": "l8",
       "character": "ded",
-      "text": "Gabi, du hast mir immer nur Unglück gebracht!",
+      "text": "Elfriede, du hast mir immer nur Unglück gebracht!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,66 +2,60 @@
   "id": "de-witze-1bl8rd2.en",
   "jokeId": "de-witze-1bl8rd2",
   "locale": "en",
-  "title": "Who's the Dumb One?",
+  "title": "The Dumbest Kid in Town",
   "location": "magazin",
   "place": "barbershop",
   "cast": [
-    "barmen",
+    "vovochka",
     "muzhik",
-    "vovochka"
+    "barmen"
   ],
   "roles": {
-    "barmen": "craftsman",
+    "vovochka": "child",
     "muzhik": "customer",
-    "vovochka": "child"
+    "barmen": "craftsman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "barmen",
-      "text": "Psst. That's the dumbest kid in town. Watch this.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "A little boy walks into the barbershop.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Hey, kid. Five-dollar bill in this hand, two quarters in that one. Pick one.",
-      "emotion": "happy",
+      "text": "That's the dumbest kid in town. Watch this.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "The quarters, please.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "He holds a five-dollar bill in one hand and two quarters in the other.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "vovochka"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "See? What did I tell you?",
-      "emotion": "smug",
+      "text": "Well, kid, pick a hand. Which one do you want?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Later, the customer spots the boy outside with an ice cream.",
+      "text": "The boy takes the two quarters and leaves.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -69,26 +63,156 @@
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Hey, kid. Why do you take the quarters and not the five?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "vovochka"
-      ],
+      "character": "barmen",
+      "text": "Well, what did I tell you?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "vovochka",
-      "text": "The day I take the five, the game is over.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "A little later the customer leaves the shop. Outside he sees the boy at the ice cream stand across the street.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Hey, kid, can I ask you something? Why do you take the two quarters and not the five?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "vovochka",
+      "text": "The day I take the bill, the game is over.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "customer",
+        "barmen": "craftsman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "money",
+          "action": "give",
+          "to": "vovochka"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "shop"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

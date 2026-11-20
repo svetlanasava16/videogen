@@ -13,11 +13,28 @@
     "doktor": "therapist",
     "paren": "programmer"
   },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Психиатр скучает без пациентов. Вдруг к нему в кабинет кто-то вползает на четвереньках.",
+      "text": "Сидит психиатр у себя в кабинете, скучает... Пациенты не идут.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Тут тихонько приоткрывается дверь, и к нему на карачках заползает человек, сжимая что-то в зубах и руках, а сзади ещё что-то волочится.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,18 +43,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "doktor",
-      "text": "Ой, кто это к нам ползёт? Наверное, маленькая змейка!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "doktor",
-      "text": "Заползай, змейка, доктор тебе поможет.",
+      "text": "Ой, кто это к нам тут ползёт! Это, наверное, маленькая змейка.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,17 +54,17 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Не змейка? А, это черепашка к нам в гости пожаловала!",
-      "emotion": "surprised",
+      "text": "Заползай, змейка, заползай, маленькая, доктор тебе поможет.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "Залезай в кресло, черепашка, расскажи дяде доктору, что случилось.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Человек отрицательно машет головой.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,20 +72,49 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Опять нет? Так кто же это у нас? Маленький червячок?",
+      "text": "А-а-а, это, наверное, черепашка к нам в гости пожаловала.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "doktor",
+      "text": "Заползай, черепашка, в кресло и расскажи дяде доктору, что с тобой случилось...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Человек отрицательно машет головой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "Так кто же это у нас? Наверное, маленький червячок?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "paren",
-      "text": "Доктор, идите вы лесом! Я сисадмин, я вам сеть прокладываю!",
+      "text": "Доктор, идите нафиг, я сисадмин, вам сеть прокладываю!",
+      "uncensored": "Доктор, идите на хуй, я сисадмин, вам сеть прокладываю!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

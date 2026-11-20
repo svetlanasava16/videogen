@@ -2,7 +2,7 @@
   "id": "ru-ac97d07acf92.en",
   "jokeId": "ru-ac97d07acf92",
   "locale": "en",
-  "title": "The Suitor",
+  "title": "Pity the Boy",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,11 +13,19 @@
     "zhena": "mother",
     "devushka-ryzhaya": "daughter"
   },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Sweetheart, that boy is an orphan. And he limps.",
+      "text": "Sweetheart, that boy is an orphan, and on top of that he limps.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,28 +35,38 @@
       "id": "l2",
       "character": "zhena",
       "text": "Don't marry him.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Mom, I don't need a handsome one.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "text": "I don't need a handsome one.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "zhena",
-      "text": "That's not what I mean. Have pity on the poor boy. Life's been hard enough on him already.",
+      "text": "That's not what I mean.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "Have pity on the boy, life has been hard enough on him already.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

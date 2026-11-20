@@ -2,35 +2,41 @@
   "id": "ru-b6956f74350f.en",
   "jokeId": "ru-b6956f74350f",
   "locale": "en",
-  "title": "Etiquette Class",
+  "title": "Charm School",
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka-blondinka",
-    "devushka"
+    "devushka",
+    "devushka-blondinka"
   ],
   "roles": {
-    "devushka-blondinka": "blonde",
-    "devushka": "woman"
+    "devushka": "woman",
+    "devushka-blondinka": "woman"
+  },
+  "looks": {
+    "devushka-blondinka": {
+      "add": [
+        "earrings"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
-      "text": "Hi! How are you?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "text": "How are you?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Wonderful! My lover promised to buy me a mink coat.",
+      "text": "Wonderful! You know, my lover promised to buy me a mink coat...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -39,16 +45,16 @@
       "character": "devushka",
       "text": "Fantastic!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "And he promised me a Jaguar.",
+      "text": "...and he also promised to buy me a Jaguar...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -57,16 +63,16 @@
       "character": "devushka",
       "text": "Fantastic!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
-      "text": "And we're flying to the Canary Islands!",
+      "text": "...and we're going on holiday to the Canary Islands together!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -82,7 +88,7 @@
     {
       "id": "l8",
       "character": "devushka-blondinka",
-      "text": "So what's new with you?",
+      "text": "And what's new with you?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -91,7 +97,7 @@
     {
       "id": "l9",
       "character": "devushka",
-      "text": "I'm taking a class in good manners.",
+      "text": "I'm studying at a school of good manners.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -100,7 +106,7 @@
     {
       "id": "l10",
       "character": "devushka-blondinka",
-      "text": "Oh? What do they teach you?",
+      "text": "And what do they teach you there?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -109,11 +115,13 @@
     {
       "id": "l11",
       "character": "devushka",
-      "text": "Well, last week we learned that instead of 'You're full of it!' we say 'Fantastic!'",
+      "text": "Well, for example, in the last class they taught us to say, instead of “Bullcrap!”, “Fantastic!”",
+      "uncensored": "Well, for example, in the last class they taught us to say, instead of “Bullshit!”, “Fantastic!”",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

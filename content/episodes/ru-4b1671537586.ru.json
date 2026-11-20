@@ -2,22 +2,22 @@
   "id": "ru-4b1671537586.ru",
   "jokeId": "ru-4b1671537586",
   "locale": "ru",
-  "title": "Сантехник",
+  "title": "Нейрохирург",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
-    "barmen",
-    "doktor"
+    "doktor",
+    "barmen"
   ],
   "roles": {
-    "barmen": "plumber",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "barmen": "plumber"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "У нейрохирурга засорился унитаз. Пришёл сантехник, пару раз стукнул молотком и закрутил гайку.",
+      "text": "У врача дома засорился унитаз. Вызвали водопроводчика.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Готово, всё работает. С вас пятьсот рублей.",
+      "character": "narrator",
+      "text": "Водопроводчик пришёл, пару раз где-то стукнул молотком, заменил прокладку, закрутил гайку. Потом говорит:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,17 +34,35 @@
     },
     {
       "id": "l3",
+      "character": "barmen",
+      "text": "Готово, всё работает. С вас пятьсот рублей.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "doktor",
-      "text": "Пятьсот рублей за пять минут? Я нейрохирург, я двенадцать лет учился, и мне за пять минут столько не платят!",
+      "text": "Как пятьсот рублей? За пять минут работы?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "doktor",
+      "text": "Я нейрохирург, я двенадцать лет учился специальности, но мне за пять минут работы пятьсот рублей не платят.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "barmen",
-      "text": "Так это нормально. Когда я был нейрохирургом, мне тоже столько не платили.",
+      "text": "Так это нормально. Когда я нейрохирургом был, мне тоже так не платили.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,24 +75,34 @@
     {
       "location": "spalnya",
       "cast": [
-        "barmen",
-        "doktor"
+        "doktor",
+        "barmen"
       ],
       "roles": {
-        "barmen": "plumber",
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "barmen": "plumber"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "barmen",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
           "type": "prop",
           "who": "barmen",
-          "item": "certificate",
-          "action": "give",
-          "to": "doktor"
+          "item": "wrench",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -87,6 +115,14 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

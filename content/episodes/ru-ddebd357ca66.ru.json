@@ -13,6 +13,20 @@
     "sluzhivy": "police-officer",
     "doktor": "doctor"
   },
+  "looks": {
+    "sluzhivy": {
+      "add": [],
+      "remove": [
+        "police-cap"
+      ]
+    },
+    "doktor": {
+      "add": [
+        "mustache"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
@@ -26,7 +40,7 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Дайте угадаю. Табак Королева Вирджиния с листочками вишни, юбилейный выпуск в бархатной упаковке?",
+      "text": "Дайте угадаю: табак «Королева Вирджиния» с листочками вишни, из юбилейного выпуска в бархатной упаковке?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +49,7 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Поразительно, Холмс! Как вы угадали?",
+      "text": "Поразительно, Холмс! Как это вы угадали?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -45,10 +59,12 @@
       "id": "l4",
       "character": "sluzhivy",
       "text": "Ей-богу, Ватсон! Ну не миссис Хадсон же стащила из моей комнаты последнюю пачку!",
+      "uncensored": "Ей-богу, Ватсон! Ну не миссис Хадсон же спиздила из моей комнаты последнюю пачку!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

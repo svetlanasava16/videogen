@@ -2,8 +2,8 @@
   "id": "ru-e4bdb628f433.en",
   "jokeId": "ru-e4bdb628f433",
   "locale": "en",
-  "title": "Nobody Home",
-  "location": "ulitsa",
+  "title": "Nobody's Home",
+  "location": "derevnya",
   "place": "street",
   "cast": [
     "muzhik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man is knocking at his neighbor's gate.",
+      "text": "A man comes up to his neighbor's gate and knocks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hello? Anybody home?",
+      "character": "narrator",
+      "text": "He knocks and knocks, but nobody answers. He knocks harder.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,28 +34,26 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Open up!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A dog quietly comes up to the gate.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "pyos",
-      "text": "Stop knocking, pal. Nobody's home.",
+      "text": "Buddy, stop knocking, nobody's home.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "pyos"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The man faints. A minute later he comes to.",
+      "text": "The man faints on the spot. When he comes to, he looks at the dog.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,23 +62,80 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Can't you just bark like a normal dog?",
+      "text": "What's the matter with you, dog, can't you bark?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "pyos",
-      "text": "I can. I just didn't want to scare you.",
-      "emotion": "smug",
+      "text": "I can, but I didn't want to scare you.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "muzhik",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

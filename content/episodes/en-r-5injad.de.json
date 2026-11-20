@@ -2,22 +2,20 @@
   "id": "en-r-5injad.de",
   "jokeId": "en-r-5injad",
   "locale": "de",
-  "title": "Eingefrorene Windows",
+  "title": "Windows eingefroren",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "muzhik"
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein eiskalter Wintermorgen. Die Frau schreibt ihrem Mann auf die Arbeit.",
+      "text": "Ein kalter Wintermorgen. Eine Frau schreibt ihrem Mann.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,18 +24,18 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Windows eingefroren. Geht nichts mehr auf.",
+      "text": "Windows eingefroren, geht nicht auf.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Gieß vorsichtig lauwarmes Wasser drüber und klopf dann sanft mit dem Hammer gegen die Ränder.",
+      "text": "Gieß vorsichtig etwas lauwarmes Wasser über die Fenster und klopf dann sanft mit dem Hammer auf die Rahmen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -57,10 +55,92 @@
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ofis",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

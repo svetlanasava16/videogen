@@ -2,18 +2,26 @@
   "id": "en-r-5e81hx.en",
   "jokeId": "en-r-5e81hx",
   "locale": "en",
-  "title": "Hot Chili",
+  "title": "The Last Bowl",
   "location": "bar",
   "place": "restaurant",
   "cast": [
     "muzhik",
-    "barmen",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "devushka"
   ],
   "roles": {
     "muzhik": "everyman",
-    "barmen": "waiter",
-    "muzhik-ryzhy": "customer"
+    "muzhik-ryzhy": "customer",
+    "devushka": "waiter"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -21,7 +29,7 @@
       "character": "narrator",
       "text": "A guy sits down in a diner.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -31,12 +39,14 @@
       "text": "A bowl of hot chili, please.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
+      "character": "devushka",
       "text": "Sorry, but the guy next to you got the last bowl.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -56,7 +66,7 @@
       "id": "l5",
       "character": "muzhik",
       "text": "Are you going to eat that chili?",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,14 +76,14 @@
       "character": "muzhik-ryzhy",
       "text": "No. Help yourself.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "He slides the bowl of chili over and starts to eat. When he gets about half way down, his spoon hits something.",
+      "text": "He slides the bowl of chili over and starts to eat.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,6 +92,15 @@
     {
       "id": "l8",
       "character": "narrator",
+      "text": "When he gets about halfway down, his spoon hits something.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
       "text": "He looks down, sees a dead mouse and immediately pukes all the chili back into the bowl.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
@@ -89,7 +108,7 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Yeah, that's about as far as I got, too.",
       "emotion": "sad",

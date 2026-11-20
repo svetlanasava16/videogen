@@ -1,0 +1,118 @@
+{
+  "id": "de-witze-1nirrry.de",
+  "jokeId": "de-witze-1nirrry",
+  "locale": "de",
+  "title": "Konversation im Bus",
+  "location": "doroga",
+  "place": "bus",
+  "cast": [
+    "muzhik",
+    "zhena",
+    "vovochka"
+  ],
+  "roles": {
+    "muzhik": "customer",
+    "zhena": "mother",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Boah, ist der Junge da drüben grässlich.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Hey, das ist mein Sohn.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Oh Entschuldigung, ich wusste nicht, dass Sie der Vater sind.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Hey!! Ich bin seine Mutter!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "zhena": "mother",
+        "vovochka": "child"
+      },
+      "looks": {
+        "zhena": {
+          "clothes": "#5a6470",
+          "hairStyle": "short",
+          "add": [],
+          "remove": []
+        },
+        "vovochka": {
+          "add": [
+            "freckles",
+            "cowlick"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,24 +2,38 @@
   "id": "de-witze-1icpswn.ru",
   "jokeId": "de-witze-1icpswn",
   "locale": "ru",
-  "title": "Гипнотизёр",
+  "title": "Опять вы?",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "zhena",
     "uchilka",
-    "paren"
+    "zhena",
+    "doktor"
   ],
   "roles": {
-    "zhena": "wife",
     "uchilka": "clerk",
-    "paren": "magician"
+    "zhena": "wife",
+    "doktor": "therapist"
+  },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "headset"
+      ],
+      "remove": []
+    },
+    "doktor": {
+      "add": [
+        "goatee"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Женщина приходит к гипнотизёру.",
+      "text": "Фрау Мюллер изменила мужу после десяти лет брака.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +41,17 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Здравствуйте. Мне нужно стереть одно воспоминание.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Эта ошибка её очень мучает, и она хочет, чтобы гипнотизёр стёр ей это воспоминание.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "А что случилось?",
+      "character": "narrator",
+      "text": "В приёмной она объясняет администратору свои причины.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +60,7 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "За десять лет брака я один-единственный раз изменила мужу.",
+      "text": "Я всего один раз за десять лет совершила ошибку.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,22 +69,32 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Не хочу, чтобы одна ошибка разрушила мне всю жизнь.",
+      "text": "Я не хочу, чтобы она разрушила мне всю жизнь.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "О, здравствуйте! Опять вы?",
+      "character": "narrator",
+      "text": "Вдруг в комнату входит гипнотизёр.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "doktor",
+      "text": "О, фрау Мюллер! Опять вы?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [
-        "paren"
+        "doktor"
       ],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

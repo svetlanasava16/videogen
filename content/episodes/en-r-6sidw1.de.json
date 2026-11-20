@@ -15,11 +15,20 @@
     "vovochka": "child",
     "muzhik": "husband"
   },
+  "looks": {
+    "vovochka": {
+      "hair": "#f2c94c",
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Nach zehn Jahren findet die Frau, dass ihr Sohn irgendwie seltsam aussieht, und macht einen DNA-Test.",
+      "text": "Nach zehn Jahren findet die Frau, dass ihr Kind irgendwie seltsam aussieht. Also macht sie einen DNA-Test.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,6 +36,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Es stellt sich heraus, dass das Kind von ganz anderen Eltern stammt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "zhena",
       "text": "Schatz, ich muss dir etwas sehr Ernstes sagen.",
       "emotion": "sad",
@@ -35,25 +53,25 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Was ist denn?",
+      "text": "Was ist los?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "zhena",
       "text": "Laut DNA-Test ist das nicht unser Kind.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
       "text": "Weißt du das nicht mehr?",
       "emotion": "surprised",
@@ -62,22 +80,23 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "Als wir aus dem Krankenhaus kamen, hatte das Baby in die Windel gemacht.",
+      "text": "Als wir aus dem Krankenhaus kamen, haben wir gemerkt, dass unser Baby die Windel voll hatte.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Und du hast gesagt: Geh schnell das Baby wechseln, ich warte hier.",
+      "text": "Du hast gesagt: Geh bitte das Baby wechseln, ich warte hier auf dich.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

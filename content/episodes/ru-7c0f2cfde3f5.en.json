@@ -1,0 +1,136 @@
+{
+  "id": "ru-7c0f2cfde3f5.en",
+  "jokeId": "ru-7c0f2cfde3f5",
+  "locale": "en",
+  "title": "Grandpa's Ashes",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "paren",
+    "devushka"
+  ],
+  "roles": {
+    "paren": "boyfriend",
+    "devushka": "girlfriend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A guy came over to a girl's place. He walks around, checking out the flat.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Suddenly he sees a beautiful, expensive Chinese vase standing by the sofa. He looks inside, sees something there, sticks his hand in and asks:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Oh, what's this in here?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Oh, that! Those are my grandpa's ashes...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "The guy yanks his hand out in horror.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "...he just can't be bothered, you see, to walk to the kitchen for an ashtray!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "sofa"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

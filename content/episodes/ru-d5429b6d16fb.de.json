@@ -12,14 +12,14 @@
   ],
   "roles": {
     "uchilka": "nun",
-    "muzhik": "drunk",
+    "muzhik": "customer",
     "barmen": "bartender"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann trinkt in einer Kneipe. Eine Nonne kommt vorbei.",
+      "text": "Ein Mann sitzt im Café und betrinkt sich. Eine Nonne geht vorbei.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,19 +28,17 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Wie kannst du dein Leben in dieser Lasterhöhle vergeuden!",
+      "text": "Wie kannst du dein Leben in dieser Höhle der Unzucht und Verderbtheit verschwenden!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Kein Laster hier, Schwester...",
-      "emotion": "surprised",
+      "text": "Hier gibt es doch keine Verderbtheit, Schwester...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
     {
       "id": "l4",
       "character": "uchilka",
-      "text": "Anna!",
+      "text": "Anna.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,8 +55,8 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Schwester Anna. Alles gut. Ich trinke nur.",
-      "emotion": "neutral",
+      "text": "Ja, Anna. Alles in Ordnung. Ich trinke nur.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,7 +64,7 @@
     {
       "id": "l6",
       "character": "uchilka",
-      "text": "Und das ist dem Herrn zuwider!",
+      "text": "Und das ist dem Herrn zuwider.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,7 +73,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Hast du es denn je probiert?",
+      "text": "Hast du es selbst schon mal probiert, Schwester Anna?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,8 +91,8 @@
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Wie kannst du dann urteilen? Ich spendier dir einen.",
-      "emotion": "happy",
+      "text": "Wie kannst du es dann behaupten? Komm, ich kaufe dir was zu trinken, und du probierst...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -102,7 +100,7 @@
     {
       "id": "l10",
       "character": "uchilka",
-      "text": "Niemals! Damit alle sehen, wie eine Nonne Schnaps trinkt?",
+      "text": "Niemals! Damit die Leute sehen, wie eine Nonne Schnaps trinkt?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -111,25 +109,25 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Ich lass ihn dir in eine Teetasse füllen.",
-      "emotion": "smug",
+      "text": "Ich lasse es dir in eine Tasse gießen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
-      "character": "uchilka",
-      "text": "Na gut.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Die Nonne willigt widerwillig ein. Der Mann geht zur Theke.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Zwei Schnäpse. Aber einen bitte in eine Teetasse.",
+      "text": "Hör mal, gib mir zwei Gläser Wodka, aber gieß eins in eine Teetasse.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -142,10 +140,112 @@
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "uchilka",
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "uchilka": "nun",
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

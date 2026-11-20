@@ -2,22 +2,31 @@
   "id": "de-witze-1l8751p.ru",
   "jokeId": "de-witze-1l8751p",
   "locale": "ru",
-  "title": "Уставший чиновник",
+  "title": "Чиновник",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Приходит мужик к врачу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
-      "text": "Доктор, я уже несколько недель какой-то вялый и разбитый. Что со мной?",
+      "text": "Доктор, я последние недели всё время такой вялый и разбитый, что это может быть?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,7 +35,7 @@
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "А кем вы работаете?",
       "emotion": "neutral",
@@ -35,7 +44,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Чиновником.",
       "emotion": "neutral",
@@ -44,31 +53,32 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "doktor",
-      "text": "Так. А как прошли эти последние недели?",
+      "text": "Ага, а последние недели как у вас прошли?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Ну, вообще-то я сейчас в отпуске.",
+      "text": "Ну, вообще-то я сейчас в отпуске...",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "doktor",
-      "text": "Ну, тогда всё ясно. Вы просто не высыпаетесь!",
+      "text": "Ну, тогда всё ясно, вам не хватает сна!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,22 +2,22 @@
   "id": "en-d-23572.de",
   "jokeId": "en-d-23572",
   "locale": "de",
-  "title": "Horrorfilm",
+  "title": "Geh da nicht rein",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Die Frau hat ein, zwei Gläser Wein getrunken und schreit den Fernseher an.",
+      "character": "muzhik",
+      "text": "Ich sehe, wie meine Frau, leicht angetrunken, den Fernseher anschreit.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Nein, nein, geh da nicht rein!",
+      "text": "Geh da nicht rein!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,16 +44,71 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Sie schaut schon wieder unser Hochzeitsvideo.",
-      "emotion": "sad",
+      "text": "Sie schaut sich mal wieder unser Hochzeitsvideo an.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

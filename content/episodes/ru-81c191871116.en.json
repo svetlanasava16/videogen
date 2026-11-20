@@ -7,29 +7,32 @@
   "place": "doctor-office",
   "cast": [
     "zhena",
+    "vovochka",
     "doktor"
   ],
   "roles": {
     "zhena": "mother",
+    "vovochka": "child",
     "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Doctor, my little boy ate a whole bunch of sand!",
-      "emotion": "surprised",
+      "text": "Doctor, my child ate a lot of sand.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
-        "zhena"
+        "zhena",
+        "vovochka"
       ],
       "exit": []
     },
     {
       "id": "l2",
       "character": "zhena",
-      "text": "I gave him lots of water. What now?",
-      "emotion": "sad",
+      "text": "I gave him lots of water, so what now?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -37,11 +40,12 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Now keep him away from cement.",
+      "text": "Make sure he doesn't go near any cement!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

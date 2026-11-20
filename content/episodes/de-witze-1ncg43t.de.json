@@ -2,7 +2,7 @@
   "id": "de-witze-1ncg43t.de",
   "jokeId": "de-witze-1ncg43t",
   "locale": "de",
-  "title": "Rückwärts den Berg hoch",
+  "title": "Rückwärts",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,74 +17,160 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Lkw-Fahrer fährt mit seinem Vierzigtonner rückwärts eine steile Serpentinenstraße hinauf.",
+      "text": "Fährt ein Fahrer mit seinem Vierzigtonner rückwärts eine fünf Kilometer lange und steile Serpentinenstraße hoch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hey! Warum fährst du denn rückwärts?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Nach zwei Kilometern hält ihn einer an.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Ich muss oben was ausliefern, und mein Chef sagt, da oben kann man nicht wenden.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Warum fährst du rückwärts?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
-    },
-    {
-      "id": "l4",
-      "character": "narrator",
-      "text": "Sechs Stunden später kommt er wieder herunter. Rückwärts.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Und warum fährst du jetzt rückwärts wieder runter?",
-      "emotion": "surprised",
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Ich muss oben was ausliefern, und mein Chef hat gesagt, man kann dort oben nicht wenden.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Nach sechs Stunden kommt er wieder runter. Rückwärts!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Tja, der Chef hat eben keine Ahnung vom Fahren.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "character": "muzhik",
+      "text": "Warum fährst du rückwärts wieder runter?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "Ich konnte oben nämlich doch wenden!",
+      "text": "Da sieht man mal wieder, dass der Chef keine Ahnung hat vom Fahren.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Ich konnte doch wenden!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Финал чемпионата мира. Болельщик садится и видит, что соседнее место пустует.",
+      "text": "Мужик садится на своё место на финале чемпионата мира.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Кто же пропускает финал чемпионата мира?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Смотрит и замечает, что между ним и соседом есть свободное место.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Это место моей жены.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Кто же может пропустить финал чемпионата мира?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Мы вместе были на пяти последних финалах. Но она, увы, умерла.",
+      "text": "Ну, это было место моей жены.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,24 +52,98 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Сочувствую. А что, никто из родных не смог с вами пойти?",
+      "character": "muzhik-ryzhy",
+      "text": "Мы с ней вместе были на последних пяти финалах, но, к сожалению, она скончалась.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "muzhik",
+      "text": "Какой ужас. Но неужели нельзя было взять с собой кого-нибудь из близких родственников?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Нет. Они все на похоронах.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "stadium",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "husband"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

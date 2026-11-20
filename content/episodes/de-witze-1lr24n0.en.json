@@ -2,55 +2,73 @@
   "id": "de-witze-1lr24n0.en",
   "jokeId": "de-witze-1lr24n0",
   "locale": "en",
-  "title": "Losing Your Load",
+  "title": "Winter Joke",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik-ryzhy",
+    "devushka",
     "nachalnik",
-    "devushka"
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "driver",
+    "devushka": "girlfriend",
     "nachalnik": "businessman",
-    "devushka": "girlfriend"
+    "muzhik-ryzhy": "driver"
+  },
+  "looks": {
+    "devushka": {
+      "add": [
+        "dark-glasses"
+      ],
+      "remove": []
+    },
+    "nachalnik": {
+      "add": [
+        "dark-glasses",
+        "gold-chain"
+      ],
+      "remove": []
+    },
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A sports car pulls up next to a truck on a winter road.",
+      "text": "A guy in a Porsche pulls up next to a truck and shouts to the driver:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "My name is Ray, I make a grand a day, my sweetheart's here today, and you're losing your load!",
+      "text": "My name is Ray, I make a grand a day, next to me sits my bae, and you're losing your load!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik",
-        "devushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The trucker shakes his head and drives on. The sports car catches up again.",
+      "text": "The truck driver shakes his head and drives on. Then the Porsche pulls up again:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "My name is Ray, I make a grand a day, my sweetheart's here today, and you're losing your load!",
-      "emotion": "happy",
+      "text": "My name is Ray, I make a grand a day, next to me sits my bae, and you're losing your load!",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -58,7 +76,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "After the fifth time, the trucker has had enough.",
+      "text": "Again the truck driver drives on. After this happens a few more times, the driver has had enough and shouts back:",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
@@ -67,11 +85,12 @@
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "My name is Walt, it's winter, and I'm spreading salt!",
+      "text": "My name is Pete, there's snow and sleet, and this is a salt truck!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

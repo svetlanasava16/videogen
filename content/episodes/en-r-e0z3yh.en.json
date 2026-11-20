@@ -3,33 +3,29 @@
   "jokeId": "en-r-e0z3yh",
   "locale": "en",
   "title": "Blood Donor",
-  "location": "bolnitsa",
+  "location": "ulitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "devushka"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "devushka": "nurse"
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Hi! I'm here to donate blood.",
-      "emotion": "happy",
+      "text": "Went to donate blood today.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Great. Whose blood is it?",
-      "emotion": "surprised",
+      "character": "muzhik",
+      "text": "Awful experience, never again.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,16 +33,16 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Does it matter? It's mine now.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Question after question.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "devushka",
-      "text": "Where did you get it?",
+      "text": "Whose blood is it?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,24 +50,87 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Why all the questions?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "devushka",
+      "text": "Where did you get it?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka",
-      "text": "Sir, why is it in a bucket?",
+      "text": "Why is it in a bucket?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "devushka": "nurse"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

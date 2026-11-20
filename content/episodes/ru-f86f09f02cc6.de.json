@@ -16,8 +16,17 @@
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Zwei Männer treffen sich, sie haben sich lange nicht gesehen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Hey! Lange nicht gesehen!",
+      "text": "Komm, darauf trinken wir einen, wir haben uns ja ewig nicht gesehen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -26,18 +35,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Komm, darauf trinken wir einen!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "muzhik",
-      "text": "Nee, ich trinke nicht mehr.",
+      "text": "Nee, ich hab mit dem Trinken aufgehört.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Was? Warum?",
+      "text": "Warum?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Erinnerst du dich an letzten Sommer?",
+      "text": "Na, erinnerst du dich an letzten Sommer?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
     {
       "id": "l6",
       "character": "muzhik-sosed",
-      "text": "Klar.",
+      "text": "Ja.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -73,11 +73,12 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Ich mich nicht.",
+      "text": "Ich nicht!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

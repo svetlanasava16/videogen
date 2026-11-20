@@ -2,24 +2,24 @@
   "id": "de-witze-1llq1rk.de",
   "jokeId": "de-witze-1llq1rk",
   "locale": "de",
-  "title": "Die Zielvorrichtung",
+  "title": "Taxler",
   "location": "doroga",
   "place": "car",
   "cast": [
+    "ded",
     "muzhik-ryzhy",
-    "muzhik-sosed",
-    "ded"
+    "muzhik-sosed"
   ],
   "roles": {
+    "ded": "old-man",
     "muzhik-ryzhy": "driver",
-    "muzhik-sosed": "farmer",
-    "ded": "old-man"
+    "muzhik-sosed": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Bauer ist zum ersten Mal in der Stadt und fährt Taxi. Mercedes.",
+      "text": "Fährt ein Landei zum ersten Mal, als er in der Stadt ist, mit einem Mercedes-Taxi.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "muzhik-sosed",
-      "text": "Sagen Sie mal, wofür ist eigentlich der Stern da vorne auf der Motorhaube?",
+      "text": "Für was ist der Stern da auf der Motorhaube?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Das ist eine Zielvorrichtung. Für Rentner.",
+      "text": "Na warte, dich nehm ich hops.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,37 +46,35 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Für jeden, den ich erwische, krieg ich fünfhundert Euro Prämie.",
-      "emotion": "smug",
+      "text": "Das ist eine Zielvorrichtung, um Rentner zu treffen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "Echt jetzt?",
-      "emotion": "surprised",
+      "character": "muzhik-ryzhy",
+      "text": "Für jeden, den ich erwische, bekomm ich fünfhundert Euro Prämie.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-ryzhy",
-      "text": "Passen Sie auf.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Sagt's und hält voll auf einen Rentner zu, weicht aber im allerletzten Moment aus.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Er hält voll auf den Rentner zu und weicht im allerletzten Moment aus. Trotzdem gibt es einen dumpfen Schlag.",
-      "emotion": "neutral",
+      "text": "Trotzdem tut es einen dumpfen Schlag, und der Rentner liegt am Boden.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -84,14 +82,114 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Mann, wenn ich nicht im letzten Moment die Tür aufgerissen hätte, wär uns die Prämie glatt flöten gegangen!",
+      "text": "Wenn ich jetzt nicht im letzten Moment die Tür aufgerissen hätte, wär uns die Prämie sauber flöten gegangen.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "ded",
+        "muzhik-ryzhy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "muzhik-ryzhy": "driver",
+        "muzhik-sosed": "customer"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "bowler"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap",
+            "mustache"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "roadside",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "ded",
+          "item": "cane",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

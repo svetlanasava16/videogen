@@ -7,28 +7,29 @@
   "place": "forest",
   "cast": [
     "nachalnik",
+    "muzhik-ryzhy",
     "muzhik"
   ],
   "roles": {
     "nachalnik": "new-russian",
+    "muzhik-ryzhy": "gangster",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Ребята, извините. Это не ваш бультерьер тут бегает?",
-      "emotion": "sad",
+      "text": "Ребята, это не ваш бультерьер тут бегает?!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Ну, наш. И чё тебе надо?",
+      "text": "Ну наш, и чё тебе надо?",
+      "uncensored": "Ну наш, и хули тебе надо?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +38,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Понимаете, мы тут рядом отдыхаем. И моя собачка случайно убила вашу.",
+      "text": "Понимаете, мы тут тоже рядом отдыхаем, и моя собачка случайно убила вашу!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +46,9 @@
     },
     {
       "id": "l4",
-      "character": "nachalnik",
-      "text": "Да ладно?! А у тебя что за зверь?",
+      "character": "muzhik-ryzhy",
+      "text": "Да ну нафиг!? А чо у тебя за зверь?",
+      "uncensored": "Да ну на хуй!? А чо у тебя за зверь?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,32 +57,98 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Да маленький такой пуделёк.",
+      "text": "Да маленький такой пуделёк!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "nachalnik",
-      "text": "Чего?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
       "character": "muzhik",
-      "text": "А ваш им подавился.",
+      "text": "А ваш им подавился!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "nachalnik",
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "new-russian",
+        "muzhik-ryzhy": "gangster",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "gold-chain",
+            "stubble"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

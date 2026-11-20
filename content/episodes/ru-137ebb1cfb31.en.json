@@ -2,23 +2,25 @@
   "id": "ru-137ebb1cfb31.en",
   "jokeId": "ru-137ebb1cfb31",
   "locale": "en",
-  "title": "Freedom",
+  "title": "I'm Coming With You",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
-    "muzhik"
+    "zhena",
+    "muzhik",
+    "paren"
   ],
   "roles": {
-    "paren": "son",
-    "muzhik": "father"
+    "zhena": "mother",
+    "muzhik": "father",
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "I'm sick of it! Always stuck with you, always home on time!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "A son is arguing with his parents:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +28,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "I want romance, freedom, beer and girls!",
+      "text": "I'm sick of always being with you and always coming home on time!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +37,7 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "I'm leaving, and don't you dare try to stop me!",
+      "text": "I want romance, freedom, beer, girls!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,36 +45,114 @@
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "At the door, his father catches up with him.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "I'm leaving, and don't try to hold me back!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "paren",
-      "text": "Dad, I told you, don't try to stop me!",
+      "text": "Dad, I told you: don't try to stop me!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "I'm not stopping you, son. I'm coming with you!",
+      "text": "I'm not stopping you, son.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "I'm coming with you!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "paren",
-        "muzhik"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,33 +2,31 @@
   "id": "ru-211af443a855.ru",
   "jokeId": "ru-211af443a855",
   "locale": "ru",
-  "title": "Разведённая Барби",
+  "title": "Разведенная Барби",
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "barmen",
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "salesman",
-    "muzhik": "customer"
+    "muzhik": "customer",
+    "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Здравствуйте, мне бы куклу Барби.",
+      "character": "narrator",
+      "text": "Американский анекдот. В магазине игрушек покупатель интересуется куклами Барби.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Пожалуйста. Барби в бассейне, восемнадцать девяносто девять.",
+      "text": "Это Барби в бассейне — восемнадцать долларов девяносто девять центов.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Барби в колледже, тоже восемнадцать девяносто девять.",
-      "emotion": "neutral",
+      "text": "Это Барби в колледже — восемнадцать долларов девяносто девять центов.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "barmen",
-      "text": "А это Разведённая Барби. Сто девяносто девять долларов девяносто девять центов.",
+      "text": "А это — разведенная Барби — сто девяносто девять долларов девяносто девять центов.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Сколько?! Откуда такая разница?",
+      "text": "Сколько?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -64,11 +62,12 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "В комплект Разведённой Барби входят дом Кена, машина Кена и вертолёт Кена.",
+      "text": "В комплект «Разведенная Барби» входит домик Кена, машина Кена и вертолет Кена.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

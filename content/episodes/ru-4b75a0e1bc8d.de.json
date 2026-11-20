@@ -2,24 +2,22 @@
   "id": "ru-4b75a0e1bc8d.de",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "de",
-  "title": "Schluckauf",
+  "title": "Der Schluckauf",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "tyoshcha",
-    "doktor",
+    "zhena",
     "paren"
   ],
   "roles": {
-    "tyoshcha": "old-woman",
-    "doktor": "doctor",
+    "zhena": "patient",
     "paren": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Frau Petersen ging zum Arzt. Man gab ihr einen Termin bei einem ganz jungen Doktor, frisch von der Uni.",
+      "text": "Frau Peters ging zum Arzt. Sie bekam einen Termin bei einem ganz jungen Doktor, frisch von der Uni.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,8 +26,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Nach ein paar Minuten in seinem Sprechzimmer stürzte Frau Petersen mit wildem Geschrei heraus und rannte den Flur entlang.",
-      "emotion": "neutral",
+      "text": "Nach ein paar Minuten in seinem Sprechzimmer stürzte Frau Peters mit wilden Schreien heraus und rannte den Flur entlang.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Als er das Zimmer des jungen Arztes betrat, sah er streng aus.",
+      "text": "Als er das Sprechzimmer des jungen Arztes betrat, sah er streng aus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,17 +62,26 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Frau Petersen ist fünfundfünfzig, sie hat eine erwachsene Tochter, bald kommt ein Enkel, und du sagst ihr, sie ist schwanger!",
+      "text": "Frau Peters wird sechsundfünfzig, sie hat eine erwachsene Tochter, bald kommt ein Enkel, und du sagst ihr, sie ist schwanger!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Der junge Arzt schrieb weiter etwas in die Karteikarte und antwortete:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "paren",
       "text": "Aber der Schluckauf ist doch weg, oder?",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -86,25 +93,23 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "tyoshcha",
-        "doktor",
+        "zhena",
         "paren"
       ],
       "roles": {
-        "tyoshcha": "old-woman",
-        "doktor": "doctor",
+        "zhena": "patient",
         "paren": "doctor"
       },
       "beats": [
         {
           "type": "move",
-          "who": "paren",
-          "to": "desk"
+          "who": "zhena",
+          "to": "couch"
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "center"
+          "who": "paren",
+          "to": "desk"
         },
         {
           "type": "line",
@@ -116,12 +121,62 @@
         },
         {
           "type": "move",
-          "who": "tyoshcha",
-          "to": "off-left"
+          "who": "zhena",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "zhena"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "zhena": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -144,9 +199,13 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

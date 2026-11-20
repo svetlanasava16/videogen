@@ -2,23 +2,23 @@
   "id": "de-witze-1q41bg3.ru",
   "jokeId": "de-witze-1q41bg3",
   "locale": "ru",
-  "title": "Первая операция",
+  "title": "Перед операцией",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "doktor",
-      "text": "Ну что, Саша, хоть это и твоя первая операция на сердце, бояться нечего.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Перед самой операцией.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,29 +26,39 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Всё будет хорошо!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Ну что, Вася, хоть это и твоя первая операция на сердце,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "doktor",
+      "text": "ты не бойся, всё будет хорошо!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "Простите, доктор, но я не Саша.",
+      "text": "Извините, доктор, меня зовут не Вася!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "doktor",
-      "text": "Зато я Саша.",
-      "emotion": "smug",
+      "text": "Зато меня — да!",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

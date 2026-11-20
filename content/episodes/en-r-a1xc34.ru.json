@@ -6,12 +6,12 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "muzhik": "patient"
+    "muzhik": "patient",
+    "doktor": "doctor"
   },
   "lines": [
     {
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Давайте хорошую, доктор!",
+      "text": "Сначала хорошую, доктор, пожалуйста!",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -35,11 +35,12 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Мы назовём болезнь в вашу честь.",
+      "text": "Мы назовём в вашу честь болезнь.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

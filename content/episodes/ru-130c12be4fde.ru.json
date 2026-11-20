@@ -17,16 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Восьмидесятилетний дед с новым слуховым аппаратом снова слышит, как в молодости.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "ded",
-      "text": "Здравствуйте, доктор. Я на контроль.",
+      "text": "Восьмидесятилетний старик, уже много лет ничего почти не слышащий, наконец идет к врачу-специалисту.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -35,10 +26,19 @@
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Доктор без проблем подбирает ему небольшой слуховой аппарат, и тот снова слышит, как в молодости.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l3",
-      "character": "doktor",
-      "text": "Ну что ж, всё в полном порядке.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Спустя месяц старик снова идет к врачу, на контроль.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,25 +46,25 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Ваша семья, наверное, в восторге, что вы снова всё слышите?",
-      "emotion": "happy",
+      "text": "Ну что ж, все в полном порядке.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "ded",
-      "text": "А я им ещё ничего не сказал.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Скажите, наверняка ваша семья в восторге, что вы снова все превосходно слышите?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "ded",
-      "text": "Сижу и слушаю, о чём они говорят.",
+      "text": "О, я еще ничего им не сказал, я сижу и слушаю их разговоры.",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -73,11 +73,12 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "Уже три раза переписал завещание.",
+      "text": "Мне уже трижды пришлось исправить завещание...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

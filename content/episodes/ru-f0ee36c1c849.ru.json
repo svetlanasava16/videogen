@@ -1,0 +1,112 @@
+{
+  "id": "ru-f0ee36c1c849.ru",
+  "jokeId": "ru-f0ee36c1c849",
+  "locale": "ru",
+  "title": "Без женщин",
+  "location": "ofis",
+  "place": "conference-hall",
+  "cast": [
+    "devushka",
+    "muzhik"
+  ],
+  "roles": {
+    "devushka": "woman",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Идёт слёт феминистских организаций. На трибуне очередная баба-оратор яростно вещает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka",
+      "text": "Что бы делали эти мужики сейчас без женщин?! Ну вот что бы они без нас делали?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka",
+      "text": "А?! Я вас спрашиваю!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Что, что?! Жрали бы себе кокосы в раю!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "muzhik": "everyman"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

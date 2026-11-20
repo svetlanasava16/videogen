@@ -6,18 +6,18 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "zhena",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Завтрак. Муж слегка оговорился.",
+      "text": "Вчера за завтраком он оговорился, когда просил жену: передай молоко, дорогая.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,21 +25,23 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Милая, передай, пожалуйста...",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Он случайно сказал:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Будь ты проклята, ты мне всю жизнь сломала!",
-      "emotion": "angry",
+      "text": "Иди ты нафиг, Лена, ты мне всю жизнь, блин, испортила.",
+      "uncensored": "Иди ты нахер, Лена, ты мне всю жизнь, блядь, испортила.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

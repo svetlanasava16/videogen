@@ -2,24 +2,38 @@
   "id": "de-witze-1icpswn.de",
   "jokeId": "de-witze-1icpswn",
   "locale": "de",
-  "title": "Der Hypnotiseur",
+  "title": "Sie schon wieder?",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "zhena",
     "uchilka",
-    "paren"
+    "zhena",
+    "doktor"
   ],
   "roles": {
-    "zhena": "wife",
     "uchilka": "clerk",
-    "paren": "magician"
+    "zhena": "wife",
+    "doktor": "therapist"
+  },
+  "looks": {
+    "uchilka": {
+      "add": [
+        "headset"
+      ],
+      "remove": []
+    },
+    "doktor": {
+      "add": [
+        "goatee"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau kommt in die Praxis eines Hypnotiseurs.",
+      "text": "Frau Müller hat nach zehn Jahren Ehe ihren Mann betrogen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +41,17 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "Guten Tag. Ich möchte mir eine Erinnerung löschen lassen.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Weil sie der Fehler sehr belastet, will sie sich die Erinnerung daran bei einem Hypnotiseur löschen lassen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "uchilka",
-      "text": "Darf ich fragen, warum?",
+      "character": "narrator",
+      "text": "Der Empfangsdame in der Praxis erklärt sie ihre Gründe.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +60,7 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Ich war meinem Mann in zehn Jahren Ehe ein einziges Mal untreu.",
+      "text": "Ich habe ein einziges Mal in zehn Jahren einen Fehler gemacht.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,22 +69,32 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Ich will nicht, dass dieser eine Fehler mein ganzes Leben ruiniert.",
+      "text": "Ich möchte nicht, dass er mein ganzes Leben ruiniert.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Ach, guten Tag! Sie schon wieder?",
+      "character": "narrator",
+      "text": "Plötzlich betritt der Hypnotiseur den Raum.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "doktor",
+      "text": "Ach, Frau Müller! Sie schon wieder?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [
-        "paren"
+        "doktor"
       ],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

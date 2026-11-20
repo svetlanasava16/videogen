@@ -2,8 +2,8 @@
   "id": "de-witze-1lo14k2.ru",
   "jokeId": "de-witze-1lo14k2",
   "locale": "ru",
-  "title": "Запасной парашют",
-  "location": "samolet",
+  "title": "Парашют",
+  "location": "gostinaya",
   "place": "plane",
   "cast": [
     "muzhik",
@@ -11,7 +11,15 @@
   ],
   "roles": {
     "muzhik": "everyman",
-    "barmen": "craftsman"
+    "barmen": "plumber"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "helmet"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
@@ -25,9 +33,9 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Так, дёргаем кольцо.",
-      "emotion": "neutral",
+      "character": "narrator",
+      "text": "Через какое-то время он хочет раскрыть парашют, но ничего не происходит.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,17 +43,17 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Не раскрылся. Ничего, есть запасной.",
-      "emotion": "surprised",
+      "text": "Ничего страшного, у меня же есть запасной.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "И этот не раскрылся! Помогите!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Он пытается раскрыть запасной, но ничего не выходит.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,8 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Вдруг снизу навстречу ему летит мужик с ящиком инструментов.",
-      "emotion": "neutral",
+      "text": "Мужик понемногу начинает паниковать, как вдруг снизу ему навстречу летит человек с ящиком для инструментов.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [
         "barmen"
@@ -64,22 +72,21 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Вас мне сам бог послал! Вы парашюты чините?",
+      "text": "Вас послали небеса! Вы чините парашюты?",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Нет. Газовые трубы.",
-      "emotion": "neutral",
+      "text": "Нет, газовые трубы.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,47 +2,100 @@
   "id": "en-r-7ieoji.de",
   "jokeId": "en-r-7ieoji",
   "locale": "de",
-  "title": "Taschengeld",
+  "title": "Zehn Euro in Bitcoin",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
-    "paren": "son",
+    "vovochka": "child",
     "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Papa, gibst du mir Bitcoin für zehn Euro?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Ein Junge fragt seinen Papa, der in Bitcoin investiert...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Neun Euro siebenundsechzig?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "character": "vovochka",
+      "text": "Papa, kann ich Bitcoin für zehn Euro haben?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Wofür brauchst du denn zehn Euro zweiunddreißig?",
-      "emotion": "angry",
+      "text": "Neun Euro siebenundsechzig? Wofür brauchst du zehn Euro zweiunddreißig?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

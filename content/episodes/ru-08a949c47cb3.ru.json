@@ -1,0 +1,74 @@
+{
+  "id": "ru-08a949c47cb3.ru",
+  "jokeId": "ru-08a949c47cb3",
+  "locale": "ru",
+  "title": "Два адвоката",
+  "location": "bar",
+  "place": "bar",
+  "cast": [
+    "nachalnik",
+    "paren",
+    "barmen"
+  ],
+  "roles": {
+    "nachalnik": "lawyer",
+    "paren": "lawyer",
+    "barmen": "bartender"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "tie",
+        "glasses"
+      ],
+      "remove": []
+    },
+    "barmen": {
+      "add": [
+        "apron",
+        "towel"
+      ],
+      "remove": []
+    }
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Два адвоката заходят в кафе, заказывают напитки и достают бутерброды.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "nachalnik",
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Извините, но у нас нельзя есть свою еду.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Адвокаты переглядываются, пожимают плечами и меняются своими бутербродами...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

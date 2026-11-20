@@ -2,22 +2,22 @@
   "id": "en-r-5v069e.de",
   "jokeId": "en-r-5v069e",
   "locale": "de",
-  "title": "Schere, Stein, Polizei",
+  "title": "Revanche",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "traffic-cop"
+    "sluzhivy": "traffic-cop",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann wird von der Polizei angehalten.",
+      "text": "Er wurde von der Polizei angehalten.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,45 +26,119 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Papiere, bitte.",
+      "text": "Papiere.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Schere. Gewonnen!",
-      "emotion": "happy",
+      "text": "Schere. Ich hab gewonnen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Der verfolgt mich schon seit einer Stunde.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Und fuhr davon.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Der will wohl unbedingt Revanche.",
-      "emotion": "smug",
+      "text": "Der will wohl unbedingt eine Revanche, er jagt mich schon seit einer Ewigkeit!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -1,0 +1,152 @@
+{
+  "id": "ru-f41407efec28.de",
+  "jokeId": "ru-f41407efec28",
+  "locale": "de",
+  "title": "Das Wörterbuch",
+  "location": "derevnya",
+  "place": "village",
+  "cast": [
+    "doktor",
+    "paren",
+    "muzhik-ryzhy",
+    "muzhik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "doktor": "writer",
+    "paren": "writer",
+    "muzhik-ryzhy": "farmer",
+    "muzhik": "farmer",
+    "muzhik-sosed": "farmer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Wenn die Brüder Grimm neue Wörter für ihr Wörterbuch brauchten, fuhren sie aufs Dorf,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "zerschlugen vor den Augen der Bauern zwei, drei Flaschen Schnaps",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "und standen dann da und schrieben mit.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "doktor",
+        "paren",
+        "muzhik-ryzhy",
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "doktor": "writer",
+        "paren": "writer",
+        "muzhik-ryzhy": "farmer",
+        "muzhik": "farmer",
+        "muzhik-sosed": "farmer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "round-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "fence"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "bottle",
+          "action": "drop"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,22 +2,30 @@
   "id": "ru-ee7ca70d1f33.en",
   "jokeId": "ru-ee7ca70d1f33",
   "locale": "en",
-  "title": "Thank You, Sir",
+  "title": "Leaving Early",
   "location": "ofis",
   "place": "office",
   "cast": [
-    "paren",
-    "nachalnik"
+    "nachalnik",
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "nachalnik": "boss"
+    "nachalnik": "boss",
+    "paren": "employee"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Sir, could I leave work early today? My wife wants me to go shopping with her.",
+      "text": "Could I leave work a bit early today, boss?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -27,21 +35,31 @@
     },
     {
       "id": "l2",
+      "character": "paren",
+      "text": "My wife wants to go shopping with me.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "nachalnik",
-      "text": "Absolutely not! Sit down and get to work!",
+      "text": "Absolutely not! Sit down and work!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "paren",
-      "text": "Thank you so much, sir!",
+      "text": "Thank you so much, boss!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

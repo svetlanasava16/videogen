@@ -2,7 +2,7 @@
   "id": "de-witze-1wuvsok.ru",
   "jokeId": "de-witze-1wuvsok",
   "locale": "ru",
-  "title": "Билет до Твери",
+  "title": "Билет",
   "location": "samolet",
   "place": "train-station",
   "cast": [
@@ -11,13 +11,13 @@
   ],
   "roles": {
     "paren": "employee",
-    "muzhik": "everyman"
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Скажите, сколько стоит билет до Твери?",
+      "text": "Скажите, а сколько стоит билет до Твери?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,18 +35,16 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Не, это слишком дорого.",
+      "text": "Не, это слишком дорого...",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Поезд трогается. Мужик бежит рядом, всё быстрее, до самой следующей станции.",
+      "text": "Поезд трогается, мужик бежит рядом трусцой, всё быстрее и быстрее, под конец во весь опор, из последних сил.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,19 +52,17 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Ну... а теперь... сколько?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Показывается следующая станция, финишный рывок, и наконец поезд останавливается.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Шестьсот рублей.",
+      "character": "narrator",
+      "text": "Мужик, красный как рак, весь мокрый, с пульсом двести, хватает ртом воздух.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,23 +71,156 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Как?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "Ну... а теперь...?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "Тверь в другую сторону.",
-      "emotion": "smug",
+      "text": "Шестьсот рублей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Что?!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "paren",
+      "text": "Тверь в другую сторону...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "aerodrome-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "ticket",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "cast": [
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "aerodrome-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "ticket",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

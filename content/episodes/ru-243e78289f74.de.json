@@ -2,24 +2,22 @@
   "id": "ru-243e78289f74.de",
   "jokeId": "ru-243e78289f74",
   "locale": "de",
-  "title": "Die Knödel",
+  "title": "Die Teigtaschen",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devushka-ryzhaya",
-    "doktor"
+    "devochka"
   ],
   "roles": {
     "zhena": "mother",
-    "devushka-ryzhaya": "daughter",
-    "doktor": "doctor"
+    "devochka": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein blindes Mädchen tastet beim Essen immer den Teller ab und mault.",
+      "text": "Es war einmal ein Mädchen, das verdammt noch mal gar nichts sah. Kurz gesagt: blind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,39 +25,35 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Na toll, ich hab schon wieder am wenigsten! Nur weil ich nichts sehe! Geizhälse!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "narrator",
-      "text": "Die Mutter hält es nicht mehr aus und holt einen Psychologen.",
+      "text": "Jedes Mal beim Essen betastete das Mädchen lange ihren Teller und jammerte:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "doktor",
-      "text": "Kochen Sie ihr einen ganzen Topf Knödel. Soll sie essen.",
-      "emotion": "smug",
+      "id": "l3",
+      "character": "devochka",
+      "text": "Na klar, wie immer habt ihr mir am wenigsten gegeben!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
-      "exit": [
-        "doktor"
-      ]
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devochka",
+      "text": "Weil ich nichts sehe, kann man mich ja benachteiligen! Geizkragen...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Am nächsten Tag stellt die Mutter ihr einen riesigen Topf Knödel hin.",
+      "text": "Der Mama reichte es, und sie beschloss, sich bei einem Psychologen Rat zu holen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -67,24 +61,161 @@
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Iss, Schatz. Alles für dich.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "character": "doktor",
+      "text": "Kochen Sie einen ganzen Bottich Teigtaschen! So viel wie für eine Hochzeit. Und dann soll sie essen!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "devushka-ryzhaya",
-      "text": "Wahnsinn... Ich will gar nicht wissen, wie viel ihr euch genommen habt!",
+      "character": "narrator",
+      "text": "Am nächsten Tag stellt die Mama dem Mädchen einen riesigen Kübel Teigtaschen hin.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Das Mädchen betastet die ordentliche Portion lange mit den Händen und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devochka",
+      "text": "Ich stell mir vor, wie verdammt viel ihr euch selbst aufgetan habt...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "doktor": "therapist"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "devochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devochka": "daughter"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "devochka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "table"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -13,11 +13,19 @@
     "muzhik": "everyman",
     "chort": "genie"
   },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "towel"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Жара. Мужик несёт из бани канистру пива, пинает на дороге бутылку, а оттуда джинн.",
+      "text": "Лето, солнце, жара. Мужик идет из бани с канистрой пива. Предвкушает, как дома попьет холодного пивка.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +33,18 @@
     },
     {
       "id": "l2",
-      "character": "chort",
-      "text": "Загадывай желание, хозяин!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "На дороге лежит бутылка, которую мужик пинает, и та разбивается о камень.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Как водится, джин, желание.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "chort"
@@ -35,51 +52,34 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Хочу, чтобы пиво в этой канистре никогда не заканчивалось!",
+      "text": "Хочу, чтобы в канистре пиво никогда не заканчивалось.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "chort",
-      "text": "Исполнено!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "id": "l5",
+      "character": "narrator",
+      "text": "Джин, поколдовав, исчезает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": [
         "chort"
       ]
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Ну, за здоровье. Так. А как она открывается?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l6",
       "character": "narrator",
-      "text": "Прошло десять лет.",
+      "text": "А мужик до сих пор пытается канистру открыть.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik",
-      "text": "Открыть так и не смог. Зато пиво не кончается, не обманул.",
-      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

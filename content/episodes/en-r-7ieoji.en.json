@@ -2,47 +2,100 @@
   "id": "en-r-7ieoji.en",
   "jokeId": "en-r-7ieoji",
   "locale": "en",
-  "title": "Pocket Money",
+  "title": "Ten Dollars of Bitcoin",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
-    "paren": "son",
+    "vovochka": "child",
     "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "paren",
-      "text": "Dad, can I have ten dollars' worth of Bitcoin?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A boy asked his Bitcoin-investing dad...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Nine dollars sixty-seven?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "character": "vovochka",
+      "text": "Dad, can I have ten dollars' worth of Bitcoin?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "What do you need ten dollars thirty-two for?",
-      "emotion": "angry",
+      "text": "Nine dollars sixty-seven? What do you need ten dollars thirty-two for?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

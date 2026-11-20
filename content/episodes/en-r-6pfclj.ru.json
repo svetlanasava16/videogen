@@ -7,19 +7,19 @@
   "place": "road",
   "cast": [
     "sluzhivy",
-    "muzhik",
-    "ptitsa"
+    "ptitsa",
+    "muzhik"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "muzhik": "everyman",
-    "ptitsa": "bird"
+    "ptitsa": "bird",
+    "muzhik": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Гаишник останавливает фургон. В кузове сидят десять пингвинов.",
+      "text": "Однажды полицейский останавливает фургон. Подходит к окну и видит, что сзади сидят десять пингвинов.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -31,15 +31,13 @@
       "text": "Это ваши пингвины?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Мои. Домашние.",
+      "text": "Да, это мои питомцы.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,18 +46,16 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Немедленно везите их в зоопарк.",
+      "text": "Вам нужно немедленно отвезти их в зоопарк.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "sluzhivy"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "На следующий день тот же гаишник тормозит тот же фургон. Пингвины сидят в солнечных очках.",
+      "text": "Мужик соглашается и уезжает. На следующий день полицейский останавливает тот же фургон, подходит к окну и видит десять пингвинов, и все в солнечных очках.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,25 +64,126 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Я же сказал отвезти пингвинов в зоопарк!",
+      "text": "Я же сказал вам отвезти этих пингвинов в зоопарк.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
-      "enter": [
-        "sluzhivy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Отвёз. А сегодня едем на пляж!",
+      "text": "Я и отвёз! А сегодня мы едем на пляж!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "ptitsa",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ptitsa": "bird",
+        "muzhik": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "ptitsa",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ptitsa": "bird",
+        "muzhik": "driver"
+      },
+      "looks": {
+        "ptitsa": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

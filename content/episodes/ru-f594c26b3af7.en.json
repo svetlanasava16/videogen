@@ -6,40 +6,41 @@
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "devushka",
-    "devushka-blondinka"
+    "zhena",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "devushka-blondinka": "woman"
+    "zhena": "wife",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "My husband talks in his sleep all the time. It's awful!",
-      "emotion": "angry",
+      "character": "zhena",
+      "text": "My husband talks in his sleep so often, it's just awful!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Does yours?",
-      "emotion": "surprised",
+      "character": "zhena",
+      "text": "Does yours talk?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka-blondinka",
-      "text": "No. He just smiles... The jerk!",
+      "character": "devushka",
+      "text": "No, he just smiles... the bastard!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

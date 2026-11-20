@@ -1,0 +1,255 @@
+{
+  "id": "de-witze-1mpdagi.de",
+  "jokeId": "de-witze-1mpdagi",
+  "locale": "de",
+  "title": "Tretet nicht auf Hunde",
+  "location": "nebesa",
+  "place": "heaven",
+  "cast": [
+    "ded",
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy",
+    "pyos"
+  ],
+  "roles": {
+    "ded": "god",
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman",
+    "pyos": "dog"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Sterben drei Männer und kommen in den Himmel.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Es gibt hier keine großen Regeln, nur eins: Tretet nicht auf Hunde.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Die drei denken sich, dass das ja nicht so schwer wäre, bis sie sehen, da liegen überall Hunde.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Der Erste versucht es und tritt auf einen Hund.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Zur Strafe bekommt er die hässlichste Frau im Himmel an seine Seite.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "tyoshcha"
+      ],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Zweite scheitert ebenfalls, tritt auf einen Hund und bekommt eine der hässlichsten Frauen im Himmel an seine Seite.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [
+        "uchilka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Der Dritte ist schlauer, steht den ganzen Tag rum und tritt auf keinen Hund.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Er bekommt eine wunderschöne Frau an seine Seite.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "devushka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Oh, was hab ich getan, dass ich so eine schöne Frau abbekomme?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "devushka",
+      "text": "Keine Ahnung, was du gemacht hast, ich bin auf einen Hund getreten.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik",
+        "muzhik-sosed",
+        "muzhik-ryzhy",
+        "pyos"
+      ],
+      "roles": {
+        "ded": "god",
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "muzhik-ryzhy": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "lectern"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik",
+        "tyoshcha",
+        "muzhik-sosed",
+        "uchilka",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "tyoshcha": "everyman",
+        "muzhik-sosed": "everyman",
+        "uchilka": "everyman",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "mole",
+            "curlers"
+          ],
+          "remove": []
+        },
+        "uchilka": {
+          "add": [
+            "mole",
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik-ryzhy",
+        "devushka",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "everyman",
+        "devushka": "woman",
+        "pyos": "dog"
+      },
+      "looks": {
+        "devushka": {
+          "clothes": "#ffffff",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

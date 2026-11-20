@@ -13,11 +13,19 @@
     "ded": "old-man",
     "paren": "journalist"
   },
+  "looks": {
+    "paren": {
+      "add": [
+        "camera"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Журналист местной газеты берёт интервью у девяностопятилетнего юбиляра в доме престарелых.",
+      "text": "В честь девяностопятилетия у старичка в доме престарелых берут интервью для местной газеты.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +34,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Расскажите, как проходит ваш день?",
+      "text": "Как вы себя чувствуете в вашем возрасте и в этой обстановке?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +43,7 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "С утра первым делом по-маленькому!",
+      "text": "Спасибо, очень хорошо.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +52,8 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "И как? Без проблем?",
-      "emotion": "surprised",
+      "text": "А как выглядит ваш распорядок дня здесь?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,8 +61,9 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Никаких! Струя мощная, не жжёт, цвет здоровый!",
-      "emotion": "smug",
+      "text": "Утром: первым делом пописать!",
+      "uncensored": "Утром: первым делом поссать!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,26 +71,27 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "А потом?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "text": "И как? Никаких проблем?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ded",
-      "text": "Потом по-большому.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Да что вы! Мощная струя, никакого жжения, здоровый цвет!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "Жалобы есть?",
-      "emotion": "surprised",
+      "text": "А потом?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -89,8 +99,8 @@
     {
       "id": "l9",
       "character": "ded",
-      "text": "Ни малейших. Всё как часы.",
-      "emotion": "smug",
+      "text": "Стул.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -98,20 +108,39 @@
     {
       "id": "l10",
       "character": "paren",
-      "text": "А дальше?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "text": "Какие-нибудь жалобы?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
       "character": "ded",
-      "text": "А дальше я встаю.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Ни малейших. Достаточный напор, никакой крови, совершенно нормальное опорожнение кишечника.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "paren",
+      "text": "А что дальше?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "ded",
+      "text": "Ну, а потом я встаю.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

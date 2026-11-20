@@ -2,33 +2,31 @@
   "id": "ru-955cadf4ca0a.en",
   "jokeId": "ru-955cadf4ca0a",
   "locale": "en",
-  "title": "Grade Inflation",
+  "title": "The Exam",
   "location": "klass",
   "place": "university",
   "cast": [
-    "doktor",
-    "paren"
+    "paren",
+    "doktor"
   ],
   "roles": {
-    "doktor": "professor",
-    "paren": "student"
+    "paren": "student",
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A student walks into his exam and silently puts a bottle of cognac on the desk.",
+      "text": "A student walks into an exam and, without a word, puts a bottle of cognac on the desk.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "That's a C.",
+      "text": "Satisfactory.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The student adds a box of chocolates.",
+      "text": "The student takes out a box of chocolates.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Make that a B.",
+      "text": "Good.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "On top goes a fancy fountain pen.",
+      "text": "The student puts a fancy fountain pen on top.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +62,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "An A!",
+      "text": "Excellent.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,7 +71,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "The professor signs his record book. The student takes it and scoops everything off the desk.",
+      "text": "The examiner writes it in the record book. The student takes the record book and scoops everything up off the desk.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -82,16 +80,100 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "Now for my physics exam.",
+      "text": "Now I still have to pass physics.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "paren"
-      ]
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

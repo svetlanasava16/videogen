@@ -2,32 +2,32 @@
   "id": "ru-9252c53c2df0.de",
   "jokeId": "ru-9252c53c2df0",
   "locale": "de",
-  "title": "Der Vielflieger",
+  "title": "Der Pilot",
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "pilot"
+    "muzhik-sosed": "pilot",
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Mitten im Flug knirscht und ächzt plötzlich der ganze Rumpf.",
+      "text": "Mitten im Flug ist in der Kabine plötzlich ein Knirschen und Quietschen des Rumpfes zu hören.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Um Gottes willen. Haben Sie das gehört?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Einer der Passagiere wird blass, ihm tritt kalter Schweiß auf die Stirn, und er krallt sich mit den Fingern in den Sitz.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ganz ruhig. Ich fliege ständig.",
+      "text": "Sie brauchen sich doch nicht so aufzuregen!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Die Jungs im Cockpit wissen genau, was sie tun.",
+      "text": "Ich fliege oft und kann Ihnen versichern, dass die Jungs da vorne im Cockpit wissen, was sie tun!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -52,15 +52,76 @@
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Ich bin Pilot. Ich weiß, was die da vorne tun!",
+      "character": "muzhik-sosed",
+      "text": "Ich bin Pilot! Ich weiß genau, was die da vorne tun!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "pilot",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

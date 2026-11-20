@@ -2,7 +2,7 @@
   "id": "de-witze-1s8know.ru",
   "jokeId": "de-witze-1s8know",
   "locale": "ru",
-  "title": "Самый быстрый папа",
+  "title": "Быстрые папы",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -11,15 +11,23 @@
     "vovochka"
   ],
   "roles": {
-    "paren": "teenager",
+    "paren": "child",
     "devochka": "child",
     "vovochka": "child"
+  },
+  "looks": {
+    "devochka": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Трое детей сидят на заборе и хвастаются папами.",
+      "text": "Три мальчика сидят на стене и хвастаются своими отцами.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,8 +36,8 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Мой папа гонщик Формулы один. Как нажмёт на газ, асфальт горит!",
-      "emotion": "smug",
+      "text": "Мой папа гонщик Формулы-один. Он такой быстрый, что когда жмёт на газ, горит асфальт!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,7 +45,7 @@
     {
       "id": "l3",
       "character": "devochka",
-      "text": "Подумаешь! Мой папа лётчик. Он такой быстрый, что обгоняет собственный звук!",
+      "text": "Пф, а мой папа лётчик реактивного самолёта. Он такой быстрый, что обгоняет собственный звук!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,20 +54,21 @@
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Слабаки. Мой папа чиновник.",
+      "text": "Дилетанты. Мой папа чиновник.",
       "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Работает до шести, а дома уже в пять.",
+      "text": "Работает он до пяти, а дома уже в четыре.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

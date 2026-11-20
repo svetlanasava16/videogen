@@ -1,0 +1,102 @@
+{
+  "id": "ru-2d24764c6d49.de",
+  "jokeId": "ru-2d24764c6d49",
+  "locale": "de",
+  "title": "Einundzwanzigstes Jahrhundert",
+  "location": "gostinaya",
+  "place": "home-living-room",
+  "cast": [
+    "ded",
+    "devushka-ryzhaya"
+  ],
+  "roles": {
+    "ded": "old-man",
+    "devushka-ryzhaya": "daughter"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "ded",
+      "text": "Neulich war ich bei meiner Tochter zu Besuch. Als ich sie um eine Zeitung bat, sagte sie:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka-ryzhaya",
+      "text": "Papa, wir leben im einundzwanzigsten Jahrhundert, nimm mein iPad.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Was soll ich sagen... Die Fliege hat nie begriffen, was sie erschlagen hat.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "ded",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "devushka-ryzhaya": "daughter"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "give",
+          "to": "ded"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

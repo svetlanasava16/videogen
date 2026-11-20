@@ -1,0 +1,126 @@
+{
+  "id": "ru-51137bb6f142.en",
+  "jokeId": "ru-51137bb6f142",
+  "locale": "en",
+  "title": "The Map",
+  "location": "derevnya",
+  "place": "village",
+  "cast": [
+    "tyoshcha",
+    "zhena",
+    "sluzhivy"
+  ],
+  "roles": {
+    "tyoshcha": "grandma",
+    "zhena": "grandma",
+    "sluzhivy": "officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Summer. A village. Old women sit outside their cottages. Infantry marches past, heading somewhere.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "tyoshcha",
+      "text": "Oh, the army man's got his map out.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "tyoshcha",
+      "text": "Now he'll ask us for directions.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "tyoshcha",
+        "zhena",
+        "sluzhivy"
+      ],
+      "roles": {
+        "tyoshcha": "grandma",
+        "zhena": "grandma",
+        "sluzhivy": "officer"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "hair": "#b8b8b8",
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "soldiers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "house"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

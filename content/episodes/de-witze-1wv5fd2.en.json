@@ -1,0 +1,216 @@
+{
+  "id": "de-witze-1wv5fd2.en",
+  "jokeId": "de-witze-1wv5fd2",
+  "locale": "en",
+  "title": "The Bullfight",
+  "location": "bar",
+  "place": "restaurant",
+  "cast": [
+    "muzhik-sosed",
+    "barmen"
+  ],
+  "roles": {
+    "muzhik-sosed": "tourist",
+    "barmen": "waiter"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A tourist visits a traditional restaurant right next to the bullring in Madrid.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "He sees the house specialty being served at the next table: two huge, delicious meatballs.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "What is that?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Señor, those are the testicles of the bull that fought in the arena this afternoon.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "barmen",
+      "text": "An absolute delicacy!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The tourist is thrilled and orders the dish for the next evening.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "The following evening his plate arrives, but on it lie two tiny little meatballs.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "Excuse me, yesterday the meatballs were three times as big!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-sosed",
+      "text": "What happened?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "barmen",
+      "text": "Ay, señor... Sometimes the bull wins.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik-sosed",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "clothes": "#222222",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

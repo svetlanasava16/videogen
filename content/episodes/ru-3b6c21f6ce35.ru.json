@@ -2,24 +2,24 @@
   "id": "ru-3b6c21f6ce35.ru",
   "jokeId": "ru-3b6c21f6ce35",
   "locale": "ru",
-  "title": "Семнадцатый",
+  "title": "Баянист",
   "location": "doroga",
   "place": "road",
   "cast": [
     "sluzhivy",
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "muzhik-ryzhy": "driver",
-    "muzhik": "drunk"
+    "muzhik": "everyman",
+    "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ночью гаишник останавливает горбатый Запорожец. А в нём семнадцать пьяных мужиков.",
+      "text": "Ночью гаишник останавливает горбатый запорожец. Глянул, а там семнадцать пьяных в дрова мужиков.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,18 +27,18 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Семнадцать? В Запорожце?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Тот настолько обалдел, что и штрафовать не стал.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Штрафовать не буду. Но завтра чтоб явились ко мне. Трезвые. В том же составе.",
-      "emotion": "angry",
+      "text": "Только чтоб завтра в том же составе ко мне трезвыми явились!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Наутро шестнадцать кое-как влезли. А семнадцатый не помещается, хоть убей.",
+      "text": "Наутро начинают утрамбовываться в машину. Шестнадцать влезли, а семнадцатый, хоть убей, никак.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Слушай, а может, тебя вчера с нами не было?",
+      "text": "Слушай, а может быть, тебя с нами не было?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,14 +64,122 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Здрасте! А кто вам вчера на баяне играл?",
+      "text": "Здрасте! А кто ж вам вчера на баяне играл?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "driver"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

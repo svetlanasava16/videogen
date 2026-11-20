@@ -2,7 +2,7 @@
   "id": "ru-ee3ee630960e.ru",
   "jokeId": "ru-ee3ee630960e",
   "locale": "ru",
-  "title": "Крутись как можешь",
+  "title": "Зарплата",
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -13,35 +13,44 @@
     "sluzhivy": "police-officer",
     "nachalnik": "boss"
   },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "police-cap"
+      ],
+      "remove": []
+    }
+  },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Устроился парень в милицию, а зарплату не получает уже три месяца.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
-      "text": "Слушай, ты у нас три месяца служишь и ни разу зарплату не получил. Ты чего?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "text": "Ты что же зарплату не получаешь уже сколько?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
       "enter": [
         "nachalnik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "sluzhivy",
-      "text": "А её ещё и платят?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Я думал, выдали пистолет, и крутись как можешь.",
-      "emotion": "smug",
+      "text": "А я думал, что выдали пистолет — и крутись как можешь...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

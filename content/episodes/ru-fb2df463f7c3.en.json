@@ -10,14 +10,14 @@
     "muzhik"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "muzhik": "everyman"
+    "sluzhivy": "traffic-cop",
+    "muzhik": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Volkswagen Golf drives past a traffic cop.",
+      "text": "A policeman is standing by the road, and a Volkswagen Golf drives past.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Stop! Stop or I'll shoot!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Suddenly the policeman sharply waves his baton at the driver, whistles deafeningly and pulls out his gun.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The driver slams on the brakes and nearly goes through the windshield.",
+      "text": "The driver slams on the brakes, nearly flies through the windshield, and gets out, white as a sheet, on wobbly legs:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,12 +44,10 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "What's wrong, officer?",
+      "text": "What's going on?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "pauseAfterSec": 0.4,
+      "enter": [],
       "exit": []
     },
     {
@@ -57,30 +55,77 @@
       "character": "sluzhivy",
       "text": "Oh, nothing.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "I'm thinking of buying a Golf myself.",
+      "text": "It's just that I want to buy a Golf too, but people say its brakes are kind of weak...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "sluzhivy",
-      "text": "But people say the brakes are a bit weak.",
-      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "muzhik": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

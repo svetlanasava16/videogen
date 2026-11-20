@@ -1,0 +1,173 @@
+{
+  "id": "ru-c20746e7cca4.ru",
+  "jokeId": "ru-c20746e7cca4",
+  "locale": "ru",
+  "title": "Воробей",
+  "location": "doroga",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik-ryzhy",
+    "ptitsa"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "biker",
+    "ptitsa": "bird"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мотоциклист, мчащийся на большой скорости, неожиданно замечает летящего прямо на него… воробья!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Он давит на тормоз, всячески пытается увернуться, но всё же задевает воробья шлемом. Воробей отлетает в сторону и падает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Мотоциклисту стало жаль бедную пташку. Кое-как отыскав лежащего на земле воробья, он взял его с собой.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Привёз к себе домой, поместил в клетку, поставил ему блюдечко с водой, насыпал хлебных крошек, после чего пошёл спать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Наутро воробей приходит в себя, оглядывается по сторонам и говорит сам себе:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "ptitsa",
+      "text": "Где это я?.. Так-так… решётка… плошка с водой… хлеб…",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "ptitsa",
+      "text": "Какой ужас! Я убил мотоциклиста!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "biker",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        },
+        "ptitsa": {
+          "clothes": "#8a6a45",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "biker",
+        "ptitsa": "bird"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#8a6a45",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -6,27 +6,27 @@
   "location": "klass",
   "place": "university",
   "cast": [
-    "paren",
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
-    "paren": "student",
-    "doktor": "professor"
+    "doktor": "professor",
+    "paren": "student"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "An old professor at an exam.",
+      "text": "An old professor at an exam:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "So, who thinks they know the subject well enough for an A?",
+      "text": "Right, who thinks they know the subject well enough for an A?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +44,8 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Hand me your papers.",
-      "emotion": "neutral",
+      "text": "Hand me your record books.",
+      "emotion": "happy",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -64,14 +64,14 @@
       "character": "doktor",
       "text": "Who thinks they know the subject well enough for a B?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "About ten hands go up. He collects their papers too and gives them a B.",
+      "text": "About ten people raise their hands. He collects their record books too and gives them a B.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,14 +82,14 @@
       "character": "doktor",
       "text": "Who thinks a C?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Hands go up. Same story.",
+      "text": "Hands go up, same story.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -98,9 +98,9 @@
     {
       "id": "l10",
       "character": "doktor",
-      "text": "Right. Everyone else fails, come back for the retake.",
+      "text": "Right then, everyone else fails, come back for the retake.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -108,7 +108,7 @@
       "id": "l11",
       "character": "paren",
       "text": "And when is the retake?",
-      "emotion": "surprised",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -116,8 +116,8 @@
     {
       "id": "l12",
       "character": "doktor",
-      "text": "Well... let's do it now.",
-      "emotion": "neutral",
+      "text": "Well-l-l, let's do it now.",
+      "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -125,8 +125,8 @@
     {
       "id": "l13",
       "character": "doktor",
-      "text": "So, who thinks they know the subject well enough for an A?",
-      "emotion": "happy",
+      "text": "So, who thinks they know the subject well enough for an A?..",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -134,6 +134,107 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "paren": "student"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses",
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

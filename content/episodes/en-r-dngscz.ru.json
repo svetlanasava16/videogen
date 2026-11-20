@@ -16,42 +16,79 @@
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Вот твои чемоданы. Вон из моего дома!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Жена собрала мужу вещи и выгнала его из дома.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Ладно. Ухожу.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "zhena",
-      "text": "И желаю тебе медленной и мучительной смерти, гад!",
+      "text": "Желаю тебе медленной и мучительной смерти, негодяй!",
+      "uncensored": "Желаю тебе медленной и мучительной смерти, сволочь!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
-      "text": "О, так ты всё-таки хочешь, чтобы я остался!",
-      "emotion": "surprised",
+      "text": "О, так теперь ты хочешь, чтобы я остался!",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

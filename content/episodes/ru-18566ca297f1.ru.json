@@ -6,54 +6,105 @@
   "location": "ofis",
   "place": "government-office",
   "cast": [
-    "pyos",
-    "uchilka"
+    "uchilka",
+    "pyos"
   ],
   "roles": {
-    "pyos": "dog",
-    "uchilka": "clerk"
+    "uchilka": "clerk",
+    "pyos": "dog"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "На почту заходит огромная овчарка и пишет телеграмму.",
+      "text": "Здоровенная немецкая овчарка зашла на почту, взяла бланк для телеграммы и написала: «Гав... гав... гав... гав... гав... гав... гав... гав... гав».",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
-      "enter": [
-        "pyos"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Так. Гав, гав, гав, гав, гав, гав, гав, гав, гав.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "uchilka",
-      "text": "Тут всего девять слов. Можете добавить ещё одно за ту же цену.",
+      "text": "Тут только девять слов. Вы можете добавить ещё одно слово за ту же цену.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "pyos",
-      "text": "Нет уж. Тогда какая-то ерунда получится.",
+      "text": "Да нет, тогда какая-то фигня получится...",
+      "uncensored": "Да нет, тогда какая-то хуйня получится...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "uchilka",
+        "pyos"
+      ],
+      "roles": {
+        "uchilka": "clerk",
+        "pyos": "dog"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "certificate",
+          "action": "give",
+          "to": "uchilka"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

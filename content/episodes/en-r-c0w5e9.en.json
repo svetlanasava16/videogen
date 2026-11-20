@@ -2,20 +2,39 @@
   "id": "en-r-c0w5e9.en",
   "jokeId": "en-r-c0w5e9",
   "locale": "en",
-  "title": "My Name Is David",
+  "title": "David",
   "location": "ofis",
   "place": "office",
   "cast": [
     "nachalnik",
-    "paren"
+    "vovochka"
   ],
   "roles": {
     "nachalnik": "boss",
-    "paren": "student"
+    "vovochka": "child"
+  },
+  "looks": {
+    "nachalnik": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "A student visits the principal's office one day.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "vovochka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "nachalnik",
       "text": "What's your name, son?",
       "emotion": "neutral",
@@ -24,28 +43,38 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "paren",
-      "text": "D-d-d-dav-dav-David, sir.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "Oh. Do you have a stutter?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "vovochka",
+      "text": "D-d-d-dav-dav-david, sir.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "paren",
-      "text": "No, sir. My dad has a stutter. But the guy who registered my name was a real jerk.",
-      "emotion": "smug",
+      "character": "nachalnik",
+      "text": "Oh, do you have a stutter?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "vovochka",
+      "text": "No sir, my dad has a stutter,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka",
+      "text": "but the guy who registered my name was a jerk.",
+      "uncensored": "but the guy who registered my name was an asshole.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -53,49 +82,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "ofis",
-      "cast": [
-        "nachalnik",
-        "paren"
-      ],
-      "roles": {
-        "nachalnik": "boss",
-        "paren": "student"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "desk"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "center",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

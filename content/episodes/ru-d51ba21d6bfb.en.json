@@ -2,7 +2,7 @@
   "id": "ru-d51ba21d6bfb.en",
   "jokeId": "ru-d51ba21d6bfb",
   "locale": "en",
-  "title": "The Song",
+  "title": "And Now, a Song",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A traffic cop pulls over a Bentley doing three times the speed limit.",
+      "text": "The millionaires' highway. A traffic cop pulls over a Bentley doing three times the speed limit.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The pitch-black tinted window rolls down an inch.",
+      "text": "The Bentley stops, and the pitch-black tinted window slides down a crack.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "A hand pokes out of the Bentley with a hundred-dollar bill. The officer tucks it into his breast pocket.",
+      "text": "A hand with a hundred-dollar bill comes out of the Bentley.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Another bill just like it appears from the window.",
+      "text": "Another bill just like it comes out of the window.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,24 +89,14 @@
     {
       "id": "l9",
       "character": "sluzhivy",
-      "text": "I work here Tuesdays and Thursdays, from eight a.m. till three p.m.",
+      "text": "I work here Tuesdays and Thursdays, from eight a.m. to three p.m. I've memorized your plate, so on those days you can drive in peace...",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "sluzhivy",
-      "text": "I've memorized your plate. On those days you can drive in peace...",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
-    },
-    {
-      "id": "l11",
       "character": "narrator",
       "text": "Another hundred-dollar bill.",
       "emotion": "neutral",
@@ -115,7 +105,7 @@
       "exit": []
     },
     {
-      "id": "l12",
+      "id": "l11",
       "character": "sluzhivy",
       "text": "Happiness and health to you, smart kids, success in business, and may your dog win every show...",
       "emotion": "happy",
@@ -124,18 +114,18 @@
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l12",
       "character": "narrator",
-      "text": "Again, a hand with a bill. The officer stands there, lost, for a while, then clears his throat...",
+      "text": "Again, a hand with a bill. The officer stands there, lost for a moment, then clears his throat and announces...",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l14",
+      "id": "l13",
       "character": "sluzhivy",
-      "text": "And now... a song!",
+      "text": "And now, a song!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -155,16 +145,25 @@
         "sluzhivy": "traffic-cop",
         "nachalnik": "new-russian"
       },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "dark-glasses",
+            "gold-chain"
+          ],
+          "remove": []
+        }
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
         {
           "type": "move",
           "who": "nachalnik",
           "to": "car"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "right"
         },
         {
           "type": "line",
@@ -175,40 +174,34 @@
           "ref": "l2"
         },
         {
-          "type": "line",
-          "ref": "l3"
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right"
         },
         {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "money",
-          "action": "give",
-          "to": "sluzhivy"
+          "type": "line",
+          "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
         },
         {
-          "type": "line",
-          "ref": "l7"
-        },
-        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
@@ -217,7 +210,18 @@
         },
         {
           "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "give",
+          "to": "sluzhivy"
         },
         {
           "type": "line",
@@ -246,15 +250,12 @@
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
-          "action": "hold"
+          "action": "give",
+          "to": "sluzhivy"
         },
         {
           "type": "line",
           "ref": "l13"
-        },
-        {
-          "type": "line",
-          "ref": "l14"
         }
       ],
       "transition": "cut"

@@ -2,32 +2,32 @@
   "id": "ru-9252c53c2df0.en",
   "jokeId": "ru-9252c53c2df0",
   "locale": "en",
-  "title": "The Frequent Flyer",
+  "title": "The Pilot",
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik",
-    "sluzhivy"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "sluzhivy": "pilot"
+    "muzhik-sosed": "pilot",
+    "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Mid-flight, the whole cabin suddenly starts to creak and groan.",
+      "text": "In the middle of a flight, a grinding and creaking of the hull is suddenly heard in the cabin.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Oh God. Did you hear that?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "One of the passengers turns pale, cold sweat breaks out on his forehead, and he digs his fingers into the seat.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Relax, buddy. I fly all the time.",
+      "text": "There's no need to worry like that!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Trust me, the guys in the cockpit know what they're doing.",
+      "text": "I fly a lot, and I can assure you the guys up there in the cockpit know what they're doing!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -52,15 +52,76 @@
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "I'm a pilot. I know exactly what they're doing!",
+      "character": "muzhik-sosed",
+      "text": "I'm a pilot! I know exactly what they're doing in there!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "pilot",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "seat-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

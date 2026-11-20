@@ -2,7 +2,7 @@
   "id": "ru-d0a8d6c5c75e.en",
   "jokeId": "ru-d0a8d6c5c75e",
   "locale": "en",
-  "title": "The House Ghost",
+  "title": "Who Ate the Candy",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -28,8 +28,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "The house ghost.",
-      "emotion": "smug",
+      "text": "The house goblin.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -37,16 +37,70 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "Don't you lie, you little brat!",
+      "text": "Cut the crap!",
+      "uncensored": "Cut the shit!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "ded"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "vovochka",
+        "ded": "wizard"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "stove",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

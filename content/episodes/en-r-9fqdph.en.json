@@ -2,33 +2,31 @@
   "id": "en-r-9fqdph.en",
   "jokeId": "en-r-9fqdph",
   "locale": "en",
-  "title": "The Skipping Diet",
+  "title": "Skip a Day",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "devushka-blondinka"
+    "devushka-blondinka",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "devushka-blondinka": "blonde"
+    "devushka-blondinka": "blonde",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka-blondinka",
-      "text": "Doctor, I really need to lose some weight.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "A blonde is overweight, so her doctor puts her on a diet.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka-blondinka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Easy. Eat normally for two days, then skip a day. Repeat for two weeks.",
+      "text": "I want you to eat regularly for two days, then skip a day, and repeat the procedure for two weeks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,9 +35,9 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "You'll lose at least five pounds.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "The next time I see you, you'll have lost at least five pounds.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [
         "devushka-blondinka"
@@ -48,17 +46,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Two weeks later.",
+      "text": "When the blonde returns, she's lost nearly twenty pounds.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "devushka-blondinka",
-      "text": "Doctor, I lost almost twenty pounds!",
-      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [
         "devushka-blondinka"
@@ -66,10 +55,19 @@
       "exit": []
     },
     {
+      "id": "l5",
+      "character": "doktor",
+      "text": "Wow, that's amazing!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
       "character": "doktor",
-      "text": "Amazing! So you followed my instructions?",
-      "emotion": "surprised",
+      "text": "Did you follow my instructions?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -77,7 +75,7 @@
     {
       "id": "l7",
       "character": "devushka-blondinka",
-      "text": "I did. But I thought I'd drop dead on the third day.",
+      "text": "I'll tell you, I'd thought I was going to drop dead that third day.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -86,8 +84,8 @@
     {
       "id": "l8",
       "character": "doktor",
-      "text": "From hunger?",
-      "emotion": "surprised",
+      "text": "From hunger, you mean?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -99,7 +97,8 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

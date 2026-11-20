@@ -7,19 +7,19 @@
   "place": "farm",
   "cast": [
     "muzhik-ryzhy",
-    "muzhik-sosed",
-    "ptitsa"
+    "ptitsa",
+    "muzhik-sosed"
   ],
   "roles": {
     "muzhik-ryzhy": "hunter",
-    "muzhik-sosed": "farmer",
-    "ptitsa": "duck"
+    "ptitsa": "duck",
+    "muzhik-sosed": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Городской охотник подстрелил утку, но она упала во двор к фермеру.",
+      "text": "Житель большого города едет за город на утиную охоту. Увидев утку, он прицеливается и стреляет.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,20 +27,18 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Это моя утка! Отдавайте!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Но птица падает во двор к фермеру, и тот добычу не отдаёт.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "У нас в деревне такие споры решают просто: пинком между ног.",
-      "emotion": "smug",
+      "character": "muzhik-ryzhy",
+      "text": "Это моя птица.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -48,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Кто меньше орёт, тот и забирает утку.",
+      "text": "Как у нас в деревне принято, решим спор ударом ногой в пах.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,17 +54,17 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-ryzhy",
-      "text": "Ладно, давай.",
-      "emotion": "angry",
+      "character": "muzhik-sosed",
+      "text": "Кто меньше кричит, тот и получает птицу.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Фермер бьёт. Охотник двадцать минут лежит на земле.",
+      "character": "muzhik-ryzhy",
+      "text": "Договорились.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -74,26 +72,132 @@
     },
     {
       "id": "l7",
-      "character": "muzhik-ryzhy",
-      "text": "Так. Теперь моя очередь.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Фермер размахивается и со всей силы бьёт мужчину ногой в самое чувствительное место.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Тот валится с ног и двадцать минут лежит на земле.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Ладно, теперь моя очередь.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "muzhik-sosed",
-      "text": "Да не. Забирай свою утку.",
+      "text": "Не-а. Вот, забирайте утку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [
         "muzhik-sosed"
-      ]
+      ],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "muzhik-ryzhy",
+        "ptitsa",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "hunter",
+        "ptitsa": "duck",
+        "muzhik-sosed": "farmer"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "house"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

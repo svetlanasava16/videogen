@@ -2,82 +2,119 @@
   "id": "en-r-axy53t.ru",
   "jokeId": "en-r-axy53t",
   "locale": "ru",
-  "title": "Первый день в такси",
+  "title": "Первый день",
   "location": "doroga",
   "place": "car",
   "cast": [
     "muzhik-ryzhy",
-    "muzhik"
+    "paren"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
-    "muzhik": "customer"
+    "paren": "customer"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "add": [
+        "flat-cap"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Таксист везёт своего первого пассажира. Едут в полной тишине.",
+      "text": "Таксист, только что вышедший на работу, берёт своего первого пассажира.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Слышь, мужик...",
+      "character": "narrator",
+      "text": "Прошло несколько минут, и всю дорогу стояла тишина. Даже радио не было включено.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "А-а-а! Мама дорогая!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Пассажир очень общительный, и он решил завязать разговор, чтобы нарушить молчание.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ты чего по тормозам? Сдурел?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Слышь, мужи—",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
-      "text": "Извини, первый день работаю. Ещё к старой работе привык.",
+      "text": "Ёшкин кот!",
+      "uncensored": "Ёб твою мать!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [],
+      "laugh": "chuckle"
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Водитель резко ударил по тормозам.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Чувак, ты что, обалдел?!",
+      "uncensored": "Чувак, ты что, охуел?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Извини, друг. Я первый день на этой работе и ещё не отвык от прежней.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "А кем раньше работал?",
-      "emotion": "neutral",
+      "id": "l9",
+      "character": "paren",
+      "text": "А кем ты раньше работал?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Катафалк водил.",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

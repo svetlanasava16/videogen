@@ -6,40 +6,58 @@
   "location": "ofis",
   "place": "front-door",
   "cast": [
-    "ded",
-    "paren"
+    "muzhik",
+    "ded"
   ],
   "roles": {
-    "ded": "old-man",
-    "paren": "employee"
+    "muzhik": "customer",
+    "ded": "old-man"
+  },
+  "looks": {
+    "ded": {
+      "add": [
+        "bow-tie"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "ded",
-      "text": "Eleventh floor. Have a good day, son.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A man rides the elevator to the eleventh floor, and as he gets out, the operator says:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
-      "text": "Don't call me son. You're not my dad.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "character": "ded",
+      "text": "Have a good day, son.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Don't call me son. You're not my dad.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "ded",
       "text": "No, but I brought you up, didn't I?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

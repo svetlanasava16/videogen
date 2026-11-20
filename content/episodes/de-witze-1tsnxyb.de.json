@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "IT-Helpdesk, guten Tag.",
+      "character": "muzhik",
+      "text": "Hallo, ich habe vor kurzem Windows installiert.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,6 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hallo, ich habe vor Kurzem Windows installiert.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "uchilka",
       "text": "Ja?",
       "emotion": "neutral",
@@ -42,7 +33,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "Und jetzt funktioniert mein Computer nicht mehr richtig.",
       "emotion": "sad",
@@ -51,16 +42,73 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "uchilka",
       "text": "Das sagten Sie bereits.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "uchilka": "operator"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

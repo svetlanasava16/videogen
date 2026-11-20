@@ -6,40 +6,44 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "vovochka"
+    "vovochka": "child",
+    "uchilka": "teacher"
+  },
+  "looks": {
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
+  },
+  "crowd": {
+    "who": "pupils",
+    "size": "few"
   },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
-      "text": "Class, listen carefully.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "With every breath I take, a person dies.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "uchilka",
-      "text": "Every time I take a breath, somebody in the world dies.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "vovochka",
-      "text": "Have you tried brushing your teeth?",
+      "text": "How about brushing your teeth for a change?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

@@ -2,24 +2,24 @@
   "id": "ru-08d61755f474.de",
   "jokeId": "ru-08d61755f474",
   "locale": "de",
-  "title": "Das Ende ist nah",
+  "title": "Brücke eingestürzt",
   "location": "doroga",
   "place": "road",
   "cast": [
-    "batyushka-molodoy",
     "batyushka",
+    "batyushka-molodoy",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "batyushka-molodoy": "priest",
     "batyushka": "priest",
+    "batyushka-molodoy": "priest",
     "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Pfarrer stellen an der Straße ein Schild auf.",
+      "text": "Zwei Pfarrer stellen an der Straße ein Schild auf: „Halt, das Ende ist nah! Kehr um, bevor es zu spät ist!“",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,19 +27,19 @@
     },
     {
       "id": "l2",
-      "character": "batyushka",
-      "text": "Halt! Das Ende ist nah! Kehr um, bevor es zu spät ist!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Ein Laster rast mit Vollgas an ihnen vorbei.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Verdammte Sektierer, ihr nervt!",
+      "text": "Verdammte Sektierer, ihr geht mir auf den Geist!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik-ryzhy"
       ],
@@ -50,20 +50,21 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Der Laster verschwindet hinter der Kurve. Ein Krachen. Dann ein lautes Platschen.",
+      "text": "Der Laster verschwindet hinter der Kurve, dann hört man ein Krachen und ein lautes Platschen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "batyushka",
-      "text": "Du hattest wohl recht. Wir hätten einfach „Brücke eingestürzt“ schreiben sollen.",
+      "text": "Sieht so aus, als hättest du recht gehabt. Wir hätten einfach „Brücke eingestürzt“ schreiben sollen.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

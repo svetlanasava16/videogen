@@ -2,35 +2,59 @@
   "id": "ru-41776e1f3701.en",
   "jokeId": "ru-41776e1f3701",
   "locale": "en",
-  "title": "The Way to Heaven",
+  "title": "What Kind of Boy",
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
+    "doktor",
     "vovochka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "vovochka"
+    "doktor": "professor",
+    "vovochka": "child"
+  },
+  "looks": {
+    "doktor": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    },
+    "vovochka": {
+      "add": [
+        "freckles"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "uchilka",
-      "text": "And now Johnny will tell us what kind of boy gets to go to heaven.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "At a Sunday school lesson.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "A dead one, ma'am.",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "And now Jimmy will tell us what kind of boy you have to be to get into heaven.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "vovochka",
+      "text": "A dead one, sir...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
   "explicit": false,

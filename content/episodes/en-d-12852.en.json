@@ -1,0 +1,136 @@
+{
+  "id": "en-d-12852.en",
+  "jokeId": "en-d-12852",
+  "locale": "en",
+  "title": "CPR",
+  "location": "bar",
+  "place": "restaurant",
+  "cast": [
+    "muzhik-ryzhy",
+    "devushka",
+    "zhena",
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "customer",
+    "devushka": "waiter",
+    "zhena": "wife",
+    "muzhik": "customer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "I was at a restaurant with my wife when a waitress suddenly screamed:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "devushka",
+      "text": "Does anyone know CPR?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Even better, I know the whole alphabet!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Everyone laughed...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Well, everyone except this one guy.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik-ryzhy",
+        "devushka",
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "customer",
+        "devushka": "waiter",
+        "zhena": "wife",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "laugh"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "camera",
+          "shot": "close",
+          "on": "muzhik-ryzhy"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
