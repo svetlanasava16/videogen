@@ -21,7 +21,10 @@ export type Laugh = z.infer<typeof Laugh>;
 export const Line = z.object({
   id: z.string(),
   character: z.string(), // id персонажа из content/characters
+  /** Чистая версия для публикации (мат заменён мягким: «нафиг», «блин»). */
   text: z.string(),
+  /** Версия без цензуры (слова источника), только если отличается от text. */
+  uncensored: z.string().optional(),
   emotion: Emotion.default("neutral"),
   /** Пока озвучки нет, тайминги оцениваются по тексту (estimateWords). */
   audio: z
@@ -94,6 +97,8 @@ export const Episode = z.object({
   lines: z.array(Line).min(1),
   /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
   music: z.string().optional(),
+  /** Рендер без цензуры: субтитры из lines[].uncensored (для неозвученных; озвучка — чистая версия). */
+  explicit: z.boolean().default(false),
   /** Сцены (движок v2). Нет — эпизод из одной сцены: location/place/cast/roles + все lines по порядку. */
   scenes: z.array(Scene).optional(),
   /** Смех персонажей после панчлайна (их голосами): играют вместе, куклы смеются. Пишет `pnpm voice run`. */
@@ -386,6 +391,8 @@ export const ScriptDraft = z.object({
       z.object({
         character: z.string(), // id куклы из cast или "narrator"
         text: z.string().min(1),
+        /** Версия без цензуры (слова источника), только если text смягчён. */
+        uncensored: z.string().optional(),
         emotion: Emotion,
         pauseAfterSec: z.number(),
         enter: z.array(z.string()).default([]),

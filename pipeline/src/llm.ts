@@ -85,6 +85,9 @@ const STAGES: Record<string, Stage> = {
     beforePrepare: writeScriptContext,
     inputs: ({ perLang, lang: only }) => {
       const done = doneIds("script");
+      // data/llm/script/redo.txt: id сценариев на переписывание (по одному в строке) — берутся снова, новая версия заменит старую при collect
+      const redoFile = join(stageDir("script"), "redo.txt");
+      if (existsSync(redoFile)) for (const id of readFileSync(redoFile, "utf8").split(/\s+/).filter(Boolean)) done.delete(id);
       const jokes = new Map(loadJokes().map((j) => [j.id, j]));
       const C = loadCast();
       const analyses = readJsonl(join(DATA, "llm", "analyze", "results.jsonl")).map((r) => JokeAnalysis.parse(r));
@@ -135,6 +138,7 @@ const STAGES: Record<string, Stage> = {
         // со сценами состав проверяется по каждой сцене (sceneProblems): говорящий может появиться только во второй
         if (!row.scenes?.length && l.character !== NARRATOR && !row.cast.includes(l.character)) pr.push(`line by ${l.character} not in cast`);
         if (/[()\[\]*#]|^\s*[\p{L}]+\s*:/u.test(l.text)) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
+        if (l.uncensored !== undefined && l.uncensored.trim() === l.text.trim()) pr.push(`uncensored equals text — omit it: "${l.text.slice(0, 40)}"`);
       }
       for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
       if (row.scenes?.length) {
@@ -208,7 +212,7 @@ function materialize() {
       place: places.get(d.id),
       cast: d.cast, roles: d.roles,
       lines: d.lines.map((l, i) => ({
-        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
+        id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         audio: voiced(i, l.character, l.text.trim()),
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),
@@ -232,11 +236,11 @@ function doneIds(s: string) {
 
 /** id, которые уже лежат в пачках без результата. */
 function pendingIds(s: string) {
-  const done = doneIds(s);
+  // id в пачке без выхода — в работе, даже если старая версия уже есть в results (переписывание через redo.txt)
   const ids = new Set<string>();
   for (const b of batches(s)) {
     if (existsSync(outOf(s, b))) continue;
-    for (const r of readJsonl<{ id: string }>(join(stageDir(s), b))) if (!done.has(r.id)) ids.add(r.id);
+    for (const r of readJsonl<{ id: string }>(join(stageDir(s), b))) ids.add(r.id);
   }
   return ids;
 }

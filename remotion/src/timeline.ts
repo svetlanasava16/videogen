@@ -120,10 +120,12 @@ export function buildTimeline(ep: Episode) {
           for (const id of l.enter) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "enter", target: "slot" });
           t += WALK_SEC;
         }
-        const words: WordTiming[] = l.audio ? l.audio.words : estimateWords(l.text);
+        // без цензуры — только для неозвученных реплик (озвучена чистая версия)
+        const shown = ep.explicit && !l.audio && l.uncensored ? l.uncensored : l.text;
+        const words: WordTiming[] = l.audio ? l.audio.words : estimateWords(shown);
         const dur = lineDuration(l);
         lines.push({
-          id: l.id, character: l.character, text: l.text, emotion: l.emotion,
+          id: l.id, character: l.character, text: shown, emotion: l.emotion,
           startFrame: f(t), endFrame: f(t + dur),
           words: words.map((w) => ({ text: w.text, startFrame: f(t + w.start), endFrame: f(t + w.end) })),
           audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId,

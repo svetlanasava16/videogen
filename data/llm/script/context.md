@@ -59,6 +59,9 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | airport | Аэропорт и вокзал / Airport & Station / Flughafen & Bahnhof | samolet |
 | port | Порт / Harbour / Hafen | samolet:ship |
 | hell | Ад / Hell / Hölle | nebesa:hell |
+| court | Суд / Courthouse / Gericht | sud |
+| banya | Баня / Sauna / Sauna | banya |
+| beach | Пляж / Beach / Strand | plyazh |
 
 ## Puppets
 
@@ -98,6 +101,7 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 
 | id | covers locations | marks (spots on the floor, left → right) |
 |---|---|---|
+| banya | bathhouse | left, bench, center, right, stove |
 | bar | bar, restaurant, cafe, party, hotel | stool-left, left, center, counter, right, stool-right |
 | bolnitsa | doctor-office, hospital, madhouse | couch, left, center, desk, right, skeleton |
 | derevnya | village, farm, forest, river-lake, garden, mountain | left, house, center, fence, right, tree |
@@ -108,8 +112,10 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | magazin | shop, pharmacy, barbershop | left, shelf, center, counter, right |
 | nebesa | heaven, hell, garden-of-eden, space | lectern, left, center, gate, right, cloud |
 | ofis | office, government-office, conference-hall, tv-studio, bank, police-station | left, desk, center, window, right, plant |
+| plyazh | beach | left, umbrella, center, water, right, towel |
 | samolet | plane, train, ship, airport, train-station | seat-left, left, center, aisle, right, seat-right |
 | spalnya | bedroom, bathroom | nightstand, left, center, bed, right, wardrobe |
+| sud | courtroom | dock, left, center, judge, right, witness |
 | tserkov | church | pew-left, left, center, altar, right, pew-right |
 | ulitsa | street, park, stadium, zoo, cemetery | lamp, left, shop, center, bench, right |
 | none | no location (narrator over a neutral backdrop) | |
@@ -130,3 +136,8 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | letter | письмо | letter | Brief |
 | certificate | справка / документ | certificate / paper | Bescheinigung |
 | umbrella | зонт | umbrella | Regenschirm |
+| photo | фотография | photo | Foto |
+| ticket | билет | ticket | Fahrkarte |
+| cane | трость | walking stick | Gehstock |
+| bill | счёт / чек | bill / receipt | Rechnung |
+| wrench | гаечный ключ / инструмент | wrench / tool | Schraubenschlüssel |

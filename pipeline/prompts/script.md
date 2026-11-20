@@ -9,7 +9,7 @@ JSONL, one task per line:
 `{"id", "jokeId", "sourceLang", "locale", "mode", "adaptNote", "text", "gist", "form", "needsNarrator", "wordplay", "suggestedCast", "suggestedBackdrop", "location", "maxWords"}`
 
 - `mode`: `original` (write in the source language), `translate` (translate, staying close to the original) or `adapt` (rebuild a pun / swap a reference so it lands in `locale`; `adaptNote` says what to change).
-- `suggestedCast`: canonical role → puppet id, already resolved so no two roles share one puppet. Use it unless the joke clearly needs something else.
+- `suggestedCast`: canonical role → puppet id, already resolved so no two roles share one puppet. Use it unless the joke clearly needs something else. It comes from automatic annotation and can get a character's gender, age or the number of people wrong (a saleswoman suggested as a male barman, an old woman as a man, one doctor where the joke has two): read the joke and fix the cast.
 - `suggestedBackdrop`: backdrop id (or `none`).
 
 ## Output
@@ -29,7 +29,7 @@ JSONL, exactly one line per input line, same order, same `id`:
   "lines": [
     {"character": "narrator", "text": "A young man is coming to ask for their daughter's hand.", "emotion": "neutral", "pauseAfterSec": 0.3},
     {"character": "zhena", "text": "Yasha, when he comes, just say yes.", "emotion": "smug", "pauseAfterSec": 0.3, "enter": ["zhena"]},
-    {"character": "zhena", "text": "You don't have to cry and kiss his hand and call him our saviour.", "emotion": "angry", "pauseAfterSec": 0.8}
+    {"character": "zhena", "text": "You don't have to cry and kiss his hand and call him our saviour, damn it.", "uncensored": "You don't have to cry and kiss his hand and call him our saviour, for fuck's sake.", "emotion": "angry", "pauseAfterSec": 0.8}
   ]
 }
 ```
@@ -39,6 +39,7 @@ JSONL, exactly one line per input line, same order, same `id`:
 - `roles`: puppet id → canonical role it plays here (picks the costume variant). Include every cast member.
 - `location`: a backdrop id from context.md, or `none`.
 - `lines[].character`: a puppet id from `cast`, or `narrator` (voice-over, no puppet on screen).
+- `lines[].text`: the **clean** line that will be voiced and published. `lines[].uncensored` (optional): the same line with the source's swear words kept as written — fill it ONLY when `text` differs from it because you softened profanity; otherwise omit the field. Both versions must be identical except for the softened words.
 - `lines[].enter` / `lines[].exit` (optional, default `[]`): puppet ids that walk in right before this line / walk out right after it. A puppet whose first event is `enter` starts off screen; everyone else is on screen from the start. Only on-screen puppets may speak. The checker rejects speaking while off screen, entering twice, or leaving when absent.
 - `scenes` (optional, engine v2): use it when the story moves to another place, or when walking to a spot or handing over an object makes the joke clearer. Leave it out for a simple one-place dialogue (the renderer then plays all lines in `location` with `cast`). Line ids are `l1`, `l2`, … by position in `lines`.
   ```json
@@ -71,9 +72,13 @@ JSONL, exactly one line per input line, same order, same `id`:
 - `lines[].laugh` (optional): laugh track after the line — `chuckle` | `laugh` | `big`. Put `big` (or `laugh` for a mild joke) on the punchline. At most one `chuckle` on an earlier comic beat, only if there is a real one. If you set none, the renderer adds `big` after the last line.
 
 ## Writing rules
+0. **KEEP THE ORIGINAL WORDS. This is the most important rule.** A joke lives in its exact wording; paraphrasing kills it.
+   - `original` mode: every line a character speaks in the source is copied **as written** — same words, same order, same punctuation of the punchline. Allowed edits only: fix typos, write numbers as words, split a long line into two, turn reported speech into direct speech ("he told her that…" → his line), cut narration that the picture already shows. Never "improve", modernise, shorten or re-phrase a spoken line. If the source has a narrator passage, keep its words too, trimming only what the screen shows.
+   - `translate` mode: translate line by line, as literally as natural speech in the target language allows; keep every line, its order and its punch word. `adapt` changes only what `adaptNote` names.
+   - Profanity: `text` replaces only the swear words with the softest equivalent of the same rhythm and meaning — нахер/нахуй → нафиг, блядь → блин, охуел → обалдел, сука → зараза; fuck → freaking / heck, shit → crap, damn stays; Scheiße → Mist, verdammt stays. Everything else in the line stays identical, and the original goes to `uncensored`.
 1. Plain spoken text only: it goes straight to text-to-speech. No stage directions, parentheses, speaker labels, emoji or hashtags. Write numbers as words.
 2. Keep the original punchline mechanics. The punchline is the LAST line; nothing after it. Its `pauseAfterSec` is 0.8; the line right before the punchline gets 0.6–1.0; other lines 0.2–0.4.
-3. Tell the WHOLE joke. Keep every beat of its structure: each step of a repetition or escalation (the rule of three, "the next day… the next day…"), the reactions the punchline relies on, every detail the punchline pays off. Compress the wording, never the structure: if the source repeats a pattern four times, the script has four steps (shorter ones), not two plus a narrator summary. Most scripts land at 60–100% of the source's word count; stay under `maxWords`. Short lines are better than long ones: one thought per line, a new line when the speaker changes.
+3. Tell the WHOLE joke: every line of dialogue, every step of a repetition or escalation ("the next day… the next day…"), every reaction and detail the punchline pays off. Never summarise a step with the narrator. If the source is longer than `maxWords`, shorten only narration (descriptions the picture shows), never the dialogue. One thought per line, a new line when the speaker changes.
 4. Narrator: use it only when the scene cannot be understood from the characters' own lines (`needsNarrator` is a hint, not an order). Keep narrator lines short: set the scene in one sentence, then let the characters talk. Never let the narrator deliver the punchline if a character can.
 5. Turn told stories into scenes: when the joke says "the wife told her husband…", write the wife's line, not a description of it.
 6. Character names: use the puppet's name for the target locale when the joke names the character (Vovochka → Johnny in English, Fritzchen in German). Otherwise do not invent names; the narrator says "a man", "his wife", not the puppet's name, unless the source names him.
@@ -83,7 +88,7 @@ JSONL, exactly one line per input line, same order, same `id`:
 9. Staging (enter/exit): the scene starts with whoever is already there; people who arrive walk in on their first line. Examples: "a man comes to the doctor" → doctor on screen, the man has `enter` on his first line; "the husband comes home early" → husband `enter` right before his first line; "he storms out" or a punchline from behind the door → `exit` after the line. Use it only when the joke has an arrival or departure; never shuffle people in and out for no reason. A silent character who must be visible stays in `cast` without lines. If the joke has more than three characters, compress: merge minor ones, let the narrator summarise repeated steps ("the second father and the third…") and keep on screen only the three that carry the punchline.
 10. Emotions per line: neutral, happy, angry, surprised, sad, smug. They drive the puppet's face; vary them to match the delivery.
 11. Never introduce an ethnic, national or religious stereotype that the source joke does not have. When a regional stereotype (Swabian thrift, Ostfriese naivety) does not travel, replace it with a neutral character trait (a stingy neighbour, a naive farmer), not with another group.
-12. Keep it clean enough for YouTube Shorts: no slurs, nothing sexual about minors, no real people's names unless the input already uses them (the pool you receive is pre-filtered).
+12. Keep `text` clean enough for YouTube Shorts (soft replacements per rule 0): no slurs, nothing sexual about minors, no real people's names unless the input already uses them (the pool you receive is pre-filtered). `uncensored` keeps the source wording.
 
 ## Process
 Read context.md and the whole input file, write all scripts, then write the output file. Do not skip lines, do not merge lines, do not add fields. Strings must be valid JSON.
