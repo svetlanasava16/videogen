@@ -164,14 +164,30 @@
       },
       {
         "roles": [
-          "knight",
-          "pirate"
+          "knight"
         ],
-        "change": "armour or pirate hat and eye patch",
+        "change": "armour",
         "look": {
           "clothes": "#9aa0a6",
           "add": [
             "helmet"
+          ],
+          "remove": [
+            "police-cap",
+            "badge"
+          ]
+        }
+      },
+      {
+        "roles": [
+          "pirate"
+        ],
+        "change": "pirate coat, eye patch, hook instead of the left hand",
+        "look": {
+          "clothes": "#2b3a55",
+          "add": [
+            "eye-patch",
+            "hook-hand"
           ],
           "remove": [
             "police-cap",

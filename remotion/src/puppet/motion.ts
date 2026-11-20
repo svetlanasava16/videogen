@@ -1,13 +1,20 @@
 import type { Emotion } from "@jf/core";
 
 /** Телосложение → размеры тела в боксе куклы (ширина 300, голова по центру x=150). */
-export type Build = "slim" | "average" | "stocky" | "portly" | "child";
-export const BUILDS: Record<Build, { bodyW: number; bodyH: number; legH: number; legGap: number; head: number }> = {
+export type Build = "slim" | "average" | "stocky" | "portly" | "child" | "tiny" | "baby" | "squat";
+/** scale — масштаб всей фигуры (крошечные: младенец, домовой), голова при этом остаётся крупной относительно тела. */
+export const BUILDS: Record<Build, { bodyW: number; bodyH: number; legH: number; legGap: number; head: number; scale?: number }> = {
   slim: { bodyW: 140, bodyH: 185, legH: 140, legGap: 26, head: 1 },
   average: { bodyW: 180, bodyH: 175, legH: 120, legGap: 34, head: 1 },
   stocky: { bodyW: 205, bodyH: 160, legH: 100, legGap: 44, head: 1 },
   portly: { bodyW: 225, bodyH: 175, legH: 95, legGap: 50, head: 1 },
   child: { bodyW: 150, bodyH: 130, legH: 90, legGap: 28, head: 1 },
+  /** Очень маленький взрослый (домовой, гном): короткое тело и ножки, вся фигура мельче. */
+  tiny: { bodyW: 150, bodyH: 110, legH: 55, legGap: 30, head: 1, scale: 0.78 },
+  /** Младенец: крошечное пухлое тело, коротенькие ножки, большая голова. */
+  baby: { bodyW: 140, bodyH: 100, legH: 42, legGap: 30, head: 1, scale: 0.68 },
+  /** Коротконогий «столбик» (пингвин): высокое круглое тело, ножки-обрубки. */
+  squat: { bodyW: 200, bodyH: 210, legH: 34, legGap: 38, head: 1 },
 };
 export const BODY_TOP = 230;
 export const asBuild = (b?: string): Build => (b && b in BUILDS ? (b as Build) : "average");

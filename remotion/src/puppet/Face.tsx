@@ -11,8 +11,13 @@ const brow: Record<Emotion, { l: number; r: number; dy: number }> = {
 
 /** Глаза, брови и рот. Координаты бокса 300×420, центр головы (150,160). */
 export const Face = ({
-  emotion, speaking, open, blinking, skin, animal, mouthY = 208, beak = false,
-}: { emotion: Emotion; speaking: boolean; open: number; blinking: boolean; skin: string; animal: boolean; mouthY?: number; beak?: boolean }) => {
+  emotion, speaking, open, blinking, skin, animal, mouthY = 208, beak = false, beakFront = false, brows = true,
+}: {
+  emotion: Emotion; speaking: boolean; open: number; blinking: boolean; skin: string; animal: boolean; mouthY?: number;
+  /** Клюв в профиль (птица). */ beak?: boolean;
+  /** Клюв анфас (пингвин): нижняя половина опускается при речи. */ beakFront?: boolean;
+  /** false — свои брови не рисовать (их заменяет аксессуар, например high-drawn-eyebrows). */ brows?: boolean;
+}) => {
   const b = brow[emotion];
   const big = emotion === "surprised";
   const eyeR = big ? 14 : 11;
@@ -36,11 +41,17 @@ export const Face = ({
         ),
       )}
       {/* брови */}
-      <rect x="106" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.l} 122 ${131 + b.dy})`} />
-      <rect x="162" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.r} 178 ${131 + b.dy})`} />
+      {brows && <rect x="106" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.l} 122 ${131 + b.dy})`} />}
+      {brows && <rect x="162" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.r} 178 ${131 + b.dy})`} />}
 
       {/* рот */}
-      {beak ? (
+      {beakFront ? (
+        <g>
+          <ellipse cx="150" cy="190" rx="13" ry={2 + open * 9} fill="#3a0f0f" />
+          <path d={`M138 ${188 + open * 12} L162 ${188 + open * 12} L150 ${204 + open * 12} Z`} fill="#d07818" />
+          <path d="M130 180 Q150 170 170 180 L150 196 Z" fill="#e0a030" />
+        </g>
+      ) : beak ? (
         speaking ? <path d={`M150 182 L192 ${186 + open * 10} L150 198 Z`} fill="#3a0f0f" /> : null
       ) : laughing ? (
         // смех: открытая улыбка, раскрывается в такт

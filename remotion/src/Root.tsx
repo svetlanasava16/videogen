@@ -15,7 +15,7 @@ const defaultEpisode = Episode.parse(demo);
 export const Root = () => (
   <>
   <Composition id="Locations" component={Locations} width={2860} height={2700} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[] }} />
-  <Composition id="Cast" component={Cast} width={2450} height={1950} fps={30} durationInFrames={1} />
+  <Composition id="Cast" component={Cast} width={2450} height={2850} fps={30} durationInFrames={1} />
   <Composition
     id="Compilation"
     component={Compilation}
