@@ -1,0 +1,42 @@
+{
+  "id": "test-scenes.ru",
+  "jokeId": "test-scenes",
+  "locale": "ru",
+  "title": "Тест движка: две сцены",
+  "location": "gostinaya",
+  "cast": ["zhena", "muzhik"],
+  "lines": [
+    { "id": "l1", "character": "narrator", "text": "Муж возвращается домой под утро.", "emotion": "neutral", "pauseAfterSec": 0.3 },
+    { "id": "l2", "character": "zhena", "text": "Это что такое? Ты где был?", "emotion": "angry", "pauseAfterSec": 0.3 },
+    { "id": "l3", "character": "muzhik", "text": "Дорогая, я тебе цветы принёс!", "emotion": "happy", "pauseAfterSec": 0.4 },
+    { "id": "l4", "character": "barmen", "text": "Опять жена выгнала?", "emotion": "smug", "pauseAfterSec": 0.4 },
+    { "id": "l5", "character": "muzhik", "text": "Нет. Цветы не понравились.", "emotion": "sad", "pauseAfterSec": 0.8 }
+  ],
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": ["zhena", "muzhik"],
+      "beats": [
+        { "type": "move", "who": "zhena", "to": "sofa" },
+        { "type": "line", "ref": "l1" },
+        { "type": "move", "who": "muzhik", "from": "off-left", "to": "door" },
+        { "type": "prop", "who": "muzhik", "item": "flowers", "action": "hold" },
+        { "type": "line", "ref": "l2" },
+        { "type": "move", "who": "muzhik", "to": "center" },
+        { "type": "line", "ref": "l3" },
+        { "type": "prop", "who": "muzhik", "item": "flowers", "action": "give", "to": "zhena" },
+        { "type": "move", "who": "muzhik", "to": "off-left" }
+      ]
+    },
+    {
+      "location": "bar",
+      "transition": "wipe",
+      "cast": ["muzhik", "barmen"],
+      "beats": [
+        { "type": "prop", "who": "barmen", "item": "glass", "action": "hold" },
+        { "type": "line", "ref": "l4" },
+        { "type": "line", "ref": "l5" }
+      ]
+    }
+  ]
+}

@@ -103,7 +103,7 @@ function episodeRows(): Row[] {
     .filter((e) => !e.id.startsWith("demo-") && !e.id.startsWith("test-"))
     .map((e) => ({
       id: e.id, jokeId: e.jokeId, locale: e.locale, title: e.title, location: e.location, place: e.place ?? null,
-      cast: e.cast, roles: e.roles, lines: e.lines, music: e.music ?? null, adaptation: adaptation.get(e.id) ?? null,
+      cast: e.cast, roles: e.roles, lines: e.lines, scenes: e.scenes ?? null, music: e.music ?? null, adaptation: adaptation.get(e.id) ?? null,
       contentHash: hashOf(e),
     }));
 }

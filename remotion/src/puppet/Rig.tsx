@@ -3,6 +3,7 @@ import { useCurrentFrame } from "remotion";
 import type { Emotion, Look } from "@jf/core";
 import { ANIMALS, Accessory, BACK, DEFAULT_HAIR, FRONT, HairBack, HairTop, ROBES, isChild } from "./Accessories";
 import { Face } from "./Face";
+import { PropItem } from "../props/Props";
 import { BODY_TOP, BUILDS, armAngles, asBuild, blink, bodyBob, legAngles, mouthOpen } from "./motion";
 
 /** Высота бокса куклы: ноги всегда стоят на FEET_Y, разное телосложение = разный рост. */
@@ -28,6 +29,8 @@ export type PuppetProps = {
   walk?: number;
   /** 1 — смотрит вправо, -1 — влево. */
   facing?: 1 | -1;
+  /** Реквизит в правой руке (content/props.json). */
+  hold?: string;
   seed: number;
 };
 
@@ -35,7 +38,7 @@ export type PuppetProps = {
  * Векторная кукла: тело по телосложению, ноги, руки, голова с лицом и аксессуарами.
  * Стиль: плоские округлые формы, без контуров.
  */
-export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, seed }: PuppetProps) => {
+export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed }: PuppetProps) => {
   const frame = useCurrentFrame();
   const uid = useId().replace(/:/g, "");
   const { kind, skin, clothes, accent } = look;
@@ -52,6 +55,7 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, seed }: 
   const dy = FEET_Y - (bodyBottom + build.legH); // сдвиг всей фигуры, чтобы ноги стояли на полу
   const bob = bodyBob(frame, seed, walk);
   const arms = armAngles(emotion, speaking, frame, seed, walk);
+  if (hold && walk < 0.2) arms.right = 38; // рука с предметом чуть вынесена вперёд
   const legs = legAngles(frame, walk);
   const open = speaking ? mouthOpen(frame, seed) : 0;
   const tilt = speaking ? Math.sin(frame / 11 + seed) * 3 : emotion === "surprised" ? -4 : 0;
@@ -78,6 +82,7 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, seed }: 
       <g transform={`rotate(${-side * angle} ${sx} ${shoulderY})`}>
         <rect x={sx - 18} y={shoulderY - 10} width={36} height={armL} rx={18} fill={sleeve} />
         <circle cx={sx} cy={shoulderY + armL - 6} r={animal ? 18 : 19} fill={skin} />
+        {hold && side === 1 && <PropItem id={hold} x={sx} y={shoulderY + armL + 4} />}
       </g>
     );
   };

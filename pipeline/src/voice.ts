@@ -60,15 +60,24 @@ const episodeFiles = () => readdirSync(EPISODES).filter((f) => f.endsWith(".json
 /** Смех персонажа в конце (аудио-тег + звукоподражание, чтобы было что произнести). */
 const LAUGH_TEXT: Record<Locale, string> = { ru: "[laughs heartily] Ха-ха-ха!", en: "[laughs heartily] Ha-ha-ha!", de: "[laughs heartily] Ha-ha-ha!" };
 
-/** Кто смеётся в конце: куклы, у которых есть реплики (без рассказчика), и кто не ушёл со сцены. */
+/** Кто смеётся в конце: куклы последней сцены, у которых есть реплики (без рассказчика) и кто не ушёл со сцены. */
 function laughers(ep: Raw): string[] {
-  const speakers = [...new Set((ep.lines as Raw[]).map((l) => l.character as string))].filter((c) => c !== NARRATOR);
+  const scenes = (ep.scenes as Raw[] | undefined)?.length ? (ep.scenes as Raw[]) : [{ cast: ep.cast, beats: (ep.lines as Raw[]).map((l) => ({ type: "line", ref: l.id })) }];
+  const last = scenes[scenes.length - 1];
+  const byId = new Map((ep.lines as Raw[]).map((l) => [l.id, l]));
+  const speakers = new Set((ep.lines as Raw[]).map((l) => l.character as string));
   const gone = new Set<string>();
-  for (const l of ep.lines as Raw[]) {
-    for (const id of l.enter ?? []) gone.delete(id);
-    for (const id of l.exit ?? []) gone.add(id);
+  for (const b of last.beats as Raw[]) {
+    if (b.type === "line") {
+      const l = byId.get(b.ref);
+      for (const id of l?.enter ?? []) gone.delete(id);
+      for (const id of l?.exit ?? []) gone.add(id);
+    } else if (b.type === "move") {
+      if (b.from) gone.delete(b.who);
+      if (String(b.to).startsWith("off-")) gone.add(b.who);
+    }
   }
-  return speakers.filter((c) => !gone.has(c));
+  return (last.cast as string[]).filter((c) => c !== NARRATOR && speakers.has(c) && !gone.has(c));
 }
 
 /** Каких смехов не хватает (нет файла или голос куклы сменился). */

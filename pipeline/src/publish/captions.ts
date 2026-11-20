@@ -3,7 +3,7 @@
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { NARRATOR, type Episode, type Locale } from "@jf/core";
+import { NARRATOR, orderedLines, type Episode, type Locale } from "@jf/core";
 import { ROOT } from "../util.js";
 
 export type Disclosure = {
@@ -28,7 +28,7 @@ export const LIMITS: Record<Platform, number> = { youtube: 5000, tiktok: 2200, i
 
 /** Анекдот как связный текст: реплики персонажей — через тире, рассказчик — обычным абзацем. */
 export function jokeText(ep: Episode) {
-  return ep.lines.map((l) => (l.character === NARRATOR ? l.text : `— ${l.text}`)).join("\n");
+  return orderedLines(ep).map((l) => (l.character === NARRATOR ? l.text : `— ${l.text}`)).join("\n");
 }
 
 /** Подпись поста. originalText — исходный текст анекдота (для текстовых постов на языке оригинала). */

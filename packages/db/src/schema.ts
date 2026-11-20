@@ -71,6 +71,8 @@ export const episodes = pgTable("episodes", {
   cast: jsonb("cast").$type<string[]>().notNull(),
   roles: jsonb("roles").notNull(),
   lines: jsonb("lines").notNull(),
+  /** Сцены движка v2 (null — одна сцена из location/cast/lines). */
+  scenes: jsonb("scenes"),
   music: text("music"),
   adaptation: text("adaptation"),
   /** draft | approved | rejected — ручное решение, sync его не трогает. */
