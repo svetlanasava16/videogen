@@ -40,6 +40,7 @@ JSONL, exactly one line per input line, same order, same `id`:
 - `location`: a backdrop id from context.md, or `none`.
 - `lines[].character`: a puppet id from `cast`, or `narrator` (voice-over, no puppet on screen).
 - `lines[].enter` / `lines[].exit` (optional, default `[]`): puppet ids that walk in right before this line / walk out right after it. A puppet whose first event is `enter` starts off screen; everyone else is on screen from the start. Only on-screen puppets may speak. The checker rejects speaking while off screen, entering twice, or leaving when absent.
+- `lines[].laugh` (optional): laugh track after the line — `chuckle` | `laugh` | `big`. Put `big` (or `laugh` for a mild joke) on the punchline. At most one `chuckle` on an earlier comic beat, only if there is a real one. If you set none, the renderer adds `big` after the last line.
 
 ## Writing rules
 1. Plain spoken text only: it goes straight to text-to-speech. No stage directions, parentheses, speaker labels, emoji or hashtags. Write numbers as words.

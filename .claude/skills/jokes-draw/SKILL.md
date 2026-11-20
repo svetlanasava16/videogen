@@ -23,6 +23,12 @@ Everything visual is React SVG in `remotion/`. Style: flat rounded shapes, no ou
 ## Staging
 `remotion/src/timeline.ts` turns `lines[].enter/exit` into walk-in/walk-out moves (0.7 s) and presence per frame; `remotion/src/Joke.tsx` lays out on-screen puppets in slots weighted by presence, walks newcomers in from the nearest edge, turns speakers toward the others. Validation of enter/exit lives in `stagingProblems` (`packages/core/src/index.ts`).
 
+## Sound — laughs and music
+- Library: `content/audio.json` (id, kind laugh|music, intensity chuckle|laugh|big or mood, file, duration, source, author, license) + files in `remotion/public/audio/{laughs,music}/`. CC0 / free licences only (Freesound with the CC0 filter, Pixabay Music); the user downloads, you import:
+  `pnpm audio add <file> --kind laugh --intensity big --source <url> --author <name> --license CC0` (or `--kind music --mood quirky [--start 3 --max 75]`). It normalises loudness (laugh −18 LUFS, music −23 LUFS), trims (laugh ≤ 4 s, music ≤ 90 s) and writes mp3. `pnpm audio list`.
+- Placement: `lines[].laugh` (chuckle | laugh | big); with no marks the renderer puts `big` after the last line. `timeline.ts` lets ~60 % of the laugh play in the pause; `Episode.music` picks a track ("none" = silent), otherwise a stable choice by episode id.
+- Mix: `remotion/src/components/Soundtrack.tsx` — laughs 0.7; music 0.10, ducked to 0.05 under speech, 0.5 s fades. Branding: `components/Branding.tsx` (ANEK. watermark, end card with `content/disclosure.json → card`).
+
 ## Verify (always look at the images)
 ```bash
 pnpm typecheck && pnpm registry

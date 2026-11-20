@@ -146,7 +146,7 @@ function materialize() {
       place: places.get(d.id),
       cast: d.cast, roles: d.roles,
       lines: d.lines.map((l, i) => ({
-        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion, enter: l.enter, exit: l.exit,
+        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),
     });

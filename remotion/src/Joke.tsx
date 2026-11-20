@@ -5,6 +5,8 @@ import { buildTimeline } from "./timeline";
 import { Background } from "./components/Background";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
 import { Captions } from "./components/Captions";
+import { Soundtrack } from "./components/Soundtrack";
+import { EndCard, Watermark } from "./components/Branding";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
 const PUPPET_H = 0.4; // высота бокса куклы (доля высоты кадра)
@@ -67,6 +69,9 @@ export const Joke = (ep: Episode) => {
         );
       })}
       <Captions line={current} locale={ep.locale} narrator={current?.character === NARRATOR} />
+      <Watermark />
+      <EndCard from={tl.card.from} frames={tl.card.frames} locale={ep.locale} />
+      <Soundtrack tl={tl} />
     </AbsoluteFill>
   );
 };

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Каждые 6 часов: статусы из Postiz и снимок метрик.
+  Установка (вручную, один раз):
+    sed "s#__REPO__#$PWD#g" infra/launchd/com.anek.metrics.plist > ~/Library/LaunchAgents/com.anek.metrics.plist
+    launchctl load ~/Library/LaunchAgents/com.anek.metrics.plist
+  Лог: data/backups/metrics.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.anek.metrics</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string><string>-lc</string>
+    <string>cd __REPO__ &amp;&amp; pnpm -s posts sync &amp;&amp; pnpm -s metrics pull &amp;&amp; pnpm -s metrics report</string>
+  </array>
+  <key>StartInterval</key><integer>21600</integer>
+  <key>StandardOutPath</key><string>__REPO__/data/backups/metrics.log</string>
+  <key>StandardErrorPath</key><string>__REPO__/data/backups/metrics.log</string>
+</dict>
+</plist>

@@ -14,6 +14,10 @@ export const WordTiming = z.object({
 });
 export type WordTiming = z.infer<typeof WordTiming>;
 
+/** Закадровый смех после реплики: смешок, смех, хохот. */
+export const Laugh = z.enum(["chuckle", "laugh", "big"]);
+export type Laugh = z.infer<typeof Laugh>;
+
 export const Line = z.object({
   id: z.string(),
   character: z.string(), // id персонажа из content/characters
@@ -33,6 +37,8 @@ export const Line = z.object({
   enter: z.array(z.string()).default([]),
   /** Куклы, которые уходят из кадра после этой реплики. */
   exit: z.array(z.string()).default([]),
+  /** Закадровый смех после реплики. Если ни у одной реплики нет — "big" после последней. */
+  laugh: Laugh.optional(),
 });
 export type Line = z.infer<typeof Line>;
 
@@ -49,6 +55,8 @@ export const Episode = z.object({
   /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
   roles: z.record(z.string(), z.string()).default({}),
   lines: z.array(Line).min(1),
+  /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
+  music: z.string().optional(),
   format: z
     .object({ width: z.number(), height: z.number(), fps: z.number() })
     .default({ width: 1080, height: 1920, fps: 30 }),
@@ -160,6 +168,38 @@ export const Style = z.object({
 });
 export type Style = z.infer<typeof Style>;
 
+/** Звук из библиотеки (content/audio.json): смех или фоновая музыка, только CC0 / свободные лицензии. */
+export const AudioClip = z.object({
+  id: z.string(),
+  kind: z.enum(["laugh", "music"]),
+  /** Для смеха: сила. */
+  intensity: Laugh.optional(),
+  /** Для музыки: настроение (light, quirky, calm…). */
+  mood: z.string().optional(),
+  /** Путь относительно remotion/public. */
+  file: z.string(),
+  durationSec: z.number(),
+  source: z.string(),
+  author: z.string().default(""),
+  license: z.string(),
+});
+export type AudioClip = z.infer<typeof AudioClip>;
+export const AudioLibrary = z.object({ clips: z.array(AudioClip).default([]) });
+
+/** Детерминированный выбор из списка по строке (одинаковый при каждом рендере). */
+export function pick<T>(items: T[], key: string): T | undefined {
+  if (!items.length) return undefined;
+  let h = 2166136261;
+  for (let i = 0; i < key.length; i++) h = Math.imul(h ^ key.charCodeAt(i), 16777619);
+  return items[(h >>> 0) % items.length];
+}
+
+/** Реплики со смехом: явная разметка или "big" после последней. */
+export function laughs(lines: { laugh?: Laugh }[]): (Laugh | undefined)[] {
+  const any = lines.some((l) => l.laugh);
+  return lines.map((l, i) => (any ? l.laugh : i === lines.length - 1 ? "big" : undefined));
+}
+
 /** Грубая оценка таймингов по числу символов (пока нет реальной озвучки). */
 export function estimateWords(text: string, charsPerSec = 14): WordTiming[] {
   const parts = text.split(/\s+/).filter(Boolean);
@@ -257,6 +297,7 @@ export const ScriptDraft = z.object({
         pauseAfterSec: z.number(),
         enter: z.array(z.string()).default([]),
         exit: z.array(z.string()).default([]),
+        laugh: Laugh.optional(),
       }),
     )
     .min(1),

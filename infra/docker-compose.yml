@@ -1,0 +1,198 @@
+# ANEK. — локальная инфраструктура.
+#   База проекта:      docker compose -f infra/docker-compose.yml up -d anek-db
+#   Postiz целиком:    docker compose -f infra/docker-compose.yml --profile postiz up -d
+#   С туннелем:        docker compose -f infra/docker-compose.yml --profile postiz --profile tunnel up -d
+# Секреты — в infra/.env (шаблон infra/.env.example, сам файл в git не попадает).
+# Postiz основан на официальном compose (github.com/gitroomhq/postiz-docker-compose), версия зафиксирована.
+
+services:
+  # ---------- база ANEK. (наша, отдельно от Postiz) ----------
+  anek-db:
+    image: postgres:17-alpine
+    container_name: anek-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: anek
+      POSTGRES_PASSWORD: ${ANEK_DB_PASSWORD:-anek}
+      POSTGRES_DB: anek
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - anek-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U anek -d anek"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------- Postiz ----------
+  postiz:
+    profiles: [postiz]
+    image: ghcr.io/gitroomhq/postiz-app:v2.25.3
+    container_name: postiz
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MAIN_URL: ${POSTIZ_URL}
+      FRONTEND_URL: ${POSTIZ_URL}
+      NEXT_PUBLIC_BACKEND_URL: ${POSTIZ_URL}/api
+      BACKEND_INTERNAL_URL: http://localhost:3000
+      DATABASE_URL: postgresql://postiz:${POSTIZ_DB_PASSWORD}@postiz-postgres:5432/postiz
+      REDIS_URL: redis://postiz-redis:6379
+      TEMPORAL_ADDRESS: temporal:7233
+      IS_GENERAL: "true"
+      RUN_CRON: "true"
+      STORAGE_PROVIDER: local
+      UPLOAD_DIRECTORY: /uploads
+      NEXT_PUBLIC_UPLOAD_DIRECTORY: /uploads
+      API_LIMIT: 30
+      NX_ADD_PLUGINS: "false"
+    volumes:
+      - postiz-config:/config/
+      - postiz-uploads:/uploads/
+    ports:
+      - "127.0.0.1:4007:5000"
+    networks: [postiz-network, temporal-network]
+    depends_on:
+      postiz-postgres: { condition: service_healthy }
+      postiz-redis: { condition: service_healthy }
+      temporal: { condition: service_healthy }
+
+  postiz-postgres:
+    profiles: [postiz]
+    image: postgres:17-alpine
+    container_name: postiz-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postiz
+      POSTGRES_PASSWORD: ${POSTIZ_DB_PASSWORD}
+      POSTGRES_DB: postiz
+    volumes:
+      - postiz-postgres-data:/var/lib/postgresql/data
+    networks: [postiz-network]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postiz -d postiz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postiz-redis:
+    profiles: [postiz]
+    image: redis:7.2
+    container_name: postiz-redis
+    restart: unless-stopped
+    volumes:
+      - postiz-redis-data:/data
+    networks: [postiz-network]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------- Temporal (обязателен для Postiz ≥ 2.12) ----------
+  temporal-elasticsearch:
+    profiles: [postiz]
+    image: elasticsearch:7.17.27
+    container_name: temporal-elasticsearch
+    restart: unless-stopped
+    environment:
+      - cluster.routing.allocation.disk.threshold_enabled=true
+      - cluster.routing.allocation.disk.watermark.low=512mb
+      - cluster.routing.allocation.disk.watermark.high=256mb
+      - cluster.routing.allocation.disk.watermark.flood_stage=128mb
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms256m -Xmx256m
+      - xpack.security.enabled=false
+    networks: [temporal-network]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS \"http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s\" || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+    volumes:
+      - temporal-elasticsearch-data:/usr/share/elasticsearch/data
+
+  temporal-postgresql:
+    profiles: [postiz]
+    image: postgres:16
+    container_name: temporal-postgresql
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: temporal
+      POSTGRES_PASSWORD: temporal
+    networks: [temporal-network]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U temporal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - temporal-postgres-data:/var/lib/postgresql/data
+
+  temporal:
+    profiles: [postiz]
+    image: temporalio/auto-setup:1.28.1
+    container_name: temporal
+    restart: unless-stopped
+    depends_on:
+      temporal-postgresql: { condition: service_healthy }
+      temporal-elasticsearch: { condition: service_healthy }
+    environment:
+      - DB=postgres12
+      - DB_PORT=5432
+      - POSTGRES_USER=temporal
+      - POSTGRES_PWD=temporal
+      - POSTGRES_SEEDS=temporal-postgresql
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+      - ENABLE_ES=true
+      - ES_SEEDS=temporal-elasticsearch
+      - ES_VERSION=v7
+      - TEMPORAL_NAMESPACE=default
+    networks: [temporal-network]
+    healthcheck:
+      test: ["CMD", "temporal", "operator", "cluster", "health", "--address", "temporal:7233"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    volumes:
+      - ./dynamicconfig:/etc/temporal/config/dynamicconfig
+
+  # ---------- публичные страницы (Privacy / Terms для TikTok и Meta) ----------
+  anek-site:
+    profiles: [postiz]
+    image: nginx:1.27-alpine
+    container_name: anek-site
+    restart: unless-stopped
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+    ports:
+      - "127.0.0.1:4008:80"
+    networks: [postiz-network]
+
+  # ---------- Cloudflare Tunnel: https://<домен> → postiz, https://site.<домен> → anek-site ----------
+  cloudflared:
+    profiles: [tunnel]
+    image: cloudflare/cloudflared:2026.10.7
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
+    networks: [postiz-network]
+
+volumes:
+  anek-db-data:
+  postiz-config:
+  postiz-uploads:
+  postiz-postgres-data:
+  postiz-redis-data:
+  temporal-postgres-data:
+  temporal-elasticsearch-data:
+
+networks:
+  postiz-network:
+  temporal-network:
+    name: anek-temporal-network

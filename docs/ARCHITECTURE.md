@@ -4,7 +4,7 @@
 
 ## Пайплайн
 источники → `data/jokes/<lang>.jsonl` (топ-2000) → LLM-разметка (analyze) → каталог персонажей и локаций
-→ описания кукол → куклы и фоны кодом (SVG) → сценарии (script) → озвучка ElevenLabs → рендер Remotion → Postiz
+→ описания кукол → куклы и фоны кодом (SVG) → сценарии (script) → озвучка (ElevenLabs / ComfyUI на сервере, позже) → рендер Remotion (смех, музыка, маркировка) → база `anek-db` → Postiz → метрики
 
 ## LLM-стадии без привязки к провайдеру
 Скрипты готовят пачки JSONL, исполнитель пишет ответ рядом, скрипт проверяет и сливает:
@@ -26,6 +26,11 @@ pnpm registry                                          # список кукол
 pnpm llm prepare script --per-lang N --size 20         # сценарии из «безопасного» пула (+ переводы/адаптации)
 pnpm llm collect script && pnpm llm materialize script # → content/episodes/<jokeId>.<locale>.json
 pnpm studio                                            # Remotion Studio
+pnpm audio add|list                                    # библиотека звука (content/audio.json)
+pnpm db migrate|sync|status|dump                       # база anek-db
+pnpm render --top N --locale ru | <episodeId…>          # renders/<id>/<hash>.mp4 + таблица renders
+pnpm posts accounts|plan|push|sync|list                # публикация через Postiz → таблица posts
+pnpm metrics pull|report                               # post_metrics, account_metrics, docs/metrics-report.md
 ```
 
 ## Источники
@@ -42,7 +47,10 @@ pnpm studio                                            # Remotion Studio
 - `packages/core`: схемы Joke, JokeAnalysis, ScriptDraft, Episode, Character, Location; `NARRATOR`.
 - `pipeline/`: сбор (`src/jokes.ts`, `src/ingest/`), LLM-пачки (`src/llm.ts`), каталог (`src/catalog.ts`).
 - `content/`: персонажи, локации, эпизоды для рендера.
-- `remotion/`: композиция `Joke`: фон, 2D-куклы, субтитры, рассказчик (голос без куклы, субтитры сверху).
+- `remotion/`: композиция `Joke`: фон, 2D-куклы, субтитры, рассказчик (голос без куклы, субтитры сверху), смех и музыка (`components/Soundtrack.tsx`), водяной знак и финальная карточка ANEK. (`components/Branding.tsx`).
+- `packages/db`: схема Postgres (Drizzle) и миграции. Контент — копия из git (`pnpm db sync`), рендеры, публикации и метрики — только в базе.
+- `pipeline/src/publish/`: клиент Postiz Public API, подписи и настройки площадок; `content/disclosure.json` — тексты маркировки, `content/accounts.json` — аккаунты (площадка × язык).
+- `infra/`: docker compose — `anek-db`, Postiz + Temporal (профиль `postiz`), Cloudflare Tunnel (профиль `tunnel`), страницы Privacy/Terms; инструкция `docs/POSTIZ.md`.
 - `data/`: база и разметка (в git), `data/raw/` — сырые датасеты (вне git).
 
 ## Решения
@@ -58,17 +66,25 @@ pnpm studio                                            # Remotion Studio
 - Вовочка / Little Johnny / Fritzchen — одна кукла с локальными именами.
 - Общий стиль: `content/style.json` (бумажная перекладка, толстый контур).
 
+## Публикация и маркировка
+- Площадки: сначала YouTube Shorts, TikTok, Instagram (Reels и Stories), Threads (тексты анекдотов); позже X и VK.
+- В каждой подписи — текст из `content/disclosure.json` (голос — ИИ, видео — ANEK., персонажи вымышлены, без намерения задеть верующих; у переводов — «перевод с помощью ИИ»). В видео — водяной знак и финальная карточка. Флаги ИИ по API: YouTube `containsSyntheticMedia`, TikTok `is_aigc`.
+- Частота 1–3 видео в день на канал, без повторов фона и героя подряд (правило YouTube «inauthentic content»).
+
 ## Статус
 - Разметка analyze: 6000/6000 (по 2000 на язык), результаты в `data/llm/analyze/results.jsonl`.
 - Правило `exclude` уточнялось по ходу; ранние пачки перепроверены (`data/llm/review/`), решения внесены в `.out.jsonl`.
 - Пилот по старому промпту сохранён в `data/llm/analyze/pilot-v1/`.
 - Отчёт: `docs/catalog-report.md` (пересчёт `pnpm catalog`).
 
+- Сценарии: 883 эпизода (топ-100 на язык, оригиналы и переводы), `content/episodes/`.
+- База, рендер, публикация и метрики готовы; Postiz ждёт домен и developer-приложения площадок (`docs/POSTIZ.md`).
+
 ## Дальше
-1. Риг кукол (руки, ноги, походка, эмоции) и фоны кодом.
-2. Выходы и уходы персонажей.
-3. Сценарии: пилот 27 штук готов (`data/llm/script/`); дальше — весь «безопасный» пул; выходы/уходы персонажей в Remotion.
-4. ElevenLabs (голоса по voiceBrief) → тайминги слов в Episode; Postiz.
+1. Наполнить библиотеку звука (CC0-смех и музыка).
+2. Поднять Postiz, подключить аккаунты, первые приватные публикации.
+3. Озвучка: ElevenLabs и/или TTS через ComfyUI на GPU-сервере → `Line.audio` (файл + тайминги слов).
+4. Метка `religious-target` для русского пула перед VK.
 
 ## Скиллы
-`.claude/skills/`: llm-batch-run, jokes-annotate, jokes-classify, jokes-cast, jokes-scripts, jokes-sources.
+`.claude/skills/`: llm-batch-run, jokes-annotate, jokes-classify, jokes-cast, jokes-draw, jokes-scripts, jokes-sources, jokes-publish.

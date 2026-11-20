@@ -1,18 +1,21 @@
-# Фабрика анекдотов
+# ANEK. — фабрика анекдотов
 
-Короткие вертикальные видео по анекдотам на русском, английском и немецком: векторные куклы, нарисованные кодом, озвучка (ElevenLabs, в планах), субтитры-караоке, монтаж в Remotion, публикация через Postiz (в планах).
+Короткие вертикальные видео по анекдотам на русском, английском и немецком: векторные куклы, нарисованные кодом, закадровый смех и музыка (CC0), озвучка (ElevenLabs или ComfyUI на сервере, в планах), субтитры-караоке, монтаж в Remotion, публикация через Postiz, база публикаций и метрик в Postgres.
 
 - База: 6000 популярных анекдотов (по 2000 на язык) с разметкой: персонажи, локации, переводимость, флаги.
 - Каст: 28 кукол (с двойниками и костюмами под роли), 14 фонов с вариантами.
-- Сценарии: LLM-стадия пишет и адаптирует сценарии, выходы и уходы персонажей → `content/episodes/`.
+- Сценарии: LLM-стадия пишет и адаптирует сценарии, выходы и уходы персонажей → `content/episodes/` (883 эпизода, топ-100 на язык).
+- База `anek-db` (Postgres, `packages/db`): анекдоты, ассеты, эпизоды, рендеры, публикации, метрики. Публикация — Postiz ([docs/POSTIZ.md](docs/POSTIZ.md)).
 
 Подробности: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), цифры по базе: [docs/catalog-report.md](docs/catalog-report.md).
 
 ## Установка
-Нужны Node.js 22+ и pnpm.
+Нужны Node.js 22+, pnpm и Docker.
 ```bash
 pnpm install
 pnpm typecheck
+docker compose -f infra/docker-compose.yml up -d anek-db   # база проекта
+pnpm db migrate && pnpm db sync
 ```
 Сырые датасеты в git не лежат. Перекачать их можно командой `pnpm jokes ingest`, но для работы со сценариями и куклами они не нужны: база и разметка уже в `data/`.
 
@@ -23,10 +26,11 @@ pnpm catalog                                  # пересчитать отчё�
 pnpm registry                                 # после правок content/characters или content/locations
 pnpm llm prepare|check|collect|status <stage> # LLM-стадии пачками (analyze, script)
 pnpm llm materialize script                   # сценарии → content/episodes/
-```
-Рендер эпизода:
-```bash
-cd remotion && npx remotion render src/index.ts Joke ../renders/<id>.mp4 --props=../content/episodes/<id>.json
+pnpm audio add <file> --kind laugh|music …    # звук (CC0) → remotion/public/audio + content/audio.json
+pnpm db sync | status | dump                  # контент из git → база; счётчики; бэкап
+pnpm render --top 20 --locale ru              # рендер в renders/ + учёт в базе
+pnpm posts plan|push|sync|list                # публикация через Postiz
+pnpm metrics pull|report                      # метрики → база, docs/metrics-report.md
 ```
 
 ## Работа с Claude Code
@@ -41,8 +45,9 @@ cd remotion && npx remotion render src/index.ts Joke ../renders/<id>.mp4 --props
 | `jokes-draw` | рисование кодом: риг, позы, лица, аксессуары, фоны | «дай бармену усы и полотенце», «нарисуй баню» |
 | `jokes-scripts` | сценарии, переводы, адаптации, превью | «напиши сценарии для следующих 50 немецких анекдотов» |
 | `jokes-sources` | новые источники и языки | «добавь польские анекдоты» |
+| `jokes-publish` | рендер, публикация через Postiz, база, метрики | «отрендерь топ-20 немецких и запланируй на YouTube на неделю», «сколько лайков у вчерашних постов» |
 
-Общие правила для агента — в [CLAUDE.md](CLAUDE.md): LLM-шаги не ходят в API (их выполняют сабагенты), промпты на английском, обсуждение на русском, арт только кодом.
+Общие правила для агента — в [CLAUDE.md](CLAUDE.md): LLM-шаги не ходят в API (их выполняют сабагенты), промпты на английском, обсуждение на русском, арт только кодом, маркировка ИИ в каждой публикации.
 
 ## Правила работы с git
 - Работаем в ветках, в `main` не коммитим напрямую; сливаем через PR.
