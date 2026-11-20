@@ -12,33 +12,42 @@ import { NARRATOR, type Shot } from "@jf/core";
 import type { SceneTL, Timeline } from "../timeline";
 
 export type Cam = { scale: number; fx: number; fy: number };
-const SCALE: Record<Shot, number> = { wide: 1, two: 1.18, close: 1.5 };
+const SCALE: Record<Shot, number> = { wide: 1, group: 1.08, two: 1.18, close: 1.5 };
 const BLEND = 12; // кадров на смену плана
 const PUSH = 0.08; // наезд на панчлайне (прирост масштаба за реплику)
 const ease = Easing.inOut(Easing.cubic);
 
-type Key = { frame: number; shot: Shot; on?: string; push?: { from: number; to: number } };
+/** with — собеседник (предыдущий говорящий): в двойном и групповом плане он в кадре вместе с говорящим. */
+type Key = { frame: number; shot: Shot; on?: string; with?: string; push?: { from: number; to: number } };
 
 /** Ключевые планы сцены: явные биты camera + правила по репликам. */
 function keys(tl: Timeline, sc: SceneTL, present: (id: string, frame: number) => boolean): Key[] {
   const out: Key[] = [{ frame: sc.from, shot: "wide" }];
   const lines = tl.lines.filter((l) => l.scene === sc.index);
   const explicit = [...sc.shots].sort((a, b) => a.frame - b.frame);
+  let prevSpeaker: string | undefined;
   lines.forEach((l, i) => {
+    const addressee = prevSpeaker !== l.character ? prevSpeaker : undefined;
+    if (l.character !== NARRATOR) prevSpeaker = l.character;
     // явный план действует, пока не придёт следующий явный
     if (explicit.some((s) => s.frame <= l.startFrame)) return;
     const at = Math.max(sc.from, l.startFrame - 4);
     const others = sc.scene.cast.filter((c) => c !== l.character && present(c, l.startFrame));
+    const partner = addressee && present(addressee, l.startFrame) ? addressee : undefined;
     if (l.character === NARRATOR || i === 0) out.push({ frame: at, shot: "wide" });
     else if (l.punch) out.push({ frame: at, shot: "close", on: l.character, push: { from: l.startFrame, to: l.endFrame } });
-    else out.push({ frame: at, shot: others.length ? "two" : "close", on: l.character });
+    // в толпе (3+ собеседника) — групповой план: говорящий, собеседник и ближайший
+    else if (others.length >= 3) out.push({ frame: at, shot: "group", on: l.character, with: partner });
+    else out.push({ frame: at, shot: others.length ? "two" : "close", on: l.character, with: partner });
   });
   for (const s of explicit) out.push({ frame: s.frame, shot: s.shot, on: s.on });
+  // реакция массовки — общий план
+  for (const c of sc.crowd) out.push({ frame: Math.max(sc.from, c.from - 2), shot: "wide" });
   for (const o of tl.outro) if (o.from >= sc.from && o.from < sc.to) out.push({ frame: o.from, shot: "wide" });
   // схлопнуть повторы подряд
   return out
     .sort((a, b) => a.frame - b.frame)
-    .filter((k, i, all) => i === 0 || k.shot !== all[i - 1].shot || k.on !== all[i - 1].on || k.push);
+    .filter((k, i, all) => i === 0 || k.shot !== all[i - 1].shot || k.on !== all[i - 1].on || k.with !== all[i - 1].with || k.push);
 }
 
 /**
@@ -52,10 +61,18 @@ export function cameraAt(
   const stateOf = (k: Key, f: number): Cam => {
     if (k.shot === "wide" || !k.on || !geo.present(k.on, k.frame)) return { scale: 1, fx: geo.width / 2, fy: geo.height / 2 };
     const x = geo.xOf(k.on, k.frame);
-    if (k.shot === "two") {
-      const others = sc.scene.cast.filter((c) => c !== k.on && geo.present(c, k.frame)).map((c) => geo.xOf(c, k.frame));
-      const near = others.sort((a, b) => Math.abs(a - x) - Math.abs(b - x))[0] ?? x;
-      return { scale: SCALE.two, fx: (x + near) / 2, fy: geo.bodyY };
+    if (k.shot === "two" || k.shot === "group") {
+      const others = sc.scene.cast.filter((c) => c !== k.on && geo.present(c, k.frame)).map((c) => ({ c, x: geo.xOf(c, k.frame) }));
+      const byNear = others.sort((a, b) => Math.abs(a.x - x) - Math.abs(b.x - x));
+      // собеседник в приоритете, затем ближайшие
+      const partner = byNear.find((o) => o.c === k.with) ?? byNear[0];
+      const rest = byNear.filter((o) => o !== partner);
+      const xs = [x, ...(partner ? [partner.x] : []), ...(k.shot === "group" && rest[0] ? [rest[0].x] : [])];
+      const lo = Math.min(...xs), hi = Math.max(...xs);
+      // если собеседник далеко, двойной план не влезает — отъезжаем
+      const span = hi - lo + geo.width * 0.3;
+      const scale = Math.max(1, Math.min(SCALE[k.shot], geo.width / span));
+      return { scale, fx: (lo + hi) / 2, fy: geo.bodyY };
     }
     const push = k.push ? interpolate(f, [k.push.from, k.push.to], [0, PUSH], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
     return { scale: SCALE.close + push, fx: x, fy: geo.headY };

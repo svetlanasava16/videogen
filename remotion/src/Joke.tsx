@@ -10,6 +10,7 @@ import { Watermark } from "./components/Branding";
 import { SceneTransition } from "./world/Transitions";
 import { Flyover } from "./world/Flyover";
 import { buildingFor } from "./world/town";
+import { Crowd } from "./world/Crowd";
 import { cameraAt, cameraTransform } from "./director/camera";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
@@ -17,11 +18,14 @@ const PUPPET_H = 0.4; // высота бокса куклы (доля высот
 const ease = Easing.inOut(Easing.cubic);
 
 /** Геометрия сцены: где стоят куклы на каждом кадре (автослоты, метки места, входы и уходы). */
+/** Масштаб кукол по числу персонажей сцены: до трёх — как есть, 4–5 — мельче, чтобы все помещались в общем плане. */
+const CAST_SCALE: Record<number, number> = { 4: 0.8, 5: 0.66 };
+
 export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: number) {
-  const boxH = height * PUPPET_H;
+  const cast = sc.scene.cast;
+  const boxH = height * PUPPET_H * (CAST_SCALE[cast.length] ?? 1);
   const boxW = (boxH * BOX_W) / BOX_H;
   const top = height * FLOOR - (boxH * 585) / BOX_H; // ноги куклы на линии пола
-  const cast = sc.scene.cast;
   const marks = locations[sc.scene.location]?.marks ?? {};
   const edgeX = (side: "left" | "right") => (side === "left" ? -boxW : width + boxW);
   const nearEdge = (id: string): "left" | "right" => (cast.indexOf(id) < cast.length / 2 ? "left" : "right");
@@ -83,7 +87,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   };
   const xOf = (id: string, f: number) => layout(f).get(id) ?? xAt(id, f);
 
-  return { boxW, boxH, top, xAt: xOf, present: (id: string, f: number) => pres(id, f) > 0, headY: top + boxH * 0.33, bodyY: top + boxH * 0.5 };
+  return { boxW, boxH, top, floorY: height * FLOOR, xAt: xOf, present: (id: string, f: number) => pres(id, f) > 0, headY: top + boxH * 0.33, bodyY: top + boxH * 0.5 };
 }
 
 /** Одна сцена: фон и куклы на холсте, камера двигает холст. */
@@ -102,6 +106,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
   return (
     <AbsoluteFill style={{ transform: cameraTransform(cam, width, height), transformOrigin: "0 0" }}>
       <Background location={locations[sc.scene.location]} place={sc.scene.place} />
+      {sc.scene.crowd && (
+        <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={width} floorY={geo.floorY} heroH={height * PUPPET_H} />
+      )}
       {people.map((id, i) => {
         const ch = characters[id];
         const x = geo.xAt(id, frame);
@@ -115,7 +122,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         return (
           <div key={id} style={{ position: "absolute", left: x - geo.boxW / 2, top: geo.top, width: geo.boxW, height: geo.boxH, display: "flex", justifyContent: "center" }}>
             <Puppet
-              look={lookForRole(ch, sc.scene.roles[id] ?? ep.roles[id])}
+              look={lookForRole(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id] ?? ep.looks?.[id])}
               speaking={talking || laughing}
               emotion={laughing ? "happy" : current?.character === id ? current.emotion : "neutral"}
               walk={walk}

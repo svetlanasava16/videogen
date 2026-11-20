@@ -141,3 +141,11 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | cane | трость | walking stick | Gehstock |
 | bill | счёт / чек | bill / receipt | Rechnung |
 | wrench | гаечный ключ / инструмент | wrench / tool | Schraubenschlüssel |
+
+## Accessories (for `looks`: add to / remove from a puppet in this episode)
+
+aerodrome-cap, apron, army-cap, badge, baguette, beard, beret, black-hat, bow-tie, bowler, bows, brooch, camera, cat-eye-glasses, chef-hat, collar, cowboy-hat, cowlick, cross, crown, curlers, dark-glasses, earrings, eye-mask, flat-cap, freckles, glasses, goatee, gold-chain, halo, headscarf, headset, helmet, hood, horns, keys, kippah, lipstick, loot-bag, mole, monocle, mustache, mustache-curled, nun-veil, nurse-cap, papakha, police-cap, red-nose, robe-black, robe-red, robe-white, round-glasses, scythe, shako, side-curls, stethoscope, straw-hat, striped-shirt, stubble, suspenders, tie, towel, turban, tyrolean-hat, white-beard, zucchetto
+
+## Crowd
+
+Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm. At most 5 puppets per scene plus the crowd.

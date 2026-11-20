@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft, sceneProblems, stagingProblems } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, MAX_CAST, NARRATOR, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -102,7 +102,7 @@ const STAGES: Record<string, Stage> = {
             const backdrop = loc === "none" ? "none" : C.backdropFor.get(loc);
             return { a, j: jokes.get(a.id)!, roles, scene, loc, backdrop };
           })
-          .filter((x) => x.scene.ok && x.backdrop && Object.keys(x.scene.cast).length <= 3)
+          .filter((x) => x.scene.ok && x.backdrop && Object.keys(x.scene.cast).length <= MAX_CAST)
           .sort((x, y) => y.j.popularity * y.a.funny - x.j.popularity * x.a.funny)
           .slice(0, perLang ?? Infinity);
         for (const x of pool) {
@@ -116,6 +116,8 @@ const STAGES: Record<string, Stage> = {
               adaptNote: locale === lang ? "" : x.a.translatability[locale]!.note,
               text: x.j.text, gist: x.a.gist ?? "", form: x.a.form, needsNarrator: x.a.needsNarrator,
               wordplay: x.a.wordplay,
+              // персонажи из разметки: кто говорит, кто молчит, как выглядит (тёмные очки, трость…) — всё это должно быть видно
+              characters: x.a.characters.map((c) => ({ archetype: c.archetype, role: c.role, looks: c.looks })),
               suggestedCast: x.scene.cast, // canonical role → puppet id
               suggestedBackdrop: x.backdrop, location: x.loc,
               maxWords: MAX_WORDS[locale],
@@ -141,6 +143,17 @@ const STAGES: Record<string, Stage> = {
         if (l.uncensored !== undefined && l.uncensored.trim() === l.text.trim()) pr.push(`uncensored equals text — omit it: "${l.text.slice(0, 40)}"`);
       }
       for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
+      // костюмы на эпизод: только существующие аксессуары и только для кукол в составе
+      const acc = new Set(accessoryIds());
+      const checkLooks = (looks: Record<string, LookPatch> | undefined, cast: string[], tag: string) => {
+        for (const [p, l] of Object.entries(looks ?? {})) {
+          if (!cast.includes(p)) pr.push(`${tag}looks: ${p} not in cast`);
+          for (const a of [...l.add, ...l.remove]) if (!acc.has(a)) pr.push(`${tag}looks: unknown accessory "${a}" (see the accessories list in context.md; ask for a new one in needs)`);
+        }
+      };
+      checkLooks(row.looks, row.cast, "");
+      for (const [i, sc] of (row.scenes ?? []).entries()) checkLooks(sc.looks, sc.cast, `scene ${i + 1}: `);
+      if (row.scenes?.length && (row.looks || row.crowd)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
       if (row.scenes?.length) {
         // движок v2: проверка сцен, меток и реквизита
         const props = (JSON.parse(readFileSync(join(ROOT, "content", "props.json"), "utf8")).props as { id: string }[]).map((p) => p.id);
@@ -162,6 +175,14 @@ const STAGES: Record<string, Stage> = {
   },
 };
 
+/** id аксессуаров, которые умеет рисовать риг (case в remotion/src/puppet/Accessories.tsx). */
+function accessoryIds(): string[] {
+  const src = readFileSync(join(ROOT, "remotion", "src", "puppet", "Accessories.tsx"), "utf8");
+  // в том же файле — причёски (hairStyle), это не аксессуары
+  const hair = new Set(["short", "long", "pigtails", "curly", "fringe", "bun", "perm", "bald", "none"]);
+  return [...new Set([...src.matchAll(/case "([a-z0-9-]+)"/g)].map((m) => m[1]))].filter((a) => !hair.has(a)).sort();
+}
+
 /** Справочник кукол и фонов для сценариста: data/llm/script/context.md */
 function writeScriptContext() {
   const C = loadCast();
@@ -182,6 +203,10 @@ function writeScriptContext() {
     "| none | no location (narrator over a neutral backdrop) | |",
     "", "## Props (held in the right hand)", "", "| id | ru | en | de |", "|---|---|---|---|",
     ...props.map((p) => `| ${p.id} | ${p.ru} | ${p.en} | ${p.de} |`), "",
+    "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
+    accessoryIds().join(", "), "",
+    "## Crowd", "",
+    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm. At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
   ];
   mkdirSync(join(DATA, "llm", "script"), { recursive: true });
   writeFileSync(join(DATA, "llm", "script", "context.md"), lines.join("\n"));
@@ -210,7 +235,7 @@ function materialize() {
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
       location: d.location === "none" ? "gostinaya" : d.location,
       place: places.get(d.id),
-      cast: d.cast, roles: d.roles,
+      cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd,
       lines: d.lines.map((l, i) => ({
         id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         audio: voiced(i, l.character, l.text.trim()),
@@ -245,11 +270,13 @@ function pendingIds(s: string) {
   return ids;
 }
 
-function prepare(s: string, stage: Stage, perLang?: number, size = 50, lang?: string) {
+function prepare(s: string, stage: Stage, perLang?: number, size = 50, lang?: string, only?: Set<string>) {
   stage.beforePrepare?.();
   const pending = pendingIds(s);
-  const items = stage.inputs({ perLang, lang }).filter((i) => !pending.has(i.id));
-  let n = batches(s).length;
+  // --ids: только эти задачи (id задачи или jokeId) — для пилотов на выбранных анекдотах
+  const items = stage.inputs({ perLang, lang }).filter((i) => !pending.has(i.id) && (!only || only.has(i.id) || only.has(String(i.jokeId))));
+  // номер — после самого большого существующего (архивные пачки оставляют дыры, перезаписывать нельзя)
+  let n = Math.max(0, ...batches(s).map((b) => Number(b.match(/\d+/)![0])));
   const created: string[] = [];
   for (let i = 0; i < items.length; i += size) {
     const name = `batch-${String(++n).padStart(4, "0")}.in.jsonl`;
@@ -337,24 +364,57 @@ function status(s: string) {
   for (const b of all.filter((b) => !withOut.includes(b))) console.log(`  todo ${b}`);
 }
 
+/**
+ * Сводка заявок сценаристов художнику (ScriptDraft.needs) по всем выходам: что нарисовать, сколько раз просили, для каких эпизодов.
+ * Пишет data/llm/script/needs.md. После рисования эти эпизоды переписываются заново (redo.txt).
+ */
+function needsReport() {
+  type Need = NonNullable<ScriptDraft["needs"]>[number];
+  const by = new Map<string, { need: Need; ids: string[]; descr: Set<string> }>();
+  for (const b of batches("script")) {
+    const out = outOf("script", b);
+    if (!existsSync(out)) continue;
+    for (const r of readJsonl<{ id: string; needs?: Need[] }>(out))
+      for (const n of r.needs ?? []) {
+        const key = `${n.kind}:${n.id}`;
+        const e = by.get(key) ?? { need: n, ids: [], descr: new Set<string>() };
+        e.ids.push(r.id);
+        e.descr.add(n.description);
+        by.set(key, e);
+      }
+  }
+  const rows = [...by.entries()].sort((a, b) => b[1].ids.length - a[1].ids.length);
+  const md = [
+    "# Заявки сценаристов (`pnpm llm needs script`)", "",
+    "| kind:id | раз | описание | эпизоды |", "|---|---|---|---|",
+    ...rows.map(([k, e]) => `| ${k} | ${e.ids.length} | ${[...e.descr].slice(0, 3).join(" / ")} | ${e.ids.slice(0, 8).join(", ")}${e.ids.length > 8 ? " …" : ""} |`),
+  ];
+  writeFileSync(join(stageDir("script"), "needs.md"), md.join("\n") + "\n");
+  for (const [k, e] of rows.slice(0, 40)) console.log(`${String(e.ids.length).padStart(3)}  ${k} — ${[...e.descr][0]}`);
+  console.log(`${rows.length} distinct needs → data/llm/script/needs.md`);
+}
+
 const { positionals, values } = parseArgs({
   allowPositionals: true,
-  options: { "per-lang": { type: "string" }, size: { type: "string" }, lang: { type: "string" }, batch: { type: "string" } },
+  options: { "per-lang": { type: "string" }, size: { type: "string" }, lang: { type: "string" }, batch: { type: "string" }, ids: { type: "string" } },
 });
 const [cmd, s] = positionals;
 const stage = s ? STAGES[s] : undefined;
-if (!stage || !["prepare", "collect", "status", "check", "materialize"].includes(cmd)) {
-  console.error(`usage: llm prepare|collect|status|check|materialize <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
+if (!stage || !["prepare", "collect", "status", "check", "materialize", "needs"].includes(cmd)) {
+  console.error(`usage: llm prepare|collect|status|check|materialize|needs <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
   process.exit(2);
 }
 if (!existsSync(join(ROOT, stage.prompt))) throw new Error(`prompt missing: ${stage.prompt}`);
-if (cmd === "prepare") prepare(s, stage, values["per-lang"] ? Number(values["per-lang"]) : undefined, values.size ? Number(values.size) : 50, values.lang);
+if (cmd === "prepare")
+  prepare(s, stage, values["per-lang"] ? Number(values["per-lang"]) : undefined, values.size ? Number(values.size) : 50, values.lang,
+    values.ids ? new Set(values.ids.split(",").map((x) => x.trim()).filter(Boolean)) : undefined);
 if (cmd === "collect") collect(s, stage);
 if (cmd === "status") status(s);
 if (cmd === "materialize") {
   if (s !== "script") throw new Error("materialize is only for the script stage");
   materialize();
 }
+if (cmd === "needs") needsReport();
 if (cmd === "check") {
   if (!values.batch) throw new Error("check needs --batch batch-NNNN");
   // `--batch 7` и `--batch batch-0007` равнозначны

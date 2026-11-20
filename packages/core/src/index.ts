@@ -55,8 +55,33 @@ export type Line = z.infer<typeof Line>;
  * Сцена как данные (движок v2). Реплики живут в плоском Episode.lines (их озвучивают и субтитрируют),
  * сцена ссылается на них битом {type:"line", ref}. Остальные биты — действия без кода на эпизод.
  */
-export const Shot = z.enum(["wide", "two", "close"]);
+export const Shot = z.enum(["wide", "group", "two", "close"]);
 export type Shot = z.infer<typeof Shot>;
+
+/** Переопределение внешности: заменить цвета/причёску, добавить/убрать аксессуары (для роли или для эпизода). */
+export const LookPatch = z.object({
+  clothes: z.string().optional(),
+  accent: z.string().optional(),
+  hair: z.string().optional(),
+  hairStyle: z.string().optional(),
+  add: z.array(z.string()).default([]),
+  remove: z.array(z.string()).default([]),
+});
+export type LookPatch = z.infer<typeof LookPatch>;
+
+/** Массовка: задний ряд молчаливых фигур (пассажиры, ученики, гости…). Не говорит, реагирует битом crowd. */
+export const Crowd = z.object({
+  /** Кто это (для подбора фигур и подписи в сценарии): passengers, pupils, guests, audience, patients, soldiers, people… */
+  who: z.string().default("people"),
+  size: z.enum(["few", "many"]).default("many"),
+});
+export type Crowd = z.infer<typeof Crowd>;
+export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm"]);
+export type CrowdReact = z.infer<typeof CrowdReact>;
+
+/** Больше персонажей в одной сцене не помещается в вертикальный кадр. */
+export const MAX_CAST = 5;
+
 export const Beat = z.discriminatedUnion("type", [
   z.object({ type: z.literal("line"), ref: z.string() }),
   /** Пройти к метке места (content/locations → marks) или уйти за край; from — войти из-за края. */
@@ -68,14 +93,19 @@ export const Beat = z.discriminatedUnion("type", [
   /** Звуковой эффект из content/audio.json (kind sfx). */
   z.object({ type: z.literal("sfx"), id: z.string() }),
   z.object({ type: z.literal("pause"), sec: z.number().min(0).max(5) }),
+  /** Реакция массовки сцены (scene.crowd): кричит, ахает, смеётся, ликует, шумит, успокаивается. */
+  z.object({ type: z.literal("crowd"), react: CrowdReact }),
 ]);
 export type Beat = z.infer<typeof Beat>;
 export const Transition = z.enum(["cut", "wipe", "flyover"]);
 export const Scene = z.object({
   location: z.string(),
   place: z.string().optional(),
-  cast: z.array(z.string()).min(1).max(3),
+  cast: z.array(z.string()).min(1).max(MAX_CAST),
   roles: z.record(z.string(), z.string()).default({}),
+  /** Костюм на эпизод: castId → патч внешности поверх роли (тёмные очки слепому, фартук…). */
+  looks: z.record(z.string(), LookPatch).optional(),
+  crowd: Crowd.optional(),
   beats: z.array(Beat).min(1),
   /** Переход перед сценой (для первой игнорируется). */
   transition: Transition.default("cut"),
@@ -91,9 +121,13 @@ export const Episode = z.object({
   /** Каноническая локация сцены (например "park" для фона "ulitsa") — выбирает вариант фона. */
   place: z.string().optional(),
   /** Участники слева направо (id кукол). */
-  cast: z.array(z.string()).min(1).max(3),
+  cast: z.array(z.string()).min(1).max(MAX_CAST),
   /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
   roles: z.record(z.string(), z.string()).default({}),
+  /** Костюм на эпизод (без scenes): castId → патч внешности. */
+  looks: z.record(z.string(), LookPatch).optional(),
+  /** Массовка (без scenes). */
+  crowd: Crowd.optional(),
   lines: z.array(Line).min(1),
   /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
   music: z.string().optional(),
@@ -127,17 +161,6 @@ export const Look = z.object({
 });
 export type Look = z.infer<typeof Look>;
 
-/** Переопределение внешности для роли: заменить цвета/причёску, добавить/убрать аксессуары. */
-export const LookPatch = z.object({
-  clothes: z.string().optional(),
-  accent: z.string().optional(),
-  hair: z.string().optional(),
-  hairStyle: z.string().optional(),
-  add: z.array(z.string()).default([]),
-  remove: z.array(z.string()).default([]),
-});
-export type LookPatch = z.infer<typeof LookPatch>;
-
 export function applyLook(look: Look, patch?: LookPatch): Look {
   if (!patch) return look;
   const acc = look.accessories.filter((a) => !patch.remove.includes(a));
@@ -152,10 +175,10 @@ export function applyLook(look: Look, patch?: LookPatch): Look {
   };
 }
 
-/** Внешность куклы в конкретной роли (с учётом варианта костюма). */
-export function lookForRole(c: Character, role?: string): Look {
+/** Внешность куклы в конкретной роли (с учётом варианта костюма) и с костюмом эпизода поверх. */
+export function lookForRole(c: Character, role?: string, episode?: LookPatch): Look {
   const v = role ? c.bible?.variants.find((x) => x.roles.includes(role)) : undefined;
-  return applyLook(c.look, v?.look);
+  return applyLook(applyLook(c.look, v?.look), episode);
 }
 
 /** Персонаж — данные, а не код: внешность заменяется без правки пайплайна. */
@@ -383,9 +406,17 @@ export const ScriptDraft = z.object({
   /** id фона из content/locations */
   location: z.string(),
   /** id кукол слева направо */
-  cast: z.array(z.string()).min(1).max(3),
+  cast: z.array(z.string()).min(1).max(MAX_CAST),
   /** кукла → каноническая роль (выбирает костюм) */
   roles: z.record(z.string(), z.string()).default({}),
+  /** Костюм на эпизод: кукла → патч (add/remove аксессуаров, clothes/hair) — без scenes. */
+  looks: z.record(z.string(), LookPatch).optional(),
+  /** Массовка — без scenes. */
+  crowd: Crowd.optional(),
+  /** Заявки художнику: чего не хватает, чтобы шутка работала (сценарий всё равно написан на имеющихся куклах). */
+  needs: z
+    .array(z.object({ kind: z.enum(["accessory", "puppet", "prop", "backdrop", "crowd"]), id: z.string(), description: z.string(), why: z.string().default("") }))
+    .optional(),
   lines: z
     .array(
       z.object({
@@ -440,7 +471,10 @@ export function stagingProblems(cast: string[], lines: { character: string; ente
 /** Сцены эпизода: явные (v2) или одна сцена из полей старого формата. */
 export function scenesOf(ep: Episode): Scene[] {
   if (ep.scenes?.length) return ep.scenes;
-  return [{ location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut" }];
+  return [{
+    location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd,
+    beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut",
+  }];
 }
 
 /** Реплики в порядке показа (по битам сцен). */
@@ -459,6 +493,10 @@ export function sceneProblems(
 ): string[] {
   const pr: string[] = [];
   const scenes = ep.scenes ?? [];
+  for (const [si, sc] of scenes.entries()) {
+    if (sc.beats.some((b) => b.type === "crowd") && !sc.crowd) pr.push(`scene ${si + 1}: crowd beat but the scene has no crowd`);
+    for (const id of Object.keys(sc.looks ?? {})) if (!sc.cast.includes(id)) pr.push(`scene ${si + 1}: looks for ${id} who is not in the scene cast`);
+  }
   const byId = new Map(ep.lines.map((l) => [l.id, l]));
   const used = new Map<string, number>();
   scenes.forEach((sc, si) => {

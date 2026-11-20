@@ -6,7 +6,9 @@ Before writing, read the cast reference `data/llm/script/context.md`: the town o
 
 ## Input
 JSONL, one task per line:
-`{"id", "jokeId", "sourceLang", "locale", "mode", "adaptNote", "text", "gist", "form", "needsNarrator", "wordplay", "suggestedCast", "suggestedBackdrop", "location", "maxWords"}`
+`{"id", "jokeId", "sourceLang", "locale", "mode", "adaptNote", "text", "gist", "form", "needsNarrator", "wordplay", "characters", "suggestedCast", "suggestedBackdrop", "location", "maxWords"}`
+
+- `characters`: everyone in the joke from annotation — `archetype`, `role` (`speaker` | `silent` | `mentioned`) and `looks` (how they look: "pilot in dark sunglasses with white cane", "terrified passengers screaming"). Speakers and silent characters must be visible; their `looks` must show when the joke depends on it.
 
 - `mode`: `original` (write in the source language), `translate` (translate, staying close to the original) or `adapt` (rebuild a pun / swap a reference so it lands in `locale`; `adaptNote` says what to change).
 - `suggestedCast`: canonical role → puppet id, already resolved so no two roles share one puppet. Use it unless the joke clearly needs something else. It comes from automatic annotation and can get a character's gender, age or the number of people wrong (a saleswoman suggested as a male barman, an old woman as a man, one doctor where the joke has two): read the joke and fix the cast.
@@ -35,9 +37,12 @@ JSONL, exactly one line per input line, same order, same `id`:
 ```
 
 - `adaptation`: `original` for mode original; otherwise `direct`, `reworked` (you rebuilt the pun or reference) or `unfit` (it does not work in this language even after an honest attempt; still fill the other fields with your best attempt and explain in `notes`).
-- `cast`: 1–3 puppet ids, left to right on screen. Every speaking character must be in `cast`. Do not put the same puppet twice. If two characters need the same puppet (two priests, two blondes, two men), use another puppet of the same family (see context.md) and keep their role in `roles` — never change who a character is (a second priest stays a priest, not a rabbi) just to fit the cast. If a family has no free double, another puppet may play the role with that role in `roles` (e.g. `paren` as a young doctor: it has a doctor costume).
+- `cast`: 1–5 puppet ids, left to right on screen (with 4–5 the puppets are drawn smaller and the camera frames groups). Every speaking character must be in `cast`. Do not put the same puppet twice. If two characters need the same puppet (two priests, two blondes, two men), use another puppet of the same family (see context.md) and keep their role in `roles` — never change who a character is (a second priest stays a priest, not a rabbi) just to fit the cast. If a family has no free double, another puppet may play the role with that role in `roles` (e.g. `paren` as a young doctor: it has a doctor costume).
 - `roles`: puppet id → canonical role it plays here (picks the costume variant). Include every cast member.
 - `location`: a backdrop id from context.md, or `none`.
+- `looks` (optional): costume for this episode, puppet id → `{"add": [accessory ids], "remove": [...], "clothes": "#hex", "hair": "#hex", "hairStyle": "..."}` on top of the role costume. Accessory ids are listed in context.md. Example: two blind pilots → `{"sluzhivy": {"add": ["dark-glasses"]}, "sluzhivy-ryadovoy": {"add": ["dark-glasses"], "remove": ["army-cap"]}}` plus a `cane` prop each; a bride → white `clothes`; a man in disguise → `eye-mask`. With `scenes`, put `looks` inside each scene (repeat it in every scene where the puppet appears).
+- `crowd` (optional): a silent background crowd behind the cast — `{"who": "passengers" | "pupils" | "guests" | "audience" | "patients" | "soldiers" | "people", "size": "few" | "many"}`. Use it for groups that only react (a plane full of passengers, a class, a wedding, a theatre). It never speaks; its reactions are `crowd` beats (needs `scenes`). With `scenes`, put `crowd` inside the scene.
+- `needs` (optional): requests to the art team when the joke loses its point without something we cannot draw yet — `[{"kind": "accessory" | "puppet" | "prop" | "backdrop" | "crowd", "id": "white-cane", "description": "a long white cane of a blind man", "why": "both pilots must be visibly blind"}]`. Still write the full script with the closest things available; the episode is redone after the art is made. Prefer dressing an existing puppet (`looks`) over asking for a new puppet; ask for a puppet only when no figure fits (a baby, an animal we don't have). Don't ask for nice-to-haves.
 - `lines[].character`: a puppet id from `cast`, or `narrator` (voice-over, no puppet on screen).
 - `lines[].text`: the **clean** line that will be voiced and published. `lines[].uncensored` (optional): the same line with the source's swear words kept as written — fill it ONLY when `text` differs from it because you softened profanity; otherwise omit the field. Both versions must be identical except for the softened words.
 - `lines[].enter` / `lines[].exit` (optional, default `[]`): puppet ids that walk in right before this line / walk out right after it. A puppet whose first event is `enter` starts off screen; everyone else is on screen from the start. Only on-screen puppets may speak. The checker rejects speaking while off screen, entering twice, or leaving when absent.
@@ -57,9 +62,26 @@ JSONL, exactly one line per input line, same order, same `id`:
     ]}
   ]
   ```
-  - Beats: `line` (ref), `move` (`who`, `to`: a mark of that backdrop or `off-left`/`off-right`; add `from: "off-left"|"off-right"` to walk in from outside), `prop` (`who`, `item` from the props list, `action`: `hold` | `give` (+ `to`) | `drop` | `put`), `pause` (`sec`, max 2), `camera` (`shot`: `wide` | `two` | `close`, `on`: puppet) — the director already frames shots automatically, use `camera` only for a deliberate effect.
+  - Beats: `line` (ref), `move` (`who`, `to`: a mark of that backdrop or `off-left`/`off-right`; add `from: "off-left"|"off-right"` to walk in from outside), `prop` (`who`, `item` from the props list, `action`: `hold` | `give` (+ `to`) | `drop` | `put`), `pause` (`sec`, max 2), `crowd` (`react`: `scream` | `gasp` | `laugh` | `cheer` | `murmur` | `calm` — the scene's crowd reacts; needs `crowd` on the scene), `camera` (`shot`: `wide` | `group` | `two` | `close`, `on`: puppet) — the director already frames shots automatically (group shots for 4–5 people, wide on crowd reactions), use `camera` only for a deliberate effect.
+  - Example — two blind pilots, a full plane:
+    ```json
+    {"location": "samolet", "place": "plane", "cast": ["sluzhivy", "sluzhivy-ryadovoy", "muzhik"],
+     "roles": {"sluzhivy": "pilot", "sluzhivy-ryadovoy": "pilot", "muzhik": "customer"},
+     "looks": {"sluzhivy": {"add": ["dark-glasses"]}, "sluzhivy-ryadovoy": {"add": ["dark-glasses"], "remove": ["army-cap"]}},
+     "crowd": {"who": "passengers", "size": "many"},
+     "beats": [
+       {"type": "move", "who": "muzhik", "to": "seat-right"},
+       {"type": "move", "who": "sluzhivy", "from": "off-left", "to": "left"},
+       {"type": "prop", "who": "sluzhivy", "item": "cane", "action": "hold"},
+       {"type": "line", "ref": "l1"},
+       {"type": "line", "ref": "l2"},
+       {"type": "crowd", "react": "scream"},
+       {"type": "line", "ref": "l3"},
+       {"type": "crowd", "react": "calm"}
+     ]}
+    ```
   - Every line is referenced exactly once, in order. At most 3 scenes. The punchline stays last.
-  - `transition` before a scene: `cut` (default if omitted; good for cross-cutting a phone call between two places), `wipe` (same building, time skip) or `flyover` (camera flies over the town to another building). Each scene has its own `cast` (1–3) and `roles`.
+  - `transition` before a scene: `cut` (default if omitted; good for cross-cutting a phone call between two places), `wipe` (same building, time skip) or `flyover` (camera flies over the town to another building). Each scene has its own `cast` (1–5), `roles`, and optional `looks` and `crowd`.
   - `place` (optional) picks the backdrop variant for that scene: the part after the colon in the town map table (`ulitsa` + `"place": "park"`, `samolet` + `"place": "ship"`, `nebesa` + `"place": "hell"`). Without it the base backdrop is shown.
   - Puppets without a `move` stand in automatic spots, left to right in `cast` order. A `move` (without `from`) placed **before the first line** of a scene is a starting position: the puppet simply stands at that mark, no walking. After the first line, `move` is a visible walk — use it only for real walking (arriving, approaching someone, leaving).
   - Inside one scene, line `enter`/`exit` and `move` beats may be mixed for different puppets, but use only one of them for any single arrival or departure.
@@ -85,10 +107,12 @@ JSONL, exactly one line per input line, same order, same `id`:
    Roles for generic people (a passenger, a passer-by, a customer, a guest): use `customer` for a client or passenger and `everyman` for anyone else.
 7. Translation and adaptation: write what a native speaker would actually say, with natural rhythm and register. For `adapt`, follow `adaptNote`, except when it proposes swapping in another ethnic, national or religious group: rule 11 wins, use a neutral character with the same trait. If the pun cannot be rebuilt honestly, mark `unfit`.
 8. Localise units, currency and everyday details for the target audience (km → miles in English, roubles → dollars/euros) unless the joke depends on them. Match grammatical gender to the puppet (the cat puppet is male: «кот»). Non-speaking characters that must be visible (the cat, the cow) may be in `cast` without lines.
-9. Staging (enter/exit): the scene starts with whoever is already there; people who arrive walk in on their first line. Examples: "a man comes to the doctor" → doctor on screen, the man has `enter` on his first line; "the husband comes home early" → husband `enter` right before his first line; "he storms out" or a punchline from behind the door → `exit` after the line. Use it only when the joke has an arrival or departure; never shuffle people in and out for no reason. A silent character who must be visible stays in `cast` without lines. If the joke has more than three characters, compress: merge minor ones, let the narrator summarise repeated steps ("the second father and the third…") and keep on screen only the three that carry the punchline.
+9. Staging (enter/exit): the scene starts with whoever is already there; people who arrive walk in on their first line. Examples: "a man comes to the doctor" → doctor on screen, the man has `enter` on his first line; "the husband comes home early" → husband `enter` right before his first line; "he storms out" or a punchline from behind the door → `exit` after the line. Use it only when the joke has an arrival or departure; never shuffle people in and out for no reason. A silent character who must be visible stays in `cast` without lines.
+   **Everyone the joke is about is on screen.** Up to five puppets per scene: two pilots are two puppets, a father and three sons are four, a nurse and four fathers are five — never drop one because it is silent or because the scene got crowded. A group that only reacts (passengers, pupils, wedding guests) is a `crowd`, not cast members. Only when the joke has more than five individual characters may the narrator cover the extra ones, and their spoken lines still stay (rule 3).
 10. Emotions per line: neutral, happy, angry, surprised, sad, smug. They drive the puppet's face; vary them to match the delivery.
 11. Never introduce an ethnic, national or religious stereotype that the source joke does not have. When a regional stereotype (Swabian thrift, Ostfriese naivety) does not travel, replace it with a neutral character trait (a stingy neighbour, a naive farmer), not with another group.
-12. Keep `text` clean enough for YouTube Shorts (soft replacements per rule 0): no slurs, nothing sexual about minors, no real people's names unless the input already uses them (the pool you receive is pre-filtered). `uncensored` keeps the source wording.
+12. **Show what the joke depends on.** Read `characters[].looks`: if the point needs it (blind → `dark-glasses` and a `cane`; drunk → `red-nose` and a `bottle`; a doctor → the doctor role costume), put it on screen with `looks`, `roles` and props. If the right puppet has a wrong costume item for this joke (an army cap on a pilot), `remove` it. If nothing available shows it, use the closest thing and add a `needs` item.
+13. Keep `text` clean enough for YouTube Shorts (soft replacements per rule 0): no slurs, nothing sexual about minors, no real people's names unless the input already uses them (the pool you receive is pre-filtered). `uncensored` keeps the source wording.
 
 ## Process
 Read context.md and the whole input file, write all scripts, then write the output file. Do not skip lines, do not merge lines, do not add fields. Strings must be valid JSON.

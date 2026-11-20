@@ -70,6 +70,8 @@ pnpm metrics pull|report                               # post_metrics, account_m
 
 ## Движок v2
 - Мир: городок Анекдотск / Jokeville / Witzhausen (`content/world/town.json`, `bible.md`), карта кодом (`remotion/src/world/TownMap.tsx`).
+- Реплики персонажей дословно из источника (правило 0 в `pipeline/prompts/script.md`); `lines[].text` — чистая версия (мат смягчён: «нафиг», «блин»), `lines[].uncensored` — слова источника, `Episode.explicit` включает их в субтитрах.
+- На сцене до 5 кукол (`MAX_CAST`, при 4–5 они мельче, камера берёт групповой план), `looks` — костюм на эпизод поверх роли, `crowd` — молчаливая массовка с реакциями (бит `crowd`). Чего нельзя нарисовать — сценарист пишет в `needs`, сводка `pnpm llm needs script`.
 - Эпизод = `lines` + необязательные `scenes` с битами (`line`, `move`, `prop`, `camera`, `sfx`, `pause`) и переходами (`cut`, `wipe`, `flyover`); старые эпизоды — одна сцена (`scenesOf`).
 - Режиссёр: метки мест (`content/locations/*.json → marks`), авто-камера (`director/camera.ts`), раздвижка кукол, реквизит (`content/props.json`).
 - Сборники: `pnpm compile` → `pnpm render --compilation` → посты `kind: compilation`; заставка над городом и пролёты между анекдотами.

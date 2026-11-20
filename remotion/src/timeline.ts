@@ -1,6 +1,6 @@
 import {
   AudioLibrary, estimateWords, laughs, lineDuration, orderedLines, pick, scenesOf,
-  type AudioClip, type Episode, type Scene, type Shot, type WordTiming,
+  type AudioClip, type CrowdReact, type Episode, type Scene, type Shot, type WordTiming,
 } from "@jf/core";
 import audioData from "../../content/audio.json";
 
@@ -46,7 +46,14 @@ export type SceneTL = {
   moves: Move[];
   props: PropEvent[];
   shots: CameraShot[];
+  /** Реакции массовки (кадры). */
+  crowd: CrowdEvent[];
 };
+
+/** Реакция массовки: с кадра from до to. */
+export type CrowdEvent = { react: CrowdReact; from: number; to: number };
+/** Сколько длится реакция массовки (секунды, сдвигает таймлайн). */
+const CROWD_SEC: Record<CrowdReact, number> = { scream: 1.2, gasp: 0.7, laugh: 1.2, cheer: 1.2, murmur: 1.0, calm: 0.6 };
 
 /** Звук на таймлайне: смех, эффект или музыка (кадры). */
 export type Cue = { clip: AudioClip; from: number; frames: number };
@@ -98,6 +105,7 @@ export function buildTimeline(ep: Episode) {
     const moves: Move[] = [];
     const props: PropEvent[] = [];
     const shots: CameraShot[] = [];
+    const crowd: CrowdEvent[] = [];
 
     // кто начинает за кадром: первое событие — вход
     const first = new Map<string, "in" | "out">();
@@ -168,11 +176,19 @@ export function buildTimeline(ep: Episode) {
         if (clip) sfxCues.push({ clip, from: f(t), frames: f(clip.durationSec) });
       } else if (b.type === "pause") {
         t += b.sec;
+      } else if (b.type === "crowd") {
+        started = true;
+        const sec = CROWD_SEC[b.react];
+        crowd.push({ react: b.react, from: f(t), to: f(t + sec) });
+        // звук реакции, если есть в библиотеке (sfx crowd-<react>)
+        const clip = clips.find((c) => c.id === `crowd-${b.react}`);
+        if (clip) sfxCues.push({ clip, from: f(t), frames: f(clip.durationSec) });
+        t += sec;
       }
     }
     const next = scenesOf(ep)[si + 1];
     if (next) t += TRANSITION_SEC[next.transition] / 2;
-    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots };
+    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd };
   });
 
   const outro: OutroLaugh[] = ep.outroLaughs.map((x, k) => ({

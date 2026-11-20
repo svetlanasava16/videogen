@@ -18,18 +18,22 @@ Goal: any joke or sketch becomes **data** (an episode JSON); code is written onl
 
 ## Episode format (v2)
 - `lines` — flat list of spoken lines (ids `l1…`): voice-over, subtitles and captions use it.
-- `scenes` (optional) — `[{ location, place?, cast, roles, transition, beats }]`; without it the episode is one scene (`location`/`cast`/all lines). Beats:
+- `scenes` (optional) — `[{ location, place?, cast, roles, looks?, crowd?, transition, beats }]`; without it the episode is one scene (`location`/`cast`/`roles`/`looks`/`crowd`/all lines).
+- `cast` — up to 5 puppets (`MAX_CAST`); with 4–5 the puppets are drawn smaller (`CAST_SCALE` in `Joke.tsx`).
+- `looks` — costume for this episode: puppet → `LookPatch` (`add`/`remove` accessories, `clothes`, `hair`, `hairStyle`) applied on top of the role costume (`lookForRole(c, role, patch)`). Blind pilots = `add: ["dark-glasses"]` + `cane` prop.
+- `crowd` — `{who, size: few|many}`: a silent back row of dimmed, smaller figures built from existing puppets (`remotion/src/world/Crowd.tsx`; pupils/children → kids). Reacts on `{type:"crowd", react: scream|gasp|laugh|cheer|murmur|calm}` beats (animation; sound if `content/audio.json` has an sfx `crowd-<react>`).
+Beats:
   - `{type:"line", ref:"l3"}` — every line exactly once, in order;
   - `{type:"move", who, to: <mark>|"off-left"|"off-right", from?: "off-left"|"off-right"}` — before the first line of a scene = starting position (no walking); later = a visible walk; `from` = walk in from outside;
   - `{type:"prop", who, item, action: "hold"|"give"|"drop"|"put", to?}` — items from `content/props.json`, drawn in the right hand (`remotion/src/props/Props.tsx`);
-  - `{type:"camera", shot: "wide"|"two"|"close", on?}` — overrides the auto director until the next camera beat;
+  - `{type:"camera", shot: "wide"|"group"|"two"|"close", on?}` — overrides the auto director until the next camera beat;
   - `{type:"sfx", id}` (clip kind `sfx` in `content/audio.json`), `{type:"pause", sec}`.
   - `transition` before a scene: `cut`, `wipe` (time skip, same building), `flyover` (camera flies over the town map to the next building).
 - Validation: `sceneProblems` in `packages/core/src/index.ts` (speakers on stage, marks and props exist, lines once and in order, ≤ 3 scenes). The `script` stage runs it in `pnpm llm check script`.
 - Example: `content/episodes/test-scenes.ru.json` (two scenes, walk-in at the door, flowers handed over, wipe to the bar).
 
 ## Auto director (`director/camera.ts`)
-Wide on scene start and narrator lines; two-shot in dialogue (speaker + nearest listener); close-up with a slow push-in on the punchline; wide on the outro laughs. Puppets standing too close are pushed apart (`stageGeometry` in `Joke.tsx`). Tune constants there, not per episode.
+Wide on scene start, narrator lines and crowd reactions; two-shot in dialogue (speaker + the previous speaker, else the nearest listener); group shot when 3+ others are on stage (speaker, addressee, nearest; zooms out if they stand far apart); close-up with a slow push-in on the punchline; wide on the outro laughs. Puppets standing too close are pushed apart (`stageGeometry` in `Joke.tsx`). Tune constants there, not per episode.
 
 ## Town and compilations
 - Map: `remotion/src/world/TownMap.tsx` (icons by building `type`), preview `npx remotion still src/index.ts Town out.png`. A building's `places` decide which scenes fly to it (`buildingFor(location, place)` in `world/town.ts`).
