@@ -10,7 +10,14 @@
     "kind": "man",
     "skin": "#f0d0b0",
     "clothes": "#f2f2f2",
-    "accent": "#7fd1c7"
+    "accent": "#7fd1c7",
+    "hair": "#9a9a9a",
+    "hairStyle": "fringe",
+    "accessories": [
+      "goatee",
+      "glasses",
+      "stethoscope"
+    ]
   },
   "voice": {
     "ru": {
@@ -51,19 +58,41 @@
         "roles": [
           "therapist"
         ],
-        "change": "notebook and armchair"
+        "change": "notebook and armchair",
+        "look": {
+          "clothes": "#5b4a6a",
+          "add": [],
+          "remove": [
+            "stethoscope"
+          ]
+        }
       },
       {
         "roles": [
           "scientist"
         ],
-        "change": "lab goggles, flask"
+        "change": "lab goggles, flask",
+        "look": {
+          "add": [
+            "round-glasses"
+          ],
+          "remove": [
+            "stethoscope"
+          ]
+        }
       },
       {
         "roles": [
           "professor"
         ],
-        "change": "tweed jacket instead of white coat, chalk"
+        "change": "tweed jacket instead of white coat, chalk",
+        "look": {
+          "clothes": "#8a6a4a",
+          "add": [],
+          "remove": [
+            "stethoscope"
+          ]
+        }
       }
     ],
     "voiceBrief": {

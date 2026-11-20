@@ -7,13 +7,13 @@ const roles = (n: number) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? "роль"
 /** Лист кукол-заглушек: проверка набора до арта из ComfyUI. */
 export const Cast = () => {
   const list = Object.values(characters).filter((c) => c.bible);
-  const cols = 4;
+  const cols = 7;
   return (
     <AbsoluteFill style={{ background: "#f2e6d0", padding: 40, display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 24 }}>
       {list.map((c) => (
         <div key={c.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ height: 300 }}>
-            <Puppet character={c} speaking={false} emotion="neutral" flip={false} seed={0} />
+            <Puppet look={c.look} speaking={false} emotion="neutral" flip={false} seed={0} />
           </div>
           <div style={{ fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 30, color: "#2b1d14", textAlign: "center" }}>
             {c.name.ru}

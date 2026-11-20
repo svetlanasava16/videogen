@@ -9,7 +9,12 @@
   "look": {
     "kind": "man",
     "skin": "#f3d2b0",
-    "clothes": "#5b8c5a"
+    "clothes": "#5b8c5a",
+    "hair": "#2b1d14",
+    "hairStyle": "curly",
+    "accessories": [
+      "round-glasses"
+    ]
   },
   "voice": {
     "ru": {
@@ -67,14 +72,29 @@
         "roles": [
           "lover"
         ],
-        "change": "only underwear and socks, hiding pose"
+        "change": "only underwear and socks, hiding pose",
+        "look": {
+          "clothes": "#f2e6d0",
+          "add": [],
+          "remove": [
+            "round-glasses"
+          ]
+        }
       },
       {
         "roles": [
           "employee",
           "engineer"
         ],
-        "change": "shirt and tie, lanyard"
+        "change": "shirt and tie, lanyard",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [
+            "tie",
+            "badge"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
@@ -86,7 +106,14 @@
         "roles": [
           "athlete"
         ],
-        "change": "tracksuit"
+        "change": "tracksuit",
+        "look": {
+          "clothes": "#c8553d",
+          "add": [],
+          "remove": [
+            "round-glasses"
+          ]
+        }
       },
       {
         "roles": [
@@ -94,19 +121,41 @@
           "musician",
           "hipster"
         ],
-        "change": "beret or beanie, scarf, guitar or brush"
+        "change": "beret or beanie, scarf, guitar or brush",
+        "look": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
           "postman"
         ],
-        "change": "cap and mail bag"
+        "change": "cap and mail bag",
+        "look": {
+          "clothes": "#4a6fa5",
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
           "secret-agent"
         ],
-        "change": "trench coat, hat, dark glasses"
+        "change": "trench coat, hat, dark glasses",
+        "look": {
+          "clothes": "#8a7a5a",
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": [
+            "round-glasses"
+          ]
+        }
       }
     ],
     "voiceBrief": {

@@ -24,6 +24,8 @@ pnpm canon check characters|locations                  # проверка скл
 pnpm catalog                                           # docs/catalog-report.md + data/catalog/stats.json
 pnpm registry                                          # список кукол/фонов для Remotion (после правок content/)
 pnpm art shots                                         # очередь ComfyUI: shots.characters.json, shots.locations.json
+pnpm llm prepare script --per-lang N --size 20         # сценарии из «безопасного» пула (+ переводы/адаптации)
+pnpm llm collect script && pnpm llm materialize script # → content/episodes/<jokeId>.<locale>.json
 pnpm studio                                            # Remotion Studio
 ```
 
@@ -51,7 +53,9 @@ pnpm studio                                            # Remotion Studio
 ## Куклы и роли
 - Роль (канон) — смысловой архетип после склейки: 715 сырых id → 177 ролей, 286 локаций → 70 (`data/llm/canon/`).
 - Кукла — то, что рисуем: `content/characters/*.json`, поле `bible` (внешность, костюм, голос на 3 языках, промпт, роли, варианты костюма).
-- 16 кукол играют 124 роли, 14 фонов закрывают 51 локацию; это ставит целиком ~86% анекдотов (77% «сильного» пула).
+- 28 кукол (22 семейства) играют 136 ролей, 14 фонов закрывают 51 локацию: целиком ставится ~91% анекдотов (87% «сильного» пула).
+- Двойники (`family`): тот же риг, другие волосы и одежда — для сцен с двумя мужиками, двумя девушками, офицером и рядовым; заодно блондинка/рыжая.
+- Стереотипные детали — `look.accessories` (крест, борода, кепка, корона…), костюм под роль — `bible.variants[].look`; эпизод передаёт роль куклы в `roles`.
 - Вовочка / Little Johnny / Fritzchen — одна кукла с локальными именами.
 - Общий стиль: `content/style.json` (бумажная перекладка, толстый контур).
 
@@ -64,4 +68,8 @@ pnpm studio                                            # Remotion Studio
 ## Дальше
 1. Арт: модель в ComfyUI + `workflow_api.json` → `check` → `nodes` → `params` в shots.*.json → генерация листов персонажей и фонов.
 2. Нарезка утверждённого арта на слои куклы (голова, рот 3–4 фазы, глаза, руки) и замена SVG-заглушки.
-3. Стадия script → `content/episodes/`, начиная с «безопасного» пула; ElevenLabs (голоса по voiceBrief); Postiz.
+3. Сценарии: пилот 27 штук готов (`data/llm/script/`); дальше — весь «безопасный» пул; выходы/уходы персонажей в Remotion.
+4. ElevenLabs (голоса по voiceBrief) → тайминги слов в Episode; Postiz.
+
+## Скиллы
+`.claude/skills/`: llm-batch-run, jokes-annotate, jokes-classify, jokes-cast, jokes-scripts, jokes-sources.

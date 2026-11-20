@@ -10,7 +10,13 @@
     "kind": "man",
     "skin": "#e6b48c",
     "clothes": "#2f2f3a",
-    "accent": "#f2f2f2"
+    "accent": "#f2f2f2",
+    "hair": "#5b4636",
+    "hairStyle": "fringe",
+    "accessories": [
+      "mustache",
+      "tie"
+    ]
   },
   "voice": {
     "ru": {
@@ -59,31 +65,81 @@
           "new-russian",
           "gangster"
         ],
-        "change": "crimson jacket, thick gold chain, mobile phone, buzz cut instead of fringe"
+        "change": "crimson jacket, thick gold chain, mobile phone, buzz cut instead of fringe",
+        "look": {
+          "clothes": "#b3261e",
+          "hairStyle": "short",
+          "add": [
+            "gold-chain"
+          ],
+          "remove": [
+            "tie"
+          ]
+        }
       },
       {
         "roles": [
           "judge"
         ],
-        "change": "black robe, gavel"
+        "change": "black robe, gavel",
+        "look": {
+          "add": [
+            "robe-black"
+          ],
+          "remove": [
+            "tie"
+          ]
+        }
       },
       {
         "roles": [
           "king"
         ],
-        "change": "crown and red robe"
+        "change": "crown and red robe",
+        "look": {
+          "add": [
+            "crown",
+            "robe-red"
+          ],
+          "remove": [
+            "tie"
+          ]
+        }
       },
       {
         "roles": [
           "tv-host"
         ],
-        "change": "bow tie, microphone"
+        "change": "bow tie, microphone",
+        "look": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": [
+            "tie"
+          ]
+        }
       },
       {
         "roles": [
           "politician"
         ],
         "change": "podium, flag pin"
+      },
+      {
+        "roles": [
+          "aristocrat"
+        ],
+        "change": "see look patch",
+        "look": {
+          "add": [
+            "monocle",
+            "bow-tie"
+          ],
+          "remove": [
+            "tie"
+          ]
+        }
       }
     ],
     "voiceBrief": {

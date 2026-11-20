@@ -1,5 +1,5 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
-import { NARRATOR, type Episode } from "@jf/core";
+import { NARRATOR, lookForRole, type Episode } from "@jf/core";
 import { characters, locations } from "./registry";
 import { buildTimeline } from "./timeline";
 import { Background } from "./components/Background";
@@ -35,7 +35,7 @@ export const Joke = (ep: Episode) => {
             }}
           >
             <Puppet
-              character={ch}
+              look={lookForRole(ch, ep.roles[id])}
               speaking={speaking}
               emotion={current?.character === id ? current.emotion : "neutral"}
               flip={i % 2 === 1}

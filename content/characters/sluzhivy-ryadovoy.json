@@ -1,0 +1,92 @@
+{
+  "id": "sluzhivy-ryadovoy",
+  "name": {
+    "ru": "Рядовой",
+    "en": "Private",
+    "de": "Gefreiter"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#f2d2b0",
+    "clothes": "#5b6b3a",
+    "accessories": [
+      "army-cap",
+      "freckles"
+    ],
+    "hair": "#c9a24a",
+    "hairStyle": "short"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "молодой мужской голос 18-22, простоватый"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "young male voice 18-22, naive"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "junge Männerstimme 18-22, naiv"
+    }
+  },
+  "bible": {
+    "summary": "Young double of the Officer: private soldier, sailor, firefighter — so officer and soldier can share a scene.",
+    "age": "20",
+    "build": "skinny",
+    "silhouette": "same rig as Officer, narrower",
+    "outfit": "plain fatigues",
+    "features": "blond buzz cut, freckles, big ears, wide eyes",
+    "palette": [
+      "#5b6b3a",
+      "#f2d2b0",
+      "#c9a24a"
+    ],
+    "personality": "naive, eager, literal-minded",
+    "roles": [
+      "soldier",
+      "sailor",
+      "firefighter"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "sailor"
+        ],
+        "change": "sailor shirt",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [
+            "striped-shirt"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      {
+        "roles": [
+          "firefighter"
+        ],
+        "change": "helmet",
+        "look": {
+          "clothes": "#b3261e",
+          "add": [
+            "helmet"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      }
+    ],
+    "voiceBrief": {
+      "ru": "молодой мужской голос 18-22, простоватый",
+      "en": "young male voice 18-22, naive",
+      "de": "junge Männerstimme 18-22, naiv"
+    },
+    "prompt": "skinny young soldier with blond buzz cut, freckles and big ears, plain fatigues, army cap, cartoon style"
+  },
+  "family": "sluzhivy"
+}

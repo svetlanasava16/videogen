@@ -10,7 +10,14 @@
     "kind": "woman",
     "skin": "#f2cfa8",
     "clothes": "#c8553d",
-    "accent": "#f2e6d0"
+    "accent": "#f2e6d0",
+    "hair": "#7a3b1f",
+    "hairStyle": "bun",
+    "accessories": [
+      "curlers",
+      "apron",
+      "lipstick"
+    ]
   },
   "voice": {
     "ru": {
@@ -50,13 +57,26 @@
         "roles": [
           "maid"
         ],
-        "change": "maid uniform"
+        "change": "maid uniform",
+        "look": {
+          "clothes": "#1d1d1d",
+          "add": [],
+          "remove": [
+            "curlers"
+          ]
+        }
       },
       {
         "roles": [
           "mother"
         ],
-        "change": "no curlers, cardigan"
+        "change": "no curlers, cardigan",
+        "look": {
+          "add": [],
+          "remove": [
+            "curlers"
+          ]
+        }
       }
     ],
     "voiceBrief": {

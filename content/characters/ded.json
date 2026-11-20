@@ -10,7 +10,12 @@
     "kind": "old-man",
     "skin": "#f0d0b0",
     "clothes": "#8a6a4a",
-    "accent": "#f2f2f2"
+    "accent": "#f2f2f2",
+    "hair": "#e6e6e6",
+    "hairStyle": "bald",
+    "accessories": [
+      "white-beard"
+    ]
   },
   "voice": {
     "ru": {
@@ -56,37 +61,80 @@
         "roles": [
           "god"
         ],
-        "change": "white robe, cloud under the feet, soft glow"
+        "change": "white robe, cloud under the feet, soft glow",
+        "look": {
+          "add": [
+            "robe-white",
+            "halo"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
           "saint-peter"
         ],
-        "change": "white robe, big keys, book"
+        "change": "white robe, big keys, book",
+        "look": {
+          "add": [
+            "robe-white",
+            "keys"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
           "ded-moroz"
         ],
-        "change": "red fur coat, staff, (no Santa branding)"
+        "change": "red fur coat, staff, (no Santa branding)",
+        "look": {
+          "clothes": "#b3261e",
+          "add": [
+            "robe-red"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
           "wizard"
         ],
-        "change": "star robe, pointed hat"
+        "change": "star robe, pointed hat",
+        "look": {
+          "clothes": "#2b3a55",
+          "add": [],
+          "remove": []
+        }
       },
       {
         "roles": [
           "rabinovich"
         ],
-        "change": "kippah, round glasses, vest, sly smile"
+        "change": "kippah, round glasses, vest, sly smile",
+        "look": {
+          "hair": "#5b5b5b",
+          "add": [
+            "kippah",
+            "round-glasses"
+          ],
+          "remove": [
+            "white-beard"
+          ]
+        }
       },
       {
         "roles": [
           "ostfriese"
         ],
-        "change": "fisherman's cap, rubber boots"
+        "change": "fisherman's cap, rubber boots",
+        "look": {
+          "clothes": "#2b3a55",
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
       }
     ],
     "voiceBrief": {

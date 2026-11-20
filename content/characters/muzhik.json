@@ -9,7 +9,13 @@
   "look": {
     "kind": "man",
     "skin": "#efc8a0",
-    "clothes": "#4a6fa5"
+    "clothes": "#4a6fa5",
+    "hair": "#5b3a22",
+    "hairStyle": "short",
+    "accessories": [
+      "stubble",
+      "flat-cap"
+    ]
   },
   "voice": {
     "ru": {
@@ -46,69 +52,65 @@
       "customer",
       "patient",
       "drunk",
-      "neighbor",
-      "relative",
-      "friend",
-      "tourist",
-      "hunter",
-      "fisherman",
-      "driver",
       "homeless",
       "prisoner",
-      "farmer",
-      "disabled-person",
-      "biker"
+      "disabled-person"
     ],
     "variants": [
       {
         "roles": [
           "drunk"
         ],
-        "change": "red nose, half-open eyes, bottle in hand"
+        "change": "red nose, half-open eyes, bottle in hand",
+        "look": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
       },
       {
         "roles": [
           "patient"
         ],
-        "change": "hospital gown, bandage"
-      },
-      {
-        "roles": [
-          "tourist"
-        ],
-        "change": "shorts, sunhat, camera"
-      },
-      {
-        "roles": [
-          "hunter",
-          "fisherman"
-        ],
-        "change": "hunting jacket, cap with earflaps, rifle or fishing rod"
-      },
-      {
-        "roles": [
-          "farmer"
-        ],
-        "change": "straw hat, overalls, pitchfork"
+        "change": "hospital gown, bandage",
+        "look": {
+          "clothes": "#cfe3e0",
+          "add": [],
+          "remove": [
+            "flat-cap"
+          ]
+        }
       },
       {
         "roles": [
           "prisoner"
         ],
-        "change": "striped prison uniform"
+        "change": "striped prison uniform",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [
+            "striped-shirt"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
       },
       {
         "roles": [
           "homeless"
         ],
-        "change": "torn coat, knit cap"
-      },
-      {
-        "roles": [
-          "driver",
-          "biker"
-        ],
-        "change": "driving cap, leather jacket"
+        "change": "torn coat, knit cap",
+        "look": {
+          "clothes": "#6b5a4a",
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
       }
     ],
     "voiceBrief": {

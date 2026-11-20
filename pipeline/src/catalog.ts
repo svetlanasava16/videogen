@@ -122,23 +122,28 @@ if (puppets.length) {
   for (const p of puppets) for (const r of p.bible!.roles) playedBy.set(r, p.id);
   const coveredBy = new Map<string, string>();
   for (const l of backdrops) for (const r of l.bible!.roles) coveredBy.set(r, l.id);
-  /** Каждая роль сыграна куклой, и в сцене нет двух разных ролей одной куклы. */
-  const castOk = (a: JokeAnalysis) => {
-    const rs = onScreen(a).filter((r) => !noPuppet(r));
-    if (!rs.every((r) => playedBy.has(r))) return false;
-    const ps = rs.map((r) => playedBy.get(r)!);
-    return new Set(ps).size === ps.length;
+  /** Семейство куклы (двойники делят риг): в сцене не больше ролей семейства, чем кукол в нём. */
+  const familyOf = new Map(puppets.map((p) => [p.id, p.family ?? p.id]));
+  const familySize = new Map<string, number>();
+  for (const f of familyOf.values()) familySize.set(f, (familySize.get(f) ?? 0) + 1);
+  const overflow = (a: JokeAnalysis) => {
+    const per = new Map<string, number>();
+    for (const r of onScreen(a)) {
+      const p = playedBy.get(r);
+      if (!p) continue;
+      const f = familyOf.get(p)!;
+      per.set(f, (per.get(f) ?? 0) + 1);
+    }
+    return [...per.entries()].some(([f, n]) => n > familySize.get(f)!);
   };
-  const clash = (a: JokeAnalysis) => {
-    const ps = onScreen(a).filter((r) => playedBy.has(r)).map((r) => playedBy.get(r)!);
-    return new Set(ps).size !== ps.length;
-  };
+  const castOk = (a: JokeAnalysis) => onScreen(a).filter((r) => !noPuppet(r)).every((r) => playedBy.has(r)) && !overflow(a);
+  const clash = overflow;
   const locOk = (a: JokeAnalysis) => locOf(a) === "none" || coveredBy.has(locOf(a));
   const pct2 = (f: (a: JokeAnalysis) => boolean, list: Item[]) => pct(list.filter((i) => f(i.a)).length, list.length);
-  out.push(``, `## Покрытие куклами и фонами`, ``, `${puppets.length} кукол играют ${playedBy.size} ролей; ${backdrops.length} фонов закрывают ${coveredBy.size} локаций.`, ``,
+  out.push(``, `## Покрытие куклами и фонами`, ``, `${puppets.length} кукол (${familySize.size} семейств) играют ${playedBy.size} ролей; ${backdrops.length} фонов закрывают ${coveredBy.size} локаций.`, ``,
     `| | ${langs.join(" | ")} | все |`, `|---|${langs.map(() => "---").join("|")}|---|`,
     `| все персонажи есть | ${langs.map((l) => pct2(castOk, byLang(l))).join(" | ")} | ${pct2(castOk, items)} |`,
-    `| конфликт: две роли одной куклы в сцене | ${langs.map((l) => pct2(clash, byLang(l))).join(" | ")} | ${pct2(clash, items)} |`,
+    `| конфликт: ролей семейства больше, чем кукол | ${langs.map((l) => pct2(clash, byLang(l))).join(" | ")} | ${pct2(clash, items)} |`,
     `| локация есть | ${langs.map((l) => pct2(locOk, byLang(l))).join(" | ")} | ${pct2(locOk, items)} |`,
     `| ставится целиком | ${langs.map((l) => pct2((a) => castOk(a) && locOk(a), byLang(l))).join(" | ")} | ${pct2((a) => castOk(a) && locOk(a), items)} |`);
   const poolAll = items.filter((i) => i.a.videoFit >= 4 && i.a.funny >= 4);
@@ -150,7 +155,7 @@ if (puppets.length) {
   for (const { a } of items) {
     const rs = onScreen(a).filter((r) => playedBy.has(r));
     for (let i = 0; i < rs.length; i++) for (let j = i + 1; j < rs.length; j++)
-      if (playedBy.get(rs[i]) === playedBy.get(rs[j])) { const k = [rs[i], rs[j]].sort().join("+") + ` (${playedBy.get(rs[i])})`; pairs.set(k, (pairs.get(k) ?? 0) + 1); }
+      if (familyOf.get(playedBy.get(rs[i])!) === familyOf.get(playedBy.get(rs[j])!) && familySize.get(familyOf.get(playedBy.get(rs[i])!)!)! < 2) { const k = [rs[i], rs[j]].sort().join("+") + ` (${playedBy.get(rs[i])})`; pairs.set(k, (pairs.get(k) ?? 0) + 1); }
   }
   out.push(``, `Частые конфликты: ${[...pairs.entries()].sort((x, y) => y[1] - x[1]).slice(0, 12).map(([k, n]) => `${k} ${n}`).join(", ")}.`);
   out.push(``, `Чаще всего не хватает одной роли: ${[...missing.entries()].sort((x, y) => y[1] - x[1]).slice(0, 15).map(([r, n]) => `${r} (${n})`).join(", ")}.`);

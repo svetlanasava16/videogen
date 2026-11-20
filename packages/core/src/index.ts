@@ -38,8 +38,10 @@ export const Episode = z.object({
   locale: Locale,
   title: z.string(),
   location: z.string(), // id локации
-  /** Участники слева направо. */
+  /** Участники слева направо (id кукол). */
   cast: z.array(z.string()).min(1).max(3),
+  /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
+  roles: z.record(z.string(), z.string()).default({}),
   lines: z.array(Line).min(1),
   format: z
     .object({ width: z.number(), height: z.number(), fps: z.number() })
@@ -47,19 +49,60 @@ export const Episode = z.object({
 });
 export type Episode = z.infer<typeof Episode>;
 
+/** Внешность куклы. Аксессуары — стереотипные детали, рисуются поверх базы. */
+export const Look = z.object({
+  /** Тип фигуры: man, woman, boy, girl, old-man, old-woman, dog, cat, bird, cow, horse, bear, hare, devil… */
+  kind: z.string(),
+  skin: z.string(),
+  clothes: z.string(),
+  accent: z.string().optional(),
+  hair: z.string().optional(),
+  /** short | bald | fringe | long | bun | pigtails | perm | curly | none */
+  hairStyle: z.string().optional(),
+  accessories: z.array(z.string()).default([]),
+});
+export type Look = z.infer<typeof Look>;
+
+/** Переопределение внешности для роли: заменить цвета/причёску, добавить/убрать аксессуары. */
+export const LookPatch = z.object({
+  clothes: z.string().optional(),
+  accent: z.string().optional(),
+  hair: z.string().optional(),
+  hairStyle: z.string().optional(),
+  add: z.array(z.string()).default([]),
+  remove: z.array(z.string()).default([]),
+});
+export type LookPatch = z.infer<typeof LookPatch>;
+
+export function applyLook(look: Look, patch?: LookPatch): Look {
+  if (!patch) return look;
+  const acc = look.accessories.filter((a) => !patch.remove.includes(a));
+  for (const a of patch.add) if (!acc.includes(a)) acc.push(a);
+  return {
+    ...look,
+    clothes: patch.clothes ?? look.clothes,
+    accent: patch.accent ?? look.accent,
+    hair: patch.hair ?? look.hair,
+    hairStyle: patch.hairStyle ?? look.hairStyle,
+    accessories: acc,
+  };
+}
+
+/** Внешность куклы в конкретной роли (с учётом варианта костюма). */
+export function lookForRole(c: Character, role?: string): Look {
+  const v = role ? c.bible?.variants.find((x) => x.roles.includes(role)) : undefined;
+  return applyLook(c.look, v?.look);
+}
+
 /** Персонаж — данные, а не код: внешность заменяется без правки пайплайна. */
 export const Character = z.object({
   id: z.string(),
   name: z.record(Locale, z.string()),
   /** puppet2d сейчас; model3d позже для топовых персонажей. */
   renderer: z.enum(["puppet2d", "model3d"]).default("puppet2d"),
-  look: z.object({
-    /** Тип фигуры для 2D-заглушки: man, woman, boy, girl, old-man, old-woman, bear, hare, dog, cat, devil, angel… */
-    kind: z.string(),
-    skin: z.string(),
-    clothes: z.string(),
-    accent: z.string().optional(),
-  }),
+  look: Look,
+  /** Семейство: двойник ссылается на базовую куклу (тот же риг, другие волосы/одежда). */
+  family: z.string().optional(),
   voice: z.record(Locale, z.object({ elevenlabsVoiceId: z.string(), notes: z.string().optional() })),
   /** Описание для арта и кастинга (стадия cast). */
   bible: z
@@ -75,7 +118,7 @@ export const Character = z.object({
       /** Канонические роли, которые играет кукла (data/llm/canon/characters.out.json). */
       roles: z.array(z.string()),
       /** Смена реквизита/костюма под роль, без перерисовки куклы. */
-      variants: z.array(z.object({ roles: z.array(z.string()), change: z.string() })).default([]),
+      variants: z.array(z.object({ roles: z.array(z.string()), change: z.string(), look: LookPatch.optional() })).default([]),
       voiceBrief: z.record(Locale, z.string()),
       /** Промпт для ComfyUI (листа персонажа), дополняется общим стилем content/style.json. */
       prompt: z.string(),
@@ -187,18 +230,23 @@ export type JokeAnalysis = z.infer<typeof JokeAnalysis>;
 
 /** Результат LLM-стадии script: сценарий одного анекдота на одном языке. */
 export const ScriptDraft = z.object({
-  id: z.string(), // jokeId
+  id: z.string(), // `${jokeId}.${locale}`
+  jokeId: z.string(),
   locale: Locale,
   adaptation: z.enum(["original", "direct", "reworked", "unfit"]),
   notes: z.string().default(""),
   title: z.string(),
+  /** id фона из content/locations */
   location: z.string(),
+  /** id кукол слева направо */
   cast: z.array(z.string()).min(1).max(3),
+  /** кукла → каноническая роль (выбирает костюм) */
+  roles: z.record(z.string(), z.string()).default({}),
   lines: z
     .array(
       z.object({
-        character: z.string(), // id из cast или "narrator"
-        text: z.string(),
+        character: z.string(), // id куклы из cast или "narrator"
+        text: z.string().min(1),
         emotion: Emotion,
         pauseAfterSec: z.number(),
       }),

@@ -10,7 +10,14 @@
     "kind": "man",
     "skin": "#e9bf96",
     "clothes": "#4b5a3a",
-    "accent": "#c8a227"
+    "accent": "#c8a227",
+    "hair": "#3a2a20",
+    "hairStyle": "short",
+    "accessories": [
+      "mustache",
+      "police-cap",
+      "badge"
+    ]
   },
   "voice": {
     "ru": {
@@ -45,11 +52,8 @@
       "traffic-cop",
       "customs-officer",
       "guard",
-      "soldier",
       "officer",
-      "firefighter",
       "pilot",
-      "sailor",
       "rzhevsky",
       "stirlitz",
       "petka",
@@ -70,53 +74,109 @@
         "roles": [
           "traffic-cop"
         ],
-        "change": "reflective vest, striped baton"
+        "change": "reflective vest, striped baton",
+        "look": {
+          "clothes": "#c8d84a",
+          "add": [],
+          "remove": []
+        }
       },
       {
         "roles": [
-          "soldier",
           "officer"
         ],
-        "change": "army fatigues or officer uniform with shoulder boards"
+        "change": "army fatigues or officer uniform with shoulder boards",
+        "look": {
+          "clothes": "#4b5a3a",
+          "add": [
+            "army-cap"
+          ],
+          "remove": [
+            "police-cap",
+            "badge"
+          ]
+        }
       },
       {
         "roles": [
-          "pilot",
-          "sailor"
+          "pilot"
         ],
-        "change": "pilot or sailor uniform"
-      },
-      {
-        "roles": [
-          "firefighter"
-        ],
-        "change": "helmet and fire jacket"
+        "change": "pilot or sailor uniform",
+        "look": {
+          "clothes": "#2b3a55",
+          "add": [],
+          "remove": [
+            "badge"
+          ]
+        }
       },
       {
         "roles": [
           "rzhevsky"
         ],
-        "change": "19th-century hussar uniform with braid, curled mustache"
+        "change": "19th-century hussar uniform with braid, curled mustache",
+        "look": {
+          "clothes": "#7a2e2e",
+          "add": [
+            "shako",
+            "mustache-curled"
+          ],
+          "remove": [
+            "police-cap",
+            "mustache",
+            "badge"
+          ]
+        }
       },
       {
         "roles": [
           "stirlitz"
         ],
-        "change": "plain trench coat and hat (no insignia)"
+        "change": "plain trench coat and hat (no insignia)",
+        "look": {
+          "clothes": "#5b5040",
+          "add": [
+            "bowler"
+          ],
+          "remove": [
+            "police-cap",
+            "badge"
+          ]
+        }
       },
       {
         "roles": [
           "petka",
           "vasily-ivanovich"
         ],
-        "change": "civil-war greatcoat, papakha hat"
+        "change": "civil-war greatcoat, papakha hat",
+        "look": {
+          "clothes": "#5b5040",
+          "add": [
+            "papakha"
+          ],
+          "remove": [
+            "police-cap",
+            "badge"
+          ]
+        }
       },
       {
         "roles": [
           "knight",
           "pirate"
         ],
-        "change": "armour or pirate hat and eye patch"
+        "change": "armour or pirate hat and eye patch",
+        "look": {
+          "clothes": "#9aa0a6",
+          "add": [
+            "helmet"
+          ],
+          "remove": [
+            "police-cap",
+            "badge"
+          ]
+        }
       }
     ],
     "voiceBrief": {

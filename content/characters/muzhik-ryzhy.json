@@ -1,0 +1,92 @@
+{
+  "id": "muzhik-ryzhy",
+  "name": {
+    "ru": "Рыжий",
+    "en": "Red",
+    "de": "Rudi"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#f2c9a0",
+    "clothes": "#b3261e",
+    "accessories": [
+      "beard",
+      "flat-cap"
+    ],
+    "hair": "#c8642a",
+    "hairStyle": "curly"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "мужской голос 30-40, громкий, деревенский"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "male voice 30-40, loud, rustic"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "Männerstimme 30-40, laut, ländlich"
+    }
+  },
+  "bible": {
+    "summary": "Ginger double of the Muzhik: farmer, hunter, fisherman, driver.",
+    "age": "35",
+    "build": "stocky",
+    "silhouette": "same as Muzhik",
+    "outfit": "red checked shirt, cap",
+    "features": "ginger curly hair and beard, freckles",
+    "palette": [
+      "#b3261e",
+      "#c8642a",
+      "#f2c9a0"
+    ],
+    "personality": "hearty, practical, loud",
+    "roles": [
+      "farmer",
+      "hunter",
+      "fisherman",
+      "driver",
+      "biker"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "farmer"
+        ],
+        "change": "straw hat, overalls",
+        "look": {
+          "clothes": "#4a6fa5",
+          "add": [
+            "straw-hat",
+            "suspenders"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      {
+        "roles": [
+          "hunter",
+          "fisherman"
+        ],
+        "change": "camouflage jacket",
+        "look": {
+          "clothes": "#5b6b3a",
+          "add": [],
+          "remove": []
+        }
+      }
+    ],
+    "voiceBrief": {
+      "ru": "мужской голос 30-40, громкий, деревенский",
+      "en": "male voice 30-40, loud, rustic",
+      "de": "Männerstimme 30-40, laut, ländlich"
+    },
+    "prompt": "stocky man with curly ginger hair and beard, freckles, red checked shirt, flat cap, cartoon style"
+  },
+  "family": "muzhik"
+}

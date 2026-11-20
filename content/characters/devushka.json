@@ -10,7 +10,13 @@
     "kind": "woman",
     "skin": "#f6d9bf",
     "clothes": "#e0a030",
-    "accent": "#f2f2f2"
+    "accent": "#f2f2f2",
+    "hair": "#3a2a20",
+    "hairStyle": "long",
+    "accessories": [
+      "earrings",
+      "lipstick"
+    ]
   },
   "voice": {
     "ru": {
@@ -43,46 +49,36 @@
     "roles": [
       "woman",
       "girlfriend",
-      "daughter",
-      "blonde",
-      "secretary",
       "nurse",
-      "flight-attendant",
       "cashier",
-      "princess",
       "prostitute"
     ],
     "variants": [
       {
         "roles": [
-          "blonde"
-        ],
-        "change": "platinum blonde hair, pink outfit"
-      },
-      {
-        "roles": [
           "nurse"
         ],
-        "change": "white nurse uniform and cap"
+        "change": "white nurse uniform and cap",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [
+            "nurse-cap"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
-          "flight-attendant"
-        ],
-        "change": "airline uniform and scarf"
-      },
-      {
-        "roles": [
-          "secretary",
           "cashier"
         ],
-        "change": "office blouse, badge"
-      },
-      {
-        "roles": [
-          "princess"
-        ],
-        "change": "gown and tiara"
+        "change": "office blouse, badge",
+        "look": {
+          "clothes": "#c8553d",
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
       }
     ],
     "voiceBrief": {

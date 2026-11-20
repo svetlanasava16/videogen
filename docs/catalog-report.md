@@ -104,19 +104,19 @@
 
 ## Покрытие куклами и фонами
 
-16 кукол играют 124 ролей; 14 фонов закрывают 51 локаций.
+28 кукол (22 семейств) играют 136 ролей; 14 фонов закрывают 51 локаций.
 
 | | ru | en | de | все |
 |---|---|---|---|---|
-| все персонажи есть | 88% | 94% | 88% | 90% |
-| конфликт: две роли одной куклы в сцене | 6% | 4% | 4% | 5% |
+| все персонажи есть | 94% | 98% | 94% | 95% |
+| конфликт: ролей семейства больше, чем кукол | 2% | 1% | 1% | 1% |
 | локация есть | 94% | 96% | 94% | 95% |
-| ставится целиком | 84% | 90% | 84% | 86% |
-| пул для видео: ставится целиком | 77% | 79% | 75% | 77% |
+| ставится целиком | 89% | 94% | 89% | 91% |
+| пул для видео: ставится целиком | 87% | 90% | 86% | 87% |
 
-Частые конфликты: officer+soldier (sluzhivy) 22, everyman+husband (muzhik) 18, everyman+neighbor (muzhik) 13, everyman+tourist (muzhik) 11, priest+rabbi (batyushka) 10, everyman+farmer (muzhik) 10, drunk+everyman (muzhik) 9, everyman+relative (muzhik) 9, husband+neighbor (muzhik) 8, everyman+father (muzhik) 8, driver+everyman (muzhik) 8, everyman+friend (muzhik) 8.
+Частые конфликты: child+vovochka (vovochka) 5, businessman+politician (nachalnik) 4, foreigner+frenchman (inostranets) 3, maid+wife (zhena) 3, businessman+lawyer (nachalnik) 3, frenchman+german (inostranets) 3, professor+scientist (doktor) 3, mother+wife (zhena) 3, bartender+salesman (barmen) 2, gangster+politician (nachalnik) 2, new-russian+tv-host (nachalnik) 2, foreigner+german (inostranets) 2.
 
-Чаще всего не хватает одной роли: cat (20), bug (17), foreigner (14), bird (14), cow (13), horse (12), thief (11), wild-animal (10), fairy (10), angel (9), chicken (8), parrot (8), mouse (7), bear (7), hare (6).
+Чаще всего не хватает одной роли: bug (17), wild-animal (12), fairy (12), mouse (9), angel (9), native-american (8), hare (7), bear (7), frog (7), pig (6), sheep (6), jesus (5), lion (4), elephant (4), monkey (4).
 
 ## Фольклорные и «сказочные» герои
 

@@ -10,7 +10,13 @@
     "kind": "woman",
     "skin": "#f0d0b0",
     "clothes": "#5b4a6a",
-    "accent": "#f2f2f2"
+    "accent": "#f2f2f2",
+    "hair": "#5b3a22",
+    "hairStyle": "bun",
+    "accessories": [
+      "cat-eye-glasses",
+      "brooch"
+    ]
   },
   "voice": {
     "ru": {
@@ -52,19 +58,39 @@
         "roles": [
           "nun"
         ],
-        "change": "nun habit"
+        "change": "nun habit",
+        "look": {
+          "clothes": "#1d1d1d",
+          "add": [
+            "nun-veil"
+          ],
+          "remove": [
+            "brooch"
+          ]
+        }
       },
       {
         "roles": [
           "pharmacist"
         ],
-        "change": "white coat"
+        "change": "white coat",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [],
+          "remove": []
+        }
       },
       {
         "roles": [
           "operator"
         ],
-        "change": "headset"
+        "change": "headset",
+        "look": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
       }
     ],
     "voiceBrief": {

@@ -10,7 +10,14 @@
     "kind": "man",
     "skin": "#d9a679",
     "clothes": "#7a2e2e",
-    "accent": "#f2e6d0"
+    "accent": "#f2e6d0",
+    "hair": "#5b3a22",
+    "hairStyle": "bald",
+    "accessories": [
+      "beard",
+      "apron",
+      "towel"
+    ]
   },
   "voice": {
     "ru": {
@@ -32,7 +39,7 @@
     "build": "heavy, strong arms",
     "silhouette": "barrel chest, thick arms, small apron",
     "outfit": "vest or apron over rolled-up shirt, towel over shoulder",
-    "features": "bushy mustache, bald spot, bushy eyebrows, knowing half-smile",
+    "features": "full bushy beard, bald head, bushy eyebrows, knowing half-smile",
     "palette": [
       "#7a2e2e",
       "#d9a679",
@@ -56,19 +63,41 @@
         "roles": [
           "waiter"
         ],
-        "change": "bow tie, tray"
+        "change": "bow tie, tray",
+        "look": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": [
+            "towel",
+            "beard"
+          ]
+        }
       },
       {
         "roles": [
           "salesman"
         ],
-        "change": "shop coat, price tags"
+        "change": "shop coat, price tags",
+        "look": {
+          "clothes": "#5b8c5a",
+          "add": [],
+          "remove": [
+            "towel"
+          ]
+        }
       },
       {
         "roles": [
           "cook"
         ],
-        "change": "chef hat"
+        "change": "chef hat",
+        "look": {
+          "add": [
+            "chef-hat"
+          ],
+          "remove": []
+        }
       },
       {
         "roles": [
@@ -77,7 +106,15 @@
           "craftsman",
           "construction-worker"
         ],
-        "change": "overalls, wrench or hard hat"
+        "change": "overalls, wrench or hard hat",
+        "look": {
+          "clothes": "#2b3a55",
+          "add": [],
+          "remove": [
+            "apron",
+            "towel"
+          ]
+        }
       },
       {
         "roles": [
@@ -91,6 +128,6 @@
       "en": "low male voice 40-50, world-weary, wry",
       "de": "tiefe Männerstimme 40-50, abgeklärt, trocken"
     },
-    "prompt": "heavyset bartender in his forties with bushy mustache and bald spot, thick arms, rolled-up shirt, dark red vest, towel over shoulder, knowing half-smile"
+    "prompt": "heavyset bartender in his forties with a full bushy beard and bald head, thick arms, rolled-up shirt, dark red vest, apron, towel over shoulder, knowing half-smile"
   }
 }

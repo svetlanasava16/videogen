@@ -9,7 +9,7 @@ const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
-  <Composition id="Cast" component={Cast} width={1600} height={1900} fps={30} durationInFrames={1} />
+  <Composition id="Cast" component={Cast} width={2450} height={1950} fps={30} durationInFrames={1} />
   <Composition
     id="Joke"
     component={Joke}

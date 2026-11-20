@@ -1,0 +1,117 @@
+{
+  "id": "inostranets",
+  "name": {
+    "ru": "Иностранец",
+    "en": "Foreigner",
+    "de": "Ausländer"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#f0d0b0",
+    "clothes": "#4a6fa5",
+    "accessories": [
+      "bowler",
+      "monocle"
+    ],
+    "hair": "#c9a24a",
+    "hairStyle": "short"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "мужской голос с лёгким акцентом (акцент зависит от варианта)"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "male voice with a light accent matching the variant"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "Männerstimme mit leichtem Akzent je nach Variante"
+    }
+  },
+  "bible": {
+    "summary": "The foreigner of national-type jokes — costume shows the nationality: Englishman, Frenchman, German, American, Georgian.",
+    "age": "40",
+    "build": "average",
+    "silhouette": "average figure, costume does the work",
+    "outfit": "national stereotype costume (see variants)",
+    "features": "depends on the variant",
+    "palette": [
+      "#4a6fa5",
+      "#f0d0b0",
+      "#c8553d"
+    ],
+    "personality": "polite, puzzled by local ways",
+    "roles": [
+      "foreigner",
+      "frenchman",
+      "german",
+      "georgian"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "frenchman"
+        ],
+        "change": "beret, striped shirt, thin mustache, baguette",
+        "look": {
+          "clothes": "#f2f2f2",
+          "add": [
+            "beret",
+            "mustache",
+            "striped-shirt",
+            "baguette"
+          ],
+          "remove": [
+            "bowler",
+            "monocle"
+          ]
+        }
+      },
+      {
+        "roles": [
+          "german"
+        ],
+        "change": "tyrolean hat, suspenders",
+        "look": {
+          "clothes": "#3e5a2e",
+          "add": [
+            "tyrolean-hat",
+            "suspenders",
+            "mustache"
+          ],
+          "remove": [
+            "bowler",
+            "monocle"
+          ]
+        }
+      },
+      {
+        "roles": [
+          "georgian"
+        ],
+        "change": "big flat cap, big mustache",
+        "look": {
+          "clothes": "#2b2b2b",
+          "hair": "#2b1d14",
+          "add": [
+            "aerodrome-cap",
+            "mustache"
+          ],
+          "remove": [
+            "bowler",
+            "monocle"
+          ]
+        }
+      }
+    ],
+    "voiceBrief": {
+      "ru": "мужской голос с лёгким акцентом (акцент зависит от варианта)",
+      "en": "male voice with a light accent matching the variant",
+      "de": "Männerstimme mit leichtem Akzent je nach Variante"
+    },
+    "prompt": "foreign gentleman in a bowler hat with monocle and blue suit, polite puzzled expression, cartoon style"
+  }
+}

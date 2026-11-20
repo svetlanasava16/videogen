@@ -6,9 +6,11 @@
  *   (исполнитель пишет batch-NNNN.out.jsonl: по одной JSON-строке на каждую входную)
  *   pnpm llm collect analyze                                 → проверка zod, слияние в results.jsonl
  *   pnpm llm status analyze
+ *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { JokeAnalysis, Joke, Locale } from "@jf/core";
-import { existsSync, readdirSync } from "node:fs";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft } from "@jf/core";
+import { existsSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import { loadCast } from "./cast.js";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import type { ZodType } from "zod";
@@ -19,7 +21,14 @@ type Stage = {
   output: ZodType<{ id: string }, any, any>;
   /** Все кандидаты стадии по порядку приоритета. */
   inputs: (opts: { perLang?: number; lang?: string }) => { id: string; [k: string]: unknown }[];
+  /** Доп. проверки строки ответа поверх схемы (input — соответствующая входная строка). */
+  validate?: (row: any, input: any) => string[];
+  /** Вызывается перед prepare: например, записать справочник для исполнителя. */
+  beforePrepare?: () => void;
 };
+
+const MAX_WORDS: Record<string, number> = { ru: 95, en: 110, de: 90 };
+const RISKY = ["sexual", "ethnic", "political", "real-person", "homophobia", "drugs", "exclude"];
 
 const LOCALES = Locale.options;
 
@@ -41,7 +50,105 @@ const STAGES: Record<string, Stage> = {
       );
     },
   },
+
+  script: {
+    prompt: "pipeline/prompts/script.md",
+    output: ScriptDraft,
+    beforePrepare: writeScriptContext,
+    inputs: ({ perLang, lang: only }) => {
+      const done = doneIds("script");
+      const jokes = new Map(loadJokes().map((j) => [j.id, j]));
+      const C = loadCast();
+      const analyses = readJsonl(join(DATA, "llm", "analyze", "results.jsonl")).map((r) => JokeAnalysis.parse(r));
+      const items: { id: string; [k: string]: unknown }[] = [];
+      for (const lang of LOCALES.filter((l) => !only || l === only)) {
+        const pool = analyses
+          .filter((a) => jokes.get(a.id)?.lang === lang && a.videoFit >= 4 && a.funny >= 4 && !a.flags.some((f) => RISKY.includes(f)))
+          .map((a) => {
+            const roles = [...new Set(a.characters.filter((c) => c.role !== "mentioned").map((c) => C.role(c.archetype)))];
+            const scene = C.castScene(roles);
+            const loc = C.place(a.location.archetype);
+            const backdrop = loc === "none" ? "none" : C.backdropFor.get(loc);
+            return { a, j: jokes.get(a.id)!, roles, scene, loc, backdrop };
+          })
+          .filter((x) => x.scene.ok && x.backdrop && Object.keys(x.scene.cast).length <= 3)
+          .sort((x, y) => y.j.popularity * y.a.funny - x.j.popularity * x.a.funny)
+          .slice(0, perLang ?? Infinity);
+        for (const x of pool) {
+          const targets = [lang, ...LOCALES.filter((l) => l !== lang && ["translate", "adapt"].includes(x.a.translatability[l]?.verdict ?? ""))];
+          for (const locale of targets) {
+            const id = `${x.j.id}.${locale}`;
+            if (done.has(id)) continue;
+            items.push({
+              id, jokeId: x.j.id, sourceLang: lang, locale,
+              mode: locale === lang ? "original" : x.a.translatability[locale]!.verdict,
+              adaptNote: locale === lang ? "" : x.a.translatability[locale]!.note,
+              text: x.j.text, gist: x.a.gist ?? "", form: x.a.form, needsNarrator: x.a.needsNarrator,
+              wordplay: x.a.wordplay,
+              suggestedCast: x.scene.cast, // canonical role → puppet id
+              suggestedBackdrop: x.backdrop, location: x.loc,
+              maxWords: MAX_WORDS[locale],
+            });
+          }
+        }
+      }
+      return items;
+    },
+    validate: (row: ScriptDraft, input: Record<string, unknown>) => {
+      const C = loadCast();
+      const ids = new Set(C.puppets.map((p) => p.id));
+      const bds = new Set(["none", ...C.backdrops.map((b) => b.id)]);
+      const pr: string[] = [];
+      if (row.jokeId !== input.jokeId || row.locale !== input.locale) pr.push("jokeId/locale do not match input");
+      if (!bds.has(row.location)) pr.push(`unknown backdrop ${row.location}`);
+      for (const c of row.cast) if (!ids.has(c)) pr.push(`unknown puppet ${c}`);
+      if (new Set(row.cast).size !== row.cast.length) pr.push("duplicate puppet in cast");
+      for (const l of row.lines) {
+        if (l.character !== NARRATOR && !row.cast.includes(l.character)) pr.push(`line by ${l.character} not in cast`);
+        if (/[()\[\]*#]|^\s*[\p{L}]+\s*:/u.test(l.text)) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
+      }
+      for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
+      const words = row.lines.reduce((n, l) => n + l.text.split(/\s+/).filter(Boolean).length, 0);
+      if (words > Number(input.maxWords ?? 110) * 1.15) pr.push(`too long: ${words} words`);
+      return pr;
+    },
+  },
 };
+
+/** Справочник кукол и фонов для сценариста: data/llm/script/context.md */
+function writeScriptContext() {
+  const C = loadCast();
+  const lines = ["# Cast and backdrops (generated by `pnpm llm prepare script`)", "", "## Puppets", "",
+    "| id | names ru / en / de | family | roles it plays |", "|---|---|---|---|",
+    ...C.puppets.map((p) => `| ${p.id} | ${p.name.ru} / ${p.name.en} / ${p.name.de} | ${p.family ?? p.id} | ${p.bible!.roles.join(", ")} |`),
+    "", "## Backdrops", "", "| id | covers locations |", "|---|---|",
+    ...C.backdrops.map((b) => `| ${b.id} | ${b.bible!.roles.join(", ")} |`), "| none | no location (narrator over a neutral backdrop) |", ""];
+  mkdirSync(join(DATA, "llm", "script"), { recursive: true });
+  writeFileSync(join(DATA, "llm", "script", "context.md"), lines.join("\n"));
+}
+
+/** Готовые сценарии → content/episodes/<jokeId>.<locale>.json */
+function materialize() {
+  const rows = readJsonl(resultsPath("script")).map((r) => ScriptDraft.parse(r));
+  const dir = join(ROOT, "content", "episodes");
+  mkdirSync(dir, { recursive: true });
+  let n = 0;
+  for (const d of rows) {
+    if (d.adaptation === "unfit") continue;
+    const ep = Episode.parse({
+      id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
+      location: d.location === "none" ? "gostinaya" : d.location,
+      cast: d.cast, roles: d.roles,
+      lines: d.lines.map((l, i) => ({
+        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion,
+        pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
+      })),
+    });
+    writeFileSync(join(dir, `${d.id}.json`), JSON.stringify(ep, null, 2) + "\n");
+    n++;
+  }
+  console.log(`${n} episodes → content/episodes/ (${rows.length - n} unfit skipped)`);
+}
 
 const stageDir = (s: string) => join(DATA, "llm", s);
 const resultsPath = (s: string) => join(stageDir(s), "results.jsonl");
@@ -65,6 +172,7 @@ function pendingIds(s: string) {
 }
 
 function prepare(s: string, stage: Stage, perLang?: number, size = 50, lang?: string) {
+  stage.beforePrepare?.();
   const pending = pendingIds(s);
   const items = stage.inputs({ perLang, lang }).filter((i) => !pending.has(i.id));
   let n = batches(s).length;
@@ -85,7 +193,8 @@ function collect(s: string, stage: Stage) {
   for (const b of batches(s)) {
     const out = outOf(s, b);
     if (!existsSync(out)) continue;
-    const want = new Set(readJsonl<{ id: string }>(join(stageDir(s), b)).map((r) => r.id));
+    const inputs = new Map(readJsonl<{ id: string }>(join(stageDir(s), b)).map((r) => [r.id, r]));
+    const want = new Set(inputs.keys());
     let rows: unknown[];
     try {
       rows = readJsonl(out);
@@ -102,6 +211,11 @@ function collect(s: string, stage: Stage) {
       }
       if (!want.has(parsed.data.id)) {
         problems.push(`${b} ${id}: id not in batch input`);
+        continue;
+      }
+      const extra = stage.validate?.(parsed.data, inputs.get(parsed.data.id)) ?? [];
+      if (extra.length) {
+        problems.push(`${b} ${id}: ${extra.join("; ")}`);
         continue;
       }
       want.delete(parsed.data.id);
@@ -122,7 +236,8 @@ function collect(s: string, stage: Stage) {
 /** Проверка одной пачки без записи results.jsonl (безопасно запускать параллельно). */
 function check(s: string, stage: Stage, batch: string) {
   const inFile = batch.endsWith(".in.jsonl") ? batch : `${batch}.in.jsonl`;
-  const want = readJsonl<{ id: string }>(join(stageDir(s), inFile)).map((r) => r.id);
+  const inRows = readJsonl<{ id: string }>(join(stageDir(s), inFile));
+  const want = inRows.map((r) => r.id);
   const out = outOf(s, inFile);
   if (!existsSync(out)) throw new Error(`no output: ${out}`);
   const rows = readJsonl<{ id?: string }>(out);
@@ -132,6 +247,7 @@ function check(s: string, stage: Stage, batch: string) {
     const parsed = stage.output.safeParse(row);
     if (!parsed.success) problems.push(`line ${i + 1} ${row?.id ?? "?"}: ${parsed.error.issues.map((x) => `${x.path.join(".")}: ${x.message}`).join("; ")}`);
     else if (parsed.data.id !== want[i]) problems.push(`line ${i + 1}: id ${parsed.data.id}, expected ${want[i]}`);
+    else for (const e of stage.validate?.(parsed.data, inRows[i]) ?? []) problems.push(`line ${i + 1} ${want[i]}: ${e}`);
   });
   if (problems.length) {
     console.log(`${inFile}: ${problems.length} problems`);
@@ -153,14 +269,18 @@ const { positionals, values } = parseArgs({
 });
 const [cmd, s] = positionals;
 const stage = s ? STAGES[s] : undefined;
-if (!stage || !["prepare", "collect", "status", "check"].includes(cmd)) {
-  console.error(`usage: llm prepare|collect|status|check <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
+if (!stage || !["prepare", "collect", "status", "check", "materialize"].includes(cmd)) {
+  console.error(`usage: llm prepare|collect|status|check|materialize <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
   process.exit(2);
 }
 if (!existsSync(join(ROOT, stage.prompt))) throw new Error(`prompt missing: ${stage.prompt}`);
 if (cmd === "prepare") prepare(s, stage, values["per-lang"] ? Number(values["per-lang"]) : undefined, values.size ? Number(values.size) : 50, values.lang);
 if (cmd === "collect") collect(s, stage);
 if (cmd === "status") status(s);
+if (cmd === "materialize") {
+  if (s !== "script") throw new Error("materialize is only for the script stage");
+  materialize();
+}
 if (cmd === "check") {
   if (!values.batch) throw new Error("check needs --batch batch-NNNN");
   check(s, stage, values.batch);
