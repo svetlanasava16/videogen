@@ -13,6 +13,13 @@ Division of work: **voice-over is done on this computer** (it has the ElevenLabs
 3. `pnpm install`, then `pnpm voice cast --locale ru` to see who needs a voice.
 
 ## Casting (once per puppet × language)
+A shortlist is ready: `content/casting.json` (per language: role → brief, candidates from the Voice Library, `pick` = chosen index) and `docs/CASTING.md` (same table with links that open the voice in the library to listen). Covers the 15 roles + narrator that speak in the top-30 episodes of each language = 30 voices = exactly the Creator plan's 30 slots.
+```bash
+pnpm voice casting                               # regenerate docs/CASTING.md after editing casting.json
+pnpm voice apply-casting --locale ru --dry-run   # find the picked voices by name (needs the key), show matches
+pnpm voice apply-casting --locale ru             # add them to My voices and write voice ids to the puppets
+```
+Listen first (links in docs/CASTING.md), change `pick` where another candidate sounds better, then apply. Manual alternative:
 ```bash
 pnpm voice cast [--locale ru]          # puppet/narrator, voiceId or TODO, number of lines, voice brief
 pnpm voice search "deep russian male" --language ru --gender male [--age old] [--n 20]

@@ -6,6 +6,8 @@
  *   pnpm voice preview <кукла|narrator> --locale ru [--text "…"]  — пробная фраза → out/voice-preview/
  *   pnpm voice run <episodeId…> | --locale ru --top 30 [--yes] [--provider fake]
  *   pnpm voice check                                        — устаревшая озвучка (текст поменялся), пропавшие файлы
+ *   pnpm voice casting                                      — docs/CASTING.md: кандидаты из content/casting.json со ссылками для прослушивания
+ *   pnpm voice apply-casting --locale ru [--dry-run] [--force]  — найти выбранных кандидатов в библиотеке, добавить в My voices, назначить
  * Без --yes `run` только показывает список и смету символов. Результат: remotion/public/audio/voice/<episodeId>/<lineId>.mp3
  * и поле lines[].audio в content/episodes/<id>.json — закоммитить и запушить.
  */
@@ -222,6 +224,79 @@ async function run() {
   console.log("готово: git add content/episodes remotion/public/audio/voice && git commit && git push");
 }
 
+// ---------- кастинг (content/casting.json) ----------
+type Casting = Record<string, unknown> & Partial<Record<Locale, Record<string, { pick: number; brief: string; candidates: string[] }>>>;
+const CASTING = join(ROOT, "content", "casting.json");
+const norm = (s: string) => s.toLowerCase().replace(/[–—]/g, "-").replace(/\s+/g, " ").trim();
+const head = (name: string) => name.split(/\s[-–—]\s/)[0].trim();
+const libraryLink = (locale: Locale, name: string) =>
+  `https://elevenlabs.io/app/voice-library?required_languages=${locale}&search=${encodeURIComponent(head(name))}`;
+
+function casting() {
+  const c = readRaw(CASTING) as Casting;
+  const chars = characters();
+  const out = ["# Кастинг голосов", "", "Сгенерировано `pnpm voice casting` из `content/casting.json`. Ссылки открывают поиск в ElevenLabs Voice Library — там можно прослушать голос.",
+    "Выбор: поменяйте `pick` (0 — первый кандидат) в `content/casting.json`, затем `pnpm voice apply-casting --locale ru --dry-run` и без `--dry-run` (нужен ключ ElevenLabs).", ""];
+  for (const locale of LOCALES) {
+    const roles = c[locale];
+    if (!roles) continue;
+    out.push(`## ${locale}`, "", "| роль | голос сейчас | бриф | кандидаты |", "|---|---|---|---|");
+    for (const [role, r] of Object.entries(roles)) {
+      const cur = voiceOf(role, locale, chars) ?? "—";
+      const cands = r.candidates.map((n, i) => `${i === r.pick ? "**→** " : ""}[${n}](${libraryLink(locale, n)})`).join("<br>");
+      out.push(`| ${role} | ${cur} | ${r.brief} | ${cands} |`);
+    }
+    out.push("");
+  }
+  writeFileSync(join(ROOT, "docs", "CASTING.md"), out.join("\n"));
+  console.log("docs/CASTING.md");
+}
+
+async function applyCasting() {
+  const locale = (arg("locale") ?? "ru") as Locale;
+  const dry = flag("dry-run");
+  const roles = (readRaw(CASTING) as Casting)[locale];
+  if (!roles) throw new Error(`в content/casting.json нет раздела ${locale}`);
+  const chosen = new Map<string, string>();
+  for (const [role, r] of Object.entries(roles)) {
+    const want = r.candidates[r.pick ?? 0];
+    if (!want) continue;
+    if (voiceOf(role, locale) && !flag("force")) {
+      console.log(`${role.padEnd(18)} уже назначен (${voiceOf(role, locale)}), пропуск (--force — переназначить)`);
+      continue;
+    }
+    const found = await EL.searchVoices({ search: head(want), language: locale, pageSize: 30 });
+    const v = found.find((x) => norm(x.name).startsWith(norm(want).slice(0, 28))) ?? found.find((x) => norm(x.name).startsWith(norm(head(want))));
+    if (!v) {
+      console.log(`${role.padEnd(18)} НЕ НАЙДЕН «${want}» — проверьте имя в библиотеке (pnpm voice search "${head(want)}" --language ${locale})`);
+      continue;
+    }
+    if ([...chosen.values()].includes(v.voice_id)) {
+      console.log(`${role.padEnd(18)} «${v.name}» уже выбран для другой роли — выберите другого кандидата`);
+      continue;
+    }
+    chosen.set(role, v.voice_id);
+    if (dry) {
+      console.log(`${role.padEnd(18)} → ${v.name} (${v.voice_id})`);
+      continue;
+    }
+    const id = await EL.addSharedVoice(v.public_owner_id, v.voice_id, `ANEK ${role} ${locale}`);
+    if (role === NARRATOR) {
+      const cfg = readRaw(VOICES);
+      cfg.narrator[locale] = { ...(cfg.narrator[locale] ?? {}), elevenlabsVoiceId: id };
+      writeRaw(VOICES, cfg);
+    } else {
+      const p = join(CHARS, `${role}.json`);
+      const ch = readRaw(p);
+      ch.voice = ch.voice ?? {};
+      ch.voice[locale] = { ...(ch.voice[locale] ?? {}), elevenlabsVoiceId: id };
+      writeRaw(p, ch);
+    }
+    console.log(`${role.padEnd(18)} ✓ ${v.name} → ${id}`);
+  }
+  if (dry) console.log("\nэто проверка; без --dry-run голоса будут добавлены в My voices (занимают слоты плана) и записаны куклам");
+}
+
 function check() {
   let voiced = 0;
   const bad: string[] = [];
@@ -241,7 +316,7 @@ function check() {
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
   const cmd = process.argv[2];
-  const cmds: Record<string, () => unknown> = { cast, search, assign, preview, run, check };
+  const cmds: Record<string, () => unknown> = { cast, search, assign, preview, run, check, casting, "apply-casting": applyCasting };
   if (!cmds[cmd]) {
     console.error("usage: voice cast|search|assign|preview|run|check (см. шапку pipeline/src/voice.ts)");
     process.exitCode = 1;
