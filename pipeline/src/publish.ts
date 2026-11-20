@@ -71,7 +71,7 @@ async function plan(db: Db) {
   const silentOk = flag("allow-silent");
   const rendered = new Set(
     (await db.select({ e: T.renders.episodeId, v: T.renders.voice }).from(T.renders))
-      .filter((r) => silentOk || !["none", "fake"].includes(r.v ?? "none"))
+      .filter((r) => silentOk || !["none", "fake", "elevenlabs-free"].includes(r.v ?? "none"))
       .map((r) => r.e),
   );
   const rows = await db

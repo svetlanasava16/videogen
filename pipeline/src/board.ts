@@ -37,7 +37,7 @@ const readBody = (req: IncomingMessage) =>
 /** Последний рендер эпизода с настоящей озвучкой (или любой, если озвученных нет). */
 async function renderFor(episodeId: string) {
   const rows = await db.select().from(T.renders).where(eq(T.renders.episodeId, episodeId)).orderBy(desc(T.renders.createdAt));
-  return rows.find((r) => r.voice && !["none", "fake"].includes(r.voice)) ?? rows[0];
+  return rows.find((r) => r.voice && !["none", "fake", "elevenlabs-free"].includes(r.voice)) ?? rows[0];
 }
 
 async function posts(account: string) {

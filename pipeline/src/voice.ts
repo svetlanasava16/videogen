@@ -7,7 +7,7 @@
  *   pnpm voice run <episodeId…> | --locale ru --top 30 [--yes] [--provider fake]
  *   pnpm voice check                                        — устаревшая озвучка (текст поменялся), пропавшие файлы
  *   pnpm voice casting                                      — docs/CASTING.md: кандидаты из content/casting.json со ссылками для прослушивания
- *   pnpm voice apply-casting --locale ru [--dry-run] [--force]  — найти выбранных кандидатов в библиотеке, добавить в My voices, назначить
+ *   pnpm voice apply-casting --locale ru [--roles zhena,vovochka] [--dry-run] [--force]  — найти выбранных кандидатов в библиотеке, добавить в My voices, назначить
  * Без --yes `run` только показывает список и смету символов. Результат: remotion/public/audio/voice/<episodeId>/<lineId>.mp3
  * и поле lines[].audio в content/episodes/<id>.json — закоммитить и запушить.
  */
@@ -191,6 +191,9 @@ async function run() {
     }
   }
   if (!flag("yes")) return console.log("это смета; для озвучки добавьте --yes");
+  // бесплатный план ElevenLabs: без коммерческой лицензии — такая озвучка только для тестов, к публикации не допускается
+  const tag = provider === "elevenlabs" && process.env.ELEVENLABS_PLAN === "free" ? "elevenlabs-free" : provider;
+  if (tag === "elevenlabs-free") console.log("ELEVENLABS_PLAN=free: озвучка помечается как тестовая (elevenlabs-free) и не попадёт в публикации");
 
   for (const p of plan) {
     const dir = join(PUBLIC, "audio", "voice", p.ep.id);
@@ -212,7 +215,7 @@ async function run() {
       }
       l.audio = {
         file: rel, durationSec: Math.round(duration(out) * 1000) / 1000, words,
-        provider, voiceId: p.ids.get(l.character), model: provider === "fake" ? "fake" : cfg.model, textHash: textHash(l.text),
+        provider: tag, voiceId: p.ids.get(l.character), model: provider === "fake" ? "fake" : cfg.model, textHash: textHash(l.text),
       };
     }
     // старые файлы реплик, которых больше нет
@@ -258,7 +261,9 @@ async function applyCasting() {
   const roles = (readRaw(CASTING) as Casting)[locale];
   if (!roles) throw new Error(`в content/casting.json нет раздела ${locale}`);
   const chosen = new Map<string, string>();
+  const only = arg("roles")?.split(",").map((x) => x.trim());
   for (const [role, r] of Object.entries(roles)) {
+    if (only && !only.includes(role)) continue;
     const want = r.candidates[r.pick ?? 0];
     if (!want) continue;
     if (voiceOf(role, locale) && !flag("force")) {

@@ -5,11 +5,37 @@ import type { TimedLine } from "../timeline";
 /** Зазор между словами, px (≈0,45 em при 76px). */
 const GAP = 34;
 
+/** Сколько символов помещается в кусок субтитров (≈3 строки): длинная реплика показывается частями. */
+const CHUNK_CHARS = { line: 44, narrator: 70 };
+
+/** Делит слова реплики на куски по длине и возвращает кусок, который сейчас звучит. */
+function chunkAt<W extends { text: string; startFrame: number }>(words: W[], frame: number, max: number) {
+  const chunks: W[][] = [];
+  let cur: W[] = [];
+  let len = 0;
+  for (const w of words) {
+    if (cur.length && len + w.text.length + 1 > max) {
+      chunks.push(cur);
+      cur = [];
+      len = 0;
+    }
+    cur.push(w);
+    len += w.text.length + 1;
+  }
+  if (cur.length) chunks.push(cur);
+  let k = 0;
+  chunks.forEach((c, i) => {
+    if (frame >= c[0].startFrame) k = i;
+  });
+  return chunks[k] ?? [];
+}
+
 /** Субтитры-караоке: слово подсвечивается, когда звучит. Безопасная зона — выше нижних 20% (UI шортсов). */
 /** Рассказчик: голос без куклы, субтитры курсивом в верхней части кадра. */
 export const Captions = ({ line, locale, narrator = false }: { line?: TimedLine; locale: Locale; narrator?: boolean }) => {
   const frame = useCurrentFrame();
   if (!line) return null;
+  const words = chunkAt(line.words, frame, narrator ? CHUNK_CHARS.narrator : CHUNK_CHARS.line);
   return (
     <div
       lang={locale}
@@ -23,7 +49,7 @@ export const Captions = ({ line, locale, narrator = false }: { line?: TimedLine;
         textAlign: "center", textTransform: narrator ? "none" : "uppercase",
       }}
     >
-      {line.words.map((w, i) => {
+      {words.map((w, i) => {
         const active = frame >= w.startFrame && frame <= w.endFrame;
         const spoken = frame > w.endFrame;
         return (
