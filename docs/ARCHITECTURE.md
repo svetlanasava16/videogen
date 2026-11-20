@@ -49,7 +49,7 @@ pnpm metrics pull|report                               # post_metrics, account_m
 - `packages/core`: схемы Joke, JokeAnalysis, ScriptDraft, Episode, Character, Location; `NARRATOR`.
 - `pipeline/`: сбор (`src/jokes.ts`, `src/ingest/`), LLM-пачки (`src/llm.ts`), каталог (`src/catalog.ts`).
 - `content/`: персонажи, локации, эпизоды для рендера.
-- `remotion/`: композиция `Joke`: фон, 2D-куклы, субтитры, рассказчик (голос без куклы, субтитры сверху), смех и музыка (`components/Soundtrack.tsx`), водяной знак и финальная карточка ANEK. (`components/Branding.tsx`).
+- `remotion/`: композиция `Joke`: фон, 2D-куклы, субтитры, рассказчик (голос без куклы, субтитры сверху), смех и музыка (`components/Soundtrack.tsx`), водяной знак ANEK. в углу (`components/Branding.tsx`), смех персонажей в конце их голосами (`Episode.outroLaughs`).
 - `packages/db`: схема Postgres (Drizzle) и миграции. Контент — копия из git (`pnpm db sync`), рендеры, публикации и метрики — только в базе.
 - `pipeline/src/publish/`: клиент Postiz Public API, подписи и настройки площадок; `content/disclosure.json` — тексты маркировки, `content/accounts.json` — аккаунты (площадка × язык).
 - `infra/`: docker compose — `anek-db`, Postiz + Temporal (профиль `postiz`), Cloudflare Tunnel (профиль `tunnel`), страницы Privacy/Terms; инструкция `docs/POSTIZ.md`.
@@ -71,7 +71,7 @@ pnpm metrics pull|report                               # post_metrics, account_m
 ## Публикация и маркировка
 - Сейчас: только Instagram, вручную, аккаунты `ig-ru` и `ig-en`. Озвучка — на компьютере девушки (ElevenLabs, платный план), рендер и постинг — на Маке Мити, передача через git; телефон работает через `pnpm board`.
 - Позже: YouTube Shorts, TikTok, Threads через Postiz; потом X и VK.
-- В каждой подписи — текст из `content/disclosure.json` (голос — ИИ, видео — ANEK., персонажи вымышлены, без намерения задеть верующих; у переводов — «перевод с помощью ИИ»). В видео — водяной знак и финальная карточка. Флаги ИИ по API: YouTube `containsSyntheticMedia`, TikTok `is_aigc`.
+- В каждой подписи — текст из `content/disclosure.json` (голос — ИИ, видео — ANEK., персонажи вымышлены, без намерения задеть верующих; у переводов — «перевод с помощью ИИ»). В видео — водяной знак ANEK. в углу, без финальной карточки. Флаги ИИ по API: YouTube `containsSyntheticMedia`, TikTok `is_aigc`.
 - Частота 1–3 видео в день на канал, без повторов фона и героя подряд (правило YouTube «inauthentic content»).
 
 ## Статус

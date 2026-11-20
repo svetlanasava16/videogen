@@ -39,6 +39,7 @@ pnpm voice run --locale ru --top 30 --yes    # generate
 pnpm voice run ru-63f080198c11.ru --yes      # specific episodes (re-voice a fixed line the same way)
 pnpm voice check                             # stale lines (text changed after voicing) or missing files
 ```
+- Each run also voices the **outro laugh** of every puppet still on stage at the end (`[laughs heartily] Ха-ха-ха!` with `content/voices.json → laughModel`, default `eleven_v3`, ~25 characters per puppet) into `outroLaughs`; skip with `--no-laughs`.
 - Order = most popular jokes first, same order the posting planner uses. Only lines without up-to-date audio are sent (a changed line is re-voiced alone).
 - Model and settings: `content/voices.json → model` (default `eleven_multilingual_v2`: stable, timings confirmed, request stitching via previous/next text). Line emotion → voice settings (stability/style); with `eleven_v3`/`eleven_v4` it becomes an audio tag instead — try on 2–3 episodes before switching, and check the model is not marked beta on the account (beta output is excluded from commercial use).
 - Listen to a few results before a big batch: render one episode with `cd remotion && npx remotion render src/index.ts Joke ../renders/check.mp4 --props=../content/episodes/<id>.json` (keep the screen awake on macOS).

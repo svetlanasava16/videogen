@@ -77,14 +77,16 @@ export type Tts = { audio: Buffer; words: WordTiming[] };
 export async function tts(opts: {
   voiceId: string; text: string; model: string; emotion: Emotion; locale: Locale;
   previousText?: string; nextText?: string; seed?: number;
+  /** Текст уже содержит свои теги (смех) — эмоцию не добавлять. */
+  raw?: boolean;
 }): Promise<Tts> {
   const st = SETTINGS[opts.emotion] ?? SETTINGS.neutral;
   const v3 = tagged(opts.model);
   const body: Record<string, unknown> = {
-    text: v3 && st.tag ? `${st.tag} ${opts.text}` : opts.text,
+    text: v3 && st.tag && !opts.raw ? `${st.tag} ${opts.text}` : opts.text,
     model_id: opts.model,
     voice_settings: v3
-      ? { stability: st.tag ? 0.0 : 0.5, similarity_boost: 0.75 }
+      ? { stability: st.tag || opts.raw ? 0.0 : 0.5, similarity_boost: 0.75 }
       : { stability: st.stability, similarity_boost: 0.75, style: st.style, use_speaker_boost: true, speed: 1 },
     seed: opts.seed,
   };
@@ -97,8 +99,8 @@ export async function tts(opts: {
     "POST", `/text-to-speech/${opts.voiceId}/with-timestamps?output_format=mp3_44100_128`, body,
   );
   const al = r.alignment ?? r.normalized_alignment;
-  if (!al) throw new Error("ElevenLabs вернул ответ без таймингов (alignment)");
-  return { audio: Buffer.from(r.audio_base64, "base64"), words: wordsFromAlignment(al) };
+  if (!al && !opts.raw) throw new Error("ElevenLabs вернул ответ без таймингов (alignment)");
+  return { audio: Buffer.from(r.audio_base64, "base64"), words: al ? wordsFromAlignment(al) : [] };
 }
 
 export type SharedVoice = {

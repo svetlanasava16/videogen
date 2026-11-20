@@ -35,6 +35,11 @@ export const Soundtrack = ({ tl }: { tl: TL }) => {
           <Html5Audio src={staticFile(l.audioFile!)} volume={VOICE_VOL} />
         </Sequence>
       ))}
+      {tl.outro.map((o) => (
+        <Sequence key={`o-${o.character}`} from={o.from} durationInFrames={o.frames} layout="none">
+          <Html5Audio src={staticFile(o.file)} volume={VOICE_VOL} />
+        </Sequence>
+      ))}
       {tl.laughs.map((c, i) => (
         <Sequence key={i} from={c.from} durationInFrames={c.frames} layout="none">
           <Html5Audio

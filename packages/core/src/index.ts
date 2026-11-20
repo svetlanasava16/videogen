@@ -63,6 +63,10 @@ export const Episode = z.object({
   lines: z.array(Line).min(1),
   /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
   music: z.string().optional(),
+  /** Смех персонажей после панчлайна (их голосами): играют вместе, куклы смеются. Пишет `pnpm voice run`. */
+  outroLaughs: z
+    .array(z.object({ character: z.string(), file: z.string(), durationSec: z.number(), provider: z.string().optional(), voiceId: z.string().optional() }))
+    .default([]),
   format: z
     .object({ width: z.number(), height: z.number(), fps: z.number() })
     .default({ width: 1080, height: 1920, fps: 30 }),
@@ -216,6 +220,8 @@ export function textHash(text: string): string {
 /** Голоса без куклы (рассказчик) и общие настройки озвучки: content/voices.json. */
 export const VoiceConfig = z.object({
   model: z.string().default("eleven_multilingual_v2"),
+  /** Модель для смеха персонажей в конце (нужны аудио-теги [laughs]). */
+  laughModel: z.string().default("eleven_v3"),
   narrator: z.record(Locale, z.object({ elevenlabsVoiceId: z.string(), notes: z.string().optional() })),
 });
 export type VoiceConfig = z.infer<typeof VoiceConfig>;

@@ -18,7 +18,8 @@ export const Face = ({
   const eyeR = big ? 14 : 11;
   const pupilR = big ? 4 : 5;
   const pupilDy = emotion === "sad" ? 4 : 2;
-  const lid = emotion === "angry" || emotion === "smug" ? 0.5 : emotion === "sad" ? 0.3 : 0;
+  const laughing = speaking && emotion === "happy";
+  const lid = emotion === "angry" || emotion === "smug" ? 0.5 : emotion === "sad" ? 0.3 : laughing ? 0.45 : 0;
 
   return (
     <g>
@@ -41,6 +42,9 @@ export const Face = ({
       {/* рот */}
       {beak ? (
         speaking ? <path d={`M150 182 L192 ${186 + open * 10} L150 198 Z`} fill="#3a0f0f" /> : null
+      ) : laughing ? (
+        // смех: открытая улыбка, раскрывается в такт
+        <path d={`M122 ${mouthY - 8} Q150 ${mouthY + 12 + open * 22} 178 ${mouthY - 8} Q150 ${mouthY - 2} 122 ${mouthY - 8} Z`} fill="#3a0f0f" />
       ) : speaking ? (
         <ellipse cx="150" cy={mouthY} rx={emotion === "surprised" ? 14 : 22} ry={4 + open * 20} fill="#3a0f0f" />
       ) : (

@@ -4,7 +4,8 @@
  *   pnpm voice search "<запрос>" [--language ru] [--gender male|female] [--age young|middle_aged|old]
  *   pnpm voice assign <кукла|narrator> <locale> <voiceId> [--owner <public_owner_id>]   — назначить (с --owner: добавить из библиотеки в My voices)
  *   pnpm voice preview <кукла|narrator> --locale ru [--text "…"]  — пробная фраза → out/voice-preview/
- *   pnpm voice run <episodeId…> | --locale ru --top 30 [--yes] [--provider fake]
+ *   pnpm voice run <episodeId…> | --locale ru --top 30 [--yes] [--provider fake] [--no-laughs]
+ *     (кроме реплик озвучивает смех каждой куклы в конце — content/voices.json → laughModel, по умолчанию eleven_v3)
  *   pnpm voice check                                        — устаревшая озвучка (текст поменялся), пропавшие файлы
  *   pnpm voice casting                                      — docs/CASTING.md: кандидаты из content/casting.json со ссылками для прослушивания
  *   pnpm voice apply-casting --locale ru [--roles zhena,vovochka] [--dry-run] [--force]  — найти выбранных кандидатов в библиотеке, добавить в My voices, назначить
@@ -54,6 +55,30 @@ function popularity() {
 }
 
 const episodeFiles = () => readdirSync(EPISODES).filter((f) => f.endsWith(".json") && !f.startsWith("demo-") && !f.startsWith("test-"));
+
+/** Смех персонажа в конце (аудио-тег + звукоподражание, чтобы было что произнести). */
+const LAUGH_TEXT: Record<Locale, string> = { ru: "[laughs heartily] Ха-ха-ха!", en: "[laughs heartily] Ha-ha-ha!", de: "[laughs heartily] Ha-ha-ha!" };
+
+/** Кто смеётся в конце: куклы, у которых есть реплики (без рассказчика), и кто не ушёл со сцены. */
+function laughers(ep: Raw): string[] {
+  const speakers = [...new Set((ep.lines as Raw[]).map((l) => l.character as string))].filter((c) => c !== NARRATOR);
+  const gone = new Set<string>();
+  for (const l of ep.lines as Raw[]) {
+    for (const id of l.enter ?? []) gone.delete(id);
+    for (const id of l.exit ?? []) gone.add(id);
+  }
+  return speakers.filter((c) => !gone.has(c));
+}
+
+/** Каких смехов не хватает (нет файла или голос куклы сменился). */
+function staleLaughs(ep: Raw, voiceOfChar: (c: string) => string | undefined) {
+  if (flag("no-laughs")) return [];
+  const have = new Map(((ep.outroLaughs ?? []) as Raw[]).map((x) => [x.character, x]));
+  return laughers(ep).filter((c) => {
+    const x = have.get(c);
+    return !x || !existsSync(join(PUBLIC, x.file)) || (voiceOfChar(c) && x.voiceId !== voiceOfChar(c));
+  });
+}
 
 /** Реплики эпизода, которым нужна (пере)озвучка. */
 function stale(ep: Raw) {
@@ -150,7 +175,7 @@ async function run() {
     const pop = popularity();
     files = episodeFiles()
       .map((f) => ({ f, ep: readRaw(join(EPISODES, f)) }))
-      .filter(({ ep }) => ep.locale === locale && stale(ep).length)
+      .filter(({ ep }) => ep.locale === locale && (stale(ep).length || staleLaughs(ep, (c) => voiceOf(c, ep.locale, chars, cfg)).length))
       .sort((a, b) => (pop.get(b.ep.jokeId) ?? 0) - (pop.get(a.ep.jokeId) ?? 0))
       .slice(0, Number(arg("top", "10")))
       .map(({ f }) => f);
@@ -169,11 +194,12 @@ async function run() {
       else if ([...ids.values()].includes(v)) problems.push(`${ep.id}: у ${s} и ${[...ids].find(([, x]) => x === v)![0]} один и тот же голос`);
       else ids.set(s, v);
     }
-    const n = todo.reduce((a: number, l: Raw) => a + l.text.length, 0);
+    const laughs = staleLaughs(ep, (c) => (provider === "fake" ? `fake-${c}` : voiceOf(c, ep.locale, chars, cfg)));
+    const n = todo.reduce((a: number, l: Raw) => a + l.text.length, 0) + laughs.length * LAUGH_TEXT[ep.locale as Locale].length;
     chars_ += n;
-    return { f, ep, todo, ids, n };
+    return { f, ep, todo, ids, n, laughs };
   });
-  for (const p of plan) console.log(`${p.ep.id.padEnd(24)} ${String(p.todo.length).padStart(2)} реплик  ${String(p.n).padStart(5)} симв.  ${p.ep.title}`);
+  for (const p of plan) console.log(`${p.ep.id.padEnd(24)} ${String(p.todo.length).padStart(2)} реплик + ${p.laughs.length} смех  ${String(p.n).padStart(5)} симв.  ${p.ep.title}`);
   console.log(`\nвсего: ${plan.length} эпизодов, ${chars_} символов (${provider}, модель ${cfg.model})`);
   if (problems.length) {
     console.error(problems.join("\n"));
@@ -218,8 +244,18 @@ async function run() {
         provider: tag, voiceId: p.ids.get(l.character), model: provider === "fake" ? "fake" : cfg.model, textHash: textHash(l.text),
       };
     }
+    // смех персонажей в конце
+    const laughs = new Map<string, Raw>(((p.ep.outroLaughs ?? []) as Raw[]).filter((x) => laughers(p.ep).includes(x.character)).map((x) => [x.character, x]));
+    for (const c of p.laughs) {
+      const rel = `audio/voice/${p.ep.id}/laugh-${c}.mp3`;
+      const out = join(PUBLIC, rel);
+      if (provider === "fake") fakeTts("ha ha ha ha", out);
+      else writeFileSync(out, (await EL.tts({ voiceId: p.ids.get(c)!, text: LAUGH_TEXT[p.ep.locale as Locale], model: cfg.laughModel, emotion: "happy", locale: p.ep.locale, raw: true })).audio);
+      laughs.set(c, { character: c, file: rel, durationSec: Math.round(duration(out) * 1000) / 1000, provider: tag, voiceId: p.ids.get(c) });
+    }
+    p.ep.outroLaughs = [...laughs.values()];
     // старые файлы реплик, которых больше нет
-    const keep = new Set(lines.map((l) => `${l.id}.mp3`));
+    const keep = new Set([...lines.map((l) => `${l.id}.mp3`), ...[...laughs.keys()].map((c) => `laugh-${c}.mp3`)]);
     for (const f of readdirSync(dir)) if (!keep.has(f)) rmSync(join(dir, f));
     writeRaw(join(EPISODES, p.f), p.ep);
     console.log(`✓ ${p.ep.id}`);

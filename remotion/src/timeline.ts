@@ -24,8 +24,12 @@ export type Cue = { clip: AudioClip; from: number; frames: number };
 export const LEAD_IN_SEC = 0.3;
 export const TAIL_SEC = 1.0;
 export const WALK_SEC = 0.7;
-/** Финальная карточка ANEK. с дисклеймером. */
-export const END_CARD_SEC = 1.2;
+/** Смех персонажей в конце: начинается после панчлайна, второй вступает чуть позже первого. */
+const OUTRO_DELAY_SEC = 0.25;
+const OUTRO_STAGGER_SEC = 0.2;
+
+/** Смех куклы в конце (кадры). */
+export type OutroLaugh = { character: string; file: string; from: number; frames: number };
 /** Какая доля смеха звучит в паузе (хвост накладывается на следующую реплику). */
 const LAUGH_GAP = 0.6;
 
@@ -45,6 +49,8 @@ export function buildTimeline(ep: Episode) {
   const laughOf = laughs(ep.lines);
   const laughPool = clips.filter((c) => c.kind === "laugh");
   let laughEnd = 0;
+  let punchEnd = 0;
+  const hasOutro = ep.outroLaughs.length > 0;
   const lines: TimedLine[] = ep.lines.map((l, i) => {
     if (l.enter.length) {
       for (const id of l.enter) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "enter" });
@@ -63,7 +69,9 @@ export function buildTimeline(ep: Episode) {
       audioFile: l.audio?.file,
     };
     t += dur;
-    const want = laughOf[i];
+    punchEnd = t;
+    // если персонажи смеются сами, закадровый смех после панчлайна не нужен
+    const want = hasOutro && i === ep.lines.length - 1 ? undefined : laughOf[i];
     const clip = want ? pick(laughPool.filter((c) => c.intensity === want), `${ep.id}:${i}`) ?? pick(laughPool, `${ep.id}:${i}`) : undefined;
     let gap = 0;
     if (clip) {
@@ -78,8 +86,12 @@ export function buildTimeline(ep: Episode) {
     t += Math.max(l.pauseAfterSec, gap);
     return timed;
   });
-  const speechEnd = Math.max(t + TAIL_SEC, laughEnd + 0.2);
-  const card = { from: f(speechEnd), frames: f(END_CARD_SEC) };
+  const outro: OutroLaugh[] = ep.outroLaughs.map((x, k) => ({
+    character: x.character, file: x.file,
+    from: f(punchEnd + OUTRO_DELAY_SEC + k * OUTRO_STAGGER_SEC), frames: f(x.durationSec),
+  }));
+  const outroEnd = outro.reduce((a, o) => Math.max(a, (o.from + o.frames) / fps), 0);
+  const endSec = Math.max(t + TAIL_SEC, laughEnd + 0.2, outroEnd + 0.5);
 
   // кто в кадре с самого начала: все, чьё первое событие — не вход
   const firstKind = new Map<string, Move["kind"]>();
@@ -99,7 +111,10 @@ export function buildTimeline(ep: Episode) {
   /** Идёт ли сейчас переход у куклы (и какой). */
   const moving = (id: string, frame: number) => moves.find((m) => m.id === id && frame >= m.from && frame <= m.to);
 
-  const durationInFrames = card.from + card.frames;
+  /** Смеётся ли кукла сейчас (смех в конце). */
+  const laughing = (id: string, frame: number) => outro.some((o) => o.character === id && frame >= o.from && frame <= o.from + o.frames);
+
+  const durationInFrames = f(endSec);
   const music = musicFor(ep);
-  return { lines, moves, presence, moving, laughs: laughCues, music, card, durationInFrames };
+  return { lines, moves, presence, moving, laughing, laughs: laughCues, outro, music, durationInFrames };
 }

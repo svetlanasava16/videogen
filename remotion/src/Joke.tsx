@@ -6,7 +6,7 @@ import { Background } from "./components/Background";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
 import { Captions } from "./components/Captions";
 import { Soundtrack } from "./components/Soundtrack";
-import { EndCard, Watermark } from "./components/Branding";
+import { Watermark } from "./components/Branding";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
 const PUPPET_H = 0.4; // высота бокса куклы (доля высоты кадра)
@@ -52,7 +52,10 @@ export const Joke = (ep: Episode) => {
         const x = xAt(id, frame);
         const dx = x - xAt(id, frame - 1);
         const walk = Math.min(1, Math.abs(dx) / 6);
-        const speaking = current?.character === id && frame <= current.endFrame;
+        // рот двигается только пока звучит слово (а не всю реплику с паузами и хвостом)
+        const talking = current?.character === id && current.words.some((w) => frame >= w.startFrame - 1 && frame <= w.endFrame);
+        const laughing = tl.laughing(id, frame);
+        const speaking = talking || laughing;
         const c = centre(id);
         const facing: 1 | -1 = walk > 0.2 ? (dx > 0 ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1;
         return (
@@ -60,7 +63,7 @@ export const Joke = (ep: Episode) => {
             <Puppet
               look={lookForRole(ch, ep.roles[id])}
               speaking={speaking}
-              emotion={current?.character === id ? current.emotion : "neutral"}
+              emotion={laughing ? "happy" : current?.character === id ? current.emotion : "neutral"}
               walk={walk}
               facing={facing}
               seed={ep.cast.indexOf(id) * 17 + i}
@@ -70,7 +73,6 @@ export const Joke = (ep: Episode) => {
       })}
       <Captions line={current} locale={ep.locale} narrator={current?.character === NARRATOR} />
       <Watermark />
-      <EndCard from={tl.card.from} frames={tl.card.frames} locale={ep.locale} />
       <Soundtrack tl={tl} />
     </AbsoluteFill>
   );
