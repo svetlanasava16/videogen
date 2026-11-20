@@ -2,24 +2,28 @@
   "id": "de-witze-1s5wyg5.ru",
   "jokeId": "de-witze-1s5wyg5",
   "locale": "ru",
-  "title": "Роддом",
+  "title": "Четыре отца",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
+    "devushka",
+    "muzhik",
     "muzhik-sosed",
     "muzhik-ryzhy",
-    "muzhik"
+    "barmen"
   ],
   "roles": {
+    "devushka": "nurse",
+    "muzhik": "father",
     "muzhik-sosed": "father",
     "muzhik-ryzhy": "father",
-    "muzhik": "father"
+    "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Роддом. Трое будущих отцов ждут, что скажет медсестра.",
+      "text": "Четверо мужчин сидят в приёмном покое роддома, пока их жёны рожают.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,41 +31,90 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Двойня! Ну ещё бы, я же в «Два ГИС» работаю!",
+      "character": "devushka",
+      "text": "Поздравляю, вы стали отцом двойни!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "devushka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Всё сходится. Я работаю в «Два ГИС»!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Поздравляю, у вас тройня!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Пятеро сразу! Вот совпадение, я в «Пятёрочке» работаю!",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Какое совпадение. Я работаю на пивзаводе «Три медведя»!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "С ума сойти, у вас четверня!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
+      "character": "muzhik-ryzhy",
+      "text": "Не может быть. Я работаю в «Четырёх лапах»!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Четвёртый вдруг белеет как мел, хватается за голову и начинает дрожать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik-sosed",
-      "text": "А ты чего так побелел?",
-      "emotion": "surprised",
+      "text": "Что это с вами?",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "А я в «Седьмом континенте».",
+      "id": "l10",
+      "character": "barmen",
+      "text": "Я работаю в «Седьмом континенте»!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

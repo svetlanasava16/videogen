@@ -2,23 +2,23 @@
   "id": "ru-1bb631e0641a.ru",
   "jokeId": "ru-1bb631e0641a",
   "locale": "ru",
-  "title": "Подарок девушке",
+  "title": "Кулончик",
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "cashier",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "devushka": "cashier"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Ой, мужчина, как хорошо, что вы зашли! Ко Дню святого Валентина скидка двадцать процентов.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Заходит мужик в ювелирный магазин.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Вот кулончик золотой, сердечком. Вашей девушке очень понравится.",
+      "text": "Ой, мужчина, как хорошо, что вы к нам зашли! Ко дню Святого Валентина у нас две недели двадцать процентов скидки, купите что-нибудь в подарок вашей девушке.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,32 +36,43 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "У меня нет девушки.",
-      "emotion": "sad",
+      "character": "devushka",
+      "text": "Вот кулончик золотой в форме сердечка, вашей девушке очень понравится.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "muzhik",
+      "text": "У меня нет девушки...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "devushka",
-      "text": "Не может быть! Такой видный, высокий мужчина и без девушки? Почему?",
+      "text": "Не может быть! Такой видный, красивый, высокий мужчина — и нет девушки? Почему?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Жена не разрешает.",
+      "text": "Жена не разрешает...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

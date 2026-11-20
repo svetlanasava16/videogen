@@ -6,45 +6,140 @@
   "location": "tserkov",
   "place": "church",
   "cast": [
-    "zhena",
+    "paren",
+    "vovochka",
     "muzhik",
-    "vovochka"
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
+    "paren": "teenager",
+    "vovochka": "child",
     "muzhik": "husband",
-    "vovochka": "child"
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Из церкви выходят молодожёны.",
+      "text": "Мальчишки глазеют на новобрачных, выходящих из церкви.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena",
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "vovochka",
-      "text": "Спорим, я их сейчас напугаю?",
+      "character": "paren",
+      "text": "Давай напугаем их.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "vovochka",
+      "text": "Я сам!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
       "text": "Отличный выбор, папа!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "paren",
+        "vovochka",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "paren": "teenager",
+        "vovochka": "child",
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#222222",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "clothes": "#ffffff",
+          "add": [],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "pew-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "altar"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "flowers",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

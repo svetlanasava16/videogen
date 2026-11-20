@@ -2,24 +2,28 @@
   "id": "de-witze-1s5wyg5.en",
   "jokeId": "de-witze-1s5wyg5",
   "locale": "en",
-  "title": "The Waiting Room",
+  "title": "Four Fathers",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
+    "devushka",
+    "muzhik",
     "muzhik-sosed",
     "muzhik-ryzhy",
-    "muzhik"
+    "barmen"
   ],
   "roles": {
+    "devushka": "nurse",
+    "muzhik": "father",
     "muzhik-sosed": "father",
     "muzhik-ryzhy": "father",
-    "muzhik": "father"
+    "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A maternity ward. Three dads-to-be are waiting for news from the nurse.",
+      "text": "Four men are sitting in the hospital waiting room while their wives give birth.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,41 +31,90 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Twins! Makes sense, I work for the Minnesota Twins!",
+      "character": "devushka",
+      "text": "Congratulations, you're the father of twins!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "devushka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "That figures. I work for the Minnesota Twins!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Congratulations, it's triplets!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Triplets! What are the odds? I work at Three M!",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "What a coincidence. I work at Three M!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "Amazing, it's quadruplets!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
+      "character": "muzhik-ryzhy",
+      "text": "No way. I work at the Four Seasons!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "The fourth man suddenly turns white as chalk, grabs his head and starts to tremble.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik-sosed",
-      "text": "Hey, buddy, why have you gone so pale?",
-      "emotion": "surprised",
+      "text": "What's the matter with you?",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "I work at Seven-Eleven.",
+      "id": "l10",
+      "character": "barmen",
+      "text": "I work at Seven-Eleven!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

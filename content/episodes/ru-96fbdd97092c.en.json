@@ -2,24 +2,40 @@
   "id": "ru-96fbdd97092c.en",
   "jokeId": "ru-96fbdd97092c",
   "locale": "en",
-  "title": "Last Wish",
+  "title": "He's Moving!",
   "location": "nebesa",
   "place": "heaven",
   "cast": [
-    "doktor",
     "ded",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "doktor": "doctor",
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stethoscope"
+      ],
+      "remove": []
+    },
+    "muzhik-sosed": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Two friends die in a car crash and end up before Saint Peter.",
+      "text": "Three friends die in a car crash. Naturally, they end up straight at an interview with Saint Peter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,59 +43,70 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Cheer up, boys. Picture your funeral. You're in the coffin, all dressed up, family and friends around you.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Peter sees that the guys are really down, crushed, and to cheer them up a little, he says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "What would you like them to say about you?",
-      "emotion": "neutral",
+      "text": "Now picture this: your funeral is underway, you're lying in the coffin, all dressed up and solemn, with your families and friends around you.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "That I was a wonderful family man and a fine doctor. That I saved many lives.",
+      "character": "ded",
+      "text": "What would you like them to say about you?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "That I left my mark on medicine.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Well, it would be nice if they said I was a wonderful family man, a good doctor, that I saved lots of people and left my mark on medicine.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Lovely. And you?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik-sosed",
+      "text": "I'd like someone to say what a wonderful teacher I was, that I left my mark on the souls of the younger generation, sowing what is wise, good and eternal.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "I'd like them all to suddenly shout: look, he's moving!",
-      "emotion": "happy",
+      "character": "muzhik-sosed",
+      "text": "And that I was a good father and husband.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "And I'd like everyone to suddenly shout at once: \"Look, he's moving!\"",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

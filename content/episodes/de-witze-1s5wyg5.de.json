@@ -2,24 +2,35 @@
   "id": "de-witze-1s5wyg5.de",
   "jokeId": "de-witze-1s5wyg5",
   "locale": "de",
-  "title": "Der Kreißsaal",
+  "title": "Vier Väter",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
+    "devushka",
+    "muzhik",
     "muzhik-sosed",
     "muzhik-ryzhy",
-    "muzhik"
+    "barmen"
   ],
   "roles": {
+    "devushka": "nurse",
+    "muzhik": "father",
     "muzhik-sosed": "father",
     "muzhik-ryzhy": "father",
-    "muzhik": "father"
+    "barmen": "salesman"
+  },
+  "looks": {
+    "muzhik-ryzhy": {
+      "clothes": "#1d5fae",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Drei werdende Väter warten vor dem Kreißsaal. Die Schwester bringt die Nachrichten.",
+      "text": "Vier Männer sitzen im Krankenhaus-Wartesaal, während ihre Frauen entbinden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,41 +38,90 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-sosed",
-      "text": "Zwillinge! Das passt ja, ich arbeite bei Zweirad Stadler!",
+      "character": "devushka",
+      "text": "Glückwunsch, Sie sind Vater von Zwillingen geworden!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "devushka"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Das passt ja. Ich arbeite bei Zweirad Stadler!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Gratulation, es sind Drillinge!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Drillinge? Was für ein Zufall! Ich arbeite bei Drei M!",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Was für ein Zufall. Ich arbeite bei Drei-M!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "devushka",
+      "text": "Wahnsinn, es sind Vierlinge!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l7",
+      "character": "muzhik-ryzhy",
+      "text": "Das gibt’s doch nicht. Ich arbeite für Schalke null vier!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Der vierte Mann wird plötzlich kreidebleich, hält sich den Kopf und fängt an zu zittern.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik-sosed",
-      "text": "Und Sie? Warum sind Sie denn so blass?",
-      "emotion": "surprised",
+      "text": "Was ist denn mit Ihnen los?",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Ich arbeite bei Seven-Eleven.",
+      "id": "l10",
+      "character": "barmen",
+      "text": "Ich arbeite bei Seven-Eleven!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

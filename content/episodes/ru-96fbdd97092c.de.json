@@ -2,24 +2,40 @@
   "id": "ru-96fbdd97092c.de",
   "jokeId": "ru-96fbdd97092c",
   "locale": "de",
-  "title": "Der letzte Wunsch",
+  "title": "Er bewegt sich!",
   "location": "nebesa",
   "place": "heaven",
   "cast": [
-    "doktor",
     "ded",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "doktor": "doctor",
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stethoscope"
+      ],
+      "remove": []
+    },
+    "muzhik-sosed": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Freunde sterben bei einem Autounfall und landen bei Petrus.",
+      "text": "Drei Freunde sterben bei einem Autounfall und landen natürlich direkt bei Petrus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,59 +43,70 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Kopf hoch, Jungs. Stellt euch eure Beerdigung vor. Ihr liegt im Sarg, schick angezogen, Familie und Freunde um euch herum.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Petrus will die niedergeschlagenen Männer aufmuntern.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "Was sollen die Leute über euch sagen?",
-      "emotion": "neutral",
+      "text": "Stellt euch vor: Eure Beerdigung, ihr liegt im Sarg, festlich und feierlich, um euch Familie und Freunde.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Dass ich ein guter Familienvater und ein guter Arzt war. Dass ich viele Leben gerettet habe.",
+      "character": "ded",
+      "text": "Was sollen sie über euch sagen?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "Dass ich in der Medizin Spuren hinterlassen habe.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Schön wäre, wenn sie sagen, ich war ein wunderbarer Familienvater, ein guter Arzt, habe viele Menschen gerettet und Spuren in der Medizin hinterlassen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Schön. Und du?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik-sosed",
+      "text": "Ich wünsche mir, dass jemand sagt, was für ein großartiger Lehrer ich war, dass ich Spuren in den Seelen der Jugend hinterlassen und Vernünftiges, Gutes, Ewiges gesät habe.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Ich hätte gern, dass alle auf einmal schreien: Guckt mal, er bewegt sich!",
-      "emotion": "happy",
+      "character": "muzhik-sosed",
+      "text": "Und dass ich ein guter Vater und Ehemann war.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Und ich wünsche mir, dass plötzlich alle auf einmal rufen: „Schaut, er bewegt sich!“",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

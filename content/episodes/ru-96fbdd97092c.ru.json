@@ -2,24 +2,40 @@
   "id": "ru-96fbdd97092c.ru",
   "jokeId": "ru-96fbdd97092c",
   "locale": "ru",
-  "title": "Последнее желание",
+  "title": "Шевелится!",
   "location": "nebesa",
   "place": "heaven",
   "cast": [
-    "doktor",
     "ded",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "doktor": "doctor",
     "ded": "saint-peter",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "everyman",
+    "muzhik-ryzhy": "everyman"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "stethoscope"
+      ],
+      "remove": []
+    },
+    "muzhik-sosed": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Двое друзей разбились на машине и попали к святому Петру.",
+      "text": "Три приятеля погибают в автокатастрофе. Попадают, ясное дело, прямо на интервью к святому Петру.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,59 +43,70 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Ну, не грустите. Представьте свои похороны. Вы в гробу, нарядные, вокруг родные и друзья.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Пётр видит, что мужики совсем грустные, пришибленные, и, чтобы как-то их подбодрить, говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "Что бы вы хотели о себе услышать?",
-      "emotion": "neutral",
+      "text": "Ну вот представьте себе: идут ваши похороны, вы лежите в гробу, такие нарядные, торжественные, вокруг семьи, друзья.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Что я был прекрасным семьянином и хорошим врачом. Спас множество людей.",
+      "character": "ded",
+      "text": "Что бы вы хотели, чтобы они о вас сказали?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "doktor",
-      "text": "Оставил след в медицине.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Ну, хорошо было бы, если бы сказали, что я был прекрасным семьянином, хорошим доктором, спас множество людей и оставил след в медицине.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Прекрасно. А ты?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "character": "muzhik-sosed",
+      "text": "Я бы хотел, чтобы кто-нибудь сказал, каким я был замечательным учителем, что оставил след в душах подрастающего поколения, сеял разумное, доброе, вечное.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "А я хочу, чтобы все разом закричали: гляди, шевелится!",
-      "emotion": "happy",
+      "character": "muzhik-sosed",
+      "text": "Ну и что был хорошим отцом, мужем.",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "А я бы хотел, чтобы все вдруг разом закричали: «Гляди, шевелится!»",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

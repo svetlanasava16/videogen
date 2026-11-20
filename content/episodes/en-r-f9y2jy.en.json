@@ -2,7 +2,7 @@
   "id": "en-r-f9y2jy.en",
   "jokeId": "en-r-f9y2jy",
   "locale": "en",
-  "title": "The Honest Trick",
+  "title": "The Magic Trick",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -19,37 +19,34 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "An Englishman and an Irishman walk into a bakery.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [
-        "vor",
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "narrator",
-      "text": "While the baker looks away, the Englishman pockets three buns.",
+      "text": "An Englishman and an Irishman go to a bakery. The Englishman steals three buns and puts them into his pockets.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "vor",
-      "text": "See? Pure skill. He didn't even notice.",
+      "text": "That took great skill and guile to steal those buns. The owner didn't even see me.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "That's just simple thievery.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l4",
       "character": "muzhik",
-      "text": "That's just stealing. I'll show you the honest way, same result.",
+      "text": "I'll show you how to do it the honest way and get the same results.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -58,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Excuse me, sir! Want to see a magic trick?",
+      "text": "Sir, I want to show you a magic trick.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -66,26 +63,28 @@
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "A magic trick? Sure!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "The owner is intrigued, so he comes over to see the magic trick.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "barmen"
+      ],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "First, I'll need a bun. And another. And one more.",
+      "text": "May I have a bun?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "He eats all three.",
+      "text": "And he eats it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,23 +92,43 @@
     },
     {
       "id": "l9",
-      "character": "barmen",
-      "text": "Okay, my friend. So where's the magic trick?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Another one, please.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
       "character": "muzhik",
+      "text": "And one more.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "barmen",
+      "text": "Okay my friend, where's the magic trick?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "muzhik",
       "text": "Look in the Englishman's pockets.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

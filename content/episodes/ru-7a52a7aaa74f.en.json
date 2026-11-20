@@ -6,20 +6,30 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
+    "muzhik-ryzhy",
     "paren",
+    "muzhik",
     "vovochka"
   ],
   "roles": {
-    "muzhik": "father",
+    "muzhik-ryzhy": "son",
     "paren": "son",
+    "muzhik": "father",
     "vovochka": "child"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Family dinner. A father and his three sons.",
+      "text": "Family dinner. At the table, a father and his sons.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +38,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Eat your soup properly! Stop picking at it, it's disgusting!",
+      "text": "Eat your soup properly! Why are you picking at it like that, it's disgusting to watch!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,7 +46,7 @@
     },
     {
       "id": "l3",
-      "character": "paren",
+      "character": "muzhik-ryzhy",
       "text": "What are you yelling for?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
@@ -46,16 +56,16 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Yelling? Why, you little brat!",
+      "text": "I'm yelling? Why, you little punk!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The eldest gets a smack. The middle one calls Dad a tyrant and gets one too. The youngest puts down his spoon and covers his ears.",
+      "text": "And smack, on the back of the head!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,23 +73,53 @@
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "And why are you hiding? You eat well, you're polite, you never talk back. What are you afraid of?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "paren",
+      "text": "Dad, if a person doesn't want to eat, why are you forcing him, and hitting him too? You're just like a tyrant.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "vovochka",
-      "text": "I know I'm polite. It's just in case. You're such a jerk.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "I'm a tyrant? Why, you little rat!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "And smack, smack, on the ears. Then the youngest puts down his spoon and covers his ears with his hands.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "And why are you covering up? You eat well, you're polite, you don't talk back to your father, what are you afraid of?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "vovochka",
+      "text": "I know I'm polite. It's just in case, you're such a jerk...",
+      "uncensored": "I know I'm polite. It's just in case, you're such an asshole...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

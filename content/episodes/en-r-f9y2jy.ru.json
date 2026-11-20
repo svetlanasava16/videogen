@@ -2,7 +2,7 @@
   "id": "en-r-f9y2jy.ru",
   "jokeId": "en-r-f9y2jy",
   "locale": "ru",
-  "title": "Честный фокус",
+  "title": "Фокус",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -19,37 +19,34 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Двое приятелей заходят в булочную.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [
-        "vor",
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "narrator",
-      "text": "Пока пекарь отвернулся, один прячет по карманам три булки.",
+      "text": "Англичанин и ирландец заходят в булочную. Англичанин крадёт три булочки и прячет их по карманам.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "vor",
-      "text": "Видал? Чистая работа. Он даже не заметил.",
+      "text": "Чтобы стащить эти булочки, нужны большое мастерство и хитрость. Хозяин меня даже не заметил.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Это просто обычное воровство.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l4",
       "character": "muzhik",
-      "text": "Это просто воровство. Смотри, как то же самое делается честно.",
+      "text": "Я покажу тебе, как сделать это честно и получить тот же результат.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -58,7 +55,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Хозяин! Хотите, фокус покажу?",
+      "text": "Хозяин! Хочу показать вам фокус.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -66,26 +63,28 @@
     },
     {
       "id": "l6",
-      "character": "barmen",
-      "text": "Фокус? Ну давай!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Хозяину любопытно, и он подходит посмотреть на фокус.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "barmen"
+      ],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Для начала дайте булочку. И ещё одну. И ещё.",
+      "text": "Дайте мне булочку.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Он съедает все три.",
+      "text": "И съедает её.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -93,23 +92,43 @@
     },
     {
       "id": "l9",
-      "character": "barmen",
-      "text": "Так, дружище. А фокус-то где?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Ещё одну, пожалуйста.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "А вы загляните к нему в карманы.",
-      "emotion": "smug",
+      "text": "И ещё одну.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "barmen",
+      "text": "Ну хорошо, друг мой, а где же фокус?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "muzhik",
+      "text": "Загляните в карманы англичанина.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

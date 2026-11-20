@@ -2,24 +2,22 @@
   "id": "en-r-6a1czd.ru",
   "jokeId": "en-r-6a1czd",
   "locale": "ru",
-  "title": "Студенческий самолёт",
+  "title": "Построили студенты",
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "ded",
-    "doktor",
-    "devushka-blondinka"
+    "devushka-blondinka",
+    "doktor"
   ],
   "roles": {
-    "ded": "professor",
-    "doktor": "professor",
-    "devushka-blondinka": "flight-attendant"
+    "devushka-blondinka": "flight-attendant",
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Профессоров инженерного факультета пригласили в полёт на новом самолёте.",
+      "text": "Группу профессоров инженерного факультета пригласили полетать на самолёте.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +26,7 @@
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Уважаемые профессора! Этот самолёт построили ваши студенты!",
+      "text": "Этот самолёт построили ваши студенты.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,19 +34,17 @@
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "Студенты? Выпустите меня отсюда!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Все, кроме одного, вскочили с мест и в безумной панике бросились к выходам.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "Профессор, все убежали. А вы почему сидите?",
+      "text": "А вы почему остались?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,20 +53,82 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Я своих студентов знаю.",
+      "text": "Я вполне уверен в своих студентах.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Это корыто даже не заведётся.",
+      "text": "Зная их, могу вам точно сказать: этот кусок хлама даже не заведётся.",
+      "uncensored": "Зная их, могу вам точно сказать: этот кусок дерьма даже не заведётся.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "devushka-blondinka",
+        "doktor"
+      ],
+      "roles": {
+        "devushka-blondinka": "flight-attendant",
+        "doktor": "professor"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "aisle"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "flee"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

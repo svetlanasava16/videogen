@@ -31,13 +31,14 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   const nearEdge = (id: string): "left" | "right" => (cast.indexOf(id) < cast.length / 2 ? "left" : "right");
   const pres = (id: string, f: number) => tl.presence(sc, id, f);
 
-  /** Автослот: доли ширины делятся между теми, кто в кадре, пропорционально присутствию. */
+  /** Автослот: доли ширины делятся между теми, кто в кадре, пропорционально присутствию. При 4–5 — с полями, чтобы крайние не обрезались. */
+  const margin = cast.length >= 4 ? boxW * 0.32 : 0;
   const slotX = (id: string, f: number) => {
     const w = cast.map((c) => ease(pres(c, f)));
     const total = w.reduce((a, b) => a + b, 0) || 1;
     const i = cast.indexOf(id);
     const before = w.slice(0, i).reduce((a, b) => a + b, 0);
-    return ((before + Math.max(w[i], 0.0001) / 2) / total) * width;
+    return margin + ((before + Math.max(w[i], 0.0001) / 2) / total) * (width - 2 * margin);
   };
 
   const xAt = (id: string, f: number): number => {

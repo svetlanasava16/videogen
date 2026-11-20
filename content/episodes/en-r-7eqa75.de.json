@@ -2,88 +2,207 @@
   "id": "en-r-7eqa75.de",
   "jokeId": "en-r-7eqa75",
   "locale": "de",
-  "title": "Nach dem Gottesdienst",
-  "location": "tserkov",
+  "title": "Der Freundschaftsdienst",
+  "location": "ulitsa",
   "place": "church",
   "cast": [
     "muzhik",
-    "muzhik-sosed",
-    "batyushka"
+    "muzhik-sosed"
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
-    "batyushka": "priest"
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Günther, ich hab was mit der Frau vom Pfarrer.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "character": "narrator",
+      "text": "Horst geht zu seinem Kumpel Günther und sagt...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Halt ihn nach dem Gottesdienst eine Stunde in der Kirche fest.",
-      "emotion": "neutral",
+      "text": "Ich schlafe mit der Frau vom Pfarrer.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Nach dem Gottesdienst.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Kannst du ihn nach dem Gottesdienst eine Stunde in der Kirche aufhalten?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Herr Pfarrer, können Fische sündigen? Niesen Engel? Warum ist der Himmel blau?",
+      "character": "narrator",
+      "text": "Dem Freund gefällt das nicht, aber als guter Kumpel sagt er zu.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "batyushka",
-      "text": "Mein Sohn, was soll das eigentlich?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Nach dem Gottesdienst stellt Günther dem Pfarrer alle möglichen dummen Fragen, nur um ihn zu beschäftigen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-sosed",
-      "text": "Verzeihung. Mein Freund ist gerade bei Ihrer Frau. Ich soll Sie aufhalten.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Schließlich wird der Pfarrer ungehalten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "batyushka",
-      "text": "Dann lauf schnell nach Hause, mein Sohn. Meine Frau ist vor einem Jahr gestorben.",
-      "emotion": "happy",
+      "text": "Was haben Sie eigentlich wirklich vor?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Günther fühlt sich schuldig und gesteht dem Pfarrer schließlich...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-sosed",
+      "text": "Mein Freund schläft gerade mit Ihrer Frau, deshalb hat er mich gebeten, Sie zu beschäftigen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Der Pfarrer lächelt, legt Günther brüderlich die Hand auf die Schulter und sagt...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "batyushka",
+      "text": "Sie sollten jetzt schnell nach Hause gehen. Meine Frau ist vor einem Jahr gestorben.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik-sosed",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend",
+        "batyushka": "priest"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

@@ -2,23 +2,23 @@
   "id": "en-r-c6bnkr.ru",
   "jokeId": "en-r-c6bnkr",
   "locale": "ru",
-  "title": "Секрет долголетия",
+  "title": "Прадедушка",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Мальчик, столько шоколада есть вредно.",
-      "emotion": "neutral",
+      "text": "Есть столько шоколадок вредно.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "А мой прадедушка прожил сто пять лет.",
-      "emotion": "smug",
+      "text": "Мой прадедушка дожил до ста пяти лет.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,18 +37,64 @@
       "character": "muzhik",
       "text": "И он ел столько шоколада?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Нет. Он не лез не в своё дело.",
-      "emotion": "smug",
+      "text": "Нет. Но он не лез не в своё, блин, дело.",
+      "uncensored": "Нет. Но он не лез не в своё, блядь, дело.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "bench"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

@@ -36,6 +36,7 @@ function figures(spec: CrowdSpec, seed: string): Look[] {
 function pose(react: CrowdEvent["react"] | undefined, frame: number, i: number) {
   const ph = frame / 3 + i * 1.3;
   switch (react) {
+    case "flee":
     case "scream": return { emotion: "surprised" as Emotion, speaking: true, dx: Math.sin(ph * 1.9) * 7, dy: 0 };
     case "gasp": return { emotion: "surprised" as Emotion, speaking: false, dx: 0, dy: -4 };
     case "laugh": return { emotion: "happy" as Emotion, speaking: true, dx: 0, dy: -Math.abs(Math.sin(ph)) * 8 };
@@ -54,10 +55,14 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
 }) => {
   const frame = useCurrentFrame();
   const looks = figures(spec, seed);
+  // убежали — больше не показываем
+  if (events.some((e) => e.react === "flee" && frame > e.to)) return null;
   const ev = events.find((e) => frame >= e.from && frame <= e.to + 6);
-  const h = heroH * 0.62;
+  // дети сами по себе маленькие: крупнее и дальше (выше по кадру), чтобы головы были видны над героями
+  const kids = KID_CROWDS.includes(spec.who);
+  const h = heroH * (kids ? 0.8 : 0.62);
   const w = (h * BOX_W) / BOX_H;
-  const feet = floorY - heroH * 0.1;
+  const feet = floorY - heroH * (kids ? 0.2 : 0.1);
   return (
     <div style={{ position: "absolute", inset: 0, filter: "saturate(0.6) brightness(0.88)" }}>
       {looks.map((look, i) => {
@@ -65,12 +70,21 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
         const p = pose(ev?.react, frame, i);
         const delay = ev && frame < ev.from + i * 2; // реакция прокатывается по ряду
         const q = delay ? pose(undefined, frame, i) : p;
+        if (ev?.react === "flee" && !delay) {
+          // бегут к ближнему краю: крик, руки вверх, разгон
+          const k = Math.min(1, Math.max(0, (frame - ev.from - i * 2) / Math.max(1, ev.to - ev.from - i * 2)));
+          const side = x < width / 2 ? -1 : 1;
+          q.dx = side * k * k * (width / 2 + w);
+          q.dy = -Math.abs(Math.sin(frame / 2.5 + i)) * 10;
+        }
         return (
           <div key={i} style={{
             position: "absolute", left: x - w / 2 + q.dx, top: feet - (h * 585) / BOX_H + q.dy, width: w, height: h,
             display: "flex", justifyContent: "center",
           }}>
-            <Puppet look={look} emotion={q.emotion} speaking={q.speaking} facing={i % 2 ? -1 : 1} seed={i * 31 + 7} />
+            <Puppet look={look} emotion={q.emotion} speaking={q.speaking} seed={i * 31 + 7}
+              walk={ev?.react === "flee" && !delay ? 1 : 0}
+              facing={ev?.react === "flee" && !delay ? (x < width / 2 ? -1 : 1) : i % 2 ? -1 : 1} />
           </div>
         );
       })}

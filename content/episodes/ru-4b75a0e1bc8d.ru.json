@@ -2,24 +2,24 @@
   "id": "ru-4b75a0e1bc8d.ru",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "ru",
-  "title": "Икоточка",
+  "title": "Икота",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
     "tyoshcha",
-    "paren",
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
     "tyoshcha": "old-woman",
-    "paren": "student",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "paren": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Женщина за пятьдесят на приёме у молоденького доктора, только что из института.",
+      "text": "Мария Петровна пошла к врачу. Её записали на приём к совсем молоденькому доктору, только что из института.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,31 +27,27 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Что? Беременна? Я? Да вы с ума сошли!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Через несколько минут Мария Петровна выскочила из кабинета с дикими криками и воплями и понеслась вдоль по коридору.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Ты что себе позволяешь?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Навстречу ей шёл пожилой врач. Он остановил её и поинтересовался, в чём дело.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Ей пятьдесят шестой год, у неё взрослая дочь, скоро внук будет!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Когда он вошёл в кабинет молодого врача, вид у него был суровый.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -59,20 +55,98 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "А ты ей говоришь, что она беременна?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "Ты что это себе позволяешь?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Но икоточка-то у неё прошла?",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Марии Петровне пошёл пятьдесят шестой год, у неё взрослая дочь, скоро внук будет, а ты ей говоришь, что она беременна!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Но икоточка-то у неё прошла?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "tyoshcha",
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

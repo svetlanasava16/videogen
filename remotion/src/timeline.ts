@@ -53,7 +53,7 @@ export type SceneTL = {
 /** Реакция массовки: с кадра from до to. */
 export type CrowdEvent = { react: CrowdReact; from: number; to: number };
 /** Сколько длится реакция массовки (секунды, сдвигает таймлайн). */
-const CROWD_SEC: Record<CrowdReact, number> = { scream: 1.2, gasp: 0.7, laugh: 1.2, cheer: 1.2, murmur: 1.0, calm: 0.6 };
+const CROWD_SEC: Record<CrowdReact, number> = { scream: 1.2, gasp: 0.7, laugh: 1.2, cheer: 1.2, murmur: 1.0, calm: 0.6, flee: 1.4 };
 
 /** Звук на таймлайне: смех, эффект или музыка (кадры). */
 export type Cue = { clip: AudioClip; from: number; frames: number };

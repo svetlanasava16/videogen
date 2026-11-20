@@ -7,19 +7,19 @@
   "place": "hospital",
   "cast": [
     "tyoshcha",
-    "paren",
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
     "tyoshcha": "old-woman",
-    "paren": "student",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "paren": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau Mitte fünfzig sitzt bei einem jungen Arzt, frisch von der Uni.",
+      "text": "Frau Petersen ging zum Arzt. Man gab ihr einen Termin bei einem ganz jungen Doktor, frisch von der Uni.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,31 +27,27 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Schwanger? Ich? Sind Sie verrückt geworden?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Nach ein paar Minuten in seinem Sprechzimmer stürzte Frau Petersen mit wildem Geschrei heraus und rannte den Flur entlang.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Was fällt dir eigentlich ein?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Ihr kam ein älterer Arzt entgegen. Er hielt sie an und fragte, was los sei.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Die Frau ist fünfundfünfzig, hat eine erwachsene Tochter und wird bald Oma!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Als er das Zimmer des jungen Arztes betrat, sah er streng aus.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -59,20 +55,98 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Und du sagst ihr, sie sei schwanger?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "Was erlaubst du dir eigentlich?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Aber der Schluckauf ist weg, oder?",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Frau Petersen ist fünfundfünfzig, sie hat eine erwachsene Tochter, bald kommt ein Enkel, und du sagst ihr, sie ist schwanger!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Aber der Schluckauf ist doch weg, oder?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "tyoshcha",
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

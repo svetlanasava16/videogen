@@ -2,23 +2,23 @@
   "id": "en-r-c6bnkr.de",
   "jokeId": "en-r-c6bnkr",
   "locale": "de",
-  "title": "Das Geheimnis",
+  "title": "Der Urgroßvater",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "muzhik",
-    "vovochka"
+    "vovochka",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "vovochka": "child"
+    "vovochka": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "So viel Schokolade ist ungesund, Junge.",
-      "emotion": "neutral",
+      "text": "So viele Schokoriegel zu essen ist ungesund.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "vovochka",
-      "text": "Mein Uropa ist hundertfünf geworden.",
-      "emotion": "smug",
+      "text": "Mein Urgroßvater ist hundertfünf Jahre alt geworden.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,20 +35,66 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Und der hat so viel Schokolade gegessen?",
+      "text": "Und er hat so viel Schokolade gegessen?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Nein. Er hat sich um seinen eigenen Kram gekümmert.",
-      "emotion": "smug",
+      "text": "Nein. Aber er hat sich um seinen eigenen Mist gekümmert.",
+      "uncensored": "Nein. Aber er hat sich um seinen eigenen Scheiß gekümmert.",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "vovochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "bench"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

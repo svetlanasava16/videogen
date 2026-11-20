@@ -2,23 +2,23 @@
   "id": "ru-1bb631e0641a.en",
   "jokeId": "ru-1bb631e0641a",
   "locale": "en",
-  "title": "A Gift for Your Girlfriend",
+  "title": "The Pendant",
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "cashier",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "devushka": "cashier"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "devushka",
-      "text": "Oh, sir, so glad you came in! Twenty percent off for Valentine's Day.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "A man walks into a jewelry store.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "muzhik"
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Look, a gold heart pendant. Your girlfriend will love it.",
+      "text": "Oh, sir, how nice of you to stop by! For Valentine's Day we have twenty percent off for two weeks, buy something for your girlfriend.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,32 +36,43 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "I don't have a girlfriend.",
-      "emotion": "sad",
+      "character": "devushka",
+      "text": "Here's a little gold heart pendant, your girlfriend will love it.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "muzhik",
+      "text": "I don't have a girlfriend...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "devushka",
-      "text": "No way! A tall, handsome man like you, and no girlfriend? Why not?",
+      "text": "That can't be! Such a fine, handsome, tall man, and no girlfriend? Why?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "My wife won't let me.",
+      "text": "My wife won't let me...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

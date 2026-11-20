@@ -2,88 +2,207 @@
   "id": "en-r-7eqa75.ru",
   "jokeId": "en-r-7eqa75",
   "locale": "ru",
-  "title": "После службы",
-  "location": "tserkov",
+  "title": "Дружеская услуга",
+  "location": "ulitsa",
   "place": "church",
   "cast": [
     "muzhik",
-    "muzhik-sosed",
-    "batyushka"
+    "muzhik-sosed"
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
-    "batyushka": "priest"
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Слушай, выручай. У меня роман с женой батюшки.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "character": "narrator",
+      "text": "Мужик приходит к своему другу и говорит...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Задержи его после службы на часок.",
-      "emotion": "neutral",
+      "text": "Я сплю с женой батюшки.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "После службы.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Можешь задержать его в церкви на часок после службы?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Батюшка, а рыбы грешат? А ангелы чихают? А почему небо синее?",
+      "character": "narrator",
+      "text": "Другу это не нравится, но он же друг, и он соглашается.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "batyushka",
-      "text": "Сын мой, ты чего от меня хочешь?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "После службы друг заводит разговор с батюшкой и задаёт ему всякие дурацкие вопросы, лишь бы его занять.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-sosed",
-      "text": "Простите, батюшка. Мой друг сейчас с вашей женой. Он просил вас задержать.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Наконец батюшке это надоедает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "batyushka",
-      "text": "Беги-ка домой, сын мой. Жена моя год как умерла.",
-      "emotion": "happy",
+      "text": "Чего ты на самом деле добиваешься?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Мучаясь совестью, друг наконец признаётся батюшке...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-sosed",
+      "text": "Мой друг сейчас спит с вашей женой, вот он и попросил меня вас занять.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Батюшка улыбается, по-братски кладёт ему руку на плечо и говорит...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "batyushka",
+      "text": "Беги-ка ты скорее домой. Моя жена умерла год назад.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik-sosed",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend",
+        "batyushka": "priest"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

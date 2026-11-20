@@ -2,88 +2,207 @@
   "id": "en-r-7eqa75.en",
   "jokeId": "en-r-7eqa75",
   "locale": "en",
-  "title": "After Mass",
-  "location": "tserkov",
+  "title": "The Favour",
+  "location": "ulitsa",
   "place": "church",
   "cast": [
     "muzhik",
-    "muzhik-sosed",
-    "batyushka"
+    "muzhik-sosed"
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "friend",
-    "batyushka": "priest"
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Bob, I need a favour. I'm seeing the priest's wife.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "character": "narrator",
+      "text": "Joe goes to his buddy Bob and says...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Keep him busy in church for an hour after mass.",
-      "emotion": "neutral",
+      "text": "I'm sleeping with the priest's wife.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "After mass.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Can you hold him in church for an hour after mass for me?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-sosed",
-      "text": "Father, can fish sin? Do angels sneeze? Why is the sky blue?",
+      "character": "narrator",
+      "text": "The friend doesn't like it but being a buddy, he agrees.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "batyushka",
-      "text": "My son, what are you really up to?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "After mass, Bob starts talking to the priest, asking him all sorts of stupid questions, just to keep him occupied.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik-sosed",
-      "text": "Forgive me, Father. My friend is with your wife right now. I'm supposed to keep you busy.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Finally the priest gets annoyed.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "batyushka",
-      "text": "Then you'd better hurry home, my son. My wife died a year ago.",
-      "emotion": "happy",
+      "text": "What are you really up to?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Bob, feeling guilty, finally confesses to the priest...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-sosed",
+      "text": "My friend is sleeping with your wife right now, so he asked me to keep you occupied.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "The priest smiles, puts a brotherly hand on Bob's shoulder and says...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "batyushka",
+      "text": "You better hurry home now. My wife died a year ago.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "tserkov",
+      "cast": [
+        "muzhik-sosed",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend",
+        "batyushka": "priest"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "altar"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

@@ -10,27 +10,25 @@
     "paren"
   ],
   "roles": {
-    "zhena": "mother",
+    "zhena": "customer",
     "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "zhena",
-      "text": "Excuse me, young man.",
+      "character": "narrator",
+      "text": "While picking up a turkey for this Thanksgiving, I overheard this gem.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "I need a turkey for Thanksgiving, but these are all too small for my family.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "A lady was picking through the frozen turkeys, but she couldn't find one big enough for her family.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -46,13 +44,15 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "No, ma'am. They're dead.",
+      "text": "No ma'am, they're dead.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

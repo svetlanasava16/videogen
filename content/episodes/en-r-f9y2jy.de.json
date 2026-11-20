@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei Kumpel in einer Bäckerei. Der eine steckt heimlich drei Brötchen ein.",
+      "text": "Ein Engländer und ein Ire gehen in eine Bäckerei. Der Engländer klaut drei Brötchen und steckt sie in seine Taschen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "vor",
-      "text": "Siehst du? Drei Brötchen, und der Bäcker hat nichts gemerkt. Das nennt man Können.",
+      "text": "Es hat großes Geschick und List gebraucht, diese Brötchen zu klauen. Der Besitzer hat mich nicht mal gesehen.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,26 +37,35 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Das ist bloß Diebstahl. Ich zeig dir, wie man das ehrlich macht.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "text": "Das ist einfach nur Diebstahl.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Herr Bäcker! Ich möchte Ihnen einen Zaubertrick zeigen!",
-      "emotion": "happy",
+      "text": "Ich zeig dir, wie man das auf die ehrliche Art macht und dasselbe Ergebnis bekommt.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "barmen",
-      "text": "Ein Zaubertrick? Na, da bin ich gespannt.",
-      "emotion": "surprised",
+      "character": "muzhik",
+      "text": "Mein Herr, ich möchte Ihnen einen Zaubertrick zeigen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Bäcker ist neugierig und kommt herüber.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "barmen"
@@ -64,33 +73,62 @@
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Geben Sie mir ein Brötchen. Und noch eins. Und noch eins.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l7",
-      "character": "barmen",
-      "text": "Jetzt haben Sie drei Brötchen aufgegessen. Wo ist denn der Trick?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "muzhik",
+      "text": "Darf ich ein Brötchen haben?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Und er isst es auf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik",
-      "text": "Schauen Sie mal in seine Taschen.",
-      "emotion": "smug",
+      "text": "Noch eins, bitte.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Und noch eins.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "barmen",
+      "text": "Na gut, mein Freund, wo ist denn jetzt der Zaubertrick?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "muzhik",
+      "text": "Schauen Sie in die Taschen des Engländers.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

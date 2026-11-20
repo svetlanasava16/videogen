@@ -6,18 +6,18 @@
   "location": "magazin",
   "place": "pharmacy",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "pharmacist",
-    "vovochka": "child"
+    "vovochka": "child",
+    "uchilka": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
-      "text": "Nur das hier, bitte.",
+      "character": "narrator",
+      "text": "Zwei kleine Jungs gingen in eine Apotheke, suchten sich eine Packung Tampons aus und gingen zur Kasse.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,9 +28,9 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Tampons? Wie alt bist du denn, Kleiner?",
+      "text": "Na, mein Junge, wie alt bist du?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -39,14 +39,14 @@
       "character": "vovochka",
       "text": "Acht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "uchilka",
-      "text": "Und weißt du, wofür die sind?",
+      "text": "Weißt du, wofür man die benutzt?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Nicht so genau. Die sind nicht für mich, sondern für meinen Bruder. Der ist vier.",
+      "text": "Nicht genau, aber die sind nicht für mich. Die sind für ihn...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,22 +64,33 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Im Fernsehen haben sie gesagt, damit kann man schwimmen und Fahrrad fahren.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "text": "Das ist mein Bruder. Er ist vier.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "vovochka",
-      "text": "Und er kann beides noch nicht.",
-      "emotion": "sad",
+      "text": "Wir haben im Fernsehen gesehen, dass man, wenn man die benutzt, schwimmen und Fahrrad fahren kann.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "vovochka",
+      "text": "Im Moment kann er beides nicht.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

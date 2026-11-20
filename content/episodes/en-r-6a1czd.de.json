@@ -6,20 +6,18 @@
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "ded",
-    "doktor",
-    "devushka-blondinka"
+    "devushka-blondinka",
+    "doktor"
   ],
   "roles": {
-    "ded": "professor",
-    "doktor": "professor",
-    "devushka-blondinka": "flight-attendant"
+    "devushka-blondinka": "flight-attendant",
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Gruppe von Ingenieurprofessoren sitzt in einem nagelneuen Flugzeug.",
+      "text": "Eine Gruppe von Ingenieurprofessoren wurde zu einem Flug eingeladen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +26,7 @@
     {
       "id": "l2",
       "character": "devushka-blondinka",
-      "text": "Meine Damen und Herren, dieses Flugzeug haben Ihre eigenen Studenten gebaut!",
+      "text": "Dieses Flugzeug haben Ihre Studenten gebaut.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,19 +34,17 @@
     },
     {
       "id": "l3",
-      "character": "ded",
-      "text": "Unsere Studenten? Lassen Sie mich sofort raus!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Alle bis auf einen sprangen von ihren Sitzen und stürzten in heller Panik zu den Ausgängen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "exit": []
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "Herr Professor, alle sind weg. Warum bleiben Sie sitzen?",
+      "text": "Warum sind Sie sitzen geblieben?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,20 +53,82 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Ich kenne meine Studenten.",
+      "text": "Ich habe vollstes Vertrauen in meine Studenten.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Die Kiste springt nicht mal an.",
+      "text": "So wie ich sie kenne, kann ich Ihnen versichern: Diese Mistkiste springt nicht einmal an.",
+      "uncensored": "So wie ich sie kenne, kann ich Ihnen versichern: Diese Scheißkiste springt nicht einmal an.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "devushka-blondinka",
+        "doktor"
+      ],
+      "roles": {
+        "devushka-blondinka": "flight-attendant",
+        "doktor": "professor"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "aisle"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "seat-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "flee"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

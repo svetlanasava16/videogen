@@ -168,8 +168,12 @@ const STAGES: Record<string, Stage> = {
         if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
         for (const c of s0.cast) if ((s0.roles ?? {})[c] !== (row.roles ?? {})[c]) pr.push(`top-level roles must repeat the first scene's roles (${c})`);
       } else pr.push(...stagingProblems(row.cast, row.lines));
-      const words = row.lines.reduce((n, l) => n + l.text.split(/\s+/).filter(Boolean).length, 0);
-      if (words > Number(input.maxWords ?? 110) * 1.15) pr.push(`too long: ${words} words`);
+      // лимит режет только рассказчика: если одних реплик персонажей больше лимита, это допустимо (реплики не сокращаются)
+      const count = (t: string) => t.split(/\s+/).filter(Boolean).length;
+      const words = row.lines.reduce((n, l) => n + count(l.text), 0);
+      const narration = row.lines.filter((l) => l.character === NARRATOR).reduce((n, l) => n + count(l.text), 0);
+      if (words > Number(input.maxWords ?? 110) * 1.15 && narration > words * 0.1)
+        pr.push(`too long: ${words} words, ${narration} of them narration — shorten the narration only, never the spoken lines`);
       return pr;
     },
   },
@@ -206,7 +210,7 @@ function writeScriptContext() {
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
     "## Crowd", "",
-    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm. At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
+    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
   ];
   mkdirSync(join(DATA, "llm", "script"), { recursive: true });
   writeFileSync(join(DATA, "llm", "script", "context.md"), lines.join("\n"));

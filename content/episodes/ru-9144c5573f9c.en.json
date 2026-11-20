@@ -2,7 +2,7 @@
   "id": "ru-9144c5573f9c.en",
   "jokeId": "ru-9144c5573f9c",
   "locale": "en",
-  "title": "Someone Under the Bed",
+  "title": "The Bed Legs",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Doctor, I'm exhausted. Every night in bed I feel someone is under it.",
+      "text": "Doctor, I'm worn out.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "So I crawl under the bed, and then I feel someone lying on top. All night long.",
+      "text": "I go to bed, and I feel like there's someone under the bed. I crawl under the bed, take a good look, and then I sense someone lying on my bed.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,9 +36,9 @@
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "A complex syndrome. Two or three months of intensive treatment. Expensive, but we'll cure you.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "I crawl out from under the bed, nobody's up there. I lie down, and I feel it: there is someone under the bed after all.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,60 +46,181 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Okay. I'll think about it.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "And when I crawl under the bed again, I feel like there's someone on top. And so on all night.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "A month later, the doctor runs into him on the street.",
+      "character": "doktor",
+      "text": "Yes, there is such a complex syndrome. We'll treat you intensively, two or three months.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Hello! Why didn't you come back?",
-      "emotion": "surprised",
+      "text": "We do charge a lot, mind you, but most likely we'll cure you.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "My neighbor cured me. For one bottle.",
+      "text": "All right, I'll think about it.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik"
+      ]
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "He never came back. A month later the doctor runs into him on the street.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "doktor",
+      "text": "How are you doing?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik",
+      "text": "Oh, my neighbor cured me for a bottle.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l11",
       "character": "doktor",
-      "text": "How?",
+      "text": "How's that?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l12",
       "character": "muzhik",
-      "text": "We had a drink, and he said: just saw the legs off your bed.",
-      "emotion": "smug",
+      "text": "We had a drink, and he says to me: just saw the damn legs off your bed.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "patient",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

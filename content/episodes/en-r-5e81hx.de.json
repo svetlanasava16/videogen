@@ -2,53 +2,51 @@
   "id": "en-r-5e81hx.de",
   "jokeId": "en-r-5e81hx",
   "locale": "de",
-  "title": "Die letzte Schüssel Chili",
+  "title": "Scharfes Chili",
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "barmen",
     "muzhik",
+    "barmen",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "barmen": "waiter",
     "muzhik": "everyman",
+    "barmen": "waiter",
     "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Einmal scharfes Chili, bitte.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "character": "narrator",
+      "text": "Ein Typ setzt sich in einen Imbiss.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Tut mir leid, die letzte Schüssel hat Ihr Nachbar bekommen.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Eine Schüssel scharfes Chili, bitte.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Du bist doch fertig, und dein Chili ist noch voll. Isst du das noch?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Tut mir leid, aber der Mann neben Ihnen hat die letzte Schüssel bekommen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Nö. Bedien dich.",
+      "character": "narrator",
+      "text": "Er schaut rüber: Der Mann ist fertig mit Essen, aber die Schüssel Chili ist noch voll.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,8 +54,8 @@
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Auf halber Strecke stößt sein Löffel auf etwas.",
+      "character": "muzhik",
+      "text": "Essen Sie das Chili noch?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -65,9 +63,9 @@
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Eine tote Maus!",
-      "emotion": "surprised",
+      "character": "muzhik-ryzhy",
+      "text": "Nein. Bedienen Sie sich.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -75,22 +73,33 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Und das ganze Chili landet wieder in der Schüssel.",
+      "text": "Er zieht die Schüssel rüber und fängt an zu essen. Etwa bei der Hälfte stößt sein Löffel auf etwas.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik-ryzhy",
-      "text": "Jep. Weiter bin ich auch nicht gekommen.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Er schaut hin, sieht eine tote Maus und kotzt sofort das ganze Chili zurück in die Schüssel.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Ja, genau so weit bin ich auch gekommen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

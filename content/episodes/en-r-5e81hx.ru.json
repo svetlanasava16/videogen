@@ -2,53 +2,51 @@
   "id": "en-r-5e81hx.ru",
   "jokeId": "en-r-5e81hx",
   "locale": "ru",
-  "title": "Последняя тарелка чили",
+  "title": "Острый чили",
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "barmen",
     "muzhik",
+    "barmen",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "barmen": "waiter",
     "muzhik": "everyman",
+    "barmen": "waiter",
     "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Мне тарелку острого чили, пожалуйста.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "character": "narrator",
+      "text": "Мужик садится в закусочной.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Извините, последнюю тарелку взял ваш сосед.",
-      "emotion": "sad",
+      "character": "muzhik",
+      "text": "Тарелку острого чили, пожалуйста.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Слушай, ты же поел, а чили не тронул. Будешь?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Извините, но последнюю тарелку взял мужчина рядом с вами.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Не. Угощайся.",
+      "character": "narrator",
+      "text": "Он смотрит: сосед уже поел, а тарелка чили так и стоит полная.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,8 +54,8 @@
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "На середине ложка во что-то упирается.",
+      "character": "muzhik",
+      "text": "Вы будете есть это чили?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -65,9 +63,9 @@
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Дохлая мышь!",
-      "emotion": "surprised",
+      "character": "muzhik-ryzhy",
+      "text": "Нет. Угощайтесь.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -75,22 +73,33 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "И весь чили тут же отправляется обратно в тарелку.",
+      "text": "Он пододвигает тарелку к себе и начинает есть. Примерно на середине ложка на что-то натыкается.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik-ryzhy",
-      "text": "Ага. Я тоже вот досюда доел.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Он смотрит вниз, видит дохлую мышь, и его тут же выворачивает всем чили обратно в тарелку.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik-ryzhy",
+      "text": "Ага, я тоже примерно до этого места дошёл.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -38,6 +38,9 @@ export const PropItem = ({ id, x, y }: { id: string; x: number; y: number }) => 
       return g(<><rect x={-34} y={-40} width={68} height={32} rx={4} fill="#f2b33d" /><rect x={8} y={-40} width={3} height={32} fill="#f6f2e8" /><rect x={-26} y={-30} width={26} height={5} fill="#8a5a3a" /><rect x={-26} y={-20} width={20} height={5} fill="#8a5a3a" /></>);
     case "cane":
       return g(<><rect x={-4} y={0} width={8} height={150} rx={4} fill="#6b4429" /><path d="M-4 0 Q-4 -26 20 -26 Q34 -26 34 -12" fill="none" stroke="#6b4429" strokeWidth={8} strokeLinecap="round" /></>);
+    case "white-cane":
+      // трость слепого: длинная, белая, с красным кончиком, без рукояти-крюка
+      return g(<><rect x={-4} y={-30} width={8} height={210} rx={4} fill="#f4f4f0" /><rect x={-4} y={-30} width={8} height={14} rx={3} fill="#2b1d14" /><rect x={-4} y={160} width={8} height={20} rx={3} fill="#c8553d" /></>);
     case "bill":
       return g(<><path d="M-24 -84 h48 v76 l-8 -6 l-8 6 l-8 -6 l-8 6 l-8 -6 l-8 6 z" fill="#f6f2e8" /><rect x={-16} y={-74} width={32} height={4} fill="#8a8072" /><rect x={-16} y={-62} width={24} height={4} fill="#c8b99a" /><rect x={-16} y={-50} width={32} height={4} fill="#c8b99a" /><rect x={-16} y={-34} width={20} height={6} fill="#c8553d" /></>);
     case "wrench":

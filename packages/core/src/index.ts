@@ -76,7 +76,8 @@ export const Crowd = z.object({
   size: z.enum(["few", "many"]).default("many"),
 });
 export type Crowd = z.infer<typeof Crowd>;
-export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm"]);
+/** flee — массовка с криком убегает за край кадра и больше не возвращается в этой сцене. */
+export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);
 export type CrowdReact = z.infer<typeof CrowdReact>;
 
 /** Больше персонажей в одной сцене не помещается в вертикальный кадр. */

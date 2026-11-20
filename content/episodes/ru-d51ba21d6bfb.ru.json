@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Рублёвка. Гаишник останавливает Бентли, превышение втрое.",
+      "text": "Инспектор ДПС останавливает Бентли. Превышение скорости трёхкратное.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy",
-      "text": "Добрый день, ваши документы.",
+      "character": "narrator",
+      "text": "Приоткрывается наглухо тонированное стекло.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,8 +34,8 @@
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Из окна высовывается рука с пятитысячной купюрой.",
+      "character": "sluzhivy",
+      "text": "Инспектор Петров, ваши документы.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,84 +43,221 @@
     },
     {
       "id": "l4",
-      "character": "sluzhivy",
-      "text": "Всего хорошего, постарайтесь больше не нарушать.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Из Бентли высовывается рука с пятитысячной купюрой. Инспектор прячет её в нагрудный карман.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Ещё пять тысяч.",
-      "emotion": "neutral",
+      "character": "sluzhivy",
+      "text": "Всего хорошего, постарайтесь больше не нарушать...",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "sluzhivy",
-      "text": "И будьте внимательны, через два квартала ещё один экипаж.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Из окна появляется следующая купюра того же достоинства.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "Ещё пять тысяч.",
-      "emotion": "neutral",
+      "character": "sluzhivy",
+      "text": "И будьте внимательны, через два квартала ещё один экипаж...",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "sluzhivy",
-      "text": "Я тут по вторникам и четвергам, с восьми до трёх. Номер ваш запомнил, ездите спокойно.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Снова пятитысячная.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "narrator",
-      "text": "Ещё пять тысяч.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "sluzhivy",
+      "text": "Я здесь работаю вторник, четверг, с восьми утра и до пятнадцати ноль-ноль.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
       "character": "sluzhivy",
-      "text": "Счастья вам, здоровья, умных детей и успехов в бизнесе!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "Я ваш номер запомнил, в эти дни можете ездить спокойно...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l11",
       "character": "narrator",
-      "text": "Снова рука с купюрой. Инспектор растерянно откашливается.",
+      "text": "Снова купюра в пять тысяч.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
       "character": "sluzhivy",
+      "text": "Счастья, здоровья вам, умных детей, успехов в бизнесе, чтоб собака на конкурсах побеждала...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "narrator",
+      "text": "Снова рука с купюрой. Инспектор некоторое время стоит в замешательстве, затем прокашливается...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "sluzhivy",
       "text": "Стихи!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

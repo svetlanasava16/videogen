@@ -2,24 +2,24 @@
   "id": "ru-4b75a0e1bc8d.en",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "en",
-  "title": "The Cure",
+  "title": "Hiccups",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
     "tyoshcha",
-    "paren",
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
     "tyoshcha": "old-woman",
-    "paren": "student",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "paren": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A lady in her fifties is seeing a young doctor fresh out of medical school.",
+      "text": "Mrs. Peterson went to the doctor. She was booked with a very young doctor, fresh out of medical school.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,31 +27,27 @@
     },
     {
       "id": "l2",
-      "character": "tyoshcha",
-      "text": "Pregnant? Me? Have you lost your mind?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "After a few minutes in his office, Mrs. Peterson burst out of it, shrieking and wailing, and tore off down the corridor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "What on earth were you thinking?",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "An older doctor was coming the other way. He stopped her and asked what was the matter.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "She's fifty-five, she has a grown daughter, she's about to be a grandmother!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "When he walked into the young doctor's office, he looked stern.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -59,20 +55,98 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "And you tell her she's pregnant?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "What do you think you're doing?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Well, her hiccups are gone, aren't they?",
-      "emotion": "smug",
+      "character": "doktor",
+      "text": "Mrs. Peterson is fifty-five, she has a grown daughter, a grandchild on the way, and you tell her she's pregnant!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "But the hiccups did go away, didn't they?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "tyoshcha",
+        "doktor",
+        "paren"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "doktor": "doctor",
+        "paren": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

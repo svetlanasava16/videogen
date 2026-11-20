@@ -6,20 +6,30 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik",
+    "muzhik-ryzhy",
     "paren",
+    "muzhik",
     "vovochka"
   ],
   "roles": {
-    "muzhik": "father",
+    "muzhik-ryzhy": "son",
     "paren": "son",
+    "muzhik": "father",
     "vovochka": "child"
+  },
+  "looks": {
+    "paren": {
+      "add": [
+        "glasses"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Семейный обед. Отец и трое сыновей.",
+      "text": "Семейный обед. За столом отец, сыновья.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +38,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ешь суп нормально! Ковыряешься, смотреть противно!",
+      "text": "Ешь суп как следует! Что ты ковыряешься еле-еле, смотреть противно!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,8 +46,8 @@
     },
     {
       "id": "l3",
-      "character": "paren",
-      "text": "Чего ты разорался?",
+      "character": "muzhik-ryzhy",
+      "text": "А чего ты разорался?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,14 +58,14 @@
       "character": "muzhik",
       "text": "Я разорался? Ах ты козёл!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Старший получает подзатыльник. Средний называет отца тираном и получает тоже. Младший кладёт ложку и закрывает уши руками.",
+      "text": "И раз подзатыльник!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,23 +73,53 @@
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "А ты чего закрылся? Ешь хорошо, вежливый, не грубишь. Чего тебе бояться?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "paren",
+      "text": "Папа, ну если человек не хочет есть, что ты его заставляешь да ещё бьёшь? Ты же просто как тиран.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "vovochka",
-      "text": "Да я знаю, что вежливый. Это на всякий случай. Ты ж у нас придурок.",
-      "emotion": "smug",
+      "character": "muzhik",
+      "text": "Я тиран? Ах ты сволочь!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "И ему раз-раз по ушам. Тут младший кладёт ложку и уши руками закрывает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "А ты чего закрылся? Ты кушаешь хорошо, вежливый, отцу не грубишь, чего тебе бояться?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Да я знаю, что вежливый. Это я просто на всякий случай, ты ж такой придурок...",
+      "uncensored": "Да я знаю, что вежливый. Это я просто на всякий случай, ты ж такой мудак...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
     }
   ],
+  "explicit": false,
   "outroLaughs": [],
   "format": {
     "width": 1080,
