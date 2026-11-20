@@ -22,6 +22,9 @@ Goal: any joke or sketch becomes **data** (an episode JSON); code is written onl
 - `cast` — up to 5 puppets (`MAX_CAST`); with 4–5 the puppets are drawn smaller (`CAST_SCALE` in `Joke.tsx`).
 - `looks` — costume for this episode: puppet → `LookPatch` (`add`/`remove` accessories, `clothes`, `hair`, `hairStyle`) applied on top of the role costume (`lookForRole(c, role, patch)`). Blind pilots = `add: ["dark-glasses"]` + `cane` prop.
 - `crowd` — `{who, size: few|many}`: a silent back row of dimmed, smaller figures built from existing puppets (`remotion/src/world/Crowd.tsx`; pupils/children → kids). Reacts on `{type:"crowd", react: scream|gasp|laugh|cheer|murmur|calm}` beats (animation; sound if `content/audio.json` has an sfx `crowd-<react>`).
+- `lines[].offscreen: true` — a voice from off screen (genie in a bottle, behind the door, from above, invisible man): the speaker must be in the scene `cast` for the voice, is never shown unless it also walks in/moves; captions in italics.
+- `split: {location, place?, cast}` — split screen for a phone call between two places: top half = the scene's location with the rest of the cast, bottom half = `split.location` with `split.cast`, captions in the band between (`SPLIT` in `Joke.tsx`), each half has its own auto camera.
+- `looks` also patches `build` (portly = big belly) and `skin` (grey = statue).
 Beats:
   - `{type:"line", ref:"l3"}` — every line exactly once, in order;
   - `{type:"move", who, to: <mark>|"off-left"|"off-right", from?: "off-left"|"off-right"}` — before the first line of a scene = starting position (no walking); later = a visible walk; `from` = walk in from outside;

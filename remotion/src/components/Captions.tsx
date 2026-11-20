@@ -32,7 +32,8 @@ function chunkAt<W extends { text: string; startFrame: number }>(words: W[], fra
 
 /** Субтитры-караоке: слово подсвечивается, когда звучит. Безопасная зона — выше нижних 20% (UI шортсов). */
 /** Рассказчик: голос без куклы, субтитры курсивом в верхней части кадра. */
-export const Captions = ({ line, locale, narrator = false }: { line?: TimedLine; locale: Locale; narrator?: boolean }) => {
+/** top — своё место по вертикали (px), например полоса между половинами разделённого экрана. */
+export const Captions = ({ line, locale, narrator = false, top }: { line?: TimedLine; locale: Locale; narrator?: boolean; top?: number }) => {
   const frame = useCurrentFrame();
   if (!line) return null;
   const words = chunkAt(line.words, frame, narrator ? CHUNK_CHARS.narrator : CHUNK_CHARS.line);
@@ -40,8 +41,8 @@ export const Captions = ({ line, locale, narrator = false }: { line?: TimedLine;
     <div
       lang={locale}
       style={{
-        position: "absolute", left: 60, right: 60, top: narrator ? "8%" : "66%",
-        fontStyle: narrator ? "italic" : "normal",
+        position: "absolute", left: 60, right: 60, top: top ?? (narrator ? "8%" : "66%"),
+        fontStyle: narrator || line.offscreen ? "italic" : "normal", // голос из-за кадра — курсивом
         ...(narrator ? { background: "rgba(0,0,0,0.55)", borderRadius: 28, padding: "24px 32px" } : {}),
         display: "flex", flexWrap: "wrap", justifyContent: "center", gap: `12px ${GAP}px`,
         fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif", fontWeight: narrator ? 700 : 900, fontSize: narrator ? 60 : 76, lineHeight: 1.1,

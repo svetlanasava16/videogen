@@ -20,6 +20,8 @@ export type TimedLine = {
   scene: number;
   /** Последняя реплика эпизода (панчлайн). */
   punch: boolean;
+  /** Голос из-за кадра: говорящего не видно. */
+  offscreen?: boolean;
 };
 
 /**
@@ -113,10 +115,12 @@ export function buildTimeline(ep: Episode) {
       if (b.type === "line") {
         const l = byId.get(b.ref);
         for (const id of l?.enter ?? []) if (!first.has(id)) first.set(id, "in");
-        if (l && !first.has(l.character)) first.set(l.character, "out");
+        if (l && !l.offscreen && !first.has(l.character)) first.set(l.character, "out");
       } else if (b.type === "move" && !first.has(b.who)) first.set(b.who, b.from ? "in" : "out");
     }
-    const startsOn = new Set(sc.cast.filter((id) => first.get(id) !== "in"));
+    // голос из-за кадра без других событий — кукла не стоит в кадре
+    const voiceOnly = new Set(sc.beats.flatMap((b) => (b.type === "line" && byId.get(b.ref)?.offscreen ? [byId.get(b.ref)!.character] : [])).filter((id) => !first.has(id)));
+    const startsOn = new Set(sc.cast.filter((id) => first.get(id) !== "in" && !voiceOnly.has(id)));
 
     let started = false; // была ли уже реплика/пауза: move до неё — расстановка без ходьбы
     for (const b of sc.beats) {
@@ -136,7 +140,7 @@ export function buildTimeline(ep: Episode) {
           id: l.id, character: l.character, text: shown, emotion: l.emotion,
           startFrame: f(t), endFrame: f(t + dur),
           words: words.map((w) => ({ text: w.text, startFrame: f(t + w.start), endFrame: f(t + w.end) })),
-          audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId,
+          audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId, offscreen: l.offscreen,
         });
         t += dur;
         if (l.id === lastLineId) punchEnd = t;

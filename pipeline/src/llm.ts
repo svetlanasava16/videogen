@@ -166,6 +166,7 @@ const STAGES: Record<string, Stage> = {
         for (const sc of row.scenes) {
           if (!bds.has(sc.location) || sc.location === "none") pr.push(`scene: unknown backdrop ${sc.location}`);
           for (const c of sc.cast) if (!ids.has(c)) pr.push(`scene: unknown puppet ${c}`);
+          if (sc.split && (!bds.has(sc.split.location) || sc.split.location === "none")) pr.push(`scene: unknown split backdrop ${sc.split.location}`);
         }
         pr.push(...sceneProblems({ lines, scenes: row.scenes }, { marksOf: (loc) => Object.keys(C.backdrops.find((b) => b.id === loc)?.marks ?? {}), props }));
         const s0 = row.scenes[0];
@@ -247,7 +248,7 @@ function materialize() {
       place: places.get(d.id),
       cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd,
       lines: d.lines.map((l, i) => ({
-        id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
+        id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, offscreen: l.offscreen || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         audio: voiced(i, l.character, l.text.trim()),
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),

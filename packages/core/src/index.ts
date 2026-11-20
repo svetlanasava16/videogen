@@ -25,6 +25,8 @@ export const Line = z.object({
   text: z.string(),
   /** Версия без цензуры (слова источника), только если отличается от text. */
   uncensored: z.string().optional(),
+  /** Голос из-за кадра: говорящего не видно (из бутылки, из-за двери, сверху, невидимка). Кукла может так и не появиться. */
+  offscreen: z.boolean().optional(),
   emotion: Emotion.default("neutral"),
   /** Пока озвучки нет, тайминги оцениваются по тексту (estimateWords). */
   audio: z
@@ -64,6 +66,10 @@ export const LookPatch = z.object({
   accent: z.string().optional(),
   hair: z.string().optional(),
   hairStyle: z.string().optional(),
+  /** Телосложение на эпизод: portly — толстый живот, slim — худой. */
+  build: z.string().optional(),
+  /** Цвет кожи на эпизод: серый — статуя, зелёный — больной… */
+  skin: z.string().optional(),
   add: z.array(z.string()).default([]),
   remove: z.array(z.string()).default([]),
 });
@@ -107,6 +113,11 @@ export const Scene = z.object({
   /** Костюм на эпизод: castId → патч внешности поверх роли (тёмные очки слепому, фартук…). */
   looks: z.record(z.string(), LookPatch).optional(),
   crowd: Crowd.optional(),
+  /**
+   * Разделённый экран (телефонный разговор двух мест): верхняя половина — location сцены,
+   * нижняя — split.location; split.cast — кто из cast стоит внизу.
+   */
+  split: z.object({ location: z.string(), place: z.string().optional(), cast: z.array(z.string()).min(1) }).optional(),
   beats: z.array(Beat).min(1),
   /** Переход перед сценой (для первой игнорируется). */
   transition: Transition.default("cut"),
@@ -172,6 +183,8 @@ export function applyLook(look: Look, patch?: LookPatch): Look {
     accent: patch.accent ?? look.accent,
     hair: patch.hair ?? look.hair,
     hairStyle: patch.hairStyle ?? look.hairStyle,
+    build: patch.build ?? look.build,
+    skin: patch.skin ?? look.skin,
     accessories: acc,
   };
 }
@@ -425,6 +438,7 @@ export const ScriptDraft = z.object({
         text: z.string().min(1),
         /** Версия без цензуры (слова источника), только если text смягчён. */
         uncensored: z.string().optional(),
+        offscreen: z.boolean().optional(),
         emotion: Emotion,
         pauseAfterSec: z.number(),
         enter: z.array(z.string()).default([]),
@@ -442,7 +456,7 @@ export type ScriptDraft = z.infer<typeof ScriptDraft>;
  * Проверка выходов и уходов: говорит только тот, кто в кадре; входит — кто отсутствует; уходит — кто присутствует.
  * Кто начинает за кадром: кукла, чьё первое событие — enter.
  */
-export function stagingProblems(cast: string[], lines: { character: string; enter?: string[]; exit?: string[] }[]): string[] {
+export function stagingProblems(cast: string[], lines: { character: string; enter?: string[]; exit?: string[]; offscreen?: boolean }[]): string[] {
   const pr: string[] = [];
   const first = new Map<string, "enter" | "exit">();
   for (const l of lines) {
@@ -459,7 +473,8 @@ export function stagingProblems(cast: string[], lines: { character: string; ente
       if (on.has(id)) pr.push(`line ${i + 1}: ${id} enters but is already on stage`);
       on.add(id);
     }
-    if (l.character !== NARRATOR && !on.has(l.character)) pr.push(`line ${i + 1}: ${l.character} speaks while off stage`);
+    // голос из-за кадра (offscreen) может звучать, пока кукла не в кадре
+    if (l.character !== NARRATOR && !l.offscreen && !on.has(l.character)) pr.push(`line ${i + 1}: ${l.character} speaks while off stage`);
     for (const id of l.exit ?? []) {
       if (!on.has(id)) pr.push(`line ${i + 1}: ${id} exits but is not on stage`);
       on.delete(id);
@@ -489,7 +504,7 @@ export function orderedLines(ep: Episode): Line[] {
  * входят только отсутствующие, уходят только присутствующие; метки и реквизит существуют.
  */
 export function sceneProblems(
-  ep: { lines: { id: string; character: string; enter?: string[]; exit?: string[] }[]; scenes?: Scene[] },
+  ep: { lines: { id: string; character: string; enter?: string[]; exit?: string[]; offscreen?: boolean }[]; scenes?: Scene[] },
   opts: { marksOf: (location: string) => string[] | undefined; props: string[] },
 ): string[] {
   const pr: string[] = [];
@@ -497,6 +512,8 @@ export function sceneProblems(
   for (const [si, sc] of scenes.entries()) {
     if (sc.beats.some((b) => b.type === "crowd") && !sc.crowd) pr.push(`scene ${si + 1}: crowd beat but the scene has no crowd`);
     for (const id of Object.keys(sc.looks ?? {})) if (!sc.cast.includes(id)) pr.push(`scene ${si + 1}: looks for ${id} who is not in the scene cast`);
+    for (const id of sc.split?.cast ?? []) if (!sc.cast.includes(id)) pr.push(`scene ${si + 1}: split.cast ${id} is not in the scene cast`);
+    if (sc.split && sc.split.cast.length === sc.cast.length) pr.push(`scene ${si + 1}: split needs someone in the top half too`);
   }
   const byId = new Map(ep.lines.map((l) => [l.id, l]));
   const used = new Map<string, number>();
@@ -509,12 +526,14 @@ export function sceneProblems(
       if (b.type === "line") {
         const l = byId.get(b.ref);
         for (const id of l?.enter ?? []) if (!first.has(id)) first.set(id, "in");
-        if (l && !first.has(l.character)) first.set(l.character, "out");
+        if (l && !l.offscreen && !first.has(l.character)) first.set(l.character, "out");
         for (const id of l?.exit ?? []) if (!first.has(id)) first.set(id, "out");
       } else if (b.type === "move" && !first.has(b.who)) first.set(b.who, b.from ? "in" : "out");
       // prop не решает, где кукла: можно взять цветы за кадром и войти с ними
     }
-    const here = new Set(sc.cast.filter((id) => first.get(id) !== "in"));
+    // кто звучит только из-за кадра и ничего больше не делает — в кадре не стоит
+    const voiceOnly = new Set(sc.beats.flatMap((b) => (b.type === "line" && byId.get(b.ref)?.offscreen ? [byId.get(b.ref)!.character] : [])).filter((id) => !first.has(id)));
+    const here = new Set(sc.cast.filter((id) => first.get(id) !== "in" && !voiceOnly.has(id)));
     const need = (who: string, what: string) => {
       if (who === NARRATOR) return;
       if (!sc.cast.includes(who)) pr.push(`${tag}: ${who} ${what} but is not in the scene cast`);
@@ -526,7 +545,8 @@ export function sceneProblems(
         if (!l) { pr.push(`${tag}: line ${b.ref} does not exist`); continue; }
         used.set(b.ref, (used.get(b.ref) ?? 0) + 1);
         for (const id of l.enter ?? []) { if (here.has(id)) pr.push(`${tag}: ${id} enters but is already on stage`); here.add(id); }
-        need(l.character, "speaks");
+        if (!l.offscreen) need(l.character, "speaks");
+        else if (l.character !== NARRATOR && !sc.cast.includes(l.character)) pr.push(`${tag}: ${l.character} speaks off screen but is not in the scene cast (needed for the voice)`);
         for (const id of l.exit ?? []) { if (!here.has(id)) pr.push(`${tag}: ${id} exits but is not on stage`); here.delete(id); }
       } else if (b.type === "move") {
         if (!sc.cast.includes(b.who)) { pr.push(`${tag}: ${b.who} moves but is not in the scene cast`); continue; }

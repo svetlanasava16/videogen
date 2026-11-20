@@ -138,6 +138,34 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
   );
 };
 
+/** Разделённый экран: полоса под субтитры между половинами и какая полоса холста видна в каждой половине. */
+export const SPLIT = { band: 280, from: 400 };
+
+/**
+ * Разделённый экран (телефонный разговор двух мест): сверху — место сцены и её куклы,
+ * снизу — split.location и куклы из split.cast, между ними — полоса под субтитры. Каждая половина — своя сцена со своей камерой.
+ */
+const SplitStage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
+  const { width, height } = useVideoConfig();
+  const split = sc.scene.split!;
+  const half = (height - SPLIT.band) / 2;
+  const top: SceneTL = { ...sc, scene: { ...sc.scene, cast: sc.scene.cast.filter((id) => !split.cast.includes(id)), split: undefined } };
+  const bottom: SceneTL = { ...sc, scene: { ...sc.scene, cast: split.cast, location: split.location, place: split.place, crowd: undefined, split: undefined } };
+  const Half = ({ part, y }: { part: SceneTL; y: number }) => (
+    <div style={{ position: "absolute", left: 0, top: y, width, height: half, overflow: "hidden" }}>
+      <div style={{ position: "absolute", left: 0, top: -SPLIT.from, width, height }}>
+        <Stage ep={ep} tl={tl} sc={part} />
+      </div>
+    </div>
+  );
+  return (
+    <AbsoluteFill style={{ background: "#2b1d14" }}>
+      <Half part={top} y={0} />
+      <Half part={bottom} y={half + SPLIT.band} />
+    </AbsoluteFill>
+  );
+};
+
 export const Joke = (ep: Episode) => {
   const frame = useCurrentFrame();
   const tl = buildTimeline(ep);
@@ -145,7 +173,7 @@ export const Joke = (ep: Episode) => {
   const current = tl.lines.find((l) => frame >= l.startFrame && frame <= l.endFrame + 4);
   return (
     <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
-      <Stage ep={ep} tl={tl} sc={sc} />
+      {sc.scene.split ? <SplitStage ep={ep} tl={tl} sc={sc} /> : <Stage ep={ep} tl={tl} sc={sc} />}
       {tl.scenes.slice(1).map((s) => {
         const prev = tl.scenes[s.index - 1].scene;
         return s.transition.kind === "flyover" ? (
@@ -155,7 +183,8 @@ export const Joke = (ep: Episode) => {
           <SceneTransition key={s.index} at={s.from} frames={s.transition.frames} kind={s.transition.kind} />
         );
       })}
-      <Captions line={current} locale={ep.locale} narrator={current?.character === NARRATOR} />
+      <Captions line={current} locale={ep.locale} narrator={current?.character === NARRATOR}
+        top={sc.scene.split && current?.character !== NARRATOR ? (1920 - SPLIT.band) / 2 + 24 : undefined} />
       <Watermark />
       <Soundtrack tl={tl} />
     </AbsoluteFill>
