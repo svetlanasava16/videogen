@@ -86,7 +86,9 @@ export const episodes = pgTable("episodes", {
 
 export const renders = pgTable("renders", {
   id: serial("id").primaryKey(),
-  episodeId: text("episode_id").notNull().references(() => episodes.id),
+  /** Эпизод или сборник (ровно одно из двух). */
+  episodeId: text("episode_id").references(() => episodes.id),
+  compilationId: text("compilation_id"),
   path: text("path").notNull(),
   sha256: text("sha256").notNull(),
   bytes: integer("bytes").notNull(),
@@ -118,7 +120,8 @@ export const posts = pgTable("posts", {
   accountId: text("account_id").notNull().references(() => accounts.id),
   episodeId: text("episode_id").references(() => episodes.id),
   renderId: integer("render_id").references(() => renders.id),
-  kind: text("kind").notNull(), // video | story | text
+  compilationId: text("compilation_id"),
+  kind: text("kind").notNull(), // video | story | text | compilation
   caption: text("caption").notNull(),
   title: text("title"),
   disclosureVersion: integer("disclosure_version").notNull(),

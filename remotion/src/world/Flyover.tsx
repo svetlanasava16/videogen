@@ -1,0 +1,75 @@
+import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
+import type { Locale } from "@jf/core";
+import { TownMap, TOWN_H, TOWN_W } from "./TownMap";
+import type { Building } from "./town";
+
+const ease = Easing.inOut(Easing.cubic);
+const ASPECT = 16 / 9; // высота / ширина кадра
+const CLOSE_W = 760; // ширина окна камеры у здания
+
+type Box = { cx: number; cy: number; w: number };
+const focus = (b: Building): Box => ({ cx: b.x, cy: b.y - 120, w: CLOSE_W });
+
+/** Окно, в которое помещаются оба здания (с полями), в пропорции кадра. */
+function both(a: Building, b: Building): Box {
+  const pad = 420;
+  const w = Math.max(Math.abs(a.x - b.x) + pad * 2, (Math.abs(a.y - b.y) + pad * 2) / ASPECT, CLOSE_W * 1.6);
+  return { cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 - 80, w: Math.min(w, TOWN_H / ASPECT) };
+}
+
+const viewBox = (b: Box) => {
+  const h = b.w * ASPECT;
+  const x = Math.min(Math.max(b.cx - b.w / 2, -b.w * 0.2), TOWN_W - b.w * 0.8);
+  const y = Math.min(Math.max(b.cy - h / 2, -h * 0.1), TOWN_H - h * 0.9);
+  return `${x} ${y} ${b.w} ${h}`;
+};
+
+const mix = (a: Box, b: Box, k: number): Box => ({ cx: a.cx + (b.cx - a.cx) * k, cy: a.cy + (b.cy - a.cy) * k, w: a.w + (b.w - a.w) * k });
+
+/**
+ * Пролёт над городом между сценами/анекдотами. Перекрывает стык at на frames кадров:
+ * сцена растворяется в карту у здания from, камера отъезжает и летит к зданию to, приближается, карта растворяется в новую сцену.
+ */
+export const Flyover = ({ at, frames, from, to, locale }: { at: number; frames: number; from: Building; to: Building; locale: Locale }) => {
+  const frame = useCurrentFrame();
+  const start = at - frames / 2;
+  if (frame < start || frame > at + frames / 2) return null;
+  const p = interpolate(frame, [start, at + frames / 2], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const A = focus(from), B = focus(to), M = both(from, to);
+  const box = p < 0.5 ? mix(A, M, ease(p / 0.5)) : mix(M, B, ease((p - 0.5) / 0.5));
+  const opacity = interpolate(p, [0, 0.14, 0.86, 1], [0, 1, 1, 0]);
+  return (
+    <AbsoluteFill style={{ opacity }}>
+      <TownMap viewBox={viewBox(box)} locale={locale} highlight={p < 0.5 ? from.id : to.id} />
+    </AbsoluteFill>
+  );
+};
+
+/** Заставка сборника: город сверху, плавный наезд к первому зданию. */
+export const TownIntro = ({ frames, to, locale, title }: { frames: number; to: Building; locale: Locale; title: string }) => {
+  const frame = useCurrentFrame();
+  if (frame > frames) return null;
+  const p = ease(Math.min(1, frame / frames));
+  const all: Box = { cx: TOWN_W / 2, cy: TOWN_H / 2, w: TOWN_H / ASPECT };
+  const box = mix(all, focus(to), p);
+  const titleOpacity = interpolate(frame, [0, 6, frames * 0.7, frames], [0, 1, 1, 0]);
+  const fade = interpolate(p, [0.85, 1], [1, 0], { extrapolateLeft: "clamp" });
+  return (
+    <AbsoluteFill style={{ opacity: fade }}>
+      <TownMap viewBox={viewBox(box)} locale={locale} labels={p > 0.3} />
+      <div style={{ position: "absolute", left: 60, right: 60, top: "14%", textAlign: "center", opacity: titleOpacity, fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif" }}>
+        <div style={{ fontSize: 150, fontWeight: 900, color: "#fff", WebkitTextStroke: "12px #2b1d14", paintOrder: "stroke fill" }}>
+          ANEK<span style={{ color: "#e0a030" }}>.</span>
+        </div>
+        <div style={{ fontSize: 60, fontWeight: 800, color: "#fff", marginTop: 10, WebkitTextStroke: "8px #2b1d14", paintOrder: "stroke fill" }}>{title}</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/** Превью карты целиком (композиция Town). */
+export const TownPreview = ({ locale = "ru" as Locale }: { locale?: Locale }) => (
+  <AbsoluteFill>
+    <TownMap viewBox={`0 0 ${TOWN_W} ${TOWN_H}`} locale={locale} />
+  </AbsoluteFill>
+);

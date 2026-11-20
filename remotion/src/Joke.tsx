@@ -8,6 +8,8 @@ import { Captions } from "./components/Captions";
 import { Soundtrack } from "./components/Soundtrack";
 import { Watermark } from "./components/Branding";
 import { SceneTransition } from "./world/Transitions";
+import { Flyover } from "./world/Flyover";
+import { buildingFor } from "./world/town";
 import { cameraAt, cameraTransform } from "./director/camera";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
@@ -134,9 +136,15 @@ export const Joke = (ep: Episode) => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
       <Stage ep={ep} tl={tl} sc={sc} />
-      {tl.scenes.slice(1).map((s) => (
-        <SceneTransition key={s.index} at={s.from} frames={s.transition.frames} kind={s.transition.kind} />
-      ))}
+      {tl.scenes.slice(1).map((s) => {
+        const prev = tl.scenes[s.index - 1].scene;
+        return s.transition.kind === "flyover" ? (
+          <Flyover key={s.index} at={s.from} frames={s.transition.frames} locale={ep.locale}
+            from={buildingFor(prev.location, prev.place)} to={buildingFor(s.scene.location, s.scene.place)} />
+        ) : (
+          <SceneTransition key={s.index} at={s.from} frames={s.transition.frames} kind={s.transition.kind} />
+        );
+      })}
       <Captions line={current} locale={ep.locale} narrator={current?.character === NARRATOR} />
       <Watermark />
       <Soundtrack tl={tl} />

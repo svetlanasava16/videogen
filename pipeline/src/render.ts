@@ -1,6 +1,7 @@
 /**
  * Рендер эпизодов в MP4 и учёт в базе (таблица renders).
  *   pnpm render <episodeId…>                    — конкретные эпизоды
+ *   pnpm render --compilation <id> [--force]     — сборник из content/compilations/<id>.json
  *   pnpm render --top 10 --locale ru [--voiced] [--force]   — самые популярные анекдоты языка без актуального рендера
  *                                                (--voiced: только полностью озвученные эпизоды)
  * Файл: renders/<episodeId>/<contentHash>.mp4. contentHash = эпизод + звук + маркировка + код монтажа:
@@ -9,12 +10,12 @@
  * macOS: headless Chrome зависает, пока дисплей спит, поэтому на время рендера держим `caffeinate -d`.
  */
 import { execSync, spawn, spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, relative } from "node:path";
 import { pathToFileURL } from "node:url";
 import { and, eq, inArray, sql } from "drizzle-orm";
-import { AudioLibrary, Episode, pick } from "@jf/core";
+import { AudioLibrary, CompilationSpec, Episode, pick } from "@jf/core";
 import { connect, schema as T } from "@jf/db";
 import { sha } from "./db.js";
 import { ROOT } from "./util.js";
@@ -67,7 +68,46 @@ function arg(name: string) {
   return i > 0 ? process.argv[i + 1] : undefined;
 }
 
+/** Сборник: pnpm render --compilation <id> → renders/compilations/<id>/<hash>.mp4 (+ обложка первого анекдота). */
+async function renderCompilation(id: string, force: boolean) {
+  const { db, close } = connect();
+  try {
+    const spec = CompilationSpec.parse(JSON.parse(readFileSync(join(ROOT, "content", "compilations", `${id}.json`), "utf8")));
+    const props = { id: spec.id, locale: spec.locale, title: spec.title, episodes: spec.episodes.map(loadEpisode) };
+    const codeHash = treeHash(join(REMOTION, "src"));
+    const town = readFileSync(join(ROOT, "content", "world", "town.json"), "utf8");
+    const hash = sha(JSON.stringify(props) + town + renderHash(props.episodes[0], codeHash)).slice(0, 16);
+    const exists = await db.select({ id: T.renders.id }).from(T.renders).where(and(eq(T.renders.compilationId, id), eq(T.renders.contentHash, hash)));
+    if (exists.length && !force) return console.log(`${id}: up to date`);
+    const awake = process.platform === "darwin" ? spawn("caffeinate", ["-d", "-i", "-w", String(process.pid)], { stdio: "ignore" }) : undefined;
+    const tmp = mkdtempSync(join(tmpdir(), "anek-comp-"));
+    const propsFile = join(tmp, "props.json");
+    writeFileSync(propsFile, JSON.stringify(props));
+    console.log(`bundling remotion…`);
+    remotion(["bundle", "src/index.ts", "--out-dir", join(tmp, "bundle")]);
+    const rel = join("renders", "compilations", id, `${hash}.mp4`);
+    mkdirSync(join(ROOT, "renders", "compilations", id), { recursive: true });
+    const t0 = Date.now();
+    remotion(["render", join(tmp, "bundle"), "Compilation", join(ROOT, rel), `--props=${propsFile}`, "--codec=h264"]);
+    remotion(["still", join(tmp, "bundle"), "Cover", join(ROOT, rel.replace(/\.mp4$/, ".cover.jpg")), `--props=${episodePath(spec.episodes[0])}`, "--image-format=jpeg", "--jpeg-quality=90"]);
+    const out = join(ROOT, rel);
+    const row = {
+      episodeId: null, compilationId: id, path: rel, sha256: sha(readFileSync(out)), bytes: statSync(out).size,
+      durationSec: Math.round(framesOf(out) * 100) / 100, width: 1080, height: 1920, fps: 30, contentHash: hash,
+      gitSha: execSync("git rev-parse --short HEAD", { cwd: ROOT, encoding: "utf8" }).trim(), musicAssetId: null,
+      voice: props.episodes.every((e) => e.lines.every((l) => l.audio)) ? props.episodes[0].lines[0].audio?.provider ?? "none" : "none",
+    };
+    await db.insert(T.renders).values(row);
+    rmSync(tmp, { recursive: true, force: true });
+    awake?.kill();
+    console.log(`${id}: ${rel} (${row.durationSec.toFixed(1)}s, ${(row.bytes / 1e6).toFixed(1)} MB, ${((Date.now() - t0) / 1000).toFixed(0)}s)`);
+  } finally {
+    await close();
+  }
+}
+
 async function main() {
+  if (arg("compilation")) return renderCompilation(arg("compilation")!, process.argv.includes("--force"));
   const { db, close } = connect();
   try {
     let ids = process.argv.slice(2).filter((a, i, all) => !a.startsWith("--") && !all[i - 1]?.startsWith("--"));

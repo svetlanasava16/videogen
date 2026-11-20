@@ -1,7 +1,7 @@
 /**
  * Публикация через Postiz, учёт в базе (таблица posts).
  *   pnpm posts accounts                         — интеграции Postiz → content/accounts.json (по handle)
- *   pnpm posts plan --account ig-ru [--per-day 2] [--days 7] [--from 2026-12-01] [--kind video|story|text] [--allow-silent] [--dry-run]
+ *   pnpm posts plan --account ig-ru [--per-day 2] [--days 7] [--from 2026-12-01] [--kind video|story|text|compilation] [--allow-silent] [--dry-run]
  *   pnpm posts push [--account yt-ru] [--limit 20] [--draft] [--private] [--dry-run]
  *   pnpm posts sync                              — статусы и ссылки из Postiz → posts
  *   pnpm posts list [--account yt-ru]            — что запланировано
@@ -13,7 +13,8 @@ import { pathToFileURL } from "node:url";
 import { and, asc, desc, eq, gte, inArray, isNotNull, sql } from "drizzle-orm";
 import { Episode, NARRATOR, pick, type Locale } from "@jf/core";
 import { connect, schema as T, type Db } from "@jf/db";
-import { AUDIENCE, LIMITS, caption, disclosure, settings, type Kind, type Platform } from "./publish/captions.js";
+import { AUDIENCE, LIMITS, caption, compilationCaption, disclosure, settings, type Kind, type Platform } from "./publish/captions.js";
+import { loadCompilations } from "./compile.js";
 import * as P from "./publish/postiz.js";
 import { ROOT } from "./util.js";
 
@@ -64,6 +65,8 @@ async function plan(db: Db) {
   const days = Number(arg("days", "7"));
   const from = arg("from") ? new Date(`${arg("from")}T00:00:00Z`) : new Date();
   const times = slots(acc.locale as Locale, from, days, perDay, acc.id);
+
+  if (kind === "compilation") return planCompilations(db, acc, times);
 
   const used = new Set((await db.select({ e: T.posts.episodeId }).from(T.posts).where(and(eq(T.posts.accountId, acc.id), eq(T.posts.kind, kind)))).map((r) => r.e));
   const taken = new Set((await db.select({ t: T.posts.scheduledAt }).from(T.posts).where(eq(T.posts.accountId, acc.id))).map((r) => r.t.getTime()));
@@ -117,6 +120,31 @@ async function plan(db: Db) {
   console.log(`${rowsOut.length} posts planned for ${acc.id}`);
 }
 
+/** План сборников: отрендеренные (с настоящей озвучкой) и ещё не опубликованные на аккаунте. */
+async function planCompilations(db: Db, acc: typeof T.accounts.$inferSelect, times: Date[]) {
+  const silentOk = flag("allow-silent");
+  const posted = new Set((await db.select({ c: T.posts.compilationId }).from(T.posts).where(eq(T.posts.accountId, acc.id))).map((r) => r.c));
+  const taken = new Set((await db.select({ t: T.posts.scheduledAt }).from(T.posts).where(eq(T.posts.accountId, acc.id))).map((r) => r.t.getTime()));
+  const renders = (await db.select().from(T.renders).where(isNotNull(T.renders.compilationId)))
+    .filter((r) => silentOk || !["none", "fake", "elevenlabs-free"].includes(r.voice ?? "none"));
+  const specs = loadCompilations().filter((c) => c.locale === acc.locale && !posted.has(c.id) && renders.some((r) => r.compilationId === c.id));
+  const free = times.filter((t) => !taken.has(t.getTime()));
+  const titles = new Map((await db.select({ id: T.episodes.id, title: T.episodes.title }).from(T.episodes)).map((r) => [r.id, r.title]));
+  const rowsOut = specs.slice(0, free.length).map((c, i) => ({
+    accountId: acc.id, compilationId: c.id, episodeId: null, kind: "compilation", title: c.title, disclosureVersion: disclosure().version, aiFlag: true,
+    state: "planned", scheduledAt: free[i],
+    caption: compilationCaption(c.title, c.episodes.map((e) => titles.get(e) ?? e), acc.locale as Locale, c.episodes.some((e) => !e.startsWith(`${acc.locale}-`))),
+  }));
+  for (const r of rowsOut) console.log(`${r.scheduledAt.toISOString()}  ${r.compilationId!.padEnd(24)} ${r.title}`);
+  if (!rowsOut.length) console.log("нет отрендеренных сборников: pnpm compile --locale … затем pnpm render --compilation <id>");
+  if (flag("dry-run")) {
+    if (rowsOut[0]) console.log(`\n--- caption example (compilation) ---\n${rowsOut[0].caption}`);
+    return;
+  }
+  if (rowsOut.length) await db.insert(T.posts).values(rowsOut);
+  console.log(`${rowsOut.length} compilation posts planned for ${acc.id}`);
+}
+
 async function push(db: Db) {
   const dry = flag("dry-run");
   const limit = Number(arg("limit", "20")); // Postiz: 30 созданий постов в час
@@ -133,11 +161,13 @@ async function push(db: Db) {
       console.error(`${p.id} ${acc.id}: no Postiz integration (pnpm posts accounts)`);
       continue;
     }
-    const [epRow] = await db.select().from(T.episodes).where(eq(T.episodes.id, p.episodeId!));
-    const ep = toEpisode(epRow);
-    const [render] = p.kind === "text" ? [] : await db.select().from(T.renders).where(eq(T.renders.episodeId, ep.id)).orderBy(desc(T.renders.createdAt)).limit(1);
+    const comp = p.compilationId ? loadCompilations().find((c) => c.id === p.compilationId) : undefined;
+    const [epRow] = await db.select().from(T.episodes).where(eq(T.episodes.id, comp ? comp.episodes[0] : p.episodeId!));
+    const ep = { ...toEpisode(epRow), title: comp?.title ?? epRow.title };
+    const [render] = p.kind === "text" ? [] : await db.select().from(T.renders)
+      .where(comp ? eq(T.renders.compilationId, comp.id) : eq(T.renders.episodeId, ep.id)).orderBy(desc(T.renders.createdAt)).limit(1);
     if (p.kind !== "text" && !render) {
-      console.error(`${p.id} ${ep.id}: no render (pnpm render ${ep.id})`);
+      console.error(`${p.id} ${comp?.id ?? ep.id}: no render (pnpm render ${comp ? `--compilation ${comp.id}` : ep.id})`);
       continue;
     }
     const body = {
@@ -145,7 +175,7 @@ async function push(db: Db) {
       date: p.scheduledAt.toISOString(),
       integrationId: acc.postizIntegrationId ?? "<integration>",
       content: p.caption,
-      settings: settings(platform, p.kind as Kind, ep, { identifier: integration?.identifier ?? platform, privateMode: flag("private") }),
+      settings: settings(platform, (p.kind === "compilation" ? "video" : p.kind) as Kind, ep, { identifier: integration?.identifier ?? platform, privateMode: flag("private") }),
     };
     if (dry) {
       console.log(JSON.stringify({ ...body, media: render ? [`<upload ${render.path}>`] : [] }, null, 2));
@@ -202,7 +232,7 @@ async function accounts() {
 async function list(db: Db) {
   const where = arg("account") ? eq(T.posts.accountId, arg("account")!) : sql`true`;
   const rows = await db.select().from(T.posts).where(where).orderBy(asc(T.posts.scheduledAt));
-  for (const r of rows) console.log(`${String(r.id).padStart(5)} ${r.accountId.padEnd(6)} ${r.kind.padEnd(5)} ${r.state.padEnd(9)} ${r.scheduledAt.toISOString()} ${r.episodeId} ${r.url ?? ""}${r.error ? " ERR " + r.error.slice(0, 60) : ""}`);
+  for (const r of rows) console.log(`${String(r.id).padStart(5)} ${r.accountId.padEnd(6)} ${r.kind.padEnd(11)} ${r.state.padEnd(9)} ${r.scheduledAt.toISOString()} ${r.episodeId ?? r.compilationId} ${r.url ?? ""}${r.error ? " ERR " + r.error.slice(0, 60) : ""}`);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {

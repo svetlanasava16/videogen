@@ -468,3 +468,16 @@ export function sceneProblems(
   }
   return pr;
 }
+
+/** Сборник: несколько анекдотов подряд с пролётом по городу между ними (content/compilations/<id>.json хранит id эпизодов). */
+export const CompilationSpec = z.object({
+  id: z.string(),
+  locale: Locale,
+  title: z.string(),
+  episodes: z.array(z.string()).min(2),
+  transition: z.enum(["flyover", "wipe"]).default("flyover"),
+});
+export type CompilationSpec = z.infer<typeof CompilationSpec>;
+/** Пропсы рендера сборника: эпизоды целиком. */
+export const CompilationProps = z.object({ id: z.string(), locale: Locale, title: z.string(), episodes: z.array(Episode).min(1) });
+export type CompilationProps = z.infer<typeof CompilationProps>;

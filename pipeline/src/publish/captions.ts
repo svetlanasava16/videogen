@@ -21,7 +21,7 @@ export type Disclosure = {
 export const disclosure = (): Disclosure => JSON.parse(readFileSync(join(ROOT, "content", "disclosure.json"), "utf8"));
 
 export type Platform = "youtube" | "tiktok" | "instagram" | "threads" | "x" | "vk";
-export type Kind = "video" | "story" | "text";
+export type Kind = "video" | "story" | "text" | "compilation";
 
 /** Лимиты длины подписи. */
 export const LIMITS: Record<Platform, number> = { youtube: 5000, tiktok: 2200, instagram: 2200, threads: 500, x: 280, vk: 4000 };
@@ -76,3 +76,11 @@ export const AUDIENCE: Record<Locale, { from: number; to: number; utcOffset: num
   en: { from: 8, to: 22, utcOffset: -5 }, // США, восток
   de: { from: 8, to: 22, utcOffset: 1 }, // Берлин
 };
+
+/** Подпись сборника: заголовок, список анекдотов, хэштеги, маркировка, права. */
+export function compilationCaption(title: string, titles: string[], locale: Locale, translated: boolean) {
+  const d = disclosure();
+  const list = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");
+  const note = [d.video[locale], translated ? d.translated[locale] : ""].filter(Boolean).join(" ");
+  return `${title}\n\n${list}\n\n${d.hashtags[locale].join(" ")}\n\n${note}\n\n${d.rights[locale]}`;
+}

@@ -53,11 +53,13 @@ async function posts(account: string) {
   const metrics = ids.length ? await db.select().from(T.postMetrics).where(inArray(T.postMetrics.postId, ids)).orderBy(desc(T.postMetrics.capturedAt)) : [];
   const out = [];
   for (const { p, title } of rows) {
-    const r = p.renderId ? (await db.select().from(T.renders).where(eq(T.renders.id, p.renderId)))[0] : p.episodeId ? await renderFor(p.episodeId) : undefined;
+    const r = p.renderId ? (await db.select().from(T.renders).where(eq(T.renders.id, p.renderId)))[0]
+      : p.compilationId ? (await db.select().from(T.renders).where(eq(T.renders.compilationId, p.compilationId)).orderBy(desc(T.renders.createdAt)))[0]
+      : p.episodeId ? await renderFor(p.episodeId) : undefined;
     const m = metrics.find((x) => x.postId === p.id);
     out.push({
       id: p.id, state: p.state, kind: p.kind, scheduledAt: p.scheduledAt, publishedAt: p.publishedAt, url: p.url,
-      episodeId: p.episodeId, title: title ?? p.title, caption: p.caption,
+      episodeId: p.episodeId ?? p.compilationId, title: title ?? p.title, caption: p.caption,
       render: r ? { id: r.id, voice: r.voice, duration: r.durationSec, cover: existsSync(join(ROOT, r.path.replace(/\.mp4$/, ".cover.jpg"))) } : null,
       metrics: m ? { views: m.views, likes: m.likes, comments: m.comments, shares: m.shares, saves: m.saves, at: m.capturedAt } : null,
     });
@@ -99,7 +101,7 @@ const server = createServer(async (req, res) => {
     if (media) {
       const [r] = await db.select().from(T.renders).where(eq(T.renders.id, Number(media[2])));
       if (!r) return json(res, 404, { error: "no render" });
-      const dl = url.searchParams.get("dl") ? `${r.episodeId}${media[1] === "cover" ? ".cover.jpg" : ".mp4"}` : undefined;
+      const dl = url.searchParams.get("dl") ? `${r.episodeId ?? r.compilationId}${media[1] === "cover" ? ".cover.jpg" : ".mp4"}` : undefined;
       return media[1] === "media"
         ? sendFile(req, res, join(ROOT, r.path), "video/mp4", dl)
         : sendFile(req, res, join(ROOT, r.path.replace(/\.mp4$/, ".cover.jpg")), "image/jpeg", dl);
@@ -111,7 +113,8 @@ const server = createServer(async (req, res) => {
       const [p] = await db.select().from(T.posts).where(eq(T.posts.id, id));
       if (!p) return json(res, 404, { error: "no post" });
       if (act[2] === "published") {
-        const r = p.episodeId ? await renderFor(p.episodeId) : undefined;
+        const r = p.compilationId ? (await db.select().from(T.renders).where(eq(T.renders.compilationId, p.compilationId)).orderBy(desc(T.renders.createdAt)))[0]
+          : p.episodeId ? await renderFor(p.episodeId) : undefined;
         await db.update(T.posts).set({ state: "published", url: String(body.url ?? "").trim() || p.url, publishedAt: p.publishedAt ?? new Date(), renderId: p.renderId ?? r?.id ?? null, updatedAt: new Date() }).where(eq(T.posts.id, id));
       } else if (act[2] === "skip") {
         await db.update(T.posts).set({ state: "skipped", updatedAt: new Date() }).where(eq(T.posts.id, id));
