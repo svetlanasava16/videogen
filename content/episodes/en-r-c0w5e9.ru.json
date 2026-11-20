@@ -1,0 +1,104 @@
+{
+  "id": "en-r-c0w5e9.ru",
+  "jokeId": "en-r-c0w5e9",
+  "locale": "ru",
+  "title": "Давид",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "nachalnik",
+    "paren"
+  ],
+  "roles": {
+    "nachalnik": "boss",
+    "paren": "student"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "nachalnik",
+      "text": "Как тебя зовут, сынок?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Д-д-д-дав-дав-Давид.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Ты что, заикаешься?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Нет. Это папа заикается. А тётка в загсе попалась вредная.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "boss",
+        "paren": "student"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

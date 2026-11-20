@@ -1,0 +1,147 @@
+{
+  "id": "ru-439efbf4839a.de",
+  "jokeId": "ru-439efbf4839a",
+  "locale": "de",
+  "title": "Kopf oder Zahl",
+  "location": "klass",
+  "place": "university",
+  "cast": [
+    "paren",
+    "doktor"
+  ],
+  "roles": {
+    "paren": "student",
+    "doktor": "professor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Prüfung. Jede Frage im Test wird mit Ja oder Nein beantwortet. Ein Student wirft eine Münze und schreibt die Ergebnisse auf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "doktor",
+      "text": "Na, der ist als Erster fertig.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Eine Stunde später sind alle längst weg, aber er sitzt immer noch da und wirft seine Münze.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "doktor",
+      "text": "Na, haben Sie die Fragen beantwortet?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Ja.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "doktor",
+      "text": "Und was machen Sie dann noch?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "Ich prüfe nach.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

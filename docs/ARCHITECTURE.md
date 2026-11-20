@@ -68,6 +68,14 @@ pnpm metrics pull|report                               # post_metrics, account_m
 - Вовочка / Little Johnny / Fritzchen — одна кукла с локальными именами.
 - Общий стиль: `content/style.json` (бумажная перекладка, толстый контур).
 
+## Движок v2
+- Мир: городок Анекдотск / Jokeville / Witzhausen (`content/world/town.json`, `bible.md`), карта кодом (`remotion/src/world/TownMap.tsx`).
+- Эпизод = `lines` + необязательные `scenes` с битами (`line`, `move`, `prop`, `camera`, `sfx`, `pause`) и переходами (`cut`, `wipe`, `flyover`); старые эпизоды — одна сцена (`scenesOf`).
+- Режиссёр: метки мест (`content/locations/*.json → marks`), авто-камера (`director/camera.ts`), раздвижка кукол, реквизит (`content/props.json`).
+- Сборники: `pnpm compile` → `pnpm render --compilation` → посты `kind: compilation`; заставка над городом и пролёты между анекдотами.
+- Места без кода: `kit` в `content/locations/<id>.json` (суд, баня, пляж).
+- Риск «религия»: стадия `risk`, `mocking` → эпизоды `rejected`.
+
 ## Публикация и маркировка
 - Сейчас: только Instagram, вручную, аккаунты `ig-ru` и `ig-en`. Озвучка — на компьютере девушки (ElevenLabs, платный план), рендер и постинг — на Маке Мити, передача через git; телефон работает через `pnpm board`.
 - Позже: YouTube Shorts, TikTok, Threads через Postiz; потом X и VK.

@@ -1,0 +1,98 @@
+{
+  "id": "ru-fd6958211b4a.de",
+  "jokeId": "ru-fd6958211b4a",
+  "locale": "de",
+  "title": "Testbeerdigung",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "paren",
+    "sluzhivy"
+  ],
+  "roles": {
+    "paren": "employee",
+    "sluzhivy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Beerdigung auf dem Friedhof. Der Chef der Totengräber sieht einen Fünfzigeuroschein aus der Brusttasche des Toten ragen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Leute, treten Sie bitte vom Sarg zurück, wir müssen den Deckel prüfen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Steuerfahndung! Testbeerdigung!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Du machst deinen Job, ich mach meinen. Jungs, die Nägel!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "employee",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

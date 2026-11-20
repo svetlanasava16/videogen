@@ -1,0 +1,100 @@
+{
+  "id": "ru-4b1671537586.de",
+  "jokeId": "ru-4b1671537586",
+  "locale": "de",
+  "title": "Der Klempner",
+  "location": "spalnya",
+  "place": "bathroom",
+  "cast": [
+    "barmen",
+    "doktor"
+  ],
+  "roles": {
+    "barmen": "plumber",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Bei einem Neurochirurgen ist das Klo verstopft. Der Klempner klopft zweimal mit dem Hammer und zieht eine Mutter fest.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Fertig, alles läuft wieder. Macht dreihundert Euro.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Dreihundert Euro für fünf Minuten? Ich bin Neurochirurg, ich habe zwölf Jahre studiert, und mir zahlt keiner so viel für fünf Minuten!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Ganz normal. Als ich Neurochirurg war, hat man mir das auch nicht gezahlt.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "certificate",
+          "action": "give",
+          "to": "doktor"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

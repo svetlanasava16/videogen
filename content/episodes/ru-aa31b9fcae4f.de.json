@@ -1,0 +1,187 @@
+{
+  "id": "ru-aa31b9fcae4f.de",
+  "jokeId": "ru-aa31b9fcae4f",
+  "locale": "de",
+  "title": "Runde Summe",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-sosed": "friend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Mist, Geldbeutel vergessen, und mir fehlen zehn Euro. Leihst du mir was?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Na, hier.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Schulde ich dir zehn Euro?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "Ja.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Schon wieder den Geldbeutel vergessen. Leih mir noch vierzig, dann schulde ich dir glatte fünfzig.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Danach lieh er sich noch hundertfünfzig, und dann dreihundert, damit es rund wird.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Schulde ich dir fünfhundert?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "Nein!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

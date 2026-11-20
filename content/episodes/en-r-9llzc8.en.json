@@ -1,0 +1,122 @@
+{
+  "id": "en-r-9llzc8.en",
+  "jokeId": "en-r-9llzc8",
+  "locale": "en",
+  "title": "Khakis",
+  "location": "doroga",
+  "place": "street",
+  "cast": [
+    "sluzhivy-ryadovoy",
+    "devushka"
+  ],
+  "roles": {
+    "sluzhivy-ryadovoy": "soldier",
+    "devushka": "woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "devushka",
+      "text": "Oh no! I locked my keys in the car!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Don't cry, ma'am. I can help.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "He takes off his trousers, rolls them into a tight ball and rubs them on the car door. It opens.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "That's so clever! How did you do it?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Easy. These are my khakis.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy-ryadovoy",
+        "devushka"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "soldier",
+        "devushka": "woman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

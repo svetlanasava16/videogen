@@ -1,0 +1,187 @@
+{
+  "id": "ru-aa31b9fcae4f.ru",
+  "jokeId": "ru-aa31b9fcae4f",
+  "locale": "ru",
+  "title": "Для ровного счёта",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-sosed": "friend"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Чёрт, кошелёк забыл, а мне десятки не хватает. Одолжишь?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Ну, держи.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Я тебе десятку должен?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "Да.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Опять кошелёк забыл. Одолжи ещё сорок, буду тебе ровно полтинник должен.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Потом он занял ещё сто пятьдесят, а потом триста, для ровного счёта.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Я тебе пятьсот должен?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
+      "text": "Нет!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "money",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "friend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

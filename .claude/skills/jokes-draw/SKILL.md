@@ -39,3 +39,6 @@ npx remotion still src/index.ts Joke ../renders/x.png --frame=40 --props=../cont
 npx remotion render src/index.ts Joke ../renders/x.mp4 --props=../content/episodes/<id>.json
 ```
 `content/episodes/test-enter.ru.json` is a ready staging test (patient walks in, then out). Check: puppets don't blend into the wall colour (variant clothes vs backdrop palette), feet on the floor line, accessories sit on the body for every build.
+
+## Engine v2 additions
+Camera (`remotion/src/director/camera.ts`), location `marks`, hand props (`remotion/src/props/Props.tsx`), the town map (`remotion/src/world/TownMap.tsx`) and data-only backdrops (`kit`, `remotion/src/backdrops/Kit.tsx`) — see **jokes-engine**.

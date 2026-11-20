@@ -110,7 +110,9 @@ export function buildTimeline(ep: Episode) {
     }
     const startsOn = new Set(sc.cast.filter((id) => first.get(id) !== "in"));
 
+    let started = false; // была ли уже реплика/пауза: move до неё — расстановка без ходьбы
     for (const b of sc.beats) {
+      if (b.type === "line" || b.type === "pause") started = true;
       if (b.type === "line") {
         const l = byId.get(b.ref);
         if (!l) continue;
@@ -142,6 +144,9 @@ export function buildTimeline(ep: Episode) {
           t += WALK_SEC + 0.15;
         }
         t += Math.max(l.pauseAfterSec, gap);
+      } else if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-")) {
+        // начальная расстановка: кукла сразу стоит на метке
+        moves.push({ id: b.who, from: f(t) - 1, to: f(t) - 1, kind: "walk", target: b.to });
       } else if (b.type === "move") {
         const off = b.to.startsWith("off-");
         moves.push({

@@ -149,6 +149,18 @@ function Icon({ b }: { b: Building }) {
       return <g><circle cx={0} cy={-90} r={70} fill="#e0a030" /><ellipse cx={0} cy={-90} rx={120} ry={22} fill="none" stroke="#f2d38a" strokeWidth={10} /><path d="M140 -40 l14 -60 l14 60 z" fill="#f6f2e8" /></g>;
     case "hell":
       return <g><path d="M-200 0 Q-180 -160 0 -180 Q180 -160 200 0 Z" fill="#a8321f" />{[-120, -40, 40, 120].map((x) => <path key={x} d={`M${x - 20} 0 q20 -90 40 0 z`} fill={C.lava} />)}<path d="M-30 -60 h60 v40 q-30 20 -60 0 z" fill={C.ink} /></g>;
+    case "court":
+      return (
+        <g>
+          <rect x={-120} y={-40} width={240} height={40} fill={C.wall2} />
+          {[-90, -45, 0, 45, 90].map((x) => <rect key={x} x={x - 10} y={-170} width={20} height={130} fill={C.wall} />)}
+          <rect x={-130} y={-190} width={260} height={24} fill={C.wall2} /><path d="M-140 -188 L0 -260 L140 -188 Z" fill={C.wall} />
+        </g>
+      );
+    case "banya":
+      return <g><rect x={-80} y={-90} width={160} height={90} rx={6} fill="#a87a4a" />{[-70, -45, -20].map((y) => <rect key={y} x={-80} y={y} width={160} height={6} fill="#8a5a3a" />)}<path d="M-94 -86 L0 -140 L94 -86 Z" fill={C.roof2} /><circle cx={50} cy={-170} r={18} fill="#fff" opacity={0.8} /><circle cx={70} cy={-205} r={24} fill="#fff" opacity={0.7} /></g>;
+    case "beach":
+      return <g><ellipse cx={0} cy={-10} rx={130} ry={34} fill="#ecd9a5" /><rect x={-4} y={-150} width={8} height={140} fill={C.roof2} /><path d="M-80 -140 Q0 -210 80 -140 Z" fill="#d24b4b" /></g>;
     default:
       return <House />;
   }

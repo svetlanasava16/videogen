@@ -36,6 +36,9 @@ pnpm board                                          # prints http://<mac>.local:
 - Set a fixed `BOARD_TOKEN` in `.env` so the phone link survives restarts. The board must keep running only while posting.
 - Account handles: `content/accounts.json` (`ig-ru`, `ig-en` active), then `pnpm db sync`.
 
+## Compilations
+`pnpm compile --locale ru --size 3 --voiced` → `pnpm render --compilation <id>` → `pnpm posts plan --account ig-ru --kind compilation` (caption lists the jokes, then disclosure and rights). Details: **jokes-engine**.
+
 ## Publish via Postiz (later)
 ```bash
 pnpm posts accounts                                  # Postiz integrations → content/accounts.json (by handle), then set active, pnpm db sync

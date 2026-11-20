@@ -1,0 +1,100 @@
+{
+  "id": "ru-4b1671537586.ru",
+  "jokeId": "ru-4b1671537586",
+  "locale": "ru",
+  "title": "Сантехник",
+  "location": "spalnya",
+  "place": "bathroom",
+  "cast": [
+    "barmen",
+    "doktor"
+  ],
+  "roles": {
+    "barmen": "plumber",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "У нейрохирурга засорился унитаз. Пришёл сантехник, пару раз стукнул молотком и закрутил гайку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Готово, всё работает. С вас пятьсот рублей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Пятьсот рублей за пять минут? Я нейрохирург, я двенадцать лет учился, и мне за пять минут столько не платят!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Так это нормально. Когда я был нейрохирургом, мне тоже столько не платили.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "certificate",
+          "action": "give",
+          "to": "doktor"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "ru-fd6958211b4a.en",
+  "jokeId": "ru-fd6958211b4a",
+  "locale": "en",
+  "title": "The Sting",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "paren",
+    "sluzhivy"
+  ],
+  "roles": {
+    "paren": "employee",
+    "sluzhivy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A funeral at the cemetery. The head gravedigger spots a fifty-dollar bill sticking out of the dead man's pocket.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Folks, step back from the coffin, please. We need to check the lid.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Tax police! Sting burial!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "You've got your job, and I've got mine. Boys, the nails!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "employee",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "id": "ru-4b1671537586.en",
+  "jokeId": "ru-4b1671537586",
+  "locale": "en",
+  "title": "The Plumber",
+  "location": "spalnya",
+  "place": "bathroom",
+  "cast": [
+    "barmen",
+    "doktor"
+  ],
+  "roles": {
+    "barmen": "plumber",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A neurosurgeon's toilet is blocked. The plumber comes, taps a couple of times with a hammer and tightens a nut.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "All done, it works. That'll be three hundred dollars.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Three hundred dollars for five minutes? I'm a neurosurgeon, I trained for twelve years, and nobody pays me that for five minutes!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "That's normal. When I was a neurosurgeon, they didn't pay me that either.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "barmen",
+        "doktor"
+      ],
+      "roles": {
+        "barmen": "plumber",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "certificate",
+          "action": "give",
+          "to": "doktor"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

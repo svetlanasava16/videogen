@@ -1,0 +1,98 @@
+{
+  "id": "ru-fd6958211b4a.ru",
+  "jokeId": "ru-fd6958211b4a",
+  "locale": "ru",
+  "title": "Контрольное захоронение",
+  "location": "ulitsa",
+  "place": "cemetery",
+  "cast": [
+    "paren",
+    "sluzhivy"
+  ],
+  "roles": {
+    "paren": "employee",
+    "sluzhivy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Похороны на кладбище. Бригадир гробовщиков видит: у покойника из нагрудного кармана торчит пятьдесят рублей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Граждане, отойдите от гроба, нам надо крышку проверить.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Налоговая полиция! Контрольное захоронение!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "У тебя своя работа, а у меня своя. Мужики, гвозди!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "employee",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

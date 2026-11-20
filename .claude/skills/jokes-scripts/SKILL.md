@@ -28,3 +28,6 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 - Specific joke: find its id in `data/jokes/<lang>.jsonl` (grep the text), then create a one-item batch: `pnpm llm prepare script` only picks pool jokes, so for outside-pool jokes write the input line by hand into a new `batch-NNNN.in.jsonl` (same fields as existing batches; `suggestedCast` from `castScene`).
 - Different tone or length: adjust `pipeline/prompts/script.md` (keep the output format) and re-run on a pilot.
 - Missing puppet for a joke: use **jokes-cast** first.
+
+## Engine v2 (scenes)
+Scripts may include `scenes` (several places, walking to marks, props, flyover/wipe transitions) — see **jokes-engine** for the format. The writer's reference `data/llm/script/context.md` is regenerated on `prepare` from `content/world/bible.md`, `town.json`, location marks and `content/props.json`. Use scenes only when they serve the joke; simple one-place dialogues stay without them. `--per-lang N` is a cumulative top (ranks 101–110 = `--per-lang 110`).

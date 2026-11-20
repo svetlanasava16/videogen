@@ -1,0 +1,108 @@
+{
+  "id": "ru-3ab9f2fbf6fe.en",
+  "jokeId": "ru-3ab9f2fbf6fe",
+  "locale": "en",
+  "title": "Daddy's Home",
+  "location": "gostinaya",
+  "place": "front-door",
+  "cast": [
+    "muzhik",
+    "zhena",
+    "vovochka"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "zhena": "wife",
+    "vovochka": "child"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Three in the morning. A drunk husband crawls home and brings down the whole hallway: buckets, skis, a bicycle.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "What on earth was that?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "What's the matter, couldn't sleep without Daddy?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "zhena": "wife",
+        "vovochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "tv",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "ru-9d24f41254be.de",
+  "jokeId": "ru-9d24f41254be",
+  "locale": "de",
+  "title": "Der zweite Blinddarm",
+  "location": "bolnitsa",
+  "place": "home-living-room",
+  "cast": [
+    "muzhik",
+    "doktor"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Herr Doktor, bitte kommen Sie sofort mit! Meine Frau hat eine schlimme Blinddarmentzündung!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "doktor",
+      "text": "Beruhigen Sie sich. Ich habe Ihrer Frau vor zwei Jahren den Blinddarm entfernt. Einen zweiten Blinddarm bekommt niemand.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Stimmt, Herr Doktor. Aber eine zweite Frau kann man schon bekommen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

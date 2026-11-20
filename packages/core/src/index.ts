@@ -191,6 +191,38 @@ export const Location = z.object({
   name: z.record(Locale, z.string()),
   palette: z.object({ wall: z.string(), floor: z.string(), accent: z.string() }),
   props: z.array(z.string()).default([]),
+  /**
+   * Фон из деталей (без кода): база room/outdoor + детали из remotion/src/backdrops/parts.tsx с координатами (кадр 1080×1920, пол y=1190).
+   * Используется, если для id нет нарисованного компонента.
+   */
+  kit: z
+    .object({
+      base: z.enum(["room", "outdoor"]),
+      sky: z.string().optional(),
+      ground: z.string().optional(),
+      horizon: z.number().optional(),
+      items: z
+        .array(
+          z.object({
+            part: z.enum(["window", "door", "shelf", "lamp", "table", "plant", "tree", "fence", "picture", "rug", "cloud", "rect", "circle", "path"]),
+            /** Для part=path: SVG-путь в координатах кадра (x/y — сдвиг). */
+            d: z.string().optional(),
+            x: z.number(),
+            y: z.number().optional(),
+            w: z.number().optional(),
+            h: z.number().optional(),
+            r: z.number().optional(),
+            s: z.number().optional(),
+            color: z.string().optional(),
+            color2: z.string().optional(),
+            kind: z.string().optional(),
+            night: z.boolean().optional(),
+            items: z.array(z.string()).optional(),
+          }),
+        )
+        .default([]),
+    })
+    .optional(),
   /** Метки места: x (доля ширины кадра 0..1) — door, counter, desk, bed, center… Нет — автослоты. */
   marks: z.record(z.string(), z.number().min(0).max(1)).default({}),
   bible: z
@@ -362,6 +394,8 @@ export const ScriptDraft = z.object({
       }),
     )
     .min(1),
+  /** Сцены движка v2 (необязательно): биты ссылаются на реплики l1, l2… по порядку в lines. */
+  scenes: z.array(Scene).max(3).optional(),
 });
 export type ScriptDraft = z.infer<typeof ScriptDraft>;
 
@@ -463,6 +497,11 @@ export function sceneProblems(
     }
   });
   if (scenes.length) {
+    // реплики идут в сценах по порядку lines (панчлайн — последним)
+    const refs = scenes.flatMap((sc) => sc.beats.flatMap((b) => (b.type === "line" ? [b.ref] : [])));
+    const order = ep.lines.map((l) => l.id).filter((id) => refs.includes(id));
+    if (refs.join(",") !== order.join(",")) pr.push(`lines must be referenced in the order of lines (got ${refs.join(", ")})`);
+    if (scenes.length > 3) pr.push(`at most 3 scenes (got ${scenes.length})`);
     for (const l of ep.lines) if (!used.has(l.id)) pr.push(`line ${l.id} is not used in any scene`);
     for (const [id, n] of used) if (n > 1) pr.push(`line ${id} is used ${n} times`);
   }

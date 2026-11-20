@@ -1,0 +1,131 @@
+{
+  "id": "en-r-8de5rt.ru",
+  "jokeId": "en-r-8de5rt",
+  "locale": "ru",
+  "title": "Окулист",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "nachalnik"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужик встречает на улице бывшего одноклассника.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Смотри, как я поднялся! Должность, зарплата, спортивная машина.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "А это моя жена. Красавица, правда?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Если она тебе кажется красавицей, тебе надо показаться моей девушке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "А что, она ещё красивее?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Нет. Она окулист.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "businessman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

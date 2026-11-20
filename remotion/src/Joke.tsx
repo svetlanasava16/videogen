@@ -41,7 +41,9 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     const m = ms[ms.length - 1];
     if (!m) return slotX(id, f);
     const k = ease(Math.min(1, (f - m.from) / Math.max(1, m.to - m.from)));
-    const target = (ff: number) => (m.target === "slot" ? slotX(id, ff) : (marks[m.target] ?? 0.5) * width);
+    // метка у края кадра: кукла целиком в кадре
+    const markX = (k: string) => Math.min(width - boxW * 0.42, Math.max(boxW * 0.42, (marks[k] ?? 0.5) * width));
+    const target = (ff: number) => (m.target === "slot" ? slotX(id, ff) : markX(m.target));
     if (m.kind === "enter") {
       // старый формат: вход по присутствию от ближнего края к слоту
       if (m.target === "slot" && !m.edge) return interpolate(ease(pres(id, f)), [0, 1], [edgeX(nearEdge(id)), slotX(id, f)]);

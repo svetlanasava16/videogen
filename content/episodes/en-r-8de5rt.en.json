@@ -1,0 +1,131 @@
+{
+  "id": "en-r-8de5rt.en",
+  "jokeId": "en-r-8de5rt",
+  "locale": "en",
+  "title": "The Optician",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "nachalnik"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A man bumps into an old school friend on Main Street.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Well, well! Look at me now. Big job, big salary, a brand new sports car.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "And this is my wife. Beautiful, isn't she?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "If you think she's gorgeous, you should see my girlfriend.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Why? Is she a stunner?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "No. She's an optician.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "businessman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
