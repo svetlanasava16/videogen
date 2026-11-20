@@ -147,7 +147,7 @@ const PAGE = /* html */ `<!doctype html>
 @media (prefers-color-scheme:dark){:root{--bg:#16130f;--card:#221d17;--ink:#f1ebe0;--mute:#a59b8c;--line:#3a3229}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 -apple-system,system-ui,sans-serif}
 header{position:sticky;top:0;background:var(--bg);padding:12px 16px 8px;border-bottom:1px solid var(--line);z-index:2}
-h1{margin:0 0 8px;font-size:22px}h1 b{color:var(--y)}
+h1{margin:0 0 8px;font-size:22px}h1 .dot{display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--y);margin:0 .12em 0 .07em;vertical-align:.15em}
 .tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button,.seg button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:15px}
 .tabs button.on,.seg button.on{background:var(--ink);color:var(--bg)}
 .seg{display:flex;gap:6px;margin-top:8px}
@@ -164,7 +164,7 @@ ul{margin:6px 0 0;padding-left:20px;color:var(--mute);font-size:14px}.grid{displ
 .badge{display:inline-block;border-radius:6px;padding:1px 6px;font-size:12px;background:var(--line);color:var(--ink)}.empty{color:var(--mute);text-align:center;padding:40px 0}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;opacity:0;transition:.2s}.toast.on{opacity:1}
 </style></head><body>
-<header><h1>ANEK<b>.</b> посты</h1><div class="tabs" id="tabs"></div>
+<header><h1>ANEK<i class="dot"></i> посты</h1><div class="tabs" id="tabs"></div>
 <div class="seg"><button data-v="todo" class="on">К публикации</button><button data-v="done">Опубликовано</button></div></header>
 <main id="list"><div class="empty">Загрузка…</div></main><div class="toast" id="toast"></div>
 <script>

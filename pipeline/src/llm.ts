@@ -27,7 +27,8 @@ type Stage = {
   beforePrepare?: () => void;
 };
 
-const MAX_WORDS: Record<string, number> = { ru: 95, en: 110, de: 90 };
+/** Лимит слов сценария (~55 с речи): анекдот рассказывается целиком, сжимаются формулировки, а не структура. */
+const MAX_WORDS: Record<string, number> = { ru: 130, en: 150, de: 120 };
 const RISKY = ["sexual", "ethnic", "political", "real-person", "homophobia", "drugs", "exclude"];
 
 const LOCALES = Locale.options;

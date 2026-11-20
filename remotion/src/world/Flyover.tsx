@@ -2,6 +2,7 @@ import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import type { Locale } from "@jf/core";
 import { TownMap, TOWN_H, TOWN_W } from "./TownMap";
 import type { Building } from "./town";
+import { Watermark } from "../components/Branding";
 
 const ease = Easing.inOut(Easing.cubic);
 const ASPECT = 16 / 9; // высота / ширина кадра
@@ -41,6 +42,7 @@ export const Flyover = ({ at, frames, from, to, locale }: { at: number; frames: 
   return (
     <AbsoluteFill style={{ opacity }}>
       <TownMap viewBox={viewBox(box)} locale={locale} highlight={p < 0.5 ? from.id : to.id} />
+      <Watermark />
     </AbsoluteFill>
   );
 };
@@ -57,11 +59,11 @@ export const TownIntro = ({ frames, to, locale, title }: { frames: number; to: B
   return (
     <AbsoluteFill style={{ opacity: fade }}>
       <TownMap viewBox={viewBox(box)} locale={locale} labels={p > 0.3} />
-      <div style={{ position: "absolute", left: 60, right: 60, top: "14%", textAlign: "center", opacity: titleOpacity, fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif" }}>
-        <div style={{ fontSize: 150, fontWeight: 900, color: "#fff", WebkitTextStroke: "12px #2b1d14", paintOrder: "stroke fill" }}>
-          ANEK<span style={{ color: "#e0a030" }}>.</span>
-        </div>
-        <div style={{ fontSize: 60, fontWeight: 800, color: "#fff", marginTop: 10, WebkitTextStroke: "8px #2b1d14", paintOrder: "stroke fill" }}>{title}</div>
+      <Watermark />
+      {/* название сборника (логотип — только в углу, водяным знаком) */}
+      <div style={{ position: "absolute", left: 60, right: 60, top: "16%", textAlign: "center", opacity: titleOpacity, fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif",
+        fontSize: 72, fontWeight: 900, color: "#fff", WebkitTextStroke: "10px #2b1d14", paintOrder: "stroke fill" }}>
+        {title}
       </div>
     </AbsoluteFill>
   );
