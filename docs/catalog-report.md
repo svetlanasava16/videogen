@@ -104,7 +104,7 @@
 
 ## Покрытие куклами и фонами
 
-28 кукол (22 семейств) играют 136 ролей; 14 фонов закрывают 51 локаций.
+29 кукол (22 семейств) играют 136 ролей; 14 фонов закрывают 51 локаций.
 
 | | ru | en | de | все |
 |---|---|---|---|---|
@@ -160,3 +160,15 @@ videoFit ≥ 4 и funny ≥ 4; «безопасные» — без флагов 
 | безопасные en→de переводимы |  | 207/232 |  |
 | безопасные de→ru переводимы |  |  | 393/397 |
 | безопасные de→en переводимы |  |  | 397/397 |
+
+## Риск: религия
+
+Стадия risk (pipeline/prompts/risk.md). mocking — эпизоды rejected, не озвучиваются и не публикуются.
+
+| | ru | en | de |
+|---|---|---|---|
+| none | 89 | 94 | 86 |
+| setting | 10 | 5 | 8 |
+| mocking | 1 | 1 | 6 |
+
+mocking: ru-28716f4c3af8 (priest, Gospel verses), en-r-ckpbr2 (evangelist preacher), de-witze-1s7ral0 (priest, confessional), de-witze-1ig2vjl (Jesus, pious saying), de-witze-1pm89b4 (Joseph and Mary, virgin birth), de-witze-1bb9zna (Pope, Lord's Prayer), de-witze-1plfygm (Jesus, pious saying), de-witze-1qr2yh9 (Jesus walking on water)

@@ -13,7 +13,7 @@ import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import type { ZodType } from "zod";
+import { z, type ZodType } from "zod";
 import { DATA, ROOT, readJsonl, writeJsonl } from "./util.js";
 
 type Stage = {
@@ -47,6 +47,33 @@ const STAGES: Record<string, Stage> = {
           .filter((j) => j.lang === lang && !done.has(j.id))
           .slice(0, perLang ?? Infinity)
           .map((j) => ({ id: j.id, lang: j.lang, kind: j.kind, text: j.text, targets: LOCALES.filter((l) => l !== j.lang) })),
+      );
+    },
+  },
+
+  /** Риск публикации: религия (ст. 148 УК РФ). Только анекдоты, по которым есть эпизоды. */
+  risk: {
+    prompt: "pipeline/prompts/risk.md",
+    output: z.object({
+      id: z.string(),
+      religion: z.enum(["none", "setting", "mocking"]),
+      target: z.string().default(""),
+      note: z.string().default(""),
+    }),
+    inputs: ({ perLang, lang: only }) => {
+      const done = doneIds("risk");
+      const withEpisodes = new Set(
+        readdirSync(join(ROOT, "content", "episodes")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.(ru|en|de)\.json$/, "")),
+      );
+      const analysis = new Map(readJsonl<JokeAnalysis>(resultsPath("analyze")).map((a) => [a.id, a]));
+      return LOCALES.filter((l) => !only || l === only).flatMap((lang) =>
+        loadJokes()
+          .filter((j) => j.lang === lang && withEpisodes.has(j.id) && !done.has(j.id))
+          .slice(0, perLang ?? Infinity)
+          .map((j) => {
+            const a = analysis.get(j.id);
+            return { id: j.id, lang: j.lang, text: j.text, gist: a?.gist ?? "", characters: a?.characters.map((c) => c.archetype) ?? [] };
+          }),
       );
     },
   },
@@ -297,5 +324,6 @@ if (cmd === "materialize") {
 }
 if (cmd === "check") {
   if (!values.batch) throw new Error("check needs --batch batch-NNNN");
-  check(s, stage, values.batch);
+  // `--batch 7` и `--batch batch-0007` равнозначны
+  check(s, stage, /^\d+$/.test(values.batch) ? `batch-${values.batch.padStart(4, "0")}` : values.batch);
 }

@@ -11,11 +11,12 @@ import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { sql } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import type { PgTable } from "drizzle-orm/pg-core";
 import { Character, Episode, Location } from "@jf/core";
 import { connect, migrate, schema as T, type Db } from "@jf/db";
 import { loadAudio } from "./audio.js";
+import { blocked } from "./risk.js";
 import { DATA, ROOT, readJsonl } from "./util.js";
 
 export const sha = (s: string | Buffer) => createHash("sha256").update(s).digest("hex");
@@ -124,7 +125,14 @@ export async function sync(db: Db) {
   report("characters", await upsert(db, T.characters, characters, "hash"));
   report("locations", await upsert(db, T.locations, locations, "hash"));
   report("assets", await upsert(db, T.assets, assetRows(), "sha256"));
-  report("episodes", await upsert(db, T.episodes, episodeRows(), "contentHash", ["status"]));
+  const eps = episodeRows();
+  report("episodes", await upsert(db, T.episodes, eps, "contentHash", ["status"]));
+  // риск: эпизоды анекдотов, высмеивающих веру, — rejected (ручное решение approved не трогаем)
+  const bad = eps.filter((e) => blocked(e.jokeId as string)).map((e) => e.id);
+  if (bad.length) {
+    const r = await db.update(T.episodes).set({ status: "rejected" }).where(and(inArray(T.episodes.id, bad), eq(T.episodes.status, "draft"))).returning({ id: T.episodes.id });
+    console.log(`risk        ${bad.length} episodes of mocking jokes, ${r.length} newly rejected`);
+  }
   // аккаунты: хэш не храним в таблице — сравниваем по полям, postiz id из файла не затираем, если там пусто
   const acc = accountRows();
   for (const a of acc) {

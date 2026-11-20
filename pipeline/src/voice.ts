@@ -19,6 +19,7 @@ import { NARRATOR, VoiceConfig, estimateWords, textHash, type Emotion, type Loca
 import { duration, tool } from "./audio.js";
 import { DATA, ROOT, readJsonl } from "./util.js";
 import * as EL from "./voice/elevenlabs.js";
+import { blocked } from "./risk.js";
 
 const CHARS = join(ROOT, "content", "characters");
 const EPISODES = join(ROOT, "content", "episodes");
@@ -175,6 +176,7 @@ async function run() {
     const pop = popularity();
     files = episodeFiles()
       .map((f) => ({ f, ep: readRaw(join(EPISODES, f)) }))
+      .filter(({ ep }) => !blocked(ep.jokeId))
       .filter(({ ep }) => ep.locale === locale && (stale(ep).length || staleLaughs(ep, (c) => voiceOf(c, ep.locale, chars, cfg)).length))
       .sort((a, b) => (pop.get(b.ep.jokeId) ?? 0) - (pop.get(a.ep.jokeId) ?? 0))
       .slice(0, Number(arg("top", "10")))

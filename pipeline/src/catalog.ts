@@ -186,6 +186,18 @@ for (const l of langs)
   }
 
 mkdirSync(join(DATA, "catalog"), { recursive: true });
+// Риск «религия» (стадия risk, только анекдоты с эпизодами)
+{
+  const risk = readJsonl<{ id: string; religion: string; target: string }>(join(DATA, "llm", "risk", "results.jsonl"));
+  if (risk.length) {
+    const lang = (id: string) => id.slice(0, 2);
+    const cnt = (l: string, v: string) => risk.filter((r) => lang(r.id) === l && r.religion === v).length;
+    out.push(``, `## Риск: религия`, ``, `Стадия risk (pipeline/prompts/risk.md). mocking — эпизоды rejected, не озвучиваются и не публикуются.`, ``,
+      `| | ${langs.join(" | ")} |`, `|---|${langs.map(() => "---").join("|")}|`,
+      ...["none", "setting", "mocking"].map((v) => `| ${v} | ${langs.map((l) => cnt(l, v)).join(" | ")} |`), ``,
+      `mocking: ${risk.filter((r) => r.religion === "mocking").map((r) => `${r.id} (${r.target})`).join(", ")}`);
+  }
+}
 writeFileSync(join(DATA, "catalog", "stats.json"), JSON.stringify({ characters: chars, locations: locs, translatability: trans }, null, 2) + "\n");
 writeFileSync(join(ROOT, "docs", "catalog-report.md"), out.join("\n") + "\n");
 console.log(out.join("\n"));
