@@ -1,0 +1,76 @@
+{
+  "id": "batyushka-molodoy",
+  "name": {
+    "ru": "Молодой батюшка",
+    "en": "Father Tom",
+    "de": "Kaplan"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#f2d2b0",
+    "clothes": "#2b2b2b",
+    "accent": "#c8a227",
+    "hair": "#c9a24a",
+    "hairStyle": "short",
+    "build": "slim",
+    "accessories": [
+      "goatee",
+      "cross",
+      "round-glasses"
+    ]
+  },
+  "family": "batyushka",
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "молодой мужской голос, мягкий"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "young soft male voice"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "junge sanfte Männerstimme"
+    }
+  },
+  "bible": {
+    "summary": "Young double of the clergyman rig: the second priest or the monk, so two-priest jokes keep two priests.",
+    "age": "30",
+    "build": "slim",
+    "silhouette": "same rig as Father Mike, slimmer",
+    "outfit": "black cassock with cross",
+    "features": "blond hair, thin goatee, round glasses, earnest eyes",
+    "palette": [
+      "#2b2b2b",
+      "#f2d2b0",
+      "#c9a24a"
+    ],
+    "personality": "earnest, naive, eager to please",
+    "roles": [
+      "monk"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "monk"
+        ],
+        "change": "brown habit with hood",
+        "look": {
+          "clothes": "#6b4a2a",
+          "add": [
+            "hood"
+          ],
+          "remove": []
+        }
+      }
+    ],
+    "voiceBrief": {
+      "ru": "молодой мужской голос, мягкий",
+      "en": "young soft male voice",
+      "de": "junge sanfte Männerstimme"
+    },
+    "prompt": "slim young priest with blond hair, thin goatee and round glasses, black cassock with a cross"
+  }
+}

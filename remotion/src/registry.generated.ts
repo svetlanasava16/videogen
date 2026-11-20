@@ -1,5 +1,6 @@
 // Сгенерировано pnpm registry — не редактировать вручную.
 import c_barmen from "../../content/characters/barmen.json";
+import c_batyushka_molodoy from "../../content/characters/batyushka-molodoy.json";
 import c_batyushka_ravvin from "../../content/characters/batyushka-ravvin.json";
 import c_batyushka from "../../content/characters/batyushka.json";
 import c_chort from "../../content/characters/chort.json";
@@ -41,5 +42,5 @@ import l_samolet from "../../content/locations/samolet.json";
 import l_spalnya from "../../content/locations/spalnya.json";
 import l_tserkov from "../../content/locations/tserkov.json";
 import l_ulitsa from "../../content/locations/ulitsa.json";
-export const characterData: unknown[] = [c_barmen, c_batyushka_ravvin, c_batyushka, c_chort, c_ded, c_devochka, c_devushka_blondinka, c_devushka_ryzhaya, c_devushka, c_doktor, c_inostranets, c_korova, c_kot, c_loshad, c_muzhik_ryzhy, c_muzhik_sosed, c_muzhik, c_nachalnik, c_paren, c_ptitsa, c_pyos, c_sluzhivy_ryadovoy, c_sluzhivy, c_tyoshcha, c_uchilka, c_vor, c_vovochka, c_zhena];
+export const characterData: unknown[] = [c_barmen, c_batyushka_molodoy, c_batyushka_ravvin, c_batyushka, c_chort, c_ded, c_devochka, c_devushka_blondinka, c_devushka_ryzhaya, c_devushka, c_doktor, c_inostranets, c_korova, c_kot, c_loshad, c_muzhik_ryzhy, c_muzhik_sosed, c_muzhik, c_nachalnik, c_paren, c_ptitsa, c_pyos, c_sluzhivy_ryadovoy, c_sluzhivy, c_tyoshcha, c_uchilka, c_vor, c_vovochka, c_zhena];
 export const locationData: unknown[] = [l_bar, l_bolnitsa, l_derevnya, l_doroga, l_gostinaya, l_klass, l_kukhnya, l_magazin, l_nebesa, l_ofis, l_samolet, l_spalnya, l_tserkov, l_ulitsa];

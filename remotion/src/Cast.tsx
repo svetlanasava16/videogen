@@ -12,8 +12,8 @@ export const Cast = () => {
     <AbsoluteFill style={{ background: "#f2e6d0", padding: 40, display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 24 }}>
       {list.map((c) => (
         <div key={c.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ height: 300 }}>
-            <Puppet look={c.look} speaking={false} emotion="neutral" flip={false} seed={0} />
+          <div style={{ height: 360 }}>
+            <Puppet look={c.look} speaking={false} emotion="neutral" seed={0} />
           </div>
           <div style={{ fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 30, color: "#2b1d14", textAlign: "center" }}>
             {c.name.ru}

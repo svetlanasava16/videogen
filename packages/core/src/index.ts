@@ -29,6 +29,10 @@ export const Line = z.object({
     .optional(),
   /** Пауза после реплики, сек (комическая пауза перед панчлайном). */
   pauseAfterSec: z.number().default(0.35),
+  /** Куклы, которые входят в кадр перед этой репликой. */
+  enter: z.array(z.string()).default([]),
+  /** Куклы, которые уходят из кадра после этой реплики. */
+  exit: z.array(z.string()).default([]),
 });
 export type Line = z.infer<typeof Line>;
 
@@ -37,7 +41,9 @@ export const Episode = z.object({
   jokeId: z.string(),
   locale: Locale,
   title: z.string(),
-  location: z.string(), // id локации
+  location: z.string(), // id фона (content/locations)
+  /** Каноническая локация сцены (например "park" для фона "ulitsa") — выбирает вариант фона. */
+  place: z.string().optional(),
   /** Участники слева направо (id кукол). */
   cast: z.array(z.string()).min(1).max(3),
   /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
@@ -59,6 +65,8 @@ export const Look = z.object({
   hair: z.string().optional(),
   /** short | bald | fringe | long | bun | pigtails | perm | curly | none */
   hairStyle: z.string().optional(),
+  /** Телосложение: slim | average | stocky | portly | child (рост и ширина тела). */
+  build: z.string().optional(),
   accessories: z.array(z.string()).default([]),
 });
 export type Look = z.infer<typeof Look>;
@@ -120,7 +128,7 @@ export const Character = z.object({
       /** Смена реквизита/костюма под роль, без перерисовки куклы. */
       variants: z.array(z.object({ roles: z.array(z.string()), change: z.string(), look: LookPatch.optional() })).default([]),
       voiceBrief: z.record(Locale, z.string()),
-      /** Промпт для ComfyUI (листа персонажа), дополняется общим стилем content/style.json. */
+      /** Короткое текстовое описание внешности (для людей и агентов; рисуется кодом). */
       prompt: z.string(),
     })
     .optional(),
@@ -148,8 +156,6 @@ export type Location = z.infer<typeof Location>;
 export const Style = z.object({
   id: z.string(),
   description: z.string(),
-  positive: z.string(),
-  negative: z.string(),
   palette: z.array(z.string()),
 });
 export type Style = z.infer<typeof Style>;
@@ -249,8 +255,40 @@ export const ScriptDraft = z.object({
         text: z.string().min(1),
         emotion: Emotion,
         pauseAfterSec: z.number(),
+        enter: z.array(z.string()).default([]),
+        exit: z.array(z.string()).default([]),
       }),
     )
     .min(1),
 });
 export type ScriptDraft = z.infer<typeof ScriptDraft>;
+
+/**
+ * Проверка выходов и уходов: говорит только тот, кто в кадре; входит — кто отсутствует; уходит — кто присутствует.
+ * Кто начинает за кадром: кукла, чьё первое событие — enter.
+ */
+export function stagingProblems(cast: string[], lines: { character: string; enter?: string[]; exit?: string[] }[]): string[] {
+  const pr: string[] = [];
+  const first = new Map<string, "enter" | "exit">();
+  for (const l of lines) {
+    for (const id of l.enter ?? []) if (!first.has(id)) first.set(id, "enter");
+    for (const id of l.exit ?? []) if (!first.has(id)) first.set(id, "exit");
+  }
+  const on = new Set(cast.filter((id) => first.get(id) !== "enter"));
+  lines.forEach((l, i) => {
+    for (const id of [...(l.enter ?? []), ...(l.exit ?? [])]) {
+      if (id === NARRATOR) pr.push(`line ${i + 1}: narrator cannot enter/exit`);
+      else if (!cast.includes(id)) pr.push(`line ${i + 1}: ${id} not in cast`);
+    }
+    for (const id of l.enter ?? []) {
+      if (on.has(id)) pr.push(`line ${i + 1}: ${id} enters but is already on stage`);
+      on.add(id);
+    }
+    if (l.character !== NARRATOR && !on.has(l.character)) pr.push(`line ${i + 1}: ${l.character} speaks while off stage`);
+    for (const id of l.exit ?? []) {
+      if (!on.has(id)) pr.push(`line ${i + 1}: ${id} exits but is not on stage`);
+      on.delete(id);
+    }
+  });
+  return pr;
+}

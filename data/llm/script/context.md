@@ -5,8 +5,9 @@
 | id | names ru / en / de | family | roles it plays |
 |---|---|---|---|
 | barmen | Бармен / Barman / Wirt | barmen | bartender, waiter, salesman, cook, janitor, mechanic, plumber, craftsman, construction-worker |
+| batyushka-molodoy | Молодой батюшка / Father Tom / Kaplan | batyushka | monk |
 | batyushka-ravvin | Ребе / Rabbi / Rabbi | batyushka | rabbi |
-| batyushka | Батюшка / Father Mike / Pfarrer | batyushka | priest, monk, pope |
+| batyushka | Батюшка / Father Mike / Pfarrer | batyushka | priest, pope |
 | chort | Чёрт / Devil / Teufel | chort | devil, death, genie, vampire, monster |
 | ded | Дед / Grandpa / Opa | ded | old-man, grandpa, god, saint-peter, biblical-figure, ded-moroz, wizard, rabinovich, ostfriese |
 | devochka | Девочка / Lily / Lisa | devochka | red-riding-hood |

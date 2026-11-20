@@ -1,0 +1,35 @@
+---
+name: jokes-draw
+description: Draw and animate in code — vector SVG puppets (rig, poses, gestures, faces, accessories, new figure kinds) and backdrops (new location or variant) in Remotion, then verify with Cast / Locations / Joke stills and a video render. Use for any visual change: how a character looks or moves, a new prop, a new scene or scene variant. No ComfyUI or image generation.
+---
+
+# Drawing puppets and backdrops in code
+
+Everything visual is React SVG in `remotion/`. Style: flat rounded shapes, no outlines, warm limited palette (`content/style.json`), big heads, stereotype details as accessories. Look at `renders/cast.png` and `renders/locations.png` before drawing to stay consistent.
+
+## Puppet rig — `remotion/src/puppet/`
+- `Rig.tsx` — assembles the figure in a 300×600 box, feet on y=585: legs (walk cycle), body by `look.build` (slim, average, stocky, portly, child), arms (poses), head (tilt), robes (`robe-*` accessories become a long robe). Front-of-body accessories are clipped to the body shape.
+- `Face.tsx` — eyes (blink, squint for angry/smug, round for surprised), brows per emotion, mouth: talking (open 0..1) or an emotion shape.
+- `motion.ts` — `BUILDS` sizes, `blink`, `mouthOpen`, `armAngles` (emotion poses + speaking gesture + walking swing), `legAngles`, `bodyBob`. Change behaviour here, not in Rig.
+- `Accessories.tsx` — hair styles (`HairTop`/`HairBack`) and the `Accessory` switch. Head box: centre (150,160), radii 76×82; body starts at y=230. New accessory = new `case` + add the id to `FRONT` (on the body) or `BACK` (behind the head) if needed. Hand props (camera, keys, scythe, baguette, loot-bag) are drawn after the arms.
+- New figure kind (e.g. `pig`): add it to `ANIMALS` if non-human, draw ears/snout in the head block of `Rig.tsx`, pick `build`.
+- Use on a puppet: edit `content/characters/<id>.json` (`look.kind`, `look.build`, `look.accessories`, role variants `bible.variants[].look`). See **jokes-cast** for roles and doubles.
+
+## Backdrops — `remotion/src/backdrops/`
+- `parts.tsx` — canvas 1080×1920, `FLOOR_Y = 1190` (puppets' feet), layout rules in the header (keep x 120…960 × y 640…1190 calm; narrator caption y 150…420; subtitles below 1250), primitives: Room, Outdoor, Window, Door, Shelf, HangingLamp, Table, Plant, Cloud, Tree, Fence, Picture, Rug.
+- One file per backdrop id (`gostinaya.tsx`, `bar.tsx`…), signature `({ palette, variant }: BackdropProps)`. `variant` is the canonical location (`Episode.place`, e.g. `park` on `ulitsa`); handle every id in `content/locations/<id>.json → bible.variants[].roles`, unknown → base scene.
+- New backdrop: create `content/locations/<id>.json` (name, palette, props, bible.roles = canonical locations it covers, variants), create `remotion/src/backdrops/<id>.tsx`, add it to `remotion/src/backdrops/index.ts`, run `pnpm registry`.
+
+## Staging
+`remotion/src/timeline.ts` turns `lines[].enter/exit` into walk-in/walk-out moves (0.7 s) and presence per frame; `remotion/src/Joke.tsx` lays out on-screen puppets in slots weighted by presence, walks newcomers in from the nearest edge, turns speakers toward the others. Validation of enter/exit lives in `stagingProblems` (`packages/core/src/index.ts`).
+
+## Verify (always look at the images)
+```bash
+pnpm typecheck && pnpm registry
+cd remotion
+npx remotion still src/index.ts Cast ../renders/cast.png
+npx remotion still src/index.ts Locations ../renders/locations.png [--props='{"only":["bar"]}']
+npx remotion still src/index.ts Joke ../renders/x.png --frame=40 --props=../content/episodes/<id>.json
+npx remotion render src/index.ts Joke ../renders/x.mp4 --props=../content/episodes/<id>.json
+```
+`content/episodes/test-enter.ru.json` is a ready staging test (patient walks in, then out). Check: puppets don't blend into the wall colour (variant clothes vs backdrop palette), feet on the floor line, accessories sit on the body for every build.

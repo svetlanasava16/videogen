@@ -12,15 +12,16 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 
 ## Procedure
 1. `pnpm llm prepare script --per-lang N [--lang xx] [--size 20]` — N source jokes per language (each yields 1–3 tasks). Use `--size 20`: scripts are long outputs.
-2. Run batches with **llm-batch-run** (agents run `pnpm llm check script --batch …`; the check validates schema plus cast/backdrop ids, speakers in cast, stage directions, word limit).
+2. Run batches with **llm-batch-run** (agents run `pnpm llm check script --batch …`; the check validates schema plus cast/backdrop ids, speakers in cast, staging — `enter`/`exit`, nobody speaks off screen — stage directions, word limit).
 3. `pnpm llm collect script` → `data/llm/script/results.jsonl`.
-4. `pnpm llm materialize script` → `content/episodes/<jokeId>.<locale>.json` (`unfit` adaptations are skipped).
+4. `pnpm llm materialize script` → `content/episodes/<jokeId>.<locale>.json` (`unfit` adaptations are skipped; `enter`/`exit` and the canonical location `place` — picks the backdrop variant — are carried over).
 5. Preview: `cd remotion && npx remotion still src/index.ts Joke ../renders/<id>.png --frame=60 --props=../content/episodes/<id>.json`; full render: `npx remotion render src/index.ts Joke ../renders/<id>.mp4 --props=…`. Look at a few stills (narrator jokes, translations) before reporting.
 
 ## Quality review (do this on a sample, not all)
 - Punchline last; no label/stage directions; numbers as words; under the word limit.
 - Translations sound native; `reworked` puns actually work; `unfit` count per direction (report it — it answers "is translating worth it").
 - Narrator only where needed; a character delivers the punchline.
+- Staging: arrivals walk in on their first line (patient to the doctor, husband coming home), departures only when the joke needs them.
 - Cast: no puppet twice; doubles used for two men/two women; `roles` set so costumes match (priest with cross, new-russian with gold chain).
 
 ## Custom requests

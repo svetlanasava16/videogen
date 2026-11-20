@@ -4,7 +4,7 @@
 
 ## Пайплайн
 источники → `data/jokes/<lang>.jsonl` (топ-2000) → LLM-разметка (analyze) → каталог персонажей и локаций
-→ character bible → арт в ComfyUI → сценарии (script) → озвучка ElevenLabs → рендер Remotion → Postiz
+→ описания кукол → куклы и фоны кодом (SVG) → сценарии (script) → озвучка ElevenLabs → рендер Remotion → Postiz
 
 ## LLM-стадии без привязки к провайдеру
 Скрипты готовят пачки JSONL, исполнитель пишет ответ рядом, скрипт проверяет и сливает:
@@ -23,7 +23,6 @@ pnpm llm status analyze
 pnpm canon check characters|locations                  # проверка склейки синонимов (data/llm/canon/*.out.json)
 pnpm catalog                                           # docs/catalog-report.md + data/catalog/stats.json
 pnpm registry                                          # список кукол/фонов для Remotion (после правок content/)
-pnpm art shots                                         # очередь ComfyUI: shots.characters.json, shots.locations.json
 pnpm llm prepare script --per-lang N --size 20         # сценарии из «безопасного» пула (+ переводы/адаптации)
 pnpm llm collect script && pnpm llm materialize script # → content/episodes/<jokeId>.<locale>.json
 pnpm studio                                            # Remotion Studio
@@ -66,8 +65,8 @@ pnpm studio                                            # Remotion Studio
 - Отчёт: `docs/catalog-report.md` (пересчёт `pnpm catalog`).
 
 ## Дальше
-1. Арт: модель в ComfyUI + `workflow_api.json` → `check` → `nodes` → `params` в shots.*.json → генерация листов персонажей и фонов.
-2. Нарезка утверждённого арта на слои куклы (голова, рот 3–4 фазы, глаза, руки) и замена SVG-заглушки.
+1. Риг кукол (руки, ноги, походка, эмоции) и фоны кодом.
+2. Выходы и уходы персонажей.
 3. Сценарии: пилот 27 штук готов (`data/llm/script/`); дальше — весь «безопасный» пул; выходы/уходы персонажей в Remotion.
 4. ElevenLabs (голоса по voiceBrief) → тайминги слов в Episode; Postiz.
 

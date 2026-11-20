@@ -1,45 +1,67 @@
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { NARRATOR, lookForRole, type Episode } from "@jf/core";
 import { characters, locations } from "./registry";
 import { buildTimeline } from "./timeline";
 import { Background } from "./components/Background";
-import { Puppet } from "./components/Puppet";
+import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
 import { Captions } from "./components/Captions";
+
+const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
+const PUPPET_H = 0.4; // высота бокса куклы (доля высоты кадра)
+const ease = Easing.inOut(Easing.cubic);
 
 export const Joke = (ep: Episode) => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
-  const { lines } = buildTimeline(ep);
+  const tl = buildTimeline(ep);
   const loc = locations[ep.location];
+  const current = tl.lines.find((l) => frame >= l.startFrame && frame <= l.endFrame + 4);
 
-  const current = lines.find((l) => frame >= l.startFrame && frame <= l.endFrame + 4);
-  const slotW = width / ep.cast.length;
+  const boxH = height * PUPPET_H;
+  const boxW = (boxH * BOX_W) / BOX_H;
+  const top = height * FLOOR - (boxH * 585) / BOX_H; // ноги куклы на линии пола
+
+  /**
+   * Позиция x куклы: слоты делятся между теми, кто в кадре, пропорционально присутствию
+   * (остальные плавно раздвигаются); входящий идёт от ближнего края к своему слоту.
+   */
+  const xAt = (id: string, f: number) => {
+    const w = ep.cast.map((c) => ease(tl.presence(c, f)));
+    const total = w.reduce((a, b) => a + b, 0) || 1;
+    const i = ep.cast.indexOf(id);
+    const before = w.slice(0, i).reduce((a, b) => a + b, 0);
+    const slot = ((before + Math.max(w[i], 0.0001) / 2) / total) * width;
+    const p = ease(tl.presence(id, f));
+    const edge = i < ep.cast.length / 2 ? -boxW : width + boxW;
+    return interpolate(p, [0, 1], [edge, slot]);
+  };
+
+  const people = ep.cast.filter((id) => tl.presence(id, frame) > 0);
+  const centre = (except: string) => {
+    const others = people.filter((c) => c !== except);
+    return others.length ? others.reduce((a, c) => a + xAt(c, frame), 0) / others.length : undefined;
+  };
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <Background location={loc} />
-      {ep.cast.map((id, i) => {
+      <Background location={loc} place={ep.place} />
+      {people.map((id, i) => {
         const ch = characters[id];
+        const x = xAt(id, frame);
+        const dx = x - xAt(id, frame - 1);
+        const walk = Math.min(1, Math.abs(dx) / 6);
         const speaking = current?.character === id && frame <= current.endFrame;
+        const c = centre(id);
+        const facing: 1 | -1 = walk > 0.2 ? (dx > 0 ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1;
         return (
-          <div
-            key={id}
-            style={{
-              position: "absolute",
-              left: slotW * i,
-              width: slotW,
-              top: height * 0.22,
-              height: height * 0.4,
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <div key={id} style={{ position: "absolute", left: x - boxW / 2, top, width: boxW, height: boxH, display: "flex", justifyContent: "center" }}>
             <Puppet
               look={lookForRole(ch, ep.roles[id])}
               speaking={speaking}
               emotion={current?.character === id ? current.emotion : "neutral"}
-              flip={i % 2 === 1}
-              seed={i * 17}
+              walk={walk}
+              facing={facing}
+              seed={ep.cast.indexOf(id) * 17 + i}
             />
           </div>
         );

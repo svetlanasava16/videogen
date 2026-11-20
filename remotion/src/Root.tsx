@@ -3,12 +3,14 @@ import { Episode } from "@jf/core";
 import demo from "../../content/episodes/demo-ru.json";
 import { Joke } from "./Joke";
 import { Cast } from "./Cast";
+import { Locations } from "./Locations";
 import { buildTimeline } from "./timeline";
 
 const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
+  <Composition id="Locations" component={Locations} width={2860} height={2700} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[] }} />
   <Composition id="Cast" component={Cast} width={2450} height={1950} fps={30} durationInFrames={1} />
   <Composition
     id="Joke"

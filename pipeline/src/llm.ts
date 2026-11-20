@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft, stagingProblems } from "@jf/core";
 import { existsSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -108,6 +108,7 @@ const STAGES: Record<string, Stage> = {
         if (/[()\[\]*#]|^\s*[\p{L}]+\s*:/u.test(l.text)) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
       }
       for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
+      pr.push(...stagingProblems(row.cast, row.lines));
       const words = row.lines.reduce((n, l) => n + l.text.split(/\s+/).filter(Boolean).length, 0);
       if (words > Number(input.maxWords ?? 110) * 1.15) pr.push(`too long: ${words} words`);
       return pr;
@@ -130,6 +131,10 @@ function writeScriptContext() {
 /** Готовые сценарии → content/episodes/<jokeId>.<locale>.json */
 function materialize() {
   const rows = readJsonl(resultsPath("script")).map((r) => ScriptDraft.parse(r));
+  // каноническая локация из входа стадии → вариант фона
+  const places = new Map<string, string>();
+  for (const b of batches("script"))
+    for (const r of readJsonl<{ id: string; location?: string }>(join(stageDir("script"), b))) if (r.location && r.location !== "none") places.set(r.id, r.location);
   const dir = join(ROOT, "content", "episodes");
   mkdirSync(dir, { recursive: true });
   let n = 0;
@@ -138,9 +143,10 @@ function materialize() {
     const ep = Episode.parse({
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
       location: d.location === "none" ? "gostinaya" : d.location,
+      place: places.get(d.id),
       cast: d.cast, roles: d.roles,
       lines: d.lines.map((l, i) => ({
-        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion,
+        id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion, enter: l.enter, exit: l.exit,
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),
     });
