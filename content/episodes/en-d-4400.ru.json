@@ -2,14 +2,16 @@
   "id": "en-d-4400.ru",
   "jokeId": "en-d-4400",
   "locale": "ru",
-  "title": "Кофейный разговор",
+  "title": "Подключи кофеварку",
   "location": "doroga",
   "place": "home-kitchen",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
@@ -35,7 +37,7 @@
       "character": "muzhik",
       "text": "Милая, ты ещё там?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -44,7 +46,7 @@
       "character": "zhena",
       "text": "Да…",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -52,7 +54,7 @@
       "id": "l5",
       "character": "zhena",
       "text": "Но, по-моему, кофеварка сейчас не хочет разговаривать…",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -64,10 +66,18 @@
     {
       "location": "doroga",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "split": {
+        "location": "kukhnya",
+        "cast": [
+          "zhena"
+        ]
       },
       "beats": [
         {
@@ -82,6 +92,12 @@
           "action": "hold"
         },
         {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -92,29 +108,6 @@
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "stove"
-        },
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",

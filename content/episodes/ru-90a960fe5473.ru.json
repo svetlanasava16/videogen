@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Вдруг видит: у входа кошечка молочко пьёт, а блюдечко, мать не видать, — Тутанхамон! Седьмой век до нашей эры!",
+      "text": "Вдруг видит: у входа котик молочко пьёт, а блюдечко — Тутанхамон! Седьмой век до нашей эры!",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Вот ваша кошечка мне так приглянулась... Вы не могли бы мне её отдать?",
+      "text": "Вот ваш котик мне так приглянулся... Вы не могли бы мне его отдать?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "Нет, нет. Её так мои дети любят.",
+      "text": "Нет, нет. Его так мои дети любят.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -84,15 +84,15 @@
       "character": "narrator",
       "text": "Наконец, на сто пятьдесят долларов сторговались.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Ваша кошечка, наверно, привыкла пить из этого блюдечка, вы не отдадите?",
-      "emotion": "happy",
+      "text": "Ваш котик, наверно, привык пить из этого блюдечка, вы не отдадите?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -110,7 +110,7 @@
       "id": "l11",
       "character": "muzhik",
       "text": "Я вам десять долларов за него дам...",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -119,7 +119,7 @@
       "id": "l12",
       "character": "barmen",
       "text": "Ну что вы, это же Тутанхамон, седьмой век до нашей эры...",
-      "emotion": "surprised",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -127,7 +127,7 @@
     {
       "id": "l13",
       "character": "barmen",
-      "text": "Я так уже восемьдесят семь кошечек продал...",
+      "text": "Я так уже восемьдесят семь котиков продал...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -165,17 +165,23 @@
         },
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "shelf"
-        },
-        {
-          "type": "move",
           "who": "barmen",
           "to": "counter"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "shelf"
         },
         {
           "type": "line",
@@ -210,12 +216,18 @@
           "type": "prop",
           "who": "muzhik",
           "item": "money",
-          "action": "give",
-          "to": "barmen"
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
         },
         {
           "type": "move",

@@ -2,7 +2,7 @@
   "id": "ru-04258f085f2f.de",
   "jokeId": "ru-04258f085f2f",
   "locale": "de",
-  "title": "Der Flaschengeist",
+  "title": "Der Korken",
   "location": "plyazh",
   "place": "beach",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Na, da sitzt bestimmt ein Flaschengeist drin. Ich muss sie reiben!",
+      "text": "Na, da sitzt bestimmt ein Dschinn drin, die muss ich reiben!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Völlig erschöpft hört er eine gelangweilte Stimme aus der Flasche:",
+      "text": "Schon völlig erschöpft, hört er eine gelangweilte Stimme aus der Flasche.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -53,8 +53,9 @@
     {
       "id": "l5",
       "character": "chort",
-      "text": "Zieh den Korken raus, du Idiot!",
-      "emotion": "angry",
+      "text": "Zieh den Korken raus, du Trottel!",
+      "offscreen": true,
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -80,14 +81,9 @@
           "to": "water"
         },
         {
-          "type": "move",
-          "who": "chort",
-          "to": "right"
-        },
-        {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "genie-bottle",
           "action": "hold"
         },
         {
@@ -101,6 +97,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         },
         {
           "type": "line",

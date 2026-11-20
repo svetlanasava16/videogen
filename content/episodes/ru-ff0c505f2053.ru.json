@@ -2,7 +2,7 @@
   "id": "ru-ff0c505f2053.ru",
   "jokeId": "ru-ff0c505f2053",
   "locale": "ru",
-  "title": "Шумные соседи",
+  "title": "Волынка",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ангус Макдональд приехал учиться из Шотландии в английский университет, где его поселили в одной комнате с ещё двумя студентами.",
+      "text": "Ангус Макдональд приехал учиться из Шотландии в английский университет, где его поселили в одной комнате с ещё двумя студентами. Когда он прожил там с месяц, к нему приехала мать.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Когда он прожил там с месяц, к нему приехала мать, чтобы навестить его.",
+      "character": "zhena",
+      "text": "Ну и как тебе эти английские студенты, Ангус?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Ну и как тебе эти английские студенты, Ангус?",
-      "emotion": "happy",
+      "character": "paren",
+      "text": "Мама, они такие ужасные, шумные люди!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,44 +44,35 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Мама, они такие ужасные, шумные люди!",
-      "emotion": "sad",
+      "text": "Тот, который с этой стороны, всю ночь без перерыва колотится головой о стенку, а с этой стороны кричит и кричит, и так каждую ночь.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "paren",
-      "text": "Тот, который с этой стороны, всю ночь без перерыва колотится головой о стенку, а с этой стороны кричит и кричит, и так каждую ночь.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "zhena",
+      "text": "Ах, Ангус, как же ты уживаешься с этими ужасными шумными англичанами?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Ах, Ангус, как же ты уживаешься с этими ужасными шумными англичанами?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Мама, я ничего не делаю. Я их просто игнорирую.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "Мама, я ничего не делаю. Я их просто игнорирую.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "paren",
       "text": "Сижу тут всю ночь и играю на своей волынке.",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +80,67 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "paren": "student"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bagpipes",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

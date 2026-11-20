@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A cop on a horse says to a little girl on a bike,",
+      "text": "A cop on a horse says to a little girl on a bike:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -122,6 +122,12 @@
           "to": "bench"
         },
         {
+          "type": "prop",
+          "who": "devochka",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -134,12 +140,6 @@
           "ref": "l3"
         },
         {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "ticket",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
@@ -147,8 +147,7 @@
           "type": "prop",
           "who": "sluzhivy",
           "item": "ticket",
-          "action": "give",
-          "to": "devochka"
+          "action": "hold"
         },
         {
           "type": "line",

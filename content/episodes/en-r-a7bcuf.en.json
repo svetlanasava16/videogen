@@ -11,38 +11,20 @@
   ],
   "roles": {
     "doktor": "doctor",
-    "muzhik": "husband"
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "The doctor hands a new father his newborn baby.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "I'm sorry, but your wife didn't make it.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "I'm sorry, but your wife didn't make it.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "He hands the baby back.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "muzhik",
       "text": "Bring me the one my wife made.",
       "emotion": "neutral",
@@ -53,6 +35,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "baby",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "baby",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "baby",
+          "action": "give",
+          "to": "doktor"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

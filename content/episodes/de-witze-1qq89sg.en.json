@@ -2,7 +2,7 @@
   "id": "de-witze-1qq89sg.en",
   "jokeId": "de-witze-1qq89sg",
   "locale": "en",
-  "title": "Salt",
+  "title": "The Salt Shop",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A guy is passing through and stops at a grocery store to buy a bite to eat.",
+      "text": "A guy is passing through and stops at a grocery store to buy a little something to eat.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,9 +26,9 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He walks in, and everything is full of salt. The whole store, all salt. Every shelf, top to bottom, even the floor. Nothing else, just salt.",
+      "text": "He walks in, and everything is full of salt. All the shelves, top to bottom, the counter, even the floor: the whole shop is crammed with these little packets of salt. Nothing else, just salt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -38,15 +38,13 @@
       "text": "Wow! You must have a huge demand for table salt around here.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Not really. Pretty low, actually. None at all, actually.",
+      "text": "Not really. Rather little. Actually, none at all.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "I see. Then you must be a real sales genius if you always manage to sell all this.",
+      "text": "Oh, I see. Then you must be a real sales genius if you always manage to sell all of it.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,17 +71,17 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "But then why is your whole store full of salt, for heaven's sake?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "text": "But then why on earth is your whole shop full of salt?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Well. The guy I buy the salt from, now he's a really good salesman.",
-      "emotion": "sad",
+      "text": "Well, the man I buy the salt from, now he's a really good salesman.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +89,65 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

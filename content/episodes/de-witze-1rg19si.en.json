@@ -6,25 +6,34 @@
   "location": "derevnya",
   "place": "forest",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik-sosed",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "hunter",
-    "muzhik": "hunter"
+    "muzhik-sosed": "hunter",
+    "muzhik-ryzhy": "hunter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Two hunters are walking through the forest when one of them suddenly collapses. The other one calls emergency services in a panic.",
+      "text": "Two hunters are walking through the forest when one of them suddenly collapses.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "The other one calls emergency services in a panic.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "My friend is dead! What should I do?",
       "emotion": "surprised",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "uchilka",
       "text": "Calm down. First we need to make sure he's really dead.",
       "emotion": "neutral",
@@ -42,18 +51,18 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "narrator",
-      "text": "Silence on the line, then a gunshot.",
+      "text": "Silence on the line, then a shot.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Okay, now what?",
+      "text": "Okay, and now what?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -67,59 +76,36 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
-        "muzhik-ryzhy",
-        "muzhik"
+        "muzhik-sosed",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "hunter",
-        "muzhik": "hunter"
+        "muzhik-sosed": "hunter",
+        "muzhik-ryzhy": "hunter"
       },
       "looks": {
-        "muzhik": {
-          "add": [
-            "tyrolean-hat"
-          ],
+        "muzhik-sosed": {
+          "clothes": "#5b6b3a",
+          "add": [],
           "remove": []
         }
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l1"
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "rifle",
+          "action": "hold"
         },
         {
           "type": "prop",
           "who": "muzhik-ryzhy",
-          "item": "phone",
+          "item": "rifle",
           "action": "hold"
         },
         {
           "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "uchilka"
-      ],
-      "roles": {
-        "uchilka": "operator"
-      },
-      "looks": {
-        "uchilka": {
-          "add": [
-            "headset"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "line",
-          "ref": "l3"
+          "ref": "l1"
         }
       ],
       "transition": "cut"
@@ -129,21 +115,81 @@
       "place": "forest",
       "cast": [
         "muzhik-ryzhy",
-        "muzhik"
+        "muzhik-sosed",
+        "uchilka"
       ],
       "roles": {
         "muzhik-ryzhy": "hunter",
-        "muzhik": "hunter"
+        "muzhik-sosed": "hunter",
+        "uchilka": "operator"
       },
       "looks": {
-        "muzhik": {
-          "add": [
-            "tyrolean-hat"
-          ],
+        "muzhik-sosed": {
+          "clothes": "#5b6b3a",
+          "add": [],
           "remove": []
         }
       },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "uchilka"
+        ]
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "tree"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "uchilka",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "rifle",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
         {
           "type": "prop",
           "who": "muzhik-ryzhy",
@@ -152,11 +198,7 @@
         },
         {
           "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
+          "ref": "l6"
         }
       ],
       "transition": "cut"

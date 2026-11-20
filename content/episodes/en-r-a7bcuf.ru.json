@@ -11,40 +11,22 @@
   ],
   "roles": {
     "doktor": "doctor",
-    "muzhik": "husband"
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Доктор протягивает молодому отцу новорождённого.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "Мне очень жаль, но ваша жена не справилась.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "doktor",
-      "text": "Мне очень жаль, но ваша жена не справилась.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "Отец возвращает ребёнка доктору.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "muzhik",
-      "text": "Тогда принесите того, с которым моя жена справилась.",
+      "text": "Тогда принесите того, с которым она справилась.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -53,6 +35,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "baby",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "baby",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "baby",
+          "action": "give",
+          "to": "doktor"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

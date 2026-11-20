@@ -2,7 +2,7 @@
   "id": "de-witze-1oi1ian.en",
   "jokeId": "de-witze-1oi1ian",
   "locale": "en",
-  "title": "Santa's Gift",
+  "title": "Christmas Present",
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -31,17 +31,14 @@
       "text": "Suddenly a police officer on horseback comes by. He stops the girl.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy",
-        "loshad"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "So, did Santa bring you a bike for Christmas?",
-      "emotion": "happy",
+      "text": "Well, did Santa bring you a bike for Christmas?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -60,7 +57,7 @@
       "character": "sluzhivy",
       "text": "Well, that's great.",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -87,14 +84,14 @@
       "character": "narrator",
       "text": "The officer smiles and nods.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "devochka",
-      "text": "Well then, tell Santa next year the butt goes at the back, not on top!",
+      "text": "Well then, tell Santa next year the ass goes at the back, not on top!",
       "uncensored": "Well then, tell Santa next year the asshole goes at the back, not on top!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
@@ -104,6 +101,89 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "devochka",
+        "sluzhivy",
+        "loshad"
+      ],
+      "roles": {
+        "devochka": "child",
+        "sluzhivy": "police-officer",
+        "loshad": "horse"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "devochka",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "loshad",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "bill",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

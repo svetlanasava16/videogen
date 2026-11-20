@@ -17,7 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Meine Ex hat gerade geniest, und ich hab aus Versehen „Gesundheit“ gesagt.",
+      "text": "Meine Ex hat gerade geniest, und ich hab aus Versehen Gesundheit gesagt.",
+      "offscreen": true,
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -27,7 +28,8 @@
       "id": "l2",
       "character": "muzhik",
       "text": "Jetzt starrt sie verwirrt auf die Büsche und fragt sich, wer das gesagt hat.",
-      "emotion": "smug",
+      "offscreen": true,
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -35,6 +37,36 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

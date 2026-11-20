@@ -6,20 +6,22 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik-ryzhy",
     "paren",
-    "muzhik"
+    "muzhik-sosed",
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "friend",
     "paren": "friend",
-    "muzhik": "drunk"
+    "muzhik-sosed": "friend",
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Betrunkener zeigt seinen Freunden seine neue Wohnung. Die letzte Station ist das Schlafzimmer, wo neben dem Bett ein großer Messinggong steht.",
+      "text": "Ein Betrunkener zeigt seinen Freunden seine neue Wohnung.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,7 +29,16 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
+      "character": "narrator",
+      "text": "Die letzte Station ist das Schlafzimmer, wo neben dem Bett ein großer Messinggong steht.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
       "text": "Wofür ist denn der Gong?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -35,46 +46,47 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Das ist kein Gong. Das ist eine sprechende Uhr.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "Und wie funktioniert die?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Der Mann nimmt einen Hammer, haut mit ohrenbetäubendem Krach auf den Gong und tritt zurück.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "muzhik-sosed",
+      "text": "Wie funktioniert die?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Plötzlich schreit jemand auf der anderen Seite der Wand.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "text": "Der Typ nimmt einen Hammer, haut ohrenbetäubend auf den Gong und tritt zurück.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "Herrgott nochmal, du Idiot... es ist halb vier in der verdammten Früh!",
-      "uncensored": "Herrgott nochmal, du Arschloch... es ist halb vier in der verdammten Früh!",
+      "character": "narrator",
+      "text": "Plötzlich schreit jemand auf der anderen Seite der Wand.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Um Gottes willen, du Idiot... es ist halb vier in der verdammten Früh!",
+      "uncensored": "Um Gottes willen, du Arschloch... es ist halb vier in der verdammten Früh!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -87,14 +99,16 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik-ryzhy",
         "paren",
-        "muzhik"
+        "muzhik-sosed",
+        "muzhik",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "friend",
         "paren": "friend",
-        "muzhik": "drunk"
+        "muzhik-sosed": "friend",
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "neighbor"
       },
       "looks": {
         "muzhik": {
@@ -106,19 +120,32 @@
       },
       "beats": [
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "move",
           "who": "muzhik",
-          "to": "bed"
+          "to": "bed",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "gong",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -133,39 +160,24 @@
           "ref": "l4"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "wrench",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik-sosed": "neighbor"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "bed"
+          "type": "pause",
+          "sec": 1
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

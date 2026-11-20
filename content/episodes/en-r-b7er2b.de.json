@@ -7,12 +7,12 @@
   "place": "school-classroom",
   "cast": [
     "vovochka",
-    "paren",
+    "vovochka-drug",
     "uchilka"
   ],
   "roles": {
     "vovochka": "child",
-    "paren": "student",
+    "vovochka-drug": "child",
     "uchilka": "teacher"
   },
   "lines": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Worüber streitet ihr zwei?",
+      "text": "Worüber streitet ihr zwei denn?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +37,8 @@
     {
       "id": "l3",
       "character": "vovochka",
-      "text": "Wir haben einen Zehn-Euro-Schein gefunden und beschlossen: Wer die größte Lüge erzählt, darf ihn behalten.",
-      "emotion": "neutral",
+      "text": "Wir haben einen Zehn-Euro-Schein gefunden und abgemacht: Wer die größte Lüge erzählt, darf ihn behalten.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "uchilka",
-      "text": "Ihr beiden solltet euch schämen.",
+      "text": "Ihr solltet euch schämen, alle beide.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -78,24 +78,18 @@
       "location": "klass",
       "cast": [
         "vovochka",
-        "paren",
+        "vovochka-drug",
         "uchilka"
       ],
       "roles": {
         "vovochka": "child",
-        "paren": "student",
+        "vovochka-drug": "child",
         "uchilka": "teacher"
       },
       "looks": {
-        "paren": {
+        "vovochka-drug": {
           "add": [
             "freckles"
-          ],
-          "remove": []
-        },
-        "uchilka": {
-          "add": [
-            "glasses"
           ],
           "remove": []
         }
@@ -108,12 +102,12 @@
         },
         {
           "type": "move",
-          "who": "paren",
+          "who": "vovochka-drug",
           "to": "student-desk"
         },
         {
           "type": "prop",
-          "who": "paren",
+          "who": "vovochka-drug",
           "item": "money",
           "action": "hold"
         },
@@ -144,8 +138,12 @@
           "ref": "l5"
         },
         {
+          "type": "pause",
+          "sec": 1
+        },
+        {
           "type": "prop",
-          "who": "paren",
+          "who": "vovochka-drug",
           "item": "money",
           "action": "give",
           "to": "uchilka"

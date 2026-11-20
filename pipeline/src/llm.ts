@@ -191,7 +191,10 @@ function accessoryIds(): string[] {
   const src = readFileSync(join(ROOT, "remotion", "src", "puppet", "Accessories.tsx"), "utf8");
   // в том же файле — причёски (hairStyle), это не аксессуары
   const hair = new Set(["short", "long", "pigtails", "curly", "fringe", "bun", "perm", "bald", "none"]);
-  return [...new Set([...src.matchAll(/case "([a-z0-9-]+)"/g)].map((m) => m[1]))].filter((a) => !hair.has(a)).sort();
+  const cases = [...src.matchAll(/case "([a-z0-9-]+)"/g)].map((m) => m[1]);
+  // аксессуары, которые рисует сам риг (крюк вместо руки, простыня-привидение): RIG = new Set([...])
+  const rig = [...(src.match(/RIG = new Set\(\[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
+  return [...new Set([...cases, ...rig])].filter((a) => !hair.has(a)).sort();
 }
 
 /** Справочник кукол и фонов для сценариста: data/llm/script/context.md */
@@ -217,7 +220,7 @@ function writeScriptContext() {
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
     "## Crowd", "",
-    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults). Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
+    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
   ];
   mkdirSync(join(DATA, "llm", "script"), { recursive: true });
   writeFileSync(join(DATA, "llm", "script", "context.md"), lines.join("\n"));

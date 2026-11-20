@@ -3,29 +3,19 @@
   "jokeId": "en-d-32428",
   "locale": "ru",
   "title": "Все знаки налицо",
-  "location": "gostinaya",
+  "location": "ulitsa",
   "place": "home-living-room",
   "cast": [
-    "paren",
-    "muzhik"
+    "paren"
   ],
   "roles": {
-    "paren": "son",
-    "muzhik": "father"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "helmet"
-      ],
-      "remove": []
-    }
+    "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Я отказывался верить, что отца уволили из дорожных рабочих за воровство.",
+      "text": "Я отказывался верить, что отца уволили с дорожных работ за воровство.",
       "emotion": "sad",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -43,6 +33,68 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#ff8c00",
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "road-sign",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

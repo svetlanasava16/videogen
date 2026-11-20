@@ -2,24 +2,16 @@
   "id": "ru-c28571ec36c5.ru",
   "jokeId": "ru-c28571ec36c5",
   "locale": "ru",
-  "title": "Запорожец",
-  "location": "ulitsa",
+  "title": "Мерседес и Запорожец",
+  "location": "doroga",
   "place": "street",
   "cast": [
-    "nachalnik",
-    "muzhik"
+    "muzhik",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "new-russian",
-    "muzhik": "everyman"
-  },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    }
+    "muzhik": "everyman",
+    "nachalnik": "new-russian"
   },
   "lines": [
     {
@@ -33,25 +25,16 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Оба водителя выходят из машин, и хозяин «Мерса», косо поглядывая на «Запорожец», говорит:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "nachalnik",
-      "text": "Ездят тут всякие мичуринцы чёртовы на своих тачках дешёвых!",
-      "uncensored": "Ездят тут всякие мичуринцы долбаные на своих тачках дешёвых!",
+      "text": "Ездят тут всякие «мичуринцы» чёртовы на своих тачках дешёвых!",
+      "uncensored": "Ездят тут всякие «мичуринцы» долбаные на своих тачках дешёвых!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "nachalnik",
       "text": "Того и гляди крутую машину поцарапают!",
       "emotion": "angry",
@@ -60,25 +43,16 @@
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "narrator",
-      "text": "Водитель «Запорожца» согласно кивает и, так же разведя гнутыми пальцами, отвечает:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
+      "id": "l4",
       "character": "muzhik",
       "text": "И не говори, братан! Обнаглели совсем!",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l5",
       "character": "muzhik",
       "text": "Представляешь, мне вчера велосипедист в бочину въехал!",
       "emotion": "angry",
@@ -89,6 +63,52 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

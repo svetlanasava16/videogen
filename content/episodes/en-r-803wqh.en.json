@@ -39,7 +39,7 @@
       "character": "barmen",
       "text": "You can't eat your own food in here.",
       "emotion": "angry",
-      "pauseAfterSec": 0.9,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -115,6 +115,18 @@
           "ref": "l1"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
@@ -126,6 +138,20 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-sosed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik"
         },
         {
           "type": "line",

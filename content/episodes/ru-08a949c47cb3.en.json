@@ -2,7 +2,7 @@
   "id": "ru-08a949c47cb3.en",
   "jokeId": "ru-08a949c47cb3",
   "locale": "en",
-  "title": "Own Food",
+  "title": "Two Lawyers",
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -15,21 +15,6 @@
     "paren": "lawyer",
     "barmen": "bartender"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie",
-        "glasses"
-      ],
-      "remove": []
-    },
-    "barmen": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -37,25 +22,31 @@
       "text": "Two lawyers walk into a cafe, order drinks and take out their sandwiches.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik",
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "barmen",
       "text": "Excuse me, but you can't eat your own food here.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.7,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The lawyers look at each other, shrug and swap sandwiches.",
+      "text": "The lawyers look at each other, shrug...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "...and swap their sandwiches.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,6 +55,105 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "paren",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "lawyer",
+        "paren": "lawyer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie",
+            "glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron",
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "sandwich",
+          "action": "give",
+          "to": "paren"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

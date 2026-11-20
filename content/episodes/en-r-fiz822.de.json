@@ -7,31 +7,28 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "devochka",
+    "vovochka-drug",
     "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "devochka": "child",
+    "vovochka-drug": "child",
     "doktor": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Zwei kleine Jungs gingen in eine Apotheke, nahmen eine Packung Tampons und gingen zur Kasse.",
+      "text": "Zwei kleine Jungen gingen in eine Apotheke, nahmen eine Packung Tampons und gingen damit zur Kasse.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka",
-        "devochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Junge, wie alt bist du?",
+      "text": "Mein Junge, wie alt bist du?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Acht.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -57,7 +54,7 @@
     },
     {
       "id": "l5",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Nicht genau, aber die sind nicht für mich.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -66,8 +63,8 @@
     },
     {
       "id": "l6",
-      "character": "vovochka",
-      "text": "Die sind für ihn... Das ist mein Bruder. Er ist vier.",
+      "character": "vovochka-drug",
+      "text": "Die sind für ihn... Er ist mein Bruder. Er ist vier.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,8 +72,8 @@
     },
     {
       "id": "l7",
-      "character": "vovochka",
-      "text": "Wir haben im Fernsehen gesehen, dass man damit schwimmen und Fahrrad fahren kann.",
+      "character": "vovochka-drug",
+      "text": "Wir haben im Fernsehen gesehen, wenn man die benutzt, kann man schwimmen und Fahrrad fahren.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -84,8 +81,8 @@
     },
     {
       "id": "l8",
-      "character": "vovochka",
-      "text": "Und im Moment kann er beides nicht.",
+      "character": "vovochka-drug",
+      "text": "Im Moment kann er beides nicht.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +91,73 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "vovochka-drug",
+        "doktor"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "vovochka-drug": "child",
+        "doktor": "pharmacist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

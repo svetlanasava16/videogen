@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Ну так скажи ему, чтобы в следующем году поставил на него катафот!",
+      "text": "Ну так скажи ему, чтобы в следующем году приделал к нему катафот!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -121,6 +121,12 @@
           "to": "bench"
         },
         {
+          "type": "prop",
+          "who": "devochka",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -133,12 +139,6 @@
           "ref": "l3"
         },
         {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "ticket",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
@@ -146,8 +146,7 @@
           "type": "prop",
           "who": "sluzhivy",
           "item": "ticket",
-          "action": "give",
-          "to": "devochka"
+          "action": "hold"
         },
         {
           "type": "line",

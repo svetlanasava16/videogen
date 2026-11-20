@@ -6,9 +6,13 @@
   "location": "ulitsa",
   "place": "park",
   "cast": [
+    "pyos-dalmatin",
+    "pyos-pudel",
     "pyos"
   ],
   "roles": {
+    "pyos-dalmatin": "dog",
+    "pyos-pudel": "dog",
     "pyos": "dog"
   },
   "lines": [
@@ -23,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "pyos",
-      "text": "Good day. My name is Antonius von Clawburg.",
+      "character": "pyos-dalmatin",
+      "text": "Good day. My name is Antonius von Krallenberg.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -32,8 +36,8 @@
     },
     {
       "id": "l3",
-      "character": "pyos",
-      "text": "I come from an old noble line.",
+      "character": "pyos-dalmatin",
+      "text": "I descend from an old noble line.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -41,17 +45,17 @@
     },
     {
       "id": "l4",
-      "character": "pyos",
+      "character": "pyos-dalmatin",
       "text": "Like my ancestors, I too live at the side of the Duke.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "pyos",
-      "text": "My name is Isabella von Houndsmark.",
+      "character": "pyos-pudel",
+      "text": "My name is Isabella von Hundsmark.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -59,8 +63,8 @@
     },
     {
       "id": "l6",
-      "character": "pyos",
-      "text": "As the sound of my name already tells you, I too come from an old noble family.",
+      "character": "pyos-pudel",
+      "text": "As the sound of my name already tells you, I too descend from an old noble house.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,9 +72,9 @@
     },
     {
       "id": "l7",
-      "character": "pyos",
+      "character": "pyos-pudel",
       "text": "Like my ancestors, I am the pride of the Count.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -87,7 +91,7 @@
     {
       "id": "l9",
       "character": "pyos",
-      "text": "But I'm noble too.",
+      "text": "But I'm a noble too.",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -96,7 +100,7 @@
     {
       "id": "l10",
       "character": "pyos",
-      "text": "My full name is Buster Get-Off-The-Couch.",
+      "text": "My full name is Buster Get-Off-The-Couch!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -110,16 +114,25 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
+        "pyos-dalmatin",
+        "pyos-pudel",
         "pyos"
       ],
       "roles": {
+        "pyos-dalmatin": "dog",
+        "pyos-pudel": "dog",
         "pyos": "dog"
       },
       "looks": {
-        "pyos": {
+        "pyos-dalmatin": {
           "add": [
-            "collar",
-            "monocle"
+            "collar"
+          ],
+          "remove": []
+        },
+        "pyos-pudel": {
+          "add": [
+            "bows"
           ],
           "remove": []
         }
@@ -140,29 +153,7 @@
         {
           "type": "line",
           "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "place": "park",
-      "cast": [
-        "pyos"
-      ],
-      "roles": {
-        "pyos": "dog"
-      },
-      "looks": {
-        "pyos": {
-          "add": [
-            "bows",
-            "earrings"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l5"
@@ -174,28 +165,7 @@
         {
           "type": "line",
           "ref": "l7"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "place": "park",
-      "cast": [
-        "pyos"
-      ],
-      "roles": {
-        "pyos": "dog"
-      },
-      "looks": {
-        "pyos": {
-          "add": [
-            "flat-cap"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l8"

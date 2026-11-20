@@ -2,7 +2,7 @@
   "id": "ru-96793a9895e8.ru",
   "jokeId": "ru-96793a9895e8",
   "locale": "ru",
-  "title": "Ночной гость",
+  "title": "Могильщик",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
@@ -37,7 +37,7 @@
       "character": "muzhik",
       "text": "Дай-ка я его напугаю.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -62,14 +62,23 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Могильщик совершенно пофигистично посмотрел и продолжает могилу копать. Алкаш не понял, с другой стороны подошёл и ещё громче и страшнее:",
+      "text": "Могильщик совершенно пофигистично посмотрел и продолжает могилу копать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Алкаш не понял, с другой стороны подошёл и ещё громче и страшнее:",
       "emotion": "neutral",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
       "text": "У-у-у! У-у-у! У-у-у! У-у-у-у-у-у!",
       "emotion": "angry",
@@ -78,28 +87,36 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "narrator",
       "text": "Могильщику опять пофигу, посмотрел, блин, никакой реакции.",
       "uncensored": "Могильщику опять пофигу, посмотрел, блядь, никакой реакции.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "narrator",
-      "text": "Ну этот алкаш расстроился, пошёл к выходу из кладбища, даже простыню скинуть забыл. Доходит до ворот, его могильщик догоняет, лопатой по морде и спокойно так говорит:",
-      "uncensored": "Ну этот алкаш расстроился, пошёл к выходу из кладбища, даже простыню скинуть забыл. Доходит до ворот, его могильщик догоняет, лопатой по ебалу и спокойно так говорит:",
+      "text": "Ну этот алкаш расстроился, пошёл к выходу из кладбища, даже простыню скинуть забыл.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Доходит до ворот, его могильщик догоняет, лопатой по морде и спокойно так говорит:",
+      "uncensored": "Доходит до ворот, его могильщик догоняет, лопатой по ебалу и спокойно так говорит:",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Гулять — гуляй, а за территорию не выходи.",
       "emotion": "neutral",
@@ -125,12 +142,12 @@
       "looks": {
         "muzhik": {
           "add": [
-            "red-nose",
-            "robe-white"
+            "red-nose"
           ],
           "remove": []
         },
         "muzhik-ryzhy": {
+          "clothes": "#4b5320",
           "add": [
             "flat-cap",
             "stubble"
@@ -150,6 +167,12 @@
           "to": "center"
         },
         {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "shovel",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -160,6 +183,54 @@
         {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "place": "cemetery",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose",
+            "ghost-sheet"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "clothes": "#4b5320",
+          "add": [
+            "flat-cap",
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "lamp"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "shovel",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -179,27 +250,17 @@
           "ref": "l6"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "bench"
-        },
-        {
           "type": "line",
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "bench"
         },
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "bench"
+          "type": "line",
+          "ref": "l8"
         },
         {
           "type": "line",
@@ -208,6 +269,24 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "cut"

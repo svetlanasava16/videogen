@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A fancy Mercedes is driving along, and behind it an ambulance and a fire engine.",
+      "text": "So a big Mercedes is driving along, with an ambulance and a fire engine right behind it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The local traffic cops love to check every driver's first-aid kit and fire extinguisher.",
+      "text": "As usual, a traffic cop pulls it over at the checkpoint, and right away the ambulance and the fire engine stop too.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,33 +34,25 @@
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "As usual, they pull him over at the checkpoint, and right behind him the ambulance and the fire engine stop too.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "sluzhivy",
-      "text": "Why did you stop? Move along, I only pulled over the Mercedes.",
+      "text": "Why did you lot stop? Drive on, I only pulled over the Mercedes.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "nachalnik",
       "text": "They're with me.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "sluzhivy",
       "text": "What do you need them for?",
       "emotion": "surprised",
@@ -69,18 +61,18 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "nachalnik",
       "text": "Because of you parasites!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "nachalnik",
-      "text": "First you want to see my first-aid kit, then my fire extinguisher...",
+      "text": "One time it's show us your first-aid kit, the next time it's your fire extinguisher...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -89,6 +81,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

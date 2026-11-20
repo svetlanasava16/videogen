@@ -2,16 +2,16 @@
   "id": "ru-dc8d7c247077.ru",
   "jokeId": "ru-dc8d7c247077",
   "locale": "ru",
-  "title": "Рыбку ловим?",
+  "title": "Рыбак",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
-    "muzhik",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-ryzhy": "fisherman"
+    "muzhik-ryzhy": "fisherman",
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Видит, на мосту один с удочкой стоит, на поплавок смотрит.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Ну что, рыбку ловим?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,28 +35,26 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ну что, рыбку ловим?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "narrator",
-      "text": "Рыбак молчит.",
+      "text": "Я говорю, рыбку ловим?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Я говорю, рыбку ловим?",
-      "emotion": "surprised",
+      "text": "Ну чего, глухой? Спрашиваю: рыбку ловим?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Тот всё на поплавок смотрит. Мужик плюнул, сел на велик и дальше весь в поту в гору пилит.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,54 +62,14 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Опять молчание.",
+      "text": "Отъехал уж километра три, обернулся и видит: рыбак ему машет изо всех сил, мол, возвращайся скорей. Ну, развернулся, съехал обратно.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Ну чего, глухой? Спрашиваю, рыбку ловим?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "narrator",
-      "text": "Тот все на поплавок смотрит. Мужик плюнул, сел на велик и дальше весь в поту в гору пилит.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
-    },
-    {
-      "id": "l9",
-      "character": "narrator",
-      "text": "Отъехал уж километра три, обернулся и видит: рыбак ему машет изо всех сил, мол, возвращайся скорей.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "narrator",
-      "text": "Ну, развернулся, съехал обратно.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "muzhik-ryzhy",
       "text": "Ну что, на велосипеде катаемся?",
       "emotion": "smug",
@@ -127,25 +85,56 @@
       "location": "derevnya",
       "place": "river-lake",
       "cast": [
-        "muzhik",
-        "muzhik-ryzhy"
+        "muzhik-ryzhy",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "muzhik-ryzhy": "fisherman"
+        "muzhik-ryzhy": "fisherman",
+        "muzhik": "everyman"
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "fishing-rod",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         },
         {
           "type": "line",
@@ -156,28 +145,23 @@
           "ref": "l5"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "cut"

@@ -6,15 +6,15 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "devushka-ryzhaya",
-    "devochka"
+    "devochka",
+    "devochka-podruga"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter",
-    "devochka": "child"
+    "devochka": "child",
+    "devochka-podruga": "child"
   },
   "looks": {
-    "devushka-ryzhaya": {
+    "devochka": {
       "add": [
         "gold-chain",
         "earrings",
@@ -27,7 +27,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Die überfütterte Tochter reicher Eltern prahlt vor ihrer Klassenkameradin.",
+      "text": "Die überfütterte Tochter reicher Eltern prahlt vor ihrer Mitschülerin.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,8 +35,8 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Wir waren gestern mit Papa im Restaurant, was wir da nicht alles gegessen haben: Hummer, Steak, Barbecue!",
+      "character": "devochka",
+      "text": "Gestern waren Papa und ich im Restaurant, und was haben wir da nicht alles gegessen: Hummer, Steak, Barbecue!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,16 +44,25 @@
     },
     {
       "id": "l3",
-      "character": "devushka-ryzhaya",
-      "text": "Ich habe so viel gegessen, dass ich fast geplatzt bin!",
+      "character": "devochka",
+      "text": "Ich habe so viel gegessen, dass ich fast geplatzt wäre!",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "devochka",
+      "character": "narrator",
+      "text": "Die dünne Mitschülerin sieht sie traurig an und sagt dann:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devochka-podruga",
       "text": "Und warum nur fast? Hat Papas Geld nicht gereicht?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,

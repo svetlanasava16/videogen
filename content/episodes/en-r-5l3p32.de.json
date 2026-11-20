@@ -2,7 +2,7 @@
   "id": "en-r-5l3p32.de",
   "jokeId": "en-r-5l3p32",
   "locale": "de",
-  "title": "Der Schlafwandler",
+  "title": "Der Decepticon-Jäger",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -12,20 +12,6 @@
   "roles": {
     "muzhik": "husband",
     "zhena": "wife"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    },
-    "zhena": {
-      "add": [
-        "curlers"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
@@ -49,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ruhe, Weib! Ich jage Decepticons!",
+      "text": "Ruhe, Frau! Ich jage Decepticons!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -58,7 +44,7 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Du bist wieder schlafgewandelt! Es gibt keine Decepticons!",
+      "text": "Du schlafwandelst schon wieder! So etwas wie Decepticons gibt es nicht!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -66,24 +52,42 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Du hast wohl recht! Mann, ich muss aussehen wie ein Idiot!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Er blinzelte und merkte, wie dämlich er aussah.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Sie lachte. Er lachte.",
+      "character": "muzhik",
+      "text": "Du hast wohl recht! Mann, ich muss aussehen wie ein Idiot!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Sie lachte.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Er lachte.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "narrator",
       "text": "Der Toaster lachte.",
       "emotion": "neutral",
@@ -92,7 +96,7 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "narrator",
       "text": "Er erschoss den Toaster.",
       "emotion": "neutral",
@@ -103,6 +107,97 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "pause",
+          "sec": 0.5
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

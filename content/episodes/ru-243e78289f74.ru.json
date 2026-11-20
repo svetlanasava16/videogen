@@ -7,18 +7,20 @@
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devochka"
+    "devochka",
+    "muzhik"
   ],
   "roles": {
     "zhena": "mother",
-    "devochka": "daughter"
+    "devochka": "daughter",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Жила-была девочка, которая ну ни фигашеньки не видела. Короче, слепая.",
-      "uncensored": "Жила-была девочка, которая ну ни херашеньки не видела. Короче, слепая.",
+      "text": "Жила-была девочка, которая ну ни фигашеньки не видела, короче, слепая.",
+      "uncensored": "Жила-была девочка, которая ну ни херашеньки не видела, короче, слепая.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +48,7 @@
       "id": "l4",
       "character": "devochka",
       "text": "Раз ничего не вижу, значит и обделить можно! Жмоты...",
-      "emotion": "sad",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -81,9 +83,9 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Девочка двигает к себе нехилую порцию пельменей, долго ощупывает содержимое руками и говорит:",
+      "text": "Девочка садится за стол, двигает к себе нехилую порцию пельменей, долго ощупывает содержимое руками и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -92,7 +94,7 @@
       "character": "devochka",
       "text": "Представляю, сколько вы себе нафигачили...",
       "uncensored": "Представляю, сколько вы себе нахерачили...",
-      "emotion": "surprised",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -105,11 +107,13 @@
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -128,8 +132,18 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
         },
         {
           "type": "line",
@@ -146,10 +160,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -166,21 +176,38 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l6"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     },
     {
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -199,12 +226,34 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "put"
         },
         {
           "type": "line",
@@ -215,7 +264,7 @@
           "ref": "l9"
         }
       ],
-      "transition": "flyover"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

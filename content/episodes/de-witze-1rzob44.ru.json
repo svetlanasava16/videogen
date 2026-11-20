@@ -15,20 +15,13 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
-  "looks": {
-    "ptitsa": {
-      "clothes": "#8a8a7a",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Покупатель заходит в зоомагазин.",
+      "text": "Покупатель заходит в зоомагазин и спрашивает:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -38,15 +31,13 @@
       "text": "Сколько стоит вот этот попугай?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Сто тысяч рублей.",
+      "text": "Тысячу долларов.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +55,7 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "Это очень одарённая птица, он бегло говорит и умеет считать до ста.",
+      "text": "Это очень способная птица, он свободно говорит и умеет считать до ста.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,7 +73,7 @@
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Сто пятьдесят тысяч рублей.",
+      "text": "Полторы тысячи долларов.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -100,16 +91,16 @@
     {
       "id": "l9",
       "character": "barmen",
-      "text": "О, это птица ещё одарённее, он свободно говорит на трёх языках и знает наизусть всего Пушкина!",
+      "text": "О, это ещё более способная птица, он свободно говорит на трёх языках и знает наизусть всего Пушкина!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
       "character": "narrator",
-      "text": "Тут покупатель видит в углу маленького, старого, страшненького попугая.",
+      "text": "Тут покупатель замечает в углу маленького старого страшненького попугая.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -118,8 +109,8 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "А вон тот, в углу, наверняка стоит гораздо меньше?",
-      "emotion": "smug",
+      "text": "А вон тот, подальше, он-то уж наверняка стоит намного меньше?!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -127,7 +118,7 @@
     {
       "id": "l12",
       "character": "barmen",
-      "text": "Нет, он стоит триста тысяч рублей.",
+      "text": "Нет, он стоит три тысячи долларов.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -136,17 +127,17 @@
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Как это? А он-то что умеет?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Что? А он-то что умеет?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l14",
       "character": "barmen",
-      "text": "Я и сам не знаю, он ещё ни разу не говорил, но те двое называют его шефом.",
-      "emotion": "sad",
+      "text": "Я и сам не знаю, он ещё ни разу не говорил, но те двое называют его «Шеф».",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -154,6 +145,122 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman",
+        "ptitsa": "parrot"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#8a8a7a",
+          "skin": "#8a8a7a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "put"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

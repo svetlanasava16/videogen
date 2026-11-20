@@ -3,23 +3,21 @@
   "jokeId": "de-witze-1rytv02",
   "locale": "ru",
   "title": "Пингвин",
-  "location": "ofis",
+  "location": "ulitsa",
   "place": "street",
   "cast": [
-    "ptitsa",
     "muzhik",
-    "sluzhivy"
+    "pingvin"
   ],
   "roles": {
-    "ptitsa": "bird",
     "muzhik": "everyman",
-    "sluzhivy": "police-officer"
+    "pingvin": "penguin"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Посреди города мужик находит пингвина и приводит его в полицейский участок.",
+      "text": "Посреди города мужик находит пингвина.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,8 +25,8 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Что мне делать с этим животным?",
+      "character": "narrator",
+      "text": "Он ведёт его в полицейский участок, чтобы спросить, что ему делать с этим животным.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,8 +35,8 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Ну что ж, любезный, я бы на вашем месте сходил с пингвином в зоопарк.",
-      "emotion": "smug",
+      "text": "Ну, любезный, я бы сходил с пингвином в зоопарк.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Мужик благодарит и топает с пингвином прочь.",
+      "text": "Мужик благодарит и уходит вразвалочку вместе с пингвином.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "На следующий день полицейский случайно встречает мужика с пингвином в городе.",
+      "text": "На следующий день полицейский случайно встречает в городе мужика с пингвином.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,7 +71,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Ну да, мы там вчера были, а сегодня идём в кино.",
+      "text": "Да, конечно, там мы были вчера, а сегодня идём в кино.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -84,15 +82,33 @@
   "explicit": false,
   "scenes": [
     {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "pingvin"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "pingvin": "penguin"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
       "location": "ofis",
       "cast": [
-        "ptitsa",
         "muzhik",
+        "pingvin",
         "sluzhivy"
       ],
       "roles": {
-        "ptitsa": "bird",
         "muzhik": "everyman",
+        "pingvin": "penguin",
         "sluzhivy": "police-officer"
       },
       "beats": [
@@ -100,22 +116,6 @@
           "type": "move",
           "who": "sluzhivy",
           "to": "desk"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
-          "type": "move",
-          "who": "ptitsa",
-          "to": "left",
-          "from": "off-left"
         },
         {
           "type": "line",
@@ -128,16 +128,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-left"
-        },
-        {
-          "type": "move",
-          "who": "ptitsa",
-          "to": "off-left"
         }
       ],
       "transition": "cut"
@@ -145,36 +135,19 @@
     {
       "location": "ulitsa",
       "cast": [
-        "ptitsa",
+        "sluzhivy",
         "muzhik",
-        "sluzhivy"
+        "pingvin"
       ],
       "roles": {
-        "ptitsa": "bird",
+        "sluzhivy": "police-officer",
         "muzhik": "everyman",
-        "sluzhivy": "police-officer"
+        "pingvin": "penguin"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "right"
-        },
-        {
           "type": "line",
           "ref": "l5"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
-          "type": "move",
-          "who": "ptitsa",
-          "to": "left",
-          "from": "off-left"
         },
         {
           "type": "line",
@@ -185,7 +158,7 @@
           "ref": "l7"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

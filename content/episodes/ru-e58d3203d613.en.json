@@ -6,51 +6,22 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "muzhik",
-    "nachalnik",
+    "muzhik-sosed",
     "muzhik-ryzhy",
-    "paren"
+    "nachalnik",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "nachalnik": "gangster",
+    "muzhik-sosed": "gangster",
     "muzhik-ryzhy": "gangster",
-    "paren": "gangster"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "clothes": "#1f4fa8",
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "clothes": "#1f4fa8",
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "paren": {
-      "clothes": "#1f4fa8",
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    }
+    "nachalnik": "gangster",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Volvo clips a jeep at an intersection.",
+      "text": "A Volvo clips a jeep at an intersection. Everyone stops, a bunch of guys in tracksuits pile out of the jeep and walk up to the Volvo driver.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -58,66 +29,35 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Everyone stops, a bunch of guys in tracksuits pile out of the jeep and walk up to the Volvo driver.",
-      "emotion": "neutral",
+      "character": "nachalnik",
+      "text": "That's it, man, you're done for! Sell your car, sell your apartment, you owe us money!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "nachalnik",
-      "text": "That's it, man, you're done!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [
-        "nachalnik",
-        "muzhik-ryzhy",
-        "paren"
-      ],
+      "character": "muzhik",
+      "text": "Guys, who are you?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Sell your car, sell your apartment, you owe us money!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Us? We're athletes!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Guys, and who are you?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
-      "character": "nachalnik",
-      "text": "Us? We're athletes!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "narrator",
-      "text": "The man pulls out a pistol and, loading it, says:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "muzhik",
-      "text": "Well then, on your marks! Get set!..",
+      "text": "Well then, on your marks! Get set!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -126,6 +66,109 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik-ryzhy",
+        "nachalnik",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "gangster",
+        "muzhik-ryzhy": "gangster",
+        "nachalnik": "gangster",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "clothes": "#2b4fa8",
+          "hairStyle": "bald",
+          "add": [],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "clothes": "#2b4fa8",
+          "hairStyle": "bald",
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "clothes": "#2b4fa8",
+          "hairStyle": "bald",
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

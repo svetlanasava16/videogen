@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "customer",
+    "devushka": "woman",
     "barmen": "salesman"
   },
   "lines": [
@@ -26,23 +26,14 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Gott sei Dank, geschafft!",
+      "text": "Gott sei Dank, ich hab's geschafft! Haben Sie Hähnchen?",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "devushka",
-      "text": "Haben Sie Hähnchen?",
-      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "narrator",
       "text": "Der Metzger holt das einzige Hähnchen aus der Tiefkühltruhe und legt es auf die Waage. Die Waage zeigt ein Kilo.",
       "emotion": "neutral",
@@ -51,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "devushka",
       "text": "Hm... Haben Sie kein größeres?",
       "emotion": "sad",
@@ -60,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
       "text": "Der Metzger legt das Hähnchen zurück, holt dasselbe wieder heraus, dreht es um, legt es auf die Waage und drückt mit dem Finger drauf. Die Waage zeigt anderthalb Kilo.",
       "emotion": "neutral",
@@ -69,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "devushka",
       "text": "Wunderbar! Dann nehme ich bitte beide.",
       "emotion": "happy",
@@ -88,7 +79,7 @@
         "barmen"
       ],
       "roles": {
-        "devushka": "customer",
+        "devushka": "woman",
         "barmen": "salesman"
       },
       "looks": {
@@ -106,6 +97,12 @@
           "to": "counter"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "scales",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -120,6 +117,18 @@
           "ref": "l2"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
@@ -128,16 +137,28 @@
           "ref": "l4"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         }
       ],
       "transition": "cut"

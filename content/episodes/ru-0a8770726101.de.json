@@ -6,37 +6,27 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "fritzchen"
-  },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
+    "vovochka": "vovochka",
+    "uchilka": "teacher"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Fritzchen geht durch den Schulflur und schleppt einen riesigen Globus. Ihm kommt die Lehrerin entgegen.",
+      "text": "Fritzchen geht durch den Schulflur und schleppt einen riesigen Globus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "uchilka",
-      "text": "Fritzchen, wo willst du hin?",
+      "text": "Fritzchen, wohin gehst du?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,16 +45,16 @@
       "id": "l4",
       "character": "uchilka",
       "text": "Und wozu der Globus?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "vovochka",
-      "text": "Wissen Sie, Frau Müller, ich hab so eine Laune, ich möchte auf die ganze Welt kacken!",
-      "uncensored": "Wissen Sie, Frau Müller, ich hab so eine Laune, ich möchte auf die ganze Welt scheißen!",
+      "text": "Wissen Sie, Frau Müller, ich hab so eine Laune — ich will auf die ganze Welt kacken!",
+      "uncensored": "Wissen Sie, Frau Müller, ich hab so eine Laune — ich will auf die ganze Welt scheißen!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -73,6 +63,59 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "uchilka": "teacher"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "globe",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -31,17 +31,14 @@
       "text": "Plötzlich kommt ein Polizist zu Pferd vorbei. Er hält das Mädchen an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy",
-        "loshad"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "Na, hat dir das Christkind zu Weihnachten ein Fahrrad geschenkt?",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -60,7 +57,7 @@
       "character": "sluzhivy",
       "text": "Das ist aber toll.",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -87,7 +84,7 @@
       "character": "narrator",
       "text": "Der Polizist lächelt und nickt bestätigend.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -104,6 +101,89 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "devochka",
+        "sluzhivy",
+        "loshad"
+      ],
+      "roles": {
+        "devochka": "child",
+        "sluzhivy": "police-officer",
+        "loshad": "horse"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "devochka",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "loshad",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "bill",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

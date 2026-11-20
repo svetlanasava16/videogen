@@ -2,7 +2,7 @@
   "id": "ru-7c0f2cfde3f5.de",
   "jokeId": "ru-7c0f2cfde3f5",
   "locale": "de",
-  "title": "Opas Asche",
+  "title": "Die Vase",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Plötzlich sieht er neben dem Sofa eine schöne, teure chinesische Vase. Er schaut hinein, sieht etwas, steckt die Hand hinein und fragt:",
+      "text": "Plötzlich sieht er neben dem Sofa eine schöne, teure chinesische Vase. Er schaut hinein, sieht dort etwas, steckt die Hand hinein und fragt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,7 +54,7 @@
       "id": "l5",
       "character": "narrator",
       "text": "Der Typ zieht erschrocken die Hand heraus.",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
@@ -85,14 +85,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "devushka",
-          "to": "center"
+          "who": "paren",
+          "to": "door"
         },
         {
           "type": "move",
-          "who": "paren",
-          "to": "door",
-          "from": "off-left"
+          "who": "devushka",
+          "to": "center"
         },
         {
           "type": "line",
@@ -108,12 +107,24 @@
           "ref": "l2"
         },
         {
+          "type": "prop",
+          "who": "paren",
+          "item": "vase",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "vase",
+          "action": "put"
         },
         {
           "type": "line",

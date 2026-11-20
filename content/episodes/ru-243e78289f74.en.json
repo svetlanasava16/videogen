@@ -2,23 +2,25 @@
   "id": "ru-243e78289f74.en",
   "jokeId": "ru-243e78289f74",
   "locale": "en",
-  "title": "The Dumplings",
+  "title": "Dumplings",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devochka"
+    "devochka",
+    "muzhik"
   ],
   "roles": {
     "zhena": "mother",
-    "devochka": "daughter"
+    "devochka": "daughter",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Once upon a time there was a girl who couldn't see a freaking thing. Basically, she was blind.",
-      "uncensored": "Once upon a time there was a girl who couldn't see a fucking thing. Basically, she was blind.",
+      "text": "Once upon a time there was a little girl who couldn't see a freaking thing. In short, she was blind.",
+      "uncensored": "Once upon a time there was a little girl who couldn't see a fucking thing. In short, she was blind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,7 +29,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Every time the family sat down to eat and her mom served the food, the girl spent ages feeling what was on her plate with her hands, and every time she whined:",
+      "text": "Every time the family sat down at the table and Mom served the food, the girl spent a long time feeling her plate with her hands, and every time she whined:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,7 +38,7 @@
     {
       "id": "l3",
       "character": "devochka",
-      "text": "There you go, as always you gave me the least of all!",
+      "text": "There you go, as always, I got the least of all!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,8 +47,8 @@
     {
       "id": "l4",
       "character": "devochka",
-      "text": "I can't see anything, so you can short me! Cheapskates...",
-      "emotion": "sad",
+      "text": "Just because I can't see, you think you can shortchange me! Cheapskates...",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -54,7 +56,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Her mom got sick of it and decided to consult a psychologist.",
+      "text": "Mom got sick of it and decided to see a psychologist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,7 +65,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Cook a whole tub of dumplings! Enough for a wedding feast. And let her eat!",
+      "text": "Cook a whole tub of dumplings! Enough to feed a whole wedding. And let her eat!",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -72,7 +74,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "The next day the mom sets the table and puts a giant bucket of dumplings in front of the girl.",
+      "text": "The next day Mom sets the table and puts a whole bucket of dumplings in front of the girl.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -81,9 +83,9 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "The girl pulls the hefty portion toward her, feels it over with her hands for a long time and says:",
+      "text": "The girl sits down, pulls the hefty portion toward her, feels it with her hands for a long time and says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -92,7 +94,7 @@
       "character": "devochka",
       "text": "I can only imagine how much you freaking piled up for yourselves...",
       "uncensored": "I can only imagine how much you fucking piled up for yourselves...",
-      "emotion": "surprised",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -105,11 +107,13 @@
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -128,8 +132,18 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
         },
         {
           "type": "line",
@@ -146,10 +160,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -166,21 +176,38 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l6"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     },
     {
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -199,12 +226,34 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "put"
         },
         {
           "type": "line",
@@ -215,7 +264,7 @@
           "ref": "l9"
         }
       ],
-      "transition": "flyover"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

@@ -2,40 +2,44 @@
   "id": "de-witze-1oh6kll.en",
   "jokeId": "de-witze-1oh6kll",
   "locale": "en",
-  "title": "At the Doctor's",
+  "title": "Which Comes First",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
     "ptitsa",
-    "vovochka",
+    "mladenets",
     "doktor"
   ],
   "roles": {
     "ptitsa": "chicken",
-    "vovochka": "child",
+    "mladenets": "egg",
     "doktor": "doctor"
   },
   "looks": {
-    "vovochka": {
+    "mladenets": {
       "clothes": "#f3ead8",
+      "hairStyle": "none",
+      "skin": "#f3ead8",
       "add": [],
-      "remove": []
+      "remove": [
+        "onesie-snaps"
+      ]
     }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A chicken and an egg have been sitting in the waiting room since early morning.",
+      "text": "At the doctor's. A chicken and an egg have been sitting in the waiting room since early morning.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Right, let's get started. Which of you comes first?",
+      "text": "Right, we can get started. Which of you comes first?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [
@@ -45,7 +49,7 @@
     },
     {
       "id": "l3",
-      "character": "vovochka",
+      "character": "mladenets",
       "text": "Ugh, I am so sick of that question!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,

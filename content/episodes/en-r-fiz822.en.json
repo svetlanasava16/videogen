@@ -7,12 +7,12 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "devochka",
+    "vovochka-drug",
     "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "devochka": "child",
+    "vovochka-drug": "child",
     "doktor": "pharmacist"
   },
   "lines": [
@@ -22,10 +22,7 @@
       "text": "Two young boys walked into a pharmacy, picked out a box of tampons, and proceeded to the checkout counter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka",
-        "devochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -39,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Eight.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -57,7 +54,7 @@
     },
     {
       "id": "l5",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Not exactly, but they aren't for me.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -66,7 +63,7 @@
     },
     {
       "id": "l6",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "They're for him... He's my brother. He's four.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -75,7 +72,7 @@
     },
     {
       "id": "l7",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "We saw on TV that if you use these, you will be able to swim and ride a bike.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
@@ -84,7 +81,7 @@
     },
     {
       "id": "l8",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Right now, he can't do either.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
@@ -94,6 +91,73 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "vovochka-drug",
+        "doktor"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "vovochka-drug": "child",
+        "doktor": "pharmacist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

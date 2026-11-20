@@ -3,25 +3,25 @@
   "jokeId": "ru-5a45f4c51acd",
   "locale": "ru",
   "title": "Четыре туза",
-  "location": "gostinaya",
+  "location": "kukhnya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-ryzhy",
+    "vovochka-drug",
     "muzhik",
-    "muzhik-sosed",
-    "vovochka"
+    "muzhik-ryzhy",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-ryzhy": "friend",
+    "vovochka-drug": "child",
     "muzhik": "father",
-    "muzhik-sosed": "friend",
-    "vovochka": "child"
+    "muzhik-ryzhy": "everyman",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Отец дома с приятелями играет в покер. Тут образовывается приличный банк, идет круг торговли.",
+      "text": "Отец дома с приятелями играет в покер. Тут образовывается приличный банк, идёт круг торговли.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,16 +29,7 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "В этот момент к отцу подбегает четырехлетний сынишка и заглядывает в карты:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Ой, папа, а четыре туза это хорошо?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
@@ -46,35 +37,26 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "narrator",
-      "text": "Отец сквозь зубы:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
+      "id": "l3",
       "character": "muzhik",
       "text": "Да! Сынок...",
-      "emotion": "smug",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l4",
       "character": "narrator",
-      "text": "Все сразу уходят в пас, батя гребет банчище.",
+      "text": "Все сразу уходят в пас, батя гребёт банчище.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "vovochka",
+      "id": "l5",
+      "character": "vovochka-drug",
       "text": "Жаль, папа, что у тебя их не было...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
@@ -86,64 +68,88 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "kukhnya",
       "cast": [
-        "muzhik-ryzhy",
+        "vovochka-drug",
         "muzhik",
-        "muzhik-sosed",
-        "vovochka"
+        "muzhik-ryzhy",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-ryzhy": "friend",
+        "vovochka-drug": "child",
         "muzhik": "father",
-        "muzhik-sosed": "friend",
-        "vovochka": "child"
+        "muzhik-ryzhy": "everyman",
+        "muzhik-sosed": "friend"
       },
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
+          "who": "muzhik",
+          "to": "center"
         },
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "sofa"
+          "who": "muzhik-ryzhy",
+          "to": "table"
         },
         {
           "type": "move",
           "who": "muzhik-sosed",
-          "to": "tv"
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "playing-cards",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "playing-cards",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "playing-cards",
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "left",
+          "from": "off-left"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "center",
-          "from": "off-right"
+          "type": "line",
+          "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "playing-cards",
+          "action": "drop"
         },
         {
-          "type": "line",
-          "ref": "l5"
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "playing-cards",
+          "action": "drop"
         },
         {
-          "type": "line",
-          "ref": "l6"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "playing-cards",
+          "action": "put"
         },
         {
           "type": "prop",
@@ -153,7 +159,11 @@
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

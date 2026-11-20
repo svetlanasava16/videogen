@@ -2,7 +2,7 @@
   "id": "de-witze-1vhh6l7.de",
   "jokeId": "de-witze-1vhh6l7",
   "locale": "de",
-  "title": "Damals in Paris",
+  "title": "Paris",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Als wir damals in Paris waren, haben wir gesoffen bis zum Umfallen, die schönsten Frauen klargemacht, gefressen ohne Ende.",
+      "text": "Als wir damals in Paris waren, haben wir gesoffen bis zum Umfallen, die schönsten Frauen klargemacht, gefressen ohne Ende,",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "Im Café gegen die Theke gepinkelt, alles kurz und klein gehauen, uns geprügelt und sind abgehauen, ohne zu bezahlen.",
+      "text": "im Café gegen die Theke gepinkelt, alles kurz und klein gehauen, uns geprügelt und sind abgehauen, ohne zu bezahlen.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -82,14 +82,14 @@
       "character": "paren",
       "text": "Mit ein paar Kumpels.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "ded",
-      "text": "Junge... ich war damals ja auch mit der SS dort!",
+      "text": "Junge… ich war damals ja auch mit der SS dort!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -131,11 +131,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -149,6 +144,15 @@
       "roles": {
         "ded": "grandpa",
         "paren": "relative"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "black-eye",
+            "bandages"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -164,7 +168,7 @@
           "type": "move",
           "who": "paren",
           "to": "center",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

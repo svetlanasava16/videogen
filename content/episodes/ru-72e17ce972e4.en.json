@@ -6,34 +6,36 @@
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "pyos"
+    "pyos",
+    "pyos-dalmatin"
   ],
   "roles": {
-    "pyos": "dog"
+    "pyos": "dog",
+    "pyos-dalmatin": "dog"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A dog is digging in a backyard garden. Digging with a shovel.",
+      "text": "A dog is digging up the backyard garden. Digging with a shovel.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The neighbor's mutt stares at him, dumbfounded.",
+      "text": "The neighbour's mutt stares at him, stunned.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "pyos",
-      "text": "And it all started when I, like an idiot, learned to fetch slippers...",
+      "text": "And it all started when I, like a fool, learned to fetch slippers...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -42,6 +44,51 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "garden",
+      "cast": [
+        "pyos",
+        "pyos-dalmatin"
+      ],
+      "roles": {
+        "pyos": "dog",
+        "pyos-dalmatin": "dog"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "pyos-dalmatin",
+          "to": "fence"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "shovel",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

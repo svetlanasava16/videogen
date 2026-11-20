@@ -2,7 +2,7 @@
   "id": "ru-ff0c505f2053.de",
   "jokeId": "ru-ff0c505f2053",
   "locale": "de",
-  "title": "Laute Mitbewohner",
+  "title": "Der Dudelsack",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Angus MacDonald kam aus Schottland zum Studium an eine englische Universität, wo man ihn mit zwei anderen Studenten in ein Zimmer steckte.",
+      "text": "Angus MacDonald kam aus Schottland zum Studium an eine englische Universität und bekam ein Zimmer mit zwei anderen Studenten. Nach etwa einem Monat besuchte ihn seine Mutter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Als er dort etwa einen Monat gewohnt hatte, kam seine Mutter ihn besuchen.",
+      "character": "zhena",
+      "text": "Na, und wie findest du diese englischen Studenten, Angus?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Na, wie findest du diese englischen Studenten, Angus?",
-      "emotion": "happy",
+      "character": "paren",
+      "text": "Mama, das sind so schreckliche, laute Leute!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,44 +44,35 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Mama, das sind so schreckliche, laute Leute!",
-      "emotion": "sad",
+      "text": "Der auf dieser Seite schlägt die ganze Nacht ohne Pause mit dem Kopf gegen die Wand, und der auf der anderen Seite schreit und schreit, und das jede Nacht.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "paren",
-      "text": "Der auf dieser Seite schlägt die ganze Nacht ohne Pause mit dem Kopf gegen die Wand, und der auf der anderen Seite schreit und schreit, und so jede Nacht.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "zhena",
+      "text": "Ach, Angus, wie hältst du es nur mit diesen schrecklichen, lauten Engländern aus?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Ach, Angus, wie kommst du denn mit diesen schrecklichen, lauten Engländern aus?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Mama, ich tue gar nichts. Ich ignoriere sie einfach.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "Mama, ich mache gar nichts. Ich ignoriere sie einfach.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "paren",
-      "text": "Ich sitze hier die ganze Nacht und spiele auf meinem Dudelsack.",
-      "emotion": "smug",
+      "text": "Ich sitze hier die ganze Nacht und spiele Dudelsack.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +80,67 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "paren": "student"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bagpipes",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

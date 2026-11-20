@@ -6,20 +6,20 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "sluzhivy",
+    "nachalnik",
     "barmen",
-    "nachalnik"
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "traffic-cop",
+    "nachalnik": "new-russian",
     "barmen": "construction-worker",
-    "nachalnik": "new-russian"
+    "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Mercedes S600 slams into the back of a road roller.",
+      "text": "A big black Mercedes rear-ends a road roller.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "A huge guy climbs out of the car and starts calling his own traffic cop on his cell.",
+      "text": "A huge guy climbs out and starts calling his traffic cop on his cell.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "After a while a police car pulls up, the cop gets out, goes up to the roller driver, takes him aside and whispers warmly:",
+      "text": "A while later a police car pulls up, a cop gets out, walks over to the roller driver, takes him aside and whispers warmly:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,14 +68,14 @@
     {
       "location": "doroga",
       "cast": [
-        "sluzhivy",
+        "nachalnik",
         "barmen",
-        "nachalnik"
+        "sluzhivy"
       ],
       "roles": {
-        "sluzhivy": "traffic-cop",
+        "nachalnik": "new-russian",
         "barmen": "construction-worker",
-        "nachalnik": "new-russian"
+        "sluzhivy": "traffic-cop"
       },
       "looks": {
         "nachalnik": {
@@ -97,14 +97,14 @@
           "to": "center"
         },
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "phone",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -123,6 +123,11 @@
         {
           "type": "move",
           "who": "barmen",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
           "to": "roadside"
         },
         {

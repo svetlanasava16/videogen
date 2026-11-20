@@ -2,7 +2,7 @@
   "id": "ru-3f30e3e556a8.en",
   "jokeId": "ru-3f30e3e556a8",
   "locale": "en",
-  "title": "The License",
+  "title": "License, Please",
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "sluzhivy",
       "text": "It's that little thing with your picture on it.",
-      "emotion": "neutral",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "devushka-blondinka",
-      "text": "Ohhh.",
+      "text": "Ahhh.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -79,35 +79,17 @@
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "She rummages in her handbag and pulls out a little mirror.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka-blondinka",
+      "text": "Here you go.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "devushka-blondinka",
-      "text": "Here you go.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "narrator",
-      "text": "The cop looks into the mirror.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "sluzhivy",
-      "text": "Well, why didn't you say right away that you're a cop?",
+      "text": "Well, why didn't you say right away that you're a cop.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -116,6 +98,86 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "devushka-blondinka": "blonde"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "pause",
+          "sec": 1.2
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

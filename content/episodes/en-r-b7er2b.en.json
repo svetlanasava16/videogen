@@ -7,12 +7,12 @@
   "place": "school-classroom",
   "cast": [
     "vovochka",
-    "paren",
+    "vovochka-drug",
     "uchilka"
   ],
   "roles": {
     "vovochka": "child",
-    "paren": "student",
+    "vovochka-drug": "child",
     "uchilka": "teacher"
   },
   "lines": [
@@ -38,7 +38,7 @@
       "id": "l3",
       "character": "vovochka",
       "text": "We found a ten-dollar bill and decided whoever tells the biggest lie gets to keep it.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -78,24 +78,18 @@
       "location": "klass",
       "cast": [
         "vovochka",
-        "paren",
+        "vovochka-drug",
         "uchilka"
       ],
       "roles": {
         "vovochka": "child",
-        "paren": "student",
+        "vovochka-drug": "child",
         "uchilka": "teacher"
       },
       "looks": {
-        "paren": {
+        "vovochka-drug": {
           "add": [
             "freckles"
-          ],
-          "remove": []
-        },
-        "uchilka": {
-          "add": [
-            "glasses"
           ],
           "remove": []
         }
@@ -108,12 +102,12 @@
         },
         {
           "type": "move",
-          "who": "paren",
+          "who": "vovochka-drug",
           "to": "student-desk"
         },
         {
           "type": "prop",
-          "who": "paren",
+          "who": "vovochka-drug",
           "item": "money",
           "action": "hold"
         },
@@ -144,8 +138,12 @@
           "ref": "l5"
         },
         {
+          "type": "pause",
+          "sec": 1
+        },
+        {
           "type": "prop",
-          "who": "paren",
+          "who": "vovochka-drug",
           "item": "money",
           "action": "give",
           "to": "uchilka"

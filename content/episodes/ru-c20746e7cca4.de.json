@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Motorradfahrer rast mit hoher Geschwindigkeit dahin und sieht plötzlich, wie etwas direkt auf ihn zufliegt… ein Spatz!",
+      "text": "Ein Motorradfahrer rast mit hoher Geschwindigkeit dahin und sieht plötzlich, wie ihm etwas direkt entgegenfliegt… ein Spatz!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,9 +26,9 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er steigt in die Bremsen, versucht mit aller Kraft auszuweichen, streift den Spatz aber doch mit dem Helm. Der Spatz fliegt zur Seite und fällt herunter.",
+      "text": "Er tritt auf die Bremse, versucht mit aller Kraft auszuweichen, streift den Spatz aber doch mit dem Helm. Der Spatz fliegt zur Seite und fällt herunter.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Er bringt ihn nach Hause, setzt ihn in einen Käfig, stellt ihm ein Schälchen Wasser hin, streut Brotkrumen und geht dann schlafen.",
+      "text": "Er bringt ihn nach Hause, setzt ihn in einen Käfig, stellt ihm ein Schälchen Wasser hin, streut Brotkrümel und geht schlafen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Am Morgen kommt der Spatz zu sich, schaut sich um und sagt zu sich selbst:",
+      "text": "Am Morgen kommt der Spatz zu sich und schaut sich um.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,17 +64,29 @@
     {
       "id": "l6",
       "character": "ptitsa",
-      "text": "Wo bin ich?.. Soso… Gitter… eine Schale Wasser… Brot…",
+      "text": "Wo bin ich?..",
+      "offscreen": true,
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ptitsa",
+      "text": "Soso… Gitter… ein Napf mit Wasser… Brot…",
+      "offscreen": true,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ptitsa",
       "text": "Wie schrecklich! Ich habe den Motorradfahrer umgebracht!",
-      "emotion": "sad",
+      "offscreen": true,
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -95,10 +107,13 @@
       },
       "looks": {
         "muzhik-ryzhy": {
+          "clothes": "#2b2b2b",
           "add": [
             "helmet"
           ],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         },
         "ptitsa": {
           "clothes": "#8a6a45",
@@ -108,12 +123,27 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
         },
         {
           "type": "line",
@@ -133,6 +163,15 @@
         "ptitsa": "bird"
       },
       "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#2b2b2b",
+          "add": [
+            "helmet"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        },
         "ptitsa": {
           "clothes": "#8a6a45",
           "add": [],
@@ -141,12 +180,30 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "birdcage",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l4"
         },
         {
           "type": "pause",
-          "sec": 1
+          "sec": 1.5
         },
         {
           "type": "line",
@@ -159,6 +216,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "flyover"

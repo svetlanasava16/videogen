@@ -6,14 +6,16 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
     "muzhik-sosed",
-    "paren"
+    "muzhik",
+    "paren",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik": "everyman",
     "muzhik-sosed": "friend",
-    "paren": "friend"
+    "muzhik": "everyman",
+    "paren": "friend",
+    "muzhik-ryzhy": "neighbor"
   },
   "lines": [
     {
@@ -54,7 +56,7 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
+      "character": "paren",
       "text": "Eine sprechende Uhr? Im Ernst?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -119,6 +121,7 @@
       "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Du Mistkerl! Es ist drei Uhr morgens!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -131,16 +134,24 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
         "muzhik-sosed",
-        "paren"
+        "muzhik",
+        "paren",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik": "everyman",
         "muzhik-sosed": "friend",
-        "paren": "friend"
+        "muzhik": "everyman",
+        "paren": "friend",
+        "muzhik-ryzhy": "neighbor"
       },
       "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "gong",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -184,26 +195,7 @@
         {
           "type": "line",
           "ref": "l11"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "muzhik-ryzhy"
-      ],
-      "roles": {
-        "muzhik-ryzhy": "neighbor"
-      },
-      "looks": {
-        "muzhik-ryzhy": {
-          "clothes": "#9fb7d9",
-          "add": [],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l12"

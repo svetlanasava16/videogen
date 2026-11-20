@@ -2,20 +2,22 @@
   "id": "en-r-74wivp.de",
   "jokeId": "en-r-74wivp",
   "locale": "de",
-  "title": "Ich bin verheiratet!",
+  "title": "Lass mich, ich bin verheiratet",
   "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Horst wacht mit einem fürchterlichen Kater und einem pochenden blauen Auge auf.",
+      "text": "Horst wacht mit einem furchtbaren Kater und einem pochenden blauen Auge auf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -32,9 +34,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Schatz, das Frühstück ist fertig. Ich bin einkaufen, um dir heute Abend dein Lieblingsessen zu kochen. Ich liebe dich!",
-      "emotion": "surprised",
+      "character": "zhena",
+      "text": "Schatz, das Frühstück ist fertig. Ich bin einkaufen, damit ich dir heute Abend dein Lieblingsessen kochen kann. Ich liebe dich!",
+      "offscreen": true,
+      "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -42,7 +45,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Er torkelt in die Küche, und tatsächlich, da steht das Frühstück.",
+      "text": "Er schleppt sich in die Küche, und tatsächlich, da steht das Frühstück.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -51,7 +54,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Kevin, was war gestern Abend los?",
+      "text": "Kevin, was ist letzte Nacht passiert?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,23 +74,14 @@
       "character": "muzhik",
       "text": "Und warum dann die Rose, das Frühstück und der liebe Zettel von deiner Mutter?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "Ach, das.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "paren",
-      "text": "Mama hat dich ins Schlafzimmer geschleppt, und als sie dich ausziehen wollte, hast du geschrien: Lass mich in Ruhe, ich bin verheiratet!",
+      "text": "Ach, das. Mama hat dich ins Schlafzimmer geschleppt, und als sie dich ausziehen wollte, hast du geschrien: Lass mich in Ruhe, ich bin verheiratet!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -100,14 +94,17 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -120,14 +117,14 @@
           "to": "bed"
         },
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "letter",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -143,16 +140,17 @@
     {
       "location": "kukhnya",
       "cast": [
-        "paren",
-        "muzhik"
+        "muzhik",
+        "paren"
       ],
       "roles": {
-        "paren": "son",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "paren": "son"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -165,14 +163,20 @@
           "to": "table"
         },
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right",
-          "from": "off-right"
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -189,10 +193,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "wipe"

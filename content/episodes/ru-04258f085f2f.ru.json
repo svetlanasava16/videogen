@@ -2,7 +2,7 @@
   "id": "ru-04258f085f2f.ru",
   "jokeId": "ru-04258f085f2f",
   "locale": "ru",
-  "title": "Джин",
+  "title": "Пробка",
   "location": "plyazh",
   "place": "beach",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ну, там джин сидит, надо потереть!",
+      "text": "Ну, там джинн сидит, надо потереть!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,11 +54,10 @@
       "id": "l5",
       "character": "chort",
       "text": "Вынь пробку, придурок!",
-      "emotion": "smug",
+      "offscreen": true,
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "chort"
-      ],
+      "enter": [],
       "exit": [],
       "laugh": "big"
     }
@@ -84,7 +83,7 @@
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "genie-bottle",
           "action": "hold"
         },
         {
@@ -98,6 +97,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         },
         {
           "type": "line",

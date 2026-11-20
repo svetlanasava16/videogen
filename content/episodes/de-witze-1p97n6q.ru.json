@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1p97n6q",
   "locale": "ru",
   "title": "Воздушный шар",
-  "location": "derevnya",
+  "location": "nebesa",
   "place": "farm",
   "cast": [
     "nachalnik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Человек летит на воздушном шаре над полями и, к сожалению, заблудился. Он видит внизу человека.",
+      "text": "Мужчина летит на воздушном шаре над полями и понимает, что заблудился. Внизу он видит человека.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Вы, должно быть, инженер: ваш ответ абсолютно правильный, но совершенно бесполезный.",
+      "text": "Вы, должно быть, инженер. Ваш ответ абсолютно правильный, но совершенно бесполезный.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -71,6 +71,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "paren": "engineer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "derevnya",
+        "cast": [
+          "paren"
+        ]
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

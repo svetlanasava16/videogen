@@ -2,7 +2,7 @@
   "id": "ru-97e1919afab9.en",
   "jokeId": "ru-97e1919afab9",
   "locale": "en",
-  "title": "Endless Beer",
+  "title": "The Endless Canister",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -13,19 +13,11 @@
     "muzhik": "everyman",
     "chort": "genie"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Summer, sun, heat. A man is walking home from the sauna with a canister of beer, looking forward to a cold one at home.",
+      "text": "Summer, sun, heat... A man is walking home from the bathhouse with a canister of beer. He's looking forward to a cold beer at home...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "There's a bottle lying on the road. The man kicks it, and it smashes on a rock.",
+      "text": "There's a bottle lying on the road; the man kicks it, and it smashes on a rock.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,30 +38,26 @@
       "text": "As usual: a genie, a wish.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "chort"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "I want the beer in this canister never to run out.",
+      "text": "I want the beer in this canister to never run out.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The genie works his magic and vanishes.",
+      "text": "The genie works a little magic and vanishes.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "chort"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
@@ -83,6 +71,77 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "canister",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

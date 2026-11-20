@@ -11,7 +11,7 @@
   ],
   "roles": {
     "muzhik": "husband",
-    "muzhik-ryzhy": "drunk"
+    "muzhik-ryzhy": "customer"
   },
   "lines": [
     {
@@ -62,18 +62,10 @@
       ],
       "roles": {
         "muzhik": "husband",
-        "muzhik-ryzhy": "drunk"
-      },
-      "looks": {
-        "muzhik-ryzhy": {
-          "add": [
-            "red-nose"
-          ],
-          "remove": []
-        }
+        "muzhik-ryzhy": "customer"
       },
       "crowd": {
-        "who": "guests",
+        "who": "people",
         "size": "many"
       },
       "beats": [
@@ -99,16 +91,22 @@
           "from": "off-left"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "crowd",
-          "react": "gasp"
         },
         {
           "type": "line",

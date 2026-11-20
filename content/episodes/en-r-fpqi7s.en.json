@@ -6,11 +6,9 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
     "muzhik"
   ],
   "roles": {
-    "zhena": "wife",
     "muzhik": "husband"
   },
   "lines": [
@@ -18,7 +16,7 @@
       "id": "l1",
       "character": "muzhik",
       "text": "We are eleven days into self-isolation.",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -36,8 +34,8 @@
       "id": "l3",
       "character": "muzhik",
       "text": "Don't get me wrong, I empathize with her.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -45,6 +43,7 @@
       "id": "l4",
       "character": "muzhik",
       "text": "I've considered letting her in many times, but rules are rules.",
+      "offscreen": true,
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,19 +56,12 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena",
         "muzhik"
       ],
       "roles": {
-        "zhena": "wife",
         "muzhik": "husband"
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "door"
-        },
         {
           "type": "move",
           "who": "muzhik",
@@ -86,7 +78,21 @@
         {
           "type": "line",
           "ref": "l3"
-        },
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
         {
           "type": "line",
           "ref": "l4"

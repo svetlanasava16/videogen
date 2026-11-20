@@ -6,12 +6,12 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "sluzhivy",
-    "nachalnik"
+    "nachalnik",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "nachalnik": "lawyer"
+    "nachalnik": "lawyer",
+    "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
@@ -46,48 +46,30 @@
       "character": "sluzhivy",
       "text": "You didn't make a full stop at the stop sign back there. You only slowed down.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "The lawyer thinks for a few seconds.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "character": "nachalnik",
+      "text": "If you can prove to me the difference between stopping and slowing down, I'll take full responsibility.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "If you can prove to me the difference between stopping and slowing down, I'll take full responsibility.",
+      "text": "Otherwise, you let me off with a warning. Sound fair?",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "nachalnik",
-      "text": "Otherwise, you let me off with a warning. Sound fair?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "narrator",
-      "text": "The officer ponders it shortly before nodding his head.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
       "character": "sluzhivy",
       "text": "Sounds fair. Can you step out of the car please?",
       "emotion": "neutral",
@@ -96,16 +78,16 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l8",
       "character": "narrator",
       "text": "Just as the lawyer steps out and shuts the car door, the officer pulls out his baton and starts beating the lawyer.",
-      "emotion": "surprised",
-      "pauseAfterSec": 1,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l9",
       "character": "sluzhivy",
       "text": "Now, would you like me to stop or slow down?",
       "emotion": "smug",
@@ -120,12 +102,12 @@
     {
       "location": "doroga",
       "cast": [
-        "sluzhivy",
-        "nachalnik"
+        "nachalnik",
+        "sluzhivy"
       ],
       "roles": {
-        "sluzhivy": "police-officer",
-        "nachalnik": "lawyer"
+        "nachalnik": "lawyer",
+        "sluzhivy": "traffic-cop"
       },
       "looks": {
         "sluzhivy": {
@@ -176,25 +158,27 @@
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
           "type": "move",
           "who": "nachalnik",
           "to": "center"
         },
         {
-          "type": "line",
-          "ref": "l10"
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "cane",
+          "action": "hold"
         },
         {
           "type": "line",
-          "ref": "l11"
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

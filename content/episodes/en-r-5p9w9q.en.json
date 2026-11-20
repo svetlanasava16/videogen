@@ -2,16 +2,16 @@
   "id": "en-r-5p9w9q.en",
   "jokeId": "en-r-5p9w9q",
   "locale": "en",
-  "title": "Bagpipes",
+  "title": "Two Thirty",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "muzhik-sosed": "neighbor"
+    "muzhik-sosed": "neighbor",
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -27,8 +27,8 @@
       "id": "l2",
       "character": "muzhik",
       "text": "Can you believe that, two thirty?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -44,6 +44,50 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bagpipes",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

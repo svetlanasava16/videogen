@@ -2,15 +2,17 @@
   "id": "ru-01e656ef77af.en",
   "jokeId": "ru-01e656ef77af",
   "locale": "en",
-  "title": "The Doctors' Protest",
+  "title": "Placards",
   "location": "ulitsa",
   "place": "street",
   "cast": [
     "doktor",
+    "paren",
     "nachalnik"
   ],
   "roles": {
     "doktor": "doctor",
+    "paren": "doctor",
     "nachalnik": "bureaucrat"
   },
   "lines": [
@@ -19,23 +21,14 @@
       "character": "narrator",
       "text": "Doctors have taken to the streets in protest.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The authorities can't understand what the doctors want,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "because nobody can make out what exactly is written on their placards.",
+      "text": "The authorities can't understand what the doctors want, because nobody can make out what exactly is written on their placards.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -49,10 +42,12 @@
       "location": "ulitsa",
       "cast": [
         "doktor",
+        "paren",
         "nachalnik"
       ],
       "roles": {
         "doktor": "doctor",
+        "paren": "doctor",
         "nachalnik": "bureaucrat"
       },
       "crowd": {
@@ -61,18 +56,14 @@
       },
       "beats": [
         {
-          "type": "move",
+          "type": "prop",
           "who": "doktor",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "right"
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "prop",
-          "who": "doktor",
+          "who": "paren",
           "item": "certificate",
           "action": "hold"
         },
@@ -85,12 +76,15 @@
           "react": "cheer"
         },
         {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "give",
+          "to": "nachalnik"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         }
       ],
       "transition": "cut"

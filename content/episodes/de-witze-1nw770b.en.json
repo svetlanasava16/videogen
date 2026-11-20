@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A farmer and his son come in from the country for the first time, to the new shopping mall.",
+      "text": "A farmer and his son come in from the country to the edge of town for the first time, to the new shopping mall.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,8 +52,7 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l5",
@@ -76,7 +75,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Just then the doors open, the old woman steps into the elevator, and the doors close.",
+      "text": "But just then the doors open, the old woman steps into the elevator, and the doors close.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -85,17 +84,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Father and son stand rooted to the spot.",
+      "text": "Father and son stand rooted to the spot, studying the contraption from the outside.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "narrator",
-      "text": "A moment later the doors open again, and a young, attractive lady steps out.",
-      "emotion": "neutral",
+      "text": "A moment later the doors open again, and a young, attractive lady steps out and walks straight past the baffled farmers.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -104,7 +103,7 @@
       "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Son, I've no idea what kind of box that is, but you drive straight back to the farm right now and fetch your mother!",
-      "emotion": "surprised",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -196,23 +195,14 @@
           "ref": "l8"
         },
         {
-          "type": "pause",
-          "sec": 1
-        },
-        {
           "type": "line",
           "ref": "l9"
         },
         {
           "type": "move",
           "who": "devushka",
-          "to": "right",
+          "to": "off-left",
           "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "devushka",
-          "to": "off-left"
         },
         {
           "type": "line",

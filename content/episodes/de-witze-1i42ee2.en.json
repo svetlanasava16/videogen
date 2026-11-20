@@ -2,20 +2,18 @@
   "id": "de-witze-1i42ee2.en",
   "jokeId": "de-witze-1i42ee2",
   "locale": "en",
-  "title": "The Ugly Baby",
+  "title": "The Baby on the Bus",
   "location": "doroga",
   "place": "bus",
   "cast": [
-    "muzhik-ryzhy",
+    "ded",
     "zhena",
-    "vovochka",
-    "ded"
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "driver",
+    "ded": "old-man",
     "zhena": "mother",
-    "vovochka": "child",
-    "ded": "old-man"
+    "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
@@ -30,8 +28,8 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "You really do have a remarkably ugly baby!",
-      "emotion": "smug",
+      "text": "My, what a remarkably ugly baby you have!",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -75,7 +73,7 @@
     {
       "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "I'll hold your monkey in the meantime...",
+      "text": "I'll hold your monkey for you in the meantime...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -89,16 +87,14 @@
       "location": "doroga",
       "place": "bus",
       "cast": [
-        "muzhik-ryzhy",
+        "ded",
         "zhena",
-        "vovochka",
-        "ded"
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "driver",
+        "ded": "old-man",
         "zhena": "mother",
-        "vovochka": "child",
-        "ded": "old-man"
+        "muzhik-ryzhy": "driver"
       },
       "looks": {
         "ded": {
@@ -106,23 +102,30 @@
             "flat-cap"
           ],
           "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "aerodrome-cap"
+          ],
+          "remove": []
         }
       },
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "roadside"
-        },
-        {
-          "type": "move",
           "who": "zhena",
-          "to": "center"
+          "to": "left"
         },
         {
           "type": "move",
-          "who": "vovochka",
-          "to": "right"
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "baby",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -131,8 +134,8 @@
         {
           "type": "move",
           "who": "ded",
-          "to": "car",
-          "from": "off-right"
+          "to": "roadside",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -145,7 +148,7 @@
         {
           "type": "move",
           "who": "zhena",
-          "to": "left"
+          "to": "right"
         },
         {
           "type": "line",

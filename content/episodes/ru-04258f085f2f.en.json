@@ -2,7 +2,7 @@
   "id": "ru-04258f085f2f.en",
   "jokeId": "ru-04258f085f2f",
   "locale": "en",
-  "title": "The Genie",
+  "title": "The Cork",
   "location": "plyazh",
   "place": "beach",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Well, there must be a genie sitting in there. I have to rub it!",
+      "text": "Well, there's a genie in there, I've got to rub it!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Completely worn out, he hears a bored voice from the bottle:",
+      "text": "Completely worn out, he hears a bored voice from the bottle.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -53,8 +53,9 @@
     {
       "id": "l5",
       "character": "chort",
-      "text": "Pull the cork out, you idiot!",
-      "emotion": "angry",
+      "text": "Pull the cork, you moron!",
+      "offscreen": true,
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -80,14 +81,9 @@
           "to": "water"
         },
         {
-          "type": "move",
-          "who": "chort",
-          "to": "right"
-        },
-        {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "genie-bottle",
           "action": "hold"
         },
         {
@@ -101,6 +97,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         },
         {
           "type": "line",

@@ -16,17 +16,21 @@
     "doktor": "therapist"
   },
   "looks": {
+    "sluzhivy": {
+      "add": [
+        "aerodrome-cap"
+      ],
+      "remove": [
+        "police-cap"
+      ]
+    },
     "sluzhivy-ryadovoy": {
-      "add": [],
+      "add": [
+        "aerodrome-cap"
+      ],
       "remove": [
         "army-cap"
       ]
-    },
-    "doktor": {
-      "add": [
-        "beard"
-      ],
-      "remove": []
     }
   },
   "lines": [
@@ -53,7 +57,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Dieser überlegt sehr lange.",
+      "text": "Dieser überlegt sehr lange und meint schließlich:",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -91,26 +95,17 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "Ist doch klar.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "sluzhivy",
-      "text": "Erstens dauerte es eine Ewigkeit, bis er antwortete.",
+      "text": "Ist doch klar. Erstens dauerte es eine Ewigkeit, bis er antwortet.",
       "emotion": "smug",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "sluzhivy",
-      "text": "Zweitens ist die Antwort völlig richtig, und drittens völlig unbrauchbar!",
-      "emotion": "angry",
+      "text": "Zweitens ist die Antwort völlig richtig und drittens völlig unbrauchbar!",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

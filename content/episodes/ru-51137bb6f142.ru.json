@@ -6,13 +6,13 @@
   "location": "derevnya",
   "place": "village",
   "cast": [
+    "uchilka",
     "tyoshcha",
-    "zhena",
     "sluzhivy"
   ],
   "roles": {
+    "uchilka": "grandma",
     "tyoshcha": "grandma",
-    "zhena": "grandma",
     "sluzhivy": "officer"
   },
   "lines": [
@@ -50,28 +50,26 @@
     {
       "location": "derevnya",
       "cast": [
+        "uchilka",
         "tyoshcha",
-        "zhena",
         "sluzhivy"
       ],
       "roles": {
+        "uchilka": "grandma",
         "tyoshcha": "grandma",
-        "zhena": "grandma",
         "sluzhivy": "officer"
       },
       "looks": {
-        "tyoshcha": {
+        "uchilka": {
+          "clothes": "#6b5a4a",
+          "hair": "#cfcfcf",
           "add": [
             "headscarf"
           ],
-          "remove": []
-        },
-        "zhena": {
-          "hair": "#b8b8b8",
-          "add": [
-            "headscarf"
-          ],
-          "remove": []
+          "remove": [
+            "cat-eye-glasses",
+            "brooch"
+          ]
         }
       },
       "crowd": {
@@ -81,12 +79,12 @@
       "beats": [
         {
           "type": "move",
-          "who": "tyoshcha",
+          "who": "uchilka",
           "to": "left"
         },
         {
           "type": "move",
-          "who": "zhena",
+          "who": "tyoshcha",
           "to": "house"
         },
         {
@@ -102,7 +100,7 @@
         {
           "type": "prop",
           "who": "sluzhivy",
-          "item": "certificate",
+          "item": "map",
           "action": "hold"
         },
         {

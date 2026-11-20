@@ -1,0 +1,114 @@
+{
+  "id": "ru-c6019476af08.de",
+  "jokeId": "ru-c6019476af08",
+  "locale": "de",
+  "title": "Das Klassenfoto",
+  "location": "klass",
+  "place": "school-classroom",
+  "cast": [
+    "vovochka",
+    "uchilka"
+  ],
+  "roles": {
+    "vovochka": "vovochka",
+    "uchilka": "teacher"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Die Kinder haben sich mit ihrer Lehrerin fotografieren lassen. Jetzt will die Lehrerin, dass jedes Kind ein Foto kauft.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "uchilka",
+      "text": "Stellt euch vor, wie schön das ist: Wenn ihr erwachsen seid, schaut ihr euch das Foto an und sagt:",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "uchilka",
+      "text": "Das ist die kleine Lena, die ist jetzt Schauspielerin. Und das ist Peter, der ist jetzt Arzt...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "Und das ist Frau Müller, die ist schon lange tot...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "uchilka": "teacher"
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "prop",
+          "who": "uchilka",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

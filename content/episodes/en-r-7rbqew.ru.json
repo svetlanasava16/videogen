@@ -6,20 +6,22 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
     "muzhik-sosed",
-    "paren"
+    "muzhik",
+    "paren",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik": "everyman",
     "muzhik-sosed": "friend",
-    "paren": "friend"
+    "muzhik": "everyman",
+    "paren": "friend",
+    "muzhik-ryzhy": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик хвастается новой квартирой.",
+      "text": "Мужик хвастается своей новой квартирой.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,7 +56,7 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
+      "character": "paren",
       "text": "Говорящие часы? Серьёзно?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -91,7 +93,7 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Он взял колотушку и со всей силы ударил в гонг, отступив назад, пока грохот разносился по комнате.",
+      "text": "Он взял колотушку, со всей силы ударил в гонг и отступил назад, а грохот разнёсся по всей комнате.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -100,7 +102,7 @@
     {
       "id": "l10",
       "character": "narrator",
-      "text": "Друзья в полном недоумении уставились на него.",
+      "text": "Друзья смотрели на него в полном недоумении.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -119,6 +121,7 @@
       "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Ах ты гад! Три часа ночи!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -131,16 +134,24 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
         "muzhik-sosed",
-        "paren"
+        "muzhik",
+        "paren",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik": "everyman",
         "muzhik-sosed": "friend",
-        "paren": "friend"
+        "muzhik": "everyman",
+        "paren": "friend",
+        "muzhik-ryzhy": "neighbor"
       },
       "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "gong",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -184,26 +195,7 @@
         {
           "type": "line",
           "ref": "l11"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "muzhik-ryzhy"
-      ],
-      "roles": {
-        "muzhik-ryzhy": "neighbor"
-      },
-      "looks": {
-        "muzhik-ryzhy": {
-          "clothes": "#9fb7d9",
-          "add": [],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l12"

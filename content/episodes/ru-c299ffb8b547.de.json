@@ -6,27 +6,27 @@
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
-    "muzhik",
-    "paren"
+    "paren",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "paren": "musician"
+    "paren": "musician",
+    "muzhik": "patient"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Es klingelt an der Tür. Der Hausherr öffnet und sieht eine riesige Trommel, oben mit Becken dran... und dahinter steht jemand.",
+      "text": "Es klingelt. Der Hausherr öffnet und sieht: vor der Tür eine riesige Trommel mit Becken obendrauf, und hinter der Trommel steht jemand.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "...Zu wem wollen Sie?",
+      "text": "Zu wem wollen Sie?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,14 +37,14 @@
       "character": "paren",
       "text": "Entschuldigung, ist hier die Beerdigung?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Nein... der Doktor hat gesagt, mir bleiben noch drei Tage...",
+      "text": "Nein... der Arzt hat gesagt, ich hab noch drei Tage...",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Um Himmels willen, verzeihen Sie... entschuldigen Sie...",
+      "text": "Um Gottes willen, verzeihen Sie... Entschuldigung...",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Der Mann mit der Trommel dreht sich mühsam um und geht.",
+      "text": "Etwas später klingelt es wieder. Der Hausherr öffnet wieder. Dasselbe Bild.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -70,26 +70,17 @@
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "Nach einer Weile klingelt es wieder. Der Hausherr öffnet wieder. Dasselbe Bild.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Was wollen Sie denn?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "muzhik",
-      "text": "Was wollen Sie denn?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
       "character": "paren",
-      "text": "Entschuldigung, kann ich meine Trommel so lange bei Ihnen lassen?",
+      "text": "Entschuldigung, darf ich meine Trommel so lange bei Ihnen lassen?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -102,12 +93,12 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
-        "paren"
+        "paren",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "paren": "musician"
+        "paren": "musician",
+        "muzhik": "patient"
       },
       "beats": [
         {
@@ -116,13 +107,20 @@
           "to": "left"
         },
         {
-          "type": "move",
+          "type": "prop",
           "who": "paren",
-          "to": "door"
+          "item": "gong",
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -141,17 +139,13 @@
           "ref": "l5"
         },
         {
-          "type": "line",
-          "ref": "l6"
-        },
-        {
           "type": "move",
           "who": "paren",
           "to": "off-left"
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l6"
         },
         {
           "type": "move",
@@ -161,11 +155,11 @@
         },
         {
           "type": "line",
-          "ref": "l8"
+          "ref": "l7"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l8"
         }
       ],
       "transition": "cut"

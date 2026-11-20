@@ -6,15 +6,15 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "devushka-ryzhaya",
-    "devochka"
+    "devochka",
+    "devochka-podruga"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter",
-    "devochka": "child"
+    "devochka": "child",
+    "devochka-podruga": "child"
   },
   "looks": {
-    "devushka-ryzhaya": {
+    "devochka": {
       "add": [
         "gold-chain",
         "earrings",
@@ -35,8 +35,8 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
-      "text": "Yesterday Daddy and I went to a restaurant, and what didn't we eat there: lobster, steak, barbecue!",
+      "character": "devochka",
+      "text": "Yesterday Dad and I went to a restaurant, and what didn't we eat there: lobster, steak, barbecue!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,17 +44,26 @@
     },
     {
       "id": "l3",
-      "character": "devushka-ryzhaya",
+      "character": "devochka",
       "text": "I ate so much I almost burst!",
       "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "devochka",
-      "text": "Why almost? What, did Daddy run out of money?",
+      "character": "narrator",
+      "text": "Her skinny classmate looks at her sadly, and then says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devochka-podruga",
+      "text": "Why only almost? Didn't Dad have enough money?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],

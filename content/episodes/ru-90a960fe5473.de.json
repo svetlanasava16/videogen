@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann betritt einen Antiquitätenladen, schaut lustlos auf die Theke und will schon wieder gehen.",
+      "text": "Ein Mann betrat einen Antiquitätenladen, sah lustlos auf die Ladentheke und wollte schon wieder gehen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Plötzlich sieht er: Am Eingang trinkt ein Kätzchen Milch, und das Schälchen, heiliger Strohsack, ist Tutanchamun! Altes Ägypten, vierzehntes Jahrhundert vor Christus!",
+      "text": "Plötzlich sieht er: Am Eingang trinkt ein Kater Milch, und das Schälchen ist Tutanchamun! Vierzehntes Jahrhundert vor Christus!",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Entschuldigen Sie, ich bin ein einsamer Mensch, ich habe keine Freunde...",
+      "text": "Entschuldigen Sie, ich bin ein einsamer Mensch, ich lebe ohne Freunde...",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ihr Kätzchen hat es mir so angetan... Könnten Sie es mir überlassen?",
+      "text": "Und Ihr Kater gefällt mir so sehr... Könnten Sie ihn mir überlassen?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "Nein, nein. Meine Kinder lieben es so sehr.",
+      "text": "Nein, nein. Meine Kinder lieben ihn so sehr.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,7 +73,7 @@
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Nein, nein, es ist unverkäuflich.",
+      "text": "Nein, nein, er ist unverkäuflich.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,17 +82,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Schließlich einigen sie sich auf hundertfünfzig Euro.",
+      "text": "Schließlich einigten sie sich auf hundertfünfzig Euro.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Ihr Kätzchen ist bestimmt gewohnt, aus diesem Schälchen zu trinken, würden Sie es mir mitgeben?",
-      "emotion": "happy",
+      "text": "Ihr Kater ist es bestimmt gewohnt, aus diesem Schälchen zu trinken, geben Sie es mir mit?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -110,7 +110,7 @@
       "id": "l11",
       "character": "muzhik",
       "text": "Ich gebe Ihnen zehn Euro dafür...",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -119,7 +119,7 @@
       "id": "l12",
       "character": "barmen",
       "text": "Aber ich bitte Sie, das ist Tutanchamun, vierzehntes Jahrhundert vor Christus...",
-      "emotion": "surprised",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -127,7 +127,7 @@
     {
       "id": "l13",
       "character": "barmen",
-      "text": "So habe ich schon siebenundachtzig Kätzchen verkauft...",
+      "text": "So habe ich schon siebenundachtzig Kater verkauft...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -165,17 +165,23 @@
         },
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "shelf"
-        },
-        {
-          "type": "move",
           "who": "barmen",
           "to": "counter"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "shelf"
         },
         {
           "type": "line",
@@ -210,12 +216,18 @@
           "type": "prop",
           "who": "muzhik",
           "item": "money",
-          "action": "give",
-          "to": "barmen"
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
         },
         {
           "type": "move",

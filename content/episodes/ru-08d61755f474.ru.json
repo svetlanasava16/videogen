@@ -39,13 +39,9 @@
       "character": "muzhik-ryzhy",
       "text": "Проклятые сектанты, достали вы уже!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
     },
     {
       "id": "l4",
@@ -68,6 +64,81 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "batyushka",
+        "batyushka-molodoy",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "batyushka-molodoy": "priest",
+        "muzhik-ryzhy": "driver"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "roadside"
+        },
+        {
+          "type": "move",
+          "who": "batyushka-molodoy",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "batyushka-molodoy",
+          "item": "road-sign",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "batyushka-molodoy",
+          "item": "road-sign",
+          "action": "put"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

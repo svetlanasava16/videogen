@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Hitze, es geht bergauf, er ist fix und fertig. Auf der Brücke beschließt er, sich auszuruhen.",
+      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Hitze, es geht bergauf, er ist völlig fertig. Auf der Brücke will er sich ausruhen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Da sieht er: Auf der Brücke steht einer mit einer Angel und schaut auf seinen Schwimmer.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Na, angeln wir?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,28 +35,26 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Na, angeln wir ein bisschen?",
-      "emotion": "happy",
+      "text": "Ich sag, angeln wir?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Der Angler schweigt.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Was ist, bist du taub? Ich frage: angeln wir?",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Ich sag, angeln wir ein bisschen?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Der Mann spuckt aus, steigt wieder aufs Rad und strampelt schweißgebadet weiter bergauf.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -64,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Wieder Schweigen.",
+      "text": "Nach gut drei Kilometern dreht er sich um und sieht: Der Angler winkt ihm wie wild, komm schnell zurück!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -72,48 +70,17 @@
     },
     {
       "id": "l7",
-      "character": "muzhik",
-      "text": "Was ist, bist du taub? Ich frage, angeln wir ein bisschen?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Also wendet er und rollt wieder hinunter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "Der schaut nur weiter auf den Schwimmer. Der Mann spuckt aus, steigt aufs Rad und strampelt schweißgebadet weiter bergauf.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
-    },
-    {
-      "id": "l9",
-      "character": "narrator",
-      "text": "Nach etwa drei Kilometern dreht er sich um und sieht: Der Angler winkt ihm wie wild, er soll schnell zurückkommen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "narrator",
-      "text": "Also dreht er um und rollt wieder hinunter.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Na, fahren wir ein bisschen Fahrrad?",
+      "text": "Na, fahren wir Fahrrad?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -134,26 +101,74 @@
         "muzhik": "everyman",
         "muzhik-ryzhy": "fisherman"
       },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "fishing-rod",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bicycle",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         },
         {
           "type": "line",
@@ -164,20 +179,14 @@
           "ref": "l7"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "cut"

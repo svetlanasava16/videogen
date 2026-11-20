@@ -6,15 +6,16 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "devushka-ryzhaya",
+    "devochka-podruga",
     "devochka"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter",
+    "devochka-podruga": "child",
     "devochka": "child"
   },
   "looks": {
-    "devushka-ryzhaya": {
+    "devochka-podruga": {
+      "clothes": "#d81b60",
       "add": [
         "gold-chain",
         "earrings",
@@ -27,7 +28,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Раскормленная дочка новых русских хвастается своей однокласснице.",
+      "text": "Раскормленная дочка «новых русских» хвастается своей однокласснице:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,24 +36,33 @@
     },
     {
       "id": "l2",
-      "character": "devushka-ryzhaya",
+      "character": "devochka-podruga",
       "text": "Мы вчера с папой в ресторан ходили, чего мы там только не ели: омары, лангет, барбекю!",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka-ryzhaya",
+      "character": "devochka-podruga",
       "text": "Я так объелась, что чуть не лопнула!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.8,
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "narrator",
+      "text": "Худенькая одноклассница грустно смотрит на неё, а потом говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "devochka",
       "text": "А почему чуть? Что, у папы денег не хватило?",
       "emotion": "sad",

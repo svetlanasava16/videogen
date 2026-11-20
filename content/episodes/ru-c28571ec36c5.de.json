@@ -2,31 +2,22 @@
   "id": "ru-c28571ec36c5.de",
   "jokeId": "ru-c28571ec36c5",
   "locale": "de",
-  "title": "Der Kratzer",
+  "title": "Mercedes und Trabi",
   "location": "doroga",
   "place": "street",
   "cast": [
-    "nachalnik",
-    "muzhik"
+    "muzhik",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "new-russian",
-    "muzhik": "everyman"
-  },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "gold-chain",
-        "dark-glasses"
-      ],
-      "remove": []
-    }
+    "muzhik": "everyman",
+    "nachalnik": "new-russian"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mercedes und ein Trabi parken nebeneinander. Beide Fahrer steigen aus.",
+      "text": "Ein dicker Mercedes und ein winziger alter Trabi parken nebeneinander.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +26,7 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Hier fahren alle möglichen verdammten Schrebergärtner mit ihren billigen Karren rum!",
+      "text": "Hier fahren lauter verdammte Dorftrottel mit ihren billigen Karren rum!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +35,8 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Pass bloß auf, gleich zerkratzen die noch ein richtig cooles Auto!",
-      "emotion": "smug",
+      "text": "Gleich zerkratzen die noch ein cooles Auto!",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -53,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Sag bloß, Bruder! Total unverschämt sind die geworden!",
+      "text": "Sag bloß, Bruder! Die sind völlig dreist geworden!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -62,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Stell dir vor, gestern ist mir ein Radfahrer in die Seite gekracht!",
+      "text": "Stell dir vor, gestern ist mir ein Radfahrer voll in die Seite gekracht!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -71,6 +62,52 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

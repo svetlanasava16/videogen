@@ -6,35 +6,26 @@
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "vovochka",
-    "muzhik"
+    "muzhik",
+    "vovochka-drug"
   ],
   "roles": {
-    "vovochka": "child",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "vovochka-drug": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Семилетний мальчик сидит на скамейке в парке и ест шоколадку.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Есть столько шоколадок вредно.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Есть столько шоколадок вредно.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Мой прадедушка дожил до ста пяти лет.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -42,17 +33,17 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "И он ел столько шоколада?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "vovochka",
+      "id": "l4",
+      "character": "vovochka-drug",
       "text": "Нет. Но он, блин, не лез не в своё дело.",
       "uncensored": "Нет. Но он, блядь, не лез не в своё дело.",
       "emotion": "smug",
@@ -68,23 +59,29 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "vovochka",
-        "muzhik"
+        "muzhik",
+        "vovochka-drug"
       ],
       "roles": {
-        "vovochka": "child",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "vovochka-drug": "child"
       },
       "beats": [
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "vovochka-drug",
           "to": "bench"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka-drug",
+          "item": "chocolate-bar",
+          "action": "hold"
         },
         {
           "type": "prop",
@@ -107,10 +104,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"

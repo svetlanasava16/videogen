@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A guy came over to a girl's place. He walks around, checking out the flat.",
+      "text": "A guy comes over to a girl's place. He wanders around, checking out the apartment.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Suddenly he sees a beautiful, expensive Chinese vase standing by the sofa. He looks inside, sees something there, sticks his hand in and asks:",
+      "text": "Suddenly he sees a beautiful, expensive Chinese vase by the sofa. He peeks inside, sees something, sticks his hand in and asks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Oh, what's this in here?",
+      "text": "Ooh, and what's this in here?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "devushka",
-      "text": "Oh, that! Those are my grandpa's ashes...",
+      "text": "Oh, that! That's my grandpa's ashes...",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "devushka",
-      "text": "...he just can't be bothered, you see, to walk to the kitchen for an ashtray!",
+      "text": "...he just can't be bothered to walk to the kitchen for an ashtray!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -104,6 +104,12 @@
           "to": "sofa"
         },
         {
+          "type": "prop",
+          "who": "paren",
+          "item": "vase",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
@@ -114,6 +120,12 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "vase",
+          "action": "put"
         },
         {
           "type": "line",

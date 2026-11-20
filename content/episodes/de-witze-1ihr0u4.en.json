@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "In the HR manager's waiting room, several men are waiting for their job interviews. One after another they come back out very quickly, white as a sheet, and flee the building.",
+      "text": "In the HR manager's waiting room, several men are waiting for their job interviews.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,6 +25,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "One after another they come back out very quickly, white as a sheet, and flee the building.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "paren",
       "text": "What's going on in there?",
       "emotion": "surprised",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "devushka-blondinka",
       "text": "The boss has no ears, and he can't stand it for the life of him when anyone mentions it.",
       "emotion": "sad",
@@ -42,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "paren",
       "text": "Thank you so much!",
       "emotion": "happy",
@@ -51,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
       "text": "The young man is called in. The conversation is relaxed.",
       "emotion": "neutral",
@@ -60,7 +69,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "nachalnik",
       "text": "Young man, take a really good look at me! Do you notice anything about me?",
       "emotion": "smug",
@@ -69,16 +78,17 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "paren",
       "text": "You wear contact lenses!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "nachalnik",
       "text": "Good heavens, you're quite the observer! How did you spot that so fast?",
       "emotion": "surprised",
@@ -87,7 +97,7 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "paren",
       "text": "If you had ears, you'd wear glasses.",
       "emotion": "smug",
@@ -108,6 +118,14 @@
       "roles": {
         "paren": "employee",
         "devushka-blondinka": "secretary"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
       },
       "crowd": {
         "who": "people",
@@ -130,11 +148,15 @@
         },
         {
           "type": "crowd",
-          "react": "flee"
+          "react": "gasp"
         },
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "flee"
         },
         {
           "type": "line",
@@ -143,6 +165,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -157,6 +183,14 @@
         "paren": "employee",
         "nachalnik": "boss"
       },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
       "beats": [
         {
           "type": "move",
@@ -165,17 +199,13 @@
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l6"
         },
         {
           "type": "move",
           "who": "paren",
           "to": "left",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l6"
         },
         {
           "type": "line",
@@ -188,6 +218,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "wipe"

@@ -6,12 +6,10 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
-    "zhena"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "muzhik": "husband"
   },
   "lines": [
     {
@@ -37,14 +35,15 @@
       "character": "muzhik",
       "text": "Всё время смотрит в окно.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Если так пойдёт и дальше, придётся пустить её в дом.",
+      "text": "Если так и дальше пойдёт, придётся её впустить.",
+      "offscreen": true,
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,23 +56,16 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
-        "zhena"
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "husband",
-        "zhena": "wife"
+        "muzhik": "husband"
       },
       "beats": [
         {
           "type": "move",
           "who": "muzhik",
           "to": "sofa"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "door"
         },
         {
           "type": "line",
@@ -86,6 +78,32 @@
         {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "zhena": {
+          "hair": "#5a3d28",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "shop"
         },
         {
           "type": "line",

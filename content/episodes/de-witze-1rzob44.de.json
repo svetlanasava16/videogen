@@ -15,20 +15,13 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
-  "looks": {
-    "ptitsa": {
-      "clothes": "#8a8a7a",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Kommt ein Kunde in eine Tierhandlung.",
+      "text": "Kommt ein Kunde in eine Tierhandlung und fragt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -38,9 +31,7 @@
       "text": "Was kostet denn dieser Papagei da?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -102,7 +93,7 @@
       "character": "barmen",
       "text": "Oh, das ist ein noch begabterer Vogel, der spricht fließend drei Sprachen und kann die gesamten Werke von Goethe auswendig!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -118,8 +109,8 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Und der da hinten, der kostet doch sicher viel weniger?",
-      "emotion": "smug",
+      "text": "Und der da hinten, der kostet doch sicher viel weniger?!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -136,17 +127,17 @@
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Wie bitte? Was kann der denn?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Wie bitte? Was kann der denn?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l14",
       "character": "barmen",
-      "text": "Ich weiß es auch nicht, der hat noch nie gesprochen, aber die beiden anderen nennen ihn Chef.",
-      "emotion": "sad",
+      "text": "Ich weiß es auch nicht, der hat noch nie gesprochen, aber die beiden anderen nennen ihn „Chef“.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -154,6 +145,122 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman",
+        "ptitsa": "parrot"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#8a8a7a",
+          "skin": "#8a8a7a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "put"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

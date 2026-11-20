@@ -2,40 +2,33 @@
   "id": "ru-01e656ef77af.de",
   "jokeId": "ru-01e656ef77af",
   "locale": "de",
-  "title": "Ärzteprotest",
+  "title": "Transparente",
   "location": "ulitsa",
   "place": "street",
   "cast": [
     "doktor",
+    "paren",
     "nachalnik"
   ],
   "roles": {
     "doktor": "doctor",
+    "paren": "doctor",
     "nachalnik": "bureaucrat"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Die Ärzte sind zum Protest auf die Straße gegangen.",
+      "text": "Die Ärzte sind zu einer Protestaktion auf die Straße gegangen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Die Behörden verstehen nicht, was die Ärzte wollen,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "weil niemand entziffern kann, was genau auf den Transparenten steht.",
+      "text": "Die Behörden verstehen nicht, was die Ärzte wollen, weil niemand entziffern kann, was genau auf den Transparenten steht.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -49,10 +42,12 @@
       "location": "ulitsa",
       "cast": [
         "doktor",
+        "paren",
         "nachalnik"
       ],
       "roles": {
         "doktor": "doctor",
+        "paren": "doctor",
         "nachalnik": "bureaucrat"
       },
       "crowd": {
@@ -61,18 +56,14 @@
       },
       "beats": [
         {
-          "type": "move",
+          "type": "prop",
           "who": "doktor",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "right"
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "prop",
-          "who": "doktor",
+          "who": "paren",
           "item": "certificate",
           "action": "hold"
         },
@@ -85,12 +76,15 @@
           "react": "cheer"
         },
         {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "give",
+          "to": "nachalnik"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         }
       ],
       "transition": "cut"

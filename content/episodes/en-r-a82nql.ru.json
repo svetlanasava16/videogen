@@ -6,20 +6,22 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik-ryzhy",
     "paren",
-    "muzhik"
+    "muzhik-sosed",
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "friend",
     "paren": "friend",
-    "muzhik": "drunk"
+    "muzhik-sosed": "friend",
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Пьяный мужик показывает друзьям свою новую квартиру. Последняя остановка — спальня, где рядом с кроватью стоит большой латунный гонг.",
+      "text": "Пьяный мужик показывает друзьям свою новую квартиру.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,54 +29,64 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "А гонг-то зачем?",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Последняя остановка — спальня, где рядом с кроватью стоит большой медный гонг.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Это не гонг. Это говорящие часы.",
-      "emotion": "smug",
+      "character": "muzhik-sosed",
+      "text": "А гонг тут зачем?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "И как они работают?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Это не гонг. Это говорящие часы.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Мужик берёт молоток, со всей силы, до звона в ушах, лупит по гонгу и отходит назад.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "muzhik-sosed",
+      "text": "И как они работают?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "И вдруг кто-то за стеной орёт.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "text": "Мужик берёт молоток, со всей силы, до звона в ушах, бьёт в гонг и отходит назад.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "Ради бога, придурок... полчетвёртого утра, чёрт побери!",
-      "uncensored": "Ради бога, мудак... полчетвёртого утра, чёрт побери!",
+      "character": "narrator",
+      "text": "Вдруг кто-то за стеной кричит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "Ради всего святого, придурок... половина четвёртого утра, чёрт возьми!",
+      "uncensored": "Ради всего святого, мудак... половина четвёртого утра, чёрт возьми!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -87,14 +99,16 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik-ryzhy",
         "paren",
-        "muzhik"
+        "muzhik-sosed",
+        "muzhik",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "friend",
         "paren": "friend",
-        "muzhik": "drunk"
+        "muzhik-sosed": "friend",
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "neighbor"
       },
       "looks": {
         "muzhik": {
@@ -106,19 +120,32 @@
       },
       "beats": [
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "move",
           "who": "muzhik",
-          "to": "bed"
+          "to": "bed",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "gong",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -133,39 +160,24 @@
           "ref": "l4"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "wrench",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik-sosed": "neighbor"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "bed"
+          "type": "pause",
+          "sec": 1
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

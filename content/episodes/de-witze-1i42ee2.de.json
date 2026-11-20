@@ -8,13 +8,13 @@
   "cast": [
     "muzhik-ryzhy",
     "zhena",
-    "vovochka",
+    "mladenets",
     "ded"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
-    "vovochka": "child",
+    "mladenets": "baby",
     "ded": "old-man"
   },
   "lines": [
@@ -30,7 +30,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Irgendwann setzt sich ein älterer Mann neben sie, guckt ihr Kind an und sagt zu ihr:",
+      "text": "Irgendwann setzt sich ein älterer Mann neben sie und guckt ihr Kind an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +48,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Die Frau ist ganz perplex und weiß nicht, wie sie reagieren soll. Sie geht empört zum Busfahrer und sagt:",
+      "text": "Die Frau ist ganz perplex und weiß nicht, wie sie reagieren soll.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -56,6 +56,15 @@
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "Sie geht empört zum Busfahrer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "zhena",
       "text": "Der Typ dahinten hat gerade einfach mein Kind beleidigt!",
       "emotion": "angry",
@@ -64,7 +73,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Was? Das ist nicht in Ordnung!",
       "emotion": "angry",
@@ -73,18 +82,18 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik-ryzhy",
       "text": "Sie gehen da jetzt hin und sagen ihm ordentlich die Meinung!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "muzhik-ryzhy",
-      "text": "Ich halte auch solange Ihren Affen.",
+      "text": "Ich halte auch so lange Ihren Affen.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -100,13 +109,13 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
-        "vovochka",
+        "mladenets",
         "ded"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
-        "vovochka": "child",
+        "mladenets": "baby",
         "ded": "old-man"
       },
       "looks": {
@@ -130,7 +139,7 @@
         },
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "mladenets",
           "to": "right"
         },
         {
@@ -156,18 +165,18 @@
           "ref": "l4"
         },
         {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
           "type": "move",
           "who": "zhena",
           "to": "left"
         },
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "mladenets",
           "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         },
         {
           "type": "line",
@@ -180,6 +189,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

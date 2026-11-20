@@ -2,7 +2,7 @@
   "id": "ru-3f30e3e556a8.de",
   "jokeId": "ru-3f30e3e556a8",
   "locale": "de",
-  "title": "Der Führerschein",
+  "title": "Führerschein, bitte",
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Polizist hält ein Auto mit einer Blondine am Steuer an.",
+      "text": "Ein Polizist hält ein Auto an, am Steuer eine Blondine.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "devushka-blondinka",
-      "text": "Was ist ein Führerschein?",
+      "text": "Was ist denn ein Führerschein?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "sluzhivy",
       "text": "Das ist so ein Ding mit Ihrem Foto drauf.",
-      "emotion": "neutral",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -79,35 +79,17 @@
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "Sie kramt in ihrer Handtasche und holt einen kleinen Spiegel heraus.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka-blondinka",
+      "text": "Bitte schön.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "devushka-blondinka",
-      "text": "Bitte schön.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "narrator",
-      "text": "Der Polizist schaut in den Spiegel.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "sluzhivy",
-      "text": "Na, warum haben Sie nicht gleich gesagt, dass Sie von der Polizei sind?",
+      "text": "Na, warum haben Sie nicht gleich gesagt, dass Sie Polizist sind.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -116,6 +98,86 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "devushka-blondinka": "blonde"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "pause",
+          "sec": 1.2
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

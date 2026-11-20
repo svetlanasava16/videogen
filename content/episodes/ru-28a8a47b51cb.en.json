@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A woman's lover gave her a mink coat.",
+      "text": "A woman's lover gave her a mink coat. She wonders how to tell her husband. She thought and thought, and came up with a plan.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "She wonders how to tell her husband. She thought and thought, and came up with a plan.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Darling, can you imagine, I found a left-luggage ticket on the street.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,26 +35,26 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Darling, can you imagine, I found a luggage locker ticket in the street.",
-      "emotion": "happy",
+      "text": "Go to the station, sweetie, maybe there's something nice in there.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "Go to the station, sweetheart, maybe there's something nice in there.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "The husband leaves with the ticket, then comes back and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Waste of a trip. Just some old bag full of smelly rags.",
-      "emotion": "sad",
+      "text": "Waste of a trip. Just some old bag of smelly rags.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -93,13 +93,9 @@
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
           "type": "move",
           "who": "zhena",
-          "to": "door",
+          "to": "left",
           "from": "off-left"
         },
         {
@@ -110,7 +106,7 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         },
         {
           "type": "prop",
@@ -121,36 +117,21 @@
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l3"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "off-left"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena",
-        "muzhik"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -158,7 +139,7 @@
           "ref": "l5"
         }
       ],
-      "transition": "wipe"
+      "transition": "cut"
     },
     {
       "location": "ofis",
@@ -172,8 +153,9 @@
       },
       "looks": {
         "devushka-blondinka": {
-          "clothes": "#7a5230",
-          "add": [],
+          "add": [
+            "fur-coat"
+          ],
           "remove": []
         }
       },

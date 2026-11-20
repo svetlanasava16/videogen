@@ -17,7 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Моя бывшая только что чихнула, а я случайно сказал: «Будь здорова».",
+      "text": "Моя бывшая только что чихнула, а я машинально сказал: будь здорова.",
+      "offscreen": true,
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -26,8 +27,9 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Теперь она стоит и растерянно смотрит на кусты — не понимает, кто это сказал.",
-      "emotion": "smug",
+      "text": "Теперь она растерянно смотрит на кусты и не может понять, кто это сказал.",
+      "offscreen": true,
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -35,6 +37,36 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "bench"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

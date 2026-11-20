@@ -2,14 +2,16 @@
   "id": "en-r-74wivp.en",
   "jokeId": "en-r-74wivp",
   "locale": "en",
-  "title": "I'm Married!",
+  "title": "Leave Me Alone, I'm Married",
   "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
@@ -32,9 +34,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
+      "character": "zhena",
       "text": "Dear, breakfast is made. I've gone shopping to make you your favorite dinner tonight. I love you!",
-      "emotion": "surprised",
+      "offscreen": true,
+      "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -71,23 +74,14 @@
       "character": "muzhik",
       "text": "So, why the rose, breakfast, and sweet note from your mother?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "Oh, that.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "paren",
-      "text": "Mom dragged you to the bedroom, and when she tried to take off your clothes, you screamed: Leave me alone, I'm married!",
+      "text": "Oh, that. Mom dragged you to the bedroom, and when she tried to take off your clothes, you screamed, 'Leave me alone, I'm married!'",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -100,14 +94,17 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -120,14 +117,14 @@
           "to": "bed"
         },
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "letter",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -143,16 +140,17 @@
     {
       "location": "kukhnya",
       "cast": [
-        "paren",
-        "muzhik"
+        "muzhik",
+        "paren"
       ],
       "roles": {
-        "paren": "son",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "paren": "son"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -165,14 +163,20 @@
           "to": "table"
         },
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right",
-          "from": "off-right"
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -189,10 +193,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "wipe"

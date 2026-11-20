@@ -2,7 +2,7 @@
   "id": "de-witze-1n6y3nv.en",
   "jokeId": "de-witze-1n6y3nv",
   "locale": "en",
-  "title": "Walking the Dog",
+  "title": "Fifi",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Good day, Mr. Miller, taking your dog for a walk again?",
+      "text": "Good afternoon, Mr. Meier, taking your dog for a walk again?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,9 +35,9 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "What dog?? This is a toothbrush.",
+      "text": "What dog? This is a toothbrush.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -74,11 +74,15 @@
         "paren": "nurse"
       },
       "looks": {
-        "paren": {
-          "clothes": "#f2f4f7",
+        "muzhik": {
           "add": [
-            "badge"
+            "robe-white"
           ],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#eef4f6",
+          "add": [],
           "remove": []
         }
       },
@@ -86,13 +90,11 @@
         {
           "type": "move",
           "who": "paren",
-          "to": "right"
+          "to": "desk"
         },
         {
-          "type": "prop",
-          "who": "paren",
-          "item": "certificate",
-          "action": "hold"
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "move",
@@ -102,15 +104,17 @@
         },
         {
           "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "line",

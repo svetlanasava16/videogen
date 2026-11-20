@@ -2,7 +2,7 @@
   "id": "de-witze-1s9qr9g.en",
   "jokeId": "de-witze-1s9qr9g",
   "locale": "en",
-  "title": "The Knothole",
+  "title": "Thirteen",
   "location": "ulitsa",
   "place": "madhouse",
   "cast": [
@@ -36,6 +36,7 @@
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Thirteen, thirteen, thirteen!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -44,7 +45,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "He's curious and peeks through a knothole.",
+      "text": "He's curious, so he peeks through a knothole.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,8 +55,8 @@
       "id": "l5",
       "character": "narrator",
       "text": "A finger shoots out, right into his eye.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -63,6 +64,7 @@
       "id": "l6",
       "character": "muzhik-ryzhy",
       "text": "Fourteen, fourteen, fourteen!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -82,16 +84,7 @@
         "muzhik": "everyman",
         "muzhik-ryzhy": "patient"
       },
-      "crowd": {
-        "who": "patients",
-        "size": "few"
-      },
       "beats": [
-        {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "right"
-        },
         {
           "type": "move",
           "who": "muzhik",
@@ -111,22 +104,35 @@
           "ref": "l3"
         },
         {
-          "type": "crowd",
-          "react": "cheer"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "bench"
-        },
-        {
           "type": "line",
           "ref": "l5"
-        },
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "patient"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "black-eye"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
         {
           "type": "line",
           "ref": "l6"

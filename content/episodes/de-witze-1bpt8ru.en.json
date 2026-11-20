@@ -8,11 +8,13 @@
   "cast": [
     "muzhik-ryzhy",
     "zhena",
+    "mladenets",
     "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
+    "mladenets": "baby",
     "muzhik": "customer"
   },
   "lines": [
@@ -28,32 +30,41 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Ugh, that's the ugliest baby I've ever seen!",
-      "emotion": "surprised",
+      "text": "Ew, that's the ugliest baby I've ever seen!",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "The driver just insulted me!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "The woman goes to the back of the bus and sits down, furious.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "You go up there and give him a piece of your mind.",
+      "character": "zhena",
+      "text": "The driver just insulted me!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "muzhik",
+      "text": "You go up there and give him a piece of your mind.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
       "text": "Go on, I'll hold your monkey for you.",
       "emotion": "happy",
@@ -71,20 +82,14 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
+        "mladenets",
         "muzhik"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
+        "mladenets": "baby",
         "muzhik": "customer"
-      },
-      "looks": {
-        "muzhik-ryzhy": {
-          "add": [
-            "flat-cap"
-          ],
-          "remove": []
-        }
       },
       "beats": [
         {
@@ -95,7 +100,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "car"
         },
         {
           "type": "line",
@@ -108,17 +113,23 @@
           "from": "off-left"
         },
         {
+          "type": "move",
+          "who": "mladenets",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
         },
         {
           "type": "line",
@@ -127,6 +138,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

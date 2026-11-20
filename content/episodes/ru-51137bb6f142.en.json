@@ -6,20 +6,20 @@
   "location": "derevnya",
   "place": "village",
   "cast": [
+    "uchilka",
     "tyoshcha",
-    "zhena",
     "sluzhivy"
   ],
   "roles": {
+    "uchilka": "grandma",
     "tyoshcha": "grandma",
-    "zhena": "grandma",
     "sluzhivy": "officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Summer. A village. Old women sit outside their cottages. Infantry marches past, heading somewhere.",
+      "text": "Summer. A village. Old ladies sit outside their cottages. Infantry marches past to somewhere.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Now he'll ask us for directions.",
+      "text": "Any minute now he'll ask us for directions.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -50,28 +50,26 @@
     {
       "location": "derevnya",
       "cast": [
+        "uchilka",
         "tyoshcha",
-        "zhena",
         "sluzhivy"
       ],
       "roles": {
+        "uchilka": "grandma",
         "tyoshcha": "grandma",
-        "zhena": "grandma",
         "sluzhivy": "officer"
       },
       "looks": {
-        "tyoshcha": {
+        "uchilka": {
+          "clothes": "#6b5a4a",
+          "hair": "#cfcfcf",
           "add": [
             "headscarf"
           ],
-          "remove": []
-        },
-        "zhena": {
-          "hair": "#b8b8b8",
-          "add": [
-            "headscarf"
-          ],
-          "remove": []
+          "remove": [
+            "cat-eye-glasses",
+            "brooch"
+          ]
         }
       },
       "crowd": {
@@ -81,12 +79,12 @@
       "beats": [
         {
           "type": "move",
-          "who": "tyoshcha",
+          "who": "uchilka",
           "to": "left"
         },
         {
           "type": "move",
-          "who": "zhena",
+          "who": "tyoshcha",
           "to": "house"
         },
         {
@@ -102,7 +100,7 @@
         {
           "type": "prop",
           "who": "sluzhivy",
-          "item": "certificate",
+          "item": "map",
           "action": "hold"
         },
         {

@@ -2,30 +2,22 @@
   "id": "ru-c28571ec36c5.en",
   "jokeId": "ru-c28571ec36c5",
   "locale": "en",
-  "title": "The Zaporozhets",
-  "location": "ulitsa",
+  "title": "Mercedes and Zaporozhets",
+  "location": "doroga",
   "place": "street",
   "cast": [
-    "nachalnik",
-    "muzhik"
+    "muzhik",
+    "nachalnik"
   ],
   "roles": {
-    "nachalnik": "new-russian",
-    "muzhik": "everyman"
-  },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    }
+    "muzhik": "everyman",
+    "nachalnik": "new-russian"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Mercedes and a Zaporozhets, a tiny old Soviet car, park side by side.",
+      "text": "A big Mercedes and a tiny old Zaporozhets park side by side.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -33,51 +25,33 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Both drivers get out, and the Mercedes owner, glancing sideways at the Zaporozhets, says:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "nachalnik",
-      "text": "All these damn weekend gardeners driving around in their cheap junk!",
+      "text": "All these damn hillbillies driving around in their cheap rides!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "nachalnik",
-      "text": "Before you know it, they'll scratch a real car!",
+      "text": "Any minute now they'll scratch a cool car!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "narrator",
-      "text": "The Zaporozhets driver nods in agreement and, spreading his bent fingers the same tough-guy way, answers:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Tell me about it, bro! They've got no shame at all!",
+      "text": "Tell me about it, bro! They've got totally out of hand!",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l5",
       "character": "muzhik",
       "text": "Can you believe it, yesterday a cyclist rammed right into my side!",
       "emotion": "angry",
@@ -88,6 +62,52 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

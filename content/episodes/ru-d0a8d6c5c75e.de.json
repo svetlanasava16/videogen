@@ -2,24 +2,32 @@
   "id": "ru-d0a8d6c5c75e.de",
   "jokeId": "ru-d0a8d6c5c75e",
   "locale": "de",
-  "title": "Die Süßigkeiten",
+  "title": "Der Hausgeist",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
     "vovochka",
-    "ded"
+    "domovoi"
   ],
   "roles": {
     "zhena": "mother",
     "vovochka": "vovochka",
-    "ded": "wizard"
+    "domovoi": "domovoi"
+  },
+  "looks": {
+    "zhena": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "Fritzchen, wer hat die ganzen Süßigkeiten gegessen?",
+      "text": "Fritzchen, wer hat die ganzen Bonbons gegessen?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,16 +37,17 @@
       "id": "l2",
       "character": "vovochka",
       "text": "Der Hausgeist.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "ded",
+      "character": "domovoi",
       "text": "Erzähl keinen Mist!",
       "uncensored": "Erzähl keinen Scheiß!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -47,60 +56,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "kukhnya",
-      "cast": [
-        "zhena",
-        "vovochka",
-        "ded"
-      ],
-      "roles": {
-        "zhena": "mother",
-        "vovochka": "vovochka",
-        "ded": "wizard"
-      },
-      "looks": {
-        "zhena": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "vovochka",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "stove",
-          "from": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

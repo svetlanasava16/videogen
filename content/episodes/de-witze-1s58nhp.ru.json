@@ -1,0 +1,211 @@
+{
+  "id": "de-witze-1s58nhp.ru",
+  "jokeId": "de-witze-1s58nhp",
+  "locale": "ru",
+  "title": "Без ушей",
+  "location": "kukhnya",
+  "place": "home-living-room",
+  "cast": [
+    "zhena",
+    "vovochka"
+  ],
+  "roles": {
+    "zhena": "mother",
+    "vovochka": "vovochka"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Вовочка с мамой должны идти к соседке, у которой только что родился ребёнок.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "У ребёнка нет ушей!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Когда придём, ни в коем случае ничего об этом не говори. Понял?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "А у ребёнка красивый ротик!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devushka",
+      "text": "Да, чтобы он потом красиво говорил и разговаривал!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka",
+      "text": "А у ребёнка красивый носик!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "devushka",
+      "text": "Да, чтобы он потом хорошо чувствовал запахи!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "vovochka",
+      "text": "А у ребёнка красивые глазки!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "devushka",
+      "text": "Да, чтобы он потом хорошо видел!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "vovochka",
+      "text": "Ну да, очки-то он всё равно носить не сможет!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "vovochka"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "devushka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "vovochka",
+        "devushka": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "devushka",
+          "item": "baby",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

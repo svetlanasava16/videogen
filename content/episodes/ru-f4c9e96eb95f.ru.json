@@ -6,19 +6,20 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "vovochka",
+    "vovochka-drug",
     "paren",
     "muzhik"
   ],
   "roles": {
-    "vovochka": "child",
+    "vovochka-drug": "child",
     "paren": "teenager",
     "muzhik": "father"
   },
   "looks": {
     "muzhik": {
-      "clothes": "#c62828",
+      "clothes": "#b3261e",
       "add": [
+        "santa-hat",
         "white-beard"
       ],
       "remove": []
@@ -30,7 +31,7 @@
       "character": "narrator",
       "text": "Три стадии взросления мужчины.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -38,10 +39,10 @@
       "id": "l2",
       "character": "narrator",
       "text": "Первая: он верит в Деда Мороза.",
-      "emotion": "happy",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [
-        "vovochka"
+        "vovochka-drug"
       ],
       "exit": []
     },
@@ -60,7 +61,7 @@
       "id": "l4",
       "character": "narrator",
       "text": "Третья: он — Дед Мороз.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [
         "muzhik"

@@ -2,7 +2,7 @@
   "id": "ru-ff0c505f2053.en",
   "jokeId": "ru-ff0c505f2053",
   "locale": "en",
-  "title": "Noisy Roommates",
+  "title": "The Bagpipes",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Angus MacDonald came from Scotland to study at an English university, where he was put in a room with two other students.",
+      "text": "Angus MacDonald came from Scotland to study at an English university, where he was put in a room with two other students. After about a month there, his mother came to visit him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,20 +25,18 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "When he had lived there for about a month, his mother came to visit him.",
+      "character": "zhena",
+      "text": "So how do you like these English students, Angus?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "So, how do you like these English students, Angus?",
-      "emotion": "happy",
+      "character": "paren",
+      "text": "Mum, they're such awful, noisy people!",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,44 +44,35 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Mum, they're such awful, noisy people!",
-      "emotion": "sad",
+      "text": "The one on this side bangs his head against the wall all night without a break, and the one on that side screams and screams, and it's like that every night.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "paren",
-      "text": "The one on this side bangs his head against the wall all night without a break, and the one on that side screams and screams, and it's like that every night.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "zhena",
+      "text": "Oh, Angus, how do you put up with these awful, noisy Englishmen?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "zhena",
-      "text": "Oh, Angus, how do you get along with these awful, noisy Englishmen?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "paren",
+      "text": "Mum, I don't do anything. I just ignore them.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "paren",
-      "text": "Mum, I don't do anything. I just ignore them.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "paren",
       "text": "I sit here all night and play my bagpipes.",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +80,67 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "paren": "student"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bagpipes",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

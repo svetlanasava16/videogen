@@ -2,7 +2,7 @@
   "id": "de-witze-1vhh6l7.en",
   "jokeId": "de-witze-1vhh6l7",
   "locale": "en",
-  "title": "Back in Paris",
+  "title": "Paris",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "ded",
-      "text": "Boy, you kids today don't even know how to really party.",
+      "text": "Boy, you kids today don't even know how to party properly.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "When we were in Paris back then, we drank till we dropped, picked up the most beautiful women, stuffed our faces nonstop.",
+      "text": "Back when we were in Paris, we drank till we dropped, picked up the most beautiful women, stuffed our faces nonstop,",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "We peed against the bar in the café, smashed everything to pieces, got into fights and ran off without paying.",
+      "text": "peed against the bar in the café, smashed everything to pieces, got into brawls and ran off without paying.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Boy, what happened to you?",
+      "text": "Boy, what on earth happened to you?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "Who were you in Paris with?",
+      "text": "Who did you go to Paris with?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -80,16 +80,16 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "A couple of buddies.",
+      "text": "With a couple of buddies.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "ded",
-      "text": "Boy... back then I was there with the SS!",
+      "text": "Boy… back then I was there with the SS!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -131,11 +131,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -149,6 +144,15 @@
       "roles": {
         "ded": "grandpa",
         "paren": "relative"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "black-eye",
+            "bandages"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -164,7 +168,7 @@
           "type": "move",
           "who": "paren",
           "to": "center",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

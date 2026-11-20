@@ -6,11 +6,9 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
     "muzhik"
   ],
   "roles": {
-    "zhena": "wife",
     "muzhik": "husband"
   },
   "lines": [
@@ -18,7 +16,7 @@
       "id": "l1",
       "character": "muzhik",
       "text": "Wir sind seit elf Tagen in Selbstisolation.",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +24,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Und es tut mir wirklich weh, meine Frau am Wohnzimmerfenster stehen zu sehen, wie sie ziellos ins Leere starrt und ihr die Tränen über die Wangen laufen.",
+      "text": "Und es tut mir wirklich weh, mit anzusehen, wie meine Frau am Wohnzimmerfenster steht, ziellos ins Leere starrt und ihr die Tränen über die Wangen laufen.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -36,8 +34,8 @@
       "id": "l3",
       "character": "muzhik",
       "text": "Versteht mich nicht falsch, ich fühle mit ihr.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.6,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -45,6 +43,7 @@
       "id": "l4",
       "character": "muzhik",
       "text": "Ich habe schon oft überlegt, sie reinzulassen, aber Regeln sind Regeln.",
+      "offscreen": true,
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,19 +56,12 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena",
         "muzhik"
       ],
       "roles": {
-        "zhena": "wife",
         "muzhik": "husband"
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "door"
-        },
         {
           "type": "move",
           "who": "muzhik",
@@ -86,7 +78,21 @@
         {
           "type": "line",
           "ref": "l3"
-        },
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
         {
           "type": "line",
           "ref": "l4"

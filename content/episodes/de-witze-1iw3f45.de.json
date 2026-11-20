@@ -6,13 +6,13 @@
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "korova",
-    "kot",
+    "pyos-dalmatin",
+    "pyos-pudel",
     "pyos"
   ],
   "roles": {
-    "korova": "dog",
-    "kot": "dog",
+    "pyos-dalmatin": "dog",
+    "pyos-pudel": "dog",
     "pyos": "dog"
   },
   "lines": [
@@ -27,7 +27,7 @@
     },
     {
       "id": "l2",
-      "character": "korova",
+      "character": "pyos-dalmatin",
       "text": "Guten Tag. Mein Name ist Antonius von Krallenberg.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
@@ -36,16 +36,25 @@
     },
     {
       "id": "l3",
-      "character": "korova",
-      "text": "Ich entstamme einer alten Adelslinie. Wie meine Vorfahren lebe auch ich an der Seite des Herzogs.",
+      "character": "pyos-dalmatin",
+      "text": "Ich entstamme einer alten Adelslinie.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "pyos-dalmatin",
+      "text": "Wie meine Vorfahren lebe auch ich an der Seite des Herzogs.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "kot",
+      "id": "l5",
+      "character": "pyos-pudel",
       "text": "Mein Name ist Isabella von Hundsmark.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
@@ -53,8 +62,8 @@
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "kot",
+      "id": "l6",
+      "character": "pyos-pudel",
       "text": "Wie der Klang meines Namens bereits erkennen lässt, entstamme auch ich einem alten Adelsgeschlecht.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
@@ -62,16 +71,16 @@
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "kot",
+      "id": "l7",
+      "character": "pyos-pudel",
       "text": "Wie auch meine Vorfahren bin ich der Stolz des Grafen.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "pyos",
       "text": "Yo Freunde, mein Herrchen nennt mich meistens nur Kalle.",
       "emotion": "happy",
@@ -80,7 +89,7 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "pyos",
       "text": "Aber auch ich bin adlig.",
       "emotion": "smug",
@@ -89,9 +98,9 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "pyos",
-      "text": "Mein voller Name lautet „Kalle runter vom Sofa“.",
+      "text": "Mein voller Name lautet: Kalle, runter vom Sofa!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -105,23 +114,23 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "korova",
-        "kot",
+        "pyos-dalmatin",
+        "pyos-pudel",
         "pyos"
       ],
       "roles": {
-        "korova": "dog",
-        "kot": "dog",
+        "pyos-dalmatin": "dog",
+        "pyos-pudel": "dog",
         "pyos": "dog"
       },
       "looks": {
-        "korova": {
+        "pyos-dalmatin": {
           "add": [
             "collar"
           ],
           "remove": []
         },
-        "kot": {
+        "pyos-pudel": {
           "add": [
             "bows"
           ],
@@ -164,6 +173,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "cut"

@@ -2,30 +2,22 @@
   "id": "en-r-7rh7qn.de",
   "jokeId": "en-r-7rh7qn",
   "locale": "de",
-  "title": "Dienstmarke abgeben",
+  "title": "Waffe und Marke",
   "location": "bar",
   "place": "restaurant",
   "cast": [
-    "barmen",
-    "nachalnik"
+    "nachalnik",
+    "barmen"
   ],
   "roles": {
-    "barmen": "waiter",
-    "nachalnik": "boss"
-  },
-  "looks": {
-    "barmen": {
-      "add": [
-        "badge"
-      ],
-      "remove": []
-    }
+    "nachalnik": "boss",
+    "barmen": "waiter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
-      "text": "Du bist gefeuert.",
+      "text": "Sie sind gefeuert.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -34,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Der Kellner gibt feierlich Dienstwaffe und Marke ab.",
+      "text": "Er gibt seine Dienstwaffe und seine Marke ab.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -43,7 +35,7 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Du bist Kellner. Woher hast du die?",
+      "text": "Sie sind Kellner, wo haben Sie die her?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -52,6 +44,69 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "boss",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "pistol",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

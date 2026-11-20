@@ -2,17 +2,19 @@
   "id": "de-witze-1bpt8ru.ru",
   "jokeId": "de-witze-1bpt8ru",
   "locale": "ru",
-  "title": "Страшненький малыш",
+  "title": "Некрасивый младенец",
   "location": "doroga",
   "place": "bus",
   "cast": [
     "muzhik-ryzhy",
     "zhena",
+    "mladenets",
     "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
+    "mladenets": "baby",
     "muzhik": "customer"
   },
   "lines": [
@@ -28,34 +30,43 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Фу, это самый уродливый ребёнок, какого я в жизни видел!",
-      "emotion": "surprised",
+      "text": "Фу, это самый уродливый младенец, какого я видел!",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Водитель меня только что оскорбил!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Женщина уходит в конец автобуса и сердито садится.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Иди и выскажи ему всё, что думаешь.",
+      "character": "zhena",
+      "text": "Водитель меня только что оскорбил!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Иди-иди, а я пока подержу твою обезьянку.",
+      "text": "Иди к нему и выскажи всё, что думаешь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Иди-иди, я пока подержу твою обезьяну.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -71,20 +82,14 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
+        "mladenets",
         "muzhik"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
+        "mladenets": "baby",
         "muzhik": "customer"
-      },
-      "looks": {
-        "muzhik-ryzhy": {
-          "add": [
-            "flat-cap"
-          ],
-          "remove": []
-        }
       },
       "beats": [
         {
@@ -95,7 +100,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "car"
         },
         {
           "type": "line",
@@ -108,17 +113,23 @@
           "from": "off-left"
         },
         {
+          "type": "move",
+          "who": "mladenets",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "right"
         },
         {
           "type": "line",
@@ -127,6 +138,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

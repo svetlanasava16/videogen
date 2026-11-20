@@ -1,0 +1,114 @@
+{
+  "id": "ru-c6019476af08.ru",
+  "jokeId": "ru-c6019476af08",
+  "locale": "ru",
+  "title": "Фото на память",
+  "location": "klass",
+  "place": "school-classroom",
+  "cast": [
+    "vovochka",
+    "uchilka"
+  ],
+  "roles": {
+    "vovochka": "vovochka",
+    "uchilka": "teacher"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Дети с училкой снялись на фотку. Учительница убеждает их купить каждому себе по фотографии.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "uchilka",
+      "text": "Представьте, как это здорово: когда вы уже будете взрослыми, посмотрите на фото и скажете:",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "uchilka",
+      "text": "А вот Машенька, она теперь актриса. А это вот Петечка, он теперь врач...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "vovochka",
+      "text": "А вот это Марь Ивановна, давно уж померла...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "uchilka": "teacher"
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "student-desk"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "teacher-desk"
+        },
+        {
+          "type": "prop",
+          "who": "uchilka",
+          "item": "photo",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

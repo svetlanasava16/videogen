@@ -12,7 +12,7 @@
   ],
   "roles": {
     "muzhik": "everyman",
-    "muzhik-sosed": "everyman",
+    "muzhik-sosed": "friend",
     "barmen": "bartender"
   },
   "lines": [
@@ -30,7 +30,7 @@
       "character": "narrator",
       "text": "Sie packen die Butterbrote aus, die ihre Frauen liebevoll für sie geschmiert haben, und fangen an zu essen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -65,7 +65,7 @@
       ],
       "roles": {
         "muzhik": "everyman",
-        "muzhik-sosed": "everyman",
+        "muzhik-sosed": "friend",
         "barmen": "bartender"
       },
       "looks": {
@@ -99,20 +99,20 @@
           "to": "counter"
         },
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
-          "item": "glass",
+          "item": "sandwich",
           "action": "hold"
         },
         {
           "type": "prop",
           "who": "muzhik-sosed",
-          "item": "glass",
+          "item": "sandwich",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -126,6 +126,20 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-sosed"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik"
         },
         {
           "type": "line",

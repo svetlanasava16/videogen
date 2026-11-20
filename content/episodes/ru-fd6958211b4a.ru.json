@@ -6,14 +6,14 @@
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "paren",
-    "barmen",
-    "sluzhivy"
+    "muzhik-ryzhy",
+    "nachalnik",
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "barmen": "craftsman",
-    "sluzhivy": "police-officer"
+    "muzhik-ryzhy": "everyman",
+    "nachalnik": "bureaucrat",
+    "paren": "everyman"
   },
   "lines": [
     {
@@ -45,7 +45,7 @@
     },
     {
       "id": "l4",
-      "character": "sluzhivy",
+      "character": "nachalnik",
       "text": "Налоговая полиция! Контрольное захоронение!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
@@ -55,9 +55,9 @@
     },
     {
       "id": "l5",
-      "character": "barmen",
+      "character": "muzhik-ryzhy",
       "text": "У тебя своя работа, а у меня своя.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -65,7 +65,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "И забил в крышку гроба гвозди.",
+      "text": "Сказал бригадир и забил в крышку гроба гвозди.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,24 +79,21 @@
       "location": "ulitsa",
       "place": "cemetery",
       "cast": [
-        "paren",
-        "barmen",
-        "sluzhivy"
+        "muzhik-ryzhy",
+        "nachalnik",
+        "paren"
       ],
       "roles": {
-        "paren": "employee",
-        "barmen": "craftsman",
-        "sluzhivy": "police-officer"
+        "muzhik-ryzhy": "everyman",
+        "nachalnik": "bureaucrat",
+        "paren": "everyman"
       },
       "looks": {
-        "sluzhivy": {
-          "clothes": "#2b2b30",
+        "muzhik-ryzhy": {
           "add": [
-            "tie"
+            "flat-cap"
           ],
-          "remove": [
-            "police-cap"
-          ]
+          "remove": []
         }
       },
       "crowd": {
@@ -106,13 +103,35 @@
       "beats": [
         {
           "type": "move",
-          "who": "sluzhivy",
+          "who": "muzhik-ryzhy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
           "to": "center"
         },
         {
           "type": "prop",
-          "who": "sluzhivy",
+          "who": "nachalnik",
+          "item": "coffin",
+          "action": "put"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
           "item": "money",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "bench"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "shovel",
           "action": "hold"
         },
         {
@@ -120,12 +139,26 @@
           "ref": "l1"
         },
         {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
           "type": "crowd",
           "react": "flee"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "shop"
         },
         {
           "type": "line",
@@ -141,7 +174,7 @@
         },
         {
           "type": "prop",
-          "who": "barmen",
+          "who": "muzhik-ryzhy",
           "item": "wrench",
           "action": "hold"
         },

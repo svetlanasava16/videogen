@@ -2,15 +2,17 @@
   "id": "ru-01e656ef77af.ru",
   "jokeId": "ru-01e656ef77af",
   "locale": "ru",
-  "title": "Протест врачей",
+  "title": "Транспаранты",
   "location": "ulitsa",
   "place": "street",
   "cast": [
     "doktor",
+    "paren",
     "nachalnik"
   ],
   "roles": {
     "doktor": "doctor",
+    "paren": "doctor",
     "nachalnik": "bureaucrat"
   },
   "lines": [
@@ -19,23 +21,14 @@
       "character": "narrator",
       "text": "На акцию протеста врачи вышли на улицы.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Власти не могут понять, чего хотят доктора,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "потому что никто не может разобрать, что именно написано на транспарантах.",
+      "text": "Власти не могут понять, чего хотят доктора, потому что никто не может разобрать, что именно написано на транспарантах.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -49,10 +42,12 @@
       "location": "ulitsa",
       "cast": [
         "doktor",
+        "paren",
         "nachalnik"
       ],
       "roles": {
         "doktor": "doctor",
+        "paren": "doctor",
         "nachalnik": "bureaucrat"
       },
       "crowd": {
@@ -61,18 +56,14 @@
       },
       "beats": [
         {
-          "type": "move",
+          "type": "prop",
           "who": "doktor",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "right"
+          "item": "certificate",
+          "action": "hold"
         },
         {
           "type": "prop",
-          "who": "doktor",
+          "who": "paren",
           "item": "certificate",
           "action": "hold"
         },
@@ -85,12 +76,15 @@
           "react": "cheer"
         },
         {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "give",
+          "to": "nachalnik"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         }
       ],
       "transition": "cut"

@@ -2,7 +2,7 @@
   "id": "en-r-5l3p32.ru",
   "jokeId": "en-r-5l3p32",
   "locale": "ru",
-  "title": "Лунатик",
+  "title": "Охотник на десептиконов",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -12,20 +12,6 @@
   "roles": {
     "muzhik": "husband",
     "zhena": "wife"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    },
-    "zhena": {
-      "add": [
-        "curlers"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
@@ -58,7 +44,7 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Ты опять ходил во сне! Никаких десептиконов не бывает!",
+      "text": "Ты опять ходишь во сне! Не бывает никаких десептиконов!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -66,33 +52,51 @@
     },
     {
       "id": "l5",
-      "character": "muzhik",
-      "text": "Наверное, ты права! Господи, я, должно быть, выгляжу как идиот!",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Он моргнул и понял, как глупо выглядит.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Она засмеялась. Он засмеялся.",
+      "character": "muzhik",
+      "text": "Наверное, ты права! Ну и идиотом же я, наверное, выгляжу!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Тостер засмеялся.",
+      "text": "Она засмеялась.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Он засмеялся.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Засмеялся тостер.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "narrator",
       "text": "Он застрелил тостер.",
       "emotion": "neutral",
@@ -103,6 +107,97 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "pause",
+          "sec": 0.5
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

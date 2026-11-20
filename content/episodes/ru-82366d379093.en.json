@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "customer",
+    "devushka": "woman",
     "barmen": "salesman"
   },
   "lines": [
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Thank God, I made it!",
+      "text": "Thank God, I made it! Do you have any chickens?",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "devushka",
-      "text": "Do you have any chickens?",
+      "character": "narrator",
+      "text": "The butcher takes the only chicken out of the freezer and puts it on the scales. The scales show two pounds.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,15 +43,6 @@
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "The butcher takes the only chicken out of the freezer and puts it on the scale. The scale shows two pounds.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
       "character": "devushka",
       "text": "Hmm... Don't you have a bigger one?",
       "emotion": "sad",
@@ -60,18 +51,18 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
-      "text": "The butcher puts the chicken back, then takes out the same one, turns it around, puts it on the scale and presses down with his finger. The scale shows three pounds.",
+      "text": "The butcher puts the chicken back, then takes out the same one, turns it around, puts it on the scales and presses down with his finger. The scales show three pounds.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "devushka",
-      "text": "Perfect! I'll take both, please.",
+      "text": "Great! I'll take both, please.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -88,7 +79,7 @@
         "barmen"
       ],
       "roles": {
-        "devushka": "customer",
+        "devushka": "woman",
         "barmen": "salesman"
       },
       "looks": {
@@ -106,6 +97,12 @@
           "to": "counter"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "scales",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -120,6 +117,18 @@
           "ref": "l2"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
@@ -128,16 +137,28 @@
           "ref": "l4"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         }
       ],
       "transition": "cut"

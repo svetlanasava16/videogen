@@ -6,31 +6,21 @@
   "location": "klass",
   "place": "school-classroom",
   "cast": [
-    "uchilka",
-    "vovochka"
+    "vovochka",
+    "uchilka"
   ],
   "roles": {
-    "uchilka": "teacher",
-    "vovochka": "vovochka"
-  },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
+    "vovochka": "vovochka",
+    "uchilka": "teacher"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Вовочка идёт по школьному коридору, тащит огромный глобус. Навстречу учительница.",
+      "text": "Вовочка идёт по школьному коридору, тащит огромный глобус.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -55,8 +45,8 @@
       "id": "l4",
       "character": "uchilka",
       "text": "А глобус-то зачем?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -73,6 +63,59 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "uchilka": "teacher"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "globe",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

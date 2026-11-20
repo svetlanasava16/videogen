@@ -2,7 +2,7 @@
   "id": "ru-e30eafa1a0e6.ru",
   "jokeId": "ru-e30eafa1a0e6",
   "locale": "ru",
-  "title": "Спички",
+  "title": "Спичечный коробок",
   "location": "gostinaya",
   "place": "hospital",
   "cast": [
@@ -17,17 +17,19 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Пошёл мужик анализ кала сдавать.",
+      "text": "Пошёл мужик анализ кала сдавать. Положил его в спичечный коробок и пошёл в поликлинику.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": []
+      "exit": [
+        "muzhik"
+      ]
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Положил его в спичечный коробок и пошёл в поликлинику.",
-      "emotion": "neutral",
+      "text": "И пропал... Три дня его нету.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,23 +37,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "И пропал... Три дня его нету.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "narrator",
       "text": "Жена с ума сходит, всех, кого только можно, обзвонила, нигде его нету.",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "zhena",
       "text": "Ну, пойду в поликлинику, может, там кто чего знает.",
       "emotion": "sad",
@@ -60,7 +53,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
       "text": "Пришла туда, а там тоже все не в курсах.",
       "emotion": "neutral",
@@ -69,7 +62,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "tyoshcha",
       "text": "Ты посмотри в хирургическом отделении, там уже давно какой-то мужик сидит, может, твой?",
       "emotion": "neutral",
@@ -78,16 +71,16 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "narrator",
       "text": "Пошла жена туда. Смотрит, её муж сидит весь в гипсе.",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "zhena",
       "text": "Вася, да как же ты так, кто тебя?",
       "emotion": "surprised",
@@ -96,7 +89,7 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l9",
       "character": "muzhik",
       "text": "Ничего не помню.",
       "emotion": "sad",
@@ -105,7 +98,7 @@
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l10",
       "character": "muzhik",
       "text": "Помню только, спички попросили...",
       "emotion": "sad",
@@ -139,21 +132,18 @@
           "to": "sofa"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "matchbox",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "prop",
@@ -163,11 +153,11 @@
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l3"
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -175,12 +165,12 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "tyoshcha",
-        "zhena"
+        "zhena",
+        "tyoshcha"
       ],
       "roles": {
-        "tyoshcha": "janitor",
-        "zhena": "wife"
+        "zhena": "wife",
+        "tyoshcha": "janitor"
       },
       "looks": {
         "tyoshcha": {
@@ -195,21 +185,27 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "left"
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "bucket",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "zhena",
-          "to": "center",
-          "from": "off-right"
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         }
       ],
       "transition": "flyover"
@@ -223,6 +219,14 @@
       "roles": {
         "muzhik": "patient",
         "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "bandages"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -238,6 +242,10 @@
         },
         {
           "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
           "ref": "l8"
         },
         {
@@ -247,10 +255,6 @@
         {
           "type": "line",
           "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "wipe"

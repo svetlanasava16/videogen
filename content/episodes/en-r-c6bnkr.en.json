@@ -2,39 +2,30 @@
   "id": "en-r-c6bnkr.en",
   "jokeId": "en-r-c6bnkr",
   "locale": "en",
-  "title": "Mind Your Business",
+  "title": "His Own Business",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "vovochka",
-    "muzhik"
+    "muzhik",
+    "vovochka-drug"
   ],
   "roles": {
-    "vovochka": "child",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "vovochka-drug": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "A seven-year-old is sitting on a park bench eating a chocolate bar.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Eating that many chocolate bars is bad for you.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Eating that many chocolate bars is bad for you.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "My great grandfather lived to be one hundred and five.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -42,17 +33,17 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "And he ate that much chocolate?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "vovochka",
+      "id": "l4",
+      "character": "vovochka-drug",
       "text": "No. But he minded his own freaking business.",
       "uncensored": "No. But he minded his own fucking business.",
       "emotion": "smug",
@@ -68,23 +59,29 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "vovochka",
-        "muzhik"
+        "muzhik",
+        "vovochka-drug"
       ],
       "roles": {
-        "vovochka": "child",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "vovochka-drug": "child"
       },
       "beats": [
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "vovochka-drug",
           "to": "bench"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka-drug",
+          "item": "chocolate-bar",
+          "action": "hold"
         },
         {
           "type": "prop",
@@ -107,10 +104,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"

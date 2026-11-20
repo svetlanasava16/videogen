@@ -6,17 +6,17 @@
   "location": "derevnya",
   "place": "forest",
   "cast": [
-    "vovochka",
+    "vovochka-drug",
     "paren"
   ],
   "roles": {
-    "vovochka": "child",
-    "paren": "athlete"
+    "vovochka-drug": "child",
+    "paren": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Herr Gruppenleiter, ist die Schlange giftig?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -28,7 +28,7 @@
       "character": "paren",
       "text": "Nein, die Schlange ist überhaupt nicht giftig.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -76,23 +76,26 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
-        "vovochka",
+        "vovochka-drug",
         "paren"
       ],
       "roles": {
-        "vovochka": "child",
-        "paren": "athlete"
+        "vovochka-drug": "child",
+        "paren": "everyman"
       },
       "looks": {
-        "vovochka": {
+        "vovochka-drug": {
           "clothes": "#8a7f4e",
-          "add": [],
+          "add": [
+            "badge"
+          ],
           "remove": []
         },
         "paren": {
           "clothes": "#8a7f4e",
           "add": [
-            "cowboy-hat"
+            "cowboy-hat",
+            "badge"
           ],
           "remove": []
         }
@@ -109,6 +112,12 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka-drug",
+          "item": "snake",
+          "action": "hold"
         },
         {
           "type": "line",

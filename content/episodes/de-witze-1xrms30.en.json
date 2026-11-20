@@ -2,7 +2,7 @@
   "id": "de-witze-1xrms30.en",
   "jokeId": "de-witze-1xrms30",
   "locale": "en",
-  "title": "The Best Joke",
+  "title": "The Hunters",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,50 +17,68 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "According to a scientific study, this is the best joke.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "narrator",
-      "text": "Two hunters are in the woods when one of them suddenly collapses. He isn't breathing and his eyes are glazed over.",
+      "text": "Two hunters are in the forest when one of them suddenly collapses.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "My friend is dead! What am I supposed to do?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "paren",
-      "text": "Calm down, I can help you. First, make absolutely sure that he's really dead.",
+      "id": "l2",
+      "character": "narrator",
+      "text": "He isn't breathing and his eyes are fixed.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l3",
       "character": "narrator",
-      "text": "There's a brief silence on the line, then a loud shot.",
+      "text": "The other hunter grabs his phone in a total panic and dials the emergency number.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "My friend is dead! What on earth should I do?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Easy now, I can help you.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "First, make absolutely sure he's really dead.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "There's a moment of silence on the line, then a loud shot.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
       "character": "muzhik-ryzhy",
       "text": "Okay, done. Now what?",
       "emotion": "neutral",
@@ -85,22 +103,23 @@
       },
       "looks": {
         "muzhik-sosed": {
-          "add": [
-            "tyrolean-hat"
-          ],
+          "clothes": "#5b6b3a",
+          "add": [],
           "remove": []
         }
       },
       "beats": [
         {
-          "type": "move",
+          "type": "prop",
           "who": "muzhik-sosed",
-          "to": "tree"
+          "item": "rifle",
+          "action": "hold"
         },
         {
-          "type": "move",
+          "type": "prop",
           "who": "muzhik-ryzhy",
-          "to": "center"
+          "item": "rifle",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -109,45 +128,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik-ryzhy",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "paren"
-      ],
-      "roles": {
-        "paren": "operator"
-      },
-      "looks": {
-        "paren": {
-          "add": [
-            "headset"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "desk"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -156,31 +136,91 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
+        "muzhik-ryzhy",
         "muzhik-sosed",
-        "muzhik-ryzhy"
+        "paren"
       ],
       "roles": {
+        "muzhik-ryzhy": "hunter",
         "muzhik-sosed": "hunter",
-        "muzhik-ryzhy": "hunter"
+        "paren": "operator"
       },
       "looks": {
         "muzhik-sosed": {
+          "clothes": "#5b6b3a",
+          "add": [],
+          "remove": []
+        },
+        "paren": {
           "add": [
-            "tyrolean-hat"
+            "headset"
           ],
           "remove": []
         }
       },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "paren"
+        ]
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
         {
           "type": "move",
           "who": "muzhik-sosed",
           "to": "tree"
         },
         {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "rifle",
+          "action": "hold"
+        },
+        {
           "type": "move",
           "who": "muzhik-ryzhy",
-          "to": "center"
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "pause",
+          "sec": 1
         },
         {
           "type": "prop",
@@ -190,11 +230,7 @@
         },
         {
           "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
-          "ref": "l6"
+          "ref": "l8"
         }
       ],
       "transition": "cut"

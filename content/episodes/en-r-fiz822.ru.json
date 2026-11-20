@@ -7,25 +7,22 @@
   "place": "pharmacy",
   "cast": [
     "vovochka",
-    "devochka",
+    "vovochka-drug",
     "doktor"
   ],
   "roles": {
     "vovochka": "child",
-    "devochka": "child",
+    "vovochka-drug": "child",
     "doktor": "pharmacist"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Двое мальчишек зашли в аптеку, взяли коробку тампонов и пошли к кассе.",
+      "text": "Двое маленьких мальчиков зашли в аптеку, взяли коробку тампонов и подошли к кассе.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka",
-        "devochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -39,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Восемь.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -57,7 +54,7 @@
     },
     {
       "id": "l5",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Не совсем, но это не для меня.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -66,8 +63,8 @@
     },
     {
       "id": "l6",
-      "character": "vovochka",
-      "text": "Это для него... Это мой брат. Ему четыре.",
+      "character": "vovochka-drug",
+      "text": "Это для него... Он мой брат. Ему четыре.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,8 +72,8 @@
     },
     {
       "id": "l7",
-      "character": "vovochka",
-      "text": "Мы видели по телевизору, что если этим пользоваться, сможешь плавать и кататься на велосипеде.",
+      "character": "vovochka-drug",
+      "text": "Мы видели по телевизору, что если этим пользоваться, то сможешь плавать и кататься на велосипеде.",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -84,7 +81,7 @@
     },
     {
       "id": "l8",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "А он пока не умеет ни того, ни другого.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
@@ -94,6 +91,73 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "vovochka",
+        "vovochka-drug",
+        "doktor"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "vovochka-drug": "child",
+        "doktor": "pharmacist"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

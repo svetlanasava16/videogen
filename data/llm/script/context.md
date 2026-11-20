@@ -73,28 +73,36 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | batyushka | Батюшка / Father Mike / Pfarrer | batyushka | priest, pope |
 | chort | Чёрт / Devil / Teufel | chort | devil, death, genie, vampire, monster |
 | ded | Дед / Grandpa / Opa | ded | old-man, grandpa, god, saint-peter, biblical-figure, ded-moroz, wizard, rabinovich, ostfriese |
+| devochka-podruga | Маша / Molly / Lena | devochka |  |
 | devochka | Девочка / Lily / Lisa | devochka | red-riding-hood |
 | devushka-blondinka | Блондинка / Tiffany / Mandy | devushka | blonde, secretary, flight-attendant |
 | devushka-ryzhaya | Рыжая / Ginger / Nina | devushka | daughter, princess |
 | devushka | Девушка / Jessica / Jenny | devushka | woman, girlfriend, nurse, cashier, prostitute |
 | doktor | Доктор / Doc / Herr Doktor | doktor | doctor, therapist, scientist, professor |
+| domovoi | Домовой / Brownie / Kobold | domovoi | domovoi |
 | inostranets | Иностранец / Foreigner / Ausländer | inostranets | foreigner, frenchman, german, georgian |
+| korova-chyornaya | Чернушка / Bessie / Liesel | korova |  |
 | korova | Корова / Daisy / Berta | korova | cow |
 | kot | Кот / Whiskers / Mietze | kot | cat |
 | loshad | Лошадь / Horse / Pferd | loshad | horse |
+| mladenets | Младенец / Baby / Baby | mladenets | baby |
 | muzhik-ryzhy | Рыжий / Red / Rudi | muzhik | farmer, hunter, fisherman, driver, biker |
 | muzhik-sosed | Сосед / Bob / Günther | muzhik | neighbor, friend, relative, tourist |
 | muzhik | Мужик / Joe / Horst | muzhik | everyman, husband, father, customer, patient, drunk, homeless, prisoner, disabled-person |
 | nachalnik | Начальник / The Boss / Der Chef | nachalnik | boss, politician, businessman, bureaucrat, aristocrat, judge, lawyer, new-russian, gangster, tv-host, king |
 | paren | Парень / Kevin / Kevin | paren | boyfriend, lover, son, teenager, student, employee, programmer, journalist, writer, artist, musician, actor, hipster, engineer, postman, athlete, activist, secret-agent, astronaut, clown, magician |
+| pingvin | Пингвин / Penguin / Pinguin | pingvin | penguin |
 | ptitsa | Попугай / Polly / Coco | ptitsa | bird, parrot, chicken, duck |
+| pyos-dalmatin | Далматинец / Domino / Flecki | pyos |  |
+| pyos-pudel | Пудель / Fifi / Fifi | pyos |  |
 | pyos | Пёс / Rex / Bello | pyos | dog, wolf |
 | sluzhivy-ryadovoy | Рядовой / Private / Gefreiter | sluzhivy | soldier, sailor, firefighter |
 | sluzhivy | Служивый / Officer / Wachtmeister | sluzhivy | police-officer, traffic-cop, customs-officer, guard, officer, pilot, rzhevsky, stirlitz, petka, vasily-ivanovich, knight, pirate |
 | tyoshcha | Тёща / Grandma / Oma | tyoshcha | mother-in-law, grandma, old-woman, queen |
 | uchilka | Училка / Ms. Smith / Frau Müller | uchilka | teacher, clerk, operator, pharmacist, nun |
 | vor | Вор / Burglar / Einbrecher | vor | thief |
-| vovochka | Вовочка / Johnny / Fritzchen | vovochka | vovochka, fritzchen, child |
+| vovochka-drug | Серёжка / Billy / Max | vovochka | child |
+| vovochka | Вовочка / Johnny / Fritzchen | vovochka | vovochka, fritzchen |
 | zhena | Жена / Linda / Gabi | zhena | wife, mother, maid |
 
 ## Backdrops
@@ -142,10 +150,36 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | white-cane | белая трость слепого | white cane of a blind person | Blindenstock |
 | bill | счёт / чек | bill / receipt | Rechnung |
 | wrench | гаечный ключ / инструмент | wrench / tool | Schraubenschlüssel |
+| bicycle | велосипед (старый) | bicycle (old) | Fahrrad (altes) |
+| pistol | пистолет | pistol | Pistole |
+| rifle | ружьё / винтовка | rifle / hunting gun | Gewehr |
+| road-sign | дорожный знак на столбе | road sign on a pole | Verkehrsschild |
+| bagpipes | волынка | bagpipes | Dudelsack |
+| gong | гонг на стойке с колотушкой | gong on a stand with mallet | Gong mit Schlägel |
+| sandwich | бутерброд | sandwich | Sandwich / Butterbrot |
+| shovel | лопата | shovel / spade | Spaten / Schaufel |
+| fishing-rod | удочка | fishing rod | Angel |
+| playing-cards | игральные карты (веером) | playing cards (fanned) | Spielkarten |
+| mirror | зеркальце | hand mirror | Handspiegel |
+| coin | монета | coin | Münze |
+| matchbox | спичечный коробок | matchbox | Streichholzschachtel |
+| bucket | ведро | bucket | Eimer |
+| map | карта (бумажная) | map (paper) | Landkarte |
+| chicken | курица (ощипанная, мороженая) | chicken (plucked, frozen) | Hähnchen (gerupft, tiefgefroren) |
+| coffin | гроб (открытый, стоймя) | coffin (open, upright) | Sarg (offen, aufrecht) |
+| vase | ваза (фарфоровая) | vase (porcelain) | Vase (Porzellan) |
+| birdcage | клетка с птичкой | birdcage with a bird | Vogelkäfig |
+| globe | глобус | globe | Globus |
+| genie-bottle | бутылка с джинном | bottle with a genie inside | Flasche mit Flaschengeist |
+| snake | змея | snake | Schlange |
+| chocolate-bar | шоколадка | chocolate bar | Tafel Schokolade |
+| canister | канистра (пиво) | canister (of beer) | Kanister (Bier) |
+| scales | весы (магазинные) | scales (shop scales) | Waage |
+| baby | младенец (в одеяльце) | baby (in a blanket) | Baby (in einer Decke) |
 
 ## Accessories (for `looks`: add to / remove from a puppet in this episode)
 
-aerodrome-cap, apron, army-cap, badge, baguette, beard, beret, black-hat, bow-tie, bowler, bows, brooch, camera, cat-eye-glasses, chef-hat, collar, cowboy-hat, cowlick, cross, crown, curlers, dark-glasses, earrings, eye-mask, flat-cap, freckles, glasses, goatee, gold-chain, halo, headscarf, headset, helmet, hood, horns, keys, kippah, lipstick, loot-bag, mole, monocle, mustache, mustache-curled, nun-veil, nurse-cap, papakha, police-cap, red-nose, robe-black, robe-red, robe-white, round-glasses, scythe, shako, side-curls, stethoscope, straw-hat, striped-shirt, stubble, suspenders, tie, towel, turban, tyrolean-hat, white-beard, zucchetto
+aerodrome-cap, apron, army-cap, badge, baguette, bandages, beard, beret, big-beard, black-eye, black-hat, bow-tie, bowler, bows, brooch, camera, cat-eye-glasses, chef-hat, collar, cowboy-hat, cowlick, cross, crown, curlers, dark-glasses, earrings, eye-mask, eye-patch, flat-cap, freckles, fur-coat, glasses, goatee, gold-chain, halo, headscarf, headset, helmet, high-drawn-eyebrows, hood, horns, keys, kippah, lipstick, lipstick-marks, loot-bag, mole, monocle, mustache, mustache-curled, nun-veil, nurse-cap, onesie-snaps, papakha, police-cap, red-nose, robe-black, robe-red, robe-white, round-glasses, santa-hat, sash, scythe, shaggy, shako, side-curls, spots, stethoscope, straw-hat, striped-shirt, stubble, suspenders, tie, towel, turban, tyrolean-hat, white-beard, wisp, zucchetto
 
 ## Crowd
 

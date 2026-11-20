@@ -6,12 +6,10 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik",
     "zhena",
     "paren"
   ],
   "roles": {
-    "muzhik": "husband",
     "zhena": "wife",
     "paren": "lover"
   },
@@ -19,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau und ihr Liebhaber lagen im Bett, als die Frau hörte, wie ihr Mann nach Hause kam.",
+      "text": "Eine Frau lag mit ihrem Liebhaber im Bett, als sie hörte, wie ihr Mann nach Hause kam.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -30,7 +28,7 @@
       "character": "zhena",
       "text": "Schnell! Reib dich mit Babypuder ein und tu so, als wärst du eine Statue.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -55,11 +53,12 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Ich habe gesehen, dass die Schmidts eine haben, also wollte ich auch eine.",
+      "text": "Ich habe gesehen, dass die Müllers eine haben, also wollte ich auch eine.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l6",
@@ -73,7 +72,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Ein paar Stunden später vergewisserte er sich, dass seine Frau schlief, stand leise auf, ging in die Küche, schmierte sich ein Brot und holte ein Glas Milch.",
+      "text": "Ein paar Stunden später vergewisserte er sich, dass seine Frau schlief, stand leise auf, ging in die Küche, machte ein Butterbrot, holte ein Glas Milch, kam zurück und ging zur Statue.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -81,26 +80,17 @@
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "Er kam zurück und ging zur Statue.",
+      "character": "muzhik",
+      "text": "Hier, iss und trink was.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Hier, iss und trink was.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "Ich habe drei Tage wie ein Idiot bei den Schmidts rumgestanden, und keiner hat mir was zu essen angeboten!",
+      "text": "Ich habe drei Tage wie ein Idiot bei den Müllers gestanden, und keiner hat mir was zu essen angeboten!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -113,19 +103,52 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik",
         "zhena",
         "paren"
       ],
       "roles": {
-        "muzhik": "husband",
         "zhena": "wife",
         "paren": "lover"
       },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "paren": "lover",
+        "muzhik": "husband"
+      },
       "looks": {
         "paren": {
-          "clothes": "#f2f2ee",
-          "hair": "#f2f2ee",
+          "clothes": "#e8e4dc",
+          "hair": "#e8e4dc",
+          "skin": "#e8e4dc",
           "add": [],
           "remove": []
         }
@@ -139,15 +162,7 @@
         {
           "type": "move",
           "who": "paren",
-          "to": "right"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
+          "to": "wardrobe"
         },
         {
           "type": "line",
@@ -155,13 +170,8 @@
         },
         {
           "type": "move",
-          "who": "paren",
-          "to": "wardrobe"
-        },
-        {
-          "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -173,40 +183,8 @@
           "ref": "l5"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l6"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "fridge"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "glass",
-          "action": "hold"
         }
       ],
       "transition": "wipe"
@@ -225,8 +203,9 @@
       },
       "looks": {
         "paren": {
-          "clothes": "#f2f2ee",
-          "hair": "#f2f2ee",
+          "clothes": "#e8e4dc",
+          "hair": "#e8e4dc",
+          "skin": "#e8e4dc",
           "add": [],
           "remove": []
         }
@@ -243,10 +222,20 @@
           "to": "wardrobe"
         },
         {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
           "type": "move",
           "who": "muzhik",
           "to": "right",
           "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "sandwich",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -255,17 +244,13 @@
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "glass",
+          "item": "sandwich",
           "action": "give",
           "to": "paren"
         },
         {
           "type": "line",
           "ref": "l9"
-        },
-        {
-          "type": "line",
-          "ref": "l10"
         }
       ],
       "transition": "wipe"

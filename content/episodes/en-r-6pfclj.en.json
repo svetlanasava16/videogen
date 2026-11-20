@@ -7,13 +7,13 @@
   "place": "road",
   "cast": [
     "sluzhivy",
-    "muzhik",
-    "ptitsa"
+    "pingvin",
+    "muzhik"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "muzhik": "everyman",
-    "ptitsa": "bird"
+    "pingvin": "penguin",
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -57,7 +57,7 @@
       "character": "narrator",
       "text": "So the man agrees and drives off.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -75,7 +75,7 @@
       "character": "sluzhivy",
       "text": "I thought I told you to take those penguins to the zoo.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -96,34 +96,34 @@
       "location": "doroga",
       "cast": [
         "sluzhivy",
-        "muzhik",
-        "ptitsa"
+        "pingvin",
+        "muzhik"
       ],
       "roles": {
         "sluzhivy": "traffic-cop",
-        "muzhik": "everyman",
-        "ptitsa": "bird"
+        "pingvin": "penguin",
+        "muzhik": "everyman"
       },
       "beats": [
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
-        },
-        {
-          "type": "move",
-          "who": "ptitsa",
           "to": "car"
         },
         {
-          "type": "line",
-          "ref": "l1"
+          "type": "move",
+          "who": "pingvin",
+          "to": "right"
         },
         {
           "type": "move",
           "who": "sluzhivy",
           "to": "center",
           "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -143,12 +143,12 @@
         },
         {
           "type": "move",
-          "who": "muzhik",
+          "who": "pingvin",
           "to": "off-right"
         },
         {
           "type": "move",
-          "who": "ptitsa",
+          "who": "muzhik",
           "to": "off-right"
         }
       ],
@@ -158,16 +158,16 @@
       "location": "doroga",
       "cast": [
         "sluzhivy",
-        "muzhik",
-        "ptitsa"
+        "pingvin",
+        "muzhik"
       ],
       "roles": {
         "sluzhivy": "traffic-cop",
-        "muzhik": "everyman",
-        "ptitsa": "bird"
+        "pingvin": "penguin",
+        "muzhik": "everyman"
       },
       "looks": {
-        "ptitsa": {
+        "pingvin": {
           "add": [
             "dark-glasses"
           ],
@@ -178,22 +178,22 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
-        },
-        {
-          "type": "move",
-          "who": "ptitsa",
           "to": "car"
         },
         {
-          "type": "line",
-          "ref": "l6"
+          "type": "move",
+          "who": "pingvin",
+          "to": "right"
         },
         {
           "type": "move",
           "who": "sluzhivy",
           "to": "center",
           "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         },
         {
           "type": "line",

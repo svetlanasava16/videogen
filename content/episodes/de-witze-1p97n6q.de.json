@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1p97n6q",
   "locale": "de",
   "title": "Der Ballonfahrer",
-  "location": "derevnya",
+  "location": "nebesa",
   "place": "farm",
   "cast": [
     "nachalnik",
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Sie müssen ein Ingenieur sein, Ihre Antwort war absolut korrekt, aber überhaupt nicht hilfreich.",
+      "text": "Sie müssen ein Ingenieur sein. Ihre Antwort war absolut korrekt, aber überhaupt nicht hilfreich.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -71,6 +71,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "paren": "engineer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "derevnya",
+        "cast": [
+          "paren"
+        ]
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

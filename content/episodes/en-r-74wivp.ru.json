@@ -2,14 +2,16 @@
   "id": "en-r-74wivp.ru",
   "jokeId": "en-r-74wivp",
   "locale": "ru",
-  "title": "Я женат!",
+  "title": "Отстань, я женат!",
   "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
@@ -24,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Первое, что он видит, — одна роза на тумбочке и записка от жены.",
+      "text": "Первое, что он видит, это одинокая роза на тумбочке и записка от жены.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -32,9 +34,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Дорогой, завтрак готов. Я ушла в магазин, чтобы приготовить тебе на ужин твоё любимое блюдо. Люблю тебя!",
-      "emotion": "surprised",
+      "character": "zhena",
+      "text": "Милый, завтрак готов. Я ушла по магазинам, чтобы приготовить тебе вечером твой любимый ужин. Люблю тебя!",
+      "offscreen": true,
+      "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -42,7 +45,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Он, шатаясь, бредёт на кухню, и там действительно завтрак.",
+      "text": "Он плетётся на кухню, и правда, там завтрак.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -60,7 +63,7 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Ты пришёл домой в стельку пьяный и заработал фингал, споткнувшись о стул.",
+      "text": "Ты пришёл домой в стельку пьяный и заработал фингал, когда споткнулся о стул.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,23 +74,14 @@
       "character": "muzhik",
       "text": "А откуда тогда роза, завтрак и нежная записка от мамы?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "paren",
-      "text": "А, это.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "paren",
-      "text": "Мама дотащила тебя до спальни, а когда стала тебя раздевать, ты заорал: Отстань, я женат!",
+      "text": "А, это. Мама затащила тебя в спальню, а когда стала тебя раздевать, ты заорал: «Отстань от меня, я женат!»",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -100,14 +94,17 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -120,14 +117,14 @@
           "to": "bed"
         },
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "letter",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -143,16 +140,17 @@
     {
       "location": "kukhnya",
       "cast": [
-        "paren",
-        "muzhik"
+        "muzhik",
+        "paren"
       ],
       "roles": {
-        "paren": "son",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "paren": "son"
       },
       "looks": {
         "muzhik": {
           "add": [
+            "black-eye",
             "stubble"
           ],
           "remove": []
@@ -165,14 +163,20 @@
           "to": "table"
         },
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right",
-          "from": "off-right"
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -189,10 +193,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "wipe"

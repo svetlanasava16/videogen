@@ -6,20 +6,22 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik-ryzhy",
     "paren",
-    "muzhik"
+    "muzhik-sosed",
+    "muzhik",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "friend",
     "paren": "friend",
-    "muzhik": "drunk"
+    "muzhik-sosed": "friend",
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A drunk guy is showing friends his new apartment. The last stop is the bedroom, where a big brass gong sits next to the bed.",
+      "text": "A drunk guy is showing friends his new apartment.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,7 +29,16 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
+      "character": "narrator",
+      "text": "The last stop is the bedroom, where a big brass gong sits next to the bed.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
       "text": "What's that gong for?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -35,25 +46,25 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "It's not a gong. It's a talking clock.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik-ryzhy",
-      "text": "How does it work?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "How does it work?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "narrator",
       "text": "The guy picks up a hammer, gives the gong an ear-shattering pound, and steps back.",
       "emotion": "neutral",
@@ -62,19 +73,20 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "narrator",
       "text": "Suddenly, someone on the other side of the wall screams.",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "muzhik-sosed",
-      "text": "For God's sake, you jerk... it's three thirty in the god damn morning!",
+      "id": "l8",
+      "character": "muzhik-ryzhy",
+      "text": "For God's sake, you idiot... it's three thirty in the god damn morning!",
       "uncensored": "For God's sake, you asshole... it's three thirty in the god damn morning!",
+      "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -87,14 +99,16 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik-ryzhy",
         "paren",
-        "muzhik"
+        "muzhik-sosed",
+        "muzhik",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "friend",
         "paren": "friend",
-        "muzhik": "drunk"
+        "muzhik-sosed": "friend",
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "neighbor"
       },
       "looks": {
         "muzhik": {
@@ -106,19 +120,32 @@
       },
       "beats": [
         {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
           "type": "move",
           "who": "muzhik",
-          "to": "bed"
+          "to": "bed",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "gong",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -133,39 +160,24 @@
           "ref": "l4"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "wrench",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik-sosed": "neighbor"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "muzhik-sosed",
-          "to": "bed"
+          "type": "pause",
+          "sec": 1
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

@@ -2,27 +2,38 @@
   "id": "en-r-904qbf.de",
   "jokeId": "en-r-904qbf",
   "locale": "de",
-  "title": "Ein ganz gleicher",
+  "title": "Ganz genau gleich",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "devushka",
     "paren",
-    "pyos"
+    "pyos",
+    "devushka"
   ],
   "roles": {
-    "devushka": "girlfriend",
     "paren": "boyfriend",
-    "pyos": "dog"
+    "pyos": "dog",
+    "devushka": "girlfriend"
+  },
+  "looks": {
+    "pyos": {
+      "add": [
+        "halo"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Der Hund meiner Freundin ist gestorben, also habe ich ihr zum Trost einen ganz gleichen besorgt.",
+      "text": "Der Hund meiner Freundin ist gestorben, also habe ich ihr zum Trost einen ganz genau gleichen besorgt.",
       "emotion": "smug",
-      "pauseAfterSec": 0.7,
-      "enter": [],
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "paren",
+        "pyos"
+      ],
       "exit": []
     },
     {

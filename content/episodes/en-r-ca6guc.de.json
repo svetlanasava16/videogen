@@ -2,27 +2,32 @@
   "id": "en-r-ca6guc.de",
   "jokeId": "en-r-ca6guc",
   "locale": "de",
-  "title": "Nichts Fettes",
+  "title": "Fetter",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "patient",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "patient"
+  },
+  "looks": {
+    "muzhik": {
+      "build": "portly",
+      "add": [],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "doktor",
-      "text": "Nichts Fettes essen.",
+      "text": "Iss nichts Fettes.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -37,8 +42,8 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Nein. Nichts essen, Fetter.",
-      "emotion": "smug",
+      "text": "Nein. Fetter, iss nichts.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

@@ -2,7 +2,7 @@
   "id": "de-witze-1rgzohf.ru",
   "jokeId": "de-witze-1rgzohf",
   "locale": "ru",
-  "title": "Две блондинки в лесу",
+  "title": "Две блондинки",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,23 +17,6 @@
     "devushka-ryzhaya": "blonde",
     "zhena": "blonde"
   },
-  "looks": {
-    "devushka": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "devushka-ryzhaya": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "zhena": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -41,16 +24,13 @@
       "text": "Две блондинки гуляют по лесу и выходят на поляну.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka-blondinka",
-        "devushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "На поляне сидят ещё две блондинки в лодке, прямо на сухой земле, и как сумасшедшие гребут по воздуху.",
+      "text": "На поляне ещё две блондинки сидят в лодке прямо на земле и как бешеные гребут по воздуху.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -59,25 +39,16 @@
     {
       "id": "l3",
       "character": "devushka-blondinka",
-      "text": "Ну ты глянь на этих двух дур.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "devushka-blondinka",
-      "text": "Вот как раз такие нам репутацию и портят.",
+      "text": "Ого, глянь на этих двух дур, это как раз из-за таких у нас такая репутация.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "devushka",
-      "text": "Точно. Сейчас переплыву к ним и как врежу!",
+      "text": "Точно, сейчас доплыву до них и врежу как следует.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -86,6 +57,82 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devushka-blondinka",
+        "devushka",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "devushka-blondinka": "blonde",
+        "devushka": "blonde",
+        "devushka-ryzhaya": "blonde",
+        "zhena": "blonde"
+      },
+      "looks": {
+        "devushka": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "devushka-ryzhaya": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

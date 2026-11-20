@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1p97n6q",
   "locale": "en",
   "title": "The Balloonist",
-  "location": "derevnya",
+  "location": "nebesa",
   "place": "farm",
   "cast": [
     "nachalnik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man is floating over the countryside in a hot-air balloon, but sadly he's lost his way. He spots a man on the ground.",
+      "text": "A man is floating over the countryside in a hot-air balloon, but unfortunately he's lost. He sees a man on the ground.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "You must be an engineer. Your answer was absolutely correct, but not the least bit helpful.",
+      "text": "You must be an engineer. Your answer was absolutely correct, but completely useless.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "You don't know where you are, you're completely helpless, and yet suddenly it's all my fault.",
+      "text": "You don't know where you are, you're completely helpless, and yet suddenly everything is my fault.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -71,6 +71,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "paren": "engineer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "derevnya",
+        "cast": [
+          "paren"
+        ]
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

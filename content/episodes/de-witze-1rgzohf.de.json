@@ -2,7 +2,7 @@
   "id": "de-witze-1rgzohf.de",
   "jokeId": "de-witze-1rgzohf",
   "locale": "de",
-  "title": "Zwei Blondinen im Wald",
+  "title": "Zwei Blondinen",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,23 +17,6 @@
     "devushka-ryzhaya": "blonde",
     "zhena": "blonde"
   },
-  "looks": {
-    "devushka": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "devushka-ryzhaya": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "zhena": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -41,16 +24,13 @@
       "text": "Zwei Blondinen gehen im Wald spazieren und kommen an eine Lichtung.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka-blondinka",
-        "devushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Auf der Lichtung sitzen zwei weitere Blondinen in einem Ruderboot auf dem Trockenen und paddeln wie wild in der Luft rum.",
+      "text": "Auf der Lichtung sitzen zwei weitere Blondinen in einem Ruderboot auf dem Trockenen und paddeln wie wild in der Luft herum.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -59,23 +39,14 @@
     {
       "id": "l3",
       "character": "devushka-blondinka",
-      "text": "Boah, schau dir die zwei Doofen an.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "devushka-blondinka",
-      "text": "Das sind genau die, die unseren Ruf versauen.",
+      "text": "Boah, schau dir die zwei Doofen an, das sind genau die, die unseren Ruf versauen.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "devushka",
       "text": "Stimmt, ich schwimm direkt rüber und hau denen eine rein.",
       "emotion": "angry",
@@ -86,6 +57,82 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devushka-blondinka",
+        "devushka",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "devushka-blondinka": "blonde",
+        "devushka": "blonde",
+        "devushka-ryzhaya": "blonde",
+        "zhena": "blonde"
+      },
+      "looks": {
+        "devushka": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "devushka-ryzhaya": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

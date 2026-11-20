@@ -8,24 +8,20 @@
   "cast": [
     "paren",
     "muzhik-ryzhy",
-    "korova"
+    "korova",
+    "korova-chyornaya"
   ],
   "roles": {
     "paren": "journalist",
     "muzhik-ryzhy": "farmer",
-    "korova": "cow"
+    "korova": "cow",
+    "korova-chyornaya": "cow"
   },
   "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    },
-    "paren": {
-      "add": [
-        "tie"
-      ],
+    "korova": {
+      "clothes": "#8b5a3c",
+      "skin": "#8b5a3c",
+      "add": [],
       "remove": []
     }
   },
@@ -33,9 +29,9 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Фермера Хуберта снимает местное телевидение. Беседуют, как и положено, прямо у луга, где пасутся бурая и чёрная корова.",
+      "text": "Фермера Хуберта снимает местное телевидение. Беседуют, как и положено, прямо у коровьего луга.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -71,7 +67,7 @@
       "character": "muzhik-ryzhy",
       "text": "Почти тридцать литров.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -89,10 +85,9 @@
       "character": "muzhik-ryzhy",
       "text": "Тоже.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l8",
@@ -116,7 +111,7 @@
       "id": "l10",
       "character": "paren",
       "text": "Чёрная.",
-      "emotion": "surprised",
+      "emotion": "sad",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -126,7 +121,7 @@
       "character": "muzhik-ryzhy",
       "text": "Траву.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -134,7 +129,7 @@
       "id": "l12",
       "character": "paren",
       "text": "А бурая?",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
@@ -153,7 +148,7 @@
       "character": "paren",
       "text": "Но если у обеих всегда всё одинаково, почему вы всё время спрашиваете, бурую я имею в виду или чёрную?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -171,7 +166,7 @@
       "character": "paren",
       "text": "А чёрная?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -179,7 +174,7 @@
       "id": "l17",
       "character": "muzhik-ryzhy",
       "text": "Тоже.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],

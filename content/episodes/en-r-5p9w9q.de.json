@@ -2,40 +2,31 @@
   "id": "en-r-5p9w9q.de",
   "jokeId": "en-r-5p9w9q",
   "locale": "de",
-  "title": "Halb drei",
+  "title": "Der Nachbar um halb drei",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-sosed",
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-sosed": "neighbor",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "muzhik-sosed": "neighbor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Mein Nachbar hat heute Nacht um halb drei an meine Tür geklopft.",
+      "text": "Mein Nachbar hat heute Nacht um halb drei an meine Tür geklopft, könnt ihr euch das vorstellen, um halb drei?!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Können Sie sich das vorstellen? Um halb drei!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "muzhik",
-      "text": "Zum Glück für ihn war ich noch wach und hab Dudelsack gespielt.",
+      "text": "Zu seinem Glück war ich noch wach und hab Dudelsack gespielt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -48,12 +39,12 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik-sosed",
-        "muzhik"
+        "muzhik",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-sosed": "neighbor",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "muzhik-sosed": "neighbor"
       },
       "beats": [
         {
@@ -71,12 +62,14 @@
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bagpipes",
+          "action": "hold"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         }
       ],
       "transition": "cut"

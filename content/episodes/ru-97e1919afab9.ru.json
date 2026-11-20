@@ -2,7 +2,7 @@
   "id": "ru-97e1919afab9.ru",
   "jokeId": "ru-97e1919afab9",
   "locale": "ru",
-  "title": "Вечное пиво",
+  "title": "Бездонная канистра",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -13,19 +13,11 @@
     "muzhik": "everyman",
     "chort": "genie"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Лето, солнце, жара. Мужик идет из бани с канистрой пива. Предвкушает, как дома попьет холодного пивка.",
+      "text": "Лето, солнце, жара... Мужик идёт из бани с канистрой пива. Предвкушает, как дома попьёт холодного пивка...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,12 +35,10 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Как водится, джин, желание.",
+      "text": "Как водится — джинн, желание.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "chort"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -56,20 +46,18 @@
       "character": "muzhik",
       "text": "Хочу, чтобы в канистре пиво никогда не заканчивалось.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Джин, поколдовав, исчезает.",
+      "text": "Джинн, поколдовав, исчезает.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "chort"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
@@ -83,6 +71,77 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "canister",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

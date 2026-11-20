@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик едет через городок и останавливается у продуктового магазина, чтобы купить чего-нибудь поесть.",
+      "text": "Мужчина едет проездом и останавливается у продуктового магазина, чтобы купить чего-нибудь поесть.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,27 +26,25 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Он заходит в магазин, а там всё в соли. Весь магазин, сплошная соль. Все полки, сверху донизу, даже на полу. Больше ничего, только соль.",
+      "text": "Он заходит в магазин, а там всё в соли. Все полки сверху донизу, прилавок, даже пол: весь магазин забит маленькими пачками соли. Больше ничего, только соль.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ого! У вас тут, видно, огромный спрос на поваренную соль.",
+      "text": "Ого! Видно, у вас тут в городке огромный спрос на поваренную соль.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Да не особо. Скорее маленький. Вообще-то никакого.",
+      "text": "Да не особо. Скорее небольшой. Вообще-то никакого.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ах вот как. Ну тогда вы точно гений продаж, раз всё это у вас раскупают.",
+      "text": "А, вот как. Тогда вы уж точно гений продаж, раз всё это у вас раскупают.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +62,7 @@
     {
       "id": "l6",
       "character": "barmen",
-      "text": "Ноль. Продавать — это не то чтобы мой талант.",
+      "text": "Ноль. Продавать — это не мой конёк.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,17 +71,17 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Так зачем же у вас тогда весь магазин забит солью, ради бога?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "text": "Но почему тогда, ради бога, у вас весь магазин забит солью?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Ну как. Тот, у кого я закупаю соль, вот он по-настоящему хороший продавец.",
-      "emotion": "sad",
+      "text": "Ну, тот мужик, у которого я соль закупаю, — вот он отличный продавец.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +89,65 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

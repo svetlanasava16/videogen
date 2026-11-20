@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Женщине её любовник подарил норковое манто.",
+      "text": "Женщине её любовник подарил норковое манто. Она думает: как же мужу сказать? Думала, думала и придумала.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,6 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Она думает: как же мужу сказать? Думала, думала и придумала.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "zhena",
       "text": "Дорогой, представляешь, я на улице нашла талончик от камеры хранения.",
       "emotion": "happy",
@@ -42,11 +33,20 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "zhena",
       "text": "Сходи, милый, на вокзал, вдруг там будет что-то хорошее.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Муж уходит с этим талончиком, потом приходит и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -54,7 +54,7 @@
       "id": "l5",
       "character": "muzhik",
       "text": "Зря ходил. Какая-то старая сумка с вонючими тряпками.",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -93,13 +93,9 @@
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
           "type": "move",
           "who": "zhena",
-          "to": "door",
+          "to": "left",
           "from": "off-left"
         },
         {
@@ -110,7 +106,7 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         },
         {
           "type": "prop",
@@ -121,36 +117,21 @@
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l3"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "off-left"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena",
-        "muzhik"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -158,7 +139,7 @@
           "ref": "l5"
         }
       ],
-      "transition": "wipe"
+      "transition": "cut"
     },
     {
       "location": "ofis",
@@ -172,8 +153,9 @@
       },
       "looks": {
         "devushka-blondinka": {
-          "clothes": "#7a5230",
-          "add": [],
+          "add": [
+            "fur-coat"
+          ],
           "remove": []
         }
       },

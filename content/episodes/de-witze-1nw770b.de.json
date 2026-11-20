@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Bauer Hein kommt mit seinem Sohn Jürgen das erste Mal vom Land in das neu eröffnete Shopping-Center.",
+      "text": "Bauer Hein kommt mit seinem Sohn Jürgen das erste Mal vom Land ins neu eröffnete Shopping-Center.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,8 +52,7 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l5",
@@ -76,7 +75,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "In dem Moment öffnet sich die Kabinentür, die alte Frau steigt in den Fahrstuhl und die Türe schließt sich.",
+      "text": "In dem Moment aber öffnet sich die Kabinentür, und die alte Frau steigt in den Fahrstuhl.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -87,7 +86,7 @@
       "character": "narrator",
       "text": "Vater und Sohn bleiben wie angewurzelt stehen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -95,7 +94,7 @@
       "id": "l9",
       "character": "narrator",
       "text": "Einen Augenblick später öffnet sich die Türe wieder, und eine junge, attraktive Dame steigt aus.",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -103,8 +102,8 @@
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'ne Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
-      "emotion": "surprised",
+      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'n Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -196,23 +195,14 @@
           "ref": "l8"
         },
         {
-          "type": "pause",
-          "sec": 1
-        },
-        {
           "type": "line",
           "ref": "l9"
         },
         {
           "type": "move",
           "who": "devushka",
-          "to": "right",
+          "to": "off-left",
           "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "devushka",
-          "to": "off-left"
         },
         {
           "type": "line",

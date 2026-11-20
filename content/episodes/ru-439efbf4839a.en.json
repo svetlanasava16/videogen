@@ -2,22 +2,22 @@
   "id": "ru-439efbf4839a.en",
   "jokeId": "ru-439efbf4839a",
   "locale": "en",
-  "title": "Checking",
+  "title": "Double-Checking",
   "location": "klass",
   "place": "university",
   "cast": [
-    "doktor",
-    "paren"
+    "paren",
+    "doktor"
   ],
   "roles": {
-    "doktor": "professor",
-    "paren": "student"
+    "paren": "student",
+    "doktor": "professor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "It's an exam, a test where every question has to be answered yes or no.",
+      "text": "There's an exam, a test where every question has to be answered yes or no. One of the students flips a coin and writes down the results.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,26 +25,26 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "One of the students flips a coin and writes down the results.",
-      "emotion": "neutral",
+      "character": "doktor",
+      "text": "Well, this one will finish first.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "doktor",
-      "text": "Well, this one will finish first.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "The exam is over, the other students have finished and left, but this one is still sitting there flipping his coin.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "The exam is over, the other students have finished and left, but this one is still sitting there, flipping his coin.",
+      "text": "The professor gets fed up.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,15 +52,6 @@
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "The professor gets fed up, walks over and asks:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l6",
       "character": "doktor",
       "text": "So, have you answered the questions?",
       "emotion": "angry",
@@ -69,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "paren",
       "text": "Yes.",
       "emotion": "neutral",
@@ -78,16 +69,16 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "doktor",
       "text": "Then what are you doing?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "paren",
       "text": "Checking.",
       "emotion": "neutral",
@@ -102,20 +93,12 @@
     {
       "location": "klass",
       "cast": [
-        "doktor",
-        "paren"
+        "paren",
+        "doktor"
       ],
       "roles": {
-        "doktor": "professor",
-        "paren": "student"
-      },
-      "looks": {
-        "doktor": {
-          "add": [
-            "glasses"
-          ],
-          "remove": []
-        }
+        "paren": "student",
+        "doktor": "professor"
       },
       "crowd": {
         "who": "people",
@@ -124,19 +107,19 @@
       "beats": [
         {
           "type": "move",
-          "who": "doktor",
-          "to": "teacher-desk"
-        },
-        {
-          "type": "move",
           "who": "paren",
           "to": "student-desk"
         },
         {
           "type": "prop",
           "who": "paren",
-          "item": "money",
+          "item": "coin",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "teacher-desk"
         },
         {
           "type": "line",
@@ -151,21 +134,21 @@
           "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
           "type": "crowd",
           "react": "flee"
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "doktor",
           "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         },
         {
           "type": "line",
@@ -178,10 +161,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "cut"

@@ -17,17 +17,19 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man went to hand in a stool sample.",
+      "text": "A man went to hand in a stool sample. He put it in a matchbox and set off for the clinic.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": []
+      "exit": [
+        "muzhik"
+      ]
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He put it in a matchbox and went to the clinic.",
-      "emotion": "neutral",
+      "text": "And vanished... For three days he's nowhere to be found.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,23 +37,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "And vanished... Three days, no sign of him.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "narrator",
-      "text": "His wife is going out of her mind, she has called everyone she possibly could, he is nowhere to be found.",
-      "emotion": "neutral",
+      "text": "His wife is going out of her mind, she's called everyone she possibly could, he's nowhere.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "zhena",
       "text": "Well, I'll go to the clinic, maybe somebody there knows something.",
       "emotion": "sad",
@@ -60,43 +53,43 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "narrator",
-      "text": "She gets there, and nobody there has a clue either.",
+      "text": "She gets there, but nobody there has a clue either.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "tyoshcha",
-      "text": "Take a look in the surgical ward, some man has been sitting there for ages, maybe he's yours?",
+      "text": "Have a look in the surgical ward, some man's been sitting there for ages, maybe he's yours?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "narrator",
-      "text": "The wife goes there. She looks, and there's her husband, sitting in plaster from head to toe.",
-      "emotion": "neutral",
+      "text": "The wife goes there. She looks, and her husband is sitting there, all in plaster.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "zhena",
-      "text": "Joe, how did this happen, who did this to you?",
+      "text": "Joe, how could this happen, who did this to you?",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l9",
       "character": "muzhik",
       "text": "I don't remember a thing.",
       "emotion": "sad",
@@ -105,9 +98,9 @@
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l10",
       "character": "muzhik",
-      "text": "All I remember is, somebody asked me for matches...",
+      "text": "All I remember is, someone asked me for matches...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -139,21 +132,18 @@
           "to": "sofa"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "matchbox",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "prop",
@@ -163,11 +153,11 @@
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l3"
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l4"
         }
       ],
       "transition": "cut"
@@ -175,12 +165,12 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "tyoshcha",
-        "zhena"
+        "zhena",
+        "tyoshcha"
       ],
       "roles": {
-        "tyoshcha": "janitor",
-        "zhena": "wife"
+        "zhena": "wife",
+        "tyoshcha": "janitor"
       },
       "looks": {
         "tyoshcha": {
@@ -195,21 +185,27 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "left"
+          "to": "desk"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "bucket",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "zhena",
-          "to": "center",
-          "from": "off-right"
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         }
       ],
       "transition": "flyover"
@@ -223,6 +219,14 @@
       "roles": {
         "muzhik": "patient",
         "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "bandages"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -238,6 +242,10 @@
         },
         {
           "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
           "ref": "l8"
         },
         {
@@ -247,10 +255,6 @@
         {
           "type": "line",
           "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "wipe"

@@ -2,7 +2,7 @@
   "id": "de-witze-1qq89sg.de",
   "jokeId": "de-witze-1qq89sg",
   "locale": "de",
-  "title": "Salz",
+  "title": "Der Salzladen",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -26,9 +26,9 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er betritt den Laden, und alles ist voller Salz. Der ganze Laden, alles Salz. Sämtliche Regale, von oben bis unten, selbst auf dem Boden. Nix anderes, nur Salz.",
+      "text": "Er betritt den Laden, und alles ist voller Salz. Sämtliche Regale, von oben bis unten, der Tresen, selbst der Boden: der ganze Laden ist gerammelt voll mit diesen kleinen Salzpäckchen. Nix anderes, nur Salz.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -38,9 +38,7 @@
       "text": "Boah! Sie müssen ja hier im Ort einen immensen Bedarf an Tafelsalz haben.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -74,16 +72,16 @@
       "id": "l7",
       "character": "muzhik",
       "text": "Aber wieso haben Sie denn dann den ganzen Laden voll mit Salz, um Gottes willen?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Naja. Der Mann, von dem ich das Salz beziehe, der ist ein richtig guter Verkäufer.",
-      "emotion": "sad",
+      "text": "Naja, der Mann, von dem ich das Salz beziehe, der ist ein richtig guter Verkäufer.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,6 +89,65 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

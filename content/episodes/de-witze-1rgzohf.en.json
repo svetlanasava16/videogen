@@ -2,7 +2,7 @@
   "id": "de-witze-1rgzohf.en",
   "jokeId": "de-witze-1rgzohf",
   "locale": "en",
-  "title": "Two Blondes in the Woods",
+  "title": "Two Blondes",
   "location": "derevnya",
   "place": "forest",
   "cast": [
@@ -17,40 +17,20 @@
     "devushka-ryzhaya": "blonde",
     "zhena": "blonde"
   },
-  "looks": {
-    "devushka": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "devushka-ryzhaya": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    },
-    "zhena": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Two blondes are walking in the woods and come to a clearing.",
+      "text": "Two blondes are walking in the forest and come to a clearing.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka-blondinka",
-        "devushka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "In the clearing, two other blondes are sitting in a rowboat on dry land, paddling the air like mad.",
+      "text": "In the clearing, two more blondes are sitting in a rowboat on dry land, paddling wildly at the air.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -59,25 +39,16 @@
     {
       "id": "l3",
       "character": "devushka-blondinka",
-      "text": "Wow, look at those two idiots.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "devushka-blondinka",
-      "text": "They're exactly the ones who ruin our reputation.",
+      "text": "Wow, look at those two idiots, they're exactly the ones who ruin our reputation.",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "devushka",
-      "text": "True. I'll swim right over and punch them.",
+      "text": "True, I'll swim right over and smack them one.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -86,6 +57,82 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "devushka-blondinka",
+        "devushka",
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "devushka-blondinka": "blonde",
+        "devushka": "blonde",
+        "devushka-ryzhaya": "blonde",
+        "zhena": "blonde"
+      },
+      "looks": {
+        "devushka": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "devushka-ryzhaya": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "hair": "#f2d27a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "tree"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

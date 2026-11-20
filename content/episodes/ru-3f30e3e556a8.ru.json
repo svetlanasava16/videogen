@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Останавливает милиционер авто с блондинкой за рулем.",
+      "text": "Останавливает милиционер авто с блондинкой за рулём.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "sluzhivy",
       "text": "Это такая вещица с вашей фотографией.",
-      "emotion": "neutral",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -79,33 +79,15 @@
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "Копается в своей сумочке. Достает зеркальце.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka-blondinka",
+      "text": "Пожалуйста.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "devushka-blondinka",
-      "text": "Пожалуйста.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "narrator",
-      "text": "Милиционер смотрит в зеркальце.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
       "character": "sluzhivy",
       "text": "Ну, что же вы сразу не сказали, что вы милиционер.",
       "emotion": "surprised",
@@ -116,6 +98,86 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "devushka-blondinka": "blonde"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "mirror",
+          "action": "give",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "pause",
+          "sec": 1.2
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

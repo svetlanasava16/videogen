@@ -3,25 +3,25 @@
   "jokeId": "ru-5a45f4c51acd",
   "locale": "de",
   "title": "Vier Asse",
-  "location": "gostinaya",
+  "location": "kukhnya",
   "place": "home-living-room",
   "cast": [
-    "muzhik-ryzhy",
+    "vovochka-drug",
     "muzhik",
-    "vovochka",
+    "muzhik-ryzhy",
     "muzhik-sosed"
   ],
   "roles": {
-    "muzhik-ryzhy": "friend",
+    "vovochka-drug": "child",
     "muzhik": "father",
-    "vovochka": "child",
+    "muzhik-ryzhy": "everyman",
     "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Vater spielt zu Hause mit seinen Kumpels Poker. Im Pott liegt schon ordentlich was, und die Bietrunde läuft.",
+      "text": "Ein Vater spielt zu Hause mit seinen Kumpels Poker. Im Pott liegt schon ordentlich was, es wird gesetzt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,46 +29,34 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Da kommt sein vierjähriger Sohn angerannt und schaut ihm in die Karten.",
-      "emotion": "neutral",
+      "character": "vovochka-drug",
+      "text": "Oh, Papa, sind vier Asse gut?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "vovochka",
-      "text": "Oh, Papa, sind vier Asse gut?",
-      "emotion": "surprised",
+      "character": "muzhik",
+      "text": "Ja! Mein Sohn...",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ja! Mein Sohn...",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
-    },
-    {
-      "id": "l5",
       "character": "narrator",
-      "text": "Alle steigen sofort aus, und Papa streicht den riesigen Pott ein.",
+      "text": "Alle steigen sofort aus, und Papa streicht den ganzen Pott ein.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "vovochka",
+      "id": "l5",
+      "character": "vovochka-drug",
       "text": "Schade, Papa, dass du sie nicht hattest...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
@@ -80,23 +68,62 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "kukhnya",
       "cast": [
-        "muzhik-ryzhy",
+        "vovochka-drug",
         "muzhik",
-        "vovochka",
+        "muzhik-ryzhy",
         "muzhik-sosed"
       ],
       "roles": {
-        "muzhik-ryzhy": "friend",
+        "vovochka-drug": "child",
         "muzhik": "father",
-        "vovochka": "child",
+        "muzhik-ryzhy": "everyman",
         "muzhik-sosed": "friend"
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "playing-cards",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "playing-cards",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "playing-cards",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -107,12 +134,22 @@
           "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "playing-cards",
+          "action": "drop"
         },
         {
-          "type": "line",
-          "ref": "l5"
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "playing-cards",
+          "action": "drop"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "playing-cards",
+          "action": "put"
         },
         {
           "type": "prop",
@@ -122,7 +159,11 @@
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

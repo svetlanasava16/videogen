@@ -6,12 +6,12 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "sluzhivy",
-    "nachalnik"
+    "nachalnik",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "police-officer",
-    "nachalnik": "lawyer"
+    "nachalnik": "lawyer",
+    "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Ich habe nicht die leiseste Ahnung.",
+      "text": "Nicht die leiseste Ahnung.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,50 +44,32 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Sie haben am Stoppschild da hinten nicht vollständig angehalten. Sie haben nur abgebremst.",
+      "text": "Sie haben da hinten am Stoppschild nicht vollständig angehalten. Sie haben nur abgebremst.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Der Anwalt überlegt ein paar Sekunden.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "character": "nachalnik",
+      "text": "Wenn Sie mir den Unterschied zwischen Anhalten und Abbremsen beweisen können, übernehme ich die volle Verantwortung.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Wenn Sie mir den Unterschied zwischen Anhalten und Abbremsen beweisen können, übernehme ich die volle Verantwortung.",
+      "text": "Andernfalls lassen Sie mich mit einer Verwarnung davonkommen. Klingt fair?",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "nachalnik",
-      "text": "Ansonsten lassen Sie mich mit einer Verwarnung davonkommen. Klingt fair?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
-      "character": "narrator",
-      "text": "Der Polizist überlegt kurz und nickt.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
       "character": "sluzhivy",
       "text": "Klingt fair. Würden Sie bitte aus dem Auto steigen?",
       "emotion": "neutral",
@@ -96,16 +78,16 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l8",
       "character": "narrator",
-      "text": "Kaum ist der Anwalt ausgestiegen und hat die Tür zugeschlagen, zieht der Polizist seinen Schlagstock und prügelt auf ihn ein.",
-      "emotion": "surprised",
-      "pauseAfterSec": 1,
+      "text": "Kaum ist der Anwalt ausgestiegen und hat die Autotür zugeschlagen, zieht der Polizist seinen Schlagstock und prügelt auf ihn ein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l9",
       "character": "sluzhivy",
       "text": "So, soll ich jetzt anhalten oder abbremsen?",
       "emotion": "smug",
@@ -120,12 +102,12 @@
     {
       "location": "doroga",
       "cast": [
-        "sluzhivy",
-        "nachalnik"
+        "nachalnik",
+        "sluzhivy"
       ],
       "roles": {
-        "sluzhivy": "police-officer",
-        "nachalnik": "lawyer"
+        "nachalnik": "lawyer",
+        "sluzhivy": "traffic-cop"
       },
       "looks": {
         "sluzhivy": {
@@ -176,25 +158,27 @@
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
           "type": "move",
           "who": "nachalnik",
           "to": "center"
         },
         {
-          "type": "line",
-          "ref": "l10"
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "cane",
+          "action": "hold"
         },
         {
           "type": "line",
-          "ref": "l11"
+          "ref": "l8"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

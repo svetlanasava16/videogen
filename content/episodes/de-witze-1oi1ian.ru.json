@@ -31,17 +31,14 @@
       "text": "Вдруг мимо проезжает полицейский на лошади. Он останавливает девочку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy",
-        "loshad"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "Ну что, Дед Мороз подарил тебе на Новый год велосипед?",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -58,16 +55,16 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Вот здорово.",
+      "text": "Вот это здорово.",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Но, к сожалению, мне придётся выписать тебе штраф: Дед Мороз забыл поставить на твой велосипед отражатели.",
+      "text": "Но, к сожалению, мне придётся выписать тебе штраф, потому что Дед Мороз забыл поставить на твой велосипед отражатели.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -85,17 +82,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Полицейский улыбается и кивает.",
+      "text": "Полицейский улыбается и утвердительно кивает.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "devochka",
-      "text": "Ну тогда передайте Деду Морозу в следующем году, что задница бывает сзади, а не сверху!",
-      "uncensored": "Ну тогда передайте Деду Морозу в следующем году, что жопа бывает сзади, а не сверху!",
+      "text": "Ну тогда скажите Деду Морозу в следующем году, что задница ставится сзади, а не сверху!",
+      "uncensored": "Ну тогда скажите Деду Морозу в следующем году, что жопа ставится сзади, а не сверху!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -104,6 +101,89 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "devochka",
+        "sluzhivy",
+        "loshad"
+      ],
+      "roles": {
+        "devochka": "child",
+        "sluzhivy": "police-officer",
+        "loshad": "horse"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "left"
+        },
+        {
+          "type": "prop",
+          "who": "devochka",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "loshad",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "bill",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

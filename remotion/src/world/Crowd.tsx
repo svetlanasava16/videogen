@@ -10,6 +10,8 @@ const ADULT = ["man", "woman", "old-man", "old-woman"];
 const KIDS = ["boy", "girl"];
 /** Кто в массовке дети. */
 const KID_CROWDS = ["pupils", "children", "kids", "students-school", "class"];
+/** Массовка-животные: who → вид фигуры. */
+const ANIMAL_CROWDS: Record<string, string> = { penguins: "penguin", dogs: "dog", cats: "cat", cows: "cow", birds: "bird", parrots: "bird", horses: "horse" };
 
 function hash(s: string) {
   let h = 2166136261;
@@ -19,10 +21,13 @@ function hash(s: string) {
 
 /** Фигуры массовки: базы существующих кукол нужного возраста, без аксессуаров, в своей одежде. */
 function figures(spec: CrowdSpec, seed: string): Look[] {
-  const kinds = KID_CROWDS.includes(spec.who) ? KIDS : ADULT;
+  // массовка из животных: penguins, dogs, cows, birds… — фигуры этого вида без смены окраса
+  const animal = ANIMAL_CROWDS[spec.who];
+  const kinds = animal ? [animal] : KID_CROWDS.includes(spec.who) ? KIDS : ADULT;
   const pool = Object.values(characters)
     .filter((c) => kinds.includes(c.look.kind))
     .map((c) => lookForRole(c));
+  if (animal) return Array.from({ length: spec.size === "few" ? 4 : 7 }, (_, i) => pool[hash(`${seed}:${i}`) % Math.max(1, pool.length)]).filter(Boolean);
   if (!pool.length) return [];
   const n = spec.size === "few" ? 4 : 7;
   return Array.from({ length: n }, (_, i) => {

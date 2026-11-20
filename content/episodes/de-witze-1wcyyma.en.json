@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A cyclist is leisurely weaving from side to side right in front of a tram. The tram driver curses and fumes.",
+      "text": "A cyclist is leisurely weaving back and forth right in front of a tram.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
       "character": "muzhik-ryzhy",
       "text": "You brainless idiot, you! Can't you ride somewhere else?",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -44,6 +44,40 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik-ryzhy",
+        "paren"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "paren": "athlete"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bicycle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

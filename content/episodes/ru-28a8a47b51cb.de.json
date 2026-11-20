@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine Frau bekam von ihrem Liebhaber einen Nerzmantel geschenkt.",
+      "text": "Ihr Liebhaber hat einer Frau einen Nerzmantel geschenkt. Sie überlegt, wie sie es ihrem Mann sagen soll. Sie überlegte und überlegte und hatte eine Idee.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Sie überlegt, wie sie es ihrem Mann sagen soll. Sie dachte und dachte und hatte eine Idee.",
-      "emotion": "neutral",
+      "character": "zhena",
+      "text": "Liebling, stell dir vor, ich habe auf der Straße einen Schein von der Gepäckaufbewahrung gefunden.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,26 +35,26 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Schatz, stell dir vor, ich habe auf der Straße einen Schein von der Gepäckaufbewahrung gefunden.",
-      "emotion": "happy",
+      "text": "Geh doch mal zum Bahnhof, Schatz, vielleicht ist da was Schönes drin.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "zhena",
-      "text": "Geh doch mal zum Bahnhof, Liebling, vielleicht ist da was Schönes drin.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "Der Mann geht mit dem Schein los, kommt dann zurück und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Umsonst hingegangen. Irgendeine alte Tasche mit stinkenden Lumpen.",
-      "emotion": "sad",
+      "text": "Umsonst gelaufen. Irgendeine alte Tasche mit stinkenden Lumpen.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -93,13 +93,9 @@
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
           "type": "move",
           "who": "zhena",
-          "to": "door",
+          "to": "left",
           "from": "off-left"
         },
         {
@@ -110,7 +106,7 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l2"
         },
         {
           "type": "prop",
@@ -121,36 +117,21 @@
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l3"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "off-left"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena",
-        "muzhik"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
-      },
-      "beats": [
+        },
         {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -158,7 +139,7 @@
           "ref": "l5"
         }
       ],
-      "transition": "wipe"
+      "transition": "cut"
     },
     {
       "location": "ofis",
@@ -172,8 +153,9 @@
       },
       "looks": {
         "devushka-blondinka": {
-          "clothes": "#7a5230",
-          "add": [],
+          "add": [
+            "fur-coat"
+          ],
           "remove": []
         }
       },

@@ -2,7 +2,7 @@
   "id": "ru-97e1919afab9.de",
   "jokeId": "ru-97e1919afab9",
   "locale": "de",
-  "title": "Ewiges Bier",
+  "title": "Der ewige Kanister",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -13,19 +13,11 @@
     "muzhik": "everyman",
     "chort": "genie"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Sommer, Sonne, Hitze. Ein Mann kommt aus der Sauna, mit einem Kanister Bier. Er freut sich schon auf ein kaltes Bier zu Hause.",
+      "text": "Sommer, Sonne, Hitze... Ein Mann kommt mit einem Kanister Bier aus der Sauna. Er freut sich schon auf ein kaltes Bierchen zu Hause...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Auf der Straße liegt eine Flasche. Der Mann tritt dagegen, und sie zerschellt an einem Stein.",
+      "text": "Auf der Straße liegt eine Flasche, der Mann tritt dagegen, und sie zerschellt an einem Stein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,35 +38,31 @@
       "text": "Wie üblich: ein Dschinn, ein Wunsch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "chort"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ich will, dass das Bier in meinem Kanister nie ausgeht.",
+      "text": "Ich will, dass das Bier im Kanister nie ausgeht.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Dschinn zaubert und verschwindet.",
+      "text": "Der Dschinn zaubert ein bisschen und verschwindet.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
-      "exit": [
-        "chort"
-      ]
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Und der Mann versucht bis heute, den Kanister aufzukriegen.",
+      "text": "Und der Mann versucht bis heute, den Kanister aufzumachen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -83,6 +71,77 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "genie"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "canister",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

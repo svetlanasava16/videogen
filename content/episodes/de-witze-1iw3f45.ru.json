@@ -6,9 +6,13 @@
   "location": "ulitsa",
   "place": "park",
   "cast": [
+    "pyos-dalmatin",
+    "pyos-pudel",
     "pyos"
   ],
   "roles": {
+    "pyos-dalmatin": "dog",
+    "pyos-pudel": "dog",
     "pyos": "dog"
   },
   "lines": [
@@ -23,8 +27,8 @@
     },
     {
       "id": "l2",
-      "character": "pyos",
-      "text": "Добрый день. Меня зовут Антониус фон Когтенберг.",
+      "character": "pyos-dalmatin",
+      "text": "Добрый день. Меня зовут Антониус фон Кралленберг.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -32,7 +36,7 @@
     },
     {
       "id": "l3",
-      "character": "pyos",
+      "character": "pyos-dalmatin",
       "text": "Я происхожу из древнего дворянского рода.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
@@ -41,16 +45,16 @@
     },
     {
       "id": "l4",
-      "character": "pyos",
-      "text": "Как и мои предки, я тоже живу подле герцога.",
-      "emotion": "neutral",
+      "character": "pyos-dalmatin",
+      "text": "Как и мои предки, я живу при герцоге.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "pyos",
+      "character": "pyos-pudel",
       "text": "Меня зовут Изабелла фон Хундсмарк.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
@@ -59,8 +63,8 @@
     },
     {
       "id": "l6",
-      "character": "pyos",
-      "text": "Как уже понятно по звучанию моего имени, я тоже происхожу из древнего дворянского рода.",
+      "character": "pyos-pudel",
+      "text": "Как уже понятно по звучанию моего имени, я тоже из старинного дворянского рода.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -68,9 +72,9 @@
     },
     {
       "id": "l7",
-      "character": "pyos",
-      "text": "Как и мои предки, я — гордость графа.",
-      "emotion": "happy",
+      "character": "pyos-pudel",
+      "text": "Как и мои предки, я гордость графа.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -78,7 +82,7 @@
     {
       "id": "l8",
       "character": "pyos",
-      "text": "Йоу, друзья, хозяин обычно зовёт меня просто Шарик.",
+      "text": "Йо, друзья, хозяин обычно зовёт меня просто Шарик.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -96,7 +100,7 @@
     {
       "id": "l10",
       "character": "pyos",
-      "text": "Моё полное имя — Шарик-слезь-с-дивана.",
+      "text": "Моё полное имя: Шарик, слезь с дивана!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -110,16 +114,25 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
+        "pyos-dalmatin",
+        "pyos-pudel",
         "pyos"
       ],
       "roles": {
+        "pyos-dalmatin": "dog",
+        "pyos-pudel": "dog",
         "pyos": "dog"
       },
       "looks": {
-        "pyos": {
+        "pyos-dalmatin": {
           "add": [
-            "collar",
-            "monocle"
+            "collar"
+          ],
+          "remove": []
+        },
+        "pyos-pudel": {
+          "add": [
+            "bows"
           ],
           "remove": []
         }
@@ -140,29 +153,7 @@
         {
           "type": "line",
           "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "place": "park",
-      "cast": [
-        "pyos"
-      ],
-      "roles": {
-        "pyos": "dog"
-      },
-      "looks": {
-        "pyos": {
-          "add": [
-            "bows",
-            "earrings"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l5"
@@ -174,28 +165,7 @@
         {
           "type": "line",
           "ref": "l7"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "place": "park",
-      "cast": [
-        "pyos"
-      ],
-      "roles": {
-        "pyos": "dog"
-      },
-      "looks": {
-        "pyos": {
-          "add": [
-            "flat-cap"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l8"

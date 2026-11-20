@@ -2,22 +2,24 @@
   "id": "ru-243e78289f74.de",
   "jokeId": "ru-243e78289f74",
   "locale": "de",
-  "title": "Die Teigtaschen",
+  "title": "Teigtaschen",
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
-    "devochka"
+    "devochka",
+    "muzhik"
   ],
   "roles": {
     "zhena": "mother",
-    "devochka": "daughter"
+    "devochka": "daughter",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Es war einmal ein Mädchen, das verdammt noch mal gar nichts sah. Kurz gesagt: blind.",
+      "text": "Es war einmal ein Mädchen, das verdammt noch mal gar nichts sehen konnte. Kurz gesagt: blind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Jedes Mal beim Essen betastete das Mädchen lange ihren Teller und jammerte:",
+      "text": "Jedes Mal, wenn sich die Familie an den Tisch setzte und Mama das Essen auftrug, betastete das Mädchen lange ihren Teller mit den Händen und jammerte jedes Mal:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +37,7 @@
     {
       "id": "l3",
       "character": "devochka",
-      "text": "Na klar, wie immer habt ihr mir am wenigsten gegeben!",
+      "text": "Na toll, wie immer hab ich am wenigsten gekriegt!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +46,8 @@
     {
       "id": "l4",
       "character": "devochka",
-      "text": "Weil ich nichts sehe, kann man mich ja benachteiligen! Geizkragen...",
-      "emotion": "sad",
+      "text": "Weil ich nichts sehe, kann man mich ja übers Ohr hauen! Geizhälse...",
+      "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -53,7 +55,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Mama reichte es, und sie beschloss, sich bei einem Psychologen Rat zu holen.",
+      "text": "Mama hatte das satt und ging zu einem Psychologen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +64,7 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Kochen Sie einen ganzen Bottich Teigtaschen! So viel wie für eine Hochzeit. Und dann soll sie essen!",
+      "text": "Kochen Sie eine ganze Wanne voll Teigtaschen! Wie für eine Hochzeit. Und dann soll sie essen!",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -71,7 +73,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Am nächsten Tag stellt die Mama dem Mädchen einen riesigen Kübel Teigtaschen hin.",
+      "text": "Am nächsten Tag deckt Mama den Tisch und stellt dem Mädchen einen ganzen Eimer Teigtaschen hin.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -80,17 +82,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Das Mädchen betastet die ordentliche Portion lange mit den Händen und sagt:",
+      "text": "Das Mädchen setzt sich, zieht die riesige Portion zu sich, betastet sie lange und sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "devochka",
-      "text": "Ich stell mir vor, wie verdammt viel ihr euch selbst aufgetan habt...",
-      "emotion": "surprised",
+      "text": "Ich kann mir vorstellen, wie viel ihr euch verdammt noch mal selbst aufgeschaufelt habt...",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -103,11 +105,13 @@
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -126,8 +130,18 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
         },
         {
           "type": "line",
@@ -144,10 +158,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -164,21 +174,38 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l6"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     },
     {
       "location": "kukhnya",
       "cast": [
         "zhena",
-        "devochka"
+        "devochka",
+        "muzhik"
       ],
       "roles": {
         "zhena": "mother",
-        "devochka": "daughter"
+        "devochka": "daughter",
+        "muzhik": "father"
       },
       "looks": {
         "zhena": {
@@ -197,12 +224,34 @@
       "beats": [
         {
           "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
           "who": "devochka",
           "to": "table"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "bucket",
+          "action": "put"
         },
         {
           "type": "line",
@@ -213,7 +262,7 @@
           "ref": "l9"
         }
       ],
-      "transition": "flyover"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

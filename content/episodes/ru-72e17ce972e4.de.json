@@ -6,10 +6,12 @@
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "pyos"
+    "pyos",
+    "pyos-dalmatin"
   ],
   "roles": {
-    "pyos": "dog"
+    "pyos": "dog",
+    "pyos-dalmatin": "dog"
   },
   "lines": [
     {
@@ -17,7 +19,7 @@
       "character": "narrator",
       "text": "Ein Hund gräbt im Schrebergarten die Erde um. Mit einem Spaten.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -26,14 +28,14 @@
       "character": "narrator",
       "text": "Der Nachbarshund starrt ihn fassungslos an.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "pyos",
-      "text": "Und alles fing damit an, dass ich Idiot gelernt habe, Pantoffeln zu bringen...",
+      "text": "Und alles fing damit an, dass ich Dummkopf gelernt habe, Pantoffeln zu bringen...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -42,6 +44,51 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "garden",
+      "cast": [
+        "pyos",
+        "pyos-dalmatin"
+      ],
+      "roles": {
+        "pyos": "dog",
+        "pyos-dalmatin": "dog"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "pyos-dalmatin",
+          "to": "fence"
+        },
+        {
+          "type": "prop",
+          "who": "pyos",
+          "item": "shovel",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

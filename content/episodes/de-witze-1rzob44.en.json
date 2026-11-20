@@ -15,32 +15,23 @@
     "barmen": "salesman",
     "ptitsa": "parrot"
   },
-  "looks": {
-    "ptitsa": {
-      "clothes": "#8a8a7a",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A customer walks into a pet shop.",
+      "text": "A customer walks into a pet shop and asks:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "How much is this parrot here?",
+      "text": "How much is that parrot there?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -55,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Why is he so expensive?",
+      "text": "Why is it so expensive?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +55,7 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "He's a very gifted bird. He speaks fluently and can count to a hundred.",
+      "text": "That's a very gifted bird. He speaks fluently and can count to a hundred.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -100,9 +91,9 @@
     {
       "id": "l9",
       "character": "barmen",
-      "text": "Oh, he's an even more gifted bird. He speaks three languages fluently and knows the complete works of Shakespeare by heart!",
+      "text": "Oh, that's an even more gifted bird. He speaks three languages fluently and knows the complete works of Shakespeare by heart!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -118,8 +109,8 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "And the one back there, surely he costs a lot less?",
-      "emotion": "smug",
+      "text": "And the one back there, that one must cost a lot less, surely?!",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -127,7 +118,7 @@
     {
       "id": "l12",
       "character": "barmen",
-      "text": "No, he costs three thousand dollars.",
+      "text": "No, that one costs three thousand dollars.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -136,17 +127,17 @@
     {
       "id": "l13",
       "character": "muzhik",
-      "text": "Excuse me? What can he do?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Excuse me? What can he do?!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l14",
       "character": "barmen",
-      "text": "I don't know either. He's never said a word, but the other two call him boss.",
-      "emotion": "sad",
+      "text": "I don't know either. He's never said a word, but the other two call him 'Boss'.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -154,6 +145,122 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik",
+        "barmen",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "salesman",
+        "ptitsa": "parrot"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#8a8a7a",
+          "skin": "#8a8a7a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "put"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "birdcage",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Fährt ein dicker Mercedes, und hinter ihm ein Krankenwagen und die Feuerwehr.",
+      "text": "Fährt also ein dicker Mercedes, und dahinter ein Krankenwagen und die Feuerwehr.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Wie üblich wird er an der Polizeikontrolle angehalten, und gleich hinter ihm halten auch der Krankenwagen und die Feuerwehr.",
+      "text": "Wie es sich gehört, wird er an der Verkehrskontrolle angehalten, und sofort halten auch Krankenwagen und Feuerwehr.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Warum halten Sie denn an? Fahren Sie weiter, ich habe nur den Mercedes angehalten.",
+      "text": "Und warum halten Sie an? Fahren Sie weiter, ich hab nur den Mercedes angehalten.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +48,8 @@
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": []
+      "exit": [],
+      "laugh": "chuckle"
     },
     {
       "id": "l5",
@@ -64,7 +65,7 @@
       "character": "nachalnik",
       "text": "Na, wegen euch Parasiten!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -80,6 +81,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "nachalnik": "new-russian"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "car"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,7 +2,7 @@
   "id": "de-witze-1vhh6l7.ru",
   "jokeId": "de-witze-1vhh6l7",
   "locale": "ru",
-  "title": "Тогда в Париже",
+  "title": "Париж",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "ded",
-      "text": "Внучок, вы сейчас вообще не умеете по-настоящему гулять.",
+      "text": "Сынок, вы сейчас вообще не умеете как следует гулять.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Когда мы тогда были в Париже, мы пили до упаду, снимали самых красивых женщин, жрали без конца.",
+      "text": "Когда мы тогда были в Париже, мы пили до упаду, снимали самых красивых женщин, жрали без конца,",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "В кафе мочились на стойку, разносили всё в щепки, дрались и смывались, не заплатив.",
+      "text": "мочились на стойку в кафе, разносили всё в щепки, дрались и смывались, не заплатив.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Внучок, что же с тобой случилось?",
+      "text": "Сынок, что это с тобой случилось?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Я сделал ровно то, что ты рассказывал.",
+      "text": "Я сделал всё точно так, как ты рассказывал.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,14 +82,14 @@
       "character": "paren",
       "text": "С парой приятелей.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "ded",
-      "text": "Внучок... я-то там тогда был с эсэсовцами!",
+      "text": "Сынок… я-то ведь тогда был там с эсэсовцами!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -131,11 +131,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -149,6 +144,15 @@
       "roles": {
         "ded": "grandpa",
         "paren": "relative"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "black-eye",
+            "bandages"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -164,7 +168,7 @@
           "type": "move",
           "who": "paren",
           "to": "center",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

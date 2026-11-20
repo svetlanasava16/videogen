@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "On Friday night I rode my bike to the liquor store, bought a bottle of whiskey and put it in my bike basket.",
+      "text": "On Friday evening I rode my bike to the liquor store, bought a bottle of whiskey and put it in my bike basket.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,7 +25,7 @@
       "id": "l2",
       "character": "muzhik",
       "text": "Before riding off, I thought that if I fell off the bike, the bottle would break.",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -42,7 +42,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "And you know, it was a damn smart decision, because I fell off seven times on the way home.",
+      "text": "And you know, it was a damn good decision, because I fell off seven times on the way home.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -77,12 +77,18 @@
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "bottle",
+          "item": "bicycle",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -107,12 +113,20 @@
         "muzhik": {
           "add": [
             "helmet",
-            "red-nose"
+            "red-nose",
+            "black-eye",
+            "bandages"
           ],
           "remove": []
         }
       },
       "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bicycle",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l4"

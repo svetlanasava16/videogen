@@ -2,26 +2,24 @@
   "id": "de-witze-1i42ee2.ru",
   "jokeId": "de-witze-1i42ee2",
   "locale": "ru",
-  "title": "Женщина с ребёнком",
+  "title": "Ребёнок в автобусе",
   "location": "doroga",
   "place": "bus",
   "cast": [
-    "muzhik-ryzhy",
+    "ded",
     "zhena",
-    "vovochka",
-    "ded"
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "driver",
+    "ded": "old-man",
     "zhena": "mother",
-    "vovochka": "child",
-    "ded": "old-man"
+    "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Женщина с младенцем сидит в конце автобуса.",
+      "text": "Женщина сидит со своим младенцем в самом конце автобуса.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,36 +27,36 @@
     },
     {
       "id": "l2",
-      "character": "narrator",
-      "text": "Вдруг рядом с ней садится пожилой мужчина, смотрит на ребёнка и говорит ей:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "ded",
-      "text": "Какой же у вас на редкость уродливый ребёнок!",
+      "text": "А ребёнок-то у вас на редкость уродливый!",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "narrator",
-      "text": "Женщина совсем растерялась и не знает, как реагировать. Возмущённая, она идёт к водителю и говорит:",
+      "text": "Женщина совершенно растеряна и не знает, как реагировать.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "zhena",
-      "text": "Вон тот тип сзади только что взял и оскорбил моего ребёнка!",
+      "text": "Вон тот тип сзади только что оскорбил моего ребёнка!",
       "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Что? Это никуда не годится!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -66,25 +64,16 @@
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Что? Это никуда не годится!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik-ryzhy",
-      "text": "Идите сейчас же к нему и выскажите ему всё как следует!",
+      "text": "Вы сейчас пойдёте туда и как следует выскажете ему всё, что думаете!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "muzhik-ryzhy",
-      "text": "А я пока подержу вашу обезьянку.",
+      "text": "А я пока подержу вашу обезьянку...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -98,16 +87,14 @@
       "location": "doroga",
       "place": "bus",
       "cast": [
-        "muzhik-ryzhy",
+        "ded",
         "zhena",
-        "vovochka",
-        "ded"
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "driver",
+        "ded": "old-man",
         "zhena": "mother",
-        "vovochka": "child",
-        "ded": "old-man"
+        "muzhik-ryzhy": "driver"
       },
       "looks": {
         "ded": {
@@ -115,23 +102,30 @@
             "flat-cap"
           ],
           "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "aerodrome-cap"
+          ],
+          "remove": []
         }
       },
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "roadside"
-        },
-        {
-          "type": "move",
           "who": "zhena",
-          "to": "center"
+          "to": "left"
         },
         {
           "type": "move",
-          "who": "vovochka",
-          "to": "right"
+          "who": "muzhik-ryzhy",
+          "to": "car"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "baby",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -140,8 +134,8 @@
         {
           "type": "move",
           "who": "ded",
-          "to": "car",
-          "from": "off-right"
+          "to": "roadside",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -152,18 +146,13 @@
           "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
           "type": "move",
           "who": "zhena",
-          "to": "left"
+          "to": "right"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "center"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
@@ -176,10 +165,6 @@
         {
           "type": "line",
           "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
         }
       ],
       "transition": "cut"

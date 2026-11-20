@@ -15,22 +15,6 @@
     "paren": "lawyer",
     "barmen": "bartender"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie",
-        "glasses"
-      ],
-      "remove": []
-    },
-    "barmen": {
-      "add": [
-        "apron",
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -38,10 +22,7 @@
       "text": "Два адвоката заходят в кафе, заказывают напитки и достают бутерброды.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik",
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -49,15 +30,24 @@
       "character": "barmen",
       "text": "Извините, но у нас нельзя есть свою еду.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Адвокаты переглядываются, пожимают плечами и меняются своими бутербродами...",
-      "emotion": "smug",
+      "text": "Адвокаты переглядываются, пожимают плечами...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "...и меняются своими бутербродами...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -65,6 +55,105 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "nachalnik",
+        "paren",
+        "barmen"
+      ],
+      "roles": {
+        "nachalnik": "lawyer",
+        "paren": "lawyer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie",
+            "glasses"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron",
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "sandwich",
+          "action": "give",
+          "to": "paren"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

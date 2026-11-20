@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Фермер с сыном впервые приехали из деревни в новый торговый центр.",
+      "text": "Фермер с сыном впервые приехали из деревни на окраину города, в новый торговый центр.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,8 +52,7 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l5",
@@ -76,7 +75,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Тут открываются двери, старушка заходит в лифт, и двери закрываются.",
+      "text": "Но тут двери кабины открываются, старушка заходит в лифт, и двери закрываются.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -85,17 +84,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Отец и сын стоят как вкопанные.",
+      "text": "Отец и сын стоят как вкопанные и разглядывают эту штуку снаружи.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Через мгновение двери снова открываются, и оттуда выходит молодая красивая дама.",
-      "emotion": "neutral",
+      "text": "Через мгновение двери снова открываются, выходит молодая красивая дама и проходит прямо мимо ошарашенных деревенских.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -103,8 +102,8 @@
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Сынок, понятия не имею, что это за ящик, но ты сейчас же едешь обратно на ферму и привозишь сюда мать!",
-      "emotion": "surprised",
+      "text": "Сынок, понятия не имею, что это за ящик, но ты сейчас же едешь обратно на ферму и везёшь сюда мать!",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -196,23 +195,14 @@
           "ref": "l8"
         },
         {
-          "type": "pause",
-          "sec": 1
-        },
-        {
           "type": "line",
           "ref": "l9"
         },
         {
           "type": "move",
           "who": "devushka",
-          "to": "right",
+          "to": "off-left",
           "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "devushka",
-          "to": "off-left"
         },
         {
           "type": "line",

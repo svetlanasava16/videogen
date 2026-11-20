@@ -7,19 +7,19 @@
   "place": "road",
   "cast": [
     "sluzhivy",
-    "ptitsa",
+    "pingvin",
     "muzhik"
   ],
   "roles": {
     "sluzhivy": "traffic-cop",
-    "ptitsa": "bird",
-    "muzhik": "driver"
+    "pingvin": "penguin",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Однажды полицейский останавливает фургон. Подходит к окну и видит, что сзади сидят десять пингвинов.",
+      "text": "Однажды полицейский останавливает фургон, подходит к окну и видит, что сзади сидят десять пингвинов.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,14 +48,14 @@
       "character": "sluzhivy",
       "text": "Вам нужно немедленно отвезти их в зоопарк.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Мужик соглашается и уезжает. На следующий день полицейский останавливает тот же фургон, подходит к окну и видит десять пингвинов, и все в солнечных очках.",
+      "text": "Мужчина соглашается и уезжает.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -63,6 +63,15 @@
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "На следующий день полицейский останавливает тот же фургон, подходит к окну и видит десять пингвинов, и все в солнечных очках.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "sluzhivy",
       "text": "Я же сказал вам отвезти этих пингвинов в зоопарк.",
       "emotion": "angry",
@@ -71,7 +80,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
       "text": "Я и отвёз! А сегодня мы едем на пляж!",
       "emotion": "happy",
@@ -87,13 +96,13 @@
       "location": "doroga",
       "cast": [
         "sluzhivy",
-        "ptitsa",
+        "pingvin",
         "muzhik"
       ],
       "roles": {
         "sluzhivy": "traffic-cop",
-        "ptitsa": "bird",
-        "muzhik": "driver"
+        "pingvin": "penguin",
+        "muzhik": "everyman"
       },
       "beats": [
         {
@@ -103,7 +112,7 @@
         },
         {
           "type": "move",
-          "who": "ptitsa",
+          "who": "pingvin",
           "to": "right"
         },
         {
@@ -127,6 +136,20 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "pingvin",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -135,16 +158,16 @@
       "location": "doroga",
       "cast": [
         "sluzhivy",
-        "ptitsa",
+        "pingvin",
         "muzhik"
       ],
       "roles": {
         "sluzhivy": "traffic-cop",
-        "ptitsa": "bird",
-        "muzhik": "driver"
+        "pingvin": "penguin",
+        "muzhik": "everyman"
       },
       "looks": {
-        "ptitsa": {
+        "pingvin": {
           "add": [
             "dark-glasses"
           ],
@@ -159,7 +182,7 @@
         },
         {
           "type": "move",
-          "who": "ptitsa",
+          "who": "pingvin",
           "to": "right"
         },
         {
@@ -170,15 +193,15 @@
         },
         {
           "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
           "ref": "l6"
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "wipe"

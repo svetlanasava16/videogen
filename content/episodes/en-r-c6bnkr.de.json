@@ -2,39 +2,30 @@
   "id": "en-r-c6bnkr.de",
   "jokeId": "en-r-c6bnkr",
   "locale": "de",
-  "title": "Kümmer dich um deinen Kram",
+  "title": "Der Urgroßvater",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "vovochka",
-    "muzhik"
+    "muzhik",
+    "vovochka-drug"
   ],
   "roles": {
-    "vovochka": "child",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "vovochka-drug": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Ein Siebenjähriger sitzt auf einer Parkbank und isst einen Schokoriegel.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "So viele Schokoriegel zu essen ist ungesund.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "So viele Schokoriegel zu essen ist ungesund.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Mein Urgroßvater ist hundertfünf Jahre alt geworden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -42,17 +33,17 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "Und er hat so viel Schokolade gegessen?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "vovochka",
+      "id": "l4",
+      "character": "vovochka-drug",
       "text": "Nein. Aber er hat sich um seinen eigenen Mist gekümmert.",
       "uncensored": "Nein. Aber er hat sich um seinen eigenen Scheiß gekümmert.",
       "emotion": "smug",
@@ -68,23 +59,29 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "vovochka",
-        "muzhik"
+        "muzhik",
+        "vovochka-drug"
       ],
       "roles": {
-        "vovochka": "child",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "vovochka-drug": "child"
       },
       "beats": [
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "vovochka-drug",
           "to": "bench"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka-drug",
+          "item": "chocolate-bar",
+          "action": "hold"
         },
         {
           "type": "prop",
@@ -107,10 +104,6 @@
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "cut"

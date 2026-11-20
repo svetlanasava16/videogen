@@ -28,7 +28,7 @@
       "character": "zhena",
       "text": "Ха! Это не поможет.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [
         "zhena"
       ],
@@ -55,6 +55,51 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

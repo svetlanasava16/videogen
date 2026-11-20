@@ -7,11 +7,13 @@
   "place": "forest",
   "cast": [
     "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "uchilka"
   ],
   "roles": {
     "muzhik-ryzhy": "hunter",
-    "muzhik": "hunter"
+    "muzhik": "hunter",
+    "uchilka": "operator"
   },
   "lines": [
     {
@@ -68,19 +70,34 @@
       "place": "forest",
       "cast": [
         "muzhik-ryzhy",
-        "muzhik"
+        "muzhik",
+        "uchilka"
       ],
       "roles": {
         "muzhik-ryzhy": "hunter",
-        "muzhik": "hunter"
+        "muzhik": "hunter",
+        "uchilka": "operator"
       },
       "looks": {
         "muzhik": {
+          "clothes": "#4a6b3a",
           "add": [
             "tyrolean-hat"
           ],
           "remove": []
+        },
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
         }
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "uchilka"
+        ]
       },
       "beats": [
         {
@@ -96,63 +113,26 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "uchilka"
-      ],
-      "roles": {
-        "uchilka": "operator"
-      },
-      "looks": {
-        "uchilka": {
-          "add": [
-            "headset"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "derevnya",
-      "place": "forest",
-      "cast": [
-        "muzhik-ryzhy",
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik-ryzhy": "hunter",
-        "muzhik": "hunter"
-      },
-      "looks": {
-        "muzhik": {
-          "add": [
-            "tyrolean-hat"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+        },
         {
           "type": "prop",
           "who": "muzhik-ryzhy",
-          "item": "phone",
+          "item": "rifle",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "line",

@@ -19,7 +19,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man walks into an antique shop, glances lazily at the counter and is about to leave.",
+      "text": "A man walked into an antique shop, glanced listlessly at the counter, and was about to leave.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Suddenly he sees a kitty by the door drinking milk, and the saucer, holy smokes, is Tutankhamun! Ancient Egypt, fourteenth century before Christ!",
+      "text": "Suddenly he sees a kitty by the door drinking milk, and the saucer is Tutankhamun! Fourteenth century BC!",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Excuse me, I'm a lonely man, I have no friends...",
+      "text": "Excuse me, I'm a lonely man, I live without friends...",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "And your kitty has really taken my fancy... Could you let me have her?",
+      "text": "And I've taken such a liking to your kitty... Could you let me have him?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
     {
       "id": "l5",
       "character": "barmen",
-      "text": "No, no. My kids love her so much.",
+      "text": "No, no. My kids love him so much.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -73,7 +73,7 @@
     {
       "id": "l7",
       "character": "barmen",
-      "text": "No, no, she's not for sale.",
+      "text": "No, no, he's not for sale.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -82,17 +82,17 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "In the end they settle on a hundred and fifty dollars.",
+      "text": "In the end they settled on a hundred and fifty dollars.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Your kitty must be used to drinking from this saucer, would you let me have it?",
-      "emotion": "happy",
+      "text": "Your kitty is probably used to drinking from this saucer, would you let me have it?",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -110,7 +110,7 @@
       "id": "l11",
       "character": "muzhik",
       "text": "I'll give you ten dollars for it...",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -118,8 +118,8 @@
     {
       "id": "l12",
       "character": "barmen",
-      "text": "Oh, come on, this is Tutankhamun, fourteenth century before Christ...",
-      "emotion": "surprised",
+      "text": "Oh, come on, that's Tutankhamun, fourteenth century BC...",
+      "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
@@ -127,7 +127,7 @@
     {
       "id": "l13",
       "character": "barmen",
-      "text": "I've already sold eighty-seven kitties this way...",
+      "text": "I've sold eighty-seven kitties this way...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -165,17 +165,23 @@
         },
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "shelf"
-        },
-        {
-          "type": "move",
           "who": "barmen",
           "to": "counter"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "shelf"
         },
         {
           "type": "line",
@@ -210,12 +216,18 @@
           "type": "prop",
           "who": "muzhik",
           "item": "money",
-          "action": "give",
-          "to": "barmen"
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "give",
+          "to": "barmen"
         },
         {
           "type": "move",
