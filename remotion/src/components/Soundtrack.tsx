@@ -3,6 +3,7 @@ import type { buildTimeline } from "../timeline";
 
 type TL = ReturnType<typeof buildTimeline>;
 
+const VOICE_VOL = 1;
 const LAUGH_VOL = 0.7;
 const MUSIC_VOL = 0.1;
 const MUSIC_DUCKED = 0.05;
@@ -29,6 +30,11 @@ export const Soundtrack = ({ tl }: { tl: TL }) => {
           volume={musicVolume}
         />
       )}
+      {tl.lines.filter((l) => l.audioFile).map((l) => (
+        <Sequence key={`v-${l.id}`} from={l.startFrame} layout="none">
+          <Html5Audio src={staticFile(l.audioFile!)} volume={VOICE_VOL} />
+        </Sequence>
+      ))}
       {tl.laughs.map((c, i) => (
         <Sequence key={i} from={c.from} durationInFrames={c.frames} layout="none">
           <Html5Audio

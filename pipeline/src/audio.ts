@@ -20,7 +20,7 @@ const saveAudio = (clips: AudioClip[]) =>
   writeFileSync(LIB, JSON.stringify({ clips: [...clips].sort((a, b) => a.id.localeCompare(b.id)) }, null, 2) + "\n");
 
 /** ffmpeg/ffprobe из Remotion (своих бинарников в системе нет). */
-function tool(name: "ffmpeg" | "ffprobe", args: string[]) {
+export function tool(name: "ffmpeg" | "ffprobe", args: string[]) {
   const r = spawnSync("npx", ["remotion", name, ...args], { cwd: join(ROOT, "remotion"), encoding: "utf8" });
   if (r.status !== 0) throw new Error(`${name} failed: ${r.stderr?.slice(-800)}`);
   return r.stdout;

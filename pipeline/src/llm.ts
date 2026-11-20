@@ -9,7 +9,7 @@
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
 import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft, stagingProblems } from "@jf/core";
-import { existsSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
@@ -140,6 +140,13 @@ function materialize() {
   let n = 0;
   for (const d of rows) {
     if (d.adaptation === "unfit") continue;
+    // озвучку уже существующего эпизода сохраняем для реплик, чей текст и говорящий не изменились
+    const file = join(dir, `${d.id}.json`);
+    const prev = existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Episode) : undefined;
+    const voiced = (i: number, character: string, text: string) => {
+      const p = prev?.lines[i];
+      return p?.audio && p.character === character && p.text === text ? p.audio : undefined;
+    };
     const ep = Episode.parse({
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
       location: d.location === "none" ? "gostinaya" : d.location,
@@ -147,10 +154,11 @@ function materialize() {
       cast: d.cast, roles: d.roles,
       lines: d.lines.map((l, i) => ({
         id: `l${i + 1}`, character: l.character, text: l.text.trim(), emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
+        audio: voiced(i, l.character, l.text.trim()),
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),
     });
-    writeFileSync(join(dir, `${d.id}.json`), JSON.stringify(ep, null, 2) + "\n");
+    writeFileSync(file, JSON.stringify(ep, null, 2) + "\n");
     n++;
   }
   console.log(`${n} episodes → content/episodes/ (${rows.length - n} unfit skipped)`);

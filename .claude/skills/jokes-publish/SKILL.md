@@ -23,7 +23,20 @@ pnpm render <episodeId…> [--force]
 ```
 Output `renders/<episodeId>/<contentHash>.mp4` + a row in `renders`. The hash covers the episode, `content/audio.json`, `content/disclosure.json` and `remotion/src`, so a re-run only renders what changed. ~10 s per episode on the M4. macOS: headless Chrome hangs while the display sleeps — `render` holds `caffeinate -d`; if a manual `npx remotion …` times out on "Waiting for root component", wake the screen.
 
-## Publish
+## Manual Instagram posting (current mode: ig-ru, ig-en)
+Voice-over comes from the other computer through git (**jokes-voice**). Then:
+```bash
+git pull && pnpm db sync
+pnpm render --voiced --locale ru --top 30          # only fully voiced episodes; also writes <hash>.cover.jpg
+pnpm posts plan --account ig-ru --per-day 2 --days 14 --dry-run   # check captions, then without --dry-run
+pnpm board                                          # prints http://<mac>.local:4010/?t=<token> for the phone
+```
+- `posts plan` for video only takes renders with real voice (`--allow-silent` overrides — not for publishing).
+- Phone, same Wi-Fi: open the link once (token is remembered). Per card: watch → «Скачать видео» (Files → Save Video) → «Скопировать подпись» → Instagram Reel, turn on the AI label in Advanced settings, paste caption, cover from «Обложка» → post → back in the card «Опубликовано» (+ link). Later, in «Опубликовано», type the numbers (views, likes, comments, shares, saves) → `post_metrics`; `pnpm metrics report`.
+- Set a fixed `BOARD_TOKEN` in `.env` so the phone link survives restarts. The board must keep running only while posting.
+- Account handles: `content/accounts.json` (`ig-ru`, `ig-en` active), then `pnpm db sync`.
+
+## Publish via Postiz (later)
 ```bash
 pnpm posts accounts                                  # Postiz integrations → content/accounts.json (by handle), then set active, pnpm db sync
 pnpm posts plan --account yt-ru --per-day 2 --days 7 [--from 2026-12-01] [--kind video|story|text] --dry-run
@@ -38,7 +51,7 @@ pnpm posts list [--account yt-ru]
 - Planner: slots spread over the audience's daytime (`AUDIENCE` in `pipeline/src/publish/captions.ts`) with ±25 min jitter; no repeated episode per account; avoids the same backdrop or lead character in consecutive posts (YouTube "inauthentic content" policy).
 
 ## Disclosure rules (do not weaken)
-- Every caption ends with `content/disclosure.json` text for its language: AI voice, made by ANEK., fictional characters / coincidences, no intent to offend believers; translated jokes add the "translated with AI" line. The end card in the video repeats the short form; the ANEK. watermark stays on.
+- Every caption ends with `content/disclosure.json` text for its language: AI voice, made by ANEK., fictional characters / coincidences, no intent to offend believers; translated jokes add the "translated with AI" line; last line is the rights notice (`rights`: © 2026 ANEK., all rights reserved). Rights stay clean only if every input is ours or licensed: code-drawn art, CC0 sound, paid ElevenLabs voice, retold (not copied) joke texts. The end card in the video repeats the short form; the ANEK. watermark stays on.
 - AI flags: YouTube `made_with_ai` (→ containsSyntheticMedia), TikTok `video_made_with_ai` (→ is_aigc), X `made_with_ai`. Postiz has no AI field for Instagram/Threads — text only.
 - Changing disclosure text: bump `version` in `content/disclosure.json` (stored per post as `disclosure_version`).
 - Russian pool / VK: do not publish jokes mocking religious figures or sacred things (criminal art. 148 risk; a disclaimer does not protect). Add a `religious-target` label via **jokes-classify** before the first VK run. VK page > 10k subscribers must register with Roskomnadzor.

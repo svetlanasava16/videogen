@@ -1,7 +1,8 @@
 /**
  * Рендер эпизодов в MP4 и учёт в базе (таблица renders).
  *   pnpm render <episodeId…>                    — конкретные эпизоды
- *   pnpm render --top 10 --locale ru [--force]   — самые популярные анекдоты языка без актуального рендера
+ *   pnpm render --top 10 --locale ru [--voiced] [--force]   — самые популярные анекдоты языка без актуального рендера
+ *                                                (--voiced: только полностью озвученные эпизоды)
  * Файл: renders/<episodeId>/<contentHash>.mp4. contentHash = эпизод + звук + маркировка + код монтажа:
  * если ничего не менялось, рендер пропускается.
  * Рендерит Remotion CLI по заранее собранному бандлу (сборка один раз на запуск).
@@ -85,7 +86,12 @@ async function main() {
       const done = new Set(
         (await db.select({ e: T.renders.episodeId, h: T.renders.contentHash }).from(T.renders)).map((r) => `${r.e}:${r.h}`),
       );
-      ids = rows.map((r) => r.id).filter((id) => force || !done.has(`${id}:${renderHash(loadEpisode(id), codeHash)}`)).slice(0, top);
+      const voicedOnly = process.argv.includes("--voiced");
+      ids = rows
+        .map((r) => r.id)
+        .filter((id) => !voicedOnly || loadEpisode(id).lines.every((l) => l.audio))
+        .filter((id) => force || !done.has(`${id}:${renderHash(loadEpisode(id), codeHash)}`))
+        .slice(0, top);
     }
     if (explicit && !force) {
       const done = new Set((await db.select({ e: T.renders.episodeId, h: T.renders.contentHash }).from(T.renders)).map((r) => `${r.e}:${r.h}`));
@@ -115,6 +121,8 @@ async function main() {
       const t0 = Date.now();
       try {
         remotion(["render", bundleDir, "Joke", out, `--props=${episodePath(id)}`, "--codec=h264"]);
+        // обложка Reel рядом с видео
+        remotion(["still", bundleDir, "Cover", join(ROOT, "renders", id, `${hash}.cover.jpg`), `--props=${episodePath(id)}`, "--image-format=jpeg", "--jpeg-quality=90"]);
       } catch (e) {
         console.error(`${id}: ${(e as Error).message}`);
         continue;
@@ -122,7 +130,7 @@ async function main() {
       const row = {
         episodeId: id, path: rel, sha256: sha(readFileSync(out)), bytes: statSync(out).size,
         durationSec: Math.round(framesOf(out) * 100) / 100, width: ep.format.width, height: ep.format.height, fps: ep.format.fps,
-        contentHash: hash, gitSha, musicAssetId: musicId(ep) ? `audio:${musicId(ep)}` : null, voice: ep.lines.some((l) => l.audio) ? "tts" : "none",
+        contentHash: hash, gitSha, musicAssetId: musicId(ep) ? `audio:${musicId(ep)}` : null, voice: ep.lines.find((l) => l.audio)?.audio?.provider ?? "none",
       };
       if (exists.length) await db.update(T.renders).set(row).where(inArray(T.renders.id, exists.map((e) => e.id)));
       else await db.insert(T.renders).values(row);

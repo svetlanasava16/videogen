@@ -28,6 +28,7 @@ export const EndCard = ({ from, frames, locale }: { from: number; frames: number
           ANEK<span style={{ color: "#ffd400" }}>.</span>
         </div>
         <div style={{ fontSize: 44, fontWeight: 600, opacity: 0.85, marginTop: 24 }}>{disclosure.card[locale]}</div>
+        <div style={{ fontSize: 32, fontWeight: 500, opacity: 0.6, marginTop: 18 }}>{disclosure.copyright}</div>
       </div>
     </AbsoluteFill>
   );

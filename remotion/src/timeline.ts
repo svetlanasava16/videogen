@@ -11,6 +11,8 @@ export type TimedLine = {
   startFrame: number;
   endFrame: number; // конец речи (без паузы)
   words: { text: string; startFrame: number; endFrame: number }[];
+  /** Файл озвучки (относительно public/), если реплика озвучена. */
+  audioFile?: string;
 };
 
 /** Переход куклы: вход (0→1) или уход (1→0) на отрезке кадров. */
@@ -58,6 +60,7 @@ export function buildTimeline(ep: Episode) {
       startFrame: f(t),
       endFrame: f(t + dur),
       words: words.map((w) => ({ text: w.text, startFrame: f(t + w.start), endFrame: f(t + w.end) })),
+      audioFile: l.audio?.file,
     };
     t += dur;
     const want = laughOf[i];

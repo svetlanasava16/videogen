@@ -13,6 +13,9 @@ export type Disclosure = {
   video: Record<Locale, string>;
   text: Record<Locale, string>;
   translated: Record<Locale, string>;
+  rights: Record<Locale, string>;
+  copyright: string;
+  instagram: Record<Locale, string[]>;
   hashtags: Record<Locale, string[]>;
 };
 export const disclosure = (): Disclosure => JSON.parse(readFileSync(join(ROOT, "content", "disclosure.json"), "utf8"));
@@ -35,9 +38,9 @@ export function caption(ep: Episode, platform: Platform, kind: Kind, opts: { tra
   const note = [kind === "text" ? d.text[ep.locale] : d.video[ep.locale], opts.translated ? d.translated[ep.locale] : ""].filter(Boolean).join(" ");
   if (kind === "text") {
     const body = opts.originalText && !opts.translated ? opts.originalText.trim() : jokeText(ep);
-    return `${body}\n\n${note}`;
+    return `${body}\n\n${note}\n${d.rights[ep.locale]}`;
   }
-  return `${ep.title}\n\n${tags}\n\n${note}`;
+  return `${ep.title}\n\n${tags}\n\n${note}\n\n${d.rights[ep.locale]}`;
 }
 
 /** provider settings для Postiz (поля сверены с DTO Postiz). Флаги ИИ включены везде, где площадка их принимает. */

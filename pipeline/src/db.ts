@@ -78,7 +78,7 @@ function castRows() {
 
 function assetRows(): Row[] {
   const rows: Row[] = [];
-  const add = (r: Omit<Row, "sha256" | "bytes"> & { path: string }) =>
+  const add = (r: Record<string, unknown> & { id: string; path: string }) =>
     rows.push({ license: null, sourceUrl: null, author: null, durationSec: null, meta: null, ...r, sha256: fileHash(r.path), bytes: statSync(join(ROOT, r.path)).size });
   for (const f of jsonFiles("content/locations")) {
     const id = f.replace(/\.json$/, "");

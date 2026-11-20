@@ -29,6 +29,12 @@ export const Line = z.object({
       file: z.string(), // путь относительно public/ Remotion
       durationSec: z.number(),
       words: z.array(WordTiming),
+      /** Кто озвучил: elevenlabs | comfy | fake (тест). */
+      provider: z.string().optional(),
+      voiceId: z.string().optional(),
+      model: z.string().optional(),
+      /** Хэш текста реплики на момент озвучки: не совпадает с текущим → озвучка устарела. */
+      textHash: z.string().optional(),
     })
     .optional(),
   /** Пауза после реплики, сек (комическая пауза перед панчлайном). */
@@ -199,6 +205,20 @@ export function laughs(lines: { laugh?: Laugh }[]): (Laugh | undefined)[] {
   const any = lines.some((l) => l.laugh);
   return lines.map((l, i) => (any ? l.laugh : i === lines.length - 1 ? "big" : undefined));
 }
+
+/** Хэш текста реплики для проверки актуальности озвучки (FNV-1a, без зависимостей — работает и в браузере). */
+export function textHash(text: string): string {
+  let h = 2166136261;
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+  return (h >>> 0).toString(16).padStart(8, "0");
+}
+
+/** Голоса без куклы (рассказчик) и общие настройки озвучки: content/voices.json. */
+export const VoiceConfig = z.object({
+  model: z.string().default("eleven_multilingual_v2"),
+  narrator: z.record(Locale, z.object({ elevenlabsVoiceId: z.string(), notes: z.string().optional() })),
+});
+export type VoiceConfig = z.infer<typeof VoiceConfig>;
 
 /** Грубая оценка таймингов по числу символов (пока нет реальной озвучки). */
 export function estimateWords(text: string, charsPerSec = 14): WordTiming[] {

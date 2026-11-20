@@ -28,10 +28,21 @@ pnpm llm prepare|check|collect|status <stage> # LLM-стадии пачками 
 pnpm llm materialize script                   # сценарии → content/episodes/
 pnpm audio add <file> --kind laugh|music …    # звук (CC0) → remotion/public/audio + content/audio.json
 pnpm db sync | status | dump                  # контент из git → база; счётчики; бэкап
-pnpm render --top 20 --locale ru              # рендер в renders/ + учёт в базе
+pnpm voice cast|search|assign|preview|run|check # озвучка ElevenLabs (компьютер с ключом)
+pnpm render --voiced --top 20 --locale ru     # рендер + обложка в renders/, учёт в базе
+pnpm board                                    # страница для постинга с телефона
 pnpm posts plan|push|sync|list                # публикация через Postiz
 pnpm metrics pull|report                      # метрики → база, docs/metrics-report.md
 ```
+
+## Кто что делает (сейчас: Instagram вручную, ru и en)
+| Шаг | Где | Команды |
+|---|---|---|
+| Озвучка ElevenLabs (платный план, ключ в `.env`) | компьютер девушки | `pnpm voice cast/search/assign/preview`, `pnpm voice run --locale ru --top 30 --yes`, commit + push |
+| Рендер, план, страница для телефона | Мак Мити | `git pull`, `pnpm db sync`, `pnpm render --voiced …`, `pnpm posts plan --account ig-ru …`, `pnpm board` |
+| Публикация | телефон | ссылка из `pnpm board`: скачать видео, скопировать подпись, Reel с меткой ИИ, «Опубликовано» |
+
+Подписи всегда заканчиваются маркировкой и правами: голос — ИИ, видео — ANEK., персонажи вымышлены, © 2026 ANEK. (`content/disclosure.json`).
 
 ## Работа с Claude Code
 Проект рассчитан на работу через Claude Code. Скиллы лежат в `.claude/skills/` и подхватываются автоматически в любой сессии Claude Code, открытой в этой папке (после `git pull`, ничего ставить не нужно). Вызвать скилл можно явно (`/jokes-scripts`) или просто описать задачу словами, и Claude выберет нужный.
@@ -45,7 +56,8 @@ pnpm metrics pull|report                      # метрики → база, doc
 | `jokes-draw` | рисование кодом: риг, позы, лица, аксессуары, фоны | «дай бармену усы и полотенце», «нарисуй баню» |
 | `jokes-scripts` | сценарии, переводы, адаптации, превью | «напиши сценарии для следующих 50 немецких анекдотов» |
 | `jokes-sources` | новые источники и языки | «добавь польские анекдоты» |
-| `jokes-publish` | рендер, публикация через Postiz, база, метрики | «отрендерь топ-20 немецких и запланируй на YouTube на неделю», «сколько лайков у вчерашних постов» |
+| `jokes-voice` | озвучка ElevenLabs: кастинг голосов, смета, генерация, передача через git | «подбери голоса для русских кукол», «озвучь следующие 30 русских» |
+| `jokes-publish` | рендер, ручной постинг в Instagram, Postiz, база, метрики | «отрендерь топ-20 немецких и запланируй на YouTube на неделю», «сколько лайков у вчерашних постов» |
 
 Общие правила для агента — в [CLAUDE.md](CLAUDE.md): LLM-шаги не ходят в API (их выполняют сабагенты), промпты на английском, обсуждение на русском, арт только кодом, маркировка ИИ в каждой публикации.
 

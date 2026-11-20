@@ -28,7 +28,9 @@ pnpm llm collect script && pnpm llm materialize script # → content/episodes/<j
 pnpm studio                                            # Remotion Studio
 pnpm audio add|list                                    # библиотека звука (content/audio.json)
 pnpm db migrate|sync|status|dump                       # база anek-db
-pnpm render --top N --locale ru | <episodeId…>          # renders/<id>/<hash>.mp4 + таблица renders
+pnpm voice cast|search|assign|preview|run|check        # озвучка ElevenLabs → lines[].audio + mp3 в remotion/public/audio/voice
+pnpm render [--voiced] --top N --locale ru | <id…>    # renders/<id>/<hash>.mp4 + .cover.jpg + таблица renders
+pnpm board                                             # страница ручного постинга для телефона
 pnpm posts accounts|plan|push|sync|list                # публикация через Postiz → таблица posts
 pnpm metrics pull|report                               # post_metrics, account_metrics, docs/metrics-report.md
 ```
@@ -67,7 +69,8 @@ pnpm metrics pull|report                               # post_metrics, account_m
 - Общий стиль: `content/style.json` (бумажная перекладка, толстый контур).
 
 ## Публикация и маркировка
-- Площадки: сначала YouTube Shorts, TikTok, Instagram (Reels и Stories), Threads (тексты анекдотов); позже X и VK.
+- Сейчас: только Instagram, вручную, аккаунты `ig-ru` и `ig-en`. Озвучка — на компьютере девушки (ElevenLabs, платный план), рендер и постинг — на Маке Мити, передача через git; телефон работает через `pnpm board`.
+- Позже: YouTube Shorts, TikTok, Threads через Postiz; потом X и VK.
 - В каждой подписи — текст из `content/disclosure.json` (голос — ИИ, видео — ANEK., персонажи вымышлены, без намерения задеть верующих; у переводов — «перевод с помощью ИИ»). В видео — водяной знак и финальная карточка. Флаги ИИ по API: YouTube `containsSyntheticMedia`, TikTok `is_aigc`.
 - Частота 1–3 видео в день на канал, без повторов фона и героя подряд (правило YouTube «inauthentic content»).
 
@@ -83,7 +86,7 @@ pnpm metrics pull|report                               # post_metrics, account_m
 ## Дальше
 1. Наполнить библиотеку звука (CC0-смех и музыка).
 2. Поднять Postiz, подключить аккаунты, первые приватные публикации.
-3. Озвучка: ElevenLabs и/или TTS через ComfyUI на GPU-сервере → `Line.audio` (файл + тайминги слов).
+3. Кастинг голосов и озвучка топ-30 ru/en (`pnpm voice`); позже TTS через ComfyUI на GPU-сервере как второй провайдер (`pipeline/src/voice/provider.ts`).
 4. Метка `religious-target` для русского пула перед VK.
 
 ## Скиллы

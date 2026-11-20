@@ -1,7 +1,7 @@
 /**
  * Публикация через Postiz, учёт в базе (таблица posts).
  *   pnpm posts accounts                         — интеграции Postiz → content/accounts.json (по handle)
- *   pnpm posts plan --account yt-ru [--per-day 2] [--days 7] [--from 2026-12-01] [--kind video|story|text] [--dry-run]
+ *   pnpm posts plan --account ig-ru [--per-day 2] [--days 7] [--from 2026-12-01] [--kind video|story|text] [--allow-silent] [--dry-run]
  *   pnpm posts push [--account yt-ru] [--limit 20] [--draft] [--private] [--dry-run]
  *   pnpm posts sync                              — статусы и ссылки из Postiz → posts
  *   pnpm posts list [--account yt-ru]            — что запланировано
@@ -67,7 +67,13 @@ async function plan(db: Db) {
 
   const used = new Set((await db.select({ e: T.posts.episodeId }).from(T.posts).where(and(eq(T.posts.accountId, acc.id), eq(T.posts.kind, kind)))).map((r) => r.e));
   const taken = new Set((await db.select({ t: T.posts.scheduledAt }).from(T.posts).where(eq(T.posts.accountId, acc.id))).map((r) => r.t.getTime()));
-  const rendered = new Set((await db.select({ e: T.renders.episodeId }).from(T.renders)).map((r) => r.e));
+  // для видео нужен рендер с настоящей озвучкой (без --allow-silent: немые и тестовые рендеры не публикуем)
+  const silentOk = flag("allow-silent");
+  const rendered = new Set(
+    (await db.select({ e: T.renders.episodeId, v: T.renders.voice }).from(T.renders))
+      .filter((r) => silentOk || !["none", "fake"].includes(r.v ?? "none"))
+      .map((r) => r.e),
+  );
   const rows = await db
     .select({ ep: T.episodes, popularity: T.jokes.popularity, text: T.jokes.text, jokeLocale: T.jokes.locale })
     .from(T.episodes)
@@ -102,7 +108,7 @@ async function plan(db: Db) {
     aiFlag: true, state: "planned", scheduledAt: free[i],
   }));
   for (const r of rowsOut) console.log(`${r.scheduledAt.toISOString()}  ${r.episodeId.padEnd(24)} ${r.title}`);
-  if (!rowsOut.length) console.log(kind === "text" ? "no candidates" : "no rendered candidates — run pnpm render --top N --locale " + acc.locale);
+  if (!rowsOut.length) console.log(kind === "text" ? "no candidates" : `no voiced renders — pnpm voice run (озвучка), затем pnpm render --voiced --locale ${acc.locale}; немые — --allow-silent`);
   if (flag("dry-run")) {
     if (rowsOut[0]) console.log(`\n--- caption example (${platform}/${kind}) ---\n${rowsOut[0].caption}`);
     return;
