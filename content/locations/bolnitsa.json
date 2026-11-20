@@ -1,0 +1,42 @@
+{
+  "id": "bolnitsa",
+  "name": {
+    "ru": "Кабинет врача",
+    "en": "Doctor's office",
+    "de": "Arztpraxis"
+  },
+  "palette": {
+    "wall": "#cfe3e0",
+    "floor": "#8aa3a0",
+    "accent": "#7fd1c7"
+  },
+  "props": [
+    "desk",
+    "couch",
+    "skeleton",
+    "chart"
+  ],
+  "bible": {
+    "summary": "Doctor's office: couch, desk, eye chart — and the madhouse ward variant.",
+    "roles": [
+      "doctor-office",
+      "hospital",
+      "madhouse"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "hospital"
+        ],
+        "change": "hospital bed, drip stand"
+      },
+      {
+        "roles": [
+          "madhouse"
+        ],
+        "change": "padded walls, barred window"
+      }
+    ],
+    "prompt": "doctor office, desk, examination couch, eye chart on the wall, skeleton model, window"
+  }
+}

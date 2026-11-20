@@ -1,0 +1,43 @@
+{
+  "id": "doroga",
+  "name": {
+    "ru": "Дорога",
+    "en": "Road",
+    "de": "Landstraße"
+  },
+  "palette": {
+    "wall": "#a9c7d9",
+    "floor": "#5f5f5f",
+    "accent": "#e0a030"
+  },
+  "props": [
+    "car",
+    "road sign",
+    "field"
+  ],
+  "bible": {
+    "summary": "Road with a car: traffic cops, drivers, hitch-hikers.",
+    "roles": [
+      "road",
+      "car",
+      "bus",
+      "subway"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "car"
+        ],
+        "change": "car interior, two front seats"
+      },
+      {
+        "roles": [
+          "bus",
+          "subway"
+        ],
+        "change": "bus or subway car interior"
+      }
+    ],
+    "prompt": "country road with a parked old car, road sign, fields on the horizon"
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "workflow": "workflow_api.json",
+  "params": {
+    "prompt": "REPLACE_NODE_ID.text",
+    "negative": "REPLACE_NODE_ID.text",
+    "seed": "REPLACE_NODE_ID.seed"
+  },
+  "defaults": {
+    "negative": "photorealistic, 3d render, anime, gradients, text, watermark, logo, extra limbs, deformed hands, busy background, famous character, celebrity likeness"
+  },
+  "retries": 2,
+  "timeout_sec": 3600,
+  "shots": [
+    {
+      "id": "loc-bar",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy bar interior, wooden counter, shelves with bottles, bar stools, warm hanging lamp, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-bar-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy bar interior, wooden counter, shelves with bottles, bar stools, warm hanging lamp, variant: small tables with tablecloths, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-bar-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy bar interior, wooden counter, shelves with bottles, bar stools, warm hanging lamp, variant: balloons, crowd silhouettes, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-bar-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy bar interior, wooden counter, shelves with bottles, bar stools, warm hanging lamp, variant: reception desk, key board, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-bolnitsa",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, doctor office, desk, examination couch, eye chart on the wall, skeleton model, window, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-bolnitsa-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, doctor office, desk, examination couch, eye chart on the wall, skeleton model, window, variant: hospital bed, drip stand, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-bolnitsa-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, doctor office, desk, examination couch, eye chart on the wall, skeleton model, window, variant: padded walls, barred window, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-derevnya",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple countryside, wooden hut, fence, birch trees, river in the distance, summer, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-derevnya-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple countryside, wooden hut, fence, birch trees, river in the distance, summer, variant: dense trees, stumps, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-derevnya-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple countryside, wooden hut, fence, birch trees, river in the distance, summer, variant: river bank, fishing spot, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-derevnya-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple countryside, wooden hut, fence, birch trees, river in the distance, summer, variant: barn, cow, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-doroga",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, country road with a parked old car, road sign, fields on the horizon, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-doroga-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, country road with a parked old car, road sign, fields on the horizon, variant: car interior, two front seats, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-doroga-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, country road with a parked old car, road sign, fields on the horizon, variant: bus or subway car interior, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-gostinaya",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy ordinary apartment living room, old sofa, small tv, big wardrobe, door on the side, rug, wallpaper, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-gostinaya-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy ordinary apartment living room, old sofa, small tv, big wardrobe, door on the side, rug, wallpaper, variant: hallway with front door, coat rack, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-gostinaya-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, cosy ordinary apartment living room, old sofa, small tv, big wardrobe, door on the side, rug, wallpaper, variant: balcony railing, night city, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-klass",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, school classroom, green blackboard with chalk, rows of desks, world map, teacher's table, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-klass-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, school classroom, green blackboard with chalk, rows of desks, world map, teacher's table, variant: lecture hall rows, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-kukhnya",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, small cosy kitchen, table with tea cups, old fridge, stove, window with curtains, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-magazin",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, small shop interior, counter with cash register, shelves with goods, price tags, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-magazin-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, small shop interior, counter with cash register, shelves with goods, price tags, variant: medicine shelves, green cross, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-magazin-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, small shop interior, counter with cash register, shelves with goods, price tags, variant: barber chair, mirror, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-nebesa",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, pearly gates on fluffy clouds, soft sky, golden light, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-nebesa-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, pearly gates on fluffy clouds, soft sky, golden light, variant: red cave, flames, cauldron, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-nebesa-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, pearly gates on fluffy clouds, soft sky, golden light, variant: apple tree, lush garden, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-nebesa-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, pearly gates on fluffy clouds, soft sky, golden light, variant: stars, planet, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-ofis",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, boss office, big desk with computer and papers, office chair, potted plant, window with blinds, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-ofis-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, boss office, big desk with computer and papers, office chair, potted plant, window with blinds, variant: studio lights, desk with microphone, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-ofis-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, boss office, big desk with computer and papers, office chair, potted plant, window with blinds, variant: wanted posters, barred door, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-ofis-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, boss office, big desk with computer and papers, office chair, potted plant, window with blinds, variant: counter window, stamps, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-samolet",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, airplane cabin interior, rows of seats, small round windows, aisle, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-samolet-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, airplane cabin interior, rows of seats, small round windows, aisle, variant: train compartment, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-samolet-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, airplane cabin interior, rows of seats, small round windows, aisle, variant: ship deck, sea, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-samolet-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, airplane cabin interior, rows of seats, small round windows, aisle, variant: departures board, benches, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-spalnya",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, bedroom with double bed, big wardrobe, nightstand lamp, window at night, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-spalnya-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, bedroom with double bed, big wardrobe, nightstand lamp, window at night, variant: bathtub, sink, mirror, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-tserkov",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple neutral place of worship interior, altar with candles, wooden pews, stained glass window, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-ulitsa",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple city street, sidewalk, lamp post, bench, shop fronts, daytime, empty scene without people, centre left clear for characters"
+      }
+    },
+    {
+      "id": "loc-ulitsa-v1",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple city street, sidewalk, lamp post, bench, shop fronts, daytime, variant: trees and a bench, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-ulitsa-v2",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple city street, sidewalk, lamp post, bench, shop fronts, daytime, variant: gravestones, dusk, empty scene without people"
+      }
+    },
+    {
+      "id": "loc-ulitsa-v3",
+      "values": {
+        "prompt": "flat 2D cut-out animation style, paper texture, thick dark outlines, simple geometric shapes, limited warm palette, soft flat shading, friendly caricature proportions, big head, expressive face, original character design, vertical 9:16 background, simple city street, sidewalk, lamp post, bench, shop fronts, daytime, variant: stands or cages in the background, empty scene without people"
+      }
+    }
+  ]
+}

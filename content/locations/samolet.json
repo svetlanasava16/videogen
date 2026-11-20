@@ -1,0 +1,50 @@
+{
+  "id": "samolet",
+  "name": {
+    "ru": "Самолёт",
+    "en": "Plane",
+    "de": "Flugzeug"
+  },
+  "palette": {
+    "wall": "#d0d6dd",
+    "floor": "#8a9099",
+    "accent": "#4a6fa5"
+  },
+  "props": [
+    "seats",
+    "windows",
+    "aisle"
+  ],
+  "bible": {
+    "summary": "Plane cabin (and train / ship variants): passengers, pilots, travellers.",
+    "roles": [
+      "plane",
+      "train",
+      "ship",
+      "airport",
+      "train-station"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "train"
+        ],
+        "change": "train compartment"
+      },
+      {
+        "roles": [
+          "ship"
+        ],
+        "change": "ship deck, sea"
+      },
+      {
+        "roles": [
+          "airport",
+          "train-station"
+        ],
+        "change": "departures board, benches"
+      }
+    ],
+    "prompt": "airplane cabin interior, rows of seats, small round windows, aisle"
+  }
+}

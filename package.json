@@ -1,0 +1,17 @@
+{
+  "name": "joke-factory",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "pnpm --filter @jf/remotion studio",
+    "render:demo": "pnpm --filter @jf/remotion render:demo",
+    "typecheck": "pnpm -r typecheck",
+    "jokes": "pnpm --filter @jf/pipeline jokes",
+    "llm": "pnpm --filter @jf/pipeline llm",
+    "catalog": "pnpm --filter @jf/pipeline catalog",
+    "canon": "pnpm --filter @jf/pipeline canon",
+    "registry": "pnpm --filter @jf/pipeline registry",
+    "art": "pnpm --filter @jf/pipeline art"
+  },
+  "packageManager": "pnpm@10.0.0"
+}

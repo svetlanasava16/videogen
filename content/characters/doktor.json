@@ -1,0 +1,76 @@
+{
+  "id": "doktor",
+  "name": {
+    "ru": "Доктор",
+    "en": "Doc",
+    "de": "Herr Doktor"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#f0d0b0",
+    "clothes": "#f2f2f2",
+    "accent": "#7fd1c7"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "мужской голос 50-60, спокойный, сухой, интеллигентный"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "male voice 50-60, calm, dry, educated, polite"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "Männerstimme 50-60, ruhig, trocken, gebildet"
+    }
+  },
+  "bible": {
+    "summary": "The doctor — and every other expert in a white coat or tweed: psychiatrist, scientist, professor.",
+    "age": "50",
+    "build": "tall and thin, slightly stooped",
+    "silhouette": "tall narrow figure, long face",
+    "outfit": "white coat over shirt and tie, stethoscope",
+    "features": "goatee, glasses on the nose tip, receding grey hair, raised eyebrow",
+    "palette": [
+      "#f2f2f2",
+      "#f0d0b0",
+      "#7fd1c7",
+      "#5b4636"
+    ],
+    "personality": "calm, dry, ironic, says terrible things politely",
+    "roles": [
+      "doctor",
+      "therapist",
+      "scientist",
+      "professor"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "therapist"
+        ],
+        "change": "notebook and armchair"
+      },
+      {
+        "roles": [
+          "scientist"
+        ],
+        "change": "lab goggles, flask"
+      },
+      {
+        "roles": [
+          "professor"
+        ],
+        "change": "tweed jacket instead of white coat, chalk"
+      }
+    ],
+    "voiceBrief": {
+      "ru": "мужской голос 50-60, спокойный, сухой, интеллигентный",
+      "en": "male voice 50-60, calm, dry, educated, polite",
+      "de": "Männerstimme 50-60, ruhig, trocken, gebildet"
+    },
+    "prompt": "tall thin stooped doctor around fifty, goatee, glasses on the tip of the nose, receding grey hair, white coat, stethoscope, raised eyebrow"
+  }
+}

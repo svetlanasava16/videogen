@@ -1,0 +1,77 @@
+{
+  "id": "uchilka",
+  "name": {
+    "ru": "Училка",
+    "en": "Ms. Smith",
+    "de": "Frau Müller"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "woman",
+    "skin": "#f0d0b0",
+    "clothes": "#5b4a6a",
+    "accent": "#f2f2f2"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "женский голос 45-55, строгий, чёткий"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "female voice 45-55, strict, precise, schoolteacher tone"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "Frauenstimme 45-55, streng, deutlich"
+    }
+  },
+  "bible": {
+    "summary": "Strict woman of an institution: teacher, clerk, pharmacist, phone operator, nun.",
+    "age": "45-50",
+    "build": "thin, upright",
+    "silhouette": "straight vertical figure, tight bun on top",
+    "outfit": "long skirt, cardigan, brooch",
+    "features": "tight bun, cat-eye glasses, pursed lips, raised eyebrow",
+    "palette": [
+      "#5b4a6a",
+      "#f0d0b0",
+      "#f2f2f2",
+      "#2b1d14"
+    ],
+    "personality": "strict, formal, easily scandalised",
+    "roles": [
+      "teacher",
+      "clerk",
+      "operator",
+      "pharmacist",
+      "nun"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "nun"
+        ],
+        "change": "nun habit"
+      },
+      {
+        "roles": [
+          "pharmacist"
+        ],
+        "change": "white coat"
+      },
+      {
+        "roles": [
+          "operator"
+        ],
+        "change": "headset"
+      }
+    ],
+    "voiceBrief": {
+      "ru": "женский голос 45-55, строгий, чёткий",
+      "en": "female voice 45-55, strict, precise, schoolteacher tone",
+      "de": "Frauenstimme 45-55, streng, deutlich"
+    },
+    "prompt": "thin upright strict woman around fifty with tight bun, cat-eye glasses and pursed lips, purple cardigan, long skirt, brooch"
+  }
+}

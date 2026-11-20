@@ -1,0 +1,51 @@
+{
+  "id": "derevnya",
+  "name": {
+    "ru": "Деревня",
+    "en": "Countryside",
+    "de": "Dorf"
+  },
+  "palette": {
+    "wall": "#bcd9a8",
+    "floor": "#7a9a5a",
+    "accent": "#e0a030"
+  },
+  "props": [
+    "fence",
+    "hut",
+    "trees",
+    "river"
+  ],
+  "bible": {
+    "summary": "Countryside: village, farm, forest, river — fishermen, hunters, farmers.",
+    "roles": [
+      "village",
+      "farm",
+      "forest",
+      "river-lake",
+      "garden",
+      "mountain"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "forest"
+        ],
+        "change": "dense trees, stumps"
+      },
+      {
+        "roles": [
+          "river-lake"
+        ],
+        "change": "river bank, fishing spot"
+      },
+      {
+        "roles": [
+          "farm"
+        ],
+        "change": "barn, cow"
+      }
+    ],
+    "prompt": "simple countryside, wooden hut, fence, birch trees, river in the distance, summer"
+  }
+}

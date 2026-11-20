@@ -1,0 +1,50 @@
+{
+  "id": "ulitsa",
+  "name": {
+    "ru": "Улица",
+    "en": "Street",
+    "de": "Straße"
+  },
+  "palette": {
+    "wall": "#9fb7c9",
+    "floor": "#6b6b6b",
+    "accent": "#e0a030"
+  },
+  "props": [
+    "bench",
+    "lamp post",
+    "shop front"
+  ],
+  "bible": {
+    "summary": "City street with a bench and lamp post.",
+    "roles": [
+      "street",
+      "park",
+      "stadium",
+      "zoo",
+      "cemetery"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "park"
+        ],
+        "change": "trees and a bench"
+      },
+      {
+        "roles": [
+          "cemetery"
+        ],
+        "change": "gravestones, dusk"
+      },
+      {
+        "roles": [
+          "stadium",
+          "zoo"
+        ],
+        "change": "stands or cages in the background"
+      }
+    ],
+    "prompt": "simple city street, sidewalk, lamp post, bench, shop fronts, daytime"
+  }
+}

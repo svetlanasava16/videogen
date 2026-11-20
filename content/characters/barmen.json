@@ -1,0 +1,96 @@
+{
+  "id": "barmen",
+  "name": {
+    "ru": "Бармен",
+    "en": "Barman",
+    "de": "Wirt"
+  },
+  "renderer": "puppet2d",
+  "look": {
+    "kind": "man",
+    "skin": "#d9a679",
+    "clothes": "#7a2e2e",
+    "accent": "#f2e6d0"
+  },
+  "voice": {
+    "ru": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "низкий мужской голос 40-50, усталый, ироничный"
+    },
+    "en": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "low male voice 40-50, world-weary, wry"
+    },
+    "de": {
+      "elevenlabsVoiceId": "TODO",
+      "notes": "tiefe Männerstimme 40-50, abgeklärt, trocken"
+    }
+  },
+  "bible": {
+    "summary": "The one serving or fixing things: bartender, waiter, shop seller, cook, plumber, janitor.",
+    "age": "40",
+    "build": "heavy, strong arms",
+    "silhouette": "barrel chest, thick arms, small apron",
+    "outfit": "vest or apron over rolled-up shirt, towel over shoulder",
+    "features": "bushy mustache, bald spot, bushy eyebrows, knowing half-smile",
+    "palette": [
+      "#7a2e2e",
+      "#d9a679",
+      "#f2e6d0",
+      "#2b1d14"
+    ],
+    "personality": "world-weary, has heard everything, dry one-liners",
+    "roles": [
+      "bartender",
+      "waiter",
+      "salesman",
+      "cook",
+      "janitor",
+      "mechanic",
+      "plumber",
+      "craftsman",
+      "construction-worker"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "waiter"
+        ],
+        "change": "bow tie, tray"
+      },
+      {
+        "roles": [
+          "salesman"
+        ],
+        "change": "shop coat, price tags"
+      },
+      {
+        "roles": [
+          "cook"
+        ],
+        "change": "chef hat"
+      },
+      {
+        "roles": [
+          "mechanic",
+          "plumber",
+          "craftsman",
+          "construction-worker"
+        ],
+        "change": "overalls, wrench or hard hat"
+      },
+      {
+        "roles": [
+          "janitor"
+        ],
+        "change": "broom"
+      }
+    ],
+    "voiceBrief": {
+      "ru": "низкий мужской голос 40-50, усталый, ироничный",
+      "en": "low male voice 40-50, world-weary, wry",
+      "de": "tiefe Männerstimme 40-50, abgeklärt, trocken"
+    },
+    "prompt": "heavyset bartender in his forties with bushy mustache and bald spot, thick arms, rolled-up shirt, dark red vest, towel over shoulder, knowing half-smile"
+  }
+}

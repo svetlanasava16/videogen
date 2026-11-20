@@ -1,0 +1,41 @@
+{
+  "id": "magazin",
+  "name": {
+    "ru": "Магазин",
+    "en": "Shop",
+    "de": "Laden"
+  },
+  "palette": {
+    "wall": "#e9e2d0",
+    "floor": "#9a8a6a",
+    "accent": "#c8553d"
+  },
+  "props": [
+    "counter",
+    "shelves",
+    "cash register"
+  ],
+  "bible": {
+    "summary": "Shop with counter and shelves: customer and seller.",
+    "roles": [
+      "shop",
+      "pharmacy",
+      "barbershop"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "pharmacy"
+        ],
+        "change": "medicine shelves, green cross"
+      },
+      {
+        "roles": [
+          "barbershop"
+        ],
+        "change": "barber chair, mirror"
+      }
+    ],
+    "prompt": "small shop interior, counter with cash register, shelves with goods, price tags"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "ofis",
+  "name": {
+    "ru": "Офис",
+    "en": "Office",
+    "de": "Büro"
+  },
+  "palette": {
+    "wall": "#cfd8dc",
+    "floor": "#7a8a94",
+    "accent": "#4a6fa5"
+  },
+  "props": [
+    "desk",
+    "computer",
+    "plant",
+    "window"
+  ],
+  "bible": {
+    "summary": "Office or official's cabinet: boss, job interview, bureaucracy.",
+    "roles": [
+      "office",
+      "government-office",
+      "conference-hall",
+      "tv-studio",
+      "bank",
+      "police-station"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "tv-studio"
+        ],
+        "change": "studio lights, desk with microphone"
+      },
+      {
+        "roles": [
+          "police-station"
+        ],
+        "change": "wanted posters, barred door"
+      },
+      {
+        "roles": [
+          "bank",
+          "government-office"
+        ],
+        "change": "counter window, stamps"
+      }
+    ],
+    "prompt": "boss office, big desk with computer and papers, office chair, potted plant, window with blinds"
+  }
+}

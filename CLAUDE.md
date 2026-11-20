@@ -17,7 +17,7 @@
 - Python: системный `python3` (3.9) для `comfy_client.py` (только stdlib).
 - MCP: официальный `comfy-mcp` в `.venv-mcp/` (Python 3.13 из ComfyUI Desktop), настройка в `.mcp.json`.
   Переустановка: `~/ComfyUI-Installs/ComfyUI/standalone-env/bin/python3.13 -m venv .venv-mcp && .venv-mcp/bin/pip install comfy-mcp "comfy-cli>=1.14.0"`
-- Node.js не установлен (нужен для Remotion).
+- Node.js 22 и pnpm установлены (brew, node@22); монорепо на pnpm workspaces, Remotion в `remotion/`, схемы в `packages/core`.
 - Файлы `*.part` в папке моделей ещё качаются. Пока скачивание не закончено, такие модели не трогать и не перемещать.
 
 ## Папки

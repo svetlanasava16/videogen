@@ -1,0 +1,23 @@
+{
+  "name": "@jf/remotion",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:demo": "remotion render src/index.ts Joke ../renders/demo-ru.mp4 --props=../content/episodes/demo-ru.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@jf/core": "workspace:*",
+    "@remotion/cli": "^4.0.545",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.545"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.6.0"
+  }
+}
