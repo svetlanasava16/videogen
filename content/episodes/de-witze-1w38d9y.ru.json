@@ -6,36 +6,45 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "patient",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "patient"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Мужчина вечером приходит в кабинет врача и говорит доктору:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Добрый вечер, доктор, я мотылёк!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "Тогда вы не по адресу. Психолог напротив, на другой стороне улицы.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Но у вас ещё горел свет!",
       "emotion": "surprised",

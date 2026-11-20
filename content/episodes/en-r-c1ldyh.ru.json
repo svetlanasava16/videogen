@@ -2,7 +2,7 @@
   "id": "en-r-c1ldyh.ru",
   "jokeId": "en-r-c1ldyh",
   "locale": "ru",
-  "title": "Автобус",
+  "title": "На автобусе",
   "location": "bar",
   "place": "road",
   "cast": [
@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Вчера вечером я пошёл немного выпить.",
+      "text": "Вчера вечером я пошёл пропустить пару рюмок.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -24,8 +24,8 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Слово за слово, я перебрал коктейлей, а потом перешёл на вино. Плохая идея.",
-      "emotion": "sad",
+      "text": "Слово за слово, я перебрал с коктейлями, а потом перешёл на вино.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -33,43 +33,54 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Понимая, что я сильно выпил, я решил оставить машину у бара и поехать домой на автобусе.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "text": "Плохая идея.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "И точно, по дороге я проехал полицейский пост, где останавливали водителей и проверяли их алкотестером.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Понимая, что я уже выше нормы, я решил оставить машину у бара и поехал домой на автобусе.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Раз я был в автобусе, его просто пропустили.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
+      "text": "И точно, по дороге я проехал полицейский пост, где тормозили водителей и проверяли их алкотестером.",
+      "offscreen": true,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Я добрался до дома целым и невредимым,",
+      "text": "Раз я был в автобусе, его просто пропустили, махнув рукой.",
+      "offscreen": true,
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "и это настоящий сюрприз, потому что я никогда раньше не водил автобус и даже не знаю, где я его взял.",
+      "text": "До дома я добрался целым и невредимым, без всяких происшествий,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "что стало для меня настоящим сюрпризом, ведь я никогда раньше не водил автобус и даже не уверен, где я его взял.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -97,6 +108,11 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "glass",
@@ -113,20 +129,23 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"
     },
     {
       "location": "doroga",
-      "place": "bus",
       "cast": [
-        "muzhik",
-        "sluzhivy"
+        "sluzhivy",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "drunk",
-        "sluzhivy": "traffic-cop"
+        "sluzhivy": "traffic-cop",
+        "muzhik": "drunk"
       },
       "looks": {
         "muzhik": {
@@ -138,18 +157,24 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
         },
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     },
     {
-      "location": "gostinaya",
+      "location": "doroga",
+      "place": "bus",
       "cast": [
         "muzhik"
       ],
@@ -167,14 +192,14 @@
       "beats": [
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l7"
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l8"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

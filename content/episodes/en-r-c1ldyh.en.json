@@ -2,7 +2,7 @@
   "id": "en-r-c1ldyh.en",
   "jokeId": "en-r-c1ldyh",
   "locale": "en",
-  "title": "The Bus",
+  "title": "Took the Bus",
   "location": "bar",
   "place": "road",
   "cast": [
@@ -24,14 +24,23 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "One thing led to another and I had a few too many cocktails and then went onto the wine. Not a good idea.",
-      "emotion": "sad",
+      "text": "One thing led to another and I had a few too many cocktails and then went onto the wine.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Not a good idea.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
       "text": "Knowing I was over the limit, I decided to leave my car at the pub and took a bus home.",
       "emotion": "smug",
@@ -40,34 +49,36 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik",
       "text": "Sure enough, I passed a police checkpoint, where they were pulling over drivers and performing breathalyzer tests.",
+      "offscreen": true,
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
       "text": "Because I was in a bus they just waved it past.",
-      "emotion": "happy",
+      "offscreen": true,
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "I arrived home safely and without incident,",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "muzhik",
       "text": "which was a real surprise as I've never driven a bus before and I am not even sure where I got it from.",
       "emotion": "surprised",
@@ -97,6 +108,11 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "counter"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "glass",
@@ -113,20 +129,23 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"
     },
     {
       "location": "doroga",
-      "place": "bus",
       "cast": [
-        "muzhik",
-        "sluzhivy"
+        "sluzhivy",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "drunk",
-        "sluzhivy": "traffic-cop"
+        "sluzhivy": "traffic-cop",
+        "muzhik": "drunk"
       },
       "looks": {
         "muzhik": {
@@ -138,18 +157,24 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l4"
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "roadside"
         },
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     },
     {
-      "location": "gostinaya",
+      "location": "doroga",
+      "place": "bus",
       "cast": [
         "muzhik"
       ],
@@ -167,14 +192,14 @@
       "beats": [
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l7"
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l8"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

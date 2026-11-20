@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Bist du verrückt geworden? Wir haben doch nichts im Haus, was wir anbieten können.",
+      "text": "Bist du verrückt geworden? Wir haben doch nichts im Haus, womit wir ihn bewirten können.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Na, lass dir was einfallen. Wir müssen ihn unbedingt empfangen, morgen wird entschieden, wer mehr Gehalt bekommt.",
+      "text": "Na, lass dir was einfallen. Wir müssen ihn unbedingt empfangen, morgen wird entschieden, wer eine Gehaltserhöhung bekommt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,14 +55,14 @@
       "character": "muzhik",
       "text": "Also, hör mir zu. Wenn er kommt, sage ich, dass du Schnitzel mit Erbsen machst.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ich bewirte ihn so lange hier mit selbstgemachtem Likör.",
+      "text": "Ich bewirte ihn solange hier mit unserem selbstgemachten Likör.",
       "emotion": "smug",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Und dann zerschlägst du in der Küche einen Teller, fängst an zu jammern, ich frage dich, was los ist, und du rufst, dass dir die Schnitzel in den Müll gefallen sind.",
+      "text": "Dann zerschlägst du in der Küche einen Teller und fängst an zu jammern.",
       "emotion": "smug",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -80,25 +80,25 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Dann bringst du die Erbsen, was soll man machen.",
+      "text": "Ich frage dich, was los ist, und du rufst, du hast die Schnitzel in den Müll fallen lassen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Du servierst die Erbsen, da kann man nichts machen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
-      "character": "narrator",
-      "text": "Gesagt, getan. Der Chef kommt.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l10",
       "character": "narrator",
-      "text": "Der Mann schenkt ihm Likör ein und ruft dann:",
+      "text": "Kurz und gut, sie sind sich einig. Der Chef kommt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -106,35 +106,45 @@
     },
     {
       "id": "l11",
-      "character": "muzhik",
-      "text": "Na, wie sieht's aus mit unseren Schnitzeln mit Erbsen?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Der Mann bewirtet ihn mit dem Likör, dann ruft er seiner Frau zu:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "muzhik",
+      "text": "Na, wie steht's mit unseren Schnitzeln mit Erbsen?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "narrator",
-      "text": "In der Küche kracht es, Gejammer.",
+      "text": "In der Küche fallen Teller, es kracht, es wird gejammert.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "muzhik",
-      "text": "Na, du Tollpatsch? Sind dir etwa die Schnitzel in den Müll gefallen?",
+      "text": "Na, du Tollpatsch? Hast du etwa die Schnitzel in den Müll fallen lassen?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l14",
+      "id": "l15",
       "character": "zhena",
       "text": "Nein, die Erbsen.",
+      "offscreen": true,
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -177,7 +187,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -211,6 +221,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"
@@ -219,16 +233,24 @@
       "location": "gostinaya",
       "cast": [
         "muzhik",
-        "nachalnik"
+        "nachalnik",
+        "zhena"
       ],
       "roles": {
         "muzhik": "husband",
-        "nachalnik": "boss"
+        "nachalnik": "boss",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
             "tie"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "apron"
           ],
           "remove": []
         }
@@ -241,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         },
         {
           "type": "move",
@@ -263,10 +285,6 @@
         },
         {
           "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
           "ref": "l11"
         },
         {
@@ -276,38 +294,17 @@
         {
           "type": "line",
           "ref": "l13"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "looks": {
-        "zhena": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "stove"
         },
         {
           "type": "line",
           "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

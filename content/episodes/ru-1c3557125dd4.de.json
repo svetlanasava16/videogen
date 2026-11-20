@@ -2,20 +2,24 @@
   "id": "ru-1c3557125dd4.de",
   "jokeId": "ru-1c3557125dd4",
   "locale": "de",
-  "title": "Die Ausnüchterungszelle",
+  "title": "Hilf mir, Kumpel",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann wacht morgens mit einem fürchterlichen Kater von einem Anruf auf. Es ist ein Freund, den er lange nicht gesehen hat.",
+      "text": "Ein Mann wacht morgens mit dem schlimmsten Kater seines Lebens vom Klingeln des Telefons auf.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -23,17 +27,17 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Wo bist du denn?",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Es ruft ein Freund an, den er lange nicht gesehen hat.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Hilf mir, Kumpel, ich rufe aus der Ausnüchterungszelle an, nicht weit von dir.",
+      "character": "muzhik",
+      "text": "Von wo rufst du an?",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -42,23 +46,32 @@
     {
       "id": "l4",
       "character": "muzhik-sosed",
-      "text": "Ich habe kein Geld und brauche achtundsiebzig Euro, damit sie mich rauslassen.",
+      "text": "Hilf mir, Kumpel, ich rufe aus der Ausnüchterungszelle an, nicht weit von dir.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Ich hab kein Geld, ich brauche sechsundfünfzig Euro, damit sie mich rauslassen.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
-      "text": "Der Mann verspricht es, legt auf, nimmt seine letzten Kräfte zusammen, steht auf und zieht sich langsam an, um nicht umzufallen.",
+      "text": "Der Mann verspricht es, legt auf, nimmt seine letzten Kräfte zusammen, steht auf und zieht sich langsam an, immer bemüht, nicht umzufallen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "zhena",
       "text": "Wohin?!",
       "emotion": "angry",
@@ -67,19 +80,28 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
-      "text": "Er erklärt ehrlich die Lage. Seine Frau mustert lange sein verquollenes Gesicht.",
+      "text": "Er erklärt ehrlich, worum es geht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
+      "character": "narrator",
+      "text": "Die Frau betrachtet lange sein verquollenes Gesicht und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "zhena",
-      "text": "Nimm hundertsechsundfünfzig Euro mit!",
-      "emotion": "smug",
+      "text": "Nimm hundertzwölf Euro mit!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,10 +113,14 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife",
+        "muzhik-sosed": "friend"
       },
       "looks": {
         "muzhik": {
@@ -103,7 +129,26 @@
             "stubble"
           ],
           "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "red-nose",
+            "stubble"
+          ],
+          "remove": []
         }
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "muzhik-sosed"
+        ]
       },
       "beats": [
         {
@@ -112,8 +157,19 @@
           "to": "bed"
         },
         {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
           "item": "phone",
           "action": "hold"
         },
@@ -124,32 +180,6 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik-sosed": "friend"
-      },
-      "looks": {
-        "muzhik-sosed": {
-          "add": [
-            "red-nose"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "muzhik-sosed",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
@@ -158,6 +188,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -189,12 +223,23 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l5"
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
         },
         {
           "type": "line",
@@ -203,6 +248,14 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "cut"

@@ -2,15 +2,15 @@
   "id": "de-witze-1xrms30.ru",
   "jokeId": "de-witze-1xrms30",
   "locale": "ru",
-  "title": "Охотники",
+  "title": "Сначала убедитесь",
   "location": "derevnya",
   "place": "forest",
   "cast": [
-    "muzhik-sosed",
+    "muzhik",
     "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-sosed": "hunter",
+    "muzhik": "hunter",
     "muzhik-ryzhy": "hunter"
   },
   "lines": [
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Он не дышит, и взгляд у него застыл.",
+      "text": "Он не дышит, взгляд застыл.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Второй охотник в полной панике хватается за телефон и звонит в службу спасения.",
+      "text": "Второй охотник в полной панике хватает телефон и звонит в службу спасения.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,14 +55,14 @@
       "character": "paren",
       "text": "Спокойно, я вам помогу.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "paren",
-      "text": "Первым делом абсолютно точно убедитесь, что он действительно мёртв.",
+      "text": "Первым делом убедитесь, что он действительно мёртв.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -80,7 +80,7 @@
     {
       "id": "l8",
       "character": "muzhik-ryzhy",
-      "text": "Так, готово. А теперь что?",
+      "text": "Так, готово. Что дальше?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,26 +94,31 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
-        "muzhik-sosed",
+        "muzhik",
         "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-sosed": "hunter",
+        "muzhik": "hunter",
         "muzhik-ryzhy": "hunter"
       },
       "looks": {
-        "muzhik-sosed": {
-          "clothes": "#5b6b3a",
-          "add": [],
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
           "remove": []
         }
       },
       "beats": [
         {
-          "type": "prop",
-          "who": "muzhik-sosed",
-          "item": "rifle",
-          "action": "hold"
+          "type": "move",
+          "who": "muzhik",
+          "to": "tree"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
         },
         {
           "type": "prop",
@@ -128,6 +133,16 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
         }
       ],
       "transition": "cut"
@@ -136,19 +151,20 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
+        "muzhik",
         "muzhik-ryzhy",
-        "muzhik-sosed",
         "paren"
       ],
       "roles": {
+        "muzhik": "hunter",
         "muzhik-ryzhy": "hunter",
-        "muzhik-sosed": "hunter",
-        "paren": "operator"
+        "paren": "employee"
       },
       "looks": {
-        "muzhik-sosed": {
-          "clothes": "#5b6b3a",
-          "add": [],
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
           "remove": []
         },
         "paren": {
@@ -167,13 +183,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "center"
+          "who": "muzhik",
+          "to": "tree"
         },
         {
           "type": "move",
-          "who": "muzhik-sosed",
-          "to": "tree"
+          "who": "muzhik-ryzhy",
+          "to": "center"
         },
         {
           "type": "prop",
@@ -186,10 +202,6 @@
           "who": "paren",
           "item": "phone",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "line",
@@ -210,17 +222,8 @@
           "action": "hold"
         },
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "right"
-        },
-        {
           "type": "line",
           "ref": "l7"
-        },
-        {
-          "type": "pause",
-          "sec": 1
         },
         {
           "type": "prop",

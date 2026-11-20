@@ -6,13 +6,13 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "ded",
     "tyoshcha",
+    "ded",
     "paren"
   ],
   "roles": {
-    "ded": "old-man",
     "tyoshcha": "old-woman",
+    "ded": "old-man",
     "paren": "son"
   },
   "lines": [
@@ -29,7 +29,7 @@
       "id": "l2",
       "character": "ded",
       "text": "Hör zu, deine Mutter und ich lassen uns scheiden.",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,41 +55,68 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "Wir können uns einfach nicht mehr ab. Ich kann sie nicht mehr ansehen, es reicht.",
+      "text": "Wir können uns einfach nicht mehr ab.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "ded",
-      "text": "Ich will darüber nicht diskutieren. Ruf deine Schwester an und sag ihr Bescheid.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "Ich kann sie nicht mehr ansehen, es reicht.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "Der Sohn ruft völlig panisch sofort seine Schwester an.",
+      "character": "ded",
+      "text": "Ich will darüber nicht diskutieren.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "ded",
+      "text": "Ruf deine Schwester an und sag ihr Bescheid.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
-      "character": "devushka-ryzhaya",
-      "text": "Die lassen sich gar nix!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "id": "l9",
+      "character": "narrator",
+      "text": "Klick. Er legt auf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
+      "character": "narrator",
+      "text": "Der Sohn ruft völlig panisch sofort seine Schwester an. Die rastet komplett aus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "devushka-ryzhaya",
+      "text": "Die lassen sich gar nix!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
       "character": "narrator",
       "text": "Sie ruft direkt beim Vater an.",
       "emotion": "neutral",
@@ -98,30 +125,64 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l13",
       "character": "devushka-ryzhaya",
-      "text": "Du lässt dich nicht scheiden! Wag's bloß nicht, irgendwas zu unterschreiben!",
+      "text": "Du lässt dich nicht scheiden!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "devushka-ryzhaya",
+      "text": "Wag's bloß nicht, irgendwas zu unterschreiben.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "devushka-ryzhaya",
+      "text": "Wir kommen morgen beide nach Hause und klären das.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
+      "character": "devushka-ryzhaya",
+      "text": "Keinen Anwalt, keine Formulare, gar nichts! Verstanden?!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
-      "character": "devushka-ryzhaya",
-      "text": "Wir kommen morgen beide nach Hause und klären das. Keinen Anwalt, keine Formulare, gar nichts! Verstanden?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "id": "l17",
+      "character": "narrator",
+      "text": "Bäm. Sie knallt den Hörer auf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "devushka-ryzhaya"
-      ]
+      "exit": []
     },
     {
-      "id": "l12",
+      "id": "l18",
       "character": "ded",
-      "text": "Gut. Beide kommen zu Weihnachten. Und zahlen dieses Jahr ihren Flug sogar selbst.",
+      "text": "Gut. Beide kommen zu Weihnachten.",
       "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l19",
+      "character": "ded",
+      "text": "Und zahlen dieses Jahr ihren Flug sogar selbst.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -133,30 +194,26 @@
     {
       "location": "gostinaya",
       "cast": [
-        "ded",
         "tyoshcha",
+        "ded",
         "paren"
       ],
       "roles": {
-        "ded": "old-man",
         "tyoshcha": "old-woman",
+        "ded": "old-man",
         "paren": "son"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "paren"
+        ]
       },
       "beats": [
         {
           "type": "move",
-          "who": "ded",
-          "to": "left"
-        },
-        {
-          "type": "move",
           "who": "tyoshcha",
           "to": "sofa"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "right"
         },
         {
           "type": "prop",
@@ -193,42 +250,6 @@
         {
           "type": "line",
           "ref": "l6"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "cast": [
-        "paren",
-        "devushka-ryzhaya"
-      ],
-      "roles": {
-        "paren": "son",
-        "devushka-ryzhaya": "daughter"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "devushka-ryzhaya",
-          "to": "right"
-        },
-        {
-          "type": "prop",
-          "who": "paren",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "devushka-ryzhaya",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
@@ -237,41 +258,34 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"
     },
     {
-      "location": "gostinaya",
+      "location": "ofis",
       "cast": [
-        "ded",
-        "tyoshcha",
+        "paren",
         "devushka-ryzhaya"
       ],
       "roles": {
-        "ded": "old-man",
-        "tyoshcha": "old-woman",
+        "paren": "son",
         "devushka-ryzhaya": "daughter"
+      },
+      "split": {
+        "location": "kukhnya",
+        "cast": [
+          "devushka-ryzhaya"
+        ]
       },
       "beats": [
         {
-          "type": "move",
-          "who": "ded",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "tyoshcha",
-          "to": "sofa"
-        },
-        {
-          "type": "move",
-          "who": "devushka-ryzhaya",
-          "to": "right"
-        },
-        {
           "type": "prop",
-          "who": "ded",
+          "who": "paren",
           "item": "phone",
           "action": "hold"
         },
@@ -280,10 +294,6 @@
           "who": "devushka-ryzhaya",
           "item": "phone",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         },
         {
           "type": "line",
@@ -292,16 +302,97 @@
         {
           "type": "line",
           "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "devushka-ryzhaya",
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter",
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "tyoshcha",
+          "ded"
+        ]
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "prop",
           "who": "ded",
           "item": "phone",
-          "action": "put"
+          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l17"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "ded": "old-man"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l18"
+        },
+        {
+          "type": "line",
+          "ref": "l19"
         }
       ],
       "transition": "cut"

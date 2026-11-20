@@ -3,33 +3,29 @@
   "jokeId": "ru-e30eafa1a0e6",
   "locale": "en",
   "title": "The Matchbox",
-  "location": "gostinaya",
+  "location": "ulitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "zhena"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man went to hand in a stool sample. He put it in a matchbox and set off for the clinic.",
+      "text": "A man went to hand in a stool sample.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "And vanished... For three days he's nowhere to be found.",
-      "emotion": "sad",
+      "text": "He put it in a matchbox and set off for the clinic.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,14 +33,32 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "His wife is going out of her mind, she's called everyone she possibly could, he's nowhere.",
+      "text": "And vanished...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Three days, and he's nowhere to be found.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "His wife is going out of her mind. She's called everyone she possibly could, he's nowhere.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "zhena",
       "text": "Well, I'll go to the clinic, maybe somebody there knows something.",
       "emotion": "sad",
@@ -53,7 +67,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "narrator",
       "text": "She gets there, but nobody there has a clue either.",
       "emotion": "neutral",
@@ -62,7 +76,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
       "character": "tyoshcha",
       "text": "Have a look in the surgical ward, some man's been sitting there for ages, maybe he's yours?",
       "emotion": "neutral",
@@ -71,7 +85,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "narrator",
       "text": "The wife goes there. She looks, and her husband is sitting there, all in plaster.",
       "emotion": "surprised",
@@ -80,16 +94,16 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "zhena",
-      "text": "Joe, how could this happen, who did this to you?",
+      "text": "Joe, how did this happen, who did this to you?",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "muzhik",
       "text": "I don't remember a thing.",
       "emotion": "sad",
@@ -98,7 +112,7 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "muzhik",
       "text": "All I remember is, someone asked me for matches...",
       "emotion": "sad",
@@ -111,25 +125,18 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "ulitsa",
       "cast": [
-        "muzhik",
-        "zhena"
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "husband",
-        "zhena": "wife"
+        "muzhik": "husband"
       },
       "beats": [
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "sofa"
+          "to": "left"
         },
         {
           "type": "prop",
@@ -146,6 +153,32 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
           "type": "prop",
           "who": "zhena",
           "item": "phone",
@@ -153,11 +186,15 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"
@@ -185,7 +222,7 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "desk"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -201,11 +238,11 @@
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l7"
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l8"
         }
       ],
       "transition": "flyover"
@@ -242,19 +279,19 @@
         },
         {
           "type": "line",
-          "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
           "ref": "l9"
         },
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "wipe"

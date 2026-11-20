@@ -32,7 +32,7 @@ Beats:
   - `{type:"camera", shot: "wide"|"group"|"two"|"close", on?}` — overrides the auto director until the next camera beat;
   - `{type:"sfx", id}` (clip kind `sfx` in `content/audio.json`), `{type:"pause", sec}`.
   - `transition` before a scene: `cut`, `wipe` (time skip, same building), `flyover` (camera flies over the town map to the next building).
-- Validation: `sceneProblems` in `packages/core/src/index.ts` (speakers on stage, marks and props exist, lines once and in order, ≤ 3 scenes). The `script` stage runs it in `pnpm llm check script`.
+- Validation: `sceneProblems` in `packages/core/src/index.ts` (speakers on stage, marks and props exist, lines once and in order; no scene limit). The `script` stage runs it in `pnpm llm check script`.
 - Example: `content/episodes/test-scenes.ru.json` (two scenes, walk-in at the door, flowers handed over, wipe to the bar).
 
 ## Auto director (`director/camera.ts`)

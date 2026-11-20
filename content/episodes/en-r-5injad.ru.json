@@ -6,16 +6,18 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena"
+    "zhena",
+    "muzhik"
   ],
   "roles": {
-    "zhena": "wife"
+    "zhena": "wife",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Холодное зимнее утро. Жена пишет мужу.",
+      "text": "Холодным зимним утром жена пишет мужу.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,14 +28,14 @@
       "character": "zhena",
       "text": "Окна замёрзли, не открываются.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Аккуратно полей их тёплой водой, а потом легонько постучи по краям молотком.",
+      "text": "Аккуратно полей их тёплой водой, а потом осторожно простучи края молотком.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -42,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Через десять минут.",
+      "text": "Через десять минут жена пишет снова.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -51,7 +53,7 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Теперь компьютеру точно конец.",
+      "text": "Компьютер теперь совсем накрылся.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,15 +66,29 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena"
+        "zhena",
+        "muzhik"
       ],
       "roles": {
-        "zhena": "wife"
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "muzhik"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
           "item": "phone",
           "action": "hold"
         },
@@ -83,55 +99,30 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "desk"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
         {
           "type": "prop",
           "who": "zhena",
           "item": "phone",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         },
         {
           "type": "line",

@@ -6,18 +6,18 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
-    "paren",
-    "devushka"
+    "devushka",
+    "paren"
   ],
   "roles": {
-    "paren": "customer",
-    "devushka": "cashier"
+    "devushka": "cashier",
+    "paren": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A young man is at the supermarket checkout with two cans of ravioli and a six-pack of beer on the belt.",
+      "text": "A young man is standing at the supermarket checkout.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,6 +25,24 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "On the belt he has two cans of ravioli and a six-pack of beer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "While the cashier scans the items, she says to him:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "devushka",
       "text": "I bet you're single!",
       "emotion": "smug",
@@ -33,16 +51,25 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l5",
       "character": "paren",
-      "text": "Yes, that's right! Could you tell from my shopping?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "text": "Yes, that's right!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "paren",
+      "text": "Could you tell from my shopping?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "devushka",
       "text": "Nope, from your face!",
       "emotion": "smug",
@@ -53,6 +80,73 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "devushka",
+        "paren"
+      ],
+      "roles": {
+        "devushka": "cashier",
+        "paren": "customer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "bottle",
+          "action": "give",
+          "to": "devushka"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

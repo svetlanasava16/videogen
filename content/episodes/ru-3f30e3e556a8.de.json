@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Polizist hält ein Auto an, am Steuer eine Blondine.",
+      "text": "Ein Polizist hält ein Auto an, am Steuer sitzt eine Blondine.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "devushka-blondinka",
-      "text": "Was ist denn ein Führerschein?",
+      "text": "Und was ist ein Führerschein?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -79,17 +79,26 @@
     },
     {
       "id": "l8",
-      "character": "devushka-blondinka",
-      "text": "Bitte schön.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.6,
+      "character": "narrator",
+      "text": "Sie kramt in ihrer Handtasche und holt einen kleinen Spiegel heraus.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
+      "character": "devushka-blondinka",
+      "text": "Bitte schön.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "sluzhivy",
-      "text": "Na, warum haben Sie nicht gleich gesagt, dass Sie Polizist sind.",
+      "text": "Na, warum haben Sie denn nicht gleich gesagt, dass Sie Polizist sind?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -150,6 +159,10 @@
           "ref": "l7"
         },
         {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
           "type": "prop",
           "who": "devushka-blondinka",
           "item": "mirror",
@@ -157,7 +170,7 @@
         },
         {
           "type": "line",
-          "ref": "l8"
+          "ref": "l9"
         },
         {
           "type": "prop",
@@ -172,7 +185,7 @@
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         }
       ],
       "transition": "cut"

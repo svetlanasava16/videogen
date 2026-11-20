@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein dicker Mercedes und ein winziger alter Trabi parken nebeneinander.",
+      "text": "Ein Mercedes und ein Trabi parken nebeneinander. Beide Fahrer steigen aus.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Hier fahren lauter verdammte Dorftrottel mit ihren billigen Karren rum!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Der Mercedes-Fahrer schielt schräg auf den Trabi und sagt:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,23 +35,41 @@
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Gleich zerkratzen die noch ein cooles Auto!",
+      "text": "Hier fahren lauter verdammte Laubenpieper mit ihren billigen Karren rum!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Am Ende zerkratzen die noch ein richtig cooles Auto!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Der Trabi-Fahrer nickt zustimmend, spreizt genauso lässig die Finger und antwortet:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Sag bloß, Bruder! Die sind völlig dreist geworden!",
+      "text": "Sag bloß, Bruder! Die sind total dreist geworden!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "muzhik",
       "text": "Stell dir vor, gestern ist mir ein Radfahrer voll in die Seite gekracht!",
       "emotion": "angry",
@@ -72,6 +90,16 @@
       "roles": {
         "muzhik": "everyman",
         "nachalnik": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#9b1b30",
+          "add": [
+            "gold-chain",
+            "dark-glasses"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -103,6 +131,14 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

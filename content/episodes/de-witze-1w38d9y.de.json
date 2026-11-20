@@ -6,36 +6,45 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "patient",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "patient"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann kommt abends in eine Arztpraxis und sagt zum Arzt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Guten Abend, Herr Doktor, ich bin eine Motte!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "Da sind Sie hier falsch. Der Psychologe ist gegenüber auf der anderen Straßenseite.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Aber bei Ihnen war noch Licht an!",
       "emotion": "surprised",

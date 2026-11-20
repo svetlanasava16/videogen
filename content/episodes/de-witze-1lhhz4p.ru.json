@@ -26,34 +26,34 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Заговорите с ней со спины. По тому, с какого расстояния она отреагирует, можно будет судить.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
-      "character": "narrator",
-      "text": "Мужик приходит домой и застаёт жену на кухне, она готовит ужин.",
+      "text": "Заговорите с ней со спины.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Дорогая, что у нас сегодня поесть?",
+      "id": "l3",
+      "character": "doktor",
+      "text": "По тому, с какого расстояния она отреагирует, можно будет судить.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Мужчина приходит домой и находит жену на кухне: она готовит ужин.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l5",
       "character": "muzhik",
-      "text": "Дорогая, что у нас сегодня на ужин?",
+      "text": "Дорогая, что у нас поесть сегодня?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -62,16 +62,25 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Дорогая, а что у нас сегодня поесть?",
+      "text": "Дорогая, что у нас сегодня на ужин?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "muzhik",
+      "text": "Дорогая, что у нас сегодня поесть?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "zhena",
-      "text": "Я тебе уже в третий раз говорю: будет курица!",
+      "text": "Я тебе уже третий раз говорю: курица!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -100,7 +109,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -110,6 +119,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
         }
       ],
       "transition": "cut"
@@ -140,26 +153,13 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "left",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "pause",
-          "sec": 1.5
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center"
         },
         {
           "type": "line",
@@ -172,15 +172,34 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "flyover"

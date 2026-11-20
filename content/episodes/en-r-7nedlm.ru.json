@@ -6,16 +6,18 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "sluzhivy"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Мужику позвонили из полиции и сказали, что его жена в больнице.",
+      "character": "muzhik",
+      "text": "Мне позвонили из полиции и сказали, что моя жена в больнице.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,7 +27,7 @@
       "id": "l2",
       "character": "muzhik",
       "text": "Как она?",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -42,8 +44,8 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Какого фига она опять недовольна?",
-      "uncensored": "Какого хуя она опять недовольна?",
+      "text": "И чем она, блин, опять недовольна?",
+      "uncensored": "И чем она, блядь, опять недовольна?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -56,15 +58,29 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "sluzhivy"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "sluzhivy": "police-officer"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "sluzhivy"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
           "item": "phone",
           "action": "hold"
         },
@@ -75,58 +91,10 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "bolnitsa",
-      "cast": [
-        "zhena",
-        "sluzhivy"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "sluzhivy": "police-officer"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "couch"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "center"
-        },
-        {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",

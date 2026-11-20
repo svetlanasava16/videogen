@@ -6,36 +6,45 @@
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "muzhik",
-    "doktor"
+    "doktor",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "patient",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "muzhik": "patient"
   },
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "One evening a man walks into a doctor's office and says to the doctor:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Good evening, Doctor, I'm a moth!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [
         "muzhik"
       ],
       "exit": []
     },
     {
-      "id": "l2",
+      "id": "l3",
       "character": "doktor",
       "text": "Then you're in the wrong place. The psychologist is opposite, on the other side of the street.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "But your light was still on!",
       "emotion": "surprised",

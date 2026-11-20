@@ -2,7 +2,7 @@
   "id": "en-r-7cvial.de",
   "jokeId": "en-r-7cvial",
   "locale": "de",
-  "title": "Noch größer?",
+  "title": "Größere Truthähne",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,19 +13,11 @@
     "zhena": "customer",
     "paren": "employee"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Als ich für Weihnachten einen Truthahn holen wollte, habe ich dieses Juwel aufgeschnappt.",
+      "text": "Als ich für Weihnachten einen Truthahn kaufte, habe ich diese Perle mitgehört.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Eine Frau wühlte in den gefrorenen Truthähnen, fand aber keinen, der groß genug für ihre Familie war.",
+      "text": "Eine Dame wühlte in den tiefgefrorenen Truthähnen, fand aber keinen, der groß genug für ihre Familie war.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,9 +35,9 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Werden die noch größer?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "Werden die Truthähne noch größer?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -61,6 +53,62 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "customer",
+        "paren": "employee"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,22 +2,22 @@
   "id": "ru-4b75a0e1bc8d.de",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "de",
-  "title": "Der Schluckauf",
+  "title": "Schluckauf",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "zhena",
-    "paren"
+    "paren",
+    "tyoshcha"
   ],
   "roles": {
-    "zhena": "patient",
-    "paren": "doctor"
+    "paren": "doctor",
+    "tyoshcha": "patient"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Frau Peters ging zum Arzt. Sie bekam einen Termin bei einem ganz jungen Doktor, frisch von der Uni.",
+      "text": "Frau Peters ging zum Arzt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,17 +26,17 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Nach ein paar Minuten in seinem Sprechzimmer stürzte Frau Peters mit wilden Schreien heraus und rannte den Flur entlang.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Sie bekam einen Termin bei einem ganz jungen Arzt, frisch von der Uni.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Ihr kam ein älterer Arzt entgegen. Er hielt sie an und fragte, was los sei.",
-      "emotion": "neutral",
+      "text": "Nach ein paar Minuten in seinem Sprechzimmer stürzte Frau Peters mit wildem Kreischen und Geschrei heraus und rannte den Flur entlang.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Als er das Sprechzimmer des jungen Arztes betrat, sah er streng aus.",
+      "text": "Ihr kam ein älterer Arzt entgegen. Er hielt sie an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,6 +53,15 @@
     {
       "id": "l5",
       "character": "doktor",
+      "text": "Was ist denn los?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "doktor",
       "text": "Was erlaubst du dir eigentlich?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
@@ -60,25 +69,25 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "doktor",
-      "text": "Frau Peters wird sechsundfünfzig, sie hat eine erwachsene Tochter, bald kommt ein Enkel, und du sagst ihr, sie ist schwanger!",
+      "text": "Frau Peters ist fünfundfünfzig, sie hat eine erwachsene Tochter, bald kommt ein Enkel, und du sagst ihr, dass sie schwanger ist!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
-      "text": "Der junge Arzt schrieb weiter etwas in die Karteikarte und antwortete:",
+      "text": "Der junge Arzt schrieb weiter etwas in die Karteikarte und antwortete.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "paren",
       "text": "Aber der Schluckauf ist doch weg, oder?",
       "emotion": "smug",
@@ -93,19 +102,21 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "zhena",
-        "paren"
+        "paren",
+        "tyoshcha"
       ],
       "roles": {
-        "zhena": "patient",
-        "paren": "doctor"
+        "paren": "doctor",
+        "tyoshcha": "patient"
+      },
+      "looks": {
+        "tyoshcha": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "couch"
-        },
         {
           "type": "move",
           "who": "paren",
@@ -116,13 +127,27 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
           "type": "move",
-          "who": "zhena",
-          "to": "off-right"
+          "who": "tyoshcha",
+          "to": "off-left"
         }
       ],
       "transition": "cut"
@@ -130,28 +155,49 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor",
-        "zhena"
+        "tyoshcha",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "zhena": "patient"
+        "tyoshcha": "patient",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "tyoshcha": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        },
+        "doktor": {
+          "hair": "#c8c8c8",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
         {
           "type": "move",
           "who": "doktor",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center",
+          "to": "right",
           "from": "off-right"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         }
       ],
       "transition": "cut"
@@ -159,12 +205,19 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor",
-        "paren"
+        "paren",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "paren": "doctor"
+        "paren": "doctor",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "doktor": {
+          "hair": "#c8c8c8",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -186,14 +239,6 @@
         },
         {
           "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
           "ref": "l6"
         },
         {
@@ -203,6 +248,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "wipe"

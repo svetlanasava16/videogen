@@ -2,7 +2,7 @@
   "id": "en-r-7xpiv9.ru",
   "jokeId": "en-r-7xpiv9",
   "locale": "ru",
-  "title": "Пуф, и свет включается",
+  "title": "Пуф — и свет включается",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Девяностолетний старик приходит на медосмотр, и все анализы у него в норме.",
+      "text": "Девяностолетний мужчина проходит медосмотр, и все анализы у него в норме.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,25 +35,25 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Как вы себя чувствуете душевно и эмоционально? Вы в мире с Богом?",
+      "text": "Как вы себя чувствуете душевно и эмоционально? Вы в ладу с Богом?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Мы с Богом не разлей вода. Он знает, что у меня плохое зрение,",
+      "text": "Мы с Богом не разлей вода.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "ded",
-      "text": "поэтому Он устроил так, что когда я посреди ночи встаю в туалет, пуф! И свет включается.",
+      "text": "Он знает, что у меня плохое зрение, поэтому устроил так, что когда я встаю посреди ночи в туалет, пуф! Свет включается.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "А когда я заканчиваю, пуф! И свет выключается.",
+      "text": "Когда я заканчиваю, пуф! Свет выключается.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -109,14 +109,23 @@
       "character": "doktor",
       "text": "Это правда, что он встаёт ночью, и пуф, в туалете включается свет, а когда он заканчивает, пуф, свет выключается?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
       "character": "tyoshcha",
-      "text": "Господи Иисусе! Он опять писает в холодильник!",
+      "text": "Господи Иисусе!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "tyoshcha",
+      "text": "Он опять писает в холодильник!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -189,10 +198,26 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor"
+        "doktor",
+        "tyoshcha"
       ],
       "roles": {
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "kukhnya",
+        "cast": [
+          "tyoshcha"
+        ]
       },
       "beats": [
         {
@@ -203,6 +228,12 @@
         {
           "type": "prop",
           "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
           "item": "phone",
           "action": "hold"
         },
@@ -221,44 +252,17 @@
         {
           "type": "line",
           "ref": "l11"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "tyoshcha"
-      ],
-      "roles": {
-        "tyoshcha": "old-woman"
-      },
-      "looks": {
-        "tyoshcha": {
-          "add": [
-            "curlers"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "tyoshcha",
-          "to": "fridge"
-        },
-        {
-          "type": "prop",
-          "who": "tyoshcha",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

@@ -6,19 +6,17 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "vovochka",
-    "muzhik",
-    "zhena"
+    "vovochka-drug",
+    "muzhik"
   ],
   "roles": {
-    "vovochka": "child",
-    "muzhik": "father",
-    "zhena": "mother"
+    "vovochka-drug": "child",
+    "muzhik": "father"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "Wie sind Menschen entstanden?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -28,15 +26,24 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Adam und Eva bekamen Kinder, dann wurden ihre Kinder erwachsen und bekamen selbst Kinder und so weiter.",
+      "text": "Adam und Eva bekamen Kinder,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "dann wurden ihre Kinder erwachsen und bekamen selbst Kinder und so weiter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "vovochka",
+      "id": "l4",
+      "character": "vovochka-drug",
       "text": "Wie sind Menschen entstanden?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -44,17 +51,17 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "zhena",
       "text": "Wir waren früher Affen, dann haben wir uns zu dem entwickelt, was wir heute sind.",
-      "emotion": "neutral",
+      "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "vovochka",
+      "id": "l6",
+      "character": "vovochka-drug",
       "text": "Du hast mich angelogen!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
@@ -62,7 +69,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "Nein, deine Mutter hat nur von ihrer Seite der Familie gesprochen.",
       "emotion": "smug",
@@ -77,38 +84,23 @@
     {
       "location": "gostinaya",
       "cast": [
-        "vovochka",
-        "muzhik",
-        "zhena"
+        "vovochka-drug",
+        "muzhik"
       ],
       "roles": {
-        "vovochka": "child",
-        "muzhik": "father",
-        "zhena": "mother"
-      },
-      "looks": {
-        "zhena": {
-          "add": [
-            "glasses"
-          ],
-          "remove": []
-        }
+        "vovochka-drug": "child",
+        "muzhik": "father"
       },
       "beats": [
         {
           "type": "move",
-          "who": "vovochka",
+          "who": "vovochka-drug",
           "to": "left"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "sofa"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "right"
         },
         {
           "type": "prop",
@@ -125,33 +117,101 @@
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "tv"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka-drug"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka-drug": "child"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "table"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l5"
         },
         {
-          "type": "line",
-          "ref": "l6"
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "off-left"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka-drug",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka-drug": "child",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "newspaper",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

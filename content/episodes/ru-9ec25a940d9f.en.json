@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Are you out of your mind? We have nothing in the house to serve.",
+      "text": "Are you out of your mind? We have nothing in the house to treat him with.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Well, come up with something. We absolutely have to host him, tomorrow they decide who gets a raise.",
+      "text": "Well, come up with something. We absolutely have to have him over, tomorrow they decide who gets a raise.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,9 +53,9 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Okay, listen to me. When he comes, I'll say you're cooking pork chops with peas.",
+      "text": "Okay, listen to me. When he comes, I'll say you're making pork chops with peas.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Then you break a plate in the kitchen and start wailing, I'll ask you what's wrong, and you shout that you dropped the chops in the trash.",
+      "text": "Then you break a plate in the kitchen and start wailing.",
       "emotion": "smug",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -80,6 +80,15 @@
     {
       "id": "l8",
       "character": "muzhik",
+      "text": "I'll ask you what's wrong, and you shout that you dropped the chops in the trash.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
       "text": "You serve the peas, nothing else we can do.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
@@ -87,18 +96,9 @@
       "exit": []
     },
     {
-      "id": "l9",
-      "character": "narrator",
-      "text": "So they agreed. The boss arrives.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l10",
       "character": "narrator",
-      "text": "The husband treats him to liqueur in the living room, then shouts to his wife:",
+      "text": "Long story short, they agree. The boss arrives.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -106,24 +106,33 @@
     },
     {
       "id": "l11",
-      "character": "muzhik",
-      "text": "So how are our chops with peas coming along?",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "The husband treats him to the liqueur, then shouts to his wife:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "muzhik",
+      "text": "So, how are our pork chops with peas coming along?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "narrator",
-      "text": "In the kitchen plates fall, a crash, wailing.",
+      "text": "In the kitchen, plates fall, a crash, wailing.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "muzhik",
       "text": "Well, butterfingers? Don't tell me you dropped the chops in the trash?",
       "emotion": "smug",
@@ -132,9 +141,10 @@
       "exit": []
     },
     {
-      "id": "l14",
+      "id": "l15",
       "character": "zhena",
       "text": "No, the peas.",
+      "offscreen": true,
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -177,7 +187,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -211,6 +221,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"
@@ -219,16 +233,24 @@
       "location": "gostinaya",
       "cast": [
         "muzhik",
-        "nachalnik"
+        "nachalnik",
+        "zhena"
       ],
       "roles": {
         "muzhik": "husband",
-        "nachalnik": "boss"
+        "nachalnik": "boss",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
             "tie"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "apron"
           ],
           "remove": []
         }
@@ -241,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         },
         {
           "type": "move",
@@ -263,10 +285,6 @@
         },
         {
           "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
           "ref": "l11"
         },
         {
@@ -276,38 +294,17 @@
         {
           "type": "line",
           "ref": "l13"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "looks": {
-        "zhena": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "stove"
         },
         {
           "type": "line",
           "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

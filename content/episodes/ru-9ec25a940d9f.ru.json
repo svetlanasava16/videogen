@@ -55,7 +55,7 @@
       "character": "muzhik",
       "text": "Так, слушай меня. Когда он придёт, я скажу, что ты готовишь отбивные с горошком.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "А потом ты на кухне разбей тарелку, запричитай, я тебя спрошу, в чём дело, ты крикнешь, мол, уронила отбивные в помойку.",
+      "text": "А потом ты на кухне разбей тарелку, запричитай.",
       "emotion": "smug",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -80,6 +80,15 @@
     {
       "id": "l8",
       "character": "muzhik",
+      "text": "Я тебя спрошу, в чём дело, ты крикнешь, мол, уронила отбивные в помойку.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
       "text": "Подашь горошек, делать нечего.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
@@ -87,18 +96,9 @@
       "exit": []
     },
     {
-      "id": "l9",
-      "character": "narrator",
-      "text": "Короче, договорились. Приходит начальник.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l10",
       "character": "narrator",
-      "text": "Муж его в комнате угощает наливкой, потом кричит жене:",
+      "text": "Короче, договорились, приходит начальник.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -106,6 +106,15 @@
     },
     {
       "id": "l11",
+      "character": "narrator",
+      "text": "Муж угощает его наливкой, потом кричит жене:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
       "character": "muzhik",
       "text": "Ну как там наши отбивные с горошком?",
       "emotion": "happy",
@@ -114,7 +123,7 @@
       "exit": []
     },
     {
-      "id": "l12",
+      "id": "l13",
       "character": "narrator",
       "text": "На кухне падают тарелки, грохот, причитания.",
       "emotion": "neutral",
@@ -123,7 +132,7 @@
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "muzhik",
       "text": "Ну что, криворукая? Неужто отбивные в помойку уронила?",
       "emotion": "smug",
@@ -132,9 +141,10 @@
       "exit": []
     },
     {
-      "id": "l14",
+      "id": "l15",
       "character": "zhena",
       "text": "Нет, горошек.",
+      "offscreen": true,
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -177,7 +187,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -211,6 +221,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"
@@ -219,16 +233,24 @@
       "location": "gostinaya",
       "cast": [
         "muzhik",
-        "nachalnik"
+        "nachalnik",
+        "zhena"
       ],
       "roles": {
         "muzhik": "husband",
-        "nachalnik": "boss"
+        "nachalnik": "boss",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
           "add": [
             "tie"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "apron"
           ],
           "remove": []
         }
@@ -241,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         },
         {
           "type": "move",
@@ -263,10 +285,6 @@
         },
         {
           "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
           "ref": "l11"
         },
         {
@@ -276,38 +294,17 @@
         {
           "type": "line",
           "ref": "l13"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "looks": {
-        "zhena": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "stove"
         },
         {
           "type": "line",
           "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

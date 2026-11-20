@@ -2,20 +2,22 @@
   "id": "ru-9cc0dee1c1f9.de",
   "jokeId": "ru-9cc0dee1c1f9",
   "locale": "de",
-  "title": "Keine freie Streife",
+  "title": "Diebe im Schuppen",
   "location": "derevnya",
   "place": "garden",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "uchilka"
   ],
   "roles": {
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "uchilka": "operator"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann kommt spät abends nach Hause und sieht im Schuppen das Licht einer Taschenlampe.",
+      "text": "Ein Mann kommt spätabends nach Hause und sieht durch einen Spalt in der Schuppentür im Hof das Licht einer Taschenlampe.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -23,33 +25,51 @@
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Hallo, Polizei? In meinem Schuppen stöbert jemand herum, ich glaube, das sind Einbrecher!",
-      "emotion": "surprised",
+      "character": "narrator",
+      "text": "Er ruft sofort die Polizei an.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Hallo, Polizei? In meinem Schuppen wühlt jemand herum, ich glaube, das sind Diebe!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "uchilka",
-      "text": "Mein Herr, leider sind gerade alle Streifenwagen im Einsatz, wir schicken eine Streife, sobald jemand frei ist, in ein, zwei Stunden...",
+      "text": "Mein Herr, leider sind gerade alle Streifenwagen im Einsatz.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "uchilka",
+      "text": "Wir schicken eine Streife, sobald jemand frei wird, in ein, zwei Stunden...",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "narrator",
-      "text": "Drei Minuten später ruft er wieder an.",
+      "text": "Der Mann legt auf und ruft drei Minuten später wieder bei der Polizei an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "muzhik",
       "text": "Hallo, ich bin's noch mal.",
       "emotion": "neutral",
@@ -58,54 +78,54 @@
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Da Sie keine freie Streife haben, musste ich die Einbrecher selbst erschießen.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "muzhik",
-      "text": "Wenn Ihre Streife also frei ist, schicken Sie gleich zwei, drei Krankenwagen mit, um die Leichen abzuholen.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l8",
-      "character": "narrator",
-      "text": "Eine Minute später rasen fünf Streifenwagen mit Sirenen vors Haus.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Da Sie keine freie Streife haben, musste ich die Diebe selbst erschießen.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
+      "character": "muzhik",
+      "text": "Wenn die Streife also frei wird, schicken Sie gleich noch zwei, drei Krankenwagen mit, um die Leichen abzuholen.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "narrator",
-      "text": "Die Einbrecher stürzen aus dem Schuppen und ergeben sich.",
+      "text": "Eine Minute später rasen mit heulenden Sirenen etwa fünf Polizeiautos vor das Haus.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Der Hof füllt sich im Nu mit bewaffneten Polizisten, die verängstigten Diebe stürzen aus dem Schuppen und ergeben sich.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "sluzhivy",
-      "text": "Sie sagten, hier lägen mindestens drei Leichen!",
+      "text": "Sie haben gesagt, hier liegen mindestens drei Leichen!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l13",
       "character": "muzhik",
-      "text": "Na, und Sie sagten, in der ganzen Gegend gäbe es keine freie Streife...",
+      "text": "Na, und Sie haben gesagt, in der ganzen Gegend gibt es keine freie Streife...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -118,10 +138,18 @@
     {
       "location": "derevnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "uchilka"
       ],
       "roles": {
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "uchilka": "operator"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "uchilka"
+        ]
       },
       "beats": [
         {
@@ -134,98 +162,52 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "phone",
           "action": "hold"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "uchilka"
-      ],
-      "roles": {
-        "uchilka": "operator"
-      },
-      "looks": {
-        "uchilka": {
-          "add": [
-            "headset"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
+          "type": "prop",
+          "who": "uchilka",
+          "item": "phone",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "derevnya",
-      "cast": [
-        "sluzhivy-ryadovoy",
-        "sluzhivy",
-        "muzhik",
-        "vor",
-        "paren"
-      ],
-      "roles": {
-        "sluzhivy-ryadovoy": "police-officer",
-        "sluzhivy": "police-officer",
-        "muzhik": "everyman",
-        "vor": "thief",
-        "paren": "thief"
-      },
-      "looks": {
-        "sluzhivy-ryadovoy": {
-          "add": [
-            "police-cap"
-          ],
-          "remove": [
-            "army-cap"
-          ]
-        },
-        "paren": {
-          "clothes": "#2b2b33",
-          "add": [
-            "hood"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l5"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "put"
+        },
+        {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -236,40 +218,108 @@
           "ref": "l8"
         },
         {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "house",
-          "from": "off-left"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy-ryadovoy",
-          "to": "left",
-          "from": "off-left"
-        },
-        {
           "type": "line",
           "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "cast": [
+        "vor",
+        "paren",
+        "muzhik",
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "vor": "thief",
+        "paren": "thief",
+        "muzhik": "everyman",
+        "sluzhivy": "police-officer",
+        "sluzhivy-ryadovoy": "police-officer"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#2e2e2e",
+          "add": [
+            "eye-mask",
+            "hood"
+          ],
+          "remove": []
         },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      "beats": [
         {
           "type": "move",
-          "who": "vor",
-          "to": "fence",
-          "from": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "right",
-          "from": "off-right"
+          "who": "muzhik",
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l10"
         },
         {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "tree",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "pistol",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "house",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "fence"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
       "transition": "cut"

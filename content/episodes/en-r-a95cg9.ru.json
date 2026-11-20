@@ -2,7 +2,7 @@
   "id": "en-r-a95cg9.ru",
   "jokeId": "en-r-a95cg9",
   "locale": "ru",
-  "title": "Мучительная смерть",
+  "title": "Медленная смерть",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Жена так разозлилась на мужа, что собрала ему чемодан.",
+      "text": "Жена так разозлилась на мужа, что собрала его вещи.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,18 +26,18 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Убирайся!",
+      "text": "Вон отсюда!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Чтоб ты умер долгой, медленной, мучительной смертью!",
+      "text": "Чтоб ты умирал долгой, медленной, мучительной смертью!",
       "emotion": "angry",
-      "pauseAfterSec": 0.9,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -45,7 +45,7 @@
       "id": "l4",
       "character": "muzhik",
       "text": "Так ты хочешь, чтобы я остался?",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -73,17 +73,24 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "sofa"
         },
         {
           "type": "prop",
-          "who": "muzhik",
+          "who": "zhena",
           "item": "suitcase",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "suitcase",
+          "action": "give",
+          "to": "muzhik"
         },
         {
           "type": "line",

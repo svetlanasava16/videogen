@@ -11,21 +11,13 @@
   ],
   "roles": {
     "nachalnik": "boss",
-    "paren": "everyman"
-  },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein junger Mann kommt zum Bewerbungsgespräch.",
+      "text": "Ein junger Mann kommt zum Bewerbungsgespräch, der Chef stellt sich vor.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +27,7 @@
       "id": "l2",
       "character": "nachalnik",
       "text": "Wie heißen Sie?",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,9 +38,7 @@
       "text": "P-P-P-Peter Müller.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
-      "enter": [
-        "paren"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -56,14 +46,14 @@
       "character": "nachalnik",
       "text": "Ach, Sie stottern?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "paren",
-      "text": "Nein, aber mein Vater und der Standesbeamte war ein Idiot!",
+      "text": "Nein, aber mein Vater und der Standesbeamte war ein Blödmann!",
       "uncensored": "Nein, aber mein Vater und der Standesbeamte war ein Arschloch!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
@@ -73,6 +63,60 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "boss",
+        "paren": "employee"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "give",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,21 +2,24 @@
   "id": "de-witze-1mp0cqs.ru",
   "jokeId": "de-witze-1mp0cqs",
   "locale": "ru",
-  "title": "Вуду",
-  "location": "spalnya",
+  "title": "Кукла вуду",
+  "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
+    "muzhik",
     "zhena"
   ],
   "roles": {
+    "muzhik": "husband",
     "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
-      "text": "У тебя бывают колющие боли во всём теле, как будто у кого-то есть твоя кукла вуду и он втыкает в неё иголки?",
-      "emotion": "happy",
+      "text": "У тебя бывают иногда колющие боли по всему телу, как будто у кого-то есть твоя кукла вуду и он колет её иголками?",
+      "offscreen": true,
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -26,14 +29,15 @@
       "character": "muzhik",
       "text": "Нет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "zhena",
-      "text": "А сейчас?",
+      "text": "А теперь?",
+      "offscreen": true,
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -42,67 +46,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "spalnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "line",
-          "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "sofa"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "newspaper",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "line",
-          "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

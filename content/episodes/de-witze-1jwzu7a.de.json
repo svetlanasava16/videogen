@@ -6,18 +6,18 @@
   "location": "ofis",
   "place": "police-station",
   "cast": [
-    "muzhik-ryzhy",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "farmer",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Bauer Erwin erscheint auf der örtlichen Polizeiwache.",
+      "text": "Bauer Erwin erscheint mit Tränen in den Augen auf der örtlichen Polizeiwache.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Nein, der Esel war schon alt und krank, und nach einigem Leiden hat er es nun endlich geschafft.",
+      "text": "Nein, der Esel war schon alt und krank.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,6 +54,15 @@
     },
     {
       "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Nach einigem Leiden hat er es nun endlich geschafft.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "sluzhivy",
       "text": "Und warum haben Sie dann jetzt die Polizei aufgesucht?",
       "emotion": "surprised",
@@ -62,7 +71,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Na, ich wollte nur die nächsten Angehörigen informieren.",
       "emotion": "neutral",

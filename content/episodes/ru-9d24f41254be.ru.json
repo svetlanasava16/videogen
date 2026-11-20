@@ -7,11 +7,13 @@
   "place": "home-living-room",
   "cast": [
     "devushka",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
     "devushka": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "doktor": "doctor"
   },
   "lines": [
     {
@@ -26,16 +28,34 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Не волнуйтесь. Два года назад я сделал вашей жене операцию и удалил слепой отросток. У человека не может появиться второй аппендикс!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Не волнуйтесь. Два года назад я сделал вашей жене операцию и удалил слепой отросток.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "doktor",
+      "text": "У человека не может появиться второй аппендикс!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "Правильно, доктор. Но у человека может появиться вторая жена.",
+      "text": "Правильно, доктор.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Но у человека может появиться вторая жена.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -49,11 +69,19 @@
       "location": "gostinaya",
       "cast": [
         "devushka",
-        "muzhik"
+        "muzhik",
+        "doktor"
       ],
       "roles": {
         "devushka": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "doktor": "doctor"
+      },
+      "split": {
+        "location": "bolnitsa",
+        "cast": [
+          "doktor"
+        ]
       },
       "beats": [
         {
@@ -62,70 +90,41 @@
           "to": "sofa"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
           "item": "phone",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "bolnitsa",
-      "cast": [
-        "doktor"
-      ],
-      "roles": {
-        "doktor": "doctor"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "doktor",
-          "to": "desk"
-        },
-        {
-          "type": "prop",
-          "who": "doktor",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "devushka",
-        "muzhik"
-      ],
-      "roles": {
-        "devushka": "wife",
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "devushka",
-          "to": "sofa"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

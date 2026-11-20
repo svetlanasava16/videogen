@@ -2,7 +2,7 @@
   "id": "de-witze-1s58nhp.en",
   "jokeId": "de-witze-1s58nhp",
   "locale": "en",
-  "title": "No Ears",
+  "title": "The Neighbor's Baby",
   "location": "kukhnya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Little Johnny has to go with his mother to visit the neighbor, who has just had a baby.",
+      "text": "Johnny has to go with his mother to see the neighbor, who has just had a baby.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,8 +27,8 @@
       "id": "l2",
       "character": "zhena",
       "text": "The baby has no ears!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -43,17 +43,17 @@
     },
     {
       "id": "l4",
-      "character": "vovochka",
-      "text": "The baby has a lovely mouth!",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "The two of them go over to the proud mother, and she shows them the baby right away.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "devushka",
-      "text": "Yes, so he can talk and speak nicely when he grows up!",
+      "character": "vovochka",
+      "text": "The baby has such a lovely mouth!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -61,8 +61,8 @@
     },
     {
       "id": "l6",
-      "character": "vovochka",
-      "text": "The baby has a lovely nose!",
+      "character": "devushka",
+      "text": "Yes, so that later on he can talk and speak nicely!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -70,33 +70,42 @@
     },
     {
       "id": "l7",
-      "character": "devushka",
-      "text": "Yes, so he can smell well when he grows up!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l8",
       "character": "vovochka",
-      "text": "The baby has lovely eyes!",
+      "text": "The baby has such a lovely nose!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "devushka",
-      "text": "Yes, so he can see well when he grows up!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "text": "Yes, so that later on he can smell well!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "vovochka",
+      "text": "The baby has such lovely eyes!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "devushka",
+      "text": "Yes, so that later on he can see well!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "vovochka",
       "text": "Well, he won't be able to wear glasses anyway!",
       "emotion": "neutral",
@@ -144,13 +153,13 @@
       "roles": {
         "zhena": "mother",
         "vovochka": "vovochka",
-        "devushka": "neighbor"
+        "devushka": "woman"
       },
       "beats": [
         {
           "type": "move",
           "who": "devushka",
-          "to": "sofa"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -159,20 +168,20 @@
           "action": "hold"
         },
         {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
           "type": "move",
           "who": "zhena",
-          "to": "door",
+          "to": "left",
           "from": "off-left"
         },
         {
           "type": "move",
           "who": "vovochka",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         },
         {
           "type": "line",
@@ -197,6 +206,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "wipe"

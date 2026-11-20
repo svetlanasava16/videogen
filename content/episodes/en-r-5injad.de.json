@@ -6,16 +6,18 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena"
+    "zhena",
+    "muzhik"
   ],
   "roles": {
-    "zhena": "wife"
+    "zhena": "wife",
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein kalter Wintermorgen. Eine Frau schreibt ihrem Mann.",
+      "text": "An einem kalten Wintermorgen schreibt eine Frau ihrem Mann.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -33,8 +35,8 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Gieß vorsichtig etwas lauwarmes Wasser über die Fenster und klopf dann sanft mit dem Hammer auf die Rahmen.",
-      "emotion": "neutral",
+      "text": "Gieß vorsichtig etwas lauwarmes Wasser über die Fenster und klopf dann sanft mit dem Hammer auf die Ränder.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -42,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Zehn Minuten später.",
+      "text": "Zehn Minuten später schreibt sie zurück.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
@@ -51,7 +53,7 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Jetzt ist der Computer endgültig hinüber.",
+      "text": "Computer ist jetzt richtig kaputt.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -64,15 +66,29 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena"
+        "zhena",
+        "muzhik"
       ],
       "roles": {
-        "zhena": "wife"
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "muzhik"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
           "item": "phone",
           "action": "hold"
         },
@@ -83,51 +99,10 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "desk"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",

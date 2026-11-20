@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Blinder reist nach Texas. In seinem Hotelzimmer tastet er das Bett ab.",
+      "text": "Ein Blinder reist nach Texas. Als er in sein Hotelzimmer kommt, tastet er das Bett ab.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Wow, ist das Bett groß!",
+      "text": "Wow, ist dieses Bett groß!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Der Mann geht runter in die Bar, setzt sich auf einen riesigen Barhocker und bestellt ein Bier. Man drückt ihm einen Krug in die Hände.",
+      "text": "Der Mann geht hinunter in die Bar, lässt sich auf einem riesigen Barhocker nieder und bestellt ein Bier. Man stellt ihm einen Krug zwischen die Hände.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Wow, sind die Getränke groß!",
+      "text": "Wow, sind die Getränke hier groß!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Nach ein paar Bier fragt der Blinde, wo die Toilette ist.",
+      "text": "Nach ein paar Bieren fragt der Blinde, wo die Toilette ist.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,14 +89,23 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Der Blinde geht zur Toilette, erwischt aber aus Versehen die dritte Tür, die zum Schwimmbecken führt, und fällt hinein.",
+      "text": "Der Blinde macht sich auf den Weg zur Toilette, erwischt aber versehentlich die dritte Tür, die zum Schwimmbad führt, und fällt hinein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Er taucht aus dem Wasser auf, rudert mit den Armen und schreit.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l11",
       "character": "muzhik",
       "text": "Nicht spülen, nicht spülen!",
       "emotion": "surprised",
@@ -200,12 +209,6 @@
           "to": "counter"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
@@ -231,6 +234,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -269,9 +278,13 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

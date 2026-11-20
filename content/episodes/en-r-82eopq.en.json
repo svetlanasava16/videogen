@@ -6,32 +6,43 @@
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "paren"
+    "paren",
+    "nachalnik"
   ],
   "roles": {
-    "paren": "employee"
+    "paren": "employee",
+    "nachalnik": "boss"
   },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
-      "text": "Sorry boss, I can't come in today. I have a wee cough.",
+      "text": "Sorry boss, I can't come in today.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "You have a wee cough!?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "paren",
+      "text": "I have a wee cough.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "nachalnik",
+      "text": "You have a wee cough!?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "paren",
       "text": "Really?! Thanks boss, see you next week!",
       "emotion": "happy",
@@ -46,10 +57,18 @@
     {
       "location": "spalnya",
       "cast": [
-        "paren"
+        "paren",
+        "nachalnik"
       ],
       "roles": {
-        "paren": "employee"
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "nachalnik"
+        ]
       },
       "beats": [
         {
@@ -60,66 +79,30 @@
         {
           "type": "prop",
           "who": "paren",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
           "item": "phone",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "nachalnik"
-      ],
-      "roles": {
-        "nachalnik": "boss"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "desk"
-        },
-        {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "paren"
-      ],
-      "roles": {
-        "paren": "employee"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "bed"
-        },
-        {
-          "type": "prop",
-          "who": "paren",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"

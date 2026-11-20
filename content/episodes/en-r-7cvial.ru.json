@@ -13,19 +13,11 @@
     "zhena": "customer",
     "paren": "employee"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Перед Новым годом. Женщина перебирала замороженных индеек, но никак не могла найти достаточно большую для всей семьи.",
+      "text": "Покупал я индейку к Новому году и подслушал вот такой перл.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -33,17 +25,26 @@
     },
     {
       "id": "l2",
-      "character": "zhena",
-      "text": "А индейки покрупнее будут?",
+      "character": "narrator",
+      "text": "Одна дама перебирала замороженных индеек, но никак не могла найти достаточно большую для своей семьи.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "zhena",
+      "text": "А покрупнее эти индейки не бывают?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "paren",
-      "text": "Нет, женщина, они же мёртвые.",
+      "text": "Нет, женщина, крупнее они уже не станут, они мёртвые.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -52,6 +53,62 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "customer",
+        "paren": "employee"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "shelf"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

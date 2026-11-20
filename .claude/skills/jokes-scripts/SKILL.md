@@ -19,7 +19,7 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 
 ## Original wording and swearing (user's top rule)
 - `original` mode copies every spoken line from the source; only typos, numbers as words, splitting long lines, reported → direct speech, and cutting narration the picture shows are allowed. Translations go line by line. Paraphrase kills the joke.
-- Tell the whole joke: every dialogue line and every step of an escalation; shorten narration only (`MAX_WORDS` in `pipeline/src/llm.ts`).
+- Tell the whole joke: every dialogue line and every step of an escalation; no word or scene limit — the video is as long as the joke; narration drops only what the picture shows.
 - Two versions at once: `lines[].text` is clean (only swear words softened: нахер → нафиг, блядь → блин, fuck → freaking, Scheiße → Mist), `lines[].uncensored` holds the source words and is set only when it differs. `Episode.explicit: true` makes captions show `uncensored` (voice-over is generated from `text`).
 - Check a batch: `python3` metric = share of dialogue words found in the source (old scripts: median 0.81; verbatim writer: 0.97–1.00). Compare lines to the source, not just the punchline.
 - Rewriting existing scripts: put their ids into `data/llm/script/redo.txt`, then `prepare` takes them again and `collect` replaces the old version. Empty the file after the rewrite is collected.

@@ -2,22 +2,24 @@
   "id": "ru-9d24f41254be.en",
   "jokeId": "ru-9d24f41254be",
   "locale": "en",
-  "title": "A Second Appendix",
+  "title": "The Second Appendix",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
     "devushka",
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
     "devushka": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Doctor, I'm begging you, come right away. My wife has a bad attack of appendicitis!",
+      "text": "Doctor, I'm begging you, come right away. My wife is having a terrible appendicitis attack!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,16 +28,34 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Don't worry. Two years ago I operated on your wife and removed her appendix. A person can't grow a second appendix!",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
+      "text": "Don't worry. Two years ago I operated on your wife and removed her appendix.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "doktor",
+      "text": "A person can't have a second appendix!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik",
-      "text": "That's right, doctor. But a person can get a second wife.",
+      "text": "That's right, doctor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "But a person can have a second wife.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -49,11 +69,19 @@
       "location": "gostinaya",
       "cast": [
         "devushka",
-        "muzhik"
+        "muzhik",
+        "doktor"
       ],
       "roles": {
         "devushka": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "doktor": "doctor"
+      },
+      "split": {
+        "location": "bolnitsa",
+        "cast": [
+          "doktor"
+        ]
       },
       "beats": [
         {
@@ -62,70 +90,41 @@
           "to": "sofa"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
           "item": "phone",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "bolnitsa",
-      "cast": [
-        "doktor"
-      ],
-      "roles": {
-        "doktor": "doctor"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "doktor",
-          "to": "desk"
-        },
-        {
-          "type": "prop",
-          "who": "doktor",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "devushka",
-        "muzhik"
-      ],
-      "roles": {
-        "devushka": "wife",
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "devushka",
-          "to": "sofa"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

@@ -2,20 +2,24 @@
   "id": "ru-586e567ee5d9.en",
   "jokeId": "ru-586e567ee5d9",
   "locale": "en",
-  "title": "Two Messages",
+  "title": "The Pager",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena",
+    "devushka"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife",
+    "devushka": "girlfriend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man left his phone at home. In the evening he comes back and reads his messages. The first one:",
+      "text": "A man left his pager at home.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -23,26 +27,62 @@
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Honey, darling, my love, please call me. Kisses, forever yours, Jessica.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
+      "character": "narrator",
+      "text": "In the evening he comes back and reads his messages.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The second one:",
+      "text": "The first one:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "devushka",
+      "text": "Sweetie, darling, my love, please call me.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devushka",
+      "text": "Kisses, always yours, Marina.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The second one:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
-      "text": "I've already called her, you needn't bother. Your wife.",
+      "text": "I already called, you don't have to worry.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "zhena",
+      "text": "Your wife.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -55,37 +95,13 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "sofa",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
+        "muzhik",
+        "zhena",
         "devushka"
       ],
       "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
         "devushka": "girlfriend"
       },
       "looks": {
@@ -96,7 +112,18 @@
           "remove": []
         }
       },
+      "split": {
+        "location": "spalnya",
+        "cast": [
+          "devushka"
+        ]
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
         {
           "type": "prop",
           "who": "devushka",
@@ -105,31 +132,13 @@
         },
         {
           "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik",
-        "zhena"
-      ],
-      "roles": {
-        "muzhik": "husband",
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "sofa"
+          "ref": "l1"
         },
         {
           "type": "move",
-          "who": "zhena",
-          "to": "right"
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "prop",
@@ -139,11 +148,31 @@
         },
         {
           "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

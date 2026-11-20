@@ -2,29 +2,38 @@
   "id": "en-r-c6bnkr.de",
   "jokeId": "en-r-c6bnkr",
   "locale": "de",
-  "title": "Der Urgroßvater",
+  "title": "Kümmer dich um deinen Kram",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "muzhik",
-    "vovochka-drug"
+    "vovochka-drug",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "vovochka-drug": "child"
+    "vovochka-drug": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "So viele Schokoriegel zu essen ist ungesund.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Ein Siebenjähriger sitzt auf einer Parkbank und isst einen Schokoriegel.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "So viele Schokoriegel zu essen ist ungesund.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "vovochka-drug",
       "text": "Mein Urgroßvater ist hundertfünf Jahre alt geworden.",
       "emotion": "neutral",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Und er hat so viel Schokolade gegessen?",
       "emotion": "surprised",
@@ -42,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "vovochka-drug",
       "text": "Nein. Aber er hat sich um seinen eigenen Mist gekümmert.",
       "uncensored": "Nein. Aber er hat sich um seinen eigenen Scheiß gekümmert.",
@@ -59,12 +68,12 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "muzhik",
-        "vovochka-drug"
+        "vovochka-drug",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "vovochka-drug": "child"
+        "vovochka-drug": "child",
+        "muzhik": "everyman"
       },
       "beats": [
         {
@@ -75,7 +84,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "center"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -104,6 +113,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1ikywni",
   "locale": "en",
   "title": "The Wife's Cat",
-  "location": "doroga",
+  "location": "gostinaya",
   "place": "car",
   "cast": [
     "muzhik",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man wants to secretly get rid of his wife's cat and decides to dump him somewhere.",
+      "text": "A man wants to secretly get rid of his wife's cat and decides to dump it somewhere.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He takes him in the car, drives twenty houses down, drops the cat off and drives home. Ten minutes later the cat is back too.",
+      "text": "He takes it in the car, drives twenty houses down the street, puts the cat out and drives home.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,8 +34,8 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Fine, maybe the distance was a little too short.",
+      "character": "narrator",
+      "text": "Ten minutes later the cat is back too.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -43,15 +43,33 @@
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "He gets back in the car with the cat, drives three miles and drops him off. Twenty minutes later the cat is back home again.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Oh well, maybe the distance was a bit too short.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "He gets back in the car with the cat, drives three miles and puts it out.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Twenty minutes later the cat is back home again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
       "text": "That's enough!",
       "emotion": "angry",
@@ -60,16 +78,25 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l8",
       "character": "narrator",
-      "text": "He drives twelve miles, then through the forest, over a bridge, right, left, and finally drops the cat off in the middle of the forest, in a clearing.",
+      "text": "He takes the cat in the car and drives twelve miles, then through the forest, over a bridge, right, left,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "and finally puts the cat out in the middle of the forest, in a clearing.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
       "character": "narrator",
       "text": "Half an hour later the man calls home.",
       "emotion": "neutral",
@@ -78,7 +105,7 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l11",
       "character": "muzhik",
       "text": "Is the cat there?",
       "emotion": "neutral",
@@ -87,18 +114,18 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l12",
       "character": "zhena",
       "text": "Yes, why?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l13",
       "character": "muzhik",
-      "text": "Put him on the phone, I'm lost.",
+      "text": "Put the cat on the phone, I'm lost.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -109,7 +136,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "doroga",
+      "location": "gostinaya",
       "cast": [
         "muzhik",
         "kot"
@@ -122,10 +149,50 @@
         {
           "type": "line",
           "ref": "l1"
-        },
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
         {
           "type": "line",
           "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "door",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -134,10 +201,77 @@
         {
           "type": "line",
           "ref": "l4"
-        },
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
         {
           "type": "line",
           "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"
@@ -156,22 +290,19 @@
       "beats": [
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l9"
         },
         {
           "type": "move",
-          "who": "kot",
+          "who": "muzhik",
           "to": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         }
       ],
-      "transition": "flyover"
+      "transition": "cut"
     },
     {
-      "location": "gostinaya",
+      "location": "derevnya",
+      "place": "forest",
       "cast": [
         "muzhik",
         "zhena",
@@ -182,23 +313,15 @@
         "zhena": "wife",
         "kot": "cat"
       },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "zhena",
+          "kot"
+        ]
+      },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "right"
-        },
-        {
-          "type": "move",
-          "who": "kot",
-          "to": "tv"
-        },
-        {
           "type": "prop",
           "who": "muzhik",
           "item": "phone",
@@ -209,18 +332,22 @@
           "who": "zhena",
           "item": "phone",
           "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         },
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
       "transition": "cut"

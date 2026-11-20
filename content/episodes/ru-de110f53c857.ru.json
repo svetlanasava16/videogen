@@ -6,10 +6,12 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "devushka-ryzhaya"
+    "devushka-ryzhaya",
+    "zhena"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter"
+    "devushka-ryzhaya": "daughter",
+    "zhena": "mother"
   },
   "lines": [
     {
@@ -24,14 +26,23 @@
     {
       "id": "l2",
       "character": "devushka-ryzhaya",
-      "text": "Мам, я просто не знаю, что делать! У нас тут такая семейная сцена разыгралась! Ужас!",
+      "text": "Мам, я просто не знаю, что делать!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-ryzhaya",
+      "text": "У нас тут такая семейная сцена разыгралась! Ужас!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "zhena",
       "text": "Спокойно, дочка, не расстраивайся. В каждой семье когда-нибудь возникают первые споры, конфликты.",
       "emotion": "neutral",
@@ -40,10 +51,10 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "devushka-ryzhaya",
       "text": "Да это я знаю. А с трупом чего делать?",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -55,15 +66,29 @@
     {
       "location": "kukhnya",
       "cast": [
-        "devushka-ryzhaya"
+        "devushka-ryzhaya",
+        "zhena"
       ],
       "roles": {
-        "devushka-ryzhaya": "daughter"
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "zhena"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
           "item": "phone",
           "action": "hold"
         },
@@ -74,50 +99,18 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "mother"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "devushka-ryzhaya"
-      ],
-      "roles": {
-        "devushka-ryzhaya": "daughter"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "devushka-ryzhaya",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

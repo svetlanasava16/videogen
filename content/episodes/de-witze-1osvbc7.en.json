@@ -2,8 +2,8 @@
   "id": "de-witze-1osvbc7.en",
   "jokeId": "de-witze-1osvbc7",
   "locale": "en",
-  "title": "Lying About His Age",
-  "location": "gostinaya",
+  "title": "The Billionaire",
+  "location": "bar",
   "place": "home-living-room",
   "cast": [
     "muzhik",
@@ -28,16 +28,16 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "After the honeymoon they throw a big party.",
-      "emotion": "happy",
+      "text": "After the honeymoon, they throw a big party.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "How did you manage to get such a young wife?",
+      "character": "muzhik-sosed",
+      "text": "How did you manage to land such a young wife?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,32 +46,41 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Easy. I lied about my age.",
+      "text": "Easy.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "I lied about my age.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "Okay, but even for a guy of forty or forty-five, she's incredible.",
+      "id": "l6",
+      "character": "muzhik",
+      "text": "Okay, but even for a forty- or forty-five-year-old she'd be incredible.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-sosed",
+      "id": "l7",
+      "character": "muzhik",
       "text": "So what age did you tell her?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "nachalnik",
       "text": "Eighty-five.",
       "emotion": "smug",
@@ -84,7 +93,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "bar",
       "cast": [
         "muzhik",
         "nachalnik",
@@ -95,6 +104,15 @@
         "nachalnik": "businessman",
         "muzhik-sosed": "friend"
       },
+      "looks": {
+        "nachalnik": {
+          "hair": "#c9c9c9",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
       "crowd": {
         "who": "guests",
         "size": "few"
@@ -103,6 +121,12 @@
         {
           "type": "prop",
           "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
           "item": "glass",
           "action": "hold"
         },
@@ -139,6 +163,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

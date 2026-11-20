@@ -28,7 +28,7 @@
       "character": "zhena",
       "text": "Быстро! Натрись детской присыпкой и притворись статуей.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -37,14 +37,14 @@
       "character": "narrator",
       "text": "Любовник так и сделал.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Дорогая, а что здесь делает эта статуя?",
+      "text": "Дорогая, а что тут делает эта статуя?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,17 +53,16 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Я увидела, что Ивановы себе такую завели, и решила тоже завести.",
+      "text": "Я увидела, что Петровы себе такую купили, и решила тоже завести.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Муж лёг в постель, и жена уснула.",
+      "text": "Муж лёг в постель, а жена уснула.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -72,14 +71,32 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Через несколько часов, убедившись, что жена спит, он тихонько встал, пошёл на кухню, сделал бутерброд, налил стакан молока, вернулся и подошёл к статуе.",
+      "text": "Через несколько часов, убедившись, что жена спит, он тихонько встал, пошёл на кухню,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "сделал бутерброд, налил стакан молока,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "вернулся и подошёл к статуе.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "muzhik",
       "text": "На, поешь и попей.",
       "emotion": "neutral",
@@ -88,9 +105,9 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "muzhik",
-      "text": "Я три дня стоял как идиот у Ивановых, и никто мне даже поесть не предложил!",
+      "text": "Я три дня у Петровых как дурак простоял, и никто мне даже поесть не предложил!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -119,7 +136,7 @@
         {
           "type": "move",
           "who": "paren",
-          "to": "center"
+          "to": "right"
         },
         {
           "type": "line",
@@ -128,6 +145,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
         }
       ],
       "transition": "cut"
@@ -136,19 +157,18 @@
       "location": "spalnya",
       "cast": [
         "zhena",
-        "paren",
-        "muzhik"
+        "muzhik",
+        "paren"
       ],
       "roles": {
         "zhena": "wife",
-        "paren": "lover",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "paren": "lover"
       },
       "looks": {
         "paren": {
-          "clothes": "#e8e4dc",
-          "hair": "#e8e4dc",
-          "skin": "#e8e4dc",
+          "clothes": "#f2efe8",
+          "skin": "#f2efe8",
           "add": [],
           "remove": []
         }
@@ -157,16 +177,12 @@
         {
           "type": "move",
           "who": "zhena",
-          "to": "bed"
+          "to": "left"
         },
         {
           "type": "move",
           "who": "paren",
-          "to": "wardrobe"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
+          "to": "right"
         },
         {
           "type": "move",
@@ -183,43 +199,13 @@
           "ref": "l5"
         },
         {
-          "type": "line",
-          "ref": "l6"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "spalnya",
-      "cast": [
-        "zhena",
-        "paren",
-        "muzhik"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "paren": "lover",
-        "muzhik": "husband"
-      },
-      "looks": {
-        "paren": {
-          "clothes": "#e8e4dc",
-          "hair": "#e8e4dc",
-          "skin": "#e8e4dc",
-          "add": [],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
           "type": "move",
-          "who": "zhena",
+          "who": "muzhik",
           "to": "bed"
         },
         {
-          "type": "move",
-          "who": "paren",
-          "to": "wardrobe"
+          "type": "line",
+          "ref": "l6"
         },
         {
           "type": "line",
@@ -228,8 +214,24 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right",
-          "from": "off-left"
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
         },
         {
           "type": "prop",
@@ -240,6 +242,56 @@
         {
           "type": "line",
           "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband",
+        "paren": "lover"
+      },
+      "looks": {
+        "paren": {
+          "clothes": "#f2efe8",
+          "skin": "#f2efe8",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "sandwich",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         },
         {
           "type": "prop",
@@ -250,7 +302,17 @@
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "wipe"

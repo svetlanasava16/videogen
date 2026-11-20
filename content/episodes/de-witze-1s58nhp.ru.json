@@ -2,7 +2,7 @@
   "id": "de-witze-1s58nhp.ru",
   "jokeId": "de-witze-1s58nhp",
   "locale": "ru",
-  "title": "Без ушей",
+  "title": "Малыш соседки",
   "location": "kukhnya",
   "place": "home-living-room",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Вовочка с мамой должны идти к соседке, у которой только что родился ребёнок.",
+      "text": "Вовочка с мамой должен пойти к соседке, у которой только что родился ребёнок.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,8 +27,8 @@
       "id": "l2",
       "character": "zhena",
       "text": "У ребёнка нет ушей!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -43,6 +43,15 @@
     },
     {
       "id": "l4",
+      "character": "narrator",
+      "text": "Они приходят к гордой маме, и им сразу же показывают малыша.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "vovochka",
       "text": "А у ребёнка красивый ротик!",
       "emotion": "happy",
@@ -51,16 +60,16 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "devushka",
-      "text": "Да, чтобы он потом красиво говорил и разговаривал!",
+      "text": "Да, чтобы потом он красиво говорил и разговаривал!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "vovochka",
       "text": "А у ребёнка красивый носик!",
       "emotion": "happy",
@@ -69,16 +78,16 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "devushka",
-      "text": "Да, чтобы он потом хорошо чувствовал запахи!",
+      "text": "Да, чтобы потом он хорошо чувствовал запахи!",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "vovochka",
       "text": "А у ребёнка красивые глазки!",
       "emotion": "happy",
@@ -87,16 +96,16 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "devushka",
-      "text": "Да, чтобы он потом хорошо видел!",
+      "text": "Да, чтобы потом он хорошо видел!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l11",
       "character": "vovochka",
       "text": "Ну да, очки-то он всё равно носить не сможет!",
       "emotion": "neutral",
@@ -144,13 +153,13 @@
       "roles": {
         "zhena": "mother",
         "vovochka": "vovochka",
-        "devushka": "neighbor"
+        "devushka": "woman"
       },
       "beats": [
         {
           "type": "move",
           "who": "devushka",
-          "to": "sofa"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -159,20 +168,20 @@
           "action": "hold"
         },
         {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
           "type": "move",
           "who": "zhena",
-          "to": "door",
+          "to": "left",
           "from": "off-left"
         },
         {
           "type": "move",
           "who": "vovochka",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         },
         {
           "type": "line",
@@ -197,6 +206,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "wipe"

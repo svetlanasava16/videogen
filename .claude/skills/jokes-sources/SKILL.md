@@ -14,7 +14,7 @@ description: Add a new joke source (Hugging Face dataset, API, Reddit via Arctic
 ## Code
 1. `pipeline/src/ingest/sources.ts`: add a `Source` (`id`, `lang`, `license`, `fetch()` returning `RawJoke[]` with a stable `id` prefix like `en-x-…`, `kind`, cleaned `text`, numeric `score`, `sourceRef`). Reuse `readHf`, `joinReddit`, `unwrapAnekdot`, `arcticSource`.
 2. Add it to `SOURCES` and set its share in `QUOTAS` (per-language total ~2000).
-3. New language: add it to `Locale` in `packages/core/src/index.ts`, word limits (`MAX_WORDS` in `llm.ts`), names in all puppet/backdrop/canon JSONs (`name.<lang>`), and the prompts' language lists.
+3. New language: add it to `Locale` in `packages/core/src/index.ts`, names in all puppet/backdrop/canon JSONs (`name.<lang>`), and the prompts' language lists.
 
 ## Run
 ```bash

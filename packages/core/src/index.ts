@@ -448,7 +448,7 @@ export const ScriptDraft = z.object({
     )
     .min(1),
   /** Сцены движка v2 (необязательно): биты ссылаются на реплики l1, l2… по порядку в lines. */
-  scenes: z.array(Scene).max(3).optional(),
+  scenes: z.array(Scene).optional(),
 });
 export type ScriptDraft = z.infer<typeof ScriptDraft>;
 
@@ -552,9 +552,12 @@ export function sceneProblems(
         if (!sc.cast.includes(b.who)) { pr.push(`${tag}: ${b.who} moves but is not in the scene cast`); continue; }
         if (b.from) { if (here.has(b.who)) pr.push(`${tag}: ${b.who} enters from ${b.from} but is already on stage`); here.add(b.who); }
         else need(b.who, "moves");
+        // в нижней половине разделённого экрана — метки своего места
+        const loc = sc.split?.cast.includes(b.who) ? sc.split.location : sc.location;
+        const mk = loc === sc.location ? marks : opts.marksOf(loc);
         if (b.to.startsWith("off-")) here.delete(b.who);
-        else if (marks && marks.length && !marks.includes(b.to)) pr.push(`${tag}: unknown mark "${b.to}" at ${sc.location} (marks: ${marks.join(", ")})`);
-        else if (!marks?.length) pr.push(`${tag}: ${sc.location} has no marks; use enter/exit on lines instead of move`);
+        else if (mk && mk.length && !mk.includes(b.to)) pr.push(`${tag}: unknown mark "${b.to}" at ${loc} (marks: ${mk.join(", ")})`);
+        else if (!mk?.length) pr.push(`${tag}: ${loc} has no marks; use enter/exit on lines instead of move`);
       } else if (b.type === "prop") {
         // взять в руки можно и за кадром (войдёт уже с предметом); отдать/уронить/положить — только в кадре
         if (b.action === "hold") { if (!sc.cast.includes(b.who)) pr.push(`${tag}: ${b.who} holds ${b.item} but is not in the scene cast`); }
@@ -569,7 +572,6 @@ export function sceneProblems(
     const refs = scenes.flatMap((sc) => sc.beats.flatMap((b) => (b.type === "line" ? [b.ref] : [])));
     const order = ep.lines.map((l) => l.id).filter((id) => refs.includes(id));
     if (refs.join(",") !== order.join(",")) pr.push(`lines must be referenced in the order of lines (got ${refs.join(", ")})`);
-    if (scenes.length > 3) pr.push(`at most 3 scenes (got ${scenes.length})`);
     for (const l of ep.lines) if (!used.has(l.id)) pr.push(`line ${l.id} is not used in any scene`);
     for (const [id, n] of used) if (n > 1) pr.push(`line ${id} is used ${n} times`);
   }

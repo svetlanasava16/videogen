@@ -6,19 +6,27 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "vovochka",
+    "vovochka-drug",
     "devochka",
     "muzhik"
   ],
   "roles": {
-    "vovochka": "child",
+    "vovochka-drug": "child",
     "devochka": "child",
     "muzhik": "father"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "What's for dinner?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
@@ -38,25 +46,34 @@
       "id": "l3",
       "character": "narrator",
       "text": "They started crying.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Spoiled brats. It's really hard to get food at the moment, thanks to the panic buying.",
+      "text": "Spoiled brats.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
+      "text": "It's really hard to get food at the moment thanks to the panic buying.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
       "text": "And it was a stupid name for a dog anyway.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -64,67 +81,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "kukhnya",
-      "cast": [
-        "vovochka",
-        "devochka",
-        "muzhik"
-      ],
-      "roles": {
-        "vovochka": "child",
-        "devochka": "child",
-        "muzhik": "father"
-      },
-      "looks": {
-        "muzhik": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "vovochka",
-          "to": "table"
-        },
-        {
-          "type": "move",
-          "who": "devochka",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "stove"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

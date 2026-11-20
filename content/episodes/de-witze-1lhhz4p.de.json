@@ -26,14 +26,23 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Sprechen Sie sie von hinten an. Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
+      "text": "Sprechen Sie sie von hinten an.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "narrator",
       "text": "Der Mann geht nach Hause und findet seine Frau in der Küche beim Zubereiten des Abendessens.",
       "emotion": "neutral",
@@ -42,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik",
       "text": "Schatz, was gibt es denn zu essen heute?",
       "emotion": "neutral",
@@ -51,25 +60,25 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Schatz, was gibt es denn zum Abendessen heute?",
-      "emotion": "neutral",
+      "text": "Schatz, was gibt es denn zu Abendessen heute?",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "Schatz, was gibt es denn heute zu essen?",
-      "emotion": "surprised",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "zhena",
       "text": "Ich sag's dir jetzt zum dritten Mal: Es gibt Hühnchen!",
       "emotion": "angry",
@@ -100,7 +109,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -110,6 +119,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
         }
       ],
       "transition": "cut"
@@ -140,26 +153,13 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
         },
         {
           "type": "move",
           "who": "muzhik",
           "to": "left",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "pause",
-          "sec": 1.5
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center"
         },
         {
           "type": "line",
@@ -172,15 +172,34 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "pause",
+          "sec": 1.5
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "table"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "flyover"

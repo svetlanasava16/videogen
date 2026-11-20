@@ -2,14 +2,16 @@
   "id": "ru-5024a894c153.en",
   "jokeId": "ru-5024a894c153",
   "locale": "en",
-  "title": "Wrong Address",
+  "title": "Wrong Place",
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "muzhik-ryzhy": "farmer"
+    "muzhik-ryzhy": "farmer",
+    "sluzhivy-ryadovoy": "soldier"
   },
   "lines": [
     {
@@ -24,16 +26,16 @@
     {
       "id": "l2",
       "character": "sluzhivy-ryadovoy",
-      "text": "You've got the wrong address. This is a missile base.",
+      "text": "You've got the wrong place. This is the missile base.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "No, you've got the wrong address! Who's going to pay for my shed?!",
+      "text": "No, you've got the wrong place! Who's going to pay for my barn?!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -45,11 +47,20 @@
   "scenes": [
     {
       "location": "derevnya",
+      "place": "farm",
       "cast": [
-        "muzhik-ryzhy"
+        "muzhik-ryzhy",
+        "sluzhivy-ryadovoy"
       ],
       "roles": {
-        "muzhik-ryzhy": "farmer"
+        "muzhik-ryzhy": "farmer",
+        "sluzhivy-ryadovoy": "soldier"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "sluzhivy-ryadovoy"
+        ]
       },
       "beats": [
         {
@@ -58,22 +69,6 @@
           "item": "phone",
           "action": "hold"
         },
-        {
-          "type": "line",
-          "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "sluzhivy-ryadovoy"
-      ],
-      "roles": {
-        "sluzhivy-ryadovoy": "soldier"
-      },
-      "beats": [
         {
           "type": "prop",
           "who": "sluzhivy-ryadovoy",
@@ -82,25 +77,11 @@
         },
         {
           "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "derevnya",
-      "cast": [
-        "muzhik-ryzhy"
-      ],
-      "roles": {
-        "muzhik-ryzhy": "farmer"
-      },
-      "beats": [
+          "ref": "l1"
+        },
         {
-          "type": "prop",
-          "who": "muzhik-ryzhy",
-          "item": "phone",
-          "action": "hold"
+          "type": "line",
+          "ref": "l2"
         },
         {
           "type": "line",

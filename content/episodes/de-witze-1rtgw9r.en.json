@@ -2,7 +2,7 @@
   "id": "de-witze-1rtgw9r.en",
   "jokeId": "de-witze-1rtgw9r",
   "locale": "en",
-  "title": "The Psychologist",
+  "title": "The Emergency Landing",
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -14,24 +14,6 @@
     "sluzhivy": "pilot",
     "sluzhivy-ryadovoy": "pilot",
     "doktor": "therapist"
-  },
-  "looks": {
-    "sluzhivy": {
-      "add": [
-        "aerodrome-cap"
-      ],
-      "remove": [
-        "police-cap"
-      ]
-    },
-    "sluzhivy-ryadovoy": {
-      "add": [
-        "aerodrome-cap"
-      ],
-      "remove": [
-        "army-cap"
-      ]
-    }
   },
   "lines": [
     {
@@ -47,17 +29,15 @@
       "id": "l2",
       "character": "sluzhivy",
       "text": "Where are we?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The man thinks for a very long time, and finally says:",
+      "text": "The man thinks for a very long time.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -70,22 +50,20 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "doktor"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
+      "character": "sluzhivy-ryadovoy",
       "text": "That was definitely a psychologist!",
-      "emotion": "angry",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "sluzhivy-ryadovoy",
+      "character": "sluzhivy",
       "text": "What makes you say that?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -94,18 +72,27 @@
     },
     {
       "id": "l7",
-      "character": "sluzhivy",
-      "text": "It's obvious. First, it took him forever to answer.",
+      "character": "sluzhivy-ryadovoy",
+      "text": "It's obvious.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "sluzhivy",
+      "character": "sluzhivy-ryadovoy",
+      "text": "First, it took him forever to answer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "sluzhivy-ryadovoy",
       "text": "Second, the answer is completely correct, and third, completely useless!",
-      "emotion": "smug",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -113,6 +100,112 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "doktor"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "sluzhivy-ryadovoy": "pilot",
+        "doktor": "therapist"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "aerodrome-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "doktor": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "map",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "pause",
+          "sec": 2
+        },
+        {
+          "type": "pause",
+          "sec": 2
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -6,18 +6,18 @@
   "location": "ofis",
   "place": "office",
   "cast": [
-    "paren",
-    "nachalnik"
+    "nachalnik",
+    "paren"
   ],
   "roles": {
-    "paren": "employee",
-    "nachalnik": "boss"
+    "nachalnik": "boss",
+    "paren": "employee"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "At a job interview, the manager hands the candidate his laptop.",
+      "character": "paren",
+      "text": "I was at a job interview today when the manager handed me his laptop and said:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,23 +28,23 @@
       "character": "nachalnik",
       "text": "I want you to try to sell this to me.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "So he puts it under his arm, walks out of the building, and goes home.",
-      "emotion": "neutral",
+      "character": "paren",
+      "text": "So I put it under my arm, walked out of the building, and went home.",
+      "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Eventually the manager calls him.",
+      "character": "paren",
+      "text": "Eventually he called me and said:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,7 +55,7 @@
       "character": "nachalnik",
       "text": "Bring my laptop back here right now!",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -75,20 +75,12 @@
     {
       "location": "ofis",
       "cast": [
-        "paren",
-        "nachalnik"
+        "nachalnik",
+        "paren"
       ],
       "roles": {
-        "paren": "employee",
-        "nachalnik": "boss"
-      },
-      "looks": {
-        "paren": {
-          "add": [
-            "tie"
-          ],
-          "remove": []
-        }
+        "nachalnik": "boss",
+        "paren": "employee"
       },
       "beats": [
         {
@@ -124,15 +116,29 @@
     {
       "location": "ofis",
       "cast": [
-        "nachalnik"
+        "nachalnik",
+        "paren"
       ],
       "roles": {
-        "nachalnik": "boss"
+        "nachalnik": "boss",
+        "paren": "employee"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "paren"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "nachalnik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
           "item": "phone",
           "action": "hold"
         },
@@ -143,32 +149,6 @@
         {
           "type": "line",
           "ref": "l5"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "paren"
-      ],
-      "roles": {
-        "paren": "employee"
-      },
-      "looks": {
-        "paren": {
-          "add": [
-            "tie"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "paren",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",

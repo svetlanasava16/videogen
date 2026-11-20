@@ -2,20 +2,24 @@
   "id": "ru-1c3557125dd4.en",
   "jokeId": "ru-1c3557125dd4",
   "locale": "en",
-  "title": "The Drunk Tank",
+  "title": "Bail Money",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena",
+    "muzhik-sosed"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife",
+    "muzhik-sosed": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "One morning a man wakes up with the worst hangover of his life to a phone call. It's a friend he hasn't seen in ages.",
+      "text": "One morning a man wakes up with the deepest hangover of his life to the phone ringing.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -23,6 +27,15 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "It's a friend he hasn't seen for ages.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
       "text": "Where are you calling from?",
       "emotion": "sad",
@@ -31,7 +44,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik-sosed",
       "text": "Help me out, buddy, I'm calling from the drunk tank, not far from your place.",
       "emotion": "sad",
@@ -40,46 +53,55 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik-sosed",
-      "text": "I've got no money, and I need seventy-eight dollars so they'll let me go.",
+      "text": "I've got no money, I need fifty-six dollars for them to let me go.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
-      "text": "The man promises, hangs up, gathers what's left of his strength, gets up and starts slowly getting dressed, trying not to fall over.",
+      "text": "The man promises, hangs up, and gathering the last of his strength, gets up and starts slowly getting dressed, trying not to fall over.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "zhena",
-      "text": "Where do you think you're going?!",
+      "text": "Where to?!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
-      "text": "He honestly explains the situation. His wife takes a long hard look at his puffy face.",
+      "text": "He honestly explains the situation.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
+      "character": "narrator",
+      "text": "His wife takes a long hard look at his puffy face and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "zhena",
-      "text": "Take a hundred and fifty-six!",
-      "emotion": "smug",
+      "text": "Take a hundred and twelve dollars!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -91,10 +113,14 @@
     {
       "location": "spalnya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena",
+        "muzhik-sosed"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife",
+        "muzhik-sosed": "friend"
       },
       "looks": {
         "muzhik": {
@@ -103,7 +129,26 @@
             "stubble"
           ],
           "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "red-nose",
+            "stubble"
+          ],
+          "remove": []
         }
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "muzhik-sosed"
+        ]
       },
       "beats": [
         {
@@ -112,8 +157,19 @@
           "to": "bed"
         },
         {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
           "item": "phone",
           "action": "hold"
         },
@@ -124,32 +180,6 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "muzhik-sosed"
-      ],
-      "roles": {
-        "muzhik-sosed": "friend"
-      },
-      "looks": {
-        "muzhik-sosed": {
-          "add": [
-            "red-nose"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "muzhik-sosed",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
@@ -158,6 +188,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -189,12 +223,23 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l5"
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
         },
         {
           "type": "line",
@@ -203,6 +248,14 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "cut"

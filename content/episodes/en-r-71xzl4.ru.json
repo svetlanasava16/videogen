@@ -7,26 +7,35 @@
   "place": "home-living-room",
   "cast": [
     "muzhik",
-    "vovochka"
+    "vovochka-drug"
   ],
   "roles": {
     "muzhik": "father",
-    "vovochka": "child"
+    "vovochka-drug": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
-      "text": "Пап, я сегодня двойку по математике получил.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "Маленький мальчик приходит из школы и говорит отцу:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "vovochka-drug",
+      "text": "Я сегодня получил двойку по математике.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "vovochka-drug"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
       "text": "Что случилось?",
       "emotion": "surprised",
@@ -35,18 +44,9 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "vovochka",
-      "text": "Ну, учительница спросила, сколько будет трижды два, и я сказал: шесть.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l4",
-      "character": "muzhik",
-      "text": "Ну, правильно.",
+      "character": "vovochka-drug",
+      "text": "Ну, учительница спросила меня, сколько будет три на два, и я сказал: шесть.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,26 +54,35 @@
     },
     {
       "id": "l5",
-      "character": "vovochka",
-      "text": "Я знаю. А потом она спросила, сколько будет дважды три.",
+      "character": "muzhik",
+      "text": "Ну, это правильно.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "vovochka-drug",
+      "text": "Я знаю. Потом она спросила меня, сколько будет два на три.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
-      "text": "А какая, на фига, разница?",
-      "uncensored": "А какая, на хрена, разница?",
+      "text": "А какая нафиг разница?",
+      "uncensored": "А какая нахер разница?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "vovochka",
+      "id": "l8",
+      "character": "vovochka-drug",
       "text": "Вот и я так сказал!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,

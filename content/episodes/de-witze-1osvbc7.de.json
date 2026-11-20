@@ -2,8 +2,8 @@
   "id": "de-witze-1osvbc7.de",
   "jokeId": "de-witze-1osvbc7",
   "locale": "de",
-  "title": "Gelogen beim Alter",
-  "location": "gostinaya",
+  "title": "Der Milliardär",
+  "location": "bar",
   "place": "home-living-room",
   "cast": [
     "muzhik",
@@ -29,14 +29,14 @@
       "id": "l2",
       "character": "narrator",
       "text": "Nach der Hochzeitsreise feiern sie eine große Party.",
-      "emotion": "happy",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
+      "character": "muzhik-sosed",
       "text": "Wie hast du es geschafft, so eine junge Frau zu bekommen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -46,15 +46,24 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Ganz einfach. Ich habe bei meinem Alter gelogen.",
+      "text": "Ganz einfach.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Ich habe bei meinem Alter gelogen.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "muzhik-sosed",
+      "id": "l6",
+      "character": "muzhik",
       "text": "Ja gut, aber selbst für einen Vierzig- oder Fünfundvierzigjährigen ist sie ja unglaublich.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
@@ -62,16 +71,16 @@
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik-sosed",
+      "id": "l7",
+      "character": "muzhik",
       "text": "Welches Alter hast du ihr denn gesagt?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.9,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "nachalnik",
       "text": "Fünfundachtzig.",
       "emotion": "smug",
@@ -84,7 +93,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "bar",
       "cast": [
         "muzhik",
         "nachalnik",
@@ -95,6 +104,15 @@
         "nachalnik": "businessman",
         "muzhik-sosed": "friend"
       },
+      "looks": {
+        "nachalnik": {
+          "hair": "#c9c9c9",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
       "crowd": {
         "who": "guests",
         "size": "few"
@@ -103,6 +121,12 @@
         {
           "type": "prop",
           "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
           "item": "glass",
           "action": "hold"
         },
@@ -139,6 +163,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

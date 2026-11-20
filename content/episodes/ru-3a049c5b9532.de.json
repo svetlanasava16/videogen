@@ -3,21 +3,21 @@
   "jokeId": "ru-3a049c5b9532",
   "locale": "de",
   "title": "Anschubsen",
-  "location": "gostinaya",
+  "location": "spalnya",
   "place": "park",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik-ryzhy": "drunk",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Drei Uhr nachts. Mann und Frau schlafen. Plötzlich klingelt es. Fluchend geht der Mann aufmachen.",
+      "text": "Drei Uhr nachts. Mann und Frau schlafen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,51 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Kumpel, komm mit, ist gleich hier um die Ecke, du kannst mich anschubsen.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Plötzlich klingelt es an der Tür.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "narrator",
+      "text": "Der Mann geht fluchend aufmachen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Kumpel, komm mit, ist gleich hier um die Ecke, du musst mich anschubsen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
-      "text": "Sag mal, Mann, spinnst du? Es ist drei Uhr nachts. Frag jemand anderen.",
+      "text": "Sag mal, spinnst du, Mann? Es ist drei Uhr nachts. Frag jemand anderen.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Der Mann legt sich wieder ins Bett.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
       "text": "Wer war das?",
       "emotion": "neutral",
@@ -51,25 +78,34 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Ach, irgendein Trottel steckt fest und wollte, dass ich ihn anschubse. Ich hab ihn zum Teufel geschickt.",
+      "text": "Ach, irgendein Idiot steckt fest und wollte, dass ich ihn anschubse. Ich hab ihn zum Teufel geschickt.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l9",
       "character": "zhena",
-      "text": "Du bist echt ein Unmensch. Weißt du noch, wie uns der Motor abgesoffen ist, noch dazu im Regen, und irgendein Kerl hat uns eine ganze Stunde lang angeschubst?",
+      "text": "Du bist wirklich ein Unmensch.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
+      "character": "zhena",
+      "text": "Weißt du noch, wie uns der Motor abgesoffen ist, mitten im Regen, und irgendein junger Mann uns eine ganze Stunde lang angeschubst hat?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "zhena",
       "text": "Und du kannst einem Menschen nicht helfen?",
       "emotion": "angry",
@@ -78,45 +114,56 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "narrator",
-      "text": "Wieder fluchend steht der Mann auf und zieht sich an. Draußen im Hof ist es stockdunkel.",
+      "text": "Der Mann kriecht wieder fluchend aus dem Bett und zieht sich an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l13",
+      "character": "narrator",
+      "text": "Er geht in stockdunkler Nacht auf den Hof.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
       "character": "muzhik",
-      "text": "Hey, Mann! Wo bist du?",
+      "text": "Mann! Wo bist du?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l15",
       "character": "muzhik-ryzhy",
       "text": "Hier bin ich! Komm her!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l16",
       "character": "muzhik",
-      "text": "Wo denn hier?",
-      "emotion": "surprised",
+      "text": "Wo ist denn hier?",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l12",
+      "id": "l17",
       "character": "muzhik-ryzhy",
       "text": "Na hier, auf der Schaukel!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -126,6 +173,47 @@
   ],
   "explicit": false,
   "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
     {
       "location": "gostinaya",
       "cast": [
@@ -151,10 +239,6 @@
           "to": "door"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
           "to": "left",
@@ -162,11 +246,16 @@
         },
         {
           "type": "line",
-          "ref": "l2"
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
         },
         {
           "type": "move",
@@ -179,12 +268,12 @@
     {
       "location": "spalnya",
       "cast": [
-        "zhena",
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "beats": [
         {
@@ -195,15 +284,8 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -216,6 +298,22 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         },
         {
           "type": "move",
@@ -246,31 +344,30 @@
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "bench"
+          "type": "line",
+          "ref": "l13"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l14"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l15"
         },
         {
           "type": "line",
-          "ref": "l11"
+          "ref": "l16"
         },
         {
           "type": "line",
-          "ref": "l12"
+          "ref": "l17"
         }
       ],
       "transition": "cut"

@@ -7,21 +7,21 @@
   "place": "bedroom",
   "cast": [
     "zhena",
-    "paren",
     "ded",
+    "paren",
     "devushka-ryzhaya"
   ],
   "roles": {
     "zhena": "wife",
-    "paren": "son",
     "ded": "old-man",
+    "paren": "son",
     "devushka-ryzhaya": "daughter"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Schwabe liegt im Sterben in seinem Bett.",
+      "text": "Ein Schwabe liegt im Sterben in seinem Bett und fragt seine Frau:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -77,12 +77,21 @@
       "character": "devushka-ryzhaya",
       "text": "Ja, Papa.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Die Tochter antwortet unter Tränen und küsst seine Wange.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "ded",
       "text": "Wenn ihr alle hier seid, warum zum Teufel brennt dann das Licht im Flur?",
       "emotion": "angry",
@@ -98,14 +107,14 @@
       "location": "spalnya",
       "cast": [
         "zhena",
-        "paren",
         "ded",
+        "paren",
         "devushka-ryzhaya"
       ],
       "roles": {
         "zhena": "wife",
-        "paren": "son",
         "ded": "old-man",
+        "paren": "son",
         "devushka-ryzhaya": "daughter"
       },
       "beats": [
@@ -160,6 +169,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

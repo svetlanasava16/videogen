@@ -8,22 +8,22 @@
   "cast": [
     "ded",
     "muzhik",
+    "tyoshcha",
     "muzhik-sosed",
-    "muzhik-ryzhy",
-    "pyos"
+    "muzhik-ryzhy"
   ],
   "roles": {
     "ded": "god",
     "muzhik": "everyman",
+    "tyoshcha": "woman",
     "muzhik-sosed": "everyman",
-    "muzhik-ryzhy": "everyman",
-    "pyos": "dog"
+    "muzhik-ryzhy": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Умирают трое мужиков и попадают на небеса.",
+      "text": "Умирают трое мужчин и попадают на небеса.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -32,9 +32,9 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Здесь нет никаких особых правил, только одно: не наступайте на собак.",
+      "text": "Особых правил здесь нет, только одно: не наступайте на собак.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -42,8 +42,8 @@
       "id": "l3",
       "character": "narrator",
       "text": "Трое думают, что это не так уж сложно, пока не видят: повсюду лежат собаки.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -59,9 +59,9 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "В наказание ему дают в спутницы самую страшную женщину на небесах.",
+      "text": "В наказание ему достаётся самая страшная женщина на небесах.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [
         "tyoshcha"
       ],
@@ -71,28 +71,37 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Второй тоже не справляется, наступает на собаку и получает в спутницы одну из самых страшных женщин на небесах.",
+      "text": "Второй тоже не справляется и наступает на собаку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Ему достаётся одна из самых страшных женщин на небесах.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [
         "uchilka"
       ],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
-      "text": "Третий хитрее: весь день стоит на месте и не наступает ни на одну собаку.",
+      "text": "Третий умнее: весь день стоит на месте и не наступает ни на одну собаку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "narrator",
-      "text": "Ему дают в спутницы красавицу.",
-      "emotion": "happy",
+      "text": "Ему достаётся прекрасная женщина.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
         "devushka"
@@ -100,16 +109,16 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l10",
       "character": "muzhik-ryzhy",
-      "text": "Ох, что же я такого сделал, что мне досталась такая красивая женщина?",
+      "text": "Ох, что же я такого сделал, что мне досталась такая красавица?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l11",
       "character": "devushka",
       "text": "Понятия не имею, что ты сделал. А я наступила на собаку.",
       "emotion": "sad",
@@ -126,16 +135,29 @@
       "cast": [
         "ded",
         "muzhik",
+        "tyoshcha",
         "muzhik-sosed",
-        "muzhik-ryzhy",
-        "pyos"
+        "muzhik-ryzhy"
       ],
       "roles": {
         "ded": "god",
         "muzhik": "everyman",
+        "tyoshcha": "woman",
         "muzhik-sosed": "everyman",
-        "muzhik-ryzhy": "everyman",
-        "pyos": "dog"
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "mole",
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "dogs",
+        "size": "many"
       },
       "beats": [
         {
@@ -154,6 +176,18 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"
@@ -169,9 +203,9 @@
       ],
       "roles": {
         "muzhik": "everyman",
-        "tyoshcha": "everyman",
+        "tyoshcha": "woman",
         "muzhik-sosed": "everyman",
-        "uchilka": "everyman",
+        "uchilka": "woman",
         "muzhik-ryzhy": "everyman"
       },
       "looks": {
@@ -190,18 +224,18 @@
           "remove": []
         }
       },
+      "crowd": {
+        "who": "dogs",
+        "size": "many"
+      },
       "beats": [
         {
           "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
         },
         {
           "type": "line",
@@ -214,20 +248,22 @@
       "location": "nebesa",
       "cast": [
         "muzhik-ryzhy",
-        "devushka",
-        "pyos"
+        "devushka"
       ],
       "roles": {
         "muzhik-ryzhy": "everyman",
-        "devushka": "woman",
-        "pyos": "dog"
+        "devushka": "woman"
       },
       "looks": {
         "devushka": {
-          "clothes": "#ffffff",
+          "clothes": "#f4f4f4",
           "add": [],
           "remove": []
         }
+      },
+      "crowd": {
+        "who": "dogs",
+        "size": "many"
       },
       "beats": [
         {
@@ -241,6 +277,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "wipe"

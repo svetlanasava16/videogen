@@ -3,21 +3,21 @@
   "jokeId": "ru-3a049c5b9532",
   "locale": "ru",
   "title": "Толкнуть",
-  "location": "gostinaya",
+  "location": "spalnya",
   "place": "park",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik-ryzhy": "drunk",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Три часа ночи. Муж с женой спят. Вдруг звонок в дверь. Муж, матерясь, идёт открывать.",
+      "text": "Три часа ночи. Муж с женой спят.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,6 +25,24 @@
     },
     {
       "id": "l2",
+      "character": "narrator",
+      "text": "Вдруг звонок в дверь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Муж, матерясь, идёт открывать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "muzhik-ryzhy",
       "text": "Друг, пойдём со мной, тут рядом, поможешь меня толкануть.",
       "emotion": "happy",
@@ -33,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l5",
       "character": "muzhik",
       "text": "Ты, мужик, охренел, что ли? Три часа ночи. Иди кого-нибудь другого проси.",
       "emotion": "angry",
@@ -42,7 +60,16 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "Муж ложится опять в постель.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
       "text": "Кто приходил?",
       "emotion": "neutral",
@@ -51,25 +78,34 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Да какой-то козёл застрял, просил его толкнуть. Я его послал.",
+      "text": "Да, какой-то козёл застрял, просил его толкнуть. Я его послал.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l9",
       "character": "zhena",
-      "text": "Ты просто зверюга какой-то. Помнишь, как у нас мотор заглох, да под дождём, и нас какой-то парень целый час толкал?",
+      "text": "Ты просто зверюга какой-то.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
+      "character": "zhena",
+      "text": "Помнишь, как у нас мотор заглох, да под дождём, и нас какой-то парень целый час толкал?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "zhena",
       "text": "Ты что, человека выручить не можешь?",
       "emotion": "angry",
@@ -78,16 +114,25 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "narrator",
-      "text": "Муж, опять матерясь, вылезает из постели, одевается. Выходит во двор в полной темноте.",
+      "text": "Муж, опять матерясь, вылезает из постели, одевается.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l13",
+      "character": "narrator",
+      "text": "Выходит во двор в полной темноте.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
       "character": "muzhik",
       "text": "Мужик! Ты где?",
       "emotion": "angry",
@@ -96,27 +141,29 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l15",
       "character": "muzhik-ryzhy",
       "text": "Здесь я! Иди сюда!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l16",
       "character": "muzhik",
       "text": "Да где здесь?",
-      "emotion": "surprised",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l12",
+      "id": "l17",
       "character": "muzhik-ryzhy",
       "text": "Ну здесь, на качелях!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -126,6 +173,47 @@
   ],
   "explicit": false,
   "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
     {
       "location": "gostinaya",
       "cast": [
@@ -151,10 +239,6 @@
           "to": "door"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
           "to": "left",
@@ -162,11 +246,16 @@
         },
         {
           "type": "line",
-          "ref": "l2"
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
         },
         {
           "type": "move",
@@ -179,12 +268,12 @@
     {
       "location": "spalnya",
       "cast": [
-        "zhena",
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "beats": [
         {
@@ -195,15 +284,8 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -216,6 +298,22 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         },
         {
           "type": "move",
@@ -246,31 +344,30 @@
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "bench"
+          "type": "line",
+          "ref": "l13"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l14"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l15"
         },
         {
           "type": "line",
-          "ref": "l11"
+          "ref": "l16"
         },
         {
           "type": "line",
-          "ref": "l12"
+          "ref": "l17"
         }
       ],
       "transition": "cut"

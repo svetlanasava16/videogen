@@ -6,18 +6,18 @@
   "location": "ofis",
   "place": "police-station",
   "cast": [
-    "muzhik-ryzhy",
-    "sluzhivy"
+    "sluzhivy",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "farmer",
-    "sluzhivy": "police-officer"
+    "sluzhivy": "police-officer",
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Farmer Erwin walks into the local police station.",
+      "text": "Farmer Erwin shows up at the local police station with tears in his eyes.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [
@@ -46,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "No, the donkey was old and sick, and after a fair bit of suffering he finally made it.",
+      "text": "No, the donkey was already old and sick.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -54,6 +54,15 @@
     },
     {
       "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "After a good deal of suffering, he finally made it.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "sluzhivy",
       "text": "Then why have you come to the police?",
       "emotion": "surprised",
@@ -62,7 +71,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Well, I just wanted to inform the next of kin.",
       "emotion": "neutral",

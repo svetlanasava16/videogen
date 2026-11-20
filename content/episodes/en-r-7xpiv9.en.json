@@ -37,23 +37,23 @@
       "character": "doktor",
       "text": "How are you doing mentally and emotionally? Are you at peace with God?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "God and I are tight. He knows I have poor eyesight,",
+      "text": "God and I are tight.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "ded",
-      "text": "so He's fixed it so when I get up in the middle of the night to go to the bathroom, poof! The light goes on.",
+      "text": "He knows I have poor eyesight, so He's fixed it so when I get up in the middle of the night to go to the bathroom, poof! The light goes on.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -109,14 +109,23 @@
       "character": "doktor",
       "text": "Is it true that he gets up during the night, and poof, the light goes on in the bathroom, and when he's done, poof, the light goes off?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
       "character": "tyoshcha",
-      "text": "Oh sweet Jesus! He's peeing in the refrigerator again!",
+      "text": "Oh sweet Jesus!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "tyoshcha",
+      "text": "He's peeing in the refrigerator again!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -189,10 +198,26 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor"
+        "doktor",
+        "tyoshcha"
       ],
       "roles": {
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "kukhnya",
+        "cast": [
+          "tyoshcha"
+        ]
       },
       "beats": [
         {
@@ -203,6 +228,12 @@
         {
           "type": "prop",
           "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
           "item": "phone",
           "action": "hold"
         },
@@ -221,44 +252,17 @@
         {
           "type": "line",
           "ref": "l11"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "tyoshcha"
-      ],
-      "roles": {
-        "tyoshcha": "old-woman"
-      },
-      "looks": {
-        "tyoshcha": {
-          "add": [
-            "curlers"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "tyoshcha",
-          "to": "fridge"
-        },
-        {
-          "type": "prop",
-          "who": "tyoshcha",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

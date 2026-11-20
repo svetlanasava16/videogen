@@ -3,33 +3,29 @@
   "jokeId": "ru-e30eafa1a0e6",
   "locale": "de",
   "title": "Die Streichholzschachtel",
-  "location": "gostinaya",
+  "location": "ulitsa",
   "place": "hospital",
   "cast": [
-    "muzhik",
-    "zhena"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "husband",
-    "zhena": "wife"
+    "muzhik": "husband"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann geht eine Stuhlprobe abgeben. Er tut sie in eine Streichholzschachtel und geht in die Klinik.",
+      "text": "Ein Mann geht eine Stuhlprobe abgeben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Und verschwindet... Drei Tage ist er weg.",
-      "emotion": "sad",
+      "text": "Er packt sie in eine Streichholzschachtel und macht sich auf den Weg zur Klinik.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,32 +33,50 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Seine Frau wird verrückt, sie hat alle angerufen, die sie nur konnte, er ist nirgends.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "zhena",
-      "text": "Na, ich geh mal in die Klinik, vielleicht weiß da jemand was.",
+      "text": "Und verschwindet...",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Drei Tage lang ist er nicht da.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l5",
       "character": "narrator",
-      "text": "Sie kommt hin, aber auch dort weiß keiner Bescheid.",
-      "emotion": "neutral",
+      "text": "Seine Frau wird verrückt vor Sorge, sie hat alle angerufen, die sie nur konnte, nirgends ist er.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "zhena",
+      "text": "Na, dann gehe ich in die Klinik, vielleicht weiß da jemand was.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Sie kommt hin, aber dort weiß auch keiner Bescheid.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "tyoshcha",
       "text": "Schau mal in der Chirurgie nach, da sitzt schon lange so ein Mann, vielleicht ist das deiner?",
       "emotion": "neutral",
@@ -71,36 +85,36 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "narrator",
-      "text": "Die Frau geht hin. Sie sieht: Ihr Mann sitzt da, ganz in Gips.",
+      "text": "Die Frau geht hin. Sie schaut, und da sitzt ihr Mann, ganz in Gips.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "zhena",
-      "text": "Horst, wie konnte das passieren, wer war das?",
+      "text": "Horst, wie ist das denn passiert, wer war das?",
       "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "muzhik",
-      "text": "Ich weiß nichts mehr.",
+      "text": "Ich weiß gar nichts mehr.",
       "emotion": "sad",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "muzhik",
-      "text": "Ich weiß nur noch, jemand hat mich nach Streichhölzern gefragt...",
+      "text": "Ich weiß nur noch, jemand hat nach Streichhölzern gefragt...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -111,25 +125,18 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "ulitsa",
       "cast": [
-        "muzhik",
-        "zhena"
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "husband",
-        "zhena": "wife"
+        "muzhik": "husband"
       },
       "beats": [
         {
           "type": "move",
           "who": "muzhik",
-          "to": "door"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "sofa"
+          "to": "left"
         },
         {
           "type": "prop",
@@ -146,6 +153,32 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena"
+      ],
+      "roles": {
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "sofa"
+        },
+        {
           "type": "prop",
           "who": "zhena",
           "item": "phone",
@@ -153,11 +186,15 @@
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"
@@ -185,7 +222,7 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "desk"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -201,11 +238,11 @@
         },
         {
           "type": "line",
-          "ref": "l5"
+          "ref": "l7"
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l8"
         }
       ],
       "transition": "flyover"
@@ -242,19 +279,19 @@
         },
         {
           "type": "line",
-          "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
           "ref": "l9"
         },
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "wipe"

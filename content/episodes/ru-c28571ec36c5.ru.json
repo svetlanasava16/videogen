@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Паркуются рядом «Мерседес» и «Запорожец».",
+      "text": "Паркуются рядом Мерседес и Запорожец. Оба водителя выходят из машин.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,16 +25,25 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "Ездят тут всякие «мичуринцы» чёртовы на своих тачках дешёвых!",
-      "uncensored": "Ездят тут всякие «мичуринцы» долбаные на своих тачках дешёвых!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Хозяин Мерса, косо поглядывая на Запорожец, говорит:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "nachalnik",
+      "text": "Ездят тут всякие мичуринцы чёртовы на своих тачках дешёвых!",
+      "uncensored": "Ездят тут всякие мичуринцы долбаные на своих тачках дешёвых!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "nachalnik",
       "text": "Того и гляди крутую машину поцарапают!",
       "emotion": "angry",
@@ -43,7 +52,16 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "Водитель Запорожца согласно кивает и, так же разведя гнутыми пальцами, отвечает:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
       "text": "И не говори, братан! Обнаглели совсем!",
       "emotion": "smug",
@@ -52,7 +70,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "muzhik",
       "text": "Представляешь, мне вчера велосипедист в бочину въехал!",
       "emotion": "angry",
@@ -73,6 +91,16 @@
       "roles": {
         "muzhik": "everyman",
         "nachalnik": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#9b1b30",
+          "add": [
+            "gold-chain",
+            "dark-glasses"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -104,6 +132,14 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

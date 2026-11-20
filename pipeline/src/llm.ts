@@ -28,7 +28,6 @@ type Stage = {
 };
 
 /** Лимит слов сценария (~55 с речи): анекдот рассказывается целиком, сжимаются формулировки, а не структура. */
-const MAX_WORDS: Record<string, number> = { ru: 130, en: 150, de: 120 };
 const RISKY = ["sexual", "ethnic", "political", "real-person", "homophobia", "drugs", "exclude"];
 
 const LOCALES = Locale.options;
@@ -120,7 +119,6 @@ const STAGES: Record<string, Stage> = {
               characters: x.a.characters.map((c) => ({ archetype: c.archetype, role: c.role, looks: c.looks })),
               suggestedCast: x.scene.cast, // canonical role → puppet id
               suggestedBackdrop: x.backdrop, location: x.loc,
-              maxWords: MAX_WORDS[locale],
             });
           }
         }
@@ -174,13 +172,6 @@ const STAGES: Record<string, Stage> = {
         if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
         for (const c of s0.cast) if ((s0.roles ?? {})[c] !== (row.roles ?? {})[c]) pr.push(`top-level roles must repeat the first scene's roles (${c})`);
       } else pr.push(...stagingProblems(row.cast, row.lines));
-      // лимит режет только рассказчика: если одних реплик персонажей больше лимита, это допустимо (реплики не сокращаются)
-      const count = (t: string) => t.split(/\s+/).filter(Boolean).length;
-      const words = row.lines.reduce((n, l) => n + count(l.text), 0);
-      const narration = row.lines.filter((l) => l.character === NARRATOR).reduce((n, l) => n + count(l.text), 0);
-      // короткое вступление рассказчика (до 25 слов) допустимо всегда
-      if (words > Number(input.maxWords ?? 110) * 1.15 && narration > Math.max(25, words * 0.1))
-        pr.push(`too long: ${words} words, ${narration} of them narration — shorten the narration only, never the spoken lines`);
       return pr;
     },
   },

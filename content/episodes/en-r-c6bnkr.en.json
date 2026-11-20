@@ -2,29 +2,38 @@
   "id": "en-r-c6bnkr.en",
   "jokeId": "en-r-c6bnkr",
   "locale": "en",
-  "title": "His Own Business",
+  "title": "Mind Your Own Business",
   "location": "ulitsa",
   "place": "park",
   "cast": [
-    "muzhik",
-    "vovochka-drug"
+    "vovochka-drug",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "vovochka-drug": "child"
+    "vovochka-drug": "child",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "muzhik",
-      "text": "Eating that many chocolate bars is bad for you.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "A seven-year-old is sitting on a park bench eating a chocolate bar.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "muzhik",
+      "text": "Eating that many chocolate bars is bad for you.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "vovochka-drug",
       "text": "My great grandfather lived to be one hundred and five.",
       "emotion": "neutral",
@@ -33,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "And he ate that much chocolate?",
       "emotion": "surprised",
@@ -42,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "vovochka-drug",
       "text": "No. But he minded his own freaking business.",
       "uncensored": "No. But he minded his own fucking business.",
@@ -59,12 +68,12 @@
       "location": "ulitsa",
       "place": "park",
       "cast": [
-        "muzhik",
-        "vovochka-drug"
+        "vovochka-drug",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "vovochka-drug": "child"
+        "vovochka-drug": "child",
+        "muzhik": "everyman"
       },
       "beats": [
         {
@@ -75,7 +84,7 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "center"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -104,6 +113,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

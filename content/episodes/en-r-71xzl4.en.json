@@ -7,26 +7,35 @@
   "place": "home-living-room",
   "cast": [
     "muzhik",
-    "vovochka"
+    "vovochka-drug"
   ],
   "roles": {
     "muzhik": "father",
-    "vovochka": "child"
+    "vovochka-drug": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
-      "text": "I got an F in math today.",
-      "emotion": "sad",
+      "character": "narrator",
+      "text": "A little boy comes home from school and tells his father:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
+      "character": "vovochka-drug",
+      "text": "I got an F in math today.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "vovochka-drug"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "muzhik",
       "text": "What happened?",
       "emotion": "surprised",
@@ -35,8 +44,8 @@
       "exit": []
     },
     {
-      "id": "l3",
-      "character": "vovochka",
+      "id": "l4",
+      "character": "vovochka-drug",
       "text": "Well, my teacher asked me, what's three times two, and I said six.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
@@ -44,7 +53,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "muzhik",
       "text": "Well, that's correct.",
       "emotion": "neutral",
@@ -53,8 +62,8 @@
       "exit": []
     },
     {
-      "id": "l5",
-      "character": "vovochka",
+      "id": "l6",
+      "character": "vovochka-drug",
       "text": "I know. Then she asked me, what's two times three.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
@@ -62,7 +71,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "What the heck is the difference?",
       "uncensored": "What the fuck is the difference?",
@@ -72,8 +81,8 @@
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "vovochka",
+      "id": "l8",
+      "character": "vovochka-drug",
       "text": "That's what I said!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Слепой приезжает в Техас. Зайдя в номер гостиницы, он ощупывает кровать.",
+      "text": "Слепой приезжает в Техас. Зайдя в свой номер в отеле, он ощупывает кровать.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Он спускается в бар, усаживается на огромный табурет и заказывает пиво. Ему вкладывают в руки кружку.",
+      "text": "Мужчина спускается в бар, усаживается на огромный барный стул и заказывает пиво. Ему вкладывают в руки кружку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ого, какие тут большие кружки!",
+      "text": "Ого, какие тут большие напитки!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -91,12 +91,21 @@
       "character": "narrator",
       "text": "Слепой идёт в туалет, но по ошибке открывает третью дверь, которая ведёт к бассейну, и падает в воду.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "Вынырнув из-под воды и размахивая руками, он кричит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik",
       "text": "Не смывайте, не смывайте!",
       "emotion": "surprised",
@@ -200,12 +209,6 @@
           "to": "counter"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
@@ -231,6 +234,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -269,9 +278,13 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

@@ -6,12 +6,12 @@
   "location": "doroga",
   "place": "car",
   "cast": [
-    "sluzhivy",
-    "devushka-blondinka"
+    "devushka-blondinka",
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "traffic-cop",
-    "devushka-blondinka": "blonde"
+    "devushka-blondinka": "blonde",
+    "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "sluzhivy",
       "text": "It's that little thing with your picture on it.",
-      "emotion": "angry",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,7 +71,7 @@
     {
       "id": "l7",
       "character": "devushka-blondinka",
-      "text": "Ahhh.",
+      "text": "Ohhh.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -79,15 +79,24 @@
     },
     {
       "id": "l8",
-      "character": "devushka-blondinka",
-      "text": "Here you go.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.6,
+      "character": "narrator",
+      "text": "The blonde digs around in her handbag and pulls out a little mirror.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
+      "character": "devushka-blondinka",
+      "text": "Here you go.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "sluzhivy",
       "text": "Well, why didn't you say right away that you're a cop.",
       "emotion": "surprised",
@@ -102,12 +111,12 @@
     {
       "location": "doroga",
       "cast": [
-        "sluzhivy",
-        "devushka-blondinka"
+        "devushka-blondinka",
+        "sluzhivy"
       ],
       "roles": {
-        "sluzhivy": "traffic-cop",
-        "devushka-blondinka": "blonde"
+        "devushka-blondinka": "blonde",
+        "sluzhivy": "traffic-cop"
       },
       "beats": [
         {
@@ -116,14 +125,13 @@
           "to": "car"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "sluzhivy",
-          "to": "right",
-          "from": "off-left"
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -150,6 +158,10 @@
           "ref": "l7"
         },
         {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
           "type": "prop",
           "who": "devushka-blondinka",
           "item": "mirror",
@@ -157,7 +169,7 @@
         },
         {
           "type": "line",
-          "ref": "l8"
+          "ref": "l9"
         },
         {
           "type": "prop",
@@ -168,11 +180,11 @@
         },
         {
           "type": "pause",
-          "sec": 1.2
+          "sec": 1
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         }
       ],
       "transition": "cut"

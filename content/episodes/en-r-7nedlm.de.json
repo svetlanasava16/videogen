@@ -6,16 +6,18 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "sluzhivy"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Die Polizei rief einen Mann an: Seine Frau liege im Krankenhaus.",
+      "character": "muzhik",
+      "text": "Die Polizei hat angerufen und mir gesagt, dass meine Frau im Krankenhaus liegt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,7 +27,7 @@
       "id": "l2",
       "character": "muzhik",
       "text": "Wie geht es ihr?",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,15 +57,29 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "sluzhivy"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "sluzhivy": "police-officer"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "sluzhivy"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
           "item": "phone",
           "action": "hold"
         },
@@ -74,58 +90,10 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "bolnitsa",
-      "cast": [
-        "zhena",
-        "sluzhivy"
-      ],
-      "roles": {
-        "zhena": "wife",
-        "sluzhivy": "police-officer"
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "couch"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "center"
-        },
-        {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",

@@ -6,10 +6,12 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "devushka-ryzhaya"
+    "devushka-ryzhaya",
+    "zhena"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter"
+    "devushka-ryzhaya": "daughter",
+    "zhena": "mother"
   },
   "lines": [
     {
@@ -24,26 +26,35 @@
     {
       "id": "l2",
       "character": "devushka-ryzhaya",
-      "text": "Mom, I just don't know what to do! We've had such a family scene here! It's awful!",
+      "text": "Mom, I just don't know what to do!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-ryzhaya",
+      "text": "We just had such a family scene here! It's awful!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "zhena",
-      "text": "Calm down, sweetie, don't get upset. Every family has its first arguments and fights sooner or later.",
+      "text": "Calm down, sweetheart, don't get upset. Every family has its first arguments and conflicts sooner or later.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "devushka-ryzhaya",
-      "text": "Yeah, I know that. But what do I do with the body?",
-      "emotion": "neutral",
+      "text": "Yes, I know that. But what do I do with the body?",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -55,15 +66,29 @@
     {
       "location": "kukhnya",
       "cast": [
-        "devushka-ryzhaya"
+        "devushka-ryzhaya",
+        "zhena"
       ],
       "roles": {
-        "devushka-ryzhaya": "daughter"
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "zhena"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
           "item": "phone",
           "action": "hold"
         },
@@ -74,50 +99,18 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "mother"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "devushka-ryzhaya"
-      ],
-      "roles": {
-        "devushka-ryzhaya": "daughter"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "devushka-ryzhaya",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

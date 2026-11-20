@@ -2,22 +2,22 @@
   "id": "ru-3a049c5b9532.en",
   "jokeId": "ru-3a049c5b9532",
   "locale": "en",
-  "title": "A Little Push",
-  "location": "gostinaya",
+  "title": "A Push",
+  "location": "spalnya",
   "place": "park",
   "cast": [
-    "muzhik-ryzhy",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik-ryzhy": "drunk",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Three in the morning. A husband and wife are asleep. Suddenly the doorbell rings. Swearing, the husband goes to open it.",
+      "text": "Three in the morning. A husband and wife are asleep.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,24 +25,51 @@
     },
     {
       "id": "l2",
-      "character": "muzhik-ryzhy",
-      "text": "Buddy, come with me, it's just around the corner, you can give me a push.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Suddenly the doorbell rings.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "narrator",
+      "text": "The husband, swearing, goes to open the door.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Buddy, come with me, it's right nearby, give me a push.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "muzhik",
-      "text": "Have you lost your mind, man? It's three in the morning. Go ask somebody else.",
+      "text": "Are you out of your mind, man? It's three in the morning. Go ask somebody else.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
+      "character": "narrator",
+      "text": "The husband gets back into bed.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "zhena",
       "text": "Who was that?",
       "emotion": "neutral",
@@ -51,25 +78,34 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Oh, some idiot got stuck and wanted a push. I told him to get lost.",
+      "text": "Oh, some jerk got stuck and wanted me to give him a push. I told him where to go.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l9",
       "character": "zhena",
-      "text": "You're a real beast, you know that? Remember when our engine died, in the rain, and some guy pushed us for a whole hour?",
+      "text": "You're a real brute, you know that?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
+      "character": "zhena",
+      "text": "Remember when our engine died, in the pouring rain, and some young guy pushed us for a whole hour?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "zhena",
       "text": "And you can't help a person out?",
       "emotion": "angry",
@@ -78,16 +114,25 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "narrator",
-      "text": "Swearing again, the husband climbs out of bed and gets dressed. He goes out into the yard. It's pitch dark.",
+      "text": "The husband, swearing again, crawls out of bed and gets dressed.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l13",
+      "character": "narrator",
+      "text": "He goes out into the yard in pitch darkness.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
       "character": "muzhik",
       "text": "Hey, man! Where are you?",
       "emotion": "angry",
@@ -96,27 +141,29 @@
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l15",
       "character": "muzhik-ryzhy",
       "text": "Over here! Come here!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l11",
+      "id": "l16",
       "character": "muzhik",
       "text": "Where's here?",
-      "emotion": "surprised",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l12",
+      "id": "l17",
       "character": "muzhik-ryzhy",
       "text": "Right here, on the swings!",
+      "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -126,6 +173,47 @@
   ],
   "explicit": false,
   "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    },
     {
       "location": "gostinaya",
       "cast": [
@@ -151,10 +239,6 @@
           "to": "door"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
           "to": "left",
@@ -162,11 +246,16 @@
         },
         {
           "type": "line",
-          "ref": "l2"
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l3"
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
         },
         {
           "type": "move",
@@ -179,12 +268,12 @@
     {
       "location": "spalnya",
       "cast": [
-        "zhena",
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "beats": [
         {
@@ -195,15 +284,8 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "center"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -216,6 +298,22 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         },
         {
           "type": "move",
@@ -246,31 +344,30 @@
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "bench"
+          "type": "line",
+          "ref": "l13"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l14"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l15"
         },
         {
           "type": "line",
-          "ref": "l11"
+          "ref": "l16"
         },
         {
           "type": "line",
-          "ref": "l12"
+          "ref": "l17"
         }
       ],
       "transition": "cut"

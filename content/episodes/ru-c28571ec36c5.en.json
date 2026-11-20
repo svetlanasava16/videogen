@@ -2,7 +2,7 @@
   "id": "ru-c28571ec36c5.en",
   "jokeId": "ru-c28571ec36c5",
   "locale": "en",
-  "title": "Mercedes and Zaporozhets",
+  "title": "The Mercedes and the Junker",
   "location": "doroga",
   "place": "street",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A big Mercedes and a tiny old Zaporozhets park side by side.",
+      "text": "A Mercedes and a tiny old junker park side by side. Both drivers get out of their cars.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,24 @@
     },
     {
       "id": "l2",
-      "character": "nachalnik",
-      "text": "All these damn hillbillies driving around in their cheap rides!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "The Mercedes owner, eyeing the junker sideways, says:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "nachalnik",
+      "text": "All kinds of damn hillbillies driving around here in their cheap rides!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "nachalnik",
       "text": "Any minute now they'll scratch a cool car!",
       "emotion": "angry",
@@ -42,16 +51,25 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
+      "character": "narrator",
+      "text": "The junker's driver nods in agreement and, flashing his fingers gangster-style just the same, answers:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "muzhik",
-      "text": "Tell me about it, bro! They've got totally out of hand!",
+      "text": "Tell me about it, bro! They've got no shame at all!",
       "emotion": "smug",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l7",
       "character": "muzhik",
       "text": "Can you believe it, yesterday a cyclist rammed right into my side!",
       "emotion": "angry",
@@ -72,6 +90,16 @@
       "roles": {
         "muzhik": "everyman",
         "nachalnik": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#9b1b30",
+          "add": [
+            "gold-chain",
+            "dark-glasses"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -103,6 +131,14 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

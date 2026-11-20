@@ -2,7 +2,7 @@
   "id": "en-r-a95cg9.de",
   "jokeId": "en-r-a95cg9",
   "locale": "de",
-  "title": "Ein qualvoller Tod",
+  "title": "Ein langsamer Tod",
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -28,7 +28,7 @@
       "character": "zhena",
       "text": "Raus!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
@@ -37,15 +37,15 @@
       "character": "zhena",
       "text": "Ich hoffe, du stirbst einen langen, langsamen, qualvollen Tod.",
       "emotion": "angry",
-      "pauseAfterSec": 0.9,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Also willst du, dass ich bleibe?",
-      "emotion": "neutral",
+      "text": "Du willst also, dass ich bleibe?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -73,17 +73,24 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "sofa"
         },
         {
           "type": "prop",
-          "who": "muzhik",
+          "who": "zhena",
           "item": "suitcase",
           "action": "hold"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "suitcase",
+          "action": "give",
+          "to": "muzhik"
         },
         {
           "type": "line",

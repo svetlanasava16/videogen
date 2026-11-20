@@ -6,19 +6,27 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "vovochka",
+    "vovochka-drug",
     "devochka",
     "muzhik"
   ],
   "roles": {
-    "vovochka": "child",
+    "vovochka-drug": "child",
     "devochka": "child",
     "muzhik": "father"
+  },
+  "looks": {
+    "muzhik": {
+      "add": [
+        "apron"
+      ],
+      "remove": []
+    }
   },
   "lines": [
     {
       "id": "l1",
-      "character": "vovochka",
+      "character": "vovochka-drug",
       "text": "А что на ужин?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
@@ -37,26 +45,35 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Дети разревелись.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "text": "Они расплакались.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Избалованные паразиты. Из-за этой панической скупки сейчас реально трудно достать еду.",
+      "text": "Избалованные паршивцы.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Да и вообще, дурацкая была кличка для собаки.",
-      "emotion": "neutral",
+      "text": "Из-за того что все скупают продукты в панике, еду сейчас реально трудно достать.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik",
+      "text": "И вообще, дурацкая это была кличка для собаки.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -64,67 +81,6 @@
     }
   ],
   "explicit": false,
-  "scenes": [
-    {
-      "location": "kukhnya",
-      "cast": [
-        "vovochka",
-        "devochka",
-        "muzhik"
-      ],
-      "roles": {
-        "vovochka": "child",
-        "devochka": "child",
-        "muzhik": "father"
-      },
-      "looks": {
-        "muzhik": {
-          "add": [
-            "apron"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "vovochka",
-          "to": "table"
-        },
-        {
-          "type": "move",
-          "who": "devochka",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "stove"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        }
-      ],
-      "transition": "cut"
-    }
-  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

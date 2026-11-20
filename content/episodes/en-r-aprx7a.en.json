@@ -91,12 +91,21 @@
       "character": "narrator",
       "text": "The blind man heads for the bathroom but accidentally enters the third door, which leads to the swimming pool, and he falls in.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "Popping his head up from under the water and flailing his arms, he shouts.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik",
       "text": "Don't flush, don't flush!",
       "emotion": "surprised",
@@ -200,12 +209,6 @@
           "to": "counter"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
@@ -231,6 +234,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "white-cane",
+          "action": "hold"
         },
         {
           "type": "move",
@@ -269,9 +278,13 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

@@ -2,22 +2,22 @@
   "id": "ru-4b75a0e1bc8d.en",
   "jokeId": "ru-4b75a0e1bc8d",
   "locale": "en",
-  "title": "The Hiccups",
+  "title": "Hiccups",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "zhena",
-    "paren"
+    "paren",
+    "tyoshcha"
   ],
   "roles": {
-    "zhena": "patient",
-    "paren": "doctor"
+    "paren": "doctor",
+    "tyoshcha": "patient"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Mrs. Peterson went to the doctor. She got an appointment with a very young doctor, fresh out of medical school.",
+      "text": "Mrs. Peterson went to the doctor.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,17 +26,17 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "After a few minutes in his office, Mrs. Peterson burst out of there with wild screams and shrieks and tore off down the corridor.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "She got an appointment with a very young doctor, fresh out of medical school.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "An older doctor was coming the other way. He stopped her and asked what was the matter.",
-      "emotion": "neutral",
+      "text": "After a few minutes in his office, Mrs. Peterson burst out of it, shrieking and wailing, and tore off down the corridor.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "When he walked into the young doctor's office, he looked stern.",
+      "text": "An elderly doctor was coming the other way. He stopped her.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,6 +53,15 @@
     {
       "id": "l5",
       "character": "doktor",
+      "text": "What's the matter?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "doktor",
       "text": "What do you think you're doing?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
@@ -60,27 +69,27 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "doktor",
-      "text": "Mrs. Peterson is going on fifty-six, she has a grown-up daughter, a grandchild on the way, and you tell her she's pregnant!",
+      "text": "Mrs. Peterson is fifty-five, she has a grown-up daughter, a grandchild on the way, and you tell her she's pregnant!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
-      "text": "The young doctor, still writing something in her chart, replied:",
+      "text": "The young doctor, still writing something in her chart, replied.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "paren",
-      "text": "But her hiccups are gone, aren't they?",
+      "text": "Well, her hiccups are gone, aren't they?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -93,19 +102,21 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "zhena",
-        "paren"
+        "paren",
+        "tyoshcha"
       ],
       "roles": {
-        "zhena": "patient",
-        "paren": "doctor"
+        "paren": "doctor",
+        "tyoshcha": "patient"
+      },
+      "looks": {
+        "tyoshcha": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "couch"
-        },
         {
           "type": "move",
           "who": "paren",
@@ -116,13 +127,27 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "pause",
+          "sec": 1
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
           "type": "move",
-          "who": "zhena",
-          "to": "off-right"
+          "who": "tyoshcha",
+          "to": "off-left"
         }
       ],
       "transition": "cut"
@@ -130,28 +155,49 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor",
-        "zhena"
+        "tyoshcha",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "zhena": "patient"
+        "tyoshcha": "patient",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "tyoshcha": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        },
+        "doktor": {
+          "hair": "#c8c8c8",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
         {
           "type": "move",
           "who": "doktor",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center",
+          "to": "right",
           "from": "off-right"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
-          "ref": "l3"
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "pause",
+          "sec": 1.5
         }
       ],
       "transition": "cut"
@@ -159,12 +205,19 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor",
-        "paren"
+        "paren",
+        "doktor"
       ],
       "roles": {
-        "doktor": "doctor",
-        "paren": "doctor"
+        "paren": "doctor",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "doktor": {
+          "hair": "#c8c8c8",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
         {
@@ -186,14 +239,6 @@
         },
         {
           "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
           "ref": "l6"
         },
         {
@@ -203,6 +248,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "wipe"

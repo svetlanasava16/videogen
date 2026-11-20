@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A stingy old man is lying on his deathbed.",
+      "text": "A stingy old man lies dying in his bed.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -77,14 +77,23 @@
       "character": "devushka-ryzhaya",
       "text": "Yes, Dad.",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "In tears, his daughter kisses his cheek.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "ded",
-      "text": "If you're all here, why the hell is the light on in the hallway?",
+      "text": "If you're all here, then why the hell is the light on in the hallway?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -111,6 +120,11 @@
       "beats": [
         {
           "type": "move",
+          "who": "ded",
+          "to": "bed"
+        },
+        {
+          "type": "move",
           "who": "zhena",
           "to": "left"
         },
@@ -118,11 +132,6 @@
           "type": "move",
           "who": "paren",
           "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "bed"
         },
         {
           "type": "move",
@@ -160,6 +169,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"

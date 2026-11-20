@@ -6,41 +6,34 @@
   "location": "gostinaya",
   "place": "office",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Ein Mann ruft seine Frau bei der Arbeit an.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "muzhik",
-      "text": "Hast du manchmal einen stechenden Schmerz im ganzen Körper, als hätte jemand eine Voodoo-Puppe von dir und würde hineinstechen?",
-      "emotion": "smug",
+      "text": "Hast du manchmal so einen stechenden Schmerz im ganzen Körper, als hätte jemand eine Voodoo-Puppe von dir und würde reinstechen?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "zhena",
       "text": "Nein.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "muzhik",
       "text": "Und jetzt?",
       "emotion": "smug",
@@ -55,15 +48,34 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "zhena"
+        ]
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "sofa"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
           "item": "phone",
           "action": "hold"
         },
@@ -74,50 +86,10 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "wife"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "muzhik"
-      ],
-      "roles": {
-        "muzhik": "husband"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "phone",
-          "action": "hold"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
         }
       ],
       "transition": "cut"

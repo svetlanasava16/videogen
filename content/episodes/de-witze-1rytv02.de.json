@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er nimmt diesen mit auf ein Polizeirevier, um zu fragen, was er mit dem Tier machen soll.",
+      "text": "Er nimmt ihn mit auf ein Polizeirevier.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,6 +34,15 @@
     },
     {
       "id": "l3",
+      "character": "muzhik",
+      "text": "Was soll ich mit dem Tier machen?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "sluzhivy",
       "text": "Tja, guter Mann, also ich würde mit dem Pinguin in den Zoo gehen.",
       "emotion": "neutral",
@@ -42,16 +51,16 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "narrator",
       "text": "Der Mann bedankt sich und zottelt mit dem Pinguin davon.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
       "text": "Am nächsten Tag trifft der Polizist den Mann und den Pinguin zufällig in der Stadt.",
       "emotion": "neutral",
@@ -60,18 +69,27 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "sluzhivy",
       "text": "Sagen Sie mal, habe ich Ihnen nicht gesagt, dass Sie mit dem Pinguin in den Zoo gehen sollen?",
-      "emotion": "angry",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Ja, klar, da waren wir gestern.",
+      "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l9",
       "character": "muzhik",
-      "text": "Ja, klar, da waren wir gestern, heute gehen wir ins Kino.",
+      "text": "Heute gehen wir ins Kino.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -93,14 +111,94 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "pingvin",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "pingvin",
+          "to": "off-right"
         }
       ],
       "transition": "cut"
     },
     {
       "location": "ofis",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "pingvin"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "muzhik": "everyman",
+        "pingvin": "penguin"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "desk"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "pingvin",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "pingvin",
+          "to": "off-right"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "ulitsa",
       "cast": [
         "muzhik",
         "pingvin",
@@ -114,51 +212,38 @@
       "beats": [
         {
           "type": "move",
-          "who": "sluzhivy",
-          "to": "desk"
+          "who": "muzhik",
+          "to": "left"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ulitsa",
-      "cast": [
-        "sluzhivy",
-        "muzhik",
-        "pingvin"
-      ],
-      "roles": {
-        "sluzhivy": "police-officer",
-        "muzhik": "everyman",
-        "pingvin": "penguin"
-      },
-      "beats": [
-        {
-          "type": "line",
-          "ref": "l5"
+          "type": "move",
+          "who": "pingvin",
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein neunzigjähriger Mann geht zur Vorsorgeuntersuchung, und alle Werte sind normal.",
+      "text": "Ein neunzigjähriger Mann geht zur Vorsorgeuntersuchung, und alle seine Werte sind normal.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,23 +37,23 @@
       "character": "doktor",
       "text": "Wie geht es Ihnen seelisch und emotional? Sind Sie im Reinen mit Gott?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Gott und ich, wir verstehen uns bestens. Er weiß, dass ich schlecht sehe,",
+      "text": "Gott und ich sind dicke Freunde.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "ded",
-      "text": "also hat Er es so eingerichtet, dass, wenn ich mitten in der Nacht aufs Klo gehe, puff! Das Licht angeht.",
+      "text": "Er weiß, dass ich schlecht sehe, also hat er es so eingerichtet, dass, wenn ich mitten in der Nacht aufstehe, um ins Bad zu gehen, puff! Das Licht geht an.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Und wenn ich fertig bin, puff! Geht das Licht aus.",
+      "text": "Wenn ich fertig bin, puff! Das Licht geht aus.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -80,7 +80,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Später am Tag ruft der Arzt Larrys Frau an.",
+      "text": "Etwas später am Tag ruft der Arzt Larrys Frau an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -98,7 +98,7 @@
     {
       "id": "l10",
       "character": "doktor",
-      "text": "Aber ich musste Sie anrufen, weil mich seine Beziehung zu Gott tief beeindruckt.",
+      "text": "Aber ich musste Sie anrufen, weil ich so beeindruckt von seiner Beziehung zu Gott bin.",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -107,16 +107,25 @@
     {
       "id": "l11",
       "character": "doktor",
-      "text": "Stimmt es, dass er nachts aufsteht, und puff, geht im Bad das Licht an, und wenn er fertig ist, puff, geht das Licht aus?",
+      "text": "Stimmt es, dass er nachts aufsteht, und puff, im Bad geht das Licht an, und wenn er fertig ist, puff, geht das Licht aus?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
       "character": "tyoshcha",
-      "text": "Ach du lieber Gott! Er pinkelt schon wieder in den Kühlschrank!",
+      "text": "Ach du lieber Jesus!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "tyoshcha",
+      "text": "Er pinkelt schon wieder in den Kühlschrank!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -189,10 +198,26 @@
     {
       "location": "bolnitsa",
       "cast": [
-        "doktor"
+        "doktor",
+        "tyoshcha"
       ],
       "roles": {
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "tyoshcha": "old-woman"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "kukhnya",
+        "cast": [
+          "tyoshcha"
+        ]
       },
       "beats": [
         {
@@ -203,6 +228,12 @@
         {
           "type": "prop",
           "who": "doktor",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
           "item": "phone",
           "action": "hold"
         },
@@ -221,44 +252,17 @@
         {
           "type": "line",
           "ref": "l11"
-        }
-      ],
-      "transition": "wipe"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "tyoshcha"
-      ],
-      "roles": {
-        "tyoshcha": "old-woman"
-      },
-      "looks": {
-        "tyoshcha": {
-          "add": [
-            "curlers"
-          ],
-          "remove": []
-        }
-      },
-      "beats": [
-        {
-          "type": "move",
-          "who": "tyoshcha",
-          "to": "fridge"
-        },
-        {
-          "type": "prop",
-          "who": "tyoshcha",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

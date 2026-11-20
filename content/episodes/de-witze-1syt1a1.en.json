@@ -6,12 +6,12 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "zhena",
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "zhena": "wife",
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
@@ -26,34 +26,61 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Pack your bags, honey! I won the lottery!",
+      "text": "Pack your bags, honey!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "I won the lottery!",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "zhena",
       "text": "Oh my God, how wonderful!",
       "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "zhena",
+      "text": "So what should I pack?",
+      "emotion": "happy",
       "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "zhena",
-      "text": "So what should I pack? Summer clothes for the Caribbean? Ski gear for the Alps?",
+      "text": "Summer clothes for the Caribbean?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "zhena",
+      "text": "Ski gear for the Alps?",
       "emotion": "happy",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Doesn't matter! As long as you're out of the house by eight tonight!",
+      "text": "Doesn't matter! Just make sure you're out of the house by eight tonight!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -66,12 +93,12 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena",
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "beats": [
         {
@@ -110,6 +137,18 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

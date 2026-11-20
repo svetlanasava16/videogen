@@ -6,16 +6,18 @@
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
-    "devushka-ryzhaya"
+    "devushka-ryzhaya",
+    "zhena"
   ],
   "roles": {
-    "devushka-ryzhaya": "daughter"
+    "devushka-ryzhaya": "daughter",
+    "zhena": "mother"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Drei Wochen nach der Hochzeit. Die junge Ehefrau ruft weinend ihre Mutter an.",
+      "text": "Drei Wochen nach der Hochzeit. Eine junge Ehefrau ruft unter Tränen ihre Mutter an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -24,26 +26,35 @@
     {
       "id": "l2",
       "character": "devushka-ryzhaya",
-      "text": "Mama, ich weiß einfach nicht, was ich tun soll! Bei uns gab es so eine Familienszene! Schrecklich!",
+      "text": "Mama, ich weiß einfach nicht, was ich machen soll!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "devushka-ryzhaya",
+      "text": "Bei uns hat sich gerade so eine Familienszene abgespielt! Schrecklich!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "zhena",
-      "text": "Ruhig, Kind, reg dich nicht auf. In jeder Familie gibt es irgendwann den ersten Streit, die ersten Konflikte.",
+      "text": "Ganz ruhig, Kind, reg dich nicht auf. In jeder Familie gibt es irgendwann die ersten Streitereien und Konflikte.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "devushka-ryzhaya",
       "text": "Ja, das weiß ich. Aber was mache ich mit der Leiche?",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -55,15 +66,29 @@
     {
       "location": "kukhnya",
       "cast": [
-        "devushka-ryzhaya"
+        "devushka-ryzhaya",
+        "zhena"
       ],
       "roles": {
-        "devushka-ryzhaya": "daughter"
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "zhena"
+        ]
       },
       "beats": [
         {
           "type": "prop",
           "who": "devushka-ryzhaya",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
           "item": "phone",
           "action": "hold"
         },
@@ -74,50 +99,18 @@
         {
           "type": "line",
           "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "gostinaya",
-      "cast": [
-        "zhena"
-      ],
-      "roles": {
-        "zhena": "mother"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l3"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "kukhnya",
-      "cast": [
-        "devushka-ryzhaya"
-      ],
-      "roles": {
-        "devushka-ryzhaya": "daughter"
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "devushka-ryzhaya",
-          "item": "phone",
-          "action": "hold"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         }
       ],
       "transition": "cut"

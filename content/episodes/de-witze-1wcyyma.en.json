@@ -6,18 +6,18 @@
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "muzhik-ryzhy",
-    "paren"
+    "paren",
+    "muzhik-ryzhy"
   ],
   "roles": {
-    "muzhik-ryzhy": "driver",
-    "paren": "athlete"
+    "paren": "everyman",
+    "muzhik-ryzhy": "driver"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A cyclist is leisurely weaving back and forth right in front of a tram.",
+      "text": "A cyclist is leisurely weaving from side to side right in front of a tram.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,14 +26,23 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "You brainless idiot, you! Can't you ride somewhere else?",
+      "text": "You brainless idiot, you!",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Can't you ride somewhere else?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "paren",
       "text": "Well, I can!",
       "emotion": "smug",
@@ -48,14 +57,24 @@
     {
       "location": "ulitsa",
       "cast": [
-        "muzhik-ryzhy",
-        "paren"
+        "paren",
+        "muzhik-ryzhy"
       ],
       "roles": {
-        "muzhik-ryzhy": "driver",
-        "paren": "athlete"
+        "paren": "everyman",
+        "muzhik-ryzhy": "driver"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "right"
+        },
         {
           "type": "prop",
           "who": "paren",
@@ -73,6 +92,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"

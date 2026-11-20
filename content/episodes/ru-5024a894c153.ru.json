@@ -6,16 +6,18 @@
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
-    "muzhik-ryzhy": "farmer"
+    "muzhik-ryzhy": "farmer",
+    "sluzhivy-ryadovoy": "soldier"
   },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik-ryzhy",
-      "text": "Алё, это база?",
+      "text": "Алло, это база?",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +28,7 @@
       "character": "sluzhivy-ryadovoy",
       "text": "Вы не туда попали. Это ракетная база.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
@@ -45,11 +47,20 @@
   "scenes": [
     {
       "location": "derevnya",
+      "place": "farm",
       "cast": [
-        "muzhik-ryzhy"
+        "muzhik-ryzhy",
+        "sluzhivy-ryadovoy"
       ],
       "roles": {
-        "muzhik-ryzhy": "farmer"
+        "muzhik-ryzhy": "farmer",
+        "sluzhivy-ryadovoy": "soldier"
+      },
+      "split": {
+        "location": "ofis",
+        "cast": [
+          "sluzhivy-ryadovoy"
+        ]
       },
       "beats": [
         {
@@ -58,22 +69,6 @@
           "item": "phone",
           "action": "hold"
         },
-        {
-          "type": "line",
-          "ref": "l1"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "ofis",
-      "cast": [
-        "sluzhivy-ryadovoy"
-      ],
-      "roles": {
-        "sluzhivy-ryadovoy": "soldier"
-      },
-      "beats": [
         {
           "type": "prop",
           "who": "sluzhivy-ryadovoy",
@@ -82,25 +77,11 @@
         },
         {
           "type": "line",
-          "ref": "l2"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "derevnya",
-      "cast": [
-        "muzhik-ryzhy"
-      ],
-      "roles": {
-        "muzhik-ryzhy": "farmer"
-      },
-      "beats": [
+          "ref": "l1"
+        },
         {
-          "type": "prop",
-          "who": "muzhik-ryzhy",
-          "item": "phone",
-          "action": "hold"
+          "type": "line",
+          "ref": "l2"
         },
         {
           "type": "line",
