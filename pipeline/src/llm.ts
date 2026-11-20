@@ -385,10 +385,14 @@ function status(s: string) {
 function needsReport() {
   type Need = NonNullable<ScriptDraft["needs"]>[number];
   const by = new Map<string, { need: Need; ids: string[]; descr: Set<string> }>();
+  // только последняя версия каждого сценария (переписанные пачки заменяют старые)
+  const latest = new Map<string, { id: string; needs?: Need[] }>();
   for (const b of batches("script")) {
     const out = outOf("script", b);
     if (!existsSync(out)) continue;
-    for (const r of readJsonl<{ id: string; needs?: Need[] }>(out))
+    for (const r of readJsonl<{ id: string; needs?: Need[] }>(out)) latest.set(r.id, r);
+  }
+  for (const r of latest.values()) {
       for (const n of r.needs ?? []) {
         const key = `${n.kind}:${n.id}`;
         const e = by.get(key) ?? { need: n, ids: [], descr: new Set<string>() };
