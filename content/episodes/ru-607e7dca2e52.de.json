@@ -1,0 +1,79 @@
+{
+  "id": "ru-607e7dca2e52.de",
+  "jokeId": "ru-607e7dca2e52",
+  "locale": "de",
+  "title": "Die vergiftete Melone",
+  "location": "derevnya",
+  "place": "farm",
+  "cast": [
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "farmer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik-ryzhy",
+      "text": "Schon wieder Melonen geklaut! Jede Nacht dasselbe!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Na wartet. Dafür gibt es jetzt ein Schild.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Achtung! Eine dieser Wassermelonen enthält Rattengift!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Am nächsten Morgen fehlt keine einzige Melone.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Ha, hat funktioniert! Moment, da hat jemand was druntergeschrieben.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [
+        "muzhik-ryzhy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Jetzt sind es zwei.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

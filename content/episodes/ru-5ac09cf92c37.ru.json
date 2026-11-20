@@ -1,0 +1,72 @@
+{
+  "id": "ru-5ac09cf92c37.ru",
+  "jokeId": "ru-5ac09cf92c37",
+  "locale": "ru",
+  "title": "Пункт сто сорок семь",
+  "location": "derevnya",
+  "place": "river-lake",
+  "cast": [
+    "sluzhivy",
+    "sluzhivy-ryadovoy"
+  ],
+  "roles": {
+    "sluzhivy": "officer",
+    "sluzhivy-ryadovoy": "soldier"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Генерал вальяжно гуляет по мосту. Мимо пытается проскочить солдат в самоволке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "sluzhivy-ryadovoy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy",
+      "text": "Солдат! Это что такое? Почему честь не отдали?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Согласно пункту сто сорок семь устава, на мосту честь не отдаётся!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "sluzhivy-ryadovoy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Генерал растерянно козыряет в ответ, а дома открывает устав.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Пункт сто сорок семь. Солдат должен быть находчив и смел.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

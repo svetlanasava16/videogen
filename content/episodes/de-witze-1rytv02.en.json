@@ -1,0 +1,97 @@
+{
+  "id": "de-witze-1rytv02.en",
+  "jokeId": "de-witze-1rytv02",
+  "locale": "en",
+  "title": "The Penguin",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "ptitsa",
+    "sluzhivy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "ptitsa": "bird",
+    "sluzhivy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A man finds a penguin in the middle of the city.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Officer, I found this penguin. What do I do with him?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Well, sir, I'd take him to the zoo.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Thanks, officer!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik",
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "The next day, the officer runs into them again.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "sluzhivy",
+      "text": "Didn't I tell you to take that penguin to the zoo?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Sure did. We went yesterday. Today we're going to the movies.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

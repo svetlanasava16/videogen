@@ -1,0 +1,74 @@
+{
+  "id": "ru-08d61755f474.ru",
+  "jokeId": "ru-08d61755f474",
+  "locale": "ru",
+  "title": "Конец близок",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "batyushka-molodoy",
+    "batyushka",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "batyushka-molodoy": "priest",
+    "batyushka": "priest",
+    "muzhik-ryzhy": "driver"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Два священника ставят у дороги щит.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "batyushka",
+      "text": "Остановись, конец уже близок! Поверни, пока не поздно!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Проклятые сектанты, достали уже!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik-ryzhy"
+      ],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Фура скрывается за поворотом. Грохот. И громкий бульк.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "batyushka",
+      "text": "Похоже, ты был прав. Надо было просто написать «Мост разрушен».",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

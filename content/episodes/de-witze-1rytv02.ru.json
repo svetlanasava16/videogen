@@ -1,0 +1,97 @@
+{
+  "id": "de-witze-1rytv02.ru",
+  "jokeId": "de-witze-1rytv02",
+  "locale": "ru",
+  "title": "Пингвин",
+  "location": "ulitsa",
+  "place": "street",
+  "cast": [
+    "muzhik",
+    "ptitsa",
+    "sluzhivy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "ptitsa": "bird",
+    "sluzhivy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужик находит посреди города пингвина.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Командир, вот пингвина нашёл. Что мне с ним делать?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Ну, гражданин, я бы отвёл его в зоопарк.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Спасибо, командир!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik",
+        "ptitsa"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "На следующий день полицейский снова встречает их на улице.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "sluzhivy",
+      "text": "Я же вам сказал отвести пингвина в зоопарк!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "muzhik",
+      "text": "Так мы вчера в зоопарке были. А сегодня идём в кино.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

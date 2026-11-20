@@ -1,0 +1,72 @@
+{
+  "id": "en-r-5v069e.de",
+  "jokeId": "en-r-5v069e",
+  "locale": "de",
+  "title": "Schere, Stein, Polizei",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "muzhik",
+    "sluzhivy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "sluzhivy": "traffic-cop"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann wird von der Polizei angehalten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy",
+      "text": "Papiere, bitte.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "sluzhivy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Schere. Gewonnen!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "sluzhivy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Der verfolgt mich schon seit einer Stunde.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Der will wohl unbedingt Revanche.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

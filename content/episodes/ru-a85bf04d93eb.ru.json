@@ -1,0 +1,72 @@
+{
+  "id": "ru-a85bf04d93eb.ru",
+  "jokeId": "ru-a85bf04d93eb",
+  "locale": "ru",
+  "title": "Как обгонял",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "nachalnik",
+    "barmen",
+    "sluzhivy"
+  ],
+  "roles": {
+    "nachalnik": "new-russian",
+    "barmen": "construction-worker",
+    "sluzhivy": "traffic-cop"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Шестисотый «Мерседес» на полном ходу въезжает сзади в асфальтовый каток.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "Алло, это я. Тут мне каток дорогу перегородил. Подъезжай, разберись.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Вскоре подъезжает гаишник и отводит водителя катка в сторонку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "sluzhivy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy",
+      "text": "Ну, рассказывай, дорогой.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Как обгонял. Как подрезал.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

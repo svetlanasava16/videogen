@@ -1,0 +1,90 @@
+{
+  "id": "de-witze-1leukfr.ru",
+  "jokeId": "de-witze-1leukfr",
+  "locale": "ru",
+  "title": "Вызов сантехника",
+  "location": "spalnya",
+  "place": "bathroom",
+  "cast": [
+    "doktor",
+    "barmen"
+  ],
+  "roles": {
+    "doktor": "doctor",
+    "barmen": "plumber"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Воскресный вечер. У врача прорвало трубу. Он звонит сантехнику.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "barmen",
+      "text": "Сейчас? Воскресенье, вечер, льёт как из ведра, а я уже на второй бутылке пива.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Любезный! Я врач. Когда у меня экстренный случай, я тоже выезжаю, в любую погоду!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "barmen",
+      "text": "Ладно, ладно. Еду.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "barmen"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Через час сантехник стоит в ванной. Всё залито водой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "barmen"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Он бросает в воду горсть уплотнительных колец.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "barmen",
+      "text": "Если к утру не полегчает, звоните ещё раз!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

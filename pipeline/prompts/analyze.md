@@ -58,7 +58,7 @@ A JSONL file with exactly one line per input line, in the same order, same `id`.
 - `adapt`: the punchline or a reference it depends on must be replaced; works only after reworking (new pun with the same situation, swapping a local reference for a local equivalent, renaming a character).
 - `skip`: does not work in that language even with adaptation, or the result would be a different joke.
 - Judge ONLY the language and culture fit here. Content problems (offensive, unpublishable, not a joke) go to `flags` and `funny`, never into `translatability`.
-- `reason`: `universal` | `wordplay` | `culture-ref` | `name-or-stereotype` | `format` | `other`. `note`: short English hint for the adapter (what to replace), else "".
+- `reason`: `universal` | `wordplay` | `culture-ref` | `name-or-stereotype` | `format` | `other`. `note`: short English hint for the adapter (what to replace), else "". Never suggest replacing one ethnic, national or religious group with another (e.g. Swabians → Jewish mother); suggest a neutral character with the same trait instead.
 
 **funny**: honest 1–5 for a broad adult audience today (5 = genuinely laugh-out-loud; 3 = decent; 1 = not funny, broken, or not a joke). Items that are not jokes at all (parables, memes, quotes) get 1.
 

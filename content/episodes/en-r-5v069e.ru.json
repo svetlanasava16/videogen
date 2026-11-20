@@ -1,0 +1,72 @@
+{
+  "id": "en-r-5v069e.ru",
+  "jokeId": "en-r-5v069e",
+  "locale": "ru",
+  "title": "Камень, ножницы, гаишник",
+  "location": "doroga",
+  "place": "road",
+  "cast": [
+    "muzhik",
+    "sluzhivy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "sluzhivy": "traffic-cop"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мужика останавливает полиция.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy",
+      "text": "Ваши бумаги!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "sluzhivy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Ножницы. Я выиграл!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": [
+        "sluzhivy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Он за мной уже час гонится.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Видать, очень хочет отыграться.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

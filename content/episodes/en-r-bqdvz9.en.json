@@ -1,0 +1,72 @@
+{
+  "id": "en-r-bqdvz9.en",
+  "jokeId": "en-r-bqdvz9",
+  "locale": "en",
+  "title": "Sell Me This Laptop",
+  "location": "ofis",
+  "place": "office",
+  "cast": [
+    "nachalnik",
+    "muzhik"
+  ],
+  "roles": {
+    "nachalnik": "boss",
+    "muzhik": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "nachalnik",
+      "text": "Here's my laptop. Try to sell it to me.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Sure.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik"
+      ]
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "That evening, the manager calls him.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Bring my laptop back right now!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Two hundred dollars, and it's yours.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [
+        "muzhik"
+      ],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

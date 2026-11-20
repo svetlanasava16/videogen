@@ -1,0 +1,101 @@
+{
+  "id": "en-r-7xpiv9.ru",
+  "jokeId": "en-r-7xpiv9",
+  "locale": "ru",
+  "title": "Чудесный свет",
+  "location": "bolnitsa",
+  "place": "doctor-office",
+  "cast": [
+    "ded",
+    "doktor",
+    "tyoshcha"
+  ],
+  "roles": {
+    "ded": "old-man",
+    "doktor": "doctor",
+    "tyoshcha": "old-woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "doktor",
+      "text": "Анализы у вас отличные. А как у вас с Богом?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "С Богом у нас полное взаимопонимание. Он знает, что я плохо вижу.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "ded",
+      "text": "Встаю ночью в туалет, пуф, и свет загорается.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "ded",
+      "text": "Закончил, пуф, и свет гаснет.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "ded"
+      ]
+    },
+    {
+      "id": "l5",
+      "character": "doktor",
+      "text": "Поразительно.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "doktor",
+      "text": "Алло, это доктор. С вашим мужем всё в порядке.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "tyoshcha"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "doktor",
+      "text": "Но правда, что ночью у него в туалете свет сам загорается?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "tyoshcha",
+      "text": "Господи! Опять он в холодильник писает!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

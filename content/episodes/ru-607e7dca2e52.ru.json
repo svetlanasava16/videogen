@@ -1,0 +1,79 @@
+{
+  "id": "ru-607e7dca2e52.ru",
+  "jokeId": "ru-607e7dca2e52",
+  "locale": "ru",
+  "title": "Отравленный арбуз",
+  "location": "derevnya",
+  "place": "farm",
+  "cast": [
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik-ryzhy": "farmer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik-ryzhy",
+      "text": "Опять арбузы стащили! Каждую ночь воруют!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Ну ничего. Повешу-ка я табличку.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Осторожно! В одном из арбузов крысиный яд!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "Наутро ни одного арбуза не пропало.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Ага, подействовало! А это что за приписка?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [
+        "muzhik-ryzhy"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "muzhik-ryzhy",
+      "text": "Теперь их два.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
