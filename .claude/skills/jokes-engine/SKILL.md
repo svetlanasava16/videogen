@@ -19,7 +19,7 @@ Goal: any joke or sketch becomes **data** (an episode JSON); code is written onl
 ## Episode format (v2)
 - `lines` — flat list of spoken lines (ids `l1…`): voice-over, subtitles and captions use it.
 - `scenes` (optional) — `[{ location, place?, cast, roles, looks?, crowd?, transition, beats }]`; without it the episode is one scene (`location`/`cast`/`roles`/`looks`/`crowd`/all lines).
-- `cast` — up to 5 puppets (`MAX_CAST`); with 4–5 the puppets are drawn smaller (`CAST_SCALE` in `Joke.tsx`).
+- `cast` — any number of puppets; 4–5 are drawn smaller (`CAST_SCALE` in `Joke.tsx`), from 6 (`WIDE_FROM`) the stage is wider than the frame (`stageGeometry` → `stageW`, backdrop scaled up around the floor line) and the auto camera pans along it.
 - `looks` — costume for this episode: puppet → `LookPatch` (`add`/`remove` accessories, `clothes`, `hair`, `hairStyle`) applied on top of the role costume (`lookForRole(c, role, patch)`). Blind pilots = `add: ["dark-glasses"]` + `cane` prop.
 - `crowd` — `{who, size: few|many}`: a silent back row of dimmed, smaller figures built from existing puppets (`remotion/src/world/Crowd.tsx`; pupils/children → kids). Reacts on `{type:"crowd", react: scream|gasp|laugh|cheer|murmur|calm}` beats (animation; sound if `content/audio.json` has an sfx `crowd-<react>`).
 - `lines[].offscreen: true` — a voice from off screen (genie in a bottle, behind the door, from above, invisible man): the speaker must be in the scene `cast` for the voice, is never shown unless it also walks in/moves; captions in italics.

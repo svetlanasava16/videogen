@@ -55,11 +55,18 @@ function keys(tl: Timeline, sc: SceneTL, present: (id: string, frame: number) =>
  */
 export function cameraAt(
   tl: Timeline, sc: SceneTL, frame: number,
-  geo: { width: number; height: number; headY: number; bodyY: number; xOf: (id: string, f: number) => number; present: (id: string, f: number) => boolean },
+  geo: { width: number; stageW?: number; height: number; headY: number; bodyY: number; xOf: (id: string, f: number) => number; present: (id: string, f: number) => boolean },
 ): Cam {
   const ks = keys(tl, sc, geo.present);
   const stateOf = (k: Key, f: number): Cam => {
-    if (k.shot === "wide" || !k.on || !geo.present(k.on, k.frame)) return { scale: 1, fx: geo.width / 2, fy: geo.height / 2 };
+    if (k.shot === "wide" || !k.on || !geo.present(k.on, k.frame)) {
+      const stageW = geo.stageW ?? geo.width;
+      if (stageW <= geo.width) return { scale: 1, fx: geo.width / 2, fy: geo.height / 2 };
+      // широкая сцена: общий план — на говорящего (если виден), иначе на середину присутствующих
+      const ids = k.on && geo.present(k.on, k.frame) ? [k.on] : sc.scene.cast.filter((c) => geo.present(c, k.frame));
+      const fx = ids.length ? ids.reduce((a, c) => a + geo.xOf(c, k.frame), 0) / ids.length : stageW / 2;
+      return { scale: 1, fx, fy: geo.height / 2 };
+    }
     const x = geo.xOf(k.on, k.frame);
     if (k.shot === "two" || k.shot === "group") {
       const others = sc.scene.cast.filter((c) => c !== k.on && geo.present(c, k.frame)).map((c) => ({ c, x: geo.xOf(c, k.frame) }));
@@ -87,9 +94,9 @@ export function cameraAt(
 }
 
 /** CSS-трансформация холста сцены: фокус в центр кадра, края не вылезают. */
-export function cameraTransform(c: Cam, width: number, height: number) {
+export function cameraTransform(c: Cam, width: number, height: number, stageW = width) {
   const s = c.scale;
-  const tx = Math.min(0, Math.max(width - width * s, width / 2 - c.fx * s));
+  const tx = Math.min(0, Math.max(width - stageW * s, width / 2 - c.fx * s));
   const ty = Math.min(0, Math.max(height - height * s, height / 2 - c.fy * s));
   return `translate(${tx}px, ${ty}px) scale(${s})`;
 }

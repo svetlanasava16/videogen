@@ -183,4 +183,4 @@ aerodrome-cap, apron, army-cap, badge, baguette, bandages, beard, beret, big-bea
 
 ## Crowd
 
-Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most 5 puppets per scene plus the crowd.
+Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). Any number of puppets per scene: from 6 on the stage gets wider than the frame and the camera pans along it.

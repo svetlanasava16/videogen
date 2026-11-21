@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, MAX_CAST, NARRATOR, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -101,7 +101,7 @@ const STAGES: Record<string, Stage> = {
             const backdrop = loc === "none" ? "none" : C.backdropFor.get(loc);
             return { a, j: jokes.get(a.id)!, roles, scene, loc, backdrop };
           })
-          .filter((x) => x.scene.ok && x.backdrop && Object.keys(x.scene.cast).length <= MAX_CAST)
+          .filter((x) => x.scene.ok && x.backdrop)
           .sort((x, y) => y.j.popularity * y.a.funny - x.j.popularity * x.a.funny)
           .slice(0, perLang ?? Infinity);
         for (const x of pool) {
@@ -211,7 +211,7 @@ function writeScriptContext() {
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
     "## Crowd", "",
-    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). At most ${MAX_CAST} puppets per scene plus the crowd.`, "",
+    `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). Any number of puppets per scene: from 6 on the stage gets wider than the frame and the camera pans along it.`, "",
   ];
   mkdirSync(join(DATA, "llm", "script"), { recursive: true });
   writeFileSync(join(DATA, "llm", "script", "context.md"), lines.join("\n"));

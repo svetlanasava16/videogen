@@ -25,7 +25,7 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 - Rewriting existing scripts: put their ids into `data/llm/script/redo.txt`, then `prepare` takes them again and `collect` replaces the old version. Empty the file after the rewrite is collected.
 
 ## Everyone on screen, dressed for the joke
-- Batch inputs carry `characters` from annotation (`role`, `looks`). The writer puts every speaker and silent character on screen (up to 5 puppets), groups that only react go to `crowd`, and the look the joke depends on goes to `looks` (accessories listed in `context.md`, taken from `remotion/src/puppet/Accessories.tsx`).
+- Batch inputs carry `characters` from annotation (`role`, `looks`). The writer puts every speaker and silent character on screen (any number of puppets; 6+ get a wide stage with a panning camera), groups that only react go to `crowd`, and the look the joke depends on goes to `looks` (accessories listed in `context.md`, taken from `remotion/src/puppet/Accessories.tsx`).
 - What we can't draw yet goes to `needs`. `pnpm llm needs script` → `data/llm/script/needs.md` (kind:id, how often, which episodes). Draw the frequent ones with **jokes-draw** / **jokes-cast** (new accessories, doubles, puppets — they are reused), then put those episode ids into `redo.txt` and run them again.
 - Pilot on chosen jokes: `pnpm llm prepare script --per-lang 400 --size 30 --ids <jokeId,…>`.
 

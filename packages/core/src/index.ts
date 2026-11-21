@@ -86,8 +86,6 @@ export type Crowd = z.infer<typeof Crowd>;
 export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);
 export type CrowdReact = z.infer<typeof CrowdReact>;
 
-/** Больше персонажей в одной сцене не помещается в вертикальный кадр. */
-export const MAX_CAST = 5;
 
 export const Beat = z.discriminatedUnion("type", [
   z.object({ type: z.literal("line"), ref: z.string() }),
@@ -108,7 +106,7 @@ export const Transition = z.enum(["cut", "wipe", "flyover"]);
 export const Scene = z.object({
   location: z.string(),
   place: z.string().optional(),
-  cast: z.array(z.string()).min(1).max(MAX_CAST),
+  cast: z.array(z.string()).min(1),
   roles: z.record(z.string(), z.string()).default({}),
   /** Костюм на эпизод: castId → патч внешности поверх роли (тёмные очки слепому, фартук…). */
   looks: z.record(z.string(), LookPatch).optional(),
@@ -133,7 +131,7 @@ export const Episode = z.object({
   /** Каноническая локация сцены (например "park" для фона "ulitsa") — выбирает вариант фона. */
   place: z.string().optional(),
   /** Участники слева направо (id кукол). */
-  cast: z.array(z.string()).min(1).max(MAX_CAST),
+  cast: z.array(z.string()).min(1),
   /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
   roles: z.record(z.string(), z.string()).default({}),
   /** Костюм на эпизод (без scenes): castId → патч внешности. */
@@ -420,7 +418,7 @@ export const ScriptDraft = z.object({
   /** id фона из content/locations */
   location: z.string(),
   /** id кукол слева направо */
-  cast: z.array(z.string()).min(1).max(MAX_CAST),
+  cast: z.array(z.string()).min(1),
   /** кукла → каноническая роль (выбирает костюм) */
   roles: z.record(z.string(), z.string()).default({}),
   /** Костюм на эпизод: кукла → патч (add/remove аксессуаров, clothes/hair) — без scenes. */

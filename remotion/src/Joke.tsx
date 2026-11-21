@@ -20,14 +20,22 @@ const ease = Easing.inOut(Easing.cubic);
 /** Геометрия сцены: где стоят куклы на каждом кадре (автослоты, метки места, входы и уходы). */
 /** Масштаб кукол по числу персонажей сцены: до трёх — как есть, 4–5 — мельче, чтобы все помещались в общем плане. */
 const CAST_SCALE: Record<number, number> = { 4: 0.8, 5: 0.66 };
+/** С 6 персонажей сцена шире кадра (куклы как при четырёх), камера едет вдоль неё. */
+const WIDE_FROM = 6;
+const WIDE_SCALE = 0.8;
+/** Сколько кукол такого размера помещается в ширину кадра. */
+const WIDE_PER_FRAME = 4.5;
 
 export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: number) {
   const cast = sc.scene.cast;
-  const boxH = height * PUPPET_H * (CAST_SCALE[cast.length] ?? 1);
+  const wide = cast.length >= WIDE_FROM;
+  // ширина сцены: кадр или шире (широкая сцена, камера-панорама)
+  const stageW = wide ? width * (cast.length / WIDE_PER_FRAME) : width;
+  const boxH = height * PUPPET_H * (wide ? WIDE_SCALE : CAST_SCALE[cast.length] ?? 1);
   const boxW = (boxH * BOX_W) / BOX_H;
   const top = height * FLOOR - (boxH * 585) / BOX_H; // ноги куклы на линии пола
   const marks = locations[sc.scene.location]?.marks ?? {};
-  const edgeX = (side: "left" | "right") => (side === "left" ? -boxW : width + boxW);
+  const edgeX = (side: "left" | "right") => (side === "left" ? -boxW : stageW + boxW);
   const nearEdge = (id: string): "left" | "right" => (cast.indexOf(id) < cast.length / 2 ? "left" : "right");
   const pres = (id: string, f: number) => tl.presence(sc, id, f);
 
@@ -38,7 +46,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     const total = w.reduce((a, b) => a + b, 0) || 1;
     const i = cast.indexOf(id);
     const before = w.slice(0, i).reduce((a, b) => a + b, 0);
-    return margin + ((before + Math.max(w[i], 0.0001) / 2) / total) * (width - 2 * margin);
+    return margin + ((before + Math.max(w[i], 0.0001) / 2) / total) * (stageW - 2 * margin);
   };
 
   const xAt = (id: string, f: number): number => {
@@ -47,7 +55,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     if (!m) return slotX(id, f);
     const k = ease(Math.min(1, (f - m.from) / Math.max(1, m.to - m.from)));
     // метка у края кадра: кукла целиком в кадре
-    const markX = (k: string) => Math.min(width - boxW * 0.42, Math.max(boxW * 0.42, (marks[k] ?? 0.5) * width));
+    const markX = (k: string) => Math.min(stageW - boxW * 0.42, Math.max(boxW * 0.42, (marks[k] ?? 0.5) * stageW));
     const target = (ff: number) => (m.target === "slot" ? slotX(id, ff) : markX(m.target));
     if (m.kind === "enter") {
       // старый формат: вход по присутствию от ближнего края к слоту
@@ -78,7 +86,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
         if (d < MIN_GAP) {
           const push = (MIN_GAP - d) / 2;
           a.x = Math.max(boxW * 0.45, a.x - push);
-          b.x = Math.min(width - boxW * 0.45, b.x + push);
+          b.x = Math.min(stageW - boxW * 0.45, b.x + push);
         }
       }
     }
@@ -88,7 +96,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   };
   const xOf = (id: string, f: number) => layout(f).get(id) ?? xAt(id, f);
 
-  return { boxW, boxH, top, floorY: height * FLOOR, xAt: xOf, present: (id: string, f: number) => pres(id, f) > 0, headY: top + boxH * 0.33, bodyY: top + boxH * 0.5 };
+  return { boxW, boxH, top, stageW, floorY: height * FLOOR, xAt: xOf, present: (id: string, f: number) => pres(id, f) > 0, headY: top + boxH * 0.33, bodyY: top + boxH * 0.5 };
 }
 
 /** Одна сцена: фон и куклы на холсте, камера двигает холст. */
@@ -102,13 +110,18 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     const others = people.filter((c) => c !== except);
     return others.length ? others.reduce((a, c) => a + geo.xAt(c, frame), 0) / others.length : undefined;
   };
-  const cam = cameraAt(tl, sc, frame, { width, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present });
+  const cam = cameraAt(tl, sc, frame, { width, stageW: geo.stageW, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present });
+  // широкая сцена: фон увеличен до ширины сцены, линия пола на месте
+  const bgScale = geo.stageW / width;
 
   return (
-    <AbsoluteFill style={{ transform: cameraTransform(cam, width, height), transformOrigin: "0 0" }}>
-      <Background location={locations[sc.scene.location]} place={sc.scene.place} />
+    <div style={{ position: "absolute", left: 0, top: 0, width: geo.stageW, height, transform: cameraTransform(cam, width, height, geo.stageW), transformOrigin: "0 0" }}>
+      <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0",
+        transform: bgScale > 1 ? `translate(0px, ${geo.floorY * (1 - bgScale)}px) scale(${bgScale})` : undefined }}>
+        <Background location={locations[sc.scene.location]} place={sc.scene.place} />
+      </div>
       {sc.scene.crowd && (
-        <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={width} floorY={geo.floorY} heroH={height * PUPPET_H} />
+        <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} />
       )}
       {people.map((id, i) => {
         const ch = characters[id];
@@ -134,7 +147,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           </div>
         );
       })}
-    </AbsoluteFill>
+    </div>
   );
 };
 
