@@ -75,6 +75,9 @@ pnpm db migrate && pnpm db sync
 ## Главные команды
 ```bash
 pnpm studio                                   # Remotion Studio: смотреть эпизоды, Cast, Locations
+pnpm validate [--debug]                       # проверка эпизодов по схеме и ссылкам
+pnpm stills <id>|--debug                      # ключевые кадры и контактный лист → out/stills/
+pnpm golden [--update]                        # эталонные кадры отладочного набора (перед коммитом в движок)
 pnpm catalog                                  # пересчитать отчёт docs/catalog-report.md
 pnpm registry                                 # после правок content/characters или content/locations
 pnpm llm prepare|check|collect|status <stage> # LLM-стадии пачками (analyze, script)

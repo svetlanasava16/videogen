@@ -7,6 +7,9 @@ description: The ANEK. engine — scenes as data (beats run in parallel with spe
 
 **Full reference (Russian, with JSON examples): `docs/ENGINE.md`** — read it first; this skill is the short version.
 
+## Feedback loop (use it after every engine or episode change)
+`pnpm validate [--debug|<id>]` (schema + references, 0 errors expected), `pnpm stills <id>|--debug` (key frames + contact sheet in out/stills — look at them), `pnpm golden [--update]` (reference frames of content/debug-set.json in tests/golden; run before every engine commit). Report of stage 1: docs/reports/stage-1/README.md; roadmap: docs/ROADMAP.md.
+
 ## Live staging (current rules)
 - **Rhythm:** only speech and `pause` move time. Every other beat placed before a line starts together with it (the narrator says "they walk in" — they walk in now). Gaps 0.08 s, 0.25 s before the punchline; mp3 silence trimmed by word timings.
 - **Acts:** `{type:"act", who, act, to?, sec?}` — 39 actions (`ACTS` in core, poses in `remotion/src/puppet/acts.ts`, sheet `Acts`). States (sit, kneel, lie, cover-ears…) hold; gestures play on top; target acts walk up to `to`, the target flinches.

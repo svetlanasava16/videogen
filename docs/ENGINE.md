@@ -145,6 +145,10 @@
 `content/compilations/<id>.json` (`episodes`, `transition: flyover`) → `pnpm render --compilation <id>`: заставка над городом, анекдоты, пролёты между ними.
 
 ## 12. Проверка и превью
+- **Перед каждым коммитом в движок:**
+  - `pnpm validate` — схема и ссылки всех эпизодов (`--debug` — только отладочный набор `content/debug-set.json`);
+  - `pnpm golden` — сравнение с эталонными кадрами `tests/golden` (после намеренного изменения: `pnpm golden --update`);
+  - `pnpm stills <id>|--debug` — ключевые кадры и контактный лист в `out/stills/<id>/`, смотреть глазами.
 - `pnpm llm check script --batch batch-NNNN` — схема, места, метки сублокаций, реквизит, машины и седоки, порядок реплик (`sceneProblems` в core).
 - Кадр эпизода: `cd remotion && npx remotion still src/index.ts Joke out.png --props=../content/episodes/<id>.json --frame=120`.
 - Листы: `Cast` (куклы), `Acts` (позы), `Locations` (места, `marks: true` — метки), `Vehicles` (машины с седоками), `Town` (карта).
