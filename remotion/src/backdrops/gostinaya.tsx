@@ -346,41 +346,7 @@ const DiningRoom = ({ palette: p }: { palette: Palette }) => {
           <rect x={x - 34} y={top - 132} width={68} height={70} rx={12} fill={p.accent} />
         </g>
       ))}
-      {/* стол: ножки, скатерть с каймой */}
-      <ellipse cx={W / 2} cy={front + 6} rx={(x1 - x0) / 2 + 30} ry={16} fill="#00000022" />
-      {[x0 + 40, x1 - 60].map((x) => <rect key={x} x={x} y={front - 60} width={22} height={64} fill={dark(WOOD, 0.3)} />)}
-      <rect x={x0} y={top} width={x1 - x0} height={34} rx={10} fill={light(cloth, 0.3)} />
-      <path d={`M${x0} ${top + 28} H${x1} V${front - 70} ${Array.from({ length: 9 }).map((_, i) => `Q${x1 - (i + 0.5) * ((x1 - x0) / 9)} ${front - 36} ${x1 - (i + 1) * ((x1 - x0) / 9)} ${front - 70}`).join(" ")} Z`} fill={cloth} />
-      <rect x={x0} y={front - 104} width={x1 - x0} height={12} fill={p.accent} opacity={0.8} />
-      {/* тарелки и бокалы */}
-      {[170, 300, 780, 910].map((x) => (
-        <g key={x}>
-          <ellipse cx={x} cy={top + 12} rx={46} ry={11} fill="#ffffff" stroke="#d8d0c0" strokeWidth={4} />
-          <path d={`M${x + 50} ${top - 46} h26 l-13 24 Z`} fill="#e8f2f6" opacity={0.9} />
-          <rect x={x + 61} y={top - 24} width={4} height={30} fill="#e8f2f6" />
-        </g>
-      ))}
-      {/* салатница, бутылка, торт, курица */}
-      <path d={`M380 ${top + 6} Q420 ${top + 46} 460 ${top + 6} Z`} fill={p.accent} />
-      <ellipse cx={420} cy={top + 6} rx={42} ry={10} fill="#e8d6a0" />
-      {[402, 420, 438].map((x) => <circle key={x} cx={x} cy={top - 2} r={7} fill={x === 420 ? "#5b8c5a" : "#f2c230"} />)}
-      <rect x={492} y={top - 96} width={26} height={100} rx={9} fill="#3f6b4f" />
-      <rect x={498} y={top - 126} width={14} height={34} rx={5} fill="#3f6b4f" />
-      <rect x={496} y={top - 130} width={18} height={14} rx={4} fill="#e0b030" />
-      <rect x={490} y={top - 60} width={30} height={26} rx={4} fill="#f6efe0" />
-      <rect x={560} y={top - 70} width={130} height={70} rx={10} fill="#f6efe0" />
-      <rect x={560} y={top - 48} width={130} height={14} fill="#c86fa0" />
-      <rect x={580} y={top - 112} width={90} height={44} rx={8} fill="#f6efe0" />
-      {[600, 625, 650].map((x) => (
-        <g key={x}>
-          <rect x={x - 3} y={top - 140} width={6} height={28} rx={3} fill={x === 625 ? p.accent : "#4a7aa5"} />
-          <path d={`M${x} ${top - 156} q-6 8 0 14 q6 -6 0 -14 z`} fill="#f2c230" />
-        </g>
-      ))}
-      <ellipse cx={625} cy={top + 6} rx={90} ry={12} fill="#ffffff" />
-      <ellipse cx={740} cy={top - 4} rx={56} ry={14} fill="#ffffff" stroke="#d8d0c0" strokeWidth={3} />
-      <ellipse cx={740} cy={top - 28} rx={44} ry={30} fill="#c8813d" />
-      <ellipse cx={724} cy={top - 40} rx={14} ry={8} fill="#e0a860" />
+      {/* сам стол с едой — мебель варианта перед куклами (locations/gostinaya.json → set: dining-table), чтобы сидели за ним */}
       <Rug cx={540} color={dark(p.accent, 0.1)} w={760} />
     </>
   );

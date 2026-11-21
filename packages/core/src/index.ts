@@ -85,6 +85,21 @@ export const Crowd = z.object({
 });
 export type Crowd = z.infer<typeof Crowd>;
 /** flee — массовка с криком убегает за край кадра и больше не возвращается в этой сцене. */
+/**
+ * Действия кукол (бит act): отыгрыш того, что говорит рассказчик. Позы-состояния (STATE_ACTS) держатся
+ * до следующего act этой куклы или до stand; остальные — sec секунд (по умолчанию 1.2).
+ */
+export const ACTS = [
+  "slap", "punch", "hit-head", "cover-ears", "cover-eyes", "cover-face", "hug", "kiss", "point", "wave", "facepalm", "shrug",
+  "nod", "shake-head", "bow", "kneel", "sit", "stand", "fall", "faint", "lie", "jump", "run", "cry", "laugh", "drink", "eat",
+  "scratch-head", "hands-up", "clap", "pray-hands", "think", "sleep", "throw", "grab", "knock", "dance", "shiver", "flex",
+] as const;
+export type Act = (typeof ACTS)[number];
+/** Позы-состояния: держатся, пока кукла не сделает другое действие или stand. */
+export const STATE_ACTS: readonly Act[] = ["cover-ears", "cover-eyes", "cover-face", "kneel", "sit", "lie", "sleep", "faint", "pray-hands", "hands-up", "think"];
+/** Действия по цели: кукла подходит к цели (to), цель вздрагивает (slap/punch/hit-head) или принимает (hug/kiss). */
+export const TARGET_ACTS: readonly Act[] = ["slap", "punch", "hit-head", "hug", "kiss", "throw"];
+
 /** Мебель на сцене (то, о чём говорит анекдот, но чего нет в фоне): стол, прилавок, кафедра… Рисует remotion/src/world/SetPieces.tsx. */
 export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree"] as const;
 export const SetItem = z.object({
@@ -92,6 +107,8 @@ export const SetItem = z.object({
   /** Метка места (content/locations → marks), left/center/right; по умолчанию center. */
   at: z.string().optional(),
   size: z.enum(["small", "normal", "big"]).optional(),
+  /** Сидят за ним: куклы в пределах стола по умолчанию сидят (dining-table, table — да). */
+  seat: z.boolean().optional(),
 });
 export type SetItem = z.infer<typeof SetItem>;
 export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);
@@ -111,6 +128,8 @@ export const Beat = z.discriminatedUnion("type", [
   z.object({ type: z.literal("pause"), sec: z.number().min(0).max(5) }),
   /** Тряска кадра (взлёт, турбуленция, удар, взрыв): идёт параллельно со следующими репликами, sec секунд. */
   z.object({ type: z.literal("shake"), sec: z.number().min(0.2).max(10).default(1.5), strength: z.enum(["light", "strong"]).default("light") }),
+  /** Действие куклы во время следующей реплики (подзатыльник, закрыть уши, сесть, упасть…), to — цель. */
+  z.object({ type: z.literal("act"), who: z.string(), act: z.enum(ACTS), to: z.string().optional(), sec: z.number().min(0.2).max(10).optional() }),
   /** Реакция массовки сцены (scene.crowd): кричит, ахает, смеётся, ликует, шумит, успокаивается. */
   z.object({ type: z.literal("crowd"), react: CrowdReact }),
 ]);
@@ -287,7 +306,8 @@ export const Location = z.object({
       summary: z.string(),
       /** Канонические локации, которые закрывает этот фон. */
       roles: z.array(z.string()),
-      variants: z.array(z.object({ roles: z.array(z.string()), change: z.string() })).default([]),
+      /** set — мебель варианта перед куклами (стол столовой, банкетный стол): добавляется к сцене сама. */
+      variants: z.array(z.object({ roles: z.array(z.string()), change: z.string(), set: z.array(SetItem).optional() })).default([]),
       prompt: z.string(),
     })
     .optional(),
@@ -583,6 +603,9 @@ export function sceneProblems(
         else need(b.who, `uses ${b.item}`);
         if (!opts.props.includes(b.item)) pr.push(`${tag}: unknown prop "${b.item}" (props: ${opts.props.join(", ")})`);
         if (b.action === "give" && b.to && !here.has(b.to)) pr.push(`${tag}: ${b.who} gives ${b.item} to ${b.to} who is not on stage`);
+      } else if (b.type === "act") {
+        need(b.who, `does ${b.act}`);
+        if (b.to && b.to !== NARRATOR && !sc.cast.includes(b.to)) pr.push(`${tag}: ${b.who} ${b.act} to ${b.to} who is not in the scene cast`);
       } else if (b.type === "camera" && b.on) need(b.on, "is the camera target");
     }
   });

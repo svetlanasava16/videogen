@@ -31,7 +31,7 @@ export const Soundtrack = ({ tl }: { tl: TL }) => {
         />
       )}
       {tl.lines.filter((l) => l.audioFile).map((l) => (
-        <Sequence key={`v-${l.id}`} from={l.startFrame} layout="none">
+        <Sequence key={`v-${l.id}`} from={l.audioFrom ?? l.startFrame} layout="none">
           <Html5Audio src={staticFile(l.audioFile!)} volume={VOICE_VOL} playbackRate={l.rate} />
         </Sequence>
       ))}

@@ -11,7 +11,10 @@ import { SceneTransition } from "./world/Transitions";
 import { Flyover } from "./world/Flyover";
 import { buildingFor } from "./world/town";
 import { Crowd, CrowdFront } from "./world/Crowd";
-import { SetLayer } from "./world/SetPieces";
+import { SET_PIECES, SetLayer } from "./world/SetPieces";
+
+/** Мебель, за которой по умолчанию сидят. */
+const SEAT_DEFAULT = ["dining-table", "table"];
 import { cameraAt, cameraTransform } from "./director/camera";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
@@ -19,6 +22,9 @@ const PUPPET_H = 0.4; // высота бокса куклы (доля высот
 const ease = Easing.inOut(Easing.cubic);
 
 /** Геометрия сцены: где стоят куклы на каждом кадре (автослоты, метки места, входы и уходы). */
+/** Насколько близко подходит кукла к цели действия (доля ширины бокса). */
+const NEAR = 0.55;
+
 /** Масштаб кукол по числу персонажей сцены: до трёх — как есть, 4–5 — мельче, чтобы все помещались в общем плане. */
 const CAST_SCALE: Record<number, number> = { 4: 0.8, 5: 0.66 };
 /** С 6 персонажей сцена шире кадра (куклы как при четырёх), камера едет вдоль неё. */
@@ -57,7 +63,17 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     const k = ease(Math.min(1, (f - m.from) / Math.max(1, m.to - m.from)));
     // метка у края кадра: кукла целиком в кадре
     const markX = (k: string) => Math.min(stageW - boxW * 0.42, Math.max(boxW * 0.42, (marks[k] ?? 0.5) * stageW));
-    const target = (ff: number) => (m.target === "slot" ? slotX(id, ff) : markX(m.target));
+    const target = (ff: number) => {
+      if (m.target === "slot") return slotX(id, ff);
+      // подойти вплотную к другой кукле (удар, объятие): встать с той стороны, откуда пришёл
+      if (m.target.startsWith("near:")) {
+        const tid = m.target.slice(5);
+        const tx = tid === id ? xAt(id, m.from - 1) : xAt(tid, m.from);
+        const side = xAt(id, m.from - 1) < tx ? -1 : 1;
+        return tx + side * boxW * NEAR;
+      }
+      return markX(m.target);
+    };
     if (m.kind === "enter") {
       // старый формат: вход по присутствию от ближнего края к слоту
       if (m.target === "slot" && !m.edge) return interpolate(ease(pres(id, f)), [0, 1], [edgeX(nearEdge(id)), slotX(id, f)]);
@@ -78,11 +94,13 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   const layout = (f: number) => {
     const hit = cache.get(f);
     if (hit) return hit;
+    // кто подошёл вплотную (удар, объятие) — не раздвигаем его с целью
+    const close = new Set(sc.moves.filter((m) => m.from <= f && m.target.startsWith("near:")).flatMap((m) => [m.id, m.target.slice(5)]));
     const xs = cast.map((id) => ({ id, x: xAt(id, f), on: pres(id, f) > 0.5 })).sort((a, b) => a.x - b.x);
     for (let it = 0; it < 4; it++) {
       for (let i = 1; i < xs.length; i++) {
         const a = xs[i - 1], b = xs[i];
-        if (!a.on || !b.on) continue;
+        if (!a.on || !b.on || (close.has(a.id) && close.has(b.id))) continue;
         const d = b.x - a.x;
         if (d < MIN_GAP) {
           const push = (MIN_GAP - d) / 2;
@@ -112,9 +130,18 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     return others.length ? others.reduce((a, c) => a + geo.xAt(c, frame), 0) / others.length : undefined;
   };
   const cam = cameraAt(tl, sc, frame, { width, stageW: geo.stageW, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present });
-  // мебель по метке места (доля ширины сцены), иначе left/center/right
+  // мебель по метке места (доля ширины сцены), иначе left/center/right; мебель варианта места добавляется сама
   const marks = locations[sc.scene.location]?.marks ?? {};
+  const variantSet = locations[sc.scene.location]?.bible?.variants.find((v) => sc.scene.place && v.roles.includes(sc.scene.place))?.set ?? [];
+  const setItems = [...variantSet, ...(sc.scene.set ?? [])];
   const setX = (at?: string) => (marks[at ?? ""] ?? ({ left: 0.25, right: 0.75 } as Record<string, number>)[at ?? ""] ?? 0.5) * geo.stageW;
+  // за столом (seat): кто стоит в пределах стола и не вставал — сидит
+  const seats = setItems.filter((it) => it.seat ?? SEAT_DEFAULT.includes(it.item)).map((it) => {
+    const w = (SET_PIECES[it.item]?.w ?? 0.5) <= 1 ? (SET_PIECES[it.item]?.w ?? 0.5) * geo.stageW : SET_PIECES[it.item].w * (geo.boxH / (height * PUPPET_H));
+    const cx = setX(it.at);
+    return [cx - w / 2, cx + w / 2] as const;
+  });
+  const seatedAt = (id: string, x: number) => (seats.some(([a, b]) => x >= a && x <= b) && !tl.standsUp(sc, id, frame) ? 1 : 0);
   // широкая сцена: фон увеличен до ширины сцены, линия пола на месте
   const bgScale = geo.stageW / width;
 
@@ -125,7 +152,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         transform: bgScale > 1 ? `translate(0px, ${geo.floorY * (1 - bgScale)}px) scale(${bgScale})` : undefined }}>
         <Background location={locations[sc.scene.location]} place={sc.scene.place} />
       </div>
-      {sc.scene.set && <SetLayer items={sc.scene.set} layer="back" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
+      {setItems.length > 0 && <SetLayer items={setItems} layer="back" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
       {sc.scene.crowd && sc.scene.crowd.at !== "front" && (
         <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} />
       )}
@@ -138,7 +165,11 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         const talking = current?.character === id && current.words.some((w) => frame >= w.startFrame - 1 && frame <= w.endFrame);
         const laughing = tl.laughing(id, frame);
         const c = centre(id);
-        const facing: 1 | -1 = walk > 0.2 ? (dx > 0 ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1;
+        const act = tl.actAt(sc, id, frame);
+        // действие по цели — лицом к цели
+        const target = act ? sc.acts.filter((a) => a.who === id && a.from <= frame).pop()?.to : undefined;
+        const tx = target && people.includes(target) ? geo.xAt(target, frame) : undefined;
+        const facing: 1 | -1 = walk > 0.2 ? (dx > 0 ? 1 : -1) : tx !== undefined ? (tx >= x ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1;
         return (
           <div key={id} style={{ position: "absolute", left: x - geo.boxW / 2, top: geo.top, width: geo.boxW, height: geo.boxH, display: "flex", justifyContent: "center" }}>
             <Puppet
@@ -149,6 +180,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
               facing={facing}
               hold={tl.holding(sc, id, frame)}
               seed={sc.scene.cast.indexOf(id) * 17 + i}
+              act={act}
+              seated={seatedAt(id, x)}
+              flinch={tl.flinchAt(sc, id, frame)}
             />
           </div>
         );
@@ -156,7 +190,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
       {sc.scene.crowd?.at === "front" && (
         <CrowdFront spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} height={height} />
       )}
-      {sc.scene.set && <SetLayer items={sc.scene.set} layer="front" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
+      {setItems.length > 0 && <SetLayer items={setItems} layer="front" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
     </div>
   );
 };

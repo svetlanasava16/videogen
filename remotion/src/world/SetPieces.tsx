@@ -36,6 +36,18 @@ const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floo
             const px = l + ((i + 0.5) / plates) * w;
             return <ellipse key={i} cx={px} cy={top - 10} rx={46} ry={12} fill="#ffffff" stroke="#d8d0c0" strokeWidth={4} />;
           })}
+          {/* праздничная еда между тарелками: салат, бутылка, торт, курица — не выше подбородка сидящих */}
+          {plates >= 3 && (
+            <g>
+              <path d={`M${l + w * 0.3 - 40} ${top - 8} Q${l + w * 0.3} ${top + 28} ${l + w * 0.3 + 40} ${top - 8} Z`} fill={ACCENT} />
+              <ellipse cx={l + w * 0.3} cy={top - 8} rx={40} ry={9} fill="#e8d6a0" />
+              <rect x={l + w * 0.45 - 12} y={top - 90} width={24} height={82} rx={8} fill="#3f6b4f" />
+              <rect x={l + w * 0.45 - 7} y={top - 112} width={14} height={26} rx={5} fill="#3f6b4f" />
+              <rect x={l + w * 0.58 - 55} y={top - 60} width={110} height={52} rx={10} fill="#f6efe0" />
+              <rect x={l + w * 0.58 - 55} y={top - 42} width={110} height={12} fill="#c86fa0" />
+              <ellipse cx={l + w * 0.72} cy={top - 26} rx={42} ry={24} fill="#c8813d" />
+            </g>
+          )}
         </g>
       );
     }

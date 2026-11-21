@@ -3,6 +3,7 @@ import { Episode } from "@jf/core";
 import demo from "../../content/episodes/demo-ru.json";
 import { Joke } from "./Joke";
 import { Cast } from "./Cast";
+import { Acts } from "./Acts";
 import { Locations } from "./Locations";
 import { Cover } from "./Cover";
 import { TownPreview } from "./world/Flyover";
@@ -16,6 +17,7 @@ export const Root = () => (
   <>
   <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[] }} />
   <Composition id="Cast" component={Cast} width={2450} height={2850} fps={30} durationInFrames={1} />
+  <Composition id="Acts" component={Acts} width={3520} height={3120} fps={30} durationInFrames={1} defaultProps={{ who: "muzhik" }} />
   <Composition
     id="Compilation"
     component={Compilation}

@@ -265,7 +265,7 @@ const Party = ({ palette }: { palette: Palette }) => {
       <Balloon x={1020} y={560} color={colors[2]} />
       <Balloon x={940} y={620} color={colors[4]} r={42} />
       <Balloon x={1010} y={690} color={colors[0]} r={40} />
-      <BanquetTable colors={colors} />
+      {/* банкетный стол — мебель варианта перед куклами (locations/bar.json → set) */}
 
       {/* конфетти на полу */}
       {[[150, 1230, colors[0]], [420, 1260, colors[2]], [700, 1240, colors[1]], [930, 1270, colors[3]]].map(([x, y, c], i) => (

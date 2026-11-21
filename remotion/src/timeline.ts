@@ -1,6 +1,6 @@
 import {
   AudioLibrary, VoiceConfig, estimateWords, laughs, lineDuration, orderedLines, pick, scenesOf,
-  type AudioClip, type CrowdReact, type Episode, type Scene, type Shot, type WordTiming,
+  STATE_ACTS, TARGET_ACTS, type Act, type AudioClip, type Beat, type CrowdReact, type Episode, type Scene, type Shot, type WordTiming,
 } from "@jf/core";
 import audioData from "../../content/audio.json";
 import voicesData from "../../content/voices.json";
@@ -19,6 +19,8 @@ export type TimedLine = {
   words: { text: string; startFrame: number; endFrame: number }[];
   /** Файл озвучки (относительно public/), если реплика озвучена. */
   audioFile?: string;
+  /** С какого кадра играть mp3 (раньше startFrame на тишину в начале файла). */
+  audioFrom?: number;
   /** Индекс сцены. */
   scene: number;
   /** Последняя реплика эпизода (панчлайн). */
@@ -57,7 +59,12 @@ export type SceneTL = {
   crowd: CrowdEvent[];
   /** Тряска кадра (кадры). */
   shakes: { from: number; to: number; strength: "light" | "strong" }[];
+  /** Действия кукол (кадры; to_ = Infinity — поза держится). */
+  acts: ActEvent[];
 };
+
+/** Действие куклы: act с кадра from до to_ (Infinity — до следующего действия или stand). */
+export type ActEvent = { who: string; act: Act; to?: string; from: number; to_: number };
 
 /** Реакция массовки: с кадра from до to. */
 export type CrowdEvent = { react: CrowdReact; from: number; to: number };
@@ -71,6 +78,12 @@ export const LEAD_IN_SEC = 0.3;
 export const TAIL_SEC = 1.0;
 export const WALK_SEC = 0.7;
 const PROP_SEC = 0.35;
+/** Пауза между репликами и перед панчлайном (секунды): живой рассказ без провалов. */
+const GAP_SEC = 0.08;
+const PUNCH_GAP_SEC = 0.25;
+/** Действие по умолчанию длится; подойти к цели. */
+const ACT_SEC = 1.2;
+const APPROACH_SEC = 0.45;
 /** Длительность перехода между сценами (перекрытие стыка). */
 export const TRANSITION_SEC: Record<Scene["transition"], number> = { cut: 0, wipe: 0.5, flyover: 1.6 };
 /** Смех персонажей в конце: начинается после панчлайна, второй вступает чуть позже первого. */
@@ -91,6 +104,8 @@ export function musicFor(ep: Episode): AudioClip | undefined {
 
 export function buildTimeline(ep: Episode) {
   const fps = ep.format.fps;
+  /** Плавный вход/выход позы действия (кадры). */
+  const ACT_RAMP_F = Math.round(0.18 * fps);
   const f = (sec: number) => Math.round(sec * fps);
   const byId = new Map(ep.lines.map((l) => [l.id, l]));
   const order = orderedLines(ep);
@@ -131,79 +146,110 @@ export function buildTimeline(ep: Episode) {
     const startsOn = new Set(sc.cast.filter((id) => first.get(id) !== "in" && !voiceOnly.has(id)));
 
     let started = false; // была ли уже реплика/пауза: move до неё — расстановка без ходьбы
-    for (const b of sc.beats) {
-      if (b.type === "line" || b.type === "pause") started = true;
-      if (b.type === "line") {
-        const l = byId.get(b.ref);
-        if (!l) continue;
-        if (l.enter.length) {
-          for (const id of l.enter) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "enter", target: "slot" });
-          t += WALK_SEC;
+    const acts: ActEvent[] = [];
+    // Не-речевые биты копятся и стартуют вместе со следующей репликой — параллельно с ней и между собой
+    // (рассказчик говорит «пилоты заходят» — они заходят в этот момент). Время двигает только речь и pause.
+    let pending: Beat[] = [];
+    /** Запустить накопленные биты с момента at; одна кукла делает свои шаги по очереди. Возвращает конец самого долгого. */
+    const flush = (at: number) => {
+      const busy = new Map<string, number>(); // кукла → когда освободится
+      let end = at;
+      const startOf = (who: string) => Math.max(at, busy.get(who) ?? at);
+      for (const b of pending) {
+        if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-")) {
+          // начальная расстановка: кукла сразу стоит на метке
+          moves.push({ id: b.who, from: f(at) - 1, to: f(at) - 1, kind: "walk", target: b.to });
+        } else if (b.type === "move") {
+          const s0 = startOf(b.who);
+          const off = b.to.startsWith("off-");
+          moves.push({
+            id: b.who, from: f(s0), to: f(s0 + WALK_SEC),
+            kind: b.from ? "enter" : off ? "exit" : "walk",
+            target: off ? "slot" : b.to,
+            edge: b.from ? (b.from === "off-left" ? "left" : "right") : off ? (b.to === "off-left" ? "left" : "right") : undefined,
+          });
+          busy.set(b.who, s0 + WALK_SEC); end = Math.max(end, s0 + WALK_SEC);
+        } else if (b.type === "prop") {
+          const s0 = startOf(b.who);
+          props.push({ who: b.who, item: b.item, action: b.action, to: b.to, frame: f(s0) });
+          busy.set(b.who, s0 + PROP_SEC); end = Math.max(end, s0 + PROP_SEC);
+        } else if (b.type === "act") {
+          let s0 = startOf(b.who);
+          // действие по цели: сначала подойти вплотную (если цель — кукла сцены)
+          if (b.to && TARGET_ACTS.includes(b.act) && sc.cast.includes(b.to)) {
+            moves.push({ id: b.who, from: f(s0), to: f(s0 + APPROACH_SEC), kind: "walk", target: `near:${b.to}` });
+            s0 += APPROACH_SEC;
+          }
+          const sec = b.sec ?? (STATE_ACTS.includes(b.act) ? Infinity : ACT_SEC);
+          acts.push({ who: b.who, act: b.act, to: b.to, from: f(s0), to_: Number.isFinite(sec) ? f(s0 + sec) : Infinity });
+          const dur = Number.isFinite(sec) ? sec : 0.6;
+          busy.set(b.who, s0 + dur); end = Math.max(end, s0 + dur);
+        } else if (b.type === "camera") {
+          shots.push({ frame: f(at), shot: b.shot, on: b.on, auto: false });
+        } else if (b.type === "sfx") {
+          const clip = clips.find((c) => c.id === b.id);
+          if (clip) sfxCues.push({ clip, from: f(at), frames: f(clip.durationSec) });
+        } else if (b.type === "shake") {
+          shakes.push({ from: f(at), to: f(at + b.sec), strength: b.strength });
+        } else if (b.type === "crowd") {
+          const sec = CROWD_SEC[b.react];
+          crowd.push({ react: b.react, from: f(at), to: f(at + sec) });
+          const clip = clips.find((c) => c.id === `crowd-${b.react}`);
+          if (clip) sfxCues.push({ clip, from: f(at), frames: f(clip.durationSec) });
+          end = Math.max(end, at + sec);
         }
-        // без цензуры — только для неозвученных реплик (озвучена чистая версия)
-        const shown = ep.explicit && !l.audio && l.uncensored ? l.uncensored : l.text;
-        const rate = l.character === "narrator" ? TEMPO.narrator : TEMPO.characters;
-        const words: WordTiming[] = (l.audio ? l.audio.words : estimateWords(shown)).map((w) => ({ ...w, start: w.start / rate, end: w.end / rate }));
-        const dur = lineDuration(l) / rate;
-        lines.push({
-          id: l.id, character: l.character, text: shown, emotion: l.emotion,
-          startFrame: f(t), endFrame: f(t + dur),
-          words: words.map((w) => ({ text: w.text, startFrame: f(t + w.start), endFrame: f(t + w.end) })),
-          audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId, offscreen: l.offscreen, rate,
-        });
-        t += dur;
-        if (l.id === lastLineId) punchEnd = t;
-        // если персонажи смеются сами, закадровый смех после панчлайна не нужен
-        const want = hasOutro && l.id === lastLineId ? undefined : laughOf.get(l.id);
-        const clip = want ? pick(laughPool.filter((c) => c.intensity === want), `${ep.id}:${l.id}`) ?? pick(laughPool, `${ep.id}:${l.id}`) : undefined;
-        let gap = 0;
-        if (clip) {
-          laughCues.push({ clip, from: f(t + 0.1), frames: f(clip.durationSec) });
-          laughEnd = Math.max(laughEnd, t + 0.1 + clip.durationSec);
-          gap = l.id !== lastLineId ? clip.durationSec * LAUGH_GAP : 0;
-        }
-        if (l.exit.length) {
-          for (const id of l.exit) moves.push({ id, from: f(t + 0.15), to: f(t + 0.15 + WALK_SEC), kind: "exit", target: "slot" });
-          t += WALK_SEC + 0.15;
-        }
-        t += Math.max(l.pauseAfterSec, gap);
-      } else if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-")) {
-        // начальная расстановка: кукла сразу стоит на метке
-        moves.push({ id: b.who, from: f(t) - 1, to: f(t) - 1, kind: "walk", target: b.to });
-      } else if (b.type === "move") {
-        const off = b.to.startsWith("off-");
-        moves.push({
-          id: b.who, from: f(t), to: f(t + WALK_SEC),
-          kind: b.from ? "enter" : off ? "exit" : "walk",
-          target: off ? "slot" : b.to,
-          edge: b.from ? (b.from === "off-left" ? "left" : "right") : off ? (b.to === "off-left" ? "left" : "right") : undefined,
-        });
-        t += WALK_SEC;
-      } else if (b.type === "prop") {
-        props.push({ who: b.who, item: b.item, action: b.action, to: b.to, frame: f(t) });
-        t += PROP_SEC;
-      } else if (b.type === "camera") {
-        shots.push({ frame: f(t), shot: b.shot, on: b.on, auto: false });
-      } else if (b.type === "sfx") {
-        const clip = clips.find((c) => c.id === b.id);
-        if (clip) sfxCues.push({ clip, from: f(t), frames: f(clip.durationSec) });
-      } else if (b.type === "pause") {
-        t += b.sec;
-      } else if (b.type === "shake") {
-        shakes.push({ from: f(t), to: f(t + b.sec), strength: b.strength });
-      } else if (b.type === "crowd") {
-        started = true;
-        const sec = CROWD_SEC[b.react];
-        crowd.push({ react: b.react, from: f(t), to: f(t + sec) });
-        // звук реакции, если есть в библиотеке (sfx crowd-<react>)
-        const clip = clips.find((c) => c.id === `crowd-${b.react}`);
-        if (clip) sfxCues.push({ clip, from: f(t), frames: f(clip.durationSec) });
-        t += sec;
       }
+      pending = [];
+      return end;
+    };
+
+    for (const b of sc.beats) {
+      if (b.type === "pause") {
+        flush(t);
+        started = true;
+        t += b.sec;
+        continue;
+      }
+      if (b.type !== "line") { pending.push(b); continue; }
+      const l = byId.get(b.ref);
+      if (!l) continue;
+      // вход на реплике — тоже во время реплики (входит и говорит)
+      for (const id of l.enter) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "enter", target: "slot" });
+      flush(t);
+      started = true;
+      // без цензуры — только для неозвученных реплик (озвучена чистая версия)
+      const shown = ep.explicit && !l.audio && l.uncensored ? l.uncensored : l.text;
+      const rate = l.character === "narrator" ? TEMPO.narrator : TEMPO.characters;
+      const raw: WordTiming[] = l.audio ? l.audio.words : estimateWords(shown);
+      // тишина в начале и в конце mp3 не в счёт: реплика — от первого до последнего слова
+      const lead = l.audio && raw.length ? raw[0].start : 0;
+      const speech = l.audio && raw.length ? raw[raw.length - 1].end - lead : lineDuration(l);
+      const dur = speech / rate;
+      lines.push({
+        id: l.id, character: l.character, text: shown, emotion: l.emotion,
+        startFrame: f(t), endFrame: f(t + dur),
+        words: raw.map((w) => ({ text: w.text, startFrame: f(t + (w.start - lead) / rate), endFrame: f(t + (w.end - lead) / rate) })),
+        audioFile: l.audio?.file, audioFrom: f(t - lead / rate), scene: si, punch: l.id === lastLineId, offscreen: l.offscreen, rate,
+      });
+      t += dur;
+      if (l.id === lastLineId) punchEnd = t;
+      // закадровый смех звучит поверх, реплики не раздвигает; если персонажи смеются сами — после панчлайна не нужен
+      const want = hasOutro && l.id === lastLineId ? undefined : laughOf.get(l.id);
+      const clip = want ? pick(laughPool.filter((c) => c.intensity === want), `${ep.id}:${l.id}`) ?? pick(laughPool, `${ep.id}:${l.id}`) : undefined;
+      if (clip) {
+        laughCues.push({ clip, from: f(t + 0.05), frames: f(clip.durationSec) });
+        laughEnd = Math.max(laughEnd, t + 0.05 + clip.durationSec);
+      }
+      for (const id of l.exit) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "exit", target: "slot" });
+      // паузы почти нет: темп живого рассказа; чуть дольше — перед панчлайном
+      const nextId = order[order.findIndex((x) => x.id === l.id) + 1]?.id;
+      t += l.id === lastLineId ? 0 : nextId === lastLineId ? PUNCH_GAP_SEC : GAP_SEC;
     }
+    // биты после последней реплики сцены — в конце сцены, по очереди после речи
+    if (pending.length) t = Math.max(t, flush(t));
     const next = scenesOf(ep)[si + 1];
     if (next) t += TRANSITION_SEC[next.transition] / 2;
-    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd, shakes };
+    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd, shakes, acts };
   });
 
   const outro: OutroLaugh[] = ep.outroLaughs.map((x, k) => ({
@@ -241,11 +287,40 @@ export function buildTimeline(ep: Episode) {
     return item;
   };
 
+  /** Действие куклы на кадре: имя, сила позы k (плавный вход/выход за ACT_RAMP) и секунды с начала. */
+  const actAt = (sc: SceneTL, id: string, frame: number): { name: Act; k: number; t: number } | undefined => {
+    const mine = sc.acts.filter((a) => a.who === id && a.from <= frame);
+    const a = mine[mine.length - 1];
+    if (!a || a.act === "stand") return undefined;
+    // поза-состояние держится до следующего действия этой куклы
+    const next = sc.acts.find((x) => x.who === id && x.from > a.from);
+    const endF = Math.min(a.to_, next ? next.from : Infinity);
+    if (frame > endF + ACT_RAMP_F) return undefined;
+    const kIn = Math.min(1, (frame - a.from) / ACT_RAMP_F);
+    const kOut = Number.isFinite(endF) ? Math.min(1, Math.max(0, (endF + ACT_RAMP_F - frame) / ACT_RAMP_F)) : 1;
+    return { name: a.act, k: Math.min(kIn, kOut), t: (frame - a.from) / fps };
+  };
+  /** Вздрагивает ли кукла от удара (0..1): чуть позже начала удара по ней, ~0.5 с. */
+  const flinchAt = (sc: SceneTL, id: string, frame: number) => {
+    let v = 0;
+    for (const a of sc.acts) {
+      if (a.to !== id || !["slap", "punch", "hit-head", "throw"].includes(a.act)) continue;
+      const hit = a.from + Math.round(0.3 * fps);
+      const d = frame - hit;
+      if (d >= 0 && d < 0.6 * fps) v = Math.max(v, 1 - d / (0.6 * fps));
+    }
+    return v;
+  };
+  /** Встала ли кукла (после ходьбы или act stand) — тогда за столом уже не сидит. */
+  const standsUp = (sc: SceneTL, id: string, frame: number) =>
+    sc.moves.some((m) => m.id === id && m.from <= frame && m.to !== m.from && m.from > sc.from) ||
+    sc.acts.some((a) => a.who === id && a.act === "stand" && a.from <= frame);
+
   /** Смеётся ли кукла сейчас (смех в конце). */
   const laughing = (id: string, frame: number) => outro.some((o) => o.character === id && frame >= o.from && frame <= o.from + o.frames);
 
   const music = musicFor(ep);
-  return { lines, scenes, sceneAt, presence, holding, laughing, laughs: laughCues, sfx: sfxCues, outro, music, durationInFrames };
+  return { lines, scenes, sceneAt, presence, holding, actAt, flinchAt, standsUp, laughing, laughs: laughCues, sfx: sfxCues, outro, music, durationInFrames };
 }
 
 export type Timeline = ReturnType<typeof buildTimeline>;

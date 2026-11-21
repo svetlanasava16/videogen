@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -220,6 +220,8 @@ function writeScriptContext() {
     ...props.map((p) => `| ${p.id} | ${p.ru} | ${p.en} | ${p.de} |`), "",
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
+    "## Acts (puppet actions for `act` beats)", "",
+    `${ACTS.join(", ")} — state poses that hold until the next act of that puppet or \`stand\`: ${STATE_ACTS.join(", ")}; with a target (\`to\`): ${TARGET_ACTS.join(", ")} — the puppet walks up to the target first, the target flinches when hit.`, "",
     "## Set pieces (furniture for `set`)", "",
     `${SET_ITEMS.join(", ")} — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.`, "",
     "## Crowd", "",
@@ -256,7 +258,7 @@ function materialize() {
       lines: d.lines.map((l, i) => ({
         id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, offscreen: l.offscreen || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         audio: voiced(i, l.character, l.text.trim()),
-        pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
+        pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(0.6, Math.max(0, l.pauseAfterSec)),
       })),
       scenes: d.scenes?.length ? d.scenes : undefined,
       // смех в конце, музыку и режим без цензуры не теряем при пересборке (смех — только тех, кто ещё в составе)
