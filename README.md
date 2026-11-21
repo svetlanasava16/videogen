@@ -3,11 +3,64 @@
 Короткие вертикальные видео по анекдотам на русском, английском и немецком: векторные куклы, нарисованные кодом, закадровый смех и музыка (CC0), озвучка (ElevenLabs или ComfyUI на сервере, в планах), субтитры-караоке, монтаж в Remotion, публикация через Postiz, база публикаций и метрик в Postgres.
 
 - База: 6000 популярных анекдотов (по 2000 на язык) с разметкой: персонажи, локации, переводимость, флаги.
-- Каст: 28 кукол (с двойниками и костюмами под роли), 14 фонов с вариантами.
-- Сценарии: LLM-стадия пишет и адаптирует сценарии, выходы и уходы персонажей → `content/episodes/` (883 эпизода, топ-100 на язык).
+- Каст: 37 кукол (с двойниками, формой и костюмами под роли), 19 мест и 67 комнат (сублокаций) с глубиной, сиденьями и мебелью, 14 видов транспорта.
+- Сценарии: LLM-стадия пишет и адаптирует сценарии дословно по источнику, движок ставит их сам (действия, глубина, комнаты, машины) → `content/episodes/` (1800 эпизодов; переписываются кругами, см. [docs/ENGINE.md](docs/ENGINE.md)).
 - База `anek-db` (Postgres, `packages/db`): анекдоты, ассеты, эпизоды, рендеры, публикации, метрики. Публикация — Postiz ([docs/POSTIZ.md](docs/POSTIZ.md)).
 
-Подробности: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), цифры по базе: [docs/catalog-report.md](docs/catalog-report.md).
+Подробности: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), движок постановки: [docs/ENGINE.md](docs/ENGINE.md), цифры по базе: [docs/catalog-report.md](docs/catalog-report.md).
+
+## Как это выглядит
+Всё нарисовано кодом (SVG в `remotion/src`). Листы пересобираются командами из раздела «Превью» ниже.
+
+**Куклы** (`content/characters`, риг `remotion/src/puppet`):
+
+![Куклы](docs/img/cast.jpg)
+
+**Роли и форма** — роль сама одевает куклу (пилот, полиция, ГАИ, военные, повар, строитель, стюардесса, начальник, врач, заключённый, моряк):
+
+![Роли](docs/img/roles.jpg)
+
+**Действия** — куклы отыгрывают сказанное рассказчиком (подзатыльник, закрыть уши, сесть, упасть, пишет, звонит, свистит…):
+
+![Действия](docs/img/acts.jpg)
+
+**Места и комнаты** — дом, бар, магазин, офис, школа, зал:
+
+![Места 1](docs/img/loc1.jpg)
+
+…больница, самолёт, дорога и транспорт внутри, улица, деревня, небеса, церковь, суд, баня, пляж:
+
+![Места 2](docs/img/loc2.jpg)
+
+**Транспорт снаружи** — седоки в окнах или верхом:
+
+![Транспорт](docs/img/vehicles.jpg)
+
+### Превью (пересобрать картинки)
+```bash
+cd remotion
+npx remotion still src/index.ts Cast out.png
+npx remotion still src/index.ts Outfits out.png --props='{"mode":"roles"}'
+npx remotion still src/index.ts Acts out.png --props='{"who":"muzhik"}'
+npx remotion still src/index.ts Locations out.png --props='{"only":["bar"],"marks":true,"locale":"en"}'
+npx remotion still src/index.ts Vehicles out.png
+npx remotion still src/index.ts Joke out.png --props=../content/episodes/<id>.json --frame=120
+```
+
+## Озвучка (второй компьютер, платный ElevenLabs)
+Полная инструкция: [docs/VOICE-HANDOFF.md](docs/VOICE-HANDOFF.md). Коротко:
+```bash
+git clone git@github.com:svetlanasava16/videogen.git && cd videogen && git checkout joke-factory-pipeline
+pnpm install
+# .env: ELEVENLABS_API_KEY=<ключ>  и  ELEVENLABS_PLAN=paid
+pnpm voice apply-casting --locale ru          # один раз: голоса из docs/CASTING.md
+pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01          # смета
+pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01 --yes    # озвучка
+pnpm voice check
+git add content/episodes remotion/public/audio/voice content/characters content/voices.json
+git commit -m "Voice: ru" && git push
+```
+База и готовые ролики для озвучки не нужны: озвучка уходит через git, на Маке Мити — `git pull` и `pnpm render --compilation <id>`. Тестовая озвучка с бесплатного аккаунта на платном ключе переозвучивается сама.
 
 ## Установка
 Нужны Node.js 22+, pnpm и Docker.
@@ -57,7 +110,7 @@ pnpm metrics pull|report                      # метрики → база, doc
 | `jokes-scripts` | сценарии, переводы, адаптации, превью | «напиши сценарии для следующих 50 немецких анекдотов» |
 | `jokes-sources` | новые источники и языки | «добавь польские анекдоты» |
 | `jokes-engine` | движок: сцены, камера, городок, сборники, новые места без кода | «сделай сборник из трёх анекдотов», «добавь в город тюрьму» |
-| `jokes-voice` | озвучка ElevenLabs: кастинг голосов, смета, генерация, передача через git | «подбери голоса для русских кукол», «озвучь следующие 30 русских» |
+| `jokes-voice` | озвучка ElevenLabs: кастинг голосов, смета, генерация, передача через git | «подбери голоса для русских кукол», «озвучь сборник ru-20261122-01» |
 | `jokes-publish` | рендер, ручной постинг в Instagram, Postiz, база, метрики | «отрендерь топ-20 немецких и запланируй на YouTube на неделю», «сколько лайков у вчерашних постов» |
 
 Общие правила для агента — в [CLAUDE.md](CLAUDE.md): LLM-шаги не ходят в API (их выполняют сабагенты), промпты на английском, обсуждение на русском, арт только кодом, маркировка ИИ в каждой публикации.

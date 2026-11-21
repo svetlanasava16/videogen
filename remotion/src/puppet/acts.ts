@@ -519,6 +519,11 @@ export function basePose(arms: { left: number; right: number }, legs: { left: nu
 
 export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape }; itemR: { F: number; B: number }; puff: number };
 
+/** Лёжа тело сдвигается на половину роста (единицы бокса), чтобы лежать по центру места, а не вбок от стоп. */
+const LIE_SHIFT = 240;
+/** Высота сиденья/матраса в единицах бокса куклы (SEAT_H 72 px кадра при боксе 768 px = 600 единиц). */
+const SEAT_BOX = 56;
+
 /** Итоговая поза: обычная → сидя (seated) → поза-состояние (base) → жест (act) → вздрагивание (flinch). */
 export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; base?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string }): Resolved {
   const p = base;
@@ -557,6 +562,16 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
       face = { ...face, eyes: face?.eyes ?? "squeeze", mouth: face?.mouth ?? "o" };
       fx.push({ type: "burst", space: "head", at: [226, 78], r: 30 * fl });
     }
+  }
+  // лёжа (lie, sleep, faint, после падения): ноги прямые (поза «сидя» снимается), тело лежит по центру своего места,
+  // а не торчит вбок от стоп; на кровати/сиденье (seated) — спиной на матрасе, а не на полу
+  const lyingK = clamp((Math.abs(p.rot) - 30) / 50, 0, 1);
+  if (lyingK > 0) {
+    for (const L of [p.legF, p.legB]) { L.a = mix(L.a, 0, lyingK); L.s = mix(L.s, 0, lyingK); L.ts = mix(L.ts, 1, lyingK); L.dx = mix(L.dx, 0, lyingK); L.fr = mix(L.fr, 0, lyingK); }
+    p.drop = mix(p.drop, 0, lyingK);
+    p.lean = mix(p.lean, 0, lyingK);
+    p.x += -Math.sin(p.rot / D) * LIE_SHIFT * lyingK;
+    p.lift += SEAT_BOX * clamp(o.seated ?? 0, 0, 1) * lyingK;
   }
   // лёжа/падая: приподнять, чтобы спина легла на пол, а не ушла под него
   p.lift += Math.max(g.bodyW / 2, 78) * Math.abs(Math.sin(p.rot / D)) ** 1.5;

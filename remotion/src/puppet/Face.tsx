@@ -1,3 +1,4 @@
+import { useId } from "react";
 import type { Emotion } from "@jf/core";
 import type { FaceFx } from "./acts";
 
@@ -12,14 +13,16 @@ const brow: Record<Emotion, { l: number; r: number; dy: number }> = {
 
 /** Глаза, брови и рот. Координаты бокса 300×420, центр головы (150,160). */
 export const Face = ({
-  emotion, speaking, open, blinking, skin, animal, mouthY = 208, beak = false, beakFront = false, brows = true, fx,
+  emotion, speaking, open, blinking, skin, animal, mouthY = 208, beak = false, beakFront = false, brows = true, fx, lips,
 }: {
+  /** Помада (аксессуар lipstick): цвет губ — обводка вокруг рта любой формы, двигается вместе с ним. */ lips?: string;
   emotion: Emotion; speaking: boolean; open: number; blinking: boolean; skin: string; animal: boolean; mouthY?: number;
   /** Клюв в профиль (птица). */ beak?: boolean;
   /** Клюв анфас (пингвин): нижняя половина опускается при речи. */ beakFront?: boolean;
   /** false — свои брови не рисовать (их заменяет аксессуар, например high-drawn-eyebrows). */ brows?: boolean;
   /** Лицо действия (acts.ts): глаза, рот, брови, взгляд — поверх эмоции. */ fx?: FaceFx;
 }) => {
+  const lipsId = `lips${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
   const b = brow[fx?.brows ?? emotion];
   const big = fx?.eyes === "wide" || (!fx?.eyes && emotion === "surprised");
   const eyeR = big ? 14 : 11;
@@ -52,7 +55,18 @@ export const Face = ({
       {brows && <rect x="106" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.l} 122 ${131 + b.dy})`} />}
       {brows && <rect x="162" y={128 + b.dy} width="32" height="6" rx="3" fill="#2b1d14" transform={`rotate(${b.r} 178 ${131 + b.dy})`} />}
 
-      {/* рот */}
+      {/* рот (с помадой — обведён цветом губ через фильтр: контур повторяет любую форму рта) */}
+      {lips && (
+        <defs>
+          <filter id={lipsId} x="-60%" y="-120%" width="220%" height="340%">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="d" />
+            <feFlood floodColor={lips} result="c" />
+            <feComposite in="c" in2="d" operator="in" result="o" />
+            <feMerge><feMergeNode in="o" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+      )}
+      <g filter={lips ? `url(#${lipsId})` : undefined}>
       {mfx ? (
         <ActMouth kind={mfx} y={mouthY} open={fx?.open ?? 0.8} />
       ) : beakFront ? (
@@ -71,6 +85,7 @@ export const Face = ({
       ) : (
         <Mouth emotion={emotion} y={mouthY} animal={animal} />
       )}
+      </g>
     </g>
   );
 };

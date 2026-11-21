@@ -344,7 +344,7 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
 
             <Face emotion={emotion} speaking={speaking} open={open} blinking={blink(frame, seed)} skin={skin} animal={animal}
               mouthY={kind === "horse" ? 230 : kind === "cow" ? 222 : 208} beak={kind === "bird"} beakFront={penguin}
-              brows={!acc.includes("high-drawn-eyebrows")} fx={face} />
+              brows={!acc.includes("high-drawn-eyebrows")} fx={face} lips={acc.includes("lipstick") ? "#c0263e" : undefined} />
             {puff > 0.02 && !animal && (
               <g opacity={Math.min(1, puff * 1.4)}>
                 {[1, -1].map((s) => <circle key={s} cx={150 + s * 50} cy={202} r={16 + 7 * puff} fill={skin} />)}

@@ -325,7 +325,7 @@ export function Accessory({ id, hair, skin = "#f0d0b0", geo = DEFAULT_GEO, part 
     case "freckles": return <g fill="#c06a3a">{[[112, 180], [122, 186], [132, 180], [168, 180], [178, 186], [188, 180]].map(([x, y]) => <circle key={x} cx={x} cy={y} r="3" />)}</g>;
     case "red-nose": return <circle cx="150" cy="178" r="14" fill="#d9363e" />;
     case "mole": return <circle cx="186" cy="196" r="4" fill="#3a2a20" />;
-    case "lipstick": return <ellipse cx="150" cy="208" rx="24" ry="7" fill="#c0263e" opacity="0.6" />;
+    case "lipstick": return null; // губы рисует Face (обводка рта цветом помады, двигается вместе с ртом)
     case "earrings": return (<><circle cx="78" cy="180" r="7" fill="#e0a030" /><circle cx="222" cy="180" r="7" fill="#e0a030" /></>);
     // голова
     case "flat-cap": return <path d="M78 118 Q150 70 222 118 L236 128 Q150 112 78 122 Z" fill="#5b4636" />;
