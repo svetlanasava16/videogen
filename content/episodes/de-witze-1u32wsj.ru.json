@@ -1,0 +1,122 @@
+{
+  "id": "de-witze-1u32wsj.ru",
+  "jokeId": "de-witze-1u32wsj",
+  "locale": "ru",
+  "title": "Честное мнение",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "artist",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Молодой художник впервые представляет своё искусство на выставке.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Там он встречает известного художественного критика.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Пожалуйста, можно узнать ваше честное мнение о моём искусстве?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Оно ничего не стоит.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Я знаю, но всё равно хотел бы его услышать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "artist",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

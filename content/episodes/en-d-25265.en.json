@@ -1,0 +1,105 @@
+{
+  "id": "en-d-25265.en",
+  "jokeId": "en-d-25265",
+  "locale": "en",
+  "title": "Without a Tres",
+  "location": "zal",
+  "place": "theater",
+  "cast": [
+    "paren"
+  ],
+  "roles": {
+    "paren": "magician"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A Mexican magician tells the audience he will disappear on the count of three.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Uno, dos...",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Poof! He disappeared without a tres.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "magician"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-right"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

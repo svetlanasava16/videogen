@@ -2,42 +2,18 @@
   "id": "en-r-f7r4x9.en",
   "jokeId": "en-r-f7r4x9",
   "locale": "en",
-  "title": "The Bride's Father",
-  "location": "tserkov",
+  "title": "Mother of the Bride",
+  "location": "bar",
   "place": "church",
   "cast": [
-    "muzhik",
+    "devushka-ryzhaya",
     "zhena",
-    "devushka-ryzhaya"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "devushka-ryzhaya": "daughter",
     "zhena": "mother",
-    "devushka-ryzhaya": "daughter"
-  },
-  "looks": {
-    "zhena": {
-      "clothes": "#2e3440",
-      "add": [
-        "stubble"
-      ],
-      "remove": []
-    },
-    "devushka-ryzhaya": {
-      "clothes": "#ffffff",
-      "add": [],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "guests",
-    "size": "few"
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -63,14 +39,14 @@
       "character": "zhena",
       "text": "Do you mind. That's my daughter you're talking about.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "I'm sorry, I didn't know you were her father...",
+      "text": "I'm sorry, I didn't know you were her father.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -89,6 +65,76 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "party",
+      "cast": [
+        "devushka-ryzhaya",
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "devushka-ryzhaya": {
+          "clothes": "#f7f7f7",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "clothes": "#2f2f3a",
+          "hairStyle": "short",
+          "add": [
+            "stubble",
+            "tie"
+          ],
+          "remove": [
+            "apron",
+            "lipstick"
+          ]
+        },
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

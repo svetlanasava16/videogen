@@ -2,24 +2,24 @@
   "id": "en-r-dswgsp.en",
   "jokeId": "en-r-dswgsp",
   "locale": "en",
-  "title": "On the Bus",
+  "title": "The Sock",
   "location": "doroga",
   "place": "bus",
   "cast": [
     "paren",
     "muzhik",
-    "ded"
+    "muzhik-sosed"
   ],
   "roles": {
     "paren": "everyman",
-    "muzhik": "everyman",
-    "ded": "old-man"
+    "muzhik": "friend",
+    "muzhik-sosed": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A guy was sitting on a bus with a friend, and the friend told him this joke.",
+      "text": "I was sitting on a bus with a friend and he told me this joke.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,8 +29,8 @@
       "id": "l2",
       "character": "muzhik",
       "text": "What do you do if you see an epileptic having a fit in the bath?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -46,7 +46,16 @@
     },
     {
       "id": "l4",
-      "character": "ded",
+      "character": "narrator",
+      "text": "The guy behind us leaned over and said:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
       "text": "I think that's disgusting. My son died in the bath whilst having a fit.",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
@@ -54,23 +63,32 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
-      "text": "They both went white and apologised. The man got up to get off.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "text": "We both went white and apologised.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "ded",
+      "id": "l7",
+      "character": "narrator",
+      "text": "The guy got up to get off and said:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik-sosed",
       "text": "He choked on a sock.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [
-        "ded"
+        "muzhik-sosed"
       ],
       "laugh": "big"
     }
@@ -83,14 +101,33 @@
       "cast": [
         "paren",
         "muzhik",
-        "ded"
+        "muzhik-sosed"
       ],
       "roles": {
         "paren": "everyman",
-        "muzhik": "everyman",
-        "ded": "old-man"
+        "muzhik": "friend",
+        "muzhik-sosed": "everyman"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -114,6 +151,14 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

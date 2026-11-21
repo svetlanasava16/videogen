@@ -1,0 +1,132 @@
+{
+  "id": "en-r-8b5yoi.ru",
+  "jokeId": "en-r-8b5yoi",
+  "locale": "ru",
+  "title": "Ничего не стоит",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "artist",
+    "nachalnik": "aristocrat"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Молодой художник впервые выставляет свои работы.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "И на выставке присутствует известный художественный критик.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Хотите узнать моё мнение о вашей работе?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Да.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "Это ничего не стоит.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "Я знаю, но вы всё равно скажите.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "artist",
+        "nachalnik": "aristocrat"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -2,7 +2,7 @@
   "id": "ru-d1b210f03b9f.en",
   "jokeId": "ru-d1b210f03b9f",
   "locale": "en",
-  "title": "The Doorbell Too",
+  "title": "The Door Too",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Both cell phones were ringing, the landline was shrieking. Zoom was wailing insistently.",
+      "text": "Both cell phones were ringing, the landline was shrilling.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -24,6 +24,15 @@
     {
       "id": "l2",
       "character": "narrator",
+      "text": "Skype was wailing insistently.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
       "text": "The owner of the apartment, sitting on the toilet, was screaming hysterically:",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
@@ -31,10 +40,10 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
-      "text": "Somebody ring the doorbell, you jerks, the doorbell too!!!",
-      "uncensored": "Somebody ring the doorbell, you bastards, the doorbell too!!!",
+      "text": "Somebody ring the doorbell, you jerks, the doorbell too!",
+      "uncensored": "Somebody ring the doorbell, you bitches, the doorbell too!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -55,6 +64,17 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "toilet"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -65,6 +85,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"

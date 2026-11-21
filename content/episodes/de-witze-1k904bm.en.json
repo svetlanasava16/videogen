@@ -1,0 +1,125 @@
+{
+  "id": "de-witze-1k904bm.en",
+  "jokeId": "de-witze-1k904bm",
+  "locale": "en",
+  "title": "Theatre and Reality",
+  "location": "zal",
+  "place": "theater",
+  "cast": [
+    "muzhik",
+    "paren"
+  ],
+  "roles": {
+    "muzhik": "father",
+    "paren": "son"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A father picks up his son from the drama club he joined only recently.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "That day the parts for the next play were supposed to be announced.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "So, son, did you land a part in the next play?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Yes! I'm playing a man who's been married for twenty years.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Well, that's a good start. Keep it up, and next time you might even get a speaking part.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

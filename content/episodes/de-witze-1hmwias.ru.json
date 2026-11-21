@@ -3,19 +3,21 @@
   "jokeId": "de-witze-1hmwias",
   "locale": "ru",
   "title": "Шарик!",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
     "devushka",
+    "paren",
+    "pyos",
     "muzhik",
-    "pyos"
+    "zhena"
   ],
   "roles": {
-    "paren": "boyfriend",
     "devushka": "girlfriend",
+    "paren": "boyfriend",
+    "pyos": "dog",
     "muzhik": "father",
-    "pyos": "dog"
+    "zhena": "mother"
   },
   "lines": [
     {
@@ -30,14 +32,23 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "После ужина его охватывает неодолимое желание... пукнуть. Тихо, но слышно, он пукает.",
+      "text": "После ужина его охватывает неодолимое желание... пукнуть.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Тихо, но слышно он пукает.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Шарик!",
       "emotion": "angry",
@@ -46,7 +57,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "paren",
       "text": "Фух. Старик думает, что это собака.",
       "emotion": "smug",
@@ -55,7 +66,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
       "text": "И тут же пукает ещё раз.",
       "emotion": "neutral",
@@ -64,7 +75,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "Шарик!",
       "emotion": "angry",
@@ -73,19 +84,28 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
       "text": "Следом ещё один, но чертовски громкий.",
       "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Шарик!",
+      "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "muzhik",
-      "text": "Шарик! Уйди, пока этот тип тебе на голову не нагадил!",
-      "uncensored": "Шарик! Уйди, пока этот тип тебе на голову не насрал!",
+      "text": "Уйди, пока этот тип тебе на голову не нагадил!",
+      "uncensored": "Уйди, пока этот тип тебе на голову не насрал!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +114,77 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "devushka",
+        "paren",
+        "pyos",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "paren": "boyfriend",
+        "pyos": "dog",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

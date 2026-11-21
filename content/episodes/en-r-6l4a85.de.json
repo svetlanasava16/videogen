@@ -3,26 +3,24 @@
   "jokeId": "en-r-6l4a85",
   "locale": "de",
   "title": "Ich weiß alles",
-  "location": "gostinaya",
+  "location": "ulitsa",
   "place": "home-living-room",
   "cast": [
-    "paren",
     "vovochka",
-    "zhena",
-    "muzhik"
+    "vovochka-drug",
+    "devochka"
   ],
   "roles": {
-    "paren": "postman",
-    "vovochka": "fritzchen",
-    "zhena": "mother",
-    "muzhik": "father"
+    "vovochka": "vovochka",
+    "vovochka-drug": "child",
+    "devochka": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Fritzchens Freunde erzählen ihm, dass Erwachsene ein dunkles Geheimnis haben und sich leicht manipulieren lassen.",
-      "emotion": "neutral",
+      "character": "vovochka-drug",
+      "text": "Fritzchen, Erwachsene haben ein dunkles Geheimnis und lassen sich leicht manipulieren.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -30,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Fritzchen will das testen.",
+      "text": "Fritzchen beschließt, es auszuprobieren.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -50,14 +48,14 @@
       "character": "narrator",
       "text": "Mama bringt ihn zum Schweigen und gibt ihm zehn Euro.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Aber sag Papa nichts.",
+      "text": "Sag nur Papa nichts.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -66,9 +64,9 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Hey, es funktioniert!",
+      "text": "Hey, es funktioniert.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [],
       "laugh": "chuckle"
@@ -76,7 +74,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Eine Stunde später kommt Papa von der Arbeit.",
+      "text": "Eine Stunde später kommt Papa von der Arbeit nach Hause.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -96,7 +94,7 @@
       "character": "narrator",
       "text": "Papa gibt Fritzchen hundert Euro.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -104,7 +102,7 @@
       "id": "l10",
       "character": "muzhik",
       "text": "Sag Mama nichts.",
-      "emotion": "sad",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -112,7 +110,7 @@
     {
       "id": "l11",
       "character": "narrator",
-      "text": "Da klopft der Briefträger an die Tür.",
+      "text": "Genau da klopft der Briefträger an die Tür.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -132,14 +130,14 @@
       "character": "narrator",
       "text": "Der Briefträger lässt die ganze Post fallen, ihm kommen die Tränen, und er sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l14",
       "character": "paren",
-      "text": "Na dann, Fritzchen, komm und drück deinen Papi.",
+      "text": "Na dann, Fritzchen, komm und drück deinen Papa.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -150,25 +148,52 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "ulitsa",
       "cast": [
-        "paren",
         "vovochka",
-        "zhena",
-        "muzhik"
+        "vovochka-drug",
+        "devochka"
       ],
       "roles": {
-        "paren": "postman",
-        "vovochka": "fritzchen",
+        "vovochka": "vovochka",
+        "vovochka-drug": "child",
+        "devochka": "child"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
         "zhena": "mother",
-        "muzhik": "father"
+        "vovochka": "vovochka",
+        "muzhik": "father",
+        "paren": "postman"
       },
       "looks": {
         "muzhik": {
+          "clothes": "#2f2f3a",
           "add": [
             "tie"
           ],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -178,22 +203,16 @@
           "to": "sofa"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "tv"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "zhena",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "vovochka",
-          "to": "center"
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -230,12 +249,18 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "sofa",
+          "to": "left",
           "from": "off-left"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -253,8 +278,18 @@
           "ref": "l10"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
         },
         {
           "type": "move",
@@ -269,17 +304,8 @@
           "action": "hold"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "left"
-        },
-        {
           "type": "line",
           "ref": "l12"
-        },
-        {
-          "type": "line",
-          "ref": "l13"
         },
         {
           "type": "prop",
@@ -289,10 +315,14 @@
         },
         {
           "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
           "ref": "l14"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

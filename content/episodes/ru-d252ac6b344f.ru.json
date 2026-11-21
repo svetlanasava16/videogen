@@ -2,24 +2,24 @@
   "id": "ru-d252ac6b344f.ru",
   "jokeId": "ru-d252ac6b344f",
   "locale": "ru",
-  "title": "Штирлиц в баре",
+  "title": "Связной",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik",
     "sluzhivy",
-    "barmen"
+    "barmen",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "drunk",
     "sluzhivy": "stirlitz",
-    "barmen": "bartender"
+    "barmen": "bartender",
+    "muzhik": "drunk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Штирлиц пришёл на встречу со связным в знакомый бар и заказал сто грамм водки.",
+      "text": "Штирлиц пришёл на встречу со связным в знакомый бар.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,6 +27,15 @@
     },
     {
       "id": "l2",
+      "character": "sluzhivy",
+      "text": "Сто грамм водки.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
       "character": "barmen",
       "text": "Водка у нас кончилась ещё два дня назад.",
       "emotion": "sad",
@@ -35,7 +44,7 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "sluzhivy",
       "text": "Ну, тогда сто грамм коньячку.",
       "emotion": "neutral",
@@ -44,7 +53,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "barmen",
       "text": "Коньячок у нас кончился вчера.",
       "emotion": "sad",
@@ -53,7 +62,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "sluzhivy",
       "text": "Ну, а пиво-то есть?",
       "emotion": "surprised",
@@ -62,7 +71,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "barmen",
       "text": "Увы, закончилось сегодня утром.",
       "emotion": "sad",
@@ -71,7 +80,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "sluzhivy",
       "text": "Значит, связной уже здесь.",
       "emotion": "smug",
@@ -86,14 +95,14 @@
     {
       "location": "bar",
       "cast": [
-        "muzhik",
         "sluzhivy",
-        "barmen"
+        "barmen",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "drunk",
         "sluzhivy": "stirlitz",
-        "barmen": "bartender"
+        "barmen": "bartender",
+        "muzhik": "drunk"
       },
       "looks": {
         "muzhik": {
@@ -106,13 +115,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "stool-left"
+          "who": "barmen",
+          "to": "counter"
         },
         {
           "type": "move",
-          "who": "barmen",
-          "to": "counter"
+          "who": "muzhik",
+          "to": "stool-right"
         },
         {
           "type": "prop",
@@ -121,20 +130,14 @@
           "action": "hold"
         },
         {
-          "type": "prop",
-          "who": "barmen",
-          "item": "glass",
-          "action": "hold"
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "move",
           "who": "sluzhivy",
           "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -159,6 +162,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

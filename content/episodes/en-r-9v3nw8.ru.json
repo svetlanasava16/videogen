@@ -3,8 +3,8 @@
   "jokeId": "en-r-9v3nw8",
   "locale": "ru",
   "title": "Поднял",
-  "location": "ofis",
-  "place": "front-door",
+  "location": "podyezd",
+  "place": "elevator",
   "cast": [
     "muzhik",
     "ded"
@@ -13,19 +13,11 @@
     "muzhik": "customer",
     "ded": "old-man"
   },
-  "looks": {
-    "ded": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик поднимается на лифте на одиннадцатый этаж, и когда он выходит, лифтёр говорит:",
+      "text": "Я поднялся на лифте на одиннадцатый этаж, и когда выходил, лифтёр сказал:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,7 +28,7 @@
       "character": "ded",
       "text": "Хорошего дня, сынок.",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -45,12 +37,21 @@
       "character": "muzhik",
       "text": "Не называй меня сынком. Ты мне не отец.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "narrator",
+      "text": "Он почесал затылок.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "ded",
       "text": "Нет, но поднял-то тебя я, разве нет?",
       "emotion": "smug",
@@ -61,6 +62,58 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "place": "elevator",
+      "cast": [
+        "muzhik",
+        "ded"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "ded": "old-man"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "ded": {
+          "clothes": "#b3262e",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

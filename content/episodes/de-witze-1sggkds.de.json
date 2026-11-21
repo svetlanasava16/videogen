@@ -2,9 +2,9 @@
   "id": "de-witze-1sggkds.de",
   "jokeId": "de-witze-1sggkds",
   "locale": "de",
-  "title": "Tapetenwitz",
-  "location": "gostinaya",
-  "place": "front-door",
+  "title": "Die Tapete",
+  "location": "podyezd",
+  "place": "stairwell",
   "cast": [
     "paren",
     "muzhik-sosed"
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Fragt der neue Mieter seinen Nachbarn von oben:",
+      "text": "Fragt der neue Mieter seinen Nachbarn:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +64,7 @@
       "character": "paren",
       "text": "Du, ich habe aber fünf Rollen übrig gehabt.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -80,6 +80,103 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "clothes": "#8a6d4b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "clothes": "#8a6d4b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "stairs"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

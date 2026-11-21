@@ -2,24 +2,24 @@
   "id": "ru-d252ac6b344f.en",
   "jokeId": "ru-d252ac6b344f",
   "locale": "en",
-  "title": "Stirlitz at the Bar",
+  "title": "The Contact",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik",
     "sluzhivy",
-    "barmen"
+    "barmen",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "drunk",
     "sluzhivy": "stirlitz",
-    "barmen": "bartender"
+    "barmen": "bartender",
+    "muzhik": "drunk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Stirlitz, the Soviet spy, came to a familiar bar to meet his contact and ordered a double vodka.",
+      "text": "Stirlitz, the Soviet spy, came to a familiar bar to meet his contact.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,51 +27,60 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Sorry, we ran out of vodka two days ago.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "sluzhivy",
-      "text": "Well, a double cognac then.",
+      "text": "A double vodka.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "barmen",
-      "text": "The cognac ran out yesterday.",
+      "text": "We ran out of vodka two days ago.",
       "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "sluzhivy",
+      "text": "Well, then a double cognac.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Well, you've got beer, at least?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "We ran out of cognac yesterday.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "sluzhivy",
+      "text": "Well, do you at least have beer?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "barmen",
-      "text": "I'm afraid that ran out this morning.",
+      "text": "Sorry, that ran out this morning.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "sluzhivy",
       "text": "So my contact is already here.",
       "emotion": "smug",
@@ -86,14 +95,14 @@
     {
       "location": "bar",
       "cast": [
-        "muzhik",
         "sluzhivy",
-        "barmen"
+        "barmen",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "drunk",
         "sluzhivy": "stirlitz",
-        "barmen": "bartender"
+        "barmen": "bartender",
+        "muzhik": "drunk"
       },
       "looks": {
         "muzhik": {
@@ -106,13 +115,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "stool-left"
+          "who": "barmen",
+          "to": "counter"
         },
         {
           "type": "move",
-          "who": "barmen",
-          "to": "counter"
+          "who": "muzhik",
+          "to": "stool-right"
         },
         {
           "type": "prop",
@@ -121,20 +130,14 @@
           "action": "hold"
         },
         {
-          "type": "prop",
-          "who": "barmen",
-          "item": "glass",
-          "action": "hold"
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "move",
           "who": "sluzhivy",
           "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -159,6 +162,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

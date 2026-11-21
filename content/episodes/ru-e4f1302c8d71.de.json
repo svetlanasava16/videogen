@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "sluzhivy-ryadovoy",
-      "text": "Herr Leutnant, Sie sind ein Feigling und ein Schuft.",
+      "text": "Herr Leutnant, Sie sind ein Feigling und ein Schuft. Ich fordere Sie zum Duell!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,6 @@
     },
     {
       "id": "l2",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Ich fordere Sie zum Duell!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l3",
       "character": "sluzhivy",
       "text": "Ich komme nicht.",
       "emotion": "neutral",
@@ -42,7 +33,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "sluzhivy-ryadovoy",
       "text": "Warum?",
       "emotion": "surprised",
@@ -51,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "sluzhivy",
       "text": "Weil ich ein Feigling und ein Schuft bin.",
       "emotion": "smug",
@@ -62,6 +53,61 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "party",
+      "cast": [
+        "sluzhivy-ryadovoy",
+        "sluzhivy"
+      ],
+      "roles": {
+        "sluzhivy-ryadovoy": "officer",
+        "sluzhivy": "rzhevsky"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "mustache-curled"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann kommt an das Tor seines Nachbarn und klopft.",
+      "text": "Ein Mann geht zum Tor seines Nachbarn und klopft.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er klopft und klopft, aber niemand antwortet. Er klopft stärker.",
-      "emotion": "neutral",
+      "text": "Er klopft und klopft, aber niemand antwortet. Er klopft fester.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,9 +35,9 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Leise kommt ein Hund ans Tor.",
+      "text": "Leise kommt ein Hund ans Tor und sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -46,15 +46,15 @@
       "character": "pyos",
       "text": "Mann, hör auf zu klopfen, es ist keiner zu Hause.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Mann fällt auf der Stelle in Ohnmacht. Als er wieder zu sich kommt, sieht er den Hund an.",
-      "emotion": "neutral",
+      "text": "Da fällt der Mann sofort in Ohnmacht. Als er wieder zu sich kommt, sieht er den Hund an und sagt:",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Was ist los mit dir, Hund, kannst du nicht bellen?",
+      "text": "Was ist los, Hund, kannst du nicht bellen?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -71,8 +71,8 @@
     {
       "id": "l7",
       "character": "pyos",
-      "text": "Doch, aber ich wollte dich nicht erschrecken.",
-      "emotion": "happy",
+      "text": "Kann ich, aber ich wollte dich nicht erschrecken.",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -93,14 +93,13 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -114,7 +113,7 @@
           "type": "move",
           "who": "pyos",
           "to": "fence",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

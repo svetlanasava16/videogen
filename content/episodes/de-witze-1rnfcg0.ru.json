@@ -1,0 +1,141 @@
+{
+  "id": "de-witze-1rnfcg0.ru",
+  "jokeId": "de-witze-1rnfcg0",
+  "locale": "ru",
+  "title": "Мумия",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "zhena",
+    "ded",
+    "sluzhivy"
+  ],
+  "roles": {
+    "zhena": "woman",
+    "ded": "old-man",
+    "sluzhivy": "guard"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Госпожа Винтер пришла в египетский музей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Скажите, а сколько лет вот этой мумии?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Пять тысяч семь лет.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Откуда это можно знать так точно?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Я работаю здесь семь лет.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "sluzhivy",
+      "text": "Когда я начинал, мне сказали, что ей пять тысяч лет.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "zhena",
+        "ded",
+        "sluzhivy"
+      ],
+      "roles": {
+        "zhena": "woman",
+        "ded": "old-man",
+        "sluzhivy": "guard"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        },
+        "ded": {
+          "clothes": "#d8cba8",
+          "skin": "#c9b98f",
+          "add": [
+            "bandages"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

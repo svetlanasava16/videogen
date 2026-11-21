@@ -16,6 +16,15 @@
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Ein Mann geht zum Arzt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Herr Doktor, ich glaube, meine Frau ist schwerhörig.",
       "emotion": "sad",
@@ -24,18 +33,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "doktor",
-      "text": "Sprechen Sie sie von hinten an.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "doktor",
-      "text": "Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
+      "text": "Sprechen Sie sie von hinten an. Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -62,8 +62,8 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Schatz, was gibt es denn zu Abendessen heute?",
-      "emotion": "surprised",
+      "text": "Schatz, was gibt es denn zum Abendessen heute?",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -72,8 +72,8 @@
       "id": "l7",
       "character": "muzhik",
       "text": "Schatz, was gibt es denn heute zu essen?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
@@ -107,14 +107,14 @@
           "to": "desk"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

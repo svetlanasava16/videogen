@@ -3,30 +3,21 @@
   "jokeId": "de-witze-1u1esis",
   "locale": "en",
   "title": "Adopted",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
-    "zhena",
     "muzhik",
+    "zhena",
     "paren"
   ],
   "roles": {
-    "zhena": "mother",
     "muzhik": "father",
+    "zhena": "mother",
     "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "A family is sitting at dinner.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "muzhik",
       "text": "Son, I have to tell you something: you've been adopted.",
       "emotion": "neutral",
@@ -35,28 +26,19 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "paren",
       "text": "What? You're not my real parents at all?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "What? Of course we're your real parents.",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l3",
       "character": "muzhik",
-      "text": "And now pack your bag.",
-      "emotion": "neutral",
+      "text": "What? Of course we're your real parents. Now pack your bag.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -64,6 +46,37 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "zhena": "mother",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

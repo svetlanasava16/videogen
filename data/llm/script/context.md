@@ -44,7 +44,8 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | village | Деревня / Village / Dorf | derevnya |
 | garden | Огород / Garden / Garten | derevnya:garden |
 | lake | Озеро / Lake / See | derevnya:river-lake |
-| home | Дом / Home / Zuhause | gostinaya, kukhnya, spalnya |
+| home | Дом / Home / Zuhause | gostinaya, kukhnya, spalnya, gostinaya:dining-room, podyezd, podyezd:elevator |
+| culture-house | Дом культуры / Culture House / Kulturhaus | zal, zal:theater, zal:museum |
 | church | Церковь / Church / Kirche | tserkov |
 | school | Школа / School / Schule | klass |
 | bar | Бар / Bar / Kneipe | bar |
@@ -114,18 +115,20 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | bolnitsa | doctor-office, hospital, madhouse | couch, left, center, desk, right, skeleton |
 | derevnya | village, farm, forest, river-lake, garden, mountain | left, house, center, fence, right, tree |
 | doroga | road, car, bus, subway | roadside, left, center, right, car |
-| gostinaya | home-living-room, front-door, balcony, basement | door, left, sofa, center, tv, right, wardrobe |
+| gostinaya | home-living-room, front-door, balcony, basement, dining-room | door, left, sofa, center, table, tv, right, wardrobe |
 | klass | school-classroom, university | left, student-desk, center, board, right, teacher-desk |
 | kukhnya | home-kitchen | fridge, left, center, table, right, stove |
 | magazin | shop, pharmacy, barbershop | left, shelf, center, counter, right |
 | nebesa | heaven, hell, garden-of-eden, space | lectern, left, center, gate, right, cloud |
-| ofis | office, government-office, conference-hall, tv-studio, bank, police-station | left, desk, center, window, right, plant |
+| ofis | office, government-office, tv-studio, bank, police-station | left, desk, center, window, right, plant |
 | plyazh | beach | left, umbrella, center, water, right, towel |
+| podyezd | stairwell, elevator | door-left, left, elevator, center, door-right, right, stairs |
 | samolet | plane, train, ship, airport, train-station | seat-left, left, center, aisle, right, seat-right |
-| spalnya | bedroom, bathroom | nightstand, left, center, bed, right, wardrobe |
+| spalnya | bedroom, bathroom | nightstand, left, center, bed, right, wardrobe, toilet |
 | sud | courtroom | dock, left, center, judge, right, witness |
 | tserkov | church | pew-left, left, center, altar, right, pew-right |
 | ulitsa | street, park, stadium, zoo, cemetery | lamp, left, shop, center, bench, right |
+| zal | conference-hall, theater, museum | aisle, left, stage-left, center, stage-right, lectern, right |
 | none | no location (narrator over a neutral backdrop) | |
 
 ## Props (held in the right hand)

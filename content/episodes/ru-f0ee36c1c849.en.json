@@ -3,21 +3,21 @@
   "jokeId": "ru-f0ee36c1c849",
   "locale": "en",
   "title": "Without Women",
-  "location": "ofis",
+  "location": "zal",
   "place": "conference-hall",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A rally of feminist organizations. At the podium, yet another lady speaker is ranting furiously.",
+      "text": "A rally of feminist organisations is under way.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,15 +25,33 @@
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "What would these men do right now without women?! Just what would they do without us?!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "At the podium, yet another woman speaker is ranting furiously:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "devushka",
+      "text": "What would these men do now without women?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Well, what would they do without us?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
       "character": "devushka",
       "text": "Huh?! I'm asking you!",
       "emotion": "angry",
@@ -42,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "muzhik",
       "text": "What, what?! We'd be stuffing ourselves with coconuts in paradise!",
       "emotion": "smug",
@@ -55,42 +73,30 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "ofis",
+      "location": "zal",
       "cast": [
-        "devushka",
-        "muzhik"
+        "muzhik",
+        "devushka"
       ],
       "roles": {
-        "devushka": "woman",
-        "muzhik": "everyman"
-      },
-      "looks": {
-        "devushka": {
-          "hairStyle": "short",
-          "add": [],
-          "remove": []
-        }
+        "muzhik": "everyman",
+        "devushka": "woman"
       },
       "crowd": {
         "who": "audience",
-        "size": "many"
+        "size": "many",
+        "at": "front"
       },
-      "set": [
-        {
-          "item": "lectern",
-          "at": "center"
-        }
-      ],
       "beats": [
         {
           "type": "move",
           "who": "devushka",
-          "to": "center"
+          "to": "lectern"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "aisle"
         },
         {
           "type": "line",
@@ -105,12 +111,20 @@
           "ref": "l3"
         },
         {
-          "type": "crowd",
-          "react": "cheer"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l5"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

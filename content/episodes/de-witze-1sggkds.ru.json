@@ -3,8 +3,8 @@
   "jokeId": "de-witze-1sggkds",
   "locale": "ru",
   "title": "Обои",
-  "location": "gostinaya",
-  "place": "front-door",
+  "location": "podyezd",
+  "place": "stairwell",
   "cast": [
     "paren",
     "muzhik-sosed"
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Новый жилец спрашивает соседа сверху:",
+      "text": "Новый жилец спрашивает соседа сверху.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,9 +26,9 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Слушай, у тебя ведь такая же квартира, как у меня.",
+      "text": "Слушай, у тебя ведь точно такая же квартира, как у меня.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -36,7 +36,7 @@
       "id": "l3",
       "character": "paren",
       "text": "Сколько рулонов обоев ты купил, чтобы оклеить прихожую?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "paren",
       "text": "Слушай, а у меня пять рулонов осталось.",
-      "emotion": "angry",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -80,6 +80,90 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "stairs"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "elevator"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

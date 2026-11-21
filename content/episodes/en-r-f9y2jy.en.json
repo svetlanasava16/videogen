@@ -6,20 +6,20 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
+    "muzhik-sosed",
     "muzhik-ryzhy",
-    "vor",
     "barmen"
   ],
   "roles": {
+    "muzhik-sosed": "customer",
     "muzhik-ryzhy": "customer",
-    "vor": "thief",
     "barmen": "cook"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "An Englishman and an Irishman go to a bakery. The Englishman steals three buns and puts them into his pockets.",
+      "text": "An Englishman and an Irishman go to a bakery.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,24 +27,51 @@
     },
     {
       "id": "l2",
-      "character": "vor",
-      "text": "That took great skill and guile to steal those buns. The owner didn't even see me.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "The Englishman steals three buns and puts them into his pockets and leaves. He says to the Irishman:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "That's just simple thievery. I'll show you how to do it the honest way and get the same results.",
+      "character": "muzhik-sosed",
+      "text": "That took great skill and guile to steal those buns. The owner didn't even see me.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "That's just simple thievery.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "I'll show you how to do it the honest way and get the same results.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "The Irishman then proceeded to call out the owner of the bakery.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Sir, I want to show you a magic trick.",
       "emotion": "happy",
@@ -53,25 +80,34 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "narrator",
-      "text": "The owner was intrigued, so he came over to see the magic trick.",
+      "text": "The owner was intrigued so he came over to see the magic trick.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l9",
       "character": "narrator",
-      "text": "The Irishman asked him for a bun and then he proceeded to eat it. He asked two more times, and after he ate them too, the owner said:",
+      "text": "The Irishman asked him for a bun and then he proceeded to eat it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
+      "character": "narrator",
+      "text": "He asked two more times and after eating them again the owner says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "barmen",
       "text": "Okay my friend, where's the magic trick?",
       "emotion": "surprised",
@@ -80,7 +116,7 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Look in the Englishman's pockets.",
       "emotion": "smug",
@@ -95,17 +131,17 @@
     {
       "location": "magazin",
       "cast": [
+        "muzhik-sosed",
         "muzhik-ryzhy",
-        "vor",
         "barmen"
       ],
       "roles": {
+        "muzhik-sosed": "customer",
         "muzhik-ryzhy": "customer",
-        "vor": "thief",
         "barmen": "cook"
       },
       "looks": {
-        "vor": {
+        "muzhik-sosed": {
           "add": [
             "bowler"
           ],
@@ -129,13 +165,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
+          "who": "muzhik-sosed",
+          "to": "shelf"
         },
         {
           "type": "move",
-          "who": "vor",
-          "to": "shelf"
+          "who": "muzhik-ryzhy",
+          "to": "center"
         },
         {
           "type": "line",
@@ -146,18 +182,17 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "move",
-          "who": "barmen",
-          "to": "counter",
-          "from": "off-right"
         },
         {
           "type": "line",
@@ -172,8 +207,51 @@
           "ref": "l7"
         },
         {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "cut"

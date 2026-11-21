@@ -2,79 +2,80 @@
   "id": "de-witze-1muyrhc.ru",
   "jokeId": "de-witze-1muyrhc",
   "locale": "ru",
-  "title": "Кофе-брейк",
+  "title": "Перерыв на кофе",
   "location": "nebesa",
   "place": "hell",
   "cast": [
-    "chort",
-    "muzhik"
+    "muzhik",
+    "chort"
   ],
   "roles": {
-    "chort": "devil",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "chort": "devil"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик попадает в ад. Сатана ведёт его в коридор с тремя дверями.",
+      "text": "Мужик попадает в ад...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "chort",
-      "text": "В одной из этих трёх комнат ты проведёшь вечность, но можешь выбрать, в какой!",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Сатана ведёт его в коридор с тремя дверями.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Сатана открывает первую дверь. За ней десятки людей стоят на руках на раскалённых углях.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "chort",
+      "text": "В одной из этих трёх комнат ты проведёшь вечность, но можешь сам выбрать, в какой!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Потом Сатана показывает ему вторую комнату. Там бесчисленные люди стоят на руках на ржавых гвоздях.",
+      "text": "Сатана открывает первую дверь. За ней десятки людей стоят на руках на раскалённых углях.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Наконец Сатана ведёт его в третью комнату. Здесь все стоят по колено в навозе и пьют кофе.",
-      "uncensored": "Наконец Сатана ведёт его в третью комнату. Здесь все стоят по колено в дерьме и пьют кофе.",
+      "text": "Потом Сатана показывает ему вторую комнату. В ней бесчисленные люди стоят на руках на ржавых гвоздях.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "А это не так уж и плохо. Беру эту комнату.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Наконец Сатана ведёт его к третьей комнате. Здесь все стоят по колено в навозе и пьют кофе.",
+      "uncensored": "Наконец Сатана ведёт его к третьей комнате. Здесь все стоят по колено в дерьме и пьют кофе.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "Он присоединяется к остальным в навозе и берёт себе чашку.",
-      "uncensored": "Он присоединяется к остальным в дерьме и берёт себе чашку.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "А это не так уж плохо. Беру эту комнату.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -82,17 +83,29 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Через пару минут в комнату входит слуга Сатаны.",
+      "text": "Он встаёт к остальным в навоз и берёт себе чашку.",
+      "uncensored": "Он встаёт к остальным в дерьмо и берёт себе чашку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
+      "character": "narrator",
+      "text": "Через пару минут в комнату входит слуга Сатаны.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [
+        "paren"
+      ],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "paren",
-      "text": "Так, ребята! Кофе-брейк окончен! Все обратно на руки!",
-      "emotion": "happy",
+      "text": "Так, ребята! Перерыв на кофе окончен! Все обратно на руки!",
+      "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -105,12 +118,12 @@
       "location": "nebesa",
       "place": "hell",
       "cast": [
-        "chort",
-        "muzhik"
+        "muzhik",
+        "chort"
       ],
       "roles": {
-        "chort": "devil",
-        "muzhik": "everyman"
+        "muzhik": "everyman",
+        "chort": "devil"
       },
       "beats": [
         {
@@ -124,18 +137,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "line",
-          "ref": "l4"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
-          "type": "line",
-          "ref": "l6"
         }
       ],
       "transition": "cut"
@@ -145,14 +146,72 @@
       "place": "hell",
       "cast": [
         "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "devil"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "chort"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "chort": "devil"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "crowd",
+          "react": "scream"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "nebesa",
+      "place": "hell",
+      "cast": [
+        "muzhik",
+        "chort",
         "paren"
       ],
       "roles": {
         "muzhik": "everyman",
+        "chort": "devil",
         "paren": "devil"
       },
       "looks": {
         "paren": {
+          "clothes": "#3a1010",
+          "skin": "#b5382c",
           "add": [
             "horns"
           ],
@@ -166,7 +225,19 @@
       "beats": [
         {
           "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "crowd",
+          "react": "calm"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         },
         {
           "type": "prop",
@@ -176,17 +247,11 @@
         },
         {
           "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "right",
-          "from": "off-right"
+          "ref": "l9"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l10"
         }
       ],
       "transition": "wipe"

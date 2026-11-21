@@ -2,58 +2,80 @@
   "id": "ru-a7859093366e.ru",
   "jokeId": "ru-a7859093366e",
   "locale": "ru",
-  "title": "Муму",
+  "title": "Му-му",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
     "muzhik-ryzhy",
-    "pyos",
+    "pyos-pudel",
     "muzhik"
   ],
   "roles": {
-    "muzhik-ryzhy": "janitor",
-    "pyos": "dog",
+    "muzhik-ryzhy": "everyman",
+    "pyos-pudel": "dog",
     "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Повёз Герасим Муму топить. Камешек на шею собачке привязал и в речку бросил. Бросил и поплыл домой.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
-      "character": "narrator",
-      "text": "Муму, бедолага, барахтается, освободиться пытается. За этим занятием её другой, проплывающий мимо, мужичок и застал.",
+      "text": "Повёз Герасим Му-му топить.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Камешек на шею собачке привязал и в речку бросил. Бросил и поплыл домой.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": [
+        "muzhik-ryzhy"
+      ]
+    },
+    {
       "id": "l3",
       "character": "narrator",
-      "text": "Вытащил он её, камень отвязал... и тут:",
-      "emotion": "neutral",
+      "text": "Му-му, бедолага, барахтается, освободиться пытается.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "pyos",
-      "text": "Спасибо тебе, добрый человек! Спас ты меня!",
-      "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
+      "character": "narrator",
+      "text": "За этим занятием её другой, проплывающий мимо, мужичок и застал.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [
+        "muzhik"
+      ],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "narrator",
+      "text": "Вытащил он её, камень отвязал... и тут Му-му:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "pyos-pudel",
+      "text": "Спасибо тебе, добрый человек! Спас ты меня!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
       "text": "Первый раз в жизни вижу говорящую собаку!",
       "emotion": "surprised",
@@ -62,8 +84,8 @@
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "pyos",
+      "id": "l8",
+      "character": "pyos-pudel",
       "text": "Первый раз в жизни вижу говорящего мужика!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
@@ -79,51 +101,30 @@
       "place": "river-lake",
       "cast": [
         "muzhik-ryzhy",
-        "pyos",
+        "pyos-pudel",
         "muzhik"
       ],
       "roles": {
-        "muzhik-ryzhy": "janitor",
-        "pyos": "dog",
+        "muzhik-ryzhy": "everyman",
+        "pyos-pudel": "dog",
         "muzhik": "everyman"
       },
       "looks": {
         "muzhik-ryzhy": {
           "add": [
-            "beard"
+            "big-beard"
           ],
           "remove": []
         }
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "pyos",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l1"
         },
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "off-left"
-        },
-        {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "right",
-          "from": "off-right"
         },
         {
           "type": "line",
@@ -140,6 +141,14 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

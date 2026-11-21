@@ -3,30 +3,21 @@
   "jokeId": "de-witze-1u1esis",
   "locale": "ru",
   "title": "Усыновили",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
-    "zhena",
     "muzhik",
+    "zhena",
     "paren"
   ],
   "roles": {
-    "zhena": "mother",
     "muzhik": "father",
+    "zhena": "mother",
     "paren": "son"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Семья сидит за ужином.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "muzhik",
       "text": "Сынок, я должен тебе кое-что сказать: тебя усыновили.",
       "emotion": "neutral",
@@ -35,28 +26,19 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "paren",
-      "text": "Что? Вы вообще не мои родные родители?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
-      "character": "muzhik",
-      "text": "Что? Конечно, мы твои родные родители.",
+      "text": "Что? Вы мне вообще не родные родители?",
       "emotion": "surprised",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l3",
       "character": "muzhik",
-      "text": "А теперь собирай сумку.",
-      "emotion": "neutral",
+      "text": "Что? Конечно, мы твои родные родители. А теперь собирай сумку.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -64,6 +46,37 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "zhena": "mother",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

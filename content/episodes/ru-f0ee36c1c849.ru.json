@@ -2,22 +2,22 @@
   "id": "ru-f0ee36c1c849.ru",
   "jokeId": "ru-f0ee36c1c849",
   "locale": "ru",
-  "title": "Без женщин",
-  "location": "ofis",
+  "title": "Кокосы в раю",
+  "location": "zal",
   "place": "conference-hall",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Идёт слёт феминистских организаций. На трибуне очередная баба-оратор яростно вещает.",
+      "text": "Идёт слёт феминистских организаций. На трибуне очередная баба-оратор яростно вещает:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -55,42 +55,30 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "ofis",
+      "location": "zal",
       "cast": [
-        "devushka",
-        "muzhik"
+        "muzhik",
+        "devushka"
       ],
       "roles": {
-        "devushka": "woman",
-        "muzhik": "everyman"
-      },
-      "looks": {
-        "devushka": {
-          "hairStyle": "short",
-          "add": [],
-          "remove": []
-        }
+        "muzhik": "everyman",
+        "devushka": "woman"
       },
       "crowd": {
         "who": "audience",
-        "size": "many"
+        "size": "many",
+        "at": "front"
       },
-      "set": [
-        {
-          "item": "lectern",
-          "at": "center"
-        }
-      ],
       "beats": [
         {
           "type": "move",
-          "who": "devushka",
-          "to": "center"
+          "who": "muzhik",
+          "to": "aisle"
         },
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "right"
+          "who": "devushka",
+          "to": "lectern"
         },
         {
           "type": "line",
@@ -103,10 +91,6 @@
         {
           "type": "line",
           "ref": "l3"
-        },
-        {
-          "type": "crowd",
-          "react": "cheer"
         },
         {
           "type": "line",

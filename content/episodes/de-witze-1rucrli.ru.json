@@ -15,25 +15,11 @@
     "devushka-ryzhaya": "daughter",
     "muzhik": "father"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мать даёт дочери, которая только что вышла замуж, несколько советов по хозяйству.",
+      "text": "Мать даёт дочери, которая только что вышла замуж, советы по хозяйству.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -42,7 +28,7 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Вот я, например, на полотенцах в ванной всегда вышиваю Ф — для физиономии и М — для мягкого места.",
+      "text": "Вот у меня, например, на полотенцах в ванной всегда вышита буква Л — для лица, и буква М — для мягкого места.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,31 +39,83 @@
       "character": "zhena",
       "text": "Так я никогда не путаю полотенца.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Как это?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Я всегда думал, что это филей и морда.",
+      "text": "Как это?! Я всегда думал, что М — это для морды.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "zhena",
+        "devushka-ryzhaya",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devushka-ryzhaya": "daughter",
+        "muzhik": "father"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

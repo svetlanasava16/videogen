@@ -2,17 +2,17 @@
   "id": "ru-5d03cb706464.de",
   "jokeId": "ru-5d03cb706464",
   "locale": "de",
-  "title": "Der Kater im Wald",
+  "title": "Der Kater",
   "location": "gostinaya",
   "place": "forest",
   "cast": [
-    "muzhik",
     "zhena",
+    "muzhik",
     "kot"
   ],
   "roles": {
-    "muzhik": "husband",
     "zhena": "wife",
+    "muzhik": "husband",
     "kot": "cat"
   },
   "lines": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Und ob der alte Kater nun einfach zu alt geworden war oder die saure Sahne geklaut hatte, jedenfalls befahl die Frau des Mannes:",
+      "text": "Ob der Kater schon zu alt geworden war oder ob er die saure Sahne geklaut hatte, jedenfalls befahl die Frau des Mannes, ihn weit in den Wald zu tragen und dort seinem Schicksal zu überlassen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,24 +36,15 @@
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Bring ihn weit in den Wald und überlass ihn dort seinem Schicksal!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "narrator",
-      "text": "Da war nichts zu machen — der Mann trug den Kater in den Wald.",
-      "emotion": "neutral",
+      "text": "Nichts zu machen, der Mann trug den Kater in den Wald.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "narrator",
       "text": "Und verschwand selbst.",
       "emotion": "neutral",
@@ -62,9 +53,18 @@
       "exit": []
     },
     {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Einen Tag ist er weg, zwei Tage weg, am dritten Tag taucht zu Hause der Kater auf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
       "character": "narrator",
-      "text": "Einen Tag ist er weg, zwei Tage ist er weg,",
+      "text": "Und gleich hinter ihm der Mann: dreckig, wütend und hungrig.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -72,44 +72,17 @@
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "am dritten Tag taucht zu Hause der Kater auf,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Na, du Trottel, hast du den Kater in den Wald gebracht?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "und gleich hinter ihm der Mann — dreckig, wütend und hungrig.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "zhena",
-      "text": "Na, du Blödmann, hast du den Kater in den Wald gebracht?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
       "character": "muzhik",
-      "text": "Ja, hab ich, Mensch!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
-      "character": "muzhik",
-      "text": "Und wenn ich ihm nicht hinterhergelaufen wäre, hätte ich mich verdammt noch mal verlaufen...",
+      "text": "Ja, hab ich, Mist! Und wenn ich ihm nicht hinterhergelaufen wäre, hätte ich mich verdammt noch mal verlaufen...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -122,13 +95,13 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
         "zhena",
+        "muzhik",
         "kot"
       ],
       "roles": {
-        "muzhik": "husband",
         "zhena": "wife",
+        "muzhik": "husband",
         "kot": "cat"
       },
       "beats": [
@@ -143,6 +116,16 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -151,41 +134,17 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
-        "muzhik",
-        "kot"
+        "kot",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "husband",
-        "kot": "cat"
+        "kot": "cat",
+        "muzhik": "husband"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "kot",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "move",
-          "who": "kot",
-          "to": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "flyover"
@@ -193,14 +152,14 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena",
+        "muzhik",
         "kot",
-        "muzhik"
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
+        "muzhik": "husband",
         "kot": "cat",
-        "muzhik": "husband"
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
@@ -214,21 +173,17 @@
         {
           "type": "move",
           "who": "zhena",
-          "to": "center"
+          "to": "table"
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l5"
         },
         {
           "type": "move",
           "who": "kot",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         },
         {
           "type": "move",
@@ -238,19 +193,15 @@
         },
         {
           "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "flyover"

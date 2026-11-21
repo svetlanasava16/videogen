@@ -15,7 +15,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Звонили оба сотовых телефона, верещал стационарный. Настойчиво вопил Скайп.",
+      "text": "Звонили оба сотовых телефона, верещал стационарный.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -24,6 +24,15 @@
     {
       "id": "l2",
       "character": "narrator",
+      "text": "Настойчиво вопил Скайп.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
       "text": "Хозяин квартиры, сидящий на унитазе, истерично кричал:",
       "emotion": "neutral",
       "pauseAfterSec": 0.6,
@@ -31,10 +40,10 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
-      "text": "В дверь позвоните кто-нибудь, заразы, ещё и в дверь!!!",
-      "uncensored": "В дверь позвоните кто-нибудь, суки, ещё и в дверь!!!",
+      "text": "В дверь позвоните кто-нибудь, заразы, ещё и в дверь!",
+      "uncensored": "В дверь позвоните кто-нибудь, суки, ещё и в дверь!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -55,6 +64,17 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "toilet"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
@@ -65,6 +85,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
         }
       ],
       "transition": "cut"

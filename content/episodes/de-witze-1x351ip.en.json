@@ -35,16 +35,16 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "After a long day at work the businessman was very tired. He sat down on the bed, took off one of his shoes rather loudly and let it drop to the floor.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "The businessman was very tired after a long day at work.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "At that moment he remembered what the receptionist had said, and he set the second shoe down very quietly.",
+      "text": "When he entered his room and sat down on the bed, he took off one of his shoes rather loudly and let it drop to the floor.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,25 +53,52 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Then he went to sleep. Two hours later he was woken by loud knocking at his door.",
+      "text": "At that moment he remembered what the receptionist had said, and he set the second shoe down very quietly.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "nachalnik",
-      "text": "What's going on?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Then he put on his pajamas and went to sleep.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Two hours later he was woken up by loud knocking at his door.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "nachalnik",
+      "text": "What's going on?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik-sosed",
-      "text": "I'm the man from the room next door. Would you please, finally, drop the other shoe?",
+      "text": "I'm the man from the room next door.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-sosed",
+      "text": "Would you please finally drop the other shoe too?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -83,6 +110,7 @@
   "scenes": [
     {
       "location": "bar",
+      "place": "hotel",
       "cast": [
         "nachalnik",
         "uchilka"
@@ -98,20 +126,19 @@
           "to": "counter"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "nachalnik",
-          "to": "center",
-          "from": "off-left"
+          "to": "left"
         },
         {
           "type": "prop",
           "who": "nachalnik",
           "item": "suitcase",
           "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -123,26 +150,23 @@
     {
       "location": "spalnya",
       "cast": [
-        "nachalnik",
-        "muzhik-sosed"
+        "nachalnik"
       ],
       "roles": {
-        "nachalnik": "businessman",
-        "muzhik-sosed": "neighbor"
-      },
-      "looks": {
-        "muzhik-sosed": {
-          "add": [
-            "robe-white"
-          ],
-          "remove": []
-        }
+        "nachalnik": "businessman"
       },
       "beats": [
         {
           "type": "move",
           "who": "nachalnik",
-          "to": "bed"
+          "to": "bed",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "suitcase",
+          "action": "put"
         },
         {
           "type": "line",
@@ -159,6 +183,52 @@
         {
           "type": "line",
           "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#9db8d9",
+          "add": [],
+          "remove": [
+            "tie"
+          ]
+        },
+        "muzhik-sosed": {
+          "clothes": "#6b2a3a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center"
         },
         {
           "type": "move",
@@ -168,7 +238,11 @@
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "wipe"

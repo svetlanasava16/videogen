@@ -16,8 +16,8 @@
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "His wife caught him standing on the bathroom scale, sucking in his stomach.",
+      "character": "muzhik",
+      "text": "My wife caught me standing on the bathroom scale, sucking in my stomach.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -29,9 +29,7 @@
       "text": "Ha! That's not going to help.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -47,7 +45,7 @@
       "id": "l4",
       "character": "muzhik",
       "text": "It's the only way I can see the numbers.",
-      "emotion": "sad",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -71,7 +69,9 @@
         "muzhik": {
           "build": "portly",
           "add": [],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -83,6 +83,12 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

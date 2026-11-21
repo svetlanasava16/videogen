@@ -2,17 +2,17 @@
   "id": "ru-5d03cb706464.ru",
   "jokeId": "ru-5d03cb706464",
   "locale": "ru",
-  "title": "Кот в лесу",
+  "title": "Кот",
   "location": "gostinaya",
   "place": "forest",
   "cast": [
-    "muzhik",
     "zhena",
+    "muzhik",
     "kot"
   ],
   "roles": {
-    "muzhik": "husband",
     "zhena": "wife",
+    "muzhik": "husband",
     "kot": "cat"
   },
   "lines": [
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "И то ли старый котяра уже стал, то ли сметану спёр, но жена мужика приказала:",
+      "text": "И то ли старый котяра уже стал, то ли сметану спёр, но жена мужика приказала отнести его далеко в лес и оставить там на произвол судьбы.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -36,24 +36,15 @@
     },
     {
       "id": "l3",
-      "character": "zhena",
-      "text": "Отнеси его далеко в лес и оставь там на произвол судьбы!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l4",
       "character": "narrator",
-      "text": "Делать нечего — понёс мужик кота в лес.",
-      "emotion": "neutral",
+      "text": "Делать нечего, понёс мужик кота в лес.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "narrator",
       "text": "И сам пропал.",
       "emotion": "neutral",
@@ -62,9 +53,18 @@
       "exit": []
     },
     {
+      "id": "l5",
+      "character": "narrator",
+      "text": "День его нет, два нет, на третий день появляется дома кот.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
       "id": "l6",
       "character": "narrator",
-      "text": "День его нет, два нет,",
+      "text": "И тут же мужик следом, грязный, злой и голодный.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -72,45 +72,18 @@
     },
     {
       "id": "l7",
-      "character": "narrator",
-      "text": "на третий день появляется дома кот,",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "zhena",
+      "text": "Ну ты чего, урод, отнёс кота в лес?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "и тут же мужик следом — грязный, злой и голодный.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "zhena",
-      "text": "Ну ты чего, урод, отнёс кота в лес?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
       "character": "muzhik",
-      "text": "Ага, отнёс, блин!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l11",
-      "character": "muzhik",
-      "text": "И если бы за ним следом не пошёл, заблудился бы на фиг...",
-      "uncensored": "И если бы за ним следом не пошёл, заблудился бы на хрен...",
+      "text": "Ага, отнёс, блин! И если бы за ним следом не пошёл, заблудился бы нафиг...",
+      "uncensored": "Ага, отнёс, блин! И если бы за ним следом не пошёл, заблудился бы на хрен...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -123,13 +96,13 @@
     {
       "location": "gostinaya",
       "cast": [
-        "muzhik",
         "zhena",
+        "muzhik",
         "kot"
       ],
       "roles": {
-        "muzhik": "husband",
         "zhena": "wife",
+        "muzhik": "husband",
         "kot": "cat"
       },
       "beats": [
@@ -144,6 +117,16 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
         }
       ],
       "transition": "cut"
@@ -152,41 +135,17 @@
       "location": "derevnya",
       "place": "forest",
       "cast": [
-        "muzhik",
-        "kot"
+        "kot",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "husband",
-        "kot": "cat"
+        "kot": "cat",
+        "muzhik": "husband"
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "kot",
-          "to": "center"
-        },
-        {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "move",
-          "who": "kot",
-          "to": "off-right"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-right"
-        },
-        {
-          "type": "line",
-          "ref": "l5"
         }
       ],
       "transition": "flyover"
@@ -194,14 +153,14 @@
     {
       "location": "gostinaya",
       "cast": [
-        "zhena",
+        "muzhik",
         "kot",
-        "muzhik"
+        "zhena"
       ],
       "roles": {
-        "zhena": "wife",
+        "muzhik": "husband",
         "kot": "cat",
-        "muzhik": "husband"
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
@@ -215,21 +174,17 @@
         {
           "type": "move",
           "who": "zhena",
-          "to": "center"
+          "to": "table"
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l5"
         },
         {
           "type": "move",
           "who": "kot",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l7"
         },
         {
           "type": "move",
@@ -239,19 +194,15 @@
         },
         {
           "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
-          "ref": "l10"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         }
       ],
       "transition": "flyover"

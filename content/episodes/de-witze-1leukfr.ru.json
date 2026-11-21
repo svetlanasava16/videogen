@@ -3,21 +3,21 @@
   "jokeId": "de-witze-1leukfr",
   "locale": "ru",
   "title": "Экстренный вызов",
-  "location": "gostinaya",
+  "location": "spalnya",
   "place": "bathroom",
   "cast": [
-    "barmen",
-    "doktor"
+    "doktor",
+    "barmen"
   ],
   "roles": {
-    "barmen": "plumber",
-    "doktor": "doctor"
+    "doktor": "doctor",
+    "barmen": "plumber"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Приходит мужик к врачу… нет: приходит врач к сантехнику.",
+      "text": "Приходит врач к сантехнику.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,8 +26,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "В общем, звонит он. Авария, трубу прорвало, драма.",
-      "emotion": "neutral",
+      "text": "Вернее, звонит. Авария, мол, трубу прорвало, драма.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,8 +35,8 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Ну ладно, но сейчас воскресенье вечер, льёт как из ведра, и я уже за второе пиво взялся.",
-      "emotion": "sad",
+      "text": "Ну хорошо, но сегодня воскресенье, вечер, льёт как из ведра, и я уже второе пиво допиваю...",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Любезный! Я врач, когда у меня экстренный случай, я тоже обязан ехать, что бы ни было!",
+      "text": "Любезный! Я врач. Если у меня экстренный случай, я тоже должен ехать, что бы ни было!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Слово за слово. Сантехник садится в машину и едет. Врач ведёт его прямо в ванную. Всё под водой.",
+      "text": "Слово за слово, сантехник садится в машину и едет.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,16 +62,25 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Сантехник лезет в карман и бросает в воду горсть прокладок.",
+      "text": "Врач открывает дверь и ведёт его прямо в ванную. Всё под водой.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Сантехник лезет в карман и бросает в воду горсть уплотнительных колечек.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "barmen",
-      "text": "Если до завтра не станет лучше, позвоните ещё раз!",
+      "text": "Если завтра не станет лучше, позвоните ещё раз!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -82,35 +91,39 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "spalnya",
+      "place": "bathroom",
       "cast": [
-        "barmen",
-        "doktor"
+        "doktor",
+        "barmen"
       ],
       "roles": {
-        "barmen": "plumber",
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "barmen": "plumber"
+      },
+      "looks": {
+        "barmen": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "barmen"
+        ]
       },
       "beats": [
         {
-          "type": "move",
-          "who": "barmen",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "doktor",
-          "to": "right"
-        },
-        {
           "type": "prop",
-          "who": "barmen",
+          "who": "doktor",
           "item": "phone",
           "action": "hold"
         },
         {
           "type": "prop",
-          "who": "doktor",
+          "who": "barmen",
           "item": "phone",
           "action": "hold"
         },
@@ -135,46 +148,64 @@
     },
     {
       "location": "spalnya",
+      "place": "bathroom",
       "cast": [
         "barmen",
         "doktor"
       ],
       "roles": {
-        "barmen": "plumber",
-        "doktor": "doctor"
+        "doktor": "doctor",
+        "barmen": "plumber"
+      },
+      "looks": {
+        "barmen": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
       },
       "beats": [
         {
           "type": "move",
           "who": "doktor",
-          "to": "center"
-        },
-        {
-          "type": "move",
-          "who": "barmen",
-          "to": "left",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "wrench",
-          "action": "hold"
+          "to": "right"
         },
         {
           "type": "line",
           "ref": "l5"
         },
         {
+          "type": "move",
+          "who": "barmen",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "prop",
+          "who": "barmen",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

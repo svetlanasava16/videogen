@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Москва, Рублёвское шоссе. Инспектор ДПС останавливает Бентли, превышение скорости трёхкратное.",
+      "text": "Москва, Рублёвское шоссе. Инспектор ДПС останавливает Бентли: превышение скорости трёхкратное.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Бентли останавливается, приоткрывается наглухо тонированное стекло.",
+      "text": "Бентли останавливается, приоткрывается наглухо тонированное стекло. Гаишник под козырёк:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +44,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Из Бентли высовывается рука с пятитысячной купюрой.",
-      "emotion": "neutral",
+      "text": "Из Бентли высовывается рука с пятитысячной купюрой. Инспектор прячет её в нагрудный карман.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,8 +71,8 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "И будьте внимательны, через два квартала ещё один экипаж...",
-      "emotion": "happy",
+      "text": "И, будьте внимательны, через два квартала ещё один экипаж...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -80,7 +80,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Снова пятитысячная.",
+      "text": "Снова пятитысячная. Гаишник вглядывается в номер машины.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,41 +89,50 @@
     {
       "id": "l9",
       "character": "sluzhivy",
-      "text": "Я здесь работаю вторник и четверг с восьми утра и до пятнадцати ноль-ноль. Я ваш номер запомнил, в эти дни можете ездить спокойно...",
-      "emotion": "smug",
+      "text": "Я здесь работаю вторник, четверг, с восьми утра и до пятнадцати ноль-ноль.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "Снова купюра в пять тысяч.",
-      "emotion": "neutral",
+      "character": "sluzhivy",
+      "text": "Я ваш номер запомнил, в эти дни можете ездить спокойно...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
-      "character": "sluzhivy",
-      "text": "Счастья, здоровья вам, умных детей, успехов в бизнесе, чтоб собака на конкурсах побеждала...",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Снова купюра в пять тысяч.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "sluzhivy",
+      "text": "Счастья, здоровья вам, умных детей, успехов в бизнесе, чтоб собака на конкурсах побеждала...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "narrator",
-      "text": "Снова рука с купюрой. Инспектор некоторое время стоит в замешательстве, затем прокашливается и произносит...",
+      "text": "Снова рука с купюрой. Инспектор некоторое время стоит в замешательстве, затем прокашливается и произносит:",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "sluzhivy",
       "text": "Стихи!",
       "emotion": "happy",
@@ -158,7 +167,7 @@
         {
           "type": "move",
           "who": "sluzhivy",
-          "to": "left"
+          "to": "right"
         },
         {
           "type": "move",
@@ -172,11 +181,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "right"
         },
         {
           "type": "line",
@@ -213,15 +217,15 @@
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         },
         {
           "type": "line",
@@ -232,21 +236,25 @@
           "ref": "l10"
         },
         {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         },
         {
           "type": "line",
           "ref": "l12"
         },
         {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
@@ -255,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l13"
+          "ref": "l14"
         }
       ],
       "transition": "cut"

@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1tpztqi",
   "locale": "ru",
   "title": "Золотая свадьба",
-  "location": "bar",
+  "location": "gostinaya",
   "place": "restaurant",
   "cast": [
     "ded",
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Дорогая, мы вместе уже полвека.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Они сидят за романтическим ужином.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,35 +35,35 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "За все эти годы у нас не было друг от друга секретов.",
+      "text": "Дорогая, мы вместе уже полвека.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Но одна вещь просто не выходит у меня из головы...",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "text": "За все эти годы у нас не было друг от друга секретов.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "tyoshcha",
-      "text": "Что такое, мой любимый?",
-      "emotion": "happy",
+      "character": "ded",
+      "text": "Но одна вещь никак не выходит у меня из головы...",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Наш восьмой ребёнок, Миша.",
-      "emotion": "neutral",
+      "character": "tyoshcha",
+      "text": "Какая, мой любимый?",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -71,34 +71,34 @@
     {
       "id": "l7",
       "character": "ded",
-      "text": "Он совсем не похож на своих семерых старших братьев и сестёр.",
+      "text": "Наш восьмой ребёнок, Миша.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "ded",
-      "text": "У него рыжие волосы, он на две головы выше, и черты лица совсем другие.",
+      "text": "Он совсем не похож на своих семерых старших братьев и сестёр.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "ded",
-      "text": "Прошу, будь со мной честна... у него другой отец?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "text": "У него рыжие волосы, он на две головы выше, и черты лица совсем другие.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "tyoshcha",
-      "text": "Да, мне так жаль... Да, у него другой отец.",
+      "character": "ded",
+      "text": "Прошу тебя, будь со мной честна... у него другой отец?",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -106,8 +106,8 @@
     },
     {
       "id": "l11",
-      "character": "ded",
-      "text": "Ну что ж... после стольких лет я тебя прощаю.",
+      "character": "narrator",
+      "text": "Жена стыдливо опускает глаза и заливается слезами.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -115,15 +115,51 @@
     },
     {
       "id": "l12",
-      "character": "ded",
-      "text": "Но скажи мне: кто он?",
+      "character": "tyoshcha",
+      "text": "Да, мне так жаль...",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l13",
+      "character": "tyoshcha",
+      "text": "Да, у него другой отец.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "narrator",
+      "text": "Муж тяжело сглатывает, чуть не плачет, но старается держаться.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "ded",
+      "text": "Ну что ж... после стольких лет я тебя прощаю.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
+      "character": "ded",
+      "text": "Но скажи мне: кто он?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.9,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l17",
       "character": "tyoshcha",
       "text": "Ты.",
       "emotion": "sad",
@@ -134,6 +170,99 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "ded",
+        "tyoshcha"
+      ],
+      "roles": {
+        "ded": "husband",
+        "tyoshcha": "wife"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l17"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

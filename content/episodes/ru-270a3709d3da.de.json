@@ -2,7 +2,7 @@
   "id": "ru-270a3709d3da.de",
   "jokeId": "ru-270a3709d3da",
   "locale": "de",
-  "title": "Wessen Onkel",
+  "title": "Der Onkel",
   "location": "gostinaya",
   "place": "street",
   "cast": [
@@ -28,8 +28,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Dieser Onkel entpuppte sich als echter Mistkerl. Immer war er mit allem unzufrieden: mal verdiente die Familie zu wenig, mal schmeckte das Essen nicht, mal bekam er zu wenig Aufmerksamkeit.",
-      "emotion": "neutral",
+      "text": "Dieser liebe Onkel entpuppte sich als ein großer Mistkerl.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,8 +37,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Mit seinen Launen ging er allen gewaltig auf die Nerven. Aber die Familie war taktvoll und ertrug alles.",
-      "emotion": "neutral",
+      "text": "Ständig war er mit allem unzufrieden: mal verdiente die Familie zu wenig, mal schmeckte das Essen nicht, mal bekam er zu wenig Aufmerksamkeit.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,8 +46,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Endlich starb der alte Schmarotzer.",
-      "emotion": "neutral",
+      "text": "Mit seinen Launen machte er alle fertig. Aber die Familie war taktvoll und ertrug das alles.",
+      "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -55,34 +55,43 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Und auf dem Heimweg von der Beerdigung sagte der Mann zu seiner Frau:",
+      "text": "Endlich starb der alte Schmarotzer.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Und auf dem Heimweg von der Beerdigung sagte der Mann zu seiner Frau:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "Ich gestehe dir, Liebling: Wenn ich dich nicht so sehr lieben würde, hätte ich diesen Onkel von dir längst rausgeworfen.",
+      "text": "Ich muss dir gestehen, Liebling: Wenn ich dich nicht so sehr lieben würde, hätte ich diesen Onkel von dir längst rausgeworfen.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "zhena",
-      "text": "Wie bitte? Meinen Onkel?",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Da fällt die Frau beinahe um:",
       "emotion": "surprised",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "zhena",
-      "text": "Ich war immer überzeugt, dass das dein Onkel ist!",
+      "text": "Was? Meinen Onkel? Ich war immer sicher, dass das dein Onkel ist!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +103,7 @@
   "scenes": [
     {
       "location": "gostinaya",
+      "place": "dining-room",
       "cast": [
         "muzhik",
         "ded",
@@ -105,11 +115,6 @@
         "zhena": "wife"
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "sofa"
-        },
         {
           "type": "line",
           "ref": "l1"
@@ -144,7 +149,9 @@
         "muzhik": {
           "clothes": "#222222",
           "add": [],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         },
         "zhena": {
           "clothes": "#222222",
@@ -168,6 +175,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "flyover"

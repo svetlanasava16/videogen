@@ -6,20 +6,22 @@
   "location": "bar",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
+    "devushka-blondinka",
     "nachalnik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "devushka-blondinka": "wife",
     "nachalnik": "businessman",
-    "muzhik-sosed": "friend"
+    "muzhik-sosed": "friend",
+    "muzhik": "friend"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Шестидесятилетний миллиардер женится на горячей двадцатипятилетней девушке.",
+      "text": "Шестидесятилетний миллиардер женится на горячей двадцатипятилетней красотке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,59 +30,50 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "После медового месяца они закатывают большую вечеринку.",
-      "emotion": "neutral",
+      "text": "После медового месяца они устраивают большую вечеринку.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "Как тебе удалось заполучить такую молодую жену?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "После пары рюмок друзья миллиардера хотят узнать, как ему удалось заполучить такую молодую жену.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Очень просто.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "nachalnik",
-      "text": "Я соврал про свой возраст.",
+      "text": "Очень просто. Я соврал насчёт своего возраста.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Ну ладно, но она невероятна даже для сорока- или сорокапятилетнего.",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Ну ладно, но даже для сорока- или сорокапятилетнего она просто невероятная.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "muzhik",
+      "id": "l6",
+      "character": "muzhik-sosed",
       "text": "Какой же возраст ты ей назвал?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.9,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "nachalnik",
       "text": "Восемьдесят пять.",
       "emotion": "smug",
@@ -94,21 +87,31 @@
   "scenes": [
     {
       "location": "bar",
+      "place": "party",
       "cast": [
-        "muzhik",
+        "devushka-blondinka",
         "nachalnik",
-        "muzhik-sosed"
+        "muzhik-sosed",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
+        "devushka-blondinka": "wife",
         "nachalnik": "businessman",
-        "muzhik-sosed": "friend"
+        "muzhik-sosed": "friend",
+        "muzhik": "friend"
       },
       "looks": {
         "nachalnik": {
-          "hair": "#c9c9c9",
+          "hair": "#c8c8c8",
           "add": [
             "bow-tie"
+          ],
+          "remove": []
+        },
+        "devushka-blondinka": {
+          "clothes": "#b3123a",
+          "add": [
+            "earrings"
           ],
           "remove": []
         }
@@ -120,12 +123,6 @@
       "beats": [
         {
           "type": "prop",
-          "who": "muzhik",
-          "item": "glass",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
           "who": "nachalnik",
           "item": "glass",
           "action": "hold"
@@ -133,6 +130,12 @@
         {
           "type": "prop",
           "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
           "item": "glass",
           "action": "hold"
         },
@@ -163,10 +166,6 @@
         {
           "type": "line",
           "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
         }
       ],
       "transition": "cut"

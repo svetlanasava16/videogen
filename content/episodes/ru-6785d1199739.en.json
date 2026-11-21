@@ -1,0 +1,96 @@
+{
+  "id": "ru-6785d1199739.en",
+  "jokeId": "ru-6785d1199739",
+  "locale": "en",
+  "title": "The Museum",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "drunk",
+    "muzhik-ryzhy": "everyman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "My heart just bleeds when I see these animals pickled in alcohol!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Oh, come on, there are only three frogs in there...",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Exactly. Three frogs. And about three gallons of alcohol!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

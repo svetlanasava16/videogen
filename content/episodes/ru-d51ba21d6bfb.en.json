@@ -2,7 +2,7 @@
   "id": "ru-d51ba21d6bfb.en",
   "jokeId": "ru-d51ba21d6bfb",
   "locale": "en",
-  "title": "And Now, a Song",
+  "title": "Officer Petrov",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "The millionaires' highway. A traffic cop pulls over a Bentley doing three times the speed limit.",
+      "text": "Moscow, the Rublyovka highway. A traffic cop pulls over a Bentley doing three times the speed limit.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The Bentley stops, and the pitch-black tinted window slides down a crack.",
+      "text": "The Bentley stops, and the pitch-black tinted window rolls down a crack. The cop salutes:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Officer Peters. License and registration, please.",
+      "text": "Officer Petrov. Your documents, please.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +44,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "A hand with a hundred-dollar bill comes out of the Bentley.",
-      "emotion": "neutral",
+      "text": "A hand with a hundred-dollar bill sticks out of the Bentley. The officer tucks it into his breast pocket.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Have a nice day, and please try not to break the law again...",
+      "text": "Have a nice day, and please try not to break the rules again...",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Another bill just like it comes out of the window.",
+      "text": "Another bill of the same size appears from the window.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -72,7 +72,7 @@
       "id": "l7",
       "character": "sluzhivy",
       "text": "And be careful, there's another patrol car two blocks down...",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -80,7 +80,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Another hundred.",
+      "text": "Another hundred. The cop peers at the license plate.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,43 +89,52 @@
     {
       "id": "l9",
       "character": "sluzhivy",
-      "text": "I work here Tuesdays and Thursdays, from eight a.m. to three p.m. I've memorized your plate, so on those days you can drive in peace...",
-      "emotion": "smug",
+      "text": "I work here Tuesdays and Thursdays, from eight in the morning till three in the afternoon.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "Another hundred-dollar bill.",
-      "emotion": "neutral",
+      "character": "sluzhivy",
+      "text": "I've memorized your plate, so on those days you can drive in peace...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
-      "character": "sluzhivy",
-      "text": "Happiness and health to you, smart kids, success in business, and may your dog win every show...",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Another hundred-dollar bill.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "sluzhivy",
+      "text": "Happiness and health to you, smart kids, success in business, and may your dog win every show...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "narrator",
-      "text": "Again, a hand with a bill. The officer stands there, lost for a moment, then clears his throat and announces...",
+      "text": "Again the hand with a bill. The officer stands there confused for a while, then clears his throat and starts to sing:",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "sluzhivy",
-      "text": "And now, a song!",
+      "text": "We wish you a merry Christmas!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -158,7 +167,7 @@
         {
           "type": "move",
           "who": "sluzhivy",
-          "to": "left"
+          "to": "right"
         },
         {
           "type": "move",
@@ -172,11 +181,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "right"
         },
         {
           "type": "line",
@@ -213,15 +217,15 @@
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         },
         {
           "type": "line",
@@ -232,21 +236,25 @@
           "ref": "l10"
         },
         {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         },
         {
           "type": "line",
           "ref": "l12"
         },
         {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
@@ -255,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l13"
+          "ref": "l14"
         }
       ],
       "transition": "cut"

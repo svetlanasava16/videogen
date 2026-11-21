@@ -2,7 +2,7 @@
   "id": "de-witze-1lhhz4p.ru",
   "jokeId": "de-witze-1lhhz4p",
   "locale": "ru",
-  "title": "Глуховата",
+  "title": "Глухая",
   "location": "bolnitsa",
   "place": "home-kitchen",
   "cast": [
@@ -16,6 +16,15 @@
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "Мужчина приходит к врачу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Доктор, мне кажется, моя жена плохо слышит.",
       "emotion": "sad",
@@ -24,18 +33,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "doktor",
-      "text": "Заговорите с ней со спины.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "doktor",
-      "text": "По тому, с какого расстояния она отреагирует, можно будет судить.",
+      "text": "Заговорите с ней со спины. По тому, с какого расстояния она отреагирует, можно будет судить.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -44,7 +44,7 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Мужчина приходит домой и находит жену на кухне: она готовит ужин.",
+      "text": "Мужчина приходит домой и застаёт жену на кухне: она готовит ужин.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Дорогая, что у нас поесть сегодня?",
+      "text": "Дорогая, что у нас сегодня поесть?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "muzhik",
       "text": "Дорогая, что у нас сегодня на ужин?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -71,16 +71,16 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Дорогая, что у нас сегодня поесть?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "text": "Дорогая, что мы сегодня едим?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "zhena",
-      "text": "Я тебе уже третий раз говорю: курица!",
+      "text": "Я тебе уже третий раз говорю: на ужин курица!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -107,14 +107,14 @@
           "to": "desk"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

@@ -2,29 +2,22 @@
   "id": "de-witze-1s5wyg5.de",
   "jokeId": "de-witze-1s5wyg5",
   "locale": "de",
-  "title": "Vier Väter",
+  "title": "Der Wartesaal",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "devushka",
-    "muzhik",
     "muzhik-sosed",
     "muzhik-ryzhy",
-    "barmen"
+    "paren",
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "nurse",
-    "muzhik": "father",
     "muzhik-sosed": "father",
     "muzhik-ryzhy": "father",
-    "barmen": "salesman"
-  },
-  "looks": {
-    "muzhik-ryzhy": {
-      "clothes": "#1d5fae",
-      "add": [],
-      "remove": []
-    }
+    "paren": "father",
+    "muzhik": "father",
+    "devushka": "nurse"
   },
   "lines": [
     {
@@ -49,10 +42,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
+      "character": "muzhik-sosed",
       "text": "Das passt ja. Ich arbeite bei Zweirad Stadler!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -67,10 +60,10 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
-      "text": "Was für ein Zufall. Ich arbeite bei Drei-M!",
+      "character": "muzhik-ryzhy",
+      "text": "Was für ein Zufall. Ich arbeite bei Drei M!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -85,9 +78,9 @@
     },
     {
       "id": "l7",
-      "character": "muzhik-ryzhy",
-      "text": "Das gibt’s doch nicht. Ich arbeite für Schalke null vier!",
-      "emotion": "happy",
+      "character": "paren",
+      "text": "Das gibt's doch nicht. Ich arbeite für Schalke null vier!",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -106,15 +99,15 @@
       "character": "muzhik-sosed",
       "text": "Was ist denn mit Ihnen los?",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "barmen",
+      "character": "muzhik",
       "text": "Ich arbeite bei Seven-Eleven!",
-      "emotion": "sad",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -122,6 +115,94 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "place": "hospital",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik-ryzhy",
+        "paren",
+        "muzhik",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "father",
+        "muzhik-ryzhy": "father",
+        "paren": "father",
+        "muzhik": "father",
+        "devushka": "nurse"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#1c4fa1",
+          "add": [],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

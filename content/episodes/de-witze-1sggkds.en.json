@@ -2,9 +2,9 @@
   "id": "de-witze-1sggkds.en",
   "jokeId": "de-witze-1sggkds",
   "locale": "en",
-  "title": "The Wallpaper",
-  "location": "gostinaya",
-  "place": "front-door",
+  "title": "Wallpaper",
+  "location": "podyezd",
+  "place": "stairwell",
   "cast": [
     "paren",
     "muzhik-sosed"
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "The new tenant asks his upstairs neighbor:",
+      "text": "A new tenant asks his upstairs neighbour.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,9 +26,9 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Say, you've got the same apartment as me.",
+      "text": "Say, you've got exactly the same flat as me.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -36,7 +36,7 @@
       "id": "l3",
       "character": "paren",
       "text": "How many rolls of wallpaper did you buy to paper the hallway?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "A week later the two of them meet on the stairs.",
+      "text": "A week later the two of them meet in the stairwell.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,8 +62,8 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Hey, but I had five rolls left over.",
-      "emotion": "angry",
+      "text": "Hey, I had five rolls left over, though.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -80,6 +80,90 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "stairs"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "paren": "neighbor",
+        "muzhik-sosed": "neighbor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "elevator"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -2,18 +2,16 @@
   "id": "de-witze-1oi6itp.de",
   "jokeId": "de-witze-1oi6itp",
   "locale": "de",
-  "title": "Die Küken im Wald",
+  "title": "Küken im Wald",
   "location": "derevnya",
   "place": "forest",
   "cast": [
     "muzhik",
-    "ptitsa",
-    "muzhik-ryzhy"
+    "ptitsa"
   ],
   "roles": {
     "muzhik": "everyman",
-    "ptitsa": "chicken",
-    "muzhik-ryzhy": "farmer"
+    "ptitsa": "chicken"
   },
   "lines": [
     {
@@ -30,27 +28,24 @@
       "character": "narrator",
       "text": "Da kommt ihm ein kleines Küken entgegen – komplett zugekackt.",
       "uncensored": "Da kommt ihm ein kleines Küken entgegen – komplett zugeschissen.",
-      "emotion": "neutral",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Dem Mann tut das Küken leid. Also holt er eine Rolle Klopapier aus seiner Tüte und putzt es sauber.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Dem Mann tut das Küken leid.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugekackt. Der Mann putzt auch diese sauber.",
-      "uncensored": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugeschissen. Der Mann putzt auch diese sauber.",
+      "text": "Also holt er eine Rolle Klopapier aus seiner Tüte und putzt es sauber.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -59,9 +54,9 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugekackt.",
-      "uncensored": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugeschissen.",
-      "emotion": "neutral",
+      "text": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugekackt.",
+      "uncensored": "Kurz darauf kommen ihm drei weitere Küken entgegen, ebenfalls total zugeschissen.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -69,7 +64,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Er putzt auch diese ab, aber beim letzten Küken ist das Klopapier leer.",
+      "text": "Der Mann putzt auch diese sauber.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -78,14 +73,33 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Weil ihm das letzte Küken leid tut, geht er weiter in den Wald, um etwas anderes zu finden.",
-      "emotion": "neutral",
+      "text": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugekackt.",
+      "uncensored": "Ein gutes Stück weiter trifft er auf fünf weitere Küken, wieder komplett zugeschissen.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "Er putzt auch diese ab, aber beim letzten Küken ist das Klopapier leer.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Weil ihm das letzte Küken leid tut, geht er weiter in den Wald, um etwas anderes zu finden, womit er es sauber machen kann.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "narrator",
       "text": "Da kommt ihm ein Bauer auf einem Traktor entgegen.",
       "emotion": "neutral",
@@ -94,16 +108,16 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "muzhik",
       "text": "Entschuldigung, hätten Sie vielleicht etwas Klopapier?",
       "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Klopapier? Nehmen Sie doch einfach ein Küken!",
       "emotion": "surprised",
@@ -120,19 +134,16 @@
       "place": "forest",
       "cast": [
         "muzhik",
-        "ptitsa",
-        "muzhik-ryzhy"
+        "ptitsa"
       ],
       "roles": {
         "muzhik": "everyman",
-        "ptitsa": "chicken",
-        "muzhik-ryzhy": "farmer"
+        "ptitsa": "chicken"
       },
       "looks": {
-        "muzhik-ryzhy": {
-          "add": [
-            "straw-hat"
-          ],
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
           "remove": []
         }
       },
@@ -147,6 +158,12 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
@@ -157,6 +174,28 @@
         {
           "type": "line",
           "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "crowd": {
+        "who": "birds",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
         },
         {
           "type": "line",
@@ -165,10 +204,96 @@
         {
           "type": "line",
           "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "birds",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         },
         {
           "type": "move",
@@ -178,18 +303,18 @@
         },
         {
           "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

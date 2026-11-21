@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "We just had such a family scene here! It's awful!",
+      "text": "We've had such a family scene here! It's awful!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,14 +44,23 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Calm down, sweetheart, don't get upset. Every family has its first arguments and conflicts sooner or later.",
+      "text": "Calm down, sweetheart, don't get upset.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "zhena",
+      "text": "Sooner or later every family has its first arguments and fights.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "devushka-ryzhaya",
       "text": "Yes, I know that. But what do I do with the body?",
       "emotion": "sad",
@@ -72,6 +81,14 @@
       "roles": {
         "devushka-ryzhaya": "daughter",
         "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
       },
       "split": {
         "location": "gostinaya",
@@ -111,6 +128,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

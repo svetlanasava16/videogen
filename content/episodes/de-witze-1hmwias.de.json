@@ -3,19 +3,21 @@
   "jokeId": "de-witze-1hmwias",
   "locale": "de",
   "title": "Hasso!",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "paren",
     "devushka",
+    "paren",
+    "pyos",
     "muzhik",
-    "pyos"
+    "zhena"
   ],
   "roles": {
-    "paren": "boyfriend",
     "devushka": "girlfriend",
+    "paren": "boyfriend",
+    "pyos": "dog",
     "muzhik": "father",
-    "pyos": "dog"
+    "zhena": "mother"
   },
   "lines": [
     {
@@ -30,14 +32,23 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Nach dem Essen verspürt er den unausweichlichen Drang zum... Furzen. Leise, aber hörbar lässt er dann einen fahren.",
+      "text": "Nach dem Essen verspürt er den unausweichlichen Drang zum... Furzen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Leise, aber hörbar lässt er dann einen fahren.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "muzhik",
       "text": "Hasso!",
       "emotion": "angry",
@@ -46,7 +57,7 @@
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "paren",
       "text": "Puh. Der Alte denkt, dass es der Hund war.",
       "emotion": "smug",
@@ -55,7 +66,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "narrator",
       "text": "Und prompt lässt er noch einen fahren.",
       "emotion": "neutral",
@@ -64,7 +75,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "muzhik",
       "text": "Hasso!",
       "emotion": "angry",
@@ -73,19 +84,28 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "narrator",
       "text": "Darauf folgt noch einer, aber ein verdammt lauter.",
       "emotion": "neutral",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Hasso!",
+      "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l10",
       "character": "muzhik",
-      "text": "Hasso! Geh weg, bevor der Typ dir noch auf den Kopf kackt!",
-      "uncensored": "Hasso! Geh weg, bevor der Typ dir noch auf den Kopf scheißt!",
+      "text": "Geh weg, bevor der Typ dir noch auf den Kopf kackt!",
+      "uncensored": "Geh weg, bevor der Typ dir noch auf den Kopf scheißt!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +114,77 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "devushka",
+        "paren",
+        "pyos",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "paren": "boyfriend",
+        "pyos": "dog",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

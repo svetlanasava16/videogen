@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man comes up to his neighbor's gate and knocks.",
+      "text": "A man walks up to his neighbor's gate and knocks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,7 +27,7 @@
       "id": "l2",
       "character": "narrator",
       "text": "He knocks and knocks, but nobody answers. He knocks harder.",
-      "emotion": "neutral",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,26 +35,26 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "A dog quietly comes up to the gate.",
+      "text": "A dog quietly walks up to the gate and says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "pyos",
-      "text": "Buddy, stop knocking, nobody's home.",
+      "text": "Man, stop knocking, nobody's home.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The man faints on the spot. When he comes to, he looks at the dog.",
-      "emotion": "neutral",
+      "text": "The man faints on the spot. When he comes to, he looks at the dog and says:",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "What's the matter with you, dog, can't you bark?",
+      "text": "What's the matter, dog, can't you bark?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -72,7 +72,7 @@
       "id": "l7",
       "character": "pyos",
       "text": "I can, but I didn't want to scare you.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -93,14 +93,13 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -114,7 +113,7 @@
           "type": "move",
           "who": "pyos",
           "to": "fence",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

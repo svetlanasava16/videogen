@@ -2,7 +2,7 @@
   "id": "ru-e0aa91bad922.de",
   "jokeId": "ru-e0aa91bad922",
   "locale": "de",
-  "title": "Such!",
+  "title": "Bello",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -10,15 +10,15 @@
     "pyos"
   ],
   "roles": {
-    "muzhik": "drunk",
+    "muzhik": "everyman",
     "pyos": "dog"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann wacht mit einem Mordskater auf — der Kopf wie mit Blei gefüllt, Arme und Beine wie fremd, er kriegt sie nicht hoch.",
-      "emotion": "neutral",
+      "text": "Ein Mann wacht mit einem höllischen Kater auf: Der Kopf wie mit Blei gefüllt, Arme und Beine wie fremd, sie lassen sich nicht heben.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Bel-lo... Be-e-ello...",
+      "text": "Be-ello... Be-e-ello...",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -44,8 +44,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Der Hund kommt angelaufen, winselt, leckt ihn ab.",
-      "emotion": "neutral",
+      "text": "Der Hund kommt angerannt, winselt, schleckt ihn ab.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -55,14 +55,14 @@
       "character": "narrator",
       "text": "Der Mann haucht ihn kräftig an und sagt mit letzter Kraft:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Such!!!",
+      "text": "Such!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,16 +79,16 @@
         "pyos"
       ],
       "roles": {
-        "muzhik": "drunk",
+        "muzhik": "everyman",
         "pyos": "dog"
       },
       "looks": {
         "muzhik": {
-          "add": [
-            "red-nose",
-            "stubble"
-          ],
-          "remove": []
+          "clothes": "#f2f2f2",
+          "add": [],
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -112,7 +112,7 @@
         {
           "type": "move",
           "who": "pyos",
-          "to": "center",
+          "to": "right",
           "from": "off-right"
         },
         {

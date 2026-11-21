@@ -3,29 +3,21 @@
   "jokeId": "en-r-9v3nw8",
   "locale": "de",
   "title": "Aufgezogen",
-  "location": "ofis",
-  "place": "front-door",
+  "location": "podyezd",
+  "place": "elevator",
   "cast": [
     "muzhik",
     "ded"
   ],
   "roles": {
-    "muzhik": "customer",
+    "muzhik": "everyman",
     "ded": "old-man"
-  },
-  "looks": {
-    "ded": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann fährt mit dem Aufzug in den elften Stock, und als er aussteigt, sagt der Aufzugführer:",
+      "text": "Ein Mann fährt mit dem Aufzug in den elften Stock.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -34,9 +26,9 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Schönen Tag noch, mein Sohn.",
+      "text": "Einen schönen Tag noch, mein Sohn.",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -45,14 +37,14 @@
       "character": "muzhik",
       "text": "Nennen Sie mich nicht Sohn. Sie sind nicht mein Vater.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "Nein, aber ich hab dich doch aufgezogen, oder?",
+      "text": "Nein, aber aufgezogen hab ich Sie doch, oder?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -61,6 +53,56 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "place": "elevator",
+      "cast": [
+        "muzhik",
+        "ded"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ded": "old-man"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        },
+        "ded": {
+          "clothes": "#8b1a1a",
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

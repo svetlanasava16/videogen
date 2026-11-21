@@ -6,14 +6,16 @@
   "location": "bar",
   "place": "home-living-room",
   "cast": [
-    "muzhik",
+    "devushka-blondinka",
     "nachalnik",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "devushka-blondinka": "wife",
     "nachalnik": "businessman",
-    "muzhik-sosed": "friend"
+    "muzhik-sosed": "friend",
+    "muzhik": "friend"
   },
   "lines": [
     {
@@ -28,59 +30,50 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "After the honeymoon, they throw a big party.",
-      "emotion": "neutral",
+      "text": "After the honeymoon they throw a big party.",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-sosed",
-      "text": "How did you manage to land such a young wife?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "After a few drinks, the billionaire's friends want to know how he managed to get such a young wife.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Easy.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "nachalnik",
-      "text": "I lied about my age.",
+      "text": "Easy. I lied about my age.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
-      "character": "muzhik",
-      "text": "Okay, but even for a forty- or forty-five-year-old she'd be incredible.",
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Okay, but even for a forty- or forty-five-year-old she's incredible.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "muzhik",
+      "id": "l6",
+      "character": "muzhik-sosed",
       "text": "So what age did you tell her?",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.9,
+      "emotion": "surprised",
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "nachalnik",
       "text": "Eighty-five.",
       "emotion": "smug",
@@ -94,21 +87,31 @@
   "scenes": [
     {
       "location": "bar",
+      "place": "party",
       "cast": [
-        "muzhik",
+        "devushka-blondinka",
         "nachalnik",
-        "muzhik-sosed"
+        "muzhik-sosed",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
+        "devushka-blondinka": "wife",
         "nachalnik": "businessman",
-        "muzhik-sosed": "friend"
+        "muzhik-sosed": "friend",
+        "muzhik": "friend"
       },
       "looks": {
         "nachalnik": {
-          "hair": "#c9c9c9",
+          "hair": "#c8c8c8",
           "add": [
             "bow-tie"
+          ],
+          "remove": []
+        },
+        "devushka-blondinka": {
+          "clothes": "#b3123a",
+          "add": [
+            "earrings"
           ],
           "remove": []
         }
@@ -120,12 +123,6 @@
       "beats": [
         {
           "type": "prop",
-          "who": "muzhik",
-          "item": "glass",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
           "who": "nachalnik",
           "item": "glass",
           "action": "hold"
@@ -133,6 +130,12 @@
         {
           "type": "prop",
           "who": "muzhik-sosed",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
           "item": "glass",
           "action": "hold"
         },
@@ -163,10 +166,6 @@
         {
           "type": "line",
           "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
         }
       ],
       "transition": "cut"

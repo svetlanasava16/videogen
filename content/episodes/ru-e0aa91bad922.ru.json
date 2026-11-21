@@ -2,7 +2,7 @@
   "id": "ru-e0aa91bad922.ru",
   "jokeId": "ru-e0aa91bad922",
   "locale": "ru",
-  "title": "Ищи!",
+  "title": "Шарик",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -10,15 +10,15 @@
     "pyos"
   ],
   "roles": {
-    "muzhik": "drunk",
+    "muzhik": "everyman",
     "pyos": "dog"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик просыпается с о-хре-ненного похмелья — голова, как свинцом налита, руки-ноги как чужие, не подымаются.",
-      "emotion": "neutral",
+      "text": "Мужик просыпается с о-хре-ненного похмелья: голова как свинцом налита, руки-ноги как чужие, не подымаются.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -45,7 +45,7 @@
       "id": "l4",
       "character": "narrator",
       "text": "Подбегает пёс, скулит, лижется.",
-      "emotion": "neutral",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,16 +53,16 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Мужик на него как дыхнет и говорит из последних сил:",
+      "text": "Мужик на него как дыхнёт и говорит из последних сил:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Ищи!!!",
+      "text": "Ищи!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,16 +79,16 @@
         "pyos"
       ],
       "roles": {
-        "muzhik": "drunk",
+        "muzhik": "everyman",
         "pyos": "dog"
       },
       "looks": {
         "muzhik": {
-          "add": [
-            "red-nose",
-            "stubble"
-          ],
-          "remove": []
+          "clothes": "#f2f2f2",
+          "add": [],
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -112,7 +112,7 @@
         {
           "type": "move",
           "who": "pyos",
-          "to": "center",
+          "to": "right",
           "from": "off-right"
         },
         {

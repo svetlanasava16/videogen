@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1tpztqi",
   "locale": "en",
   "title": "Golden Anniversary",
-  "location": "bar",
+  "location": "gostinaya",
   "place": "restaurant",
   "cast": [
     "ded",
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A couple is celebrating their fiftieth wedding anniversary.",
+      "text": "A married couple is celebrating their fiftieth wedding anniversary.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Darling, we've been together for half a century now.",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "They are sitting at a romantic dinner.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,23 +35,32 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "In all these years there have never been any secrets between us.",
+      "text": "Darling, we've been together for half a century now.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "ded",
-      "text": "But there's one thing I just can't get out of my head...",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "text": "In all these years there have never been any secrets between us.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "ded",
+      "text": "But there's one thing I just can't get out of my head...",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "tyoshcha",
       "text": "What is it, my love?",
       "emotion": "happy",
@@ -60,34 +69,34 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "ded",
       "text": "Our eighth child, Michael.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l7",
-      "character": "ded",
-      "text": "He looks completely different from his seven older brothers and sisters.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "ded",
-      "text": "He has red hair, he's two heads taller, and his features are completely different.",
+      "text": "He looks completely different from his seven older brothers and sisters.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
+      "character": "ded",
+      "text": "He has red hair, he's two heads taller and his features are completely different.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "ded",
       "text": "Please be honest with me... does he have a different father?",
       "emotion": "sad",
@@ -96,18 +105,9 @@
       "exit": []
     },
     {
-      "id": "l10",
-      "character": "tyoshcha",
-      "text": "Yes, I'm so sorry... Yes, he has a different father.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l11",
-      "character": "ded",
-      "text": "All right... after all these years, I forgive you.",
+      "character": "narrator",
+      "text": "The wife lowers her eyes in shame and bursts into tears.",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -115,15 +115,51 @@
     },
     {
       "id": "l12",
-      "character": "ded",
-      "text": "But tell me: who is it?",
+      "character": "tyoshcha",
+      "text": "Yes, I'm so sorry...",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l13",
+      "character": "tyoshcha",
+      "text": "Yes, he has a different father.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "narrator",
+      "text": "The husband swallows hard, close to tears, but tries to stay brave.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "ded",
+      "text": "All right... after all these years, I forgive you.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
+      "character": "ded",
+      "text": "But tell me: who is it?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.9,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l17",
       "character": "tyoshcha",
       "text": "You.",
       "emotion": "sad",
@@ -134,6 +170,99 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "ded",
+        "tyoshcha"
+      ],
+      "roles": {
+        "ded": "husband",
+        "tyoshcha": "wife"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l17"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

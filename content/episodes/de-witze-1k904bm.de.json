@@ -1,0 +1,125 @@
+{
+  "id": "de-witze-1k904bm.de",
+  "jokeId": "de-witze-1k904bm",
+  "locale": "de",
+  "title": "Theater und Realität",
+  "location": "zal",
+  "place": "theater",
+  "cast": [
+    "muzhik",
+    "paren"
+  ],
+  "roles": {
+    "muzhik": "father",
+    "paren": "son"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Der Vater holt seinen Sohn von der Theatergruppe ab, der dieser erst kürzlich beigetreten ist.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "An diesem Tag sollte die Rollenverteilung für das nächste Stück verkündet werden.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Und, mein Sohn, hast du eine Rolle im nächsten Stück ergattert?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Ja! Ich spiele einen Mann, der seit zwanzig Jahren verheiratet ist.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Das ist schon mal ein guter Anfang. Mach weiter so, dann bekommst du vielleicht nächstes Mal sogar eine Sprechrolle.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "paren": "son"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "certificate",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

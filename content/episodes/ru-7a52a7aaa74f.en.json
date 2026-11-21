@@ -3,33 +3,25 @@
   "jokeId": "ru-7a52a7aaa74f",
   "locale": "en",
   "title": "Family Dinner",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik-ryzhy",
     "paren",
     "muzhik",
+    "vovochka-drug",
     "vovochka"
   ],
   "roles": {
-    "muzhik-ryzhy": "son",
     "paren": "son",
     "muzhik": "father",
+    "vovochka-drug": "child",
     "vovochka": "child"
-  },
-  "looks": {
-    "paren": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Family dinner. At the table, a father and his sons.",
+      "text": "Family dinner. The father and his sons at the table. Suddenly the father turns to the eldest:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -38,7 +30,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Eat your soup properly! Why are you picking at it like that, it's disgusting to watch!",
+      "text": "Eat your soup properly! Stop picking at it like that, it's disgusting to watch!",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,17 +38,17 @@
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
+      "character": "paren",
       "text": "What are you yelling for?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "I'm yelling? Why, you little punk!",
+      "text": "Me, yelling? Why, you little punk!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -65,17 +57,17 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "And smack, on the back of the head!",
-      "emotion": "neutral",
+      "text": "And whack, a slap on the back of the head! Another son steps in:",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
+      "character": "vovochka-drug",
       "text": "Dad, if a person doesn't want to eat, why are you forcing him, and hitting him too? You're just like a tyrant.",
-      "emotion": "neutral",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -83,7 +75,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "I'm a tyrant? Why, you little rat!",
+      "text": "Me, a tyrant? Why, you little rat!",
       "emotion": "angry",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -92,9 +84,9 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "And smack, smack, on the ears. Then the youngest puts down his spoon and covers his ears with his hands.",
+      "text": "And whack, whack, round his ears. Then the youngest puts down his spoon and covers his ears with his hands. The father:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -120,6 +112,75 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "paren",
+        "muzhik",
+        "vovochka-drug",
+        "vovochka"
+      ],
+      "roles": {
+        "paren": "son",
+        "muzhik": "father",
+        "vovochka-drug": "child",
+        "vovochka": "child"
+      },
+      "looks": {
+        "vovochka-drug": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -1,0 +1,141 @@
+{
+  "id": "de-witze-1rnfcg0.en",
+  "jokeId": "de-witze-1rnfcg0",
+  "locale": "en",
+  "title": "The Mummy",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "zhena",
+    "ded",
+    "sluzhivy"
+  ],
+  "roles": {
+    "zhena": "woman",
+    "ded": "old-man",
+    "sluzhivy": "guard"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Mrs. Winter visits an Egyptian museum.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Tell me, how old is this mummy here?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "Five thousand and seven years.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "How can anyone know that so exactly?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "I've been working here for seven years.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "sluzhivy",
+      "text": "When I started, they told me it was five thousand years old.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "zhena",
+        "ded",
+        "sluzhivy"
+      ],
+      "roles": {
+        "zhena": "woman",
+        "ded": "old-man",
+        "sluzhivy": "guard"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        },
+        "ded": {
+          "clothes": "#d8cba8",
+          "skin": "#c9b98f",
+          "add": [
+            "bandages"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

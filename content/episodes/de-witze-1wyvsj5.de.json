@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1wyvsj5",
   "locale": "de",
   "title": "Die Golfschläger",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
@@ -16,15 +16,6 @@
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Ein Ehepaar sitzt beim Abendessen.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "zhena",
       "text": "Schatz, wenn ich sterbe, heiratest du dann wieder?",
       "emotion": "happy",
@@ -33,16 +24,16 @@
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Ach Liebling, darüber will ich gar nicht nachdenken.",
+      "text": "Ach Liebling, darüber will ich gar nicht nachdenken...",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "zhena",
       "text": "Doch, sag schon! Würdest du sie in unserem Haus wohnen lassen?",
       "emotion": "smug",
@@ -51,7 +42,7 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "muzhik",
       "text": "Na ja, das Haus ist abbezahlt, warum also nicht?",
       "emotion": "neutral",
@@ -60,7 +51,7 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "zhena",
       "text": "Und würde sie auch in unserem Bett schlafen?",
       "emotion": "surprised",
@@ -69,7 +60,7 @@
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "muzhik",
       "text": "Es ist ein gutes Bett, es wäre schade drum.",
       "emotion": "neutral",
@@ -78,28 +69,19 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "zhena",
       "text": "Und würdest du ihr meine Golfschläger geben?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Nein, auf keinen Fall!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "Sie ist Linkshänderin.",
-      "emotion": "neutral",
+      "text": "Nein, auf keinen Fall! Sie ist Linkshänderin.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -107,6 +89,55 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

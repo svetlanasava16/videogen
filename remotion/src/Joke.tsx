@@ -10,7 +10,7 @@ import { Watermark } from "./components/Branding";
 import { SceneTransition } from "./world/Transitions";
 import { Flyover } from "./world/Flyover";
 import { buildingFor } from "./world/town";
-import { Crowd } from "./world/Crowd";
+import { Crowd, CrowdFront } from "./world/Crowd";
 import { SetLayer } from "./world/SetPieces";
 import { cameraAt, cameraTransform } from "./director/camera";
 
@@ -125,7 +125,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         <Background location={locations[sc.scene.location]} place={sc.scene.place} />
       </div>
       {sc.scene.set && <SetLayer items={sc.scene.set} layer="back" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
-      {sc.scene.crowd && (
+      {sc.scene.crowd && sc.scene.crowd.at !== "front" && (
         <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} />
       )}
       {people.map((id, i) => {
@@ -152,6 +152,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           </div>
         );
       })}
+      {sc.scene.crowd?.at === "front" && (
+        <CrowdFront spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} height={height} />
+      )}
       {sc.scene.set && <SetLayer items={sc.scene.set} layer="front" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
     </div>
   );

@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1nw770b",
   "locale": "de",
   "title": "Weltfremd",
-  "location": "magazin",
+  "location": "podyezd",
   "place": "shop",
   "cast": [
     "muzhik-ryzhy",
@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Bauer Hein kommt mit seinem Sohn Jürgen das erste Mal vom Land ins neu eröffnete Shopping-Center.",
+      "text": "Bauer Hein kommt mit seinem Sohn Jürgen das erste Mal vom Land an den Stadtrand, denn sie wollen in das dort neu eröffnete Shopping-Center.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -30,7 +30,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Im Parkhaus wartet eine alte Frau gerade auf den Fahrstuhl.",
+      "text": "Im Parkhaus angekommen sehen sie, wie eine alte Frau gerade auf den Fahrstuhl wartet.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,7 +75,7 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "In dem Moment aber öffnet sich die Kabinentür, und die alte Frau steigt in den Fahrstuhl.",
+      "text": "In dem Moment aber öffnet sich die Kabinentür, die alte Frau steigt in den Fahrstuhl und die Türe schließt sich.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -84,7 +84,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Vater und Sohn bleiben wie angewurzelt stehen.",
+      "text": "Vater und Sohn bleiben wie angewurzelt stehen und schauen sich die Vorrichtung von außen genau an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -95,14 +95,23 @@
       "character": "narrator",
       "text": "Einen Augenblick später öffnet sich die Türe wieder, und eine junge, attraktive Dame steigt aus.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "Sie geht schnurstracks an den verdutzten Bauern vorbei.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'n Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
+      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'ne Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -113,7 +122,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "magazin",
+      "location": "podyezd",
       "cast": [
         "muzhik-ryzhy",
         "paren",
@@ -144,22 +153,24 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "shelf"
-        },
-        {
-          "type": "move",
           "who": "tyoshcha",
-          "to": "right"
+          "to": "elevator"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "door-right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
@@ -188,25 +199,34 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "off-right"
+          "to": "off-left"
         },
         {
           "type": "line",
           "ref": "l8"
         },
         {
+          "type": "move",
+          "who": "devushka",
+          "to": "elevator",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l9"
         },
         {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
           "type": "move",
           "who": "devushka",
-          "to": "off-left",
-          "from": "off-right"
+          "to": "off-right"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l11"
         }
       ],
       "transition": "cut"

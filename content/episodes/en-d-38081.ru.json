@@ -29,25 +29,23 @@
       "text": "Ха! Это не поможет.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Ещё как помогает.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Только так я вижу цифры.",
-      "emotion": "sad",
+      "text": "Только так я могу увидеть цифры.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -83,6 +81,12 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

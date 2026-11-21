@@ -3,26 +3,24 @@
   "jokeId": "en-r-6l4a85",
   "locale": "en",
   "title": "I Know Everything",
-  "location": "gostinaya",
+  "location": "ulitsa",
   "place": "home-living-room",
   "cast": [
-    "paren",
     "vovochka",
-    "zhena",
-    "muzhik"
+    "vovochka-drug",
+    "devochka"
   ],
   "roles": {
-    "paren": "postman",
     "vovochka": "vovochka",
-    "zhena": "mother",
-    "muzhik": "father"
+    "vovochka-drug": "child",
+    "devochka": "child"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Little Johnny was told by his friends that adults have a deep dark secret and can be easily manipulated.",
-      "emotion": "neutral",
+      "character": "vovochka-drug",
+      "text": "Johnny, adults have a deep dark secret and can be easily manipulated.",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -50,7 +48,7 @@
       "character": "narrator",
       "text": "Mom shushes him and gives him ten dollars.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -66,9 +64,9 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Hey, it's working!",
+      "text": "Hey, it's working.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": [],
       "laugh": "chuckle"
@@ -96,7 +94,7 @@
       "character": "narrator",
       "text": "Dad gives Johnny a hundred dollars.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -104,7 +102,7 @@
       "id": "l10",
       "character": "muzhik",
       "text": "Don't tell Mom.",
-      "emotion": "sad",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -132,14 +130,14 @@
       "character": "narrator",
       "text": "The mailman drops all his mail, his eyes tear up, and he says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
       "id": "l14",
       "character": "paren",
-      "text": "Well then, Johnny, come give Daddy a hug.",
+      "text": "Well then Johnny, come give Daddy a hug.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -150,25 +148,52 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "gostinaya",
+      "location": "ulitsa",
       "cast": [
-        "paren",
         "vovochka",
-        "zhena",
-        "muzhik"
+        "vovochka-drug",
+        "devochka"
       ],
       "roles": {
-        "paren": "postman",
         "vovochka": "vovochka",
+        "vovochka-drug": "child",
+        "devochka": "child"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
         "zhena": "mother",
-        "muzhik": "father"
+        "vovochka": "vovochka",
+        "muzhik": "father",
+        "paren": "postman"
       },
       "looks": {
         "muzhik": {
+          "clothes": "#2f2f3a",
           "add": [
             "tie"
           ],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -178,22 +203,16 @@
           "to": "sofa"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "tv"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
-          "type": "line",
-          "ref": "l2"
+          "type": "prop",
+          "who": "zhena",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "vovochka",
-          "to": "center"
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -230,12 +249,18 @@
         {
           "type": "move",
           "who": "muzhik",
-          "to": "sofa",
+          "to": "left",
           "from": "off-left"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "money",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -253,8 +278,18 @@
           "ref": "l10"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "left"
         },
         {
           "type": "move",
@@ -269,17 +304,8 @@
           "action": "hold"
         },
         {
-          "type": "move",
-          "who": "vovochka",
-          "to": "left"
-        },
-        {
           "type": "line",
           "ref": "l12"
-        },
-        {
-          "type": "line",
-          "ref": "l13"
         },
         {
           "type": "prop",
@@ -289,10 +315,14 @@
         },
         {
           "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
           "ref": "l14"
         }
       ],
-      "transition": "cut"
+      "transition": "flyover"
     }
   ],
   "outroLaughs": [],

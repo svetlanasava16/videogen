@@ -96,3 +96,55 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
     </div>
   );
 };
+
+/**
+ * Зрители в зале (crowd.at = "front"): два ряда тёмных силуэтов голов и плеч в нижней части кадра,
+ * спиной к нам, смотрят на сцену. Реагируют покачиванием, подпрыгиванием, руками вверх.
+ */
+export const CrowdFront = ({ spec, events, seed, width, height }: {
+  spec: CrowdSpec; events: CrowdEvent[]; seed: string; width: number; height: number;
+}) => {
+  const frame = useCurrentFrame();
+  if (events.some((e) => e.react === "flee" && frame > e.to)) return null;
+  const ev = events.find((e) => frame >= e.from && frame <= e.to + 6);
+  const kids = KID_CROWDS.includes(spec.who);
+  const perRow = Math.max(4, Math.round(width / (spec.size === "few" ? 300 : 210)));
+  const rows = [
+    { y: height * 0.8, r: kids ? 52 : 62, color: "#3a2a20" },
+    { y: height * 0.92, r: kids ? 64 : 76, color: "#22170f" },
+  ];
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
+      {rows.map((row, ri) =>
+        Array.from({ length: perRow + ri }, (_, i) => {
+          const h = hash(`${seed}f${ri}:${i}`);
+          const x = ((i + (ri ? 0 : 0.5)) / perRow) * width + ((h % 50) - 25);
+          const late = ev && frame < ev.from + ((i + ri) % 5) * 2;
+          const react = late ? undefined : ev?.react;
+          const ph = frame / 3 + i;
+          let dy = 0, arms = false, dx = 0;
+          if (react === "laugh") dy = -Math.abs(Math.sin(ph)) * 10;
+          if (react === "cheer") { dy = -Math.abs(Math.sin(ph * 0.8)) * 18; arms = true; }
+          if (react === "scream") { arms = true; dx = Math.sin(ph * 1.9) * 6; }
+          if (react === "gasp") dy = -8;
+          if (react === "murmur") dx = Math.sin(ph / 2) * 4;
+          if (react === "flee") { const k = Math.min(1, (frame - ev!.from) / Math.max(1, ev!.to - ev!.from)); dx = (x < width / 2 ? -1 : 1) * k * k * width * 0.6; }
+          const r = row.r * (0.9 + ((h >>> 4) % 20) / 100);
+          const cy = row.y + dy;
+          const cx = x + dx;
+          const style = (h >>> 9) % 5; // причёска/шапка: пучок, кепка, кудри
+          return (
+            <g key={`${ri}-${i}`} fill={row.color}>
+              {arms && <path d={`M${cx - r * 1.1} ${cy + r * 0.9} L${cx - r * 1.5} ${cy - r * 1.6} M${cx + r * 1.1} ${cy + r * 0.9} L${cx + r * 1.5} ${cy - r * 1.6}`} stroke={row.color} strokeWidth={r * 0.35} strokeLinecap="round" />}
+              <rect x={cx - r * 1.35} y={cy + r * 0.75} width={r * 2.7} height={r * 2} rx={r * 0.9} />
+              <circle cx={cx} cy={cy} r={r} />
+              {style === 1 && <circle cx={cx} cy={cy - r * 0.95} r={r * 0.38} />}
+              {style === 2 && <path d={`M${cx - r * 1.05} ${cy - r * 0.2} Q${cx} ${cy - r * 1.5} ${cx + r * 1.05} ${cy - r * 0.2} Z`} />}
+              {style === 3 && [-0.6, 0, 0.6].map((k) => <circle key={k} cx={cx + k * r} cy={cy - r * 0.8} r={r * 0.4} />)}
+            </g>
+          );
+        }),
+      )}
+    </svg>
+  );
+};

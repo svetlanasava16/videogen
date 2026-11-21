@@ -1,0 +1,131 @@
+{
+  "id": "en-r-7nl70d.en",
+  "jokeId": "en-r-7nl70d",
+  "locale": "en",
+  "title": "Sixty-Five Million and Eleven",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "muzhik-sosed",
+    "sluzhivy"
+  ],
+  "roles": {
+    "muzhik-sosed": "tourist",
+    "sluzhivy": "guard"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Some tourists in the Museum of Natural History are marveling at some dinosaur bones. One of them asks the guard:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Can you tell me how old the dinosaur bones are?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy",
+      "text": "They are sixty-five million and eleven years old.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "That's an awfully exact number. How do you know their age so precisely?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Well, the dinosaur bones were sixty-five million years old when I started working here, and that was eleven years ago.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "muzhik-sosed",
+        "sluzhivy"
+      ],
+      "roles": {
+        "muzhik-sosed": "tourist",
+        "sluzhivy": "guard"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

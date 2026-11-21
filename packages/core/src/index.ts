@@ -80,6 +80,8 @@ export const Crowd = z.object({
   /** Кто это (для подбора фигур и подписи в сценарии): passengers, pupils, guests, audience, patients, soldiers, people… */
   who: z.string().default("people"),
   size: z.enum(["few", "many"]).default("many"),
+  /** back — задний ряд за героями (по умолчанию); front — зрители в зале: силуэты голов в нижних рядах, спиной к нам. */
+  at: z.enum(["back", "front"]).optional(),
 });
 export type Crowd = z.infer<typeof Crowd>;
 /** flee — массовка с криком убегает за край кадра и больше не возвращается в этой сцене. */

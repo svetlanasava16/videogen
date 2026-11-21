@@ -2,22 +2,22 @@
   "id": "de-witze-1s5wyg5.en",
   "jokeId": "de-witze-1s5wyg5",
   "locale": "en",
-  "title": "Four Fathers",
+  "title": "The Waiting Room",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "devushka",
-    "muzhik",
     "muzhik-sosed",
     "muzhik-ryzhy",
-    "barmen"
+    "paren",
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "nurse",
-    "muzhik": "father",
     "muzhik-sosed": "father",
     "muzhik-ryzhy": "father",
-    "barmen": "salesman"
+    "paren": "father",
+    "muzhik": "father",
+    "devushka": "nurse"
   },
   "lines": [
     {
@@ -42,10 +42,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik",
+      "character": "muzhik-sosed",
       "text": "That figures. I work for the Minnesota Twins!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -60,17 +60,17 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-sosed",
+      "character": "muzhik-ryzhy",
       "text": "What a coincidence. I work at Three M!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka",
-      "text": "Amazing, it's quadruplets!",
+      "text": "Unbelievable, it's quadruplets!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -78,9 +78,9 @@
     },
     {
       "id": "l7",
-      "character": "muzhik-ryzhy",
+      "character": "paren",
       "text": "No way. I work at the Four Seasons!",
-      "emotion": "happy",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -88,7 +88,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "The fourth man suddenly turns white as chalk, grabs his head and starts to tremble.",
+      "text": "The fourth man suddenly turns white as chalk, clutches his head and starts to shake.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -97,17 +97,17 @@
     {
       "id": "l9",
       "character": "muzhik-sosed",
-      "text": "What's the matter with you?",
+      "text": "What's wrong with you?",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "barmen",
+      "character": "muzhik",
       "text": "I work at Seven-Eleven!",
-      "emotion": "sad",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -115,6 +115,94 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "place": "hospital",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik-ryzhy",
+        "paren",
+        "muzhik",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "father",
+        "muzhik-ryzhy": "father",
+        "paren": "father",
+        "muzhik": "father",
+        "devushka": "nurse"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "clothes": "#0c2340",
+          "add": [],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

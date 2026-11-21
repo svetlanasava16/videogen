@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1wyvsj5",
   "locale": "ru",
   "title": "Клюшки для гольфа",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
     "zhena",
@@ -16,42 +16,33 @@
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Муж и жена ужинают.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l2",
       "character": "zhena",
-      "text": "Милый, если я умру, ты снова женишься?",
+      "text": "Дорогой, если я умру, ты снова женишься?",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l2",
       "character": "muzhik",
-      "text": "Ох, дорогая, я даже думать об этом не хочу.",
+      "text": "Ах, милая, я даже думать об этом не хочу...",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l3",
       "character": "zhena",
-      "text": "Нет, скажи! Ты пустил бы её жить в нашем доме?",
+      "text": "Нет уж, скажи! Ты бы пустил её жить в наш дом?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l4",
       "character": "muzhik",
       "text": "Ну, за дом всё выплачено, почему бы и нет?",
       "emotion": "neutral",
@@ -60,16 +51,16 @@
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l5",
       "character": "zhena",
-      "text": "И она спала бы в нашей кровати?",
+      "text": "И спала бы она тоже в нашей кровати?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l6",
       "character": "muzhik",
       "text": "Кровать хорошая, жалко было бы.",
       "emotion": "neutral",
@@ -78,28 +69,19 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l7",
       "character": "zhena",
-      "text": "И ты отдал бы ей мои клюшки для гольфа?",
+      "text": "И мои клюшки для гольфа ты бы ей отдал?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l8",
       "character": "muzhik",
-      "text": "Нет, ни в коем случае!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
-      "character": "muzhik",
-      "text": "Она левша.",
-      "emotion": "neutral",
+      "text": "Нет, ни в коем случае! Она же левша.",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -107,6 +89,55 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

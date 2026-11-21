@@ -2,7 +2,7 @@
   "id": "ru-270a3709d3da.en",
   "jokeId": "ru-270a3709d3da",
   "locale": "en",
-  "title": "Whose Uncle",
+  "title": "The Uncle",
   "location": "gostinaya",
   "place": "street",
   "cast": [
@@ -28,8 +28,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "This dear uncle turned out to be a real scumbag. He was always unhappy with everything: the family didn't earn enough, the food wasn't tasty, he didn't get enough attention.",
-      "emotion": "neutral",
+      "text": "This dear uncle turned out to be a real swine.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,8 +37,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "He wore everyone out with his whims. But the family was tactful and put up with it all.",
-      "emotion": "neutral",
+      "text": "He was always unhappy with everything: the family didn't earn enough, the food wasn't tasty, he didn't get enough attention.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,8 +46,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "At last the old parasite died.",
-      "emotion": "neutral",
+      "text": "He wore everyone out with his whims. But the family was polite and put up with it all.",
+      "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -55,34 +55,43 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "And on the way back from the funeral, the husband said to his wife:",
+      "text": "At last the old parasite died.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "And on the way back from the funeral, the husband said to his wife:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
-      "text": "I have to confess, darling, if I didn't love you so much, I would have thrown that uncle of yours out long ago.",
+      "text": "I have to confess, darling, that if I didn't love you so much, I would have kicked that uncle of yours out long ago.",
       "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "zhena",
-      "text": "What? My uncle?",
+      "id": "l8",
+      "character": "narrator",
+      "text": "His wife nearly falls over:",
       "emotion": "surprised",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "zhena",
-      "text": "I was always sure he was your uncle!",
+      "text": "What? My uncle? I was always sure he was your uncle!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +103,7 @@
   "scenes": [
     {
       "location": "gostinaya",
+      "place": "dining-room",
       "cast": [
         "muzhik",
         "ded",
@@ -105,11 +115,6 @@
         "zhena": "wife"
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "sofa"
-        },
         {
           "type": "line",
           "ref": "l1"
@@ -144,7 +149,9 @@
         "muzhik": {
           "clothes": "#222222",
           "add": [],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         },
         "zhena": {
           "clothes": "#222222",
@@ -168,6 +175,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "flyover"

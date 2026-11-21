@@ -1,0 +1,169 @@
+{
+  "id": "de-witze-1u5dz42.en",
+  "jokeId": "de-witze-1u5dz42",
+  "locale": "en",
+  "title": "The Exhibition",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "artist",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "An artist has just finished his first exhibition and is now asking the gallery owner for feedback.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "I have good news and bad news for you. Which would you like to hear first?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "The good news, please.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "A visitor asked me whether the paintings would go up considerably in value after the artist's death.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "I assured him that, in my experience, they do.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "nachalnik",
+      "text": "So he bought all fifteen paintings.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "paren",
+      "text": "That's fantastic! So what's the bad news?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "nachalnik",
+      "text": "Well, you know the buyer.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "nachalnik",
+      "text": "He's your family doctor.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "artist",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#1f1f1f",
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

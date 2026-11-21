@@ -1,0 +1,132 @@
+{
+  "id": "en-r-8b5yoi.en",
+  "jokeId": "en-r-8b5yoi",
+  "locale": "en",
+  "title": "Worthless",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "artist",
+    "nachalnik": "aristocrat"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "A young artist exhibits his work for the first time.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "And a well known art critic is in attendance.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Would you like my opinion on your work?",
+      "emotion": "smug",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Yes.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "nachalnik",
+      "text": "It's worthless.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "paren",
+      "text": "I know, but tell me anyway.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "artist",
+        "nachalnik": "aristocrat"
+      },
+      "crowd": {
+        "who": "people",
+        "size": "few",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

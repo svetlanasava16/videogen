@@ -3,33 +3,25 @@
   "jokeId": "ru-7a52a7aaa74f",
   "locale": "ru",
   "title": "Семейный обед",
-  "location": "kukhnya",
+  "location": "gostinaya",
   "place": "home-kitchen",
   "cast": [
-    "muzhik-ryzhy",
     "paren",
     "muzhik",
+    "vovochka-drug",
     "vovochka"
   ],
   "roles": {
-    "muzhik-ryzhy": "son",
     "paren": "son",
     "muzhik": "father",
+    "vovochka-drug": "child",
     "vovochka": "child"
-  },
-  "looks": {
-    "paren": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Семейный обед. За столом отец, сыновья.",
+      "text": "Семейный обед. За столом отец, сыновья. Вдруг отец старшему:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -46,10 +38,10 @@
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
+      "character": "paren",
       "text": "А чего ты разорался?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
@@ -65,17 +57,17 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "И раз подзатыльник!",
-      "emotion": "neutral",
+      "text": "И раз подзатыльник! Другой сын вступает:",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "paren",
-      "text": "Папа, ну если человек не хочет есть, что ты его заставляешь да ещё бьёшь? Ты же просто как тиран.",
-      "emotion": "neutral",
+      "character": "vovochka-drug",
+      "text": "Папа, ну если человек не хочет есть, что ты его заставляешь, да ещё бьёшь? Ты же просто как тиран.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -92,9 +84,9 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "И ему раз-раз по ушам. Тут младший кладёт ложку и уши руками закрывает.",
+      "text": "И ему раз-раз по ушам. Тут младший кладёт ложку и уши руками закрывает. Отец:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -110,7 +102,7 @@
     {
       "id": "l10",
       "character": "vovochka",
-      "text": "Да я знаю, что вежливый. Это я просто на всякий случай, ты ж такой придурок...",
+      "text": "Да я знаю, что вежливый. Это я просто на всякий случай, ты ж такой дурак...",
       "uncensored": "Да я знаю, что вежливый. Это я просто на всякий случай, ты ж такой мудак...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
@@ -120,6 +112,75 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "dining-room",
+      "cast": [
+        "paren",
+        "muzhik",
+        "vovochka-drug",
+        "vovochka"
+      ],
+      "roles": {
+        "paren": "son",
+        "muzhik": "father",
+        "vovochka-drug": "child",
+        "vovochka": "child"
+      },
+      "looks": {
+        "vovochka-drug": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

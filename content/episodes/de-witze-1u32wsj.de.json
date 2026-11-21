@@ -1,0 +1,122 @@
+{
+  "id": "de-witze-1u32wsj.de",
+  "jokeId": "de-witze-1u32wsj",
+  "locale": "de",
+  "title": "Die ehrliche Meinung",
+  "location": "zal",
+  "place": "museum",
+  "cast": [
+    "paren",
+    "nachalnik"
+  ],
+  "roles": {
+    "paren": "artist",
+    "nachalnik": "businessman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Ein junger Künstler präsentiert zum ersten Mal seine Kunst bei einer Ausstellung.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "narrator",
+      "text": "Er trifft dort einen bekannten Kunstkritiker.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Bitte, könnte ich eine ehrliche Meinung von Ihnen zu meiner Kunst haben?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Die ist wertlos.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "paren",
+      "text": "Das weiß ich, ich würde sie trotzdem gerne hören.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "zal",
+      "place": "museum",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "artist",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "beret"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

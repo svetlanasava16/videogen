@@ -6,17 +6,19 @@
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
-    "muzhik": "husband"
+    "muzhik": "husband",
+    "zhena": "wife"
   },
   "lines": [
     {
       "id": "l1",
-      "character": "narrator",
-      "text": "Ein Mann hat vor Kurzem seinen besten Freund verloren. Trauernd an seinem Grab sagt er:",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Vor Kurzem ist mein bester Freund gestorben.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -42,7 +44,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Wie wäre es, wenn du als mein Kind wiedergeboren wirst?",
+      "text": "Wie wär's, wenn du als mein Kind wiedergeboren wirst?",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -50,18 +52,18 @@
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Einen Monat später bringt seine Frau einen kräftigen Jungen zur Welt.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Einen Monat später brachte meine Frau einen großen Jungen zur Welt.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Mit jedem Tag wird das Kind älter, und er merkt, dass es seinem besten Freund sehr ähnlich sieht.",
-      "emotion": "neutral",
+      "character": "muzhik",
+      "text": "Mit jedem Tag wurde mein Kind älter, und mir fiel auf, dass er meinem besten Freund sehr ähnlich sieht.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -69,7 +71,7 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Ich bin wirklich froh, dass mein Gebet gewirkt hat.",
+      "text": "Ich bin wirklich froh, dass mein Gebet funktioniert hat.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -83,16 +85,30 @@
       "location": "ulitsa",
       "place": "cemetery",
       "cast": [
-        "muzhik"
+        "muzhik",
+        "zhena"
       ],
       "roles": {
-        "muzhik": "husband"
+        "muzhik": "husband",
+        "zhena": "wife"
       },
       "looks": {
         "muzhik": {
-          "clothes": "#1f1f1f",
+          "clothes": "#1d1d1d",
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        },
+        "zhena": {
+          "build": "portly",
           "add": [],
-          "remove": []
+          "remove": [
+            "curlers",
+            "apron"
+          ]
         }
       },
       "beats": [
@@ -125,16 +141,56 @@
       "location": "gostinaya",
       "cast": [
         "zhena",
-        "vovochka",
         "muzhik"
       ],
       "roles": {
         "zhena": "wife",
-        "vovochka": "child",
         "muzhik": "husband"
       },
       "looks": {
-        "vovochka": {
+        "zhena": {
+          "add": [],
+          "remove": [
+            "curlers",
+            "apron"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "baby",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka-drug",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "vovochka-drug": "child",
+        "muzhik": "husband"
+      },
+      "looks": {
+        "zhena": {
+          "add": [],
+          "remove": [
+            "curlers",
+            "apron"
+          ]
+        },
+        "vovochka-drug": {
           "add": [
             "mustache"
           ],
@@ -143,8 +199,10 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l5"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "photo",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -155,7 +213,7 @@
           "ref": "l7"
         }
       ],
-      "transition": "flyover"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

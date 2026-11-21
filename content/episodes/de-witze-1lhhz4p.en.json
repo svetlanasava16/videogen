@@ -16,6 +16,15 @@
   "lines": [
     {
       "id": "l1",
+      "character": "narrator",
+      "text": "A man goes to the doctor.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
       "character": "muzhik",
       "text": "Doctor, I think my wife is hard of hearing.",
       "emotion": "sad",
@@ -24,18 +33,9 @@
       "exit": []
     },
     {
-      "id": "l2",
-      "character": "doktor",
-      "text": "Speak to her from behind.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l3",
       "character": "doktor",
-      "text": "Depending on the distance at which she reacts, we can judge how bad it is.",
+      "text": "Talk to her from behind. Depending on how far away she reacts, we can judge it.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -63,7 +63,7 @@
       "id": "l6",
       "character": "muzhik",
       "text": "Honey, what's for dinner today?",
-      "emotion": "surprised",
+      "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -71,9 +71,9 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Honey, what are we having to eat today?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "text": "Honey, what are we having today?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
@@ -107,14 +107,14 @@
           "to": "desk"
         },
         {
-          "type": "move",
-          "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

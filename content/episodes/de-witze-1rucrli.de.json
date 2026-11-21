@@ -15,20 +15,6 @@
     "devushka-ryzhaya": "daughter",
     "muzhik": "father"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "towel"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -53,31 +39,83 @@
       "character": "zhena",
       "text": "So verwechsle ich die Handtücher nicht.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Wie jetzt?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l5",
-      "character": "muzhik",
-      "text": "Ich dachte immer, es heißt Arsch und Gesicht.",
+      "text": "Wie jetzt?! Ich dachte immer, es heißt Arsch und Gesicht.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
+      "enter": [
+        "muzhik"
+      ],
       "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "zhena",
+        "devushka-ryzhaya",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "devushka-ryzhaya": "daughter",
+        "muzhik": "father"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "towel"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

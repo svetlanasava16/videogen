@@ -2,24 +2,24 @@
   "id": "ru-d252ac6b344f.de",
   "jokeId": "ru-d252ac6b344f",
   "locale": "de",
-  "title": "Stirlitz in der Kneipe",
+  "title": "Der Verbindungsmann",
   "location": "bar",
   "place": "bar",
   "cast": [
-    "muzhik",
     "sluzhivy",
-    "barmen"
+    "barmen",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "drunk",
     "sluzhivy": "stirlitz",
-    "barmen": "bartender"
+    "barmen": "bartender",
+    "muzhik": "drunk"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Stirlitz, der sowjetische Spion, kam in eine vertraute Kneipe, um seinen Verbindungsmann zu treffen, und bestellte einen doppelten Wodka.",
+      "text": "Der sowjetische Spion Stirlitz kam in eine bekannte Bar, um seinen Verbindungsmann zu treffen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,15 +27,24 @@
     },
     {
       "id": "l2",
-      "character": "barmen",
-      "text": "Der Wodka ist uns leider schon vor zwei Tagen ausgegangen.",
-      "emotion": "sad",
+      "character": "sluzhivy",
+      "text": "Einen doppelten Wodka.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
+      "character": "barmen",
+      "text": "Der Wodka ist uns schon vor zwei Tagen ausgegangen.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
       "character": "sluzhivy",
       "text": "Na, dann einen doppelten Cognac.",
       "emotion": "neutral",
@@ -44,34 +53,34 @@
       "exit": []
     },
     {
-      "id": "l4",
-      "character": "barmen",
-      "text": "Der Cognac ist gestern ausgegangen.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Na, aber Bier habt ihr doch?",
-      "emotion": "surprised",
+      "character": "barmen",
+      "text": "Der Cognac ist uns gestern ausgegangen.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "sluzhivy",
+      "text": "Na, und Bier gibt's wenigstens?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "barmen",
-      "text": "Leider seit heute Morgen alle.",
+      "text": "Leider, das ist heute Morgen ausgegangen.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l8",
       "character": "sluzhivy",
       "text": "Also ist mein Verbindungsmann schon da.",
       "emotion": "smug",
@@ -86,14 +95,14 @@
     {
       "location": "bar",
       "cast": [
-        "muzhik",
         "sluzhivy",
-        "barmen"
+        "barmen",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "drunk",
         "sluzhivy": "stirlitz",
-        "barmen": "bartender"
+        "barmen": "bartender",
+        "muzhik": "drunk"
       },
       "looks": {
         "muzhik": {
@@ -106,13 +115,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik",
-          "to": "stool-left"
+          "who": "barmen",
+          "to": "counter"
         },
         {
           "type": "move",
-          "who": "barmen",
-          "to": "counter"
+          "who": "muzhik",
+          "to": "stool-right"
         },
         {
           "type": "prop",
@@ -121,20 +130,14 @@
           "action": "hold"
         },
         {
-          "type": "prop",
-          "who": "barmen",
-          "item": "glass",
-          "action": "hold"
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "move",
           "who": "sluzhivy",
           "to": "center",
           "from": "off-left"
-        },
-        {
-          "type": "line",
-          "ref": "l1"
         },
         {
           "type": "line",
@@ -159,6 +162,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         }
       ],
       "transition": "cut"

@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Drei Wochen nach der Hochzeit. Eine junge Ehefrau ruft unter Tränen ihre Mutter an.",
+      "text": "Drei Wochen nach der Hochzeit. Die junge Ehefrau ruft ganz in Tränen ihre Mutter an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "devushka-ryzhaya",
-      "text": "Mama, ich weiß einfach nicht, was ich machen soll!",
+      "text": "Mama, ich weiß einfach nicht, was ich tun soll!",
       "emotion": "sad",
       "pauseAfterSec": 0.2,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
-      "text": "Bei uns hat sich gerade so eine Familienszene abgespielt! Schrecklich!",
+      "text": "Bei uns hat sich gerade so eine Familienszene abgespielt! Furchtbar!",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,14 +44,23 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Ganz ruhig, Kind, reg dich nicht auf. In jeder Familie gibt es irgendwann die ersten Streitereien und Konflikte.",
+      "text": "Ruhig, Kind, reg dich nicht auf.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "zhena",
+      "text": "In jeder Familie gibt es irgendwann die ersten Streits und Konflikte.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
       "character": "devushka-ryzhaya",
       "text": "Ja, das weiß ich. Aber was mache ich mit der Leiche?",
       "emotion": "sad",
@@ -72,6 +81,14 @@
       "roles": {
         "devushka-ryzhaya": "daughter",
         "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
       },
       "split": {
         "location": "gostinaya",
@@ -111,6 +128,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

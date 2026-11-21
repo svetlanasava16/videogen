@@ -2,7 +2,7 @@
   "id": "ru-270a3709d3da.ru",
   "jokeId": "ru-270a3709d3da",
   "locale": "ru",
-  "title": "Чей дядя",
+  "title": "Дядя",
   "location": "gostinaya",
   "place": "street",
   "cast": [
@@ -28,8 +28,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Оказался этот дядюшка большой сволочью. Вечно всем был недоволен: то в семье мало зарабатывают, то готовят невкусно, то внимания ему мало уделяют.",
-      "emotion": "neutral",
+      "text": "Оказался этот дядюшка большой сволочью.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -37,8 +37,8 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Капризами своими всех просто забодал. Но семья была деликатной и всё это терпела.",
-      "emotion": "neutral",
+      "text": "Вечно всем был недоволен: то в семье мало зарабатывают, то готовят невкусно, то внимания ему мало уделяют.",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -46,8 +46,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Наконец этот старый паразит умер.",
-      "emotion": "neutral",
+      "text": "Капризами своими всех просто забодал. Но семья была деликатной и всё это терпела.",
+      "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -55,14 +55,23 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "И, возвращаясь с похорон, муж сказал жене:",
+      "text": "Наконец этот старый паразит умер.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "И, возвращаясь с похорон, муж сказал жене:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik",
       "text": "Признаюсь тебе, дорогая, что, если бы я не любил тебя так сильно, я бы этого твоего дядю давно выгнал.",
       "emotion": "sad",
@@ -71,18 +80,18 @@
       "exit": []
     },
     {
-      "id": "l7",
-      "character": "zhena",
-      "text": "Как? Моего дядю?",
+      "id": "l8",
+      "character": "narrator",
+      "text": "Тут жена чуть не падает:",
       "emotion": "surprised",
       "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l9",
       "character": "zhena",
-      "text": "Я была всегда уверена, что это твой дядя!",
+      "text": "Как? Моего дядю? Я была всегда уверена, что это твой дядя!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -94,6 +103,7 @@
   "scenes": [
     {
       "location": "gostinaya",
+      "place": "dining-room",
       "cast": [
         "muzhik",
         "ded",
@@ -105,11 +115,6 @@
         "zhena": "wife"
       },
       "beats": [
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "sofa"
-        },
         {
           "type": "line",
           "ref": "l1"
@@ -144,7 +149,9 @@
         "muzhik": {
           "clothes": "#222222",
           "add": [],
-          "remove": []
+          "remove": [
+            "flat-cap"
+          ]
         },
         "zhena": {
           "clothes": "#222222",
@@ -168,6 +175,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "flyover"

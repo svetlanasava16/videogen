@@ -2,7 +2,7 @@
   "id": "ru-e4bdb628f433.ru",
   "jokeId": "ru-e4bdb628f433",
   "locale": "ru",
-  "title": "Никого дома нет",
+  "title": "У ворот",
   "location": "derevnya",
   "place": "street",
   "cast": [
@@ -27,7 +27,7 @@
       "id": "l2",
       "character": "narrator",
       "text": "Стучит, стучит, но никто не отвечает. Стучит сильнее.",
-      "emotion": "neutral",
+      "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,9 +35,9 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "К воротам тихо подходит собака.",
+      "text": "К воротам тихо подходит собака и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
@@ -46,15 +46,15 @@
       "character": "pyos",
       "text": "Мужик, не стучи, никого дома нет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Тут мужик падает сразу в обморок. После пришел в себя, смотрит на собаку.",
-      "emotion": "neutral",
+      "text": "Тут мужик падает сразу в обморок. После пришёл в себя, смотрит на собаку и говорит:",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -72,7 +72,7 @@
       "id": "l7",
       "character": "pyos",
       "text": "Умею, но не хотел тебя пугать.",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -93,14 +93,13 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
-          "to": "center",
-          "from": "off-left"
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -114,7 +113,7 @@
           "type": "move",
           "who": "pyos",
           "to": "fence",
-          "from": "off-right"
+          "from": "off-left"
         },
         {
           "type": "line",

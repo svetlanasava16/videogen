@@ -6,24 +6,10 @@
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "vovochka-drug",
-    "paren",
-    "muzhik"
+    "vovochka"
   ],
   "roles": {
-    "vovochka-drug": "child",
-    "paren": "teenager",
-    "muzhik": "father"
-  },
-  "looks": {
-    "muzhik": {
-      "clothes": "#b3261e",
-      "add": [
-        "santa-hat",
-        "white-beard"
-      ],
-      "remove": []
-    }
+    "vovochka": "child"
   },
   "lines": [
     {
@@ -39,11 +25,9 @@
       "id": "l2",
       "character": "narrator",
       "text": "Первая: он верит в Деда Мороза.",
-      "emotion": "neutral",
+      "emotion": "happy",
       "pauseAfterSec": 0.4,
-      "enter": [
-        "vovochka-drug"
-      ],
+      "enter": [],
       "exit": []
     },
     {
@@ -51,26 +35,145 @@
       "character": "narrator",
       "text": "Вторая: он не верит в Деда Мороза.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "paren"
-      ],
+      "pauseAfterSec": 0.7,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Третья: он — Дед Мороз.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik"
-      ],
+      "enter": [],
       "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka"
+      ],
+      "roles": {
+        "vovochka": "child"
+      },
+      "set": [
+        {
+          "item": "christmas-tree",
+          "at": "right",
+          "size": "normal"
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "vovochka",
+          "item": "letter",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren"
+      ],
+      "roles": {
+        "paren": "teenager"
+      },
+      "set": [
+        {
+          "item": "christmas-tree",
+          "at": "right",
+          "size": "normal"
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka-drug",
+        "muzhik",
+        "devochka"
+      ],
+      "roles": {
+        "vovochka-drug": "child",
+        "muzhik": "father",
+        "devochka": "child"
+      },
+      "looks": {
+        "muzhik": {
+          "clothes": "#c0392b",
+          "add": [
+            "white-beard",
+            "santa-hat"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      "set": [
+        {
+          "item": "christmas-tree",
+          "at": "right",
+          "size": "normal"
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "wipe"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

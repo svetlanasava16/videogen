@@ -2,24 +2,22 @@
   "id": "de-witze-1oi6itp.en",
   "jokeId": "de-witze-1oi6itp",
   "locale": "en",
-  "title": "The Chicks in the Forest",
+  "title": "Chicks in the Woods",
   "location": "derevnya",
   "place": "forest",
   "cast": [
     "muzhik",
-    "ptitsa",
-    "muzhik-ryzhy"
+    "ptitsa"
   ],
   "roles": {
     "muzhik": "everyman",
-    "ptitsa": "chicken",
-    "muzhik-ryzhy": "farmer"
+    "ptitsa": "chicken"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man is walking through the forest after shopping, with a full shopping bag.",
+      "text": "After shopping, a man is walking through the forest with a full shopping bag.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,29 +26,26 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "A little chick comes toward him – completely covered in crap.",
-      "uncensored": "A little chick comes toward him – completely covered in shit.",
-      "emotion": "neutral",
+      "text": "A little chick comes toward him, completely covered in crap.",
+      "uncensored": "A little chick comes toward him, completely covered in shit.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The man feels sorry for the chick. So he takes a roll of toilet paper out of his bag and wipes it clean.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "The man feels sorry for the chick.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.2,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Shortly after, three more chicks come toward him, also totally covered in crap. The man wipes these clean too.",
-      "uncensored": "Shortly after, three more chicks come toward him, also totally covered in shit. The man wipes these clean too.",
+      "text": "So he takes a roll of toilet paper out of his bag and wipes it clean.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -59,9 +54,9 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "A good way further on, he meets five more chicks, again completely covered in crap.",
-      "uncensored": "A good way further on, he meets five more chicks, again completely covered in shit.",
-      "emotion": "neutral",
+      "text": "Shortly after, three more chicks come toward him, also totally covered in crap.",
+      "uncensored": "Shortly after, three more chicks come toward him, also totally covered in shit.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -69,7 +64,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "He wipes these too, but at the last chick the toilet paper runs out.",
+      "text": "The man wipes them clean too.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -78,14 +73,33 @@
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Because he feels sorry for the last chick, he goes deeper into the forest to find something else.",
-      "emotion": "neutral",
+      "text": "A good way further on, he runs into five more chicks, again completely covered in crap.",
+      "uncensored": "A good way further on, he runs into five more chicks, again completely covered in shit.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "narrator",
+      "text": "He wipes them too, but by the last chick the toilet paper has run out.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Because he feels sorry for the last chick, he walks on into the forest to find something else to clean it with.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "narrator",
       "text": "Then a farmer on a tractor comes toward him.",
       "emotion": "neutral",
@@ -94,18 +108,18 @@
       "exit": []
     },
     {
-      "id": "l9",
+      "id": "l11",
       "character": "muzhik",
       "text": "Excuse me, would you happen to have some toilet paper?",
       "emotion": "sad",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l10",
+      "id": "l12",
       "character": "muzhik-ryzhy",
-      "text": "Toilet paper? Just use a chick!",
+      "text": "Toilet paper? Why don't you just use a chick!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -120,19 +134,16 @@
       "place": "forest",
       "cast": [
         "muzhik",
-        "ptitsa",
-        "muzhik-ryzhy"
+        "ptitsa"
       ],
       "roles": {
         "muzhik": "everyman",
-        "ptitsa": "chicken",
-        "muzhik-ryzhy": "farmer"
+        "ptitsa": "chicken"
       },
       "looks": {
-        "muzhik-ryzhy": {
-          "add": [
-            "straw-hat"
-          ],
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
           "remove": []
         }
       },
@@ -147,6 +158,12 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
@@ -157,6 +174,28 @@
         {
           "type": "line",
           "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "crowd": {
+        "who": "birds",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
         },
         {
           "type": "line",
@@ -165,10 +204,96 @@
         {
           "type": "line",
           "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "birds",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "derevnya",
+      "place": "forest",
+      "cast": [
+        "muzhik",
+        "ptitsa",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "ptitsa": "chicken",
+        "muzhik-ryzhy": "farmer"
+      },
+      "looks": {
+        "ptitsa": {
+          "clothes": "#7a5a30",
+          "add": [],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         },
         {
           "type": "move",
@@ -178,18 +303,18 @@
         },
         {
           "type": "line",
-          "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
-        },
-        {
-          "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

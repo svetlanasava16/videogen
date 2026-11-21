@@ -3,7 +3,7 @@
   "jokeId": "de-witze-1nw770b",
   "locale": "ru",
   "title": "Деревенские",
-  "location": "magazin",
+  "location": "podyezd",
   "place": "shop",
   "cast": [
     "muzhik-ryzhy",
@@ -21,7 +21,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Фермер с сыном впервые приехали из деревни на окраину города, в новый торговый центр.",
+      "text": "Фермер Хайн с сыном Юргеном впервые приехали из деревни на окраину города — в недавно открывшийся там торговый центр.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -30,7 +30,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "На парковке старушка ждёт лифт.",
+      "text": "На парковке они видят, как старушка ждёт лифт.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -39,7 +39,7 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Батя, глянь. А это чё такое?",
+      "text": "Бать, глянь-ка. Это чё такое?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -48,7 +48,7 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Сынок, это ж старая бабка!",
+      "text": "Сынок, это ж бабка старая!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -57,7 +57,7 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Не, батя, я про ту серебристую штуку.",
+      "text": "Не, бать, я про ту серебристую штуку.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -84,7 +84,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Отец и сын стоят как вкопанные и разглядывают эту штуку снаружи.",
+      "text": "Отец и сын стоят как вкопанные и внимательно разглядывают эту штуковину снаружи.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -93,16 +93,25 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Через мгновение двери снова открываются, выходит молодая красивая дама и проходит прямо мимо ошарашенных деревенских.",
+      "text": "Через мгновение двери снова открываются, и из лифта выходит молодая красивая дама.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "Она проходит прямо мимо ошарашенных деревенских.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Сынок, понятия не имею, что это за ящик, но ты сейчас же едешь обратно на ферму и везёшь сюда мать!",
+      "text": "Юрген, понятия не имею, что это за ящик, но ты сейчас же едешь обратно на ферму и везёшь сюда мать!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -113,7 +122,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "magazin",
+      "location": "podyezd",
       "cast": [
         "muzhik-ryzhy",
         "paren",
@@ -144,22 +153,24 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "shelf"
-        },
-        {
-          "type": "move",
           "who": "tyoshcha",
-          "to": "right"
+          "to": "elevator"
         },
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "door-right",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
@@ -188,25 +199,34 @@
         {
           "type": "move",
           "who": "tyoshcha",
-          "to": "off-right"
+          "to": "off-left"
         },
         {
           "type": "line",
           "ref": "l8"
         },
         {
+          "type": "move",
+          "who": "devushka",
+          "to": "elevator",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l9"
         },
         {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
           "type": "move",
           "who": "devushka",
-          "to": "off-left",
-          "from": "off-right"
+          "to": "off-right"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l11"
         }
       ],
       "transition": "cut"

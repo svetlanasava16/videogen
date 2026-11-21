@@ -1,0 +1,140 @@
+{
+  "id": "en-r-8e393s.ru",
+  "jokeId": "en-r-8e393s",
+  "locale": "ru",
+  "title": "Предупреждение",
+  "location": "samolet",
+  "place": "theater",
+  "cast": [
+    "ded"
+  ],
+  "roles": {
+    "ded": "grandpa"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Мой дед предупреждал людей, что «Титаник» утонет.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "«Титаник» утонет!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Никто его не слушал, но он всё равно продолжал их предупреждать…",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "…пока они от него не устали и не выгнали его из кинотеатра.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "ded"
+      ],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "ded"
+      ],
+      "roles": {
+        "ded": "grandpa"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "ded",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "aisle"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

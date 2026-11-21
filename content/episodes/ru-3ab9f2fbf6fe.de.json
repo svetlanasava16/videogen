@@ -8,28 +8,14 @@
   "cast": [
     "muzhik",
     "zhena",
-    "vovochka",
+    "vovochka-drug",
     "devochka"
   ],
   "roles": {
     "muzhik": "drunk",
     "zhena": "wife",
-    "vovochka": "child",
+    "vovochka-drug": "child",
     "devochka": "child"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "red-nose"
-      ],
-      "remove": []
-    },
-    "zhena": {
-      "add": [
-        "curlers"
-      ],
-      "remove": []
-    }
   },
   "lines": [
     {
@@ -44,8 +30,8 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Im Flur fällt er hin, reißt die Garderobe um, es kracht fürchterlich, und alles stürzt herunter: Schüsseln, Skier, das Fahrrad...",
-      "emotion": "neutral",
+      "text": "Im Flur fällt er hin, reißt die Garderobe um, es gibt ein furchtbares Getöse, und alles kracht herunter: Wannen, Skier, ein Fahrrad...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -53,20 +39,16 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Aus dem Zimmer rennen entsetzt die Frau und die zwei Kinder. Und er zu ihnen:",
+      "text": "Entsetzt stürzen die Frau und die zwei Kinder aus dem Zimmer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.7,
-      "enter": [
-        "zhena",
-        "vovochka",
-        "devochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Na, könnt ihr ohne Papi nicht schlafen?",
+      "text": "Na, was ist, könnt ihr ohne Papi nicht schlafen?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -75,6 +57,86 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "vovochka-drug",
+        "devochka"
+      ],
+      "roles": {
+        "muzhik": "drunk",
+        "zhena": "wife",
+        "vovochka-drug": "child",
+        "devochka": "child"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "bottle",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "vovochka-drug",
+          "to": "table",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "tv",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

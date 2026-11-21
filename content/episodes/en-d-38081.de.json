@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Seine Frau erwischte ihn, wie er auf der Badezimmerwaage stand und den Bauch einzog.",
+      "text": "Eine Frau erwischt ihren Mann im Badezimmer: Er steht auf der Waage und zieht den Bauch ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,20 +26,18 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Ha! Das wird nicht helfen.",
+      "text": "Ha! Das bringt doch nichts.",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Doch, tut es.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "text": "Doch, klar bringt das was.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
@@ -47,7 +45,7 @@
       "id": "l4",
       "character": "muzhik",
       "text": "Nur so kann ich die Zahlen sehen.",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -83,6 +81,12 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
         },
         {
           "type": "line",

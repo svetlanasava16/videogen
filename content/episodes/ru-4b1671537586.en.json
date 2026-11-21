@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A doctor's toilet got clogged at home. He called a plumber.",
+      "text": "A doctor's toilet got clogged at home.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,23 +26,32 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "The plumber came, banged something with a hammer a couple of times, replaced a gasket, tightened a nut. Then he says:",
+      "text": "They called a plumber.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.2,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "The plumber came, tapped something with a hammer a couple of times, replaced a gasket, tightened a nut.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l3",
+      "id": "l4",
       "character": "barmen",
       "text": "Done, everything works. That'll be two hundred dollars.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l5",
       "character": "doktor",
       "text": "What do you mean, two hundred dollars? For five minutes of work?",
       "emotion": "surprised",
@@ -51,16 +60,16 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l6",
       "character": "doktor",
       "text": "I'm a neurosurgeon, I studied my specialty for twelve years, and nobody pays me two hundred dollars for five minutes of work.",
       "emotion": "angry",
-      "pauseAfterSec": 0.7,
+      "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l7",
       "character": "barmen",
       "text": "Well, that's normal. When I was a neurosurgeon, they didn't pay me that either.",
       "emotion": "smug",
@@ -74,6 +83,7 @@
   "scenes": [
     {
       "location": "spalnya",
+      "place": "bathroom",
       "cast": [
         "doktor",
         "barmen"
@@ -82,20 +92,32 @@
         "doktor": "doctor",
         "barmen": "plumber"
       },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
       "beats": [
         {
           "type": "move",
           "who": "doktor",
-          "to": "left"
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
           "type": "move",
           "who": "barmen",
-          "to": "right",
+          "to": "toilet",
           "from": "off-right"
         },
         {
@@ -106,11 +128,12 @@
         },
         {
           "type": "line",
-          "ref": "l2"
+          "ref": "l3"
         },
         {
-          "type": "line",
-          "ref": "l3"
+          "type": "move",
+          "who": "barmen",
+          "to": "right"
         },
         {
           "type": "line",
@@ -123,6 +146,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         }
       ],
       "transition": "cut"

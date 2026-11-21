@@ -2,24 +2,24 @@
   "id": "ru-fd6958211b4a.en",
   "jokeId": "ru-fd6958211b4a",
   "locale": "en",
-  "title": "Sting Burial",
+  "title": "The Sting Burial",
   "location": "ulitsa",
   "place": "cemetery",
   "cast": [
-    "muzhik-ryzhy",
-    "nachalnik",
-    "paren"
+    "paren",
+    "barmen",
+    "sluzhivy"
   ],
   "roles": {
-    "muzhik-ryzhy": "everyman",
-    "nachalnik": "bureaucrat",
-    "paren": "everyman"
+    "paren": "employee",
+    "barmen": "construction-worker",
+    "sluzhivy": "police-officer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "At a funeral in the cemetery, the gravediggers' foreman sees a fifty-dollar bill sticking out of the dead man's breast pocket.",
+      "text": "At a cemetery, during a funeral, the foreman of the gravediggers sees a fifty-dollar bill sticking out of the breast pocket of the dead man's jacket.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -28,7 +28,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He immediately asks one of his crew to get the people away from the coffin on any pretext.",
+      "text": "He immediately asks one of his crew to push the people away from the coffin on any pretext.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -37,7 +37,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Once that's done, he reaches for the bill, and suddenly the dead man grabs his hand and shouts:",
+      "text": "When that's done and he reaches for the bill, the dead man suddenly grabs his hand and shouts:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,7 +45,7 @@
     },
     {
       "id": "l4",
-      "character": "nachalnik",
+      "character": "sluzhivy",
       "text": "Tax police! Sting burial!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
@@ -55,9 +55,9 @@
     },
     {
       "id": "l5",
-      "character": "muzhik-ryzhy",
+      "character": "barmen",
       "text": "You've got your job, and I've got mine.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
@@ -65,7 +65,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Said the foreman, and nailed the coffin lid shut.",
+      "text": "And he hammered nails into the coffin lid.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,21 +79,24 @@
       "location": "ulitsa",
       "place": "cemetery",
       "cast": [
-        "muzhik-ryzhy",
-        "nachalnik",
-        "paren"
+        "paren",
+        "barmen",
+        "sluzhivy"
       ],
       "roles": {
-        "muzhik-ryzhy": "everyman",
-        "nachalnik": "bureaucrat",
-        "paren": "everyman"
+        "paren": "employee",
+        "barmen": "construction-worker",
+        "sluzhivy": "police-officer"
       },
       "looks": {
-        "muzhik-ryzhy": {
+        "sluzhivy": {
+          "clothes": "#2b2b30",
           "add": [
-            "flat-cap"
+            "tie"
           ],
-          "remove": []
+          "remove": [
+            "police-cap"
+          ]
         }
       },
       "crowd": {
@@ -102,31 +105,10 @@
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
-        },
-        {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "center"
-        },
-        {
           "type": "prop",
-          "who": "nachalnik",
+          "who": "sluzhivy",
           "item": "coffin",
-          "action": "put"
-        },
-        {
-          "type": "prop",
-          "who": "nachalnik",
-          "item": "money",
           "action": "hold"
-        },
-        {
-          "type": "move",
-          "who": "paren",
-          "to": "bench"
         },
         {
           "type": "prop",
@@ -139,26 +121,12 @@
           "ref": "l1"
         },
         {
-          "type": "crowd",
-          "react": "murmur"
-        },
-        {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "move",
-          "who": "paren",
-          "to": "right"
-        },
-        {
           "type": "crowd",
           "react": "flee"
-        },
-        {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "shop"
         },
         {
           "type": "line",
@@ -169,14 +137,14 @@
           "ref": "l4"
         },
         {
-          "type": "line",
-          "ref": "l5"
-        },
-        {
           "type": "prop",
-          "who": "muzhik-ryzhy",
+          "who": "barmen",
           "item": "wrench",
           "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
         },
         {
           "type": "line",

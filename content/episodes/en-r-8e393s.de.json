@@ -1,0 +1,140 @@
+{
+  "id": "en-r-8e393s.de",
+  "jokeId": "en-r-8e393s",
+  "locale": "de",
+  "title": "Die Warnung",
+  "location": "samolet",
+  "place": "theater",
+  "cast": [
+    "ded"
+  ],
+  "roles": {
+    "ded": "grandpa"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Mein Opa hat die Leute gewarnt, dass die Titanic sinken wird.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Die Titanic wird sinken!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Keiner hörte auf ihn, aber er warnte sie trotzdem immer weiter…",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "…bis sie genug von ihm hatten und ihn aus dem Kino geworfen haben.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "ded"
+      ],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "ded"
+      ],
+      "roles": {
+        "ded": "grandpa"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "ded",
+        "muzhik"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "aisle"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

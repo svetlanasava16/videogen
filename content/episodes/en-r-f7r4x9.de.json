@@ -2,48 +2,24 @@
   "id": "en-r-f7r4x9.de",
   "jokeId": "en-r-f7r4x9",
   "locale": "de",
-  "title": "Der Brautvater",
-  "location": "tserkov",
+  "title": "Die Brautmutter",
+  "location": "bar",
   "place": "church",
   "cast": [
-    "muzhik",
+    "devushka-ryzhaya",
     "zhena",
-    "devushka-ryzhaya"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
+    "devushka-ryzhaya": "daughter",
     "zhena": "mother",
-    "devushka-ryzhaya": "daughter"
-  },
-  "looks": {
-    "zhena": {
-      "clothes": "#2e3440",
-      "add": [
-        "stubble"
-      ],
-      "remove": []
-    },
-    "devushka-ryzhaya": {
-      "clothes": "#ffffff",
-      "add": [],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "guests",
-    "size": "few"
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Auf einer Hochzeit flüstert ein Mann seinem Nebenmann zu.",
+      "text": "Auf einer Hochzeit flüstert ein Mann dem Typen neben ihm zu:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -52,7 +28,7 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ist die Braut nicht ein richtig hässlicher Hund?",
+      "text": "Ist die Braut nicht hässlich wie die Nacht?",
       "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -61,16 +37,16 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Ich muss doch sehr bitten. Sie reden von meiner Tochter.",
+      "text": "Ich muss doch sehr bitten. Das ist meine Tochter, über die Sie da reden.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Verzeihung, ich wusste nicht, dass Sie ihr Vater sind...",
+      "text": "Entschuldigung, ich wusste nicht, dass Sie ihr Vater sind.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -80,6 +56,7 @@
       "id": "l5",
       "character": "zhena",
       "text": "Bin ich nicht... Ich bin ihre verdammte Mutter.",
+      "uncensored": "Bin ich nicht... Ich bin ihre verfickte Mutter.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -88,6 +65,76 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "party",
+      "cast": [
+        "devushka-ryzhaya",
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "devushka-ryzhaya": {
+          "clothes": "#f7f7f7",
+          "add": [],
+          "remove": []
+        },
+        "zhena": {
+          "clothes": "#2f2f3a",
+          "hairStyle": "short",
+          "add": [
+            "stubble",
+            "tie"
+          ],
+          "remove": [
+            "apron",
+            "lipstick"
+          ]
+        },
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        }
+      },
+      "crowd": {
+        "who": "guests",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

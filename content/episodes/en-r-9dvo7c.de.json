@@ -2,7 +2,7 @@
   "id": "en-r-9dvo7c.de",
   "jokeId": "en-r-9dvo7c",
   "locale": "de",
-  "title": "Persönlicher Freiraum",
+  "title": "Persönlicher Raum",
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -17,8 +17,8 @@
     {
       "id": "l1",
       "character": "muzhik-sosed",
-      "text": "Du bist den Leuten oft unangenehm, weil du ihren persönlichen Freiraum verletzt.",
-      "emotion": "neutral",
+      "text": "Du machst es den Leuten oft unangenehm, weil du in ihren persönlichen Raum eindringst.",
+      "emotion": "sad",
       "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
@@ -26,16 +26,16 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Das ist unglaublich verletzend, so etwas zu sagen.",
+      "text": "Das war unglaublich verletzend…",
       "emotion": "sad",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Damit hast du unser Bad komplett ruiniert.",
+      "text": "…und hat uns das ganze Bad verdorben.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -72,12 +72,36 @@
       },
       "beats": [
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "nightstand"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
+          "type": "camera",
+          "shot": "close",
+          "on": "muzhik-sosed"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "camera",
+          "shot": "close",
+          "on": "muzhik"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "camera",
+          "shot": "wide"
         },
         {
           "type": "line",

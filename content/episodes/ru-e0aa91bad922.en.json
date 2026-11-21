@@ -2,7 +2,7 @@
   "id": "ru-e0aa91bad922.en",
   "jokeId": "ru-e0aa91bad922",
   "locale": "en",
-  "title": "Seek!",
+  "title": "Rex",
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -10,15 +10,15 @@
     "pyos"
   ],
   "roles": {
-    "muzhik": "drunk",
+    "muzhik": "everyman",
     "pyos": "dog"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man wakes up with one hell of a hangover — his head feels full of lead, his arms and legs feel like someone else's, he can't lift them.",
-      "emotion": "neutral",
+      "text": "A man wakes up with a hell of a hangover: his head feels full of lead, his arms and legs feel like someone else's and won't lift.",
+      "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Somehow he rolls onto his side and moans, so pitifully, so heartbreakingly:",
+      "text": "Somehow he rolls onto his side and moans, ever so pitifully, with a sob:",
       "emotion": "sad",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -45,7 +45,7 @@
       "id": "l4",
       "character": "narrator",
       "text": "The dog runs up, whining, licking him.",
-      "emotion": "neutral",
+      "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,16 +53,16 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The man breathes right into his face and says with his last strength:",
+      "text": "The man breathes right on him and says with the last of his strength:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Seek!!!",
+      "text": "Find it!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,16 +79,16 @@
         "pyos"
       ],
       "roles": {
-        "muzhik": "drunk",
+        "muzhik": "everyman",
         "pyos": "dog"
       },
       "looks": {
         "muzhik": {
-          "add": [
-            "red-nose",
-            "stubble"
-          ],
-          "remove": []
+          "clothes": "#f2f2f2",
+          "add": [],
+          "remove": [
+            "flat-cap"
+          ]
         }
       },
       "beats": [
@@ -112,7 +112,7 @@
         {
           "type": "move",
           "who": "pyos",
-          "to": "center",
+          "to": "right",
           "from": "off-right"
         },
         {

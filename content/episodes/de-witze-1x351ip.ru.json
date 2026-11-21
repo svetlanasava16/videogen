@@ -35,16 +35,16 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "После долгого рабочего дня бизнесмен очень устал. Он сел на кровать, довольно громко снял один ботинок и уронил его на пол.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "text": "После долгого рабочего дня бизнесмен очень устал.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "В этот момент он вспомнил, что сказала администратор, и второй ботинок поставил совсем тихо.",
+      "text": "Войдя в номер и сев на кровать, он довольно громко снял один ботинок и уронил его на пол.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -53,25 +53,52 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Потом он лёг спать. Через два часа его разбудил громкий стук в дверь.",
+      "text": "В этот момент он вспомнил, что говорила администратор, и поставил второй ботинок совсем тихо.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "nachalnik",
-      "text": "Что случилось?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Потом он надел пижаму и лёг спать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Через два часа его разбудил громкий стук в дверь.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "nachalnik",
+      "text": "Что случилось?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
       "character": "muzhik-sosed",
-      "text": "Я мужчина из соседнего номера. Не могли бы вы наконец снять и второй ботинок?",
+      "text": "Я мужчина из соседнего номера.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.7,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "muzhik-sosed",
+      "text": "Не могли бы вы теперь наконец снять и второй ботинок?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -83,6 +110,7 @@
   "scenes": [
     {
       "location": "bar",
+      "place": "hotel",
       "cast": [
         "nachalnik",
         "uchilka"
@@ -98,20 +126,19 @@
           "to": "counter"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "nachalnik",
-          "to": "center",
-          "from": "off-left"
+          "to": "left"
         },
         {
           "type": "prop",
           "who": "nachalnik",
           "item": "suitcase",
           "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
@@ -123,26 +150,23 @@
     {
       "location": "spalnya",
       "cast": [
-        "nachalnik",
-        "muzhik-sosed"
+        "nachalnik"
       ],
       "roles": {
-        "nachalnik": "businessman",
-        "muzhik-sosed": "neighbor"
-      },
-      "looks": {
-        "muzhik-sosed": {
-          "add": [
-            "robe-white"
-          ],
-          "remove": []
-        }
+        "nachalnik": "businessman"
       },
       "beats": [
         {
           "type": "move",
           "who": "nachalnik",
-          "to": "bed"
+          "to": "bed",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "suitcase",
+          "action": "put"
         },
         {
           "type": "line",
@@ -159,6 +183,52 @@
         {
           "type": "line",
           "ref": "l6"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "nachalnik": "businessman",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#9db8d9",
+          "add": [],
+          "remove": [
+            "tie"
+          ]
+        },
+        "muzhik-sosed": {
+          "clothes": "#6b2a3a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bed"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "center"
         },
         {
           "type": "move",
@@ -168,7 +238,11 @@
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "wipe"

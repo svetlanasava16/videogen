@@ -3,21 +3,21 @@
   "jokeId": "ru-f0ee36c1c849",
   "locale": "de",
   "title": "Ohne Frauen",
-  "location": "ofis",
+  "location": "zal",
   "place": "conference-hall",
   "cast": [
-    "devushka",
-    "muzhik"
+    "muzhik",
+    "devushka"
   ],
   "roles": {
-    "devushka": "woman",
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "devushka": "woman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Treffen feministischer Organisationen. Am Rednerpult wettert mal wieder eine Rednerin.",
+      "text": "Ein Treffen feministischer Organisationen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -25,9 +25,9 @@
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Was würden diese Männer jetzt ohne Frauen machen?! Was würden sie bloß ohne uns machen?!",
-      "emotion": "angry",
+      "character": "narrator",
+      "text": "Am Rednerpult wettert schon wieder eine Rednerin:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -35,16 +35,34 @@
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Na?! Ich frage Sie!",
+      "text": "Was würden diese Männer jetzt ohne Frauen machen?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Na, was würden sie ohne uns machen?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "devushka",
+      "text": "Hä?! Ich frage Sie!",
       "emotion": "angry",
       "pauseAfterSec": 0.7,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l4",
+      "id": "l6",
       "character": "muzhik",
-      "text": "Was, was?! Kokosnüsse würden wir im Paradies futtern!",
+      "text": "Was, was?! Wir würden im Paradies Kokosnüsse fressen!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -55,42 +73,30 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "ofis",
+      "location": "zal",
       "cast": [
-        "devushka",
-        "muzhik"
+        "muzhik",
+        "devushka"
       ],
       "roles": {
-        "devushka": "woman",
-        "muzhik": "everyman"
-      },
-      "looks": {
-        "devushka": {
-          "hairStyle": "short",
-          "add": [],
-          "remove": []
-        }
+        "muzhik": "everyman",
+        "devushka": "woman"
       },
       "crowd": {
         "who": "audience",
-        "size": "many"
+        "size": "many",
+        "at": "front"
       },
-      "set": [
-        {
-          "item": "lectern",
-          "at": "center"
-        }
-      ],
       "beats": [
         {
           "type": "move",
           "who": "devushka",
-          "to": "center"
+          "to": "lectern"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "aisle"
         },
         {
           "type": "line",
@@ -105,12 +111,20 @@
           "ref": "l3"
         },
         {
-          "type": "crowd",
-          "react": "cheer"
+          "type": "line",
+          "ref": "l4"
         },
         {
           "type": "line",
-          "ref": "l4"
+          "ref": "l5"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
         }
       ],
       "transition": "cut"

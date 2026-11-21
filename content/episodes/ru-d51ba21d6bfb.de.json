@@ -2,7 +2,7 @@
   "id": "ru-d51ba21d6bfb.de",
   "jokeId": "ru-d51ba21d6bfb",
   "locale": "de",
-  "title": "Ein Gedicht",
+  "title": "Das Gedicht",
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,7 +17,7 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Die Villenstraße. Ein Polizist stoppt einen Bentley mit dreifacher Geschwindigkeit.",
+      "text": "Moskau, die Rubljowka-Chaussee. Ein Verkehrspolizist hält einen Bentley an: dreifach zu schnell.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -26,7 +26,7 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Die pechschwarz getönte Scheibe geht einen Spalt auf.",
+      "text": "Der Bentley hält, die pechschwarz getönte Scheibe geht einen Spalt auf. Der Polizist salutiert:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -35,7 +35,7 @@
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Polizeiobermeister Peters, Ihre Papiere bitte.",
+      "text": "Inspektor Petrow, Ihre Papiere bitte.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -44,8 +44,8 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Aus dem Fenster kommt eine Hand mit einem Fünfhunderter.",
-      "emotion": "neutral",
+      "text": "Aus dem Bentley streckt sich eine Hand mit einem Fünfhundert-Euro-Schein. Der Inspektor steckt ihn in die Brusttasche.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -53,7 +53,7 @@
     {
       "id": "l5",
       "character": "sluzhivy",
-      "text": "Schönen Tag noch, und versuchen Sie, nicht mehr gegen die Regeln zu verstoßen...",
+      "text": "Alles Gute, und versuchen Sie, nicht mehr gegen die Regeln zu verstoßen...",
       "emotion": "happy",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -62,7 +62,7 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Noch ein Fünfhunderter.",
+      "text": "Aus dem Fenster kommt der nächste Schein, genauso groß.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -71,8 +71,8 @@
     {
       "id": "l7",
       "character": "sluzhivy",
-      "text": "Und passen Sie auf, zwei Blocks weiter steht noch eine Streife...",
-      "emotion": "happy",
+      "text": "Und passen Sie auf, zwei Straßen weiter steht noch eine Streife...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
@@ -80,7 +80,7 @@
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Wieder ein Fünfhunderter.",
+      "text": "Wieder ein Fünfhunderter. Der Polizist schaut sich das Nummernschild genau an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -89,41 +89,50 @@
     {
       "id": "l9",
       "character": "sluzhivy",
-      "text": "Ich arbeite hier dienstags und donnerstags von acht bis fünfzehn Uhr. Ich habe mir Ihr Kennzeichen gemerkt, an diesen Tagen können Sie ganz entspannt fahren...",
-      "emotion": "smug",
+      "text": "Ich arbeite hier dienstags und donnerstags, von acht Uhr morgens bis fünfzehn Uhr.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "narrator",
-      "text": "Und noch einer.",
-      "emotion": "neutral",
+      "character": "sluzhivy",
+      "text": "Ich habe mir Ihr Kennzeichen gemerkt, an diesen Tagen können Sie ganz ruhig fahren...",
+      "emotion": "smug",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
-      "character": "sluzhivy",
-      "text": "Glück und Gesundheit, kluge Kinder, Erfolg im Geschäft, und dass Ihr Hund jede Ausstellung gewinnt...",
-      "emotion": "happy",
+      "character": "narrator",
+      "text": "Wieder ein Schein über fünfhundert.",
+      "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l12",
+      "character": "sluzhivy",
+      "text": "Glück und Gesundheit für Sie, kluge Kinder, Erfolg im Geschäft, und dass Ihr Hund jeden Wettbewerb gewinnt...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "narrator",
-      "text": "Wieder die Hand mit dem Schein. Der Polizist steht eine Weile ratlos da, dann räuspert er sich und verkündet...",
+      "text": "Wieder die Hand mit einem Schein. Der Inspektor steht eine Weile verwirrt da, dann räuspert er sich und sagt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l13",
+      "id": "l14",
       "character": "sluzhivy",
       "text": "Ein Gedicht!",
       "emotion": "happy",
@@ -158,7 +167,7 @@
         {
           "type": "move",
           "who": "sluzhivy",
-          "to": "left"
+          "to": "right"
         },
         {
           "type": "move",
@@ -172,11 +181,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "sluzhivy",
-          "to": "right"
         },
         {
           "type": "line",
@@ -213,15 +217,15 @@
           "ref": "l7"
         },
         {
-          "type": "line",
-          "ref": "l8"
-        },
-        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
         },
         {
           "type": "line",
@@ -232,21 +236,25 @@
           "ref": "l10"
         },
         {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
           "action": "give",
           "to": "sluzhivy"
-        },
-        {
-          "type": "line",
-          "ref": "l11"
         },
         {
           "type": "line",
           "ref": "l12"
         },
         {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
           "type": "prop",
           "who": "nachalnik",
           "item": "money",
@@ -255,7 +263,7 @@
         },
         {
           "type": "line",
-          "ref": "l13"
+          "ref": "l14"
         }
       ],
       "transition": "cut"

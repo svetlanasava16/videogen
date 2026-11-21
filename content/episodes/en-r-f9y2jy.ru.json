@@ -6,20 +6,20 @@
   "location": "magazin",
   "place": "shop",
   "cast": [
+    "muzhik-sosed",
     "muzhik-ryzhy",
-    "vor",
     "barmen"
   ],
   "roles": {
+    "muzhik-sosed": "customer",
     "muzhik-ryzhy": "customer",
-    "vor": "thief",
     "barmen": "cook"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Англичанин и ирландец заходят в булочную. Англичанин крадёт три булочки и прячет их по карманам.",
+      "text": "Англичанин и ирландец заходят в булочную.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -27,24 +27,51 @@
     },
     {
       "id": "l2",
-      "character": "vor",
-      "text": "Чтобы стащить эти булочки, нужны большое мастерство и хитрость. Хозяин меня даже не заметил.",
-      "emotion": "smug",
+      "character": "narrator",
+      "text": "Англичанин крадёт три булочки, рассовывает их по карманам и уходит. Он говорит ирландцу:",
+      "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik-ryzhy",
-      "text": "Это просто воровство. Я покажу тебе, как сделать это честно и получить то же самое.",
+      "character": "muzhik-sosed",
+      "text": "Чтобы украсть эти булочки, нужны большое мастерство и хитрость. Хозяин меня даже не заметил.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.4,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "Это просто обычное воровство.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-ryzhy",
+      "text": "Я покажу тебе, как сделать это честным путём и получить тот же результат.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.4,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Тогда ирландец подзывает хозяина булочной.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
       "character": "muzhik-ryzhy",
       "text": "Уважаемый, я хочу показать вам фокус.",
       "emotion": "happy",
@@ -53,25 +80,34 @@
       "exit": []
     },
     {
-      "id": "l5",
+      "id": "l8",
       "character": "narrator",
-      "text": "Хозяину стало любопытно, и он подошёл посмотреть на фокус.",
+      "text": "Хозяину стало интересно, и он подошёл посмотреть на фокус.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l6",
+      "id": "l9",
       "character": "narrator",
-      "text": "Ирландец попросил у него булочку и съел её. Он попросил ещё два раза, и когда съел и эти, хозяин сказал:",
+      "text": "Ирландец попросил у него булочку и съел её.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
-      "id": "l7",
+      "id": "l10",
+      "character": "narrator",
+      "text": "Он попросил ещё два раза, и когда съел и эти, хозяин говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "barmen",
       "text": "Ну хорошо, друг мой, и где же фокус?",
       "emotion": "surprised",
@@ -80,7 +116,7 @@
       "exit": []
     },
     {
-      "id": "l8",
+      "id": "l12",
       "character": "muzhik-ryzhy",
       "text": "Загляните в карманы англичанина.",
       "emotion": "smug",
@@ -95,17 +131,17 @@
     {
       "location": "magazin",
       "cast": [
+        "muzhik-sosed",
         "muzhik-ryzhy",
-        "vor",
         "barmen"
       ],
       "roles": {
+        "muzhik-sosed": "customer",
         "muzhik-ryzhy": "customer",
-        "vor": "thief",
         "barmen": "cook"
       },
       "looks": {
-        "vor": {
+        "muzhik-sosed": {
           "add": [
             "bowler"
           ],
@@ -129,13 +165,13 @@
       "beats": [
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left"
+          "who": "muzhik-sosed",
+          "to": "shelf"
         },
         {
           "type": "move",
-          "who": "vor",
-          "to": "shelf"
+          "who": "muzhik-ryzhy",
+          "to": "center"
         },
         {
           "type": "line",
@@ -146,18 +182,17 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "left"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
-        },
-        {
-          "type": "move",
-          "who": "barmen",
-          "to": "counter",
-          "from": "off-right"
         },
         {
           "type": "line",
@@ -172,8 +207,51 @@
           "ref": "l7"
         },
         {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "sandwich",
+          "action": "give",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "cut"

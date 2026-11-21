@@ -1,0 +1,165 @@
+{
+  "id": "de-witze-1izb271.de",
+  "jokeId": "de-witze-1izb271",
+  "locale": "de",
+  "title": "Keiner hat auf meinen Opa gehört",
+  "location": "samolet",
+  "place": "theater",
+  "cast": [
+    "ded",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "ded": "grandpa",
+    "muzhik-sosed": "customer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Als die Titanic damals losgefahren ist, hat mein Opa alle vor dem drohenden Unheil gewarnt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "ded",
+      "text": "Das Schiff wird auf einen Eisberg krachen und untergehen, und die meisten werden sterben!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "Doch niemand wollte ihn hören.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.3,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-sosed",
+      "text": "Halt die Klappe! Du ruinierst alles!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "narrator",
+      "text": "Schließlich hat man ihn dann aus dem Kino geworfen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8,
+      "enter": [],
+      "exit": [
+        "ded",
+        "sluzhivy"
+      ],
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "ship",
+      "cast": [
+        "ded",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "muzhik-sosed": "customer"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "crowd",
+          "react": "murmur"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "zal",
+      "place": "theater",
+      "cast": [
+        "ded",
+        "sluzhivy"
+      ],
+      "roles": {
+        "ded": "grandpa",
+        "sluzhivy": "guard"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "audience",
+        "size": "many",
+        "at": "front"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "aisle"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
