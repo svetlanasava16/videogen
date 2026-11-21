@@ -1,0 +1,4 @@
+# Git LFS (с 2026-11-22): эталонные кадры golden и озвучка. Историю не переписывали — файлы, добавленные раньше,
+# остаются обычными blob'ами; новые и изменённые идут в LFS. Клонировать с установленным git-lfs (brew install git-lfs).
+tests/golden/**/*.png filter=lfs diff=lfs merge=lfs -text
+remotion/public/audio/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
