@@ -20,7 +20,8 @@ export const SET_PIECES: Record<string, { layer: "front" | "back"; w: number }> 
   bed: { layer: "back", w: 620 },
   "christmas-tree": { layer: "back", w: 300 },
   scales: { layer: "front", w: 300 }, // кусок прилавка (верх 380, как counter) с циферблатными весами
-  sink: { layer: "front", w: 420 }, // кухонная мойка-тумба с краном и сушилкой для посуды
+  sink: { layer: "front", w: 420 },
+  toilet: { layer: "back", w: 200 }, // унитаз с бачком; цвет — it.color; на нём сидят (сиденье на высоте SEAT_H) // кухонная мойка-тумба с краном и сушилкой для посуды
   "specimen-shelf": { layer: "back", w: 420 }, // музейный шкаф с банками заспиртованных экспонатов
   // сиденья: кукла на их x сидит (верх сиденья — SEAT_H над полом её плана, см. world/depth.ts)
   chair: { layer: "back", w: 150 },
@@ -31,9 +32,9 @@ export const SET_PIECES: Record<string, { layer: "front" | "back"; w: number }> 
   swing: { layer: "back", w: 420 }, // детские качели: рама, сиденье на SEAT_H
 };
 /** Сиденья среди мебели: на них сидят сами (как за столом). */
-export const SEAT_ITEMS = ["chair", "stool", "armchair", "bench", "row-of-chairs", "swing"];
+export const SEAT_ITEMS = ["chair", "stool", "armchair", "bench", "row-of-chairs", "toilet", "swing"];
 
-const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floor: number }) => {
+const Piece = ({ item, x, w, floor, color }: { item: string; x: number; w: number; floor: number; color?: string }) => {
   const l = x - w / 2;
   switch (item) {
     case "dining-table": {
@@ -268,6 +269,22 @@ const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floo
         </g>
       );
     }
+    case "toilet": {
+      // фаянс цвета color: бачок у стены, чаша, сиденье на высоте 72 px (сидящая кукла садится на него)
+      const c = color ?? "#f4f2ec";
+      const seatY = floor - 72;
+      return (
+        <g>
+          <rect x={x - 62} y={seatY - 190} width={124} height={96} rx={14} fill={c} />
+          <rect x={x - 70} y={seatY - 198} width={140} height={16} rx={7} fill={c} />
+          <rect x={x + 30} y={seatY - 176} width={22} height={10} rx={4} fill="#c9c4b8" />
+          <rect x={x - 12} y={seatY - 94} width={24} height={90} fill={c} />
+          <path d={`M${x - 92} ${seatY + 6} H${x + 92} Q${x + 88} ${seatY + 40} ${x + 46} ${seatY + 46} L${x + 40} ${floor} H${x - 40} L${x - 46} ${seatY + 46} Q${x - 88} ${seatY + 40} ${x - 92} ${seatY + 6} Z`} fill={c} />
+          <rect x={x - 100} y={seatY - 8} width={200} height={20} rx={10} fill={c} stroke="#00000022" strokeWidth={3} />
+          <rect x={x - 40} y={floor - 8} width={80} height={8} fill="#00000018" />
+        </g>
+      );
+    }
     case "chair":
     case "stool":
     case "armchair":
@@ -332,7 +349,7 @@ export const SetPiece = ({ it, x, stageW, height, floorY, k }: { it: SetItem; x:
   return (
     <svg width={stageW} height={height} viewBox={`0 0 ${stageW} ${height}`} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
       <g transform={`translate(${x} ${floorY}) scale(${k}) translate(${-x} ${-floorY})`}>
-        <Piece item={it.item} x={x} w={w} floor={floorY} />
+        <Piece item={it.item} x={x} w={w} floor={floorY} color={it.color} />
       </g>
     </svg>
   );
@@ -360,7 +377,7 @@ export const SetLayer = ({ items, layer, stageW, height, floorY, xOf, k = 1 }: {
         const x = xOf(it.at);
         return (
           <g key={i} transform={`translate(${x} ${floorY}) scale(${k}) translate(${-x} ${-floorY})`}>
-            <Piece item={it.item} x={x} w={w} floor={floorY} />
+            <Piece item={it.item} x={x} w={w} floor={floorY} color={it.color} />
           </g>
         );
       })}

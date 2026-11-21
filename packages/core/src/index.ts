@@ -151,7 +151,7 @@ export const Vehicle = z.object({
 export type Vehicle = z.infer<typeof Vehicle>;
 
 /** Мебель на сцене (то, о чём говорит анекдот, но чего нет в фоне): стол, прилавок, кафедра… Рисует remotion/src/world/SetPieces.tsx. */
-export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree", "chair", "bench", "stool", "armchair", "row-of-chairs", "scales", "sink", "specimen-shelf", "swing"] as const;
+export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree", "chair", "bench", "stool", "armchair", "row-of-chairs", "scales", "sink", "specimen-shelf", "swing", "toilet"] as const;
 export const SetItem = z.object({
   item: z.string(),
   /** Метка места (content/locations → marks), left/center/right; по умолчанию center. */
@@ -161,6 +161,8 @@ export const SetItem = z.object({
   seat: z.boolean().optional(),
   /** План (по умолчанию: стол — средний, диван/кровать/ёлка — дальний, стул — план метки). */
   plane: Plane.optional(),
+  /** Цвет предмета, если он бывает разным (унитаз: белый, голубой, розовый). */
+  color: z.string().optional(),
 });
 export type SetItem = z.infer<typeof SetItem>;
 export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);

@@ -135,7 +135,7 @@ const Bedroom = ({ palette: p }: { palette: Palette }) => {
 };
 
 /* ---------- ванная ---------- */
-const Bathroom = ({ palette: p }: { palette: Palette }) => {
+const Bathroom = ({ palette: p, noToilet = false }: { palette: Palette; noToilet?: boolean }) => {
   const tile = mix(p.wall, "#ffffff", 0.6);
   const grout = mix(p.wall, "#ffffff", 0.35);
   const enamel = "#f6f3ee";
@@ -223,6 +223,8 @@ const Bathroom = ({ palette: p }: { palette: Palette }) => {
       <circle cx={706} cy={FLOOR_Y - 440} r={7} fill="#c9a24a" />
       <path d="M706 750 q-30 10 -30 60 l-4 170 h70 l-4 -170 q0 -50 -32 -60 Z" fill="#f6efe0" />
       <rect x={672} y={860} width={70} height={10} fill={light(p.accent, 0.3)} />
+      {/* без встроенного унитаза (вариант bathroom-wide): унитазы ставятся мебелью set (toilet) */}
+      {!noToilet && (<>
       {/* высокий бачок с цепочкой над низким унитазом: верх сиденья — на высоте сиденья дальнего плана (метка toilet) */}
       <g transform="translate(76 0)">
         <rect x={846} y={600} width={130} height={80} rx={10} fill={enamel} />
@@ -241,6 +243,7 @@ const Bathroom = ({ palette: p }: { palette: Palette }) => {
       <circle cx={834} cy={1026} r={8} fill="#d8d4c8" />
       <rect x={800} y={1080} width={60} height={70} rx={3} fill="#e8e2d0" transform="rotate(-8 830 1115)" />
       {[0, 1, 2, 3].map((i) => <rect key={i} x={808} y={1092 + i * 12} width={44} height={4} fill="#a8a090" transform="rotate(-8 830 1115)" />)}
+      </>)}
       {/* полотенце */}
       <circle cx={262} cy={640} r={10} fill="#b9b4aa" />
       <rect x={232} y={644} width={62} height={180} rx={12} fill={towel} />
@@ -254,5 +257,5 @@ const Bathroom = ({ palette: p }: { palette: Palette }) => {
 
 /** Спальня: базовый вид + ванная (bathroom). */
 export const Spalnya = ({ palette, variant }: BackdropProps) => (
-  <Canvas>{variant === "bathroom" ? <Bathroom palette={palette} /> : <Bedroom palette={palette} />}</Canvas>
+  <Canvas>{variant === "bathroom" || variant === "bathroom-wide" ? <Bathroom palette={palette} noToilet={variant === "bathroom-wide"} /> : <Bedroom palette={palette} />}</Canvas>
 );
