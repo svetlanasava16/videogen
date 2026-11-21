@@ -2,7 +2,7 @@
   "id": "ru-82366d379093.de",
   "jokeId": "ru-82366d379093",
   "locale": "de",
-  "title": "Das letzte Hähnchen",
+  "title": "Das einzige Hähnchen",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
+    "devushka": "customer",
     "barmen": "salesman"
   },
   "lines": [
@@ -19,50 +19,95 @@
       "character": "narrator",
       "text": "Eine Metzgerei, eine Minute vor Ladenschluss.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Gott sei Dank, ich hab's geschafft! Haben Sie Hähnchen?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Eine atemlose Frau stürzt herein und sagt:",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Der Metzger holt das einzige Hähnchen aus der Tiefkühltruhe und legt es auf die Waage. Die Waage zeigt ein Kilo.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka",
+      "text": "Gott sei Dank, ich hab's geschafft! Haben Sie Hähnchen?",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "devushka",
-      "text": "Hm... Haben Sie kein größeres?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Der Metzger holt das einzige Hähnchen aus der Tiefkühltruhe",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Metzger legt das Hähnchen zurück, holt dasselbe wieder heraus, dreht es um, legt es auf die Waage und drückt mit dem Finger drauf. Die Waage zeigt anderthalb Kilo.",
+      "text": "und legt es auf die Waage. Die Waage zeigt ein Kilo. Die Frau:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka",
-      "text": "Wunderbar! Dann nehme ich bitte beide.",
+      "text": "Hm... Haben Sie kein größeres?",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Der Metzger legt das Hähnchen zurück,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "holt dann dasselbe wieder heraus, dreht es um,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "legt es auf die Waage und drückt mit dem Finger drauf.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Die Waage zeigt anderthalb Kilo. Die Frau:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "devushka",
+      "text": "Wunderbar! Geben Sie mir bitte beide.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,7 +124,7 @@
         "barmen"
       ],
       "roles": {
-        "devushka": "woman",
+        "devushka": "customer",
         "barmen": "salesman"
       },
       "looks": {
@@ -90,17 +135,17 @@
           "remove": []
         }
       },
+      "set": [
+        {
+          "item": "scales",
+          "at": "counter"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "barmen",
           "to": "counter"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "scales",
-          "action": "put"
         },
         {
           "type": "line",
@@ -117,34 +162,30 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
           "type": "prop",
           "who": "barmen",
           "item": "chicken",
           "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "chicken",
-          "action": "put"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "prop",
+          "type": "move",
           "who": "barmen",
-          "item": "chicken",
-          "action": "hold"
-        },
-        {
-          "type": "pause",
-          "sec": 1
+          "to": "counter",
+          "via": "back"
         },
         {
           "type": "prop",
@@ -159,6 +200,60 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "look-down"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "via": "back"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

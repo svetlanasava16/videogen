@@ -64,6 +64,7 @@ const DESIGN: Record<VehicleKind, VehicleSpec & { ox: number }> = {
   motorcycle: { ox: 0, w: 690, h: 360, seats: [S(-60, 160, 1)], open: true, door: -60, driveSec: 1.2 },
   scooter: { ox: 15, w: 600, h: 380, seats: [S(-90, 80, 1)], open: true, door: -90, driveSec: 1.8 },
   "horse-cart": { ox: -150, w: 1270, h: 600, seats: [S(-165, 150, 0.85), S(-362, 150, 0.85)], open: true, door: -250, driveSec: 2.6 },
+  "road-roller": { ox: -8, w: 830, h: 885, seats: [S(-170, 370, 0.85)], open: true, door: -170, driveSec: 4 },
 };
 
 export const VEHICLE_SPECS: Record<VehicleKind, VehicleSpec> = Object.fromEntries(
@@ -906,6 +907,75 @@ const horseCart = (c: Ctx): Art => {
   return { back, front };
 };
 
+// ——— дорожный каток: жёлтый, большой передний валец в вилке, водитель сверху под навесом ———
+
+/** Стальной валец: обод, торцевая крышка, болты ступицы (по ним видно вращение). */
+const Roller = ({ x, r, c }: { x: number; r: number; c: Ctx }) => (
+  <g>
+    <circle cx={x} cy={-r} r={r} fill="#6f7880" />
+    <circle cx={x} cy={-r} r={r - 14} fill="#a3acb4" />
+    <circle cx={x} cy={-r} r={r * 0.5} fill="#8a939c" />
+    <g transform={`rotate(${turn(c, r)} ${x} ${-r})`}>
+      {Array.from({ length: 8 }, (_, k) => (
+        <circle key={k} cx={x + r * 0.36 * Math.cos((k * Math.PI) / 4)} cy={-r + r * 0.36 * Math.sin((k * Math.PI) / 4)} r={r * 0.045} fill="#4f575e" />
+      ))}
+      <rect x={x - r + 22} y={-r - 4} width={r * 0.3} height={8} rx={4} fill="#c3cad1" opacity={0.7} />
+    </g>
+    <circle cx={x} cy={-r} r={r * 0.16} fill="#4f575e" />
+  </g>
+);
+
+const roadRoller = (c: Ctx): Art => {
+  const Y = "#f2c230";
+  const YD = shade(Y, -0.22);
+  const bob = c.moving ? Math.sin(c.t * 30) * 1.5 : 0;
+  const back = (
+    <g>
+      {c.moving && <Puffs x={92} y={-585} c={c} />}
+      {/* навес на стойках, выхлопная труба, спинка и подушка сиденья */}
+      <rect x={-372} y={-860} width={16} height={500} fill="#3a3f45" />
+      <rect x={48} y={-860} width={16} height={500} fill="#3a3f45" />
+      <rect x={84} y={-570} width={18} height={210} rx={4} fill="#3a3f45" />
+      <rect x={78} y={-586} width={30} height={18} rx={4} fill="#22252b" />
+      <rect x={-262} y={-560} width={30} height={150} rx={12} fill="#33363b" />
+      <rect x={-260} y={-434} width={150} height={24} rx={10} fill="#33363b" />
+      <rect x={-200} y={-412} width={30} height={54} fill="#4a4f55" />
+    </g>
+  );
+  const front = (
+    <g>
+      {/* задний валец под крылом */}
+      <Roller x={-230} r={140} c={c} />
+      <g transform={`translate(0 ${bob})`}>
+        <path d={`M${-230 - 170} -150 A170 170 0 0 1 ${-230 + 170} -150 L${-230 + 150} -150 A150 150 0 0 0 ${-230 - 150} -150 Z`} fill={YD} />
+        {/* корпус и капот */}
+        <path d="M-392 -150 L-392 -340 Q-392 -362 -370 -362 L110 -362 Q132 -362 132 -340 L132 -170 L112 -150 Z" fill={Y} />
+        <rect x={-392} y={-366} width={524} height={16} rx={6} fill={shade(Y, 0.25)} />
+        {[0, 1, 2, 3].map((i) => <rect key={i} x={0 + i * 28} y={-330} width={14} height={130} rx={6} fill={YD} />)}
+        <rect x={-392} y={-182} width={524} height={32} fill="#3a3f45" />
+        <rect x={-380} y={-300} width={16} height={34} rx={4} fill={RED_LAMP} />
+        {/* пульт перед водителем: закрывает голени; рулевая колонка и руль */}
+        <path d="M-50 -362 L-36 -470 L18 -470 L30 -362 Z" fill={YD} />
+        <path d="M-6 -470 L-58 -492" stroke="#3a3f45" strokeWidth={10} strokeLinecap="round" />
+        <ellipse cx={-64} cy={-494} rx={42} ry={10} transform="rotate(-28 -64 -494)" fill="none" stroke="#22252b" strokeWidth={9} />
+        {/* вилка переднего вальца: кронштейн от капота, стойка, щёки с полосами */}
+        <rect x={120} y={-392} width={150} height={30} rx={8} fill={YD} />
+        <rect x={232} y={-400} width={36} height={70} rx={8} fill={YD} />
+        <path d="M130 -340 L370 -340 L370 -312 L312 -200 L188 -200 L130 -312 Z" fill={Y} />
+        <g fill="#2b2b2b">{[0, 1, 2, 3, 4, 5].map((i) => <path key={i} d={`M${150 + i * 38} -340 l22 0 l-14 26 l-22 0 Z`} />)}</g>
+        {/* навес */}
+        <rect x={-402} y={-885} width={508} height={30} rx={8} fill={Y} />
+        <rect x={-402} y={-862} width={508} height={7} fill={YD} />
+        <circle cx={-14} cy={-874} r={11} fill="#e8812b" />
+      </g>
+      <Roller x={250} r={165} c={c} />
+      <circle cx={250} cy={-165} r={40} fill={YD} />
+      <circle cx={250} cy={-165} r={18} fill="#3a3f45" />
+    </g>
+  );
+  return { back, front };
+};
+
 const DRAW: Record<VehicleKind, (c: Ctx) => Art> = {
   car: (c) => sedan(c, "car"),
   taxi: (c) => sedan(c, "taxi"),
@@ -920,6 +990,7 @@ const DRAW: Record<VehicleKind, (c: Ctx) => Art> = {
   motorcycle,
   scooter,
   "horse-cart": horseCart,
+  "road-roller": roadRoller,
 };
 
 /**

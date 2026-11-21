@@ -4,6 +4,7 @@ import demo from "../../content/episodes/demo-ru.json";
 import { Joke } from "./Joke";
 import { Cast } from "./Cast";
 import { Acts } from "./Acts";
+import { Outfits, outfitsSize } from "./Outfits";
 import { Locations } from "./Locations";
 import { Cover } from "./Cover";
 import { TownPreview } from "./world/Flyover";
@@ -11,14 +12,17 @@ import { Compilation, CompilationProps, compilationLayout } from "./Compilation"
 import demo2 from "../../content/episodes/test-scenes.ru.json";
 import { buildTimeline } from "./timeline";
 import { VehiclesPreview, VEHICLES_PREVIEW_SIZE } from "./VehiclesPreview";
+import { PropsPreview, propsPreviewSize, allPropIds } from "./PropsPreview";
 
 const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
   <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], marks: false }} />
+  <Composition id="Props" component={PropsPreview} {...propsPreviewSize("props", allPropIds().length)} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], rest: true, mode: "props" }} calculateMetadata={({ props }) => { const p = props as { only?: string[]; mode?: string }; return propsPreviewSize(p.mode ?? "props", p.only?.length || allPropIds().length); }} />
   <Composition id="Vehicles" component={VehiclesPreview} {...VEHICLES_PREVIEW_SIZE} fps={30} durationInFrames={1} defaultProps={{ grid: false, moving: false }} />
   <Composition id="Cast" component={Cast} width={2450} height={2850} fps={30} durationInFrames={1} />
+  <Composition id="Outfits" component={Outfits} {...outfitsSize("outfits")} fps={30} durationInFrames={1} defaultProps={{ mode: "outfits" }} calculateMetadata={({ props }) => outfitsSize(String((props as { mode?: string }).mode ?? "outfits"))} />
   <Composition id="Acts" component={Acts} width={3520} height={3120} fps={30} durationInFrames={1} defaultProps={{ who: "muzhik" }} />
   <Composition
     id="Compilation"

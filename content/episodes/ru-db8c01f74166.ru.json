@@ -17,71 +17,89 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Умер гаишник. Предстал перед богом.",
+      "text": "Умер гаишник.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Ну что ты, сын мой, делал ли ты людям добро?",
+      "character": "narrator",
+      "text": "Предстал перед богом. Тот спрашивает:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Да, бывало.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "Ну что ты, сын мой, делал ли ты людям добро?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "А зло?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "sluzhivy",
+      "text": "Да, бывало.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "И такое было.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "А зло?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Ну, вот тебе две дороги, одна в рай, другая в ад.",
+      "character": "sluzhivy",
+      "text": "И такое было.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ded",
-      "text": "Какую выберешь, туда и попадешь.",
+      "text": "Ну, вот тебе две дороги, одна в рай, другая в ад.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "ded",
+      "text": "Какую выберешь, туда и попадешь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Мент отвечает:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "sluzhivy",
       "text": "А можно я здесь, на перекрестке останусь?",
-      "emotion": "happy",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -89,6 +107,105 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "crossroads",
+      "cast": [
+        "sluzhivy",
+        "ded"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ded": "god"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "judge"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "baton-striped",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "front-left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "nod"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "ded",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "turn"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

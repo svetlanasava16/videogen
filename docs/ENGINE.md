@@ -42,9 +42,9 @@
 | `board` / `alight` | `who`, `vehicle`, `to?` | сесть в машину / выйти (и пройти к `to`) |
 
 ## 4. Действия кукол (`act`)
-Словарь — `ACTS` в core (39 действий): slap, punch, hit-head, cover-ears, cover-eyes, cover-face, hug, kiss, point, wave, facepalm, shrug, nod, shake-head, bow, kneel, sit, stand, fall, faint, lie, jump, run, cry, laugh, drink, eat, scratch-head, hands-up, clap, pray-hands, think, sleep, throw, grab, knock, dance, shiver, flex. Позы — `remotion/src/puppet/acts.ts`, лист всех поз — композиция `Acts`.
-- **Состояния** (`STATE_ACTS`: sit, kneel, lie, sleep, faint, cover-ears, cover-eyes, cover-face, pray-hands, hands-up, think) держатся, пока кукла не сделает другое состояние, `stand` или не пойдёт. **Жесты** (кивок, плач, удар…) идут поверх состояния: на коленях мотает головой, закрыв уши — кивает. Повтор того же состояния — продолжение, а не новый вход.
-- **По цели** (`TARGET_ACTS`: slap, punch, hit-head, hug, kiss, throw): кукла сначала подходит к `to`, цель вздрагивает от удара.
+Словарь — `ACTS` в core (44 действия): slap, punch, hit-head, cover-ears, cover-eyes, cover-face, hug, kiss, point, wave, facepalm, shrug, nod, shake-head, bow, kneel, sit, stand, fall, faint, lie, jump, run, cry, laugh, drink, eat, scratch-head, hands-up, clap, pray-hands, think, sleep, throw, grab, knock, dance, shiver, flex, write, phone, whistle, look-down, turn. Позы — `remotion/src/puppet/acts.ts`, лист всех поз — композиция `Acts`.
+- **Состояния** (`STATE_ACTS`: sit, kneel, lie, sleep, faint, cover-ears, cover-eyes, cover-face, pray-hands, hands-up, think, write, phone) держатся, пока кукла не сделает другое состояние, `stand` или не пойдёт. **Жесты** (кивок, плач, удар…) идут поверх состояния: на коленях мотает головой, закрыв уши — кивает. Повтор того же состояния — продолжение, а не новый вход.
+- **По цели** (`TARGET_ACTS`: slap, punch, hit-head, hug, kiss, throw, grab): кукла сначала подходит к `to`, цель вздрагивает от удара.
 - Действие ставится прямо перед репликой, где оно **названо**: «И раз подзатыльник!» — slap перед этой репликой рассказчика.
 
 ## 5. Глубина: три плана
@@ -58,7 +58,7 @@
 
 - План куклы берётся из метки, на которой она стоит, или из `move.plane`. Подход к кукле (`act` по цели) — на её план; посадка в машину — у двери.
 - Куклы, мебель и машины рисуются вместе, по плану: дальние раньше, ближние поверх. Массовка (`crowd`) — ещё дальше, у стены.
-- Раздвижка: на одном плане куклы не стоят друг в друге; на разных — один может стоять за плечом другого, но зазор в половину обычного оставляет лицо дальнего видимым.
+- Раздвижка: на одном плане куклы не стоят друг в друге; на разных — один может стоять за плечом другого, но зазор 0,8 от обычного оставляет лицо дальнего видимым.
 - **Обход.** Если ход пересекает кукол того же плана, идущий проходит по передней дорожке (выходит ближе к камере и возвращается); `via: "back"` — за спинами; `via: "front"` — впереди явно.
 - Камера берёт голову и тело каждой куклы по её плану; сидящие — ниже на высоту ног.
 - Субтитры персонажей — на 72 % высоты, под стопами переднего плана; рассказчик — сверху (8 %).
@@ -85,7 +85,7 @@
 - **Сублокация** (`bible.variants[]`) — комната места: `id` = `scene.place`, свои `marks` (иначе метки места), `set` — мебель, которая ставится сама (стол столовой), `crowd` — массовка по умолчанию (пассажиры салона). `roles` — канонические локации разметки, которые она закрывает (старые эпизоды хранят в `place` архетип, движок находит вариант по `roles`).
 - Фон получает id сублокации в `variant` (`components/Background.tsx`). Неизвестный `place` в сценарии — ошибка проверки.
 - Сценаристы видят все места, сублокации и метки (с планом и сиденьем) в `data/llm/script/context.md` — он генерируется из этих JSON при `pnpm llm prepare script`.
-- Группы для сценаристов: **дом** — `gostinaya` (гостиная; `dining-room`, `front-door`, `balcony`, `basement`), `kukhnya`, `spalnya` (+ `bathroom`), `podyezd` (+ `elevator`); **больница** — `bolnitsa` (кабинет врача; `waiting-room`, `hospital`, `madhouse`); **транспорт внутри** — `doroga` (`car`, `taxi`, `bus`, `tram`, `subway`, `bus-stop`), `samolet` (`cabin`, `cockpit`, `train`, `ship`, `airport`).
+- Группы для сценаристов: **дом** — `gostinaya` (гостиная; `dining-room`, `front-door`, `balcony`, `basement`), `kukhnya`, `spalnya` (+ `bathroom`), `podyezd` (+ `elevator`), двор `ulitsa:yard` / `yard-night`; **досуг** — `zal` (`theater`, `museum`, `cinema`), `bar` (`restaurant`, `party`, `hotel`), `banya`, `plyazh`; **небеса** — `nebesa` (`hell`, `garden-of-eden`, `space`, `crossroads`); **больница** — `bolnitsa` (кабинет врача; `waiting-room`, `hospital`, `madhouse`); **транспорт внутри** — `doroga` (`car`, `taxi`, `bus`, `tram`, `subway`, `bus-stop`), `samolet` (`cabin`, `cockpit`, `train`, `ship`, `airport`).
 - Превью всех мест с метками: `cd remotion && npx remotion still src/index.ts Locations out.png --props='{"only":["bolnitsa"],"marks":true}'` — кружок = стопы на метке, полоска = верх сиденья.
 
 ## 7. Сиденья и мебель
@@ -94,7 +94,8 @@
 - **Мебель сцены** `set: [{item, at?, size?, plane?, seat?}]` (`remotion/src/world/SetPieces.tsx`, `SET_ITEMS`):
   - перед куклами (закрывает ноги): dining-table, table, desk, counter, lectern;
   - за куклами: sofa, bed, christmas-tree;
-  - сиденья: chair, stool, armchair, bench, row-of-chairs.
+  - сиденья: chair, stool, armchair, bench, row-of-chairs, swing;
+  - прочее: scales (весы на прилавке), sink (раковина), specimen-shelf (полка с банками в музее).
   Кто стоит в пределах стола или скамьи на её плане — сидит. Мебель стоит на плане метки `at` (или `plane`).
 - Фон всегда позади кукол: чтобы кукла стояла **за** прилавком или стойкой, нужен предмет `set` (counter, desk), а не нарисованный в фоне.
 
@@ -115,15 +116,20 @@
   {"type": "drive", "vehicle": "zapor", "to": "off-right"}
 ]
 ```
-- Виды: car, taxi, police-car, ambulance, bus, tram, train, truck, tractor, bicycle, motorcycle, scooter, horse-cart. Лист — композиция `Vehicles`.
+- Виды: car, taxi, police-car, ambulance, bus, tram, train, truck, tractor, bicycle, motorcycle, scooter, horse-cart, road-roller. Лист — композиция `Vehicles`.
 - `riders` — кто внутри с начала сцены, первый — водитель. В машине, автобусе, трамвае и поезде седоки видны в окнах; на велосипеде, мотоцикле, мопеде, тракторе и телеге — сидят сверху. Седоки говорят обычными репликами из окна.
 - Машина без `at` стоит за краем, пока не въедет (`drive` с `from`). План — `plane`, иначе план метки, если он не дальше среднего (дальняя обочина задаёт только x), иначе дорога z = 0,3. Машины нарисованы чуть меньше натуральной величины (×0,85): легковая в профиле почти во всю ширину вертикального кадра.
 - Люди на том же плане стоят **перед** машиной; вышедший (`alight`) встаёт перед машиной. Машину ставят сбоку (`road-left`/`road-right`), а не там, где говорят; проезжающая на фоне — `plane: "back"` или `"mid"`.
 - `board` — кукла подходит к двери и садится (после того как машина доехала); `alight` — выходит у двери и, если задано, идёт к `to`.
 - Колёса крутятся только в пути, у машины свои секунды на проезд (`VEHICLE_SPECS[kind].driveSec`).
 
+## 8а. Костюмы и предметы
+- **Роль одевает куклу.** `roles` выбирает костюм из `content/characters/<id>.json → bible.variants` (пилот — пилотская форма и фуражка, гаишник — полицейская форма и жилет, военный, повар, строитель, стюардесса, начальник — костюм и галстук, врач — халат, заключённый, моряк). Если кукла играет чужую роль (двойник-пилот, парень-врач), форма берётся у куклы — хозяйки роли (`remotion/src/puppet/costume.ts`). Лист — композиция `Outfits` (`--props='{"mode":"roles"}'`).
+- Комплекты одежды — аксессуары (`remotion/src/puppet/Accessories.tsx`, таблица `OUTFIT` — цвет рукавов, брюк, нашивки, погоны): pilot-uniform, police-uniform, traffic-vest, military-uniform, officer-uniform, chef-whites, construction, suit, tie, stewardess-uniform, doctor-coat, prisoner, sailor, towel-wrap и головные уборы. В эпизоде — через `looks`.
+- **Предметы** (`content/props.json`, рисунок `remotion/src/props/Props.tsx`, лист `Props`): `hold` — в руке, `give` — передать, `put`/`drop` — положить/уронить: предмет **остаётся** на столе, прилавке, весах или раковине своего плана рядом (иначе на полу), пока его снова не возьмут.
+
 ## 9. Массовка, разделённый экран, голос из-за кадра
-- `crowd: {who, size, at?}` — молчаливый ряд у стены (`back`) или силуэты зрителей спиной к нам (`front`); животные — penguins, dogs, cats, cows, birds, horses. Реакции — бит `crowd`. У сублокации может быть массовка по умолчанию.
+- `crowd: {who, size, at?, seated?, seatColor?}` — молчаливый ряд у стены (`back`) или силуэты зрителей спиной к нам (`front`); `seated` — сидят за рядом спинок кресел (пассажиры салона, очередь на стульях); животные — penguins, dogs, cats, cows, birds, horses. Реакции — бит `crowd`. У сублокации может быть массовка по умолчанию.
 - `split: {location, place?, cast}` — телефонный разговор: сверху место сцены, снизу другое, субтитры в полосе между.
 - `lines[].offscreen` — голос из-за кадра (джинн в бутылке, за дверью).
 
@@ -143,4 +149,8 @@
 - **Новая машина:** вид в `VEHICLES` (core) + рисунок и `VEHICLE_SPECS` в `world/Vehicles.tsx` (слои back/front, места седоков).
 - **Новое действие:** id в `ACTS` (core) + поза в `remotion/src/puppet/acts.ts`.
 - **Новая мебель:** id в `SET_ITEMS` + `case` в `world/SetPieces.tsx`.
+- **Новая форма/одежда:** `case` в `puppet/Accessories.tsx` (+ строка в `OUTFIT` для рукавов и брюк), вариант роли в `content/characters/<id>.json`.
+
+## 14. Цикл улучшений
+Сценарии переписываются партиями: каждая партия пишет в `needs`, чего не хватило (место, предмет, действие, одежда) → рисуем → переписываем эту партию → рендер → смотрим. Сводка: `pnpm llm needs script` → `data/llm/script/needs.md`. Сборники-примеры: `ru-20261121-01`, `ru-20261121-02`, `ru-20261122-01` (12 анекдотов в разных местах).
 - Чего не хватает сценаристам, они пишут в `needs` → `pnpm llm needs script` (сводка `data/llm/script/needs.md`).

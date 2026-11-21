@@ -18,7 +18,13 @@ const SKIN = "#efc8a0";
  */
 const HOLD_ANGLE = 38;
 const FLOOR = 148;
-const up = (children: React.ReactNode) => <g transform={`rotate(${HOLD_ANGLE})`}>{children}</g>;
+const upright = (children: React.ReactNode) => <g transform={`rotate(${HOLD_ANGLE})`}>{children}</g>;
+/**
+ * Положенный предмет (prop put/drop): движок рисует его без поворота руки, кисть на PROP_REST = 40 над поверхностью.
+ * Новые предметы рисуем так, чтобы низ был на y ≈ +40 от кисти, — тогда положенный стоит на столе/полу.
+ * rest = true — нарисовать «как лежит»: без поворота up(...) (иначе предмет, нарисованный по вертикали экрана, лёг бы под 38°).
+ */
+export const REST_BOTTOM = 40;
 
 /** Колесо велосипеда: шина, спицы, втулка. */
 const Wheel = ({ cx, cy, r }: { cx: number; cy: number; r: number }) => (
@@ -49,8 +55,44 @@ const tartan = (cx: number, cy: number, rx: number, ry: number, color: string) =
   return out;
 };
 
-export const PropItem = ({ id, x, y }: { id: string; x: number; y: number }) => {
+/** Открытый ноутбук: кисть держит левый край, низ корпуса на +40 (кладётся на стол). broken — мокрый и помятый. */
+const Laptop = ({ broken }: { broken?: boolean }) => {
+  const lid = broken ? "M-2 22 L110 22 L118 -58 L70 -72 L58 -60 L4 -66 Z" : "M-2 22 L110 22 L104 -68 L4 -68 Z";
+  const screen = broken ? "M8 14 L100 14 L106 -50 L70 -62 L58 -50 L12 -56 Z" : "M8 14 L100 14 L95 -58 L13 -58 Z";
+  return (
+    <g>
+      <path d={lid} fill={broken ? "#4a4f57" : "#3a3f47"} />
+      <path d={screen} fill={broken ? "#2f3d4a" : "#7fb3d5"} />
+      {broken ? (
+        <g stroke="#e8f1f6" strokeWidth={2.5} strokeLinecap="round" fill="none" opacity={0.85}>
+          <path d="M62 -14 L44 -40 L36 -36 M62 -14 L88 -38 M62 -14 L84 8 M62 -14 L30 2 L18 -6 M62 -14 L66 -46" />
+        </g>
+      ) : (
+        <g>
+          <path d="M18 -50 L38 -50 L22 -30 Z" fill="#ffffff" opacity={0.35} />
+          <rect x={24} y={-20} width={54} height={5} rx={2} fill="#e8f1f6" opacity={0.8} />
+          <rect x={24} y={-10} width={38} height={5} rx={2} fill="#e8f1f6" opacity={0.6} />
+        </g>
+      )}
+      {/* клавиатура (вид чуть сверху) и корпус */}
+      <path d={broken ? "M-4 22 L112 22 L120 32 L40 30 L30 34 L-14 32 Z" : "M-4 22 L112 22 L122 32 L-14 32 Z"} fill="#c3cad2" />
+      {[0, 1].map((r) => <rect key={r} x={4 + r * 4} y={24 + r * 4} width={96 - r * 4} height={2.5} rx={1} fill="#7d8792" />)}
+      <path d={broken ? "M-14 32 L30 34 L40 30 L122 32 L122 40 L-14 40 Z" : "M-14 32 H122 V40 H-14 Z"} fill="#8b95a1" />
+      {broken && (
+        <g>
+          {/* вода: капли с корпуса и брызги, мокрый блеск */}
+          <path d="M70 26 Q90 24 104 28" stroke="#cfe6f5" strokeWidth={3} strokeLinecap="round" fill="none" />
+          {[[-16, 18], [124, 14], [130, 30], [-22, 32]].map(([cx, cy], i) => <path key={i} d={`M${cx} ${cy - 8} Q${cx + 5} ${cy} ${cx} ${cy + 4} Q${cx - 5} ${cy} ${cx} ${cy - 8} Z`} fill="#6fb3e0" />)}
+          <path d="M100 -76 q-8 -12 4 -20 q10 -8 2 -20" stroke="#b9bec4" strokeWidth={5} strokeLinecap="round" fill="none" opacity={0.7} />
+        </g>
+      )}
+    </g>
+  );
+};
+
+export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y: number; rest?: boolean }) => {
   const g = (children: React.ReactNode) => <g transform={`translate(${x} ${y})`}>{children}</g>;
+  const up = (children: React.ReactNode) => (rest ? <g>{children}</g> : upright(children));
   switch (id) {
     case "bicycle": {
       // старый велосипед стоит рядом, кукла держит его за руль; колёса на полу
@@ -383,6 +425,133 @@ export const PropItem = ({ id, x, y }: { id: string; x: number; y: number }) => 
       return g(<><path d="M-24 -84 h48 v76 l-8 -6 l-8 6 l-8 -6 l-8 6 l-8 -6 l-8 6 z" fill="#f6f2e8" /><rect x={-16} y={-74} width={32} height={4} fill="#8a8072" /><rect x={-16} y={-62} width={24} height={4} fill="#c8b99a" /><rect x={-16} y={-50} width={32} height={4} fill="#c8b99a" /><rect x={-16} y={-34} width={20} height={6} fill="#c8553d" /></>);
     case "wrench":
       return g(<><rect x={-5} y={-10} width={10} height={90} rx={4} fill="#9aa8b8" transform="rotate(-20)" /><path d="M-22 -26 a22 22 0 1 0 30 -12 l-10 12 l-12 -4 z" fill="#9aa8b8" /></>);
+    case "clipboard": // планшет с листом и зажимом (кисть держит нижний край)
+      return g(<><rect x={-31} y={-84} width={62} height={90} rx={5} fill={WOOD} /><rect x={-25} y={-74} width={50} height={72} rx={2} fill={PAPER} /><rect x={-11} y={-90} width={22} height={14} rx={3} fill={METAL} />{[-60, -50, -40, -30, -20].map((y, i) => <rect key={y} x={-19} y={y} width={i === 4 ? 22 : 38} height={3.5} rx={1.5} fill="#b8af9f" />)}</>);
+    case "pen": // ручка, кончик внизу-сзади кисти (как при письме)
+      return g(<><path d="M16 -26 L-9 14" stroke="#2f5fa8" strokeWidth={7} strokeLinecap="round" /><path d="M-9 14 L-12 19" stroke={INK} strokeWidth={4} strokeLinecap="round" /><path d="M16 -26 L12 -20" stroke="#f6f2e8" strokeWidth={7} strokeLinecap="round" /></>);
+    case "whistle": // свисток: мундштук назад (ко рту), бочонок у кисти, красный шнурок
+      return g(<><path d="M14 -8 Q26 22 8 38" fill="none" stroke="#c8302e" strokeWidth={3} strokeLinecap="round" /><rect x={-40} y={-24} width={36} height={10} rx={3} fill="#aeb6c2" /><circle cx={4} cy={-18} r={13} fill="#c9d0da" /><circle cx={8} cy={-22} r={4} fill={INK} /><circle cx={14} cy={-8} r={4} fill="none" stroke="#aeb6c2" strokeWidth={2.5} /></>);
+    case "baton-striped": // жезл регулировщика: чёрно-белые полосы
+      return g(up(<g transform="rotate(28)">
+        <rect x={-7} y={-96} width={14} height={104} rx={6} fill="#f6f6f2" />
+        {[-84, -60, -36, -12].map((y) => <rect key={y} x={-7} y={y} width={14} height={12} fill="#1d1d1d" />)}
+        <rect x={-8} y={-4} width={16} height={18} rx={5} fill="#1d1d1d" />
+      </g>));
+    // ——— низ на y ≈ +40 от кисти (REST_BOTTOM): положенный предмет стоит на столе/полу ———
+    case "laptop":
+      return g(up(<Laptop />));
+    case "laptop-broken": // мокрый, помятый, с трещинами на экране, дымится
+      return g(up(<Laptop broken />));
+    case "dishes": // тарелка (держат за край) и губка с пеной
+      return g(up(<>
+        <circle cx={38} cy={0} r={40} fill="#f6f2e8" />
+        <circle cx={38} cy={0} r={33} fill="none" stroke="#4a6fa5" strokeWidth={3} />
+        <circle cx={38} cy={0} r={24} fill="#ebe4d4" />
+        <g transform="rotate(-18 56 10)">
+          <rect x={38} y={0} width={40} height={24} rx={5} fill="#f2c94c" />
+          <rect x={38} y={0} width={40} height={9} rx={4} fill="#5b8c5a" />
+        </g>
+        {[[30, -14, 7], [42, -20, 5], [24, -24, 4], [72, -8, 6], [50, -8, 4]].map(([cx, cy, r], i) => <circle key={i} cx={cx} cy={cy} r={r} fill="#ffffff" stroke="#bfe0ee" strokeWidth={1.5} />)}
+      </>));
+    case "fridge-magnets": // два сувенирных магнита веером в ладони: пальма у моря и башня
+      return g(up(<>
+        <g transform="rotate(14 34 10)">
+          <rect x={16} y={-18} width={38} height={46} rx={6} fill="#f6efe0" />
+          <rect x={20} y={-14} width={30} height={38} rx={4} fill="#f2b8c0" />
+          <path d="M35 -10 L31 6 L28 20 H33 Q35 14 37 20 H42 L39 6 Z" fill="#3a3a44" />
+          <rect x={29} y={4} width={12} height={3} fill="#3a3a44" />
+        </g>
+        <g transform="rotate(-10 14 20)">
+          <rect x={-8} y={-2} width={44} height={42} rx={6} fill="#f6efe0" />
+          <rect x={-4} y={2} width={36} height={34} rx={4} fill="#8fc3e6" />
+          <rect x={-4} y={26} width={36} height={10} rx={3} fill="#f2d48a" />
+          <circle cx={24} cy={10} r={5} fill="#f2b33d" />
+          <path d="M8 28 Q6 18 10 10" stroke="#8a5a3a" strokeWidth={3} fill="none" />
+          <path d="M10 10 q-8 -2 -10 4 M10 10 q8 -4 12 2 M10 10 q-2 -8 -8 -8 M10 10 q4 -8 10 -6" stroke="#5b8c5a" strokeWidth={3} fill="none" strokeLinecap="round" />
+        </g>
+      </>));
+    case "gavel": // судейский молоток лежит в руке: черенок в кулаке, боёк впереди
+      return g(up(<>
+        <rect x={-30} y={10} width={100} height={13} rx={6} fill={WOOD} />
+        <circle cx={-30} cy={16.5} r={8} fill={WOOD_DARK} />
+        <rect x={64} y={-6} width={42} height={46} rx={10} fill={WOOD_DARK} />
+        <rect x={64} y={-6} width={42} height={8} rx={4} fill={BRASS} />
+        <rect x={64} y={32} width={42} height={8} rx={4} fill={BRASS} />
+        <rect x={70} y={6} width={6} height={22} rx={3} fill="#8a5a3a" opacity={0.6} />
+      </>));
+    case "plush-heart": // плюшевое сердце остриём вверх — две «половинки» внизу (сойдёт и за попу)
+      return g(up(<>
+        <path d="M40 -46 C62 -30 90 -10 88 14 A26 26 0 0 1 40 27.9 A26 26 0 0 1 -8 14 C-10 -10 18 -30 40 -46 Z" fill="#d9363e" />
+        <ellipse cx={16} cy={16} rx={13} ry={10} fill="#e85a62" />
+        <ellipse cx={64} cy={16} rx={13} ry={10} fill="#e85a62" />
+        <path d="M40 28 Q38 18 40 8" stroke="#a8232b" strokeWidth={3.5} strokeLinecap="round" fill="none" />
+        <path d="M40 -36 C58 -22 80 -6 80 12 M40 -36 C22 -22 0 -6 0 12" stroke="#f08a90" strokeWidth={2} strokeDasharray="4 5" fill="none" />
+        <rect x={34} y={-52} width={12} height={10} rx={2} fill={PAPER} />
+        <path d="M30 -10 q4 -3 8 0 M50 -16 q4 -3 8 0 M24 4 q4 -3 8 0" stroke="#b52a33" strokeWidth={1.6} fill="none" opacity={0.6} />
+      </>));
+    case "voodoo-doll": // тряпичная кукла с булавками, держат за ручку
+      return g(up(<>
+        <rect x={-2} y={-8} width={84} height={14} rx={7} fill="#c9a77a" />
+        <path d="M26 -8 H54 L58 24 H22 Z" fill="#c9a77a" />
+        <rect x={22} y={18} width={15} height={22} rx={7} fill="#c9a77a" />
+        <rect x={43} y={18} width={15} height={22} rx={7} fill="#c9a77a" />
+        <circle cx={40} cy={-26} r={19} fill="#c9a77a" />
+        <path d="M24 -38 q4 -10 10 -4 M34 -44 q6 -8 10 0 M46 -42 q8 -6 10 2" stroke="#3a2a20" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <rect x={28} y={-9} width={24} height={4} rx={2} fill="#7a5a3a" />
+        <g stroke={INK} strokeWidth={2.6} strokeLinecap="round">
+          <path d="M30 -32 l7 7 M37 -32 l-7 7 M43 -32 l7 7 M50 -32 l-7 7" />
+          <path d="M31 -16 l3 3 l3 -3 l3 3 l3 -3 l3 3 l3 -3" fill="none" />
+        </g>
+        <path d="M34 2 q6 -6 12 0 l-6 8 Z" fill="#c8302e" />
+        <g stroke="#8a6a44" strokeWidth={1.6} strokeDasharray="3 4" fill="none"><path d="M26 -2 V20 M54 -2 V20 M4 -1 H22 M58 -1 H78" /></g>
+        {[[52, -34, 70, -48, "#c8302e"], [46, 8, 66, 0, "#f2b33d"], [30, 30, 12, 36, "#3d6fb3"], [26, -22, 8, -36, "#5b8c5a"]].map(([x1, y1, x2, y2, c], i) => (
+          <g key={i}><line x1={x1 as number} y1={y1 as number} x2={x2 as number} y2={y2 as number} stroke="#b9c2cc" strokeWidth={2.5} /><circle cx={x2 as number} cy={y2 as number} r={4.5} fill={c as string} /></g>
+        ))}
+      </>));
+    case "bass-drum": {
+      // большой барабан с тарелкой сверху, несут перед собой: кисть — у правого обода, барабан — перед животом
+      const L = -300, R = -4, T = -128, B = 40;
+      const zig: string[] = [];
+      for (let i = 0; i <= 8; i++) zig.push(`${L + 14 + ((R - L - 28) * i) / 8} ${i % 2 ? B - 14 : T + 14}`);
+      return g(up(<>
+        {/* тарелка сверху — ближе к переднему ободу, чтобы не пряталась за головой */}
+        <rect x={-58} y={T - 40} width={8} height={40} fill="#8a9096" />
+        <ellipse cx={-54} cy={T - 40} rx={48} ry={9} fill="#e0a030" />
+        <ellipse cx={-54} cy={T - 44} rx={12} ry={5} fill="#c99020" />
+        <ellipse cx={-70} cy={T - 41} rx={18} ry={2.5} fill="#f6d27a" opacity={0.8} />
+        <rect x={L} y={T} width={R - L} height={B - T} fill="#c8553d" />
+        <rect x={L} y={T + 10} width={R - L} height={10} fill="#e0a030" opacity={0.8} />
+        <rect x={L} y={B - 20} width={R - L} height={10} fill="#e0a030" opacity={0.8} />
+        <path d={`M${zig.join(" L")}`} fill="none" stroke={PAPER} strokeWidth={4} strokeLinejoin="round" />
+        {[L, R].map((hx) => (
+          <g key={hx}>
+            <rect x={hx - 13} y={T - 4} width={26} height={B - T + 4} rx={10} fill="#efe2cc" />
+            <rect x={hx - 13} y={T - 4} width={26} height={B - T + 4} rx={10} fill="none" stroke="#8a5a3a" strokeWidth={4} />
+          </g>
+        ))}
+      </>));
+    }
+    case "cable-coil": { // моток сетевого кабеля, держат сбоку; стяжка сверху, хвост с коннектором
+      const loops = [[46, -4, 44, 0], [44, -2, 40, 14], [48, -6, 42, -12], [45, -3, 36, 26], [47, -5, 38, -26], [44, -4, 46, 6]];
+      return g(up(<>
+        {loops.map(([cx, cy, r, a], i) => (
+          <ellipse key={i} cx={cx} cy={cy} rx={r} ry={r * 0.96} transform={`rotate(${a} ${cx} ${cy})`} fill="none" stroke={["#3d7cc9", "#3471b8", "#4a88d4"][i % 3]} strokeWidth={7} />
+        ))}
+        <rect x={38} y={-56} width={16} height={14} rx={3} fill="#2b2b2b" />
+        <path d="M86 18 Q100 30 98 40 Q96 30 110 26" stroke="#3d7cc9" strokeWidth={6} fill="none" strokeLinecap="round" />
+        <rect x={104} y={14} width={16} height={22} rx={3} fill="#dde7ee" opacity={0.95} />
+        {[107, 111, 115].map((cx) => <rect key={cx} x={cx} y={28} width={2} height={6} fill="#d9a92a" />)}
+      </>));
+    }
+    case "towel": // сложенное банное полотенце, держат за край
+      return g(up(<>
+        <rect x={-10} y={0} width={96} height={40} rx={10} fill="#f4f1ea" />
+        <rect x={-10} y={14} width={96} height={4} fill="#e2ddd0" />
+        <rect x={-10} y={26} width={96} height={4} fill="#e2ddd0" />
+        <rect x={60} y={0} width={7} height={40} fill="#4a8fc8" />
+        <rect x={71} y={0} width={4} height={40} fill="#4a8fc8" />
+        <path d="M86 6 V34" stroke="#f4f1ea" strokeWidth={4} strokeDasharray="2 3" />
+      </>));
     default:
       return null;
   }

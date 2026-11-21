@@ -1,5 +1,6 @@
 import { AbsoluteFill, useVideoConfig } from "remotion";
 import { lookForRole, type Episode } from "@jf/core";
+import { costumeFor } from "./puppet/costume";
 import { characters, locations } from "./registry";
 import { Background } from "./components/Background";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
@@ -23,7 +24,7 @@ export const Cover = (ep: Episode) => {
         const facing: 1 | -1 = n === 1 ? 1 : i < (n - 1) / 2 ? 1 : -1;
         return (
           <div key={id} style={{ position: "absolute", left: x - boxW / 2, top, width: boxW, height: boxH, display: "flex", justifyContent: "center" }}>
-            <Puppet look={lookForRole(characters[id], ep.roles[id], ep.looks?.[id] ?? ep.scenes?.[0]?.looks?.[id])} emotion={i === 0 ? "happy" : "surprised"} speaking={false} facing={facing} seed={i * 17} />
+            <Puppet look={costumeFor(characters[id], ep.roles[id], ep.looks?.[id] ?? ep.scenes?.[0]?.looks?.[id])} emotion={i === 0 ? "happy" : "surprised"} speaking={false} facing={facing} seed={i * 17} />
           </div>
         );
       })}

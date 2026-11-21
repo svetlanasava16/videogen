@@ -17,71 +17,89 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Verkehrspolizist starb. Er stand vor Gott.",
+      "text": "Ein Verkehrspolizist ist gestorben.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "ded",
-      "text": "Nun, mein Sohn, hast du den Menschen Gutes getan?",
+      "character": "narrator",
+      "text": "Er tritt vor Gott. Der fragt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Ja, kam vor.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "Nun, mein Sohn, hast du den Menschen Gutes getan?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "Und Böses?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "sluzhivy",
+      "text": "Ja, kam vor.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Das kam auch vor.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "ded",
+      "text": "Und Böses?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "ded",
-      "text": "Nun, hier sind zwei Wege für dich, einer in den Himmel, der andere in die Hölle.",
+      "character": "sluzhivy",
+      "text": "Auch das kam vor.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "ded",
-      "text": "Welchen du wählst, dorthin kommst du.",
+      "text": "Nun, hier hast du zwei Wege, einer führt in den Himmel, der andere in die Hölle.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "ded",
+      "text": "Welchen du wählst, dahin kommst du.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Der Bulle antwortet:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "sluzhivy",
-      "text": "Kann ich nicht einfach hier an der Kreuzung bleiben?",
-      "emotion": "happy",
+      "text": "Darf ich vielleicht hier an der Kreuzung bleiben?",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -89,6 +107,105 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "place": "crossroads",
+      "cast": [
+        "sluzhivy",
+        "ded"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "ded": "god"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "judge"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "baton-striped",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "front-left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "nod"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "ded",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "turn"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

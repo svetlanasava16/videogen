@@ -68,6 +68,8 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
   const h = heroH * (kids ? 0.8 : 0.62);
   const w = (h * BOX_W) / BOX_H;
   const feet = floorY - heroH * (kids ? 0.2 : 0.1);
+  const seated = !!spec.seated;
+  const seatColor = spec.seatColor ?? "#4a6290";
   return (
     <div style={{ position: "absolute", inset: 0, filter: "saturate(0.6) brightness(0.88)" }}>
       {looks.map((look, i) => {
@@ -89,7 +91,14 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
           }}>
             <Puppet look={look} emotion={q.emotion} speaking={q.speaking} seed={i * 31 + 7}
               walk={ev?.react === "flee" && !delay ? 1 : 0}
+              seated={seated && !(ev?.react === "flee" && !delay) ? 1 : 0}
               facing={ev?.react === "flee" && !delay ? (x < width / 2 ? -1 : 1) : i % 2 ? -1 : 1} />
+            {/* сидят: спинка кресла перед фигурой закрывает ноги — головы и плечи над рядом кресел */}
+            {seated && !(ev?.react === "flee" && !delay) && (
+              <div style={{ position: "absolute", left: -w * 0.04, width: w * 1.08, top: h * 0.62, height: h * 0.4,
+                background: seatColor, borderRadius: `${w * 0.18}px ${w * 0.18}px ${w * 0.04}px ${w * 0.04}px`,
+                boxShadow: `inset 0 ${h * 0.05}px 0 rgba(255,255,255,0.25)` }} />
+            )}
           </div>
         );
       })}

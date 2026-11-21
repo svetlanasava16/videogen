@@ -2,7 +2,7 @@
   "id": "ru-82366d379093.ru",
   "jokeId": "ru-82366d379093",
   "locale": "ru",
-  "title": "Последняя курица",
+  "title": "Курица",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -10,7 +10,7 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
+    "devushka": "customer",
     "barmen": "salesman"
   },
   "lines": [
@@ -19,48 +19,102 @@
       "character": "narrator",
       "text": "Мясная лавка, минута до закрытия.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Слава Богу, успела! У вас куры есть?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Вбегает запыхавшаяся женщина и говорит:",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "Мясник достаёт из морозилки единственную курицу и кладёт на весы. Весы показывают килограмм.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka",
+      "text": "Слава Богу, успела! У вас куры есть?",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "devushka",
-      "text": "Н-да... А побольше нет?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Мясник достает из морозилки единственную курицу",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Мясник убирает курицу обратно, потом достаёт её же, поворачивает, кладёт на весы и прижимает пальцем. Весы показывают полтора кило.",
+      "text": "и кладет на весы.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
+      "character": "narrator",
+      "text": "Весы показывают килограмм. Женщина:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "devushka",
+      "text": "Н-да... А побольше нет?",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Мясник убирает курицу обратно,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "потом достает ее же, поворачивает,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "кладет на весы и прижимает пальцем.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Весы показывают полтора кило. Женщина:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
       "character": "devushka",
       "text": "Отлично! Мне, будьте добры, обе.",
       "emotion": "happy",
@@ -79,7 +133,7 @@
         "barmen"
       ],
       "roles": {
-        "devushka": "woman",
+        "devushka": "customer",
         "barmen": "salesman"
       },
       "looks": {
@@ -90,17 +144,17 @@
           "remove": []
         }
       },
+      "set": [
+        {
+          "item": "scales",
+          "at": "counter"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "barmen",
           "to": "counter"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "scales",
-          "action": "put"
         },
         {
           "type": "line",
@@ -117,34 +171,30 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
           "type": "prop",
           "who": "barmen",
           "item": "chicken",
           "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "chicken",
-          "action": "put"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "prop",
+          "type": "move",
           "who": "barmen",
-          "item": "chicken",
-          "action": "hold"
-        },
-        {
-          "type": "pause",
-          "sec": 1
+          "to": "counter",
+          "via": "back"
         },
         {
           "type": "prop",
@@ -159,6 +209,69 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "devushka",
+          "act": "scratch-head"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "turn"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "via": "back"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
         }
       ],
       "transition": "cut"

@@ -2,7 +2,7 @@
   "id": "ru-6785d1199739.ru",
   "jokeId": "ru-6785d1199739",
   "locale": "ru",
-  "title": "Кунсткамера",
+  "title": "Три лягушки",
   "location": "zal",
   "place": "museum",
   "cast": [
@@ -19,7 +19,7 @@
       "character": "muzhik",
       "text": "Ну просто сердце кровью обливается, как вижу этих заспиртованных животных!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,14 +28,14 @@
       "character": "muzhik-ryzhy",
       "text": "Да что ты, там же всего три лягушки...",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Вот именно — три лягушки. А спирта — литров десять!",
+      "text": "Вот именно — три лягушки. А спирта — литров десять!!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,12 +57,6 @@
         "muzhik-ryzhy": "everyman"
       },
       "looks": {
-        "muzhik": {
-          "add": [
-            "red-nose"
-          ],
-          "remove": []
-        },
         "muzhik-ryzhy": {
           "add": [
             "glasses"
@@ -70,14 +64,45 @@
           "remove": []
         }
       },
+      "set": [
+        {
+          "item": "specimen-shelf",
+          "at": "specimen-shelf"
+        }
+      ],
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "landscape"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "front-left"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "cry"
+        },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "point"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
         },
         {
           "type": "line",

@@ -92,20 +92,22 @@
         "roles": [
           "cook"
         ],
-        "change": "chef hat",
+        "change": "white double-breasted chef jacket with neckerchief, chef hat",
         "look": {
           "add": [
+            "chef-whites",
             "chef-hat"
           ],
-          "remove": []
+          "remove": [
+            "apron"
+          ]
         }
       },
       {
         "roles": [
           "mechanic",
           "plumber",
-          "craftsman",
-          "construction-worker"
+          "craftsman"
         ],
         "change": "overalls, wrench or hard hat",
         "look": {
@@ -122,6 +124,23 @@
           "janitor"
         ],
         "change": "broom"
+      },
+      {
+        "roles": [
+          "construction-worker"
+        ],
+        "change": "orange reflective vest over a blue work shirt, yellow hard hat",
+        "look": {
+          "clothes": "#4a6fa5",
+          "add": [
+            "construction",
+            "hard-hat"
+          ],
+          "remove": [
+            "apron",
+            "towel"
+          ]
+        }
       }
     ],
     "voiceBrief": {

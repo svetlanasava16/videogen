@@ -2,7 +2,7 @@
   "id": "ru-9b3a6cdc152e.ru",
   "jokeId": "ru-9b3a6cdc152e",
   "locale": "ru",
-  "title": "При таких ценах",
+  "title": "Штраф",
   "location": "sud",
   "place": "courtroom",
   "cast": [
@@ -19,7 +19,7 @@
       "character": "nachalnik",
       "text": "Я приговариваю вас к пятистам рублям денежного штрафа за оскорбление государственного служащего.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,7 +28,7 @@
       "character": "nachalnik",
       "text": "Хотели бы вы что-нибудь сказать на это, обвиняемый?",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -44,6 +44,83 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "sud",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "nachalnik": "judge"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "dock"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "judge"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "gavel",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "knock"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "point"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "look-down"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "stand"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

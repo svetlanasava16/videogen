@@ -2,7 +2,7 @@
   "id": "ru-82366d379093.en",
   "jokeId": "ru-82366d379093",
   "locale": "en",
-  "title": "The Last Chicken",
+  "title": "The Only Chicken",
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -10,59 +10,104 @@
     "barmen"
   ],
   "roles": {
-    "devushka": "woman",
+    "devushka": "customer",
     "barmen": "salesman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A butcher's shop, one minute before closing.",
+      "text": "A butcher shop, one minute to closing.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "devushka",
-      "text": "Thank God, I made it! Do you have any chickens?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "A breathless woman runs in and says:",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "narrator",
-      "text": "The butcher takes the only chicken out of the freezer and puts it on the scales. The scales show two pounds.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "devushka",
+      "text": "Thank God, I made it! Do you have any chickens?",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "devushka",
-      "text": "Hmm... Don't you have a bigger one?",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "The butcher takes the only chicken out of the freezer",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The butcher puts the chicken back, then takes out the same one, turns it around, puts it on the scales and presses down with his finger. The scales show three pounds.",
+      "text": "and puts it on the scales. The scales show two pounds. The woman:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "devushka",
-      "text": "Great! I'll take both, please.",
+      "text": "Hmm... Don't you have a bigger one?",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "The butcher puts the chicken back,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "then takes the same one out again, turns it over,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "puts it on the scales and presses down on it with his finger.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "The scales show three pounds. The woman:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "devushka",
+      "text": "Excellent! I'll take both, please.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -79,7 +124,7 @@
         "barmen"
       ],
       "roles": {
-        "devushka": "woman",
+        "devushka": "customer",
         "barmen": "salesman"
       },
       "looks": {
@@ -90,17 +135,17 @@
           "remove": []
         }
       },
+      "set": [
+        {
+          "item": "scales",
+          "at": "counter"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "barmen",
           "to": "counter"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "scales",
-          "action": "put"
         },
         {
           "type": "line",
@@ -117,34 +162,30 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
           "type": "prop",
           "who": "barmen",
           "item": "chicken",
           "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "barmen",
-          "item": "chicken",
-          "action": "put"
-        },
-        {
-          "type": "line",
-          "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "prop",
+          "type": "move",
           "who": "barmen",
-          "item": "chicken",
-          "action": "hold"
-        },
-        {
-          "type": "pause",
-          "sec": 1
+          "to": "counter",
+          "via": "back"
         },
         {
           "type": "prop",
@@ -159,6 +200,60 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "shelf",
+          "via": "back"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "look-down"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter",
+          "via": "back"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "chicken",
+          "action": "put"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

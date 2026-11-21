@@ -2,7 +2,7 @@
   "id": "ru-6785d1199739.en",
   "jokeId": "ru-6785d1199739",
   "locale": "en",
-  "title": "The Museum",
+  "title": "Three Frogs",
   "location": "zal",
   "place": "museum",
   "cast": [
@@ -17,9 +17,9 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "My heart just bleeds when I see these animals pickled in alcohol!",
+      "text": "It just breaks my heart to see these animals preserved in alcohol!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,14 +28,14 @@
       "character": "muzhik-ryzhy",
       "text": "Oh, come on, there are only three frogs in there...",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Exactly. Three frogs. And about three gallons of alcohol!",
+      "text": "Exactly — three frogs. And about two and a half gallons of alcohol!!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -57,12 +57,6 @@
         "muzhik-ryzhy": "everyman"
       },
       "looks": {
-        "muzhik": {
-          "add": [
-            "red-nose"
-          ],
-          "remove": []
-        },
         "muzhik-ryzhy": {
           "add": [
             "glasses"
@@ -70,14 +64,45 @@
           "remove": []
         }
       },
+      "set": [
+        {
+          "item": "specimen-shelf",
+          "at": "specimen-shelf"
+        }
+      ],
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "landscape"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "front-left"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "cry"
+        },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "point"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
         },
         {
           "type": "line",

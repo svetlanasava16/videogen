@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { NARRATOR, PLANES, lookForRole, markOf, marksFor, subLocation, type Episode, type SetItem } from "@jf/core";
+import { costumeFor } from "./puppet/costume";
 import { characters, locations } from "./registry";
 import { buildTimeline, type SceneTL, type Timeline } from "./timeline";
 import { Background } from "./components/Background";
@@ -14,6 +15,7 @@ import { buildingFor } from "./world/town";
 import { Crowd, CrowdFront } from "./world/Crowd";
 import { SEAT_ITEMS, SET_PIECES, SetPiece, pieceWidth } from "./world/SetPieces";
 import { VEHICLE_SPECS, VehicleArt } from "./world/Vehicles";
+import { PropItem } from "./props/Props";
 import { LANE, WALL_Y, depthScale, feetY } from "./world/depth";
 import { cameraAt, cameraTransform } from "./director/camera";
 
@@ -23,6 +25,11 @@ const FLOOR = WALL_Y / 1920; // линия стены (дальний план) 
 const PUPPET_H = 0.4; // высота бокса куклы среднего плана (доля высоты кадра)
 const FEET = 585 / BOX_H; // стопы куклы в её боксе
 const ease = Easing.inOut(Easing.cubic);
+
+/** Высота столешницы над полом (px при масштабе 1) — куда ложится положенный предмет (prop put). */
+const TABLE_TOP: Record<string, number> = { "dining-table": 204, table: 200, desk: 330, counter: 380, lectern: 300, scales: 380, sink: 300 };
+/** Предмет рисуется от точки «кисти»: поднять кисть над поверхностью настолько (единицы рисунка), чтобы он лёг на неё. */
+const PROP_REST = 40;
 
 /** Насколько близко подходит кукла к цели действия (доля ширины бокса). */
 const NEAR = 0.55;
@@ -36,7 +43,7 @@ const WIDE_PER_FRAME = 4.5;
 /** Куклы на разных планах (|Δz| больше) не раздвигаются: один стоит за спиной другого. */
 const SAME_PLANE = 0.25;
 /** На разных планах — меньший зазор (доля MIN_GAP): дальний стоит за плечом ближнего, но его лицо видно. */
-const BEHIND_GAP = 0.5;
+const BEHIND_GAP = 0.8;
 /** Машины по умолчанию едут по дороге между средним и передним планом. */
 const VEHICLE_Z = 0.3;
 /** Машины чуть меньше «настоящих»: в вертикальном кадре легковая в профиле иначе шире кадра и закрывает героев. */
@@ -342,7 +349,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     return (
       <div key={id} style={{ position: "absolute", left: x - b.w / 2, top: b.top, width: b.w, height: b.h, display: "flex", justifyContent: "center" }}>
         <Puppet
-          look={lookForRole(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id] ?? ep.looks?.[id])}
+          look={costumeFor(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id] ?? ep.looks?.[id])}
           speaking={talking || laughing}
           emotion={laughing ? "happy" : current?.character === id ? current.emotion : "neutral"}
           walk={walk}
@@ -374,6 +381,29 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
       node: <SetPiece key={`s:${it.item}:${it.at ?? ""}`} it={it} x={geo.setX(it.at)} stageW={geo.stageW} height={height} floorY={feetY(z, height)} k={geo.castK * depthScale(z)} />,
     });
   }
+  // положенные (put) и уроненные (drop) предметы остаются, где их оставили: на столе/прилавке рядом или на полу,
+  // пока кто-нибудь не возьмёт этот предмет снова (hold)
+  for (const [i, e] of sc.props.entries()) {
+    if ((e.action !== "put" && e.action !== "drop") || e.frame > frame) continue;
+    if (sc.props.some((o) => o.item === e.item && o.frame > e.frame && o.frame <= frame && (o.action === "hold" || o.action === "give"))) continue;
+    const b = geo.box(e.who, e.frame);
+    const toCentre = b.x < geo.stageW / 2 ? 1 : -1;
+    const x = b.x + toCentre * b.w * 0.28;
+    // стол рядом (того же плана) — кладём на столешницу
+    const table = e.action === "put" ? geo.setItems.find((it) => TABLE_TOP[it.item] !== undefined && Math.abs(geo.itemZ(it) - b.z) < 0.2 && Math.abs(geo.setX(it.at) - x) < pieceWidth(it, geo.stageW, geo.castK * depthScale(geo.itemZ(it))) / 2) : undefined;
+    const z = table ? geo.itemZ(table) - 0.02 : b.z - 0.005;
+    const k = geo.castK * depthScale(table ? geo.itemZ(table) : b.z);
+    const surface = feetY(table ? geo.itemZ(table) : b.z, height) - (table ? TABLE_TOP[table.item] * k : 0);
+    const u = (k * height * PUPPET_H) / BOX_H; // единица рисунка предмета (бокс куклы 600) в px
+    draw.push({
+      z, key: `prop:${i}`,
+      node: (
+        <svg key={`prop:${i}`} width={geo.stageW} height={height} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
+          <g transform={`translate(${x} ${surface - PROP_REST * u}) scale(${u})`}><PropItem id={e.item} x={0} y={0} rest /></g>
+        </svg>
+      ),
+    });
+  }
   for (const v of geo.vehicles) {
     if (!geo.vehPresent(v.id, frame)) continue;
     const x = geo.vehX(v.id, frame), z = geo.vehZ(v.id), s = geo.vehScale(v.id), fc = geo.vehFacing(v.id, frame);
@@ -403,7 +433,11 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
   }
   draw.sort((a, b) => b.z - a.z);
   // массовка: своя у сцены или по умолчанию у сублокации (салон самолёта — пассажиры)
-  const crowd = sc.scene.crowd ?? subLocation(locations[sc.scene.location], sc.scene.place)?.crowd;
+  // сидит ли она и цвет кресел — от сублокации, если сценарий не задал (пассажиры в салоне сидят)
+  const placeCrowd = subLocation(locations[sc.scene.location], sc.scene.place)?.crowd;
+  const crowd = sc.scene.crowd
+    ? { seated: placeCrowd?.seated, seatColor: placeCrowd?.seatColor, ...Object.fromEntries(Object.entries(sc.scene.crowd).filter(([, v]) => v !== undefined)) } as typeof sc.scene.crowd
+    : placeCrowd;
 
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: geo.stageW, height, transformOrigin: "0 0",

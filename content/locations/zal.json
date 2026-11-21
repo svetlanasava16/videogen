@@ -75,11 +75,12 @@
     }
   },
   "bible": {
-    "summary": "Assembly hall: a low stage across the back (back plane = on stage) with a presidium of three chairs, a side table with a carafe, a lectern with a microphone, banner and drapes; the hall floor in front (mid and front planes), audience seat backs at the bottom edge. Variants: theatre, museum.",
+    "summary": "Assembly hall: chandeliers, tall windows, a low stage across the back (back plane = on stage) with drapes, a banner and a laurel emblem, two flags on poles, flower pots at the stage corners, a presidium of three chairs, a side table with a carafe and a bouquet, a lectern with a microphone; the parquet hall floor in front (mid and front planes), audience seat backs at the bottom edge. Variants: theatre, museum, cinema.",
     "roles": [
       "conference-hall",
       "theater",
-      "museum"
+      "museum",
+      "cinema"
     ],
     "variants": [
       {
@@ -92,7 +93,7 @@
         "roles": [
           "theater"
         ],
-        "change": "Theatre: stage with red curtains, painted moonlit scenery and footlights; actors stand on stage (back and middle planes: stage-left, center, stage-right); in front of the footlights a front row of four red audience seats (seat-1…seat-4, front plane) facing us, dark auditorium with seat backs below.",
+        "change": "Theatre: stage with red curtains, gold tassels and tiebacks, painted scenery of a starry moonlit sky with a castle on a hill, cardboard trees in the wings, footlights; actors stand on stage (back and middle planes: stage-left, center, stage-right); in front of the footlights a front row of four red audience seats (seat-1…seat-4, front plane) facing us, dark auditorium with seat backs below.",
         "marks": {
           "stage-left": {
             "x": 0.3,
@@ -154,7 +155,7 @@
         "roles": [
           "museum"
         ],
-        "change": "Museum gallery: big landscape behind a rope barrier on the left (landscape), portrait in the middle (portrait), still life on the right (still-life), statue on a plinth at the far right; a backless visitors' bench in the middle of the room for two (bench-1, bench-2, middle plane).",
+        "change": "Museum gallery: skylight in the ceiling, track lights, panelled lower walls, herringbone parquet, security camera in the corner; big landscape in a gilded frame behind a rope barrier on the left (landscape), portrait in the middle (portrait), an ancient amphora on a plinth, still life on the right (still-life), statue on a plinth at the far right; a backless visitors' bench in the middle of the room for two (bench-1, bench-2, middle plane); a specimen shelf or glass case with jars can stand against the back wall on the left in front of the rope barrier (set specimen-shelf at mark specimen-shelf), visitors look at it from landscape or front-left.",
         "marks": {
           "landscape": {
             "x": 0.24,
@@ -201,7 +202,88 @@
           "front-right": {
             "x": 0.75,
             "z": 0
+          },
+          "specimen-shelf": {
+            "x": 0.2,
+            "z": 1
           }
+        }
+      },
+      {
+        "id": "cinema",
+        "name": {
+          "ru": "Кинотеатр",
+          "en": "Cinema",
+          "de": "Kino"
+        },
+        "roles": [
+          "cinema",
+          "movie-theater",
+          "movie-theatre"
+        ],
+        "change": "Dark cinema hall: a big screen on the back wall shows an ocean liner with four funnels sailing at sunset (a small iceberg on the horizon), red velvet curtains at its sides, the projector beam with dust shines from behind the audience over everyone's heads, starry dark ceiling; a green exit sign over the exit door at the back left (exit), lit step lights in the aisle on the left (aisle); rows of red plush seats with cup-holder armrests (a popcorn bucket on two of them) facing the screen: the back row near the screen (back-1, back-2, back-3, seated, between back and middle plane) and the middle row (seat-1…seat-4, seated, middle plane); the default crowd is a seated audience in the far rows under the screen; people stand in front of the rows at front-left, front-center, front-right.",
+        "marks": {
+          "exit": {
+            "x": 0.06,
+            "z": 1
+          },
+          "back-1": {
+            "x": 0.3,
+            "z": 0.8,
+            "seat": "chair"
+          },
+          "back-2": {
+            "x": 0.5,
+            "z": 0.8,
+            "seat": "chair"
+          },
+          "back-3": {
+            "x": 0.7,
+            "z": 0.8,
+            "seat": "chair"
+          },
+          "aisle": {
+            "x": 0.07,
+            "z": 0.5
+          },
+          "seat-1": {
+            "x": 0.2,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "seat-2": {
+            "x": 0.4,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "seat-3": {
+            "x": 0.6,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "seat-4": {
+            "x": 0.8,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "crowd": {
+          "who": "audience",
+          "size": "many",
+          "seated": true,
+          "seatColor": "#8a2a2a"
         }
       }
     ],

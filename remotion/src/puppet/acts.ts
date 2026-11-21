@@ -23,16 +23,20 @@ export type Pose = {
   headX: number; headY: number; tilt: number;
   /** Плечи подняты (px). */ shoulder: number;
   /** Поворот предмета в руке на экране (по умолчанию как раньше: −угол руки). */ propR: number;
+  /** Поворот головы назад, через плечо (0..1; после 0.5 голова отражена — смотрит в другую сторону). */ turn: number;
 };
 export type PosePart = {
   armB?: Partial<ArmP>; armF?: Partial<ArmP>; legB?: Partial<LegP>; legF?: Partial<LegP>;
-  drop?: number; lift?: number; x?: number; rot?: number; lean?: number; headX?: number; headY?: number; tilt?: number; shoulder?: number; propR?: number;
+  drop?: number; lift?: number; x?: number; rot?: number; lean?: number; headX?: number; headY?: number; tilt?: number; shoulder?: number; propR?: number; turn?: number;
 };
 
 export type Eyes = "squeeze" | "closed" | "happy" | "x" | "wide";
 export type MouthFx = "pucker" | "laugh" | "o" | "grimace" | "wail" | "grin" | "chomp" | "wavy";
 export type FaceFx = { eyes?: Eyes; mouth?: MouthFx; open?: number; brows?: Emotion; look?: [number, number] };
-export type HandShape = "point" | "fist" | "pray";
+/** Форма кисти; pad/pen/phone/whistle — кисть держит предмет действия (планшет, ручку, телефон, свисток: рисует риг через PropItem). */
+export type HandShape = "point" | "fist" | "pray" | "pad" | "pen" | "phone" | "whistle";
+/** Предмет, который рисует форма кисти (id из props/Props.tsx). */
+export const HAND_ITEM: Partial<Record<HandShape, string>> = { pad: "clipboard", pen: "pen", phone: "phone", whistle: "whistle" };
 type P = [number, number];
 /** Эффекты: swoosh/speed — в кадре корпуса; burst/arcs — корпус или голова; stars/tears — голова; glyph — вертикально в кадре сцены. */
 export type Fx =
@@ -45,7 +49,10 @@ export type Fx =
   | { type: "rays"; space: "torso" | "head"; at: P; dir: number; r: number; n?: number; span?: number }
   | { type: "glyph"; space: "torso" | "head"; at: P; g: "z" | "heart" | "note" | "q" | "dots"; t: number };
 
-export type ActOut = { pose: PosePart; face?: FaceFx; fx?: Fx[]; over?: { F?: boolean; B?: boolean }; hand?: { F?: HandShape; B?: HandShape } };
+/**
+ * itemR — поворот предмета формы кисти на экране (градусы, 0 — как нарисован); puff — надутые щёки (0..1).
+ */
+export type ActOut = { pose: PosePart; face?: FaceFx; fx?: Fx[]; over?: { F?: boolean; B?: boolean }; hand?: { F?: HandShape; B?: HandShape }; itemR?: { F?: number; B?: number }; puff?: number };
 
 /** Геометрия текущего телосложения (координаты бокса куклы до сдвига на пол). */
 export type RigGeo = {
@@ -424,11 +431,58 @@ const grab: Fn = ({ g, t }) => {
   };
 };
 
+/** Пишет: задняя рука держит планшет перед грудью, передняя водит ручкой по листу; голова и глаза вниз. Состояние. */
+const write: Fn = ({ g, t }) => {
+  const pad: P = [150 + g.bodyW * 0.16, g.shY + g.bodyH * 0.34];
+  const pB = reach(g, -1, pad[0] - 6, pad[1] + 34, { elbow: "down", max: 1.7 });
+  const line = Math.floor(t * 0.9) % 3; // строка
+  const wx = 14 * sin(t, 1.8), wy = 2.5 * sin(t, 7) - 10 + line * 9;
+  const pF = reach(g, 1, pad[0] + 10 + wx, pad[1] + wy, { elbow: "down", max: 1.7 });
+  return {
+    pose: { tilt: 8, headY: 6, headX: 3, armB: { ...pB, palm: 1 }, armF: { ...pF, palm: 0.9 } },
+    hand: { B: "pad", F: "pen" }, itemR: { B: -8, F: 0 }, face: { look: [3, 7] },
+  };
+};
+
+/** Говорит по телефону: трубка у уха, голова чуть к плечу. Состояние (держится, пока не положит). */
+const phone: Fn = ({ g, hold }) => {
+  const p: PosePart = { tilt: 7, headY: 2 };
+  const [hx, hy] = headPt(p, 228, 208);
+  return {
+    pose: { ...p, armF: { ...reach(g, 1, hx, hy, { elbow: "down", max: 1.7 }), palm: 0.95 }, propR: 0 },
+    over: { F: true }, hand: hold === "phone" ? { F: "fist" } : { F: "phone" }, itemR: { F: -4 }, face: { look: [3, -1] },
+  };
+};
+
+/** Свистит в свисток: подносит ко рту, щёки надуты, звуковые дуги. */
+const whistle: Fn = ({ g, t, hold }) => {
+  const p: PosePart = { tilt: -4, headY: -2 };
+  const [mx, my] = headPt(p, MOUTH[0], MOUTH[1]);
+  const up = smooth(seg(t, 0, 0.18));
+  // свисток нарисован мундштуком назад (−x) на 40 px от кисти и на 18 px выше неё
+  const pF = reach(g, 1, mix(g.sxF + 40, mx + 40, up), mix(g.shY + 90, my + 16, up), { elbow: "down", max: 1.7 });
+  const blow = t > 0.2;
+  const pulse = Math.abs(sin(t, 3));
+  return {
+    pose: { ...p, armF: { ...pF, palm: 0.95 }, propR: 0, shoulder: blow ? 3 * pulse : 0 },
+    over: { F: true }, hand: hold === "whistle" ? { F: "fist" } : { F: "whistle" }, itemR: { F: 0 },
+    face: blow ? { eyes: "squeeze", mouth: "pucker", brows: "angry" } : undefined,
+    puff: blow ? 0.75 + 0.25 * pulse : 0,
+    fx: blow ? [{ type: "arcs", space: "head", at: [218, 196], dir: 75, r: 30 + 10 * pulse, n: 3, span: 70 }] : [],
+  };
+};
+
+/** Смотрит вниз: голова опущена и наклонена вперёд, глаза в пол. */
+const lookDown: Fn = () => ({ pose: { headY: 10, headX: 5, tilt: 12, lean: 4, shoulder: 2 }, face: { look: [3, 8] } });
+
+/** Оборачивается: голова поворачивается назад (через плечо), корпус чуть следом, глаза в другую сторону. */
+const turn: Fn = () => ({ pose: { turn: 1, headX: -6, lean: -4, tilt: -3, armF: { u: 18, f: 30 } }, face: { look: [5, 0], brows: "surprised" } });
+
 export const ACT_POSES: Record<Act, Fn> = {
   slap, punch, "hit-head": slap, "cover-ears": coverEars, "cover-eyes": coverEyes, "cover-face": coverFace, hug, kiss, point, wave,
   facepalm, shrug, nod, "shake-head": shakeHead, bow, kneel, sit, stand: () => ({ pose: {} }), fall, faint, lie, jump, run, cry, laugh,
   drink, eat, "scratch-head": scratchHead, "hands-up": handsUp, clap, "pray-hands": prayHands, think, sleep, throw: throwIt, grab, knock,
-  dance, shiver, flex,
+  dance, shiver, flex, write, phone, whistle, "look-down": lookDown, turn,
 };
 
 function blend(p: Pose, part: PosePart, k: number) {
@@ -459,11 +513,11 @@ export function basePose(arms: { left: number; right: number }, legs: { left: nu
     armF: { u: arms.right, f: arms.right, s: 1, palm: 1, bulge: 0 },
     armB: { u: -arms.left, f: -arms.left, s: 1, palm: 1, bulge: 0 },
     legF: leg(legs.right), legB: leg(legs.left),
-    drop: 0, lift: 0, x: 0, rot: 0, lean: 0, headX: 0, headY: 0, tilt, shoulder: 0, propR: -arms.right,
+    drop: 0, lift: 0, x: 0, rot: 0, lean: 0, headX: 0, headY: 0, tilt, shoulder: 0, propR: -arms.right, turn: 0,
   };
 }
 
-export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape } };
+export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape }; itemR: { F: number; B: number }; puff: number };
 
 /** Итоговая поза: обычная → сидя (seated) → поза-состояние (base) → жест (act) → вздрагивание (flinch). */
 export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; base?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string }): Resolved {
@@ -474,6 +528,8 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
   const fx: Fx[] = [];
   let over = { F: false, B: false };
   let hand: Resolved["hand"] = {};
+  let itemR = { F: 0, B: 0 };
+  let puff = 0;
   let fxK = 0;
   // слои: сначала состояние, жест поверх (частичная поза жеста перекрывает только свои суставы)
   for (const layer of [o.base, o.act]) {
@@ -483,7 +539,8 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
     const r = fn({ g, t: Math.max(0, layer!.t), hold: o.hold });
     nearArms(p, r.pose);
     blend(p, r.pose, k);
-    if (k > 0.5) { face = r.face ?? face; hand = { ...hand, ...(r.hand ?? {}) }; }
+    if (k > 0.5) { face = r.face ?? face; hand = { ...hand, ...(r.hand ?? {}) }; itemR = { ...itemR, ...(r.itemR ?? {}) }; }
+    puff = Math.max(puff, (r.puff ?? 0) * clamp((k - 0.3) / 0.4, 0, 1));
     if (k > 0.35) over = { F: over.F || !!r.over?.F, B: over.B || !!r.over?.B };
     const lk = clamp((k - 0.3) / 0.4, 0, 1);
     if (lk > 0) { fx.push(...(r.fx ?? [])); fxK = Math.max(fxK, lk); }
@@ -503,7 +560,7 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
   }
   // лёжа/падая: приподнять, чтобы спина легла на пол, а не ушла под него
   p.lift += Math.max(g.bodyW / 2, 78) * Math.abs(Math.sin(p.rot / D)) ** 1.5;
-  return { pose: p, face, fx, fxK: fl > 0.4 && fxK === 0 ? 1 : fxK, over, hand };
+  return { pose: p, face, fx, fxK: fl > 0.4 && fxK === 0 ? 1 : fxK, over, hand, itemR, puff };
 }
 
 /** Аффинные матрицы SVG (a b c d e f) — чтобы эффекты «над головой» оставались вертикальными при наклоне/падении. */

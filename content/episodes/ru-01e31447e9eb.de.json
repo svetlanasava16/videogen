@@ -2,7 +2,7 @@
   "id": "ru-01e31447e9eb.de",
   "jokeId": "ru-01e31447e9eb",
   "locale": "de",
-  "title": "Ein schönes Lied",
+  "title": "Musikwunsch",
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -17,25 +17,25 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mädel ruft beim Radio an.",
+      "text": "Ruft ein Mädel beim Radio an und sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "devushka",
-      "text": "Gestern habe ich ein Portemonnaie gefunden, mit fünftausend Euro, sechshundertachtzehn Franken und einer Visitenkarte auf den Namen Gerd Meierhofer, Lindenstraße neunzehn...",
+      "text": "Gestern habe ich ein Portemonnaie gefunden, da waren fünftausend Dollar drin, sechshundertachtzehn Euro und eine Visitenkarte auf den Namen Gerd Maier, Schillerstraße neunzehn...",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "devushka",
-      "text": "Spielen Sie ihm doch bitte ein schönes Lied!",
+      "text": "Spielen Sie ihm doch bitte irgendein schönes Lied!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -47,6 +47,7 @@
   "scenes": [
     {
       "location": "ofis",
+      "place": "tv-studio",
       "cast": [
         "nachalnik",
         "devushka"
@@ -63,16 +64,22 @@
           "remove": []
         }
       },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "devushka"
+        ]
+      },
       "beats": [
         {
           "type": "move",
           "who": "nachalnik",
-          "to": "desk"
+          "to": "host"
         },
         {
           "type": "move",
           "who": "devushka",
-          "to": "right"
+          "to": "sofa"
         },
         {
           "type": "prop",
@@ -85,8 +92,18 @@
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "nod"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "scratch-head"
         },
         {
           "type": "line",

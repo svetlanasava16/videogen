@@ -82,6 +82,9 @@ export const Crowd = z.object({
   size: z.enum(["few", "many"]).default("many"),
   /** back — задний ряд за героями (по умолчанию); front — зрители в зале: силуэты голов в нижних рядах, спиной к нам. */
   at: z.enum(["back", "front"]).optional(),
+  /** Сидят (пассажиры в салоне, зрители, очередь): фигуры сидят, перед ними спинки кресел цвета seatColor. */
+  seated: z.boolean().optional(),
+  seatColor: z.string().optional(),
 });
 export type Crowd = z.infer<typeof Crowd>;
 /** flee — массовка с криком убегает за край кадра и больше не возвращается в этой сцене. */
@@ -92,13 +95,13 @@ export type Crowd = z.infer<typeof Crowd>;
 export const ACTS = [
   "slap", "punch", "hit-head", "cover-ears", "cover-eyes", "cover-face", "hug", "kiss", "point", "wave", "facepalm", "shrug",
   "nod", "shake-head", "bow", "kneel", "sit", "stand", "fall", "faint", "lie", "jump", "run", "cry", "laugh", "drink", "eat",
-  "scratch-head", "hands-up", "clap", "pray-hands", "think", "sleep", "throw", "grab", "knock", "dance", "shiver", "flex",
+  "scratch-head", "hands-up", "clap", "pray-hands", "think", "sleep", "throw", "grab", "knock", "dance", "shiver", "flex", "write", "phone", "whistle", "look-down", "turn",
 ] as const;
 export type Act = (typeof ACTS)[number];
 /** Позы-состояния: держатся, пока кукла не сделает другое действие или stand. */
-export const STATE_ACTS: readonly Act[] = ["cover-ears", "cover-eyes", "cover-face", "kneel", "sit", "lie", "sleep", "faint", "pray-hands", "hands-up", "think"];
+export const STATE_ACTS: readonly Act[] = ["cover-ears", "cover-eyes", "cover-face", "kneel", "sit", "lie", "sleep", "faint", "pray-hands", "hands-up", "think", "write", "phone"];
 /** Действия по цели: кукла подходит к цели (to), цель вздрагивает (slap/punch/hit-head) или принимает (hug/kiss). */
-export const TARGET_ACTS: readonly Act[] = ["slap", "punch", "hit-head", "hug", "kiss", "throw"];
+export const TARGET_ACTS: readonly Act[] = ["slap", "punch", "hit-head", "hug", "kiss", "throw", "grab"];
 
 /**
  * Планы глубины (как в South Park): z = 0 — передний план (крупнее, ниже в кадре), 0.5 — средний (по умолчанию),
@@ -123,7 +126,7 @@ export const markOf = (m: Mark | undefined): { x: number; z: number; seat?: Seat
   m === undefined ? undefined : typeof m === "number" ? { x: m, z: PLANES.mid } : { x: m.x, z: m.z ?? PLANES.mid, seat: m.seat };
 
 /** Транспорт снаружи: рисуется remotion/src/world/Vehicles.tsx (вид сбоку), седоки видны в окнах или сидят верхом. */
-export const VEHICLES = ["car", "taxi", "police-car", "ambulance", "bus", "tram", "train", "truck", "tractor", "bicycle", "motorcycle", "scooter", "horse-cart"] as const;
+export const VEHICLES = ["car", "taxi", "police-car", "ambulance", "bus", "tram", "train", "truck", "tractor", "bicycle", "motorcycle", "scooter", "horse-cart", "road-roller"] as const;
 export type VehicleKind = (typeof VEHICLES)[number];
 export const Vehicle = z.object({
   /** id в сцене (car1, bus) — на него ссылаются биты drive/board/alight. */
@@ -142,7 +145,7 @@ export const Vehicle = z.object({
 export type Vehicle = z.infer<typeof Vehicle>;
 
 /** Мебель на сцене (то, о чём говорит анекдот, но чего нет в фоне): стол, прилавок, кафедра… Рисует remotion/src/world/SetPieces.tsx. */
-export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree", "chair", "bench", "stool", "armchair", "row-of-chairs"] as const;
+export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree", "chair", "bench", "stool", "armchair", "row-of-chairs", "scales", "sink", "specimen-shelf", "swing"] as const;
 export const SetItem = z.object({
   item: z.string(),
   /** Метка места (content/locations → marks), left/center/right; по умолчанию center. */

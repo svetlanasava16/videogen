@@ -48,5 +48,8 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 - Vehicles outside: `vehicles` + `drive`/`board`/`alight` on the narrator's words; riders talk from the windows.
 - The example showcase for these rules: compilation `content/compilations/ru-20261121-02.json`.
 
+## Continuous improvement (how scripts are rewritten now)
+Not all at once: take the next ~12 jokes in places not covered yet → `redo.txt` + `prepare --ids` → writers → `collect`/`materialize` → `pnpm llm needs script` → draw what they asked for (places, props, acts, clothes) → rewrite only the rows that had needs → render a compilation → show the user. Each round improves the engine for all later jokes.
+
 ## Engine v2 (scenes)
 Scripts may include `scenes` (several places, walking to marks, props, flyover/wipe transitions) — see **jokes-engine** for the format. The writer's reference `data/llm/script/context.md` is regenerated on `prepare` from `content/world/bible.md`, `town.json`, location marks and `content/props.json`. Use scenes only when they serve the joke; simple one-place dialogues stay without them. `--per-lang N` is a cumulative top (ranks 101–110 = `--per-lang 110`).

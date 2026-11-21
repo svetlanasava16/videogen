@@ -2,42 +2,25 @@
   "id": "ru-d88f9a70f981.de",
   "jokeId": "ru-d88f9a70f981",
   "locale": "de",
-  "title": "Nachtleben",
+  "title": "Mal hin",
   "location": "derevnya",
   "place": "village",
   "cast": [
-    "tyoshcha",
-    "devushka"
+    "devushka",
+    "tyoshcha"
   ],
   "roles": {
-    "tyoshcha": "grandma",
-    "devushka": "woman"
-  },
-  "looks": {
-    "devushka": {
-      "add": [
-        "earrings",
-        "lipstick"
-      ],
-      "remove": []
-    },
-    "tyoshcha": {
-      "add": [
-        "headscarf"
-      ],
-      "remove": []
-    }
+    "devushka": "woman",
+    "tyoshcha": "grandma"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Eine glamouröse Großstädterin besucht ihre Oma auf dem Dorf.",
+      "text": "Eine schicke Moskauerin kommt aufs Dorf, um ihre Oma zu besuchen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
+      "pauseAfterSec": 0,
+      "enter": [],
       "exit": []
     },
     {
@@ -45,7 +28,7 @@
       "character": "devushka",
       "text": "Omi, wo kann man hier nachts mal hin?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -53,7 +36,7 @@
       "id": "l3",
       "character": "tyoshcha",
       "text": "In den Eimer.",
-      "emotion": "neutral",
+      "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -61,6 +44,68 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "devushka",
+        "tyoshcha"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "tyoshcha": "grandma"
+      },
+      "looks": {
+        "devushka": {
+          "clothes": "#e85d9a",
+          "add": [
+            "dark-glasses",
+            "earrings",
+            "lipstick"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "house"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "devushka",
+          "item": "suitcase",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

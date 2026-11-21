@@ -16,7 +16,7 @@
     "accessories": [
       "mustache",
       "police-cap",
-      "badge"
+      "police-uniform"
     ],
     "build": "stocky"
   },
@@ -69,16 +69,17 @@
           "guard",
           "customs-officer"
         ],
-        "change": "blue police uniform, peaked cap"
+        "change": "grey-blue police (militia) uniform: red piping, shoulder boards, badge, belt; peaked cap with red band"
       },
       {
         "roles": [
           "traffic-cop"
         ],
-        "change": "reflective vest, striped baton",
+        "change": "police uniform under a lime reflective vest, peaked cap; holds a striped baton (prop baton-striped) or a whistle",
         "look": {
-          "clothes": "#c8d84a",
-          "add": [],
+          "add": [
+            "traffic-vest"
+          ],
           "remove": []
         }
       },
@@ -86,13 +87,15 @@
         "roles": [
           "officer"
         ],
-        "change": "army fatigues or officer uniform with shoulder boards",
+        "change": "olive officer uniform with gold shoulder boards, ribbons and medals; officer peaked cap",
         "look": {
-          "clothes": "#4b5a3a",
+          "clothes": "#56603e",
           "add": [
-            "army-cap"
+            "officer-uniform",
+            "officer-cap"
           ],
           "remove": [
+            "police-uniform",
             "police-cap",
             "badge"
           ]
@@ -102,11 +105,16 @@
         "roles": [
           "pilot"
         ],
-        "change": "pilot or sailor uniform",
+        "change": "navy airline captain uniform: gold sleeve stripes, wings badge, white shirt and tie; peaked pilot cap",
         "look": {
-          "clothes": "#2b3a55",
-          "add": [],
+          "clothes": "#1e2a44",
+          "add": [
+            "pilot-uniform",
+            "pilot-cap"
+          ],
           "remove": [
+            "police-uniform",
+            "police-cap",
             "badge"
           ]
         }
@@ -125,7 +133,8 @@
           "remove": [
             "police-cap",
             "mustache",
-            "badge"
+            "badge",
+            "police-uniform"
           ]
         }
       },
@@ -141,7 +150,8 @@
           ],
           "remove": [
             "police-cap",
-            "badge"
+            "badge",
+            "police-uniform"
           ]
         }
       },
@@ -150,15 +160,17 @@
           "petka",
           "vasily-ivanovich"
         ],
-        "change": "civil-war greatcoat, papakha hat",
+        "change": "civil-war khaki tunic with belt, papakha hat",
         "look": {
           "clothes": "#5b5040",
           "add": [
-            "papakha"
+            "papakha",
+            "military-uniform"
           ],
           "remove": [
             "police-cap",
-            "badge"
+            "badge",
+            "police-uniform"
           ]
         }
       },
@@ -174,7 +186,8 @@
           ],
           "remove": [
             "police-cap",
-            "badge"
+            "badge",
+            "police-uniform"
           ]
         }
       },
@@ -191,7 +204,8 @@
           ],
           "remove": [
             "police-cap",
-            "badge"
+            "badge",
+            "police-uniform"
           ]
         }
       }

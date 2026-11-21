@@ -3,7 +3,7 @@
   "jokeId": "ru-19a7da93045c",
   "locale": "ru",
   "title": "Парковка",
-  "location": "ulitsa",
+  "location": "doroga",
   "place": "street",
   "cast": [
     "muzhik"
@@ -11,53 +11,72 @@
   "roles": {
     "muzhik": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик едет на встречу, опаздывает, нервничает, не может найти место припарковаться.",
+      "text": "Мужик едет на встречу, опаздывает, нервничает,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Господи, помоги мне найти место для парковки.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "не может найти место припарковаться.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Я тогда брошу пить и буду каждое воскресенье ходить в церковь!",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Поднимает лицо к небу и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Вдруг чудесным образом появляется свободное местечко.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "character": "muzhik",
+      "text": "Господи, помоги мне найти место для парковки.",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
+      "character": "muzhik",
+      "text": "Я тогда брошу пить и буду каждое воскресенье ходить в церковь!",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Вдруг чудесным образом появляется свободное местечко.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Мужик снова обращается к небу:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
       "character": "muzhik",
       "text": "А, всё, не надо. Нашёл!",
       "emotion": "happy",
@@ -68,6 +87,131 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "driver"
+        },
+        {
+          "type": "shake",
+          "sec": 2,
+          "strength": "light"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shiver"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "turn"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "pray-hands"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "vehicles": [
+        {
+          "id": "car",
+          "kind": "car",
+          "riders": [
+            "muzhik"
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "type": "drive",
+          "vehicle": "car",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,7 +3,7 @@
   "jokeId": "ru-19a7da93045c",
   "locale": "de",
   "title": "Der Parkplatz",
-  "location": "ulitsa",
+  "location": "doroga",
   "place": "street",
   "cast": [
     "muzhik"
@@ -11,55 +11,74 @@
   "roles": {
     "muzhik": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann fährt zu einem Termin. Er ist spät dran, nervös und findet keinen Parkplatz.",
+      "text": "Ein Mann fährt zu einem Termin, ist spät dran, ist nervös,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Herrgott, hilf mir, einen Parkplatz zu finden.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "und findet keinen Parkplatz.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Dann höre ich auf zu trinken und gehe jeden Sonntag in die Kirche!",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Er hebt das Gesicht zum Himmel und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "narrator",
-      "text": "Plötzlich wird wie durch ein Wunder ein Parkplatz frei.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "character": "muzhik",
+      "text": "Herr, hilf mir, einen Parkplatz zu finden.",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ach, schon gut, hat sich erledigt. Hab einen gefunden!",
+      "text": "Dann hör ich auf zu trinken und gehe jeden Sonntag in die Kirche!",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "narrator",
+      "text": "Plötzlich wird wie durch ein Wunder eine Lücke frei.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l7",
+      "character": "narrator",
+      "text": "Der Mann wendet sich wieder an den Himmel:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Ach, schon gut, nicht nötig. Hab einen gefunden!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -68,6 +87,131 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "driver"
+        },
+        {
+          "type": "shake",
+          "sec": 2,
+          "strength": "light"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shiver"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "turn"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "pray-hands"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "vehicles": [
+        {
+          "id": "car",
+          "kind": "car",
+          "riders": [
+            "muzhik"
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "type": "drive",
+          "vehicle": "car",
+          "to": "right",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

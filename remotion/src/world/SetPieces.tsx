@@ -19,15 +19,19 @@ export const SET_PIECES: Record<string, { layer: "front" | "back"; w: number }> 
   sofa: { layer: "back", w: 560 },
   bed: { layer: "back", w: 620 },
   "christmas-tree": { layer: "back", w: 300 },
+  scales: { layer: "front", w: 300 }, // кусок прилавка (верх 380, как counter) с циферблатными весами
+  sink: { layer: "front", w: 420 }, // кухонная мойка-тумба с краном и сушилкой для посуды
+  "specimen-shelf": { layer: "back", w: 420 }, // музейный шкаф с банками заспиртованных экспонатов
   // сиденья: кукла на их x сидит (верх сиденья — SEAT_H над полом её плана, см. world/depth.ts)
   chair: { layer: "back", w: 150 },
   stool: { layer: "back", w: 120 },
   armchair: { layer: "back", w: 220 },
   bench: { layer: "back", w: 420 },
   "row-of-chairs": { layer: "back", w: 640 },
+  swing: { layer: "back", w: 420 }, // детские качели: рама, сиденье на SEAT_H
 };
 /** Сиденья среди мебели: на них сидят сами (как за столом). */
-export const SEAT_ITEMS = ["chair", "stool", "armchair", "bench", "row-of-chairs"];
+export const SEAT_ITEMS = ["chair", "stool", "armchair", "bench", "row-of-chairs", "swing"];
 
 const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floor: number }) => {
   const l = x - w / 2;
@@ -141,6 +145,126 @@ const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floo
             <circle key={i} cx={x + (dx as number)} cy={top + (dy as number)} r={16} fill={c as string} />
           ))}
           <path d={`M${x} ${top - 40} l12 30 h32 l-26 20 l10 32 l-28 -20 l-28 20 l10 -32 l-26 -20 h32 Z`} fill="#e0a030" />
+        </g>
+      );
+    }
+    case "scales": {
+      // прилавок той же высоты, что counter (380), на нём весы: чашка слева, циферблат со стрелкой справа
+      const top = floor - 380;
+      const dx = x + 36, dy = top - 150;
+      return (
+        <g>
+          <rect x={l - 10} y={top} width={w + 20} height={36} rx={8} fill="#d8d0c0" />
+          <rect x={l} y={top + 36} width={w} height={344} fill={WOOD} />
+          <rect x={l + 24} y={top + 70} width={w - 48} height={260} rx={8} fill={WOOD_DARK} opacity={0.5} />
+          <rect x={x - 120} y={top - 44} width={240} height={44} rx={10} fill="#e8e4d8" />
+          <rect x={x - 120} y={top - 12} width={240} height={12} rx={4} fill="#c9c2b0" />
+          <rect x={dx - 18} y={dy + 60} width={36} height={70} fill="#d8d2c2" />
+          <circle cx={dx} cy={dy} r={74} fill="#e8e4d8" />
+          <circle cx={dx} cy={dy} r={60} fill="#fbfaf5" />
+          {Array.from({ length: 11 }, (_, i) => {
+            const a = ((-150 + i * 30) * Math.PI) / 180;
+            return <line key={i} x1={dx + Math.sin(a) * 48} y1={dy - Math.cos(a) * 48} x2={dx + Math.sin(a) * 57} y2={dy - Math.cos(a) * 57} stroke="#2b1d14" strokeWidth={i % 5 === 0 ? 5 : 3} />;
+          })}
+          <line x1={dx} y1={dy} x2={dx + 36} y2={dy - 30} stroke={ACCENT} strokeWidth={5} strokeLinecap="round" />
+          <circle cx={dx} cy={dy} r={8} fill="#2b1d14" />
+          <rect x={x - 74} y={top - 66} width={12} height={24} fill="#9aa8b8" />
+          <path d={`M${x - 140} ${top - 70} H${x + 4} Q${x - 4} ${top - 54} ${x - 30} ${top - 52} H${x - 106} Q${x - 132} ${top - 54} ${x - 140} ${top - 70} Z`} fill="#b9c2cc" />
+          <rect x={x - 144} y={top - 76} width={152} height={8} rx={4} fill="#d6dce2" />
+        </g>
+      );
+    }
+    case "sink": {
+      // тумба с мойкой: столешница, кран, сушилка с тарелками справа
+      // столешница на 300 px — на уровне кистей стоящей куклы: руки «в мойке»
+      const top = floor - 300;
+      return (
+        <g>
+          <rect x={l} y={top + 30} width={w} height={270} fill="#e8e1cf" />
+          {[0, 1].map((i) => <rect key={i} x={l + 16 + (i * (w - 32)) / 2} y={top + 52} width={(w - 32) / 2 - 10} height={222} rx={6} fill="#ddd4be" />)}
+          {[0, 1].map((i) => <rect key={i} x={l + (i ? w / 2 + 10 : w / 2 - 34)} y={top + 140} width={24} height={8} rx={4} fill="#9aa8b8" />)}
+          <rect x={l} y={floor - 26} width={w} height={26} fill="#b8ae96" />
+          <rect x={l - 12} y={top} width={w + 24} height={32} rx={6} fill="#b9c2cc" />
+          {/* мойка и кран — у левого края, сушилка — у правого: середина свободна для лица куклы за тумбой */}
+          <path d={`M${l + 24} ${top + 4} H${l + w * 0.46} Q${l + w * 0.46} ${top + 28} ${l + w * 0.46 - 20} ${top + 28} H${l + 44} Q${l + 24} ${top + 28} ${l + 24} ${top + 4} Z`} fill="#7e8ea0" />
+          <rect x={l + 24} y={top - 64} width={18} height={64} rx={6} fill="#c9d0da" />
+          <path d={`M${l + 33} ${top - 58} Q${l + 33} ${top - 104} ${l + 80} ${top - 98} L${l + 90} ${top - 78}`} stroke="#c9d0da" strokeWidth={16} fill="none" strokeLinecap="round" />
+          <rect x={l + 12} y={top - 40} width={44} height={12} rx={6} fill="#aeb6c2" />
+          <path d={`M${l + 90} ${top - 68} q-5 10 0 14 q5 -4 0 -14 Z`} fill="#8fc3e6" />
+          {/* сушилка: тарелки на ребре и чашка */}
+          {[0, 1, 2].map((i) => <ellipse key={i} cx={l + w * 0.78 + i * 20} cy={top - 40} rx={11} ry={40} fill={i === 1 ? "#f6f2e8" : "#ece6d8"} stroke="#4a6fa5" strokeWidth={3} />)}
+          <rect x={l + w * 0.74} y={top - 18} width={w * 0.24} height={16} rx={4} fill="#9aa8b8" />
+          {[0, 1, 2, 3].map((i) => <rect key={i} x={l + w * 0.74 + i * (w * 0.24 - 6) / 3} y={top - 32} width={6} height={16} rx={2} fill="#9aa8b8" />)}
+          <path d={`M${l + w * 0.86} ${top - 34} h30 v26 q0 10 -10 10 h-10 q-10 0 -10 -10 Z`} fill={ACCENT} />
+          <path d={`M${l + w * 0.86 + 30} ${top - 29} q12 2 10 12 q-2 7 -10 5`} stroke={ACCENT} strokeWidth={5} fill="none" />
+        </g>
+      );
+    }
+    case "specimen-shelf": {
+      // высокий музейный шкаф: деревянная рама, стекло, банки с экспонатами в желтоватом растворе
+      const top = floor - 760;
+      const rows = [top + 40, top + 230, top + 420];
+      const jar = (cx: number, by: number, jw: number, jh: number, k: number) => {
+        const jt = by - jh, mx = cx, my = by - jh * 0.45;
+        const thing = [
+          <g key="fish"><ellipse cx={mx} cy={my} rx={jw * 0.3} ry={jh * 0.14} fill="#8a9a6a" /><path d={`M${mx + jw * 0.28} ${my} l${jw * 0.16} -${jh * 0.1} v${jh * 0.2} Z`} fill="#8a9a6a" /><circle cx={mx - jw * 0.16} cy={my - 2} r={3} fill="#2b1d14" /></g>,
+          <g key="brain"><ellipse cx={mx} cy={my} rx={jw * 0.3} ry={jh * 0.2} fill="#e8a8a8" /><path d={`M${mx - jw * 0.22} ${my} q${jw * 0.1} -${jh * 0.12} ${jw * 0.2} 0 q${jw * 0.1} ${jh * 0.12} ${jw * 0.22} 0 M${mx} ${my - jh * 0.18} v${jh * 0.36}`} stroke="#c88080" strokeWidth={3} fill="none" /></g>,
+          <g key="snake"><path d={`M${mx - jw * 0.25} ${my + jh * 0.2} q${jw * 0.25} -${jh * 0.2} 0 -${jh * 0.2} q-${jw * 0.25} -${jh * 0.2} ${jw * 0.05} -${jh * 0.2} q${jw * 0.3} 0 ${jw * 0.2} ${jh * 0.15}`} stroke="#6a8a4a" strokeWidth={7} fill="none" strokeLinecap="round" /></g>,
+          <g key="frog"><ellipse cx={mx} cy={my} rx={jw * 0.22} ry={jh * 0.16} fill="#7a9a5a" /><circle cx={mx - jw * 0.1} cy={my - jh * 0.15} r={6} fill="#7a9a5a" /><circle cx={mx + jw * 0.1} cy={my - jh * 0.15} r={6} fill="#7a9a5a" /><path d={`M${mx - jw * 0.2} ${my + jh * 0.1} l-${jw * 0.14} ${jh * 0.14} M${mx + jw * 0.2} ${my + jh * 0.1} l${jw * 0.14} ${jh * 0.14}`} stroke="#7a9a5a" strokeWidth={5} strokeLinecap="round" /></g>,
+          <g key="eye"><circle cx={mx} cy={my} r={jw * 0.2} fill="#f6f2e8" /><circle cx={mx + 3} cy={my} r={jw * 0.09} fill="#4a6fa5" /><circle cx={mx + 3} cy={my} r={jw * 0.04} fill="#2b1d14" /><path d={`M${mx - jw * 0.2} ${my + 4} q-${jw * 0.08} ${jh * 0.14} 0 ${jh * 0.24}`} stroke="#c88080" strokeWidth={3} fill="none" /></g>,
+          <g key="octopus"><circle cx={mx} cy={my - jh * 0.08} r={jw * 0.2} fill="#c87a6a" />{[-2, -1, 0, 1, 2].map((t) => <path key={t} d={`M${mx + t * jw * 0.06} ${my} q${t * jw * 0.08} ${jh * 0.14} ${t * jw * 0.1} ${jh * 0.26}`} stroke="#c87a6a" strokeWidth={5} fill="none" strokeLinecap="round" />)}</g>,
+        ][k % 6];
+        return (
+          <g>
+            <rect x={cx - jw / 2} y={jt + 14} width={jw} height={jh - 14} rx={14} fill="#dfe6b0" opacity={0.85} />
+            {thing}
+            <rect x={cx - jw / 2 + 6} y={jt + 22} width={8} height={jh - 40} rx={4} fill="#ffffff" opacity={0.5} />
+            <rect x={cx - jw / 2 + 6} y={jt} width={jw - 12} height={18} rx={5} fill="#b08a3a" />
+            <rect x={cx - 16} y={by - 30} width={32} height={14} rx={2} fill="#f6f2e8" opacity={0.9} />
+          </g>
+        );
+      };
+      return (
+        <g>
+          <rect x={l} y={top} width={w} height={760} rx={10} fill={WOOD_DARK} />
+          <rect x={l + 18} y={top + 18} width={w - 36} height={600} fill="#4a3a30" />
+          {rows.map((ry, ri) => (
+            <g key={ri}>
+              {[0, 1, 2].map((j) => <g key={j}>{jar(l + 18 + ((w - 36) * (j + 0.5)) / 3, ry + 170, (w - 36) / 3 - 22 - ((ri + j) % 2) * 14, 130 - ((ri * 2 + j) % 3) * 16, ri * 3 + j)}</g>)}
+              <rect x={l + 18} y={ry + 170} width={w - 36} height={14} fill={WOOD} />
+            </g>
+          ))}
+          {/* стекло дверец */}
+          <rect x={l + 18} y={top + 18} width={w - 36} height={600} fill="#cfe8f5" opacity={0.18} />
+          <path d={`M${l + 40} ${top + 60} L${l + 90} ${top + 60} L${l + 30} ${top + 200} Z M${l + w / 2 + 30} ${top + 300} L${l + w / 2 + 60} ${top + 300} L${l + w / 2 + 10} ${top + 420} Z`} fill="#ffffff" opacity={0.3} />
+          <rect x={x - 3} y={top + 18} width={6} height={600} fill={WOOD_DARK} />
+          <rect x={l} y={top + 618} width={w} height={142} fill={WOOD} />
+          {[0, 1].map((i) => <rect key={i} x={l + 24 + (i * (w - 48)) / 2} y={top + 638} width={(w - 48) / 2 - 12} height={102} rx={6} fill={WOOD_DARK} opacity={0.6} />)}
+          <rect x={l - 14} y={top - 16} width={w + 28} height={26} rx={6} fill={WOOD} />
+        </g>
+      );
+    }
+    case "swing": {
+      // детские качели: две А-стойки, перекладина, цепи, доска сиденья на SEAT_H = 72 над полом
+      const seatY = floor - 72;
+      const beam = floor - 760;
+      const pole = (cx: number) => (
+        <g>
+          <path d={`M${cx - 70} ${floor} L${cx} ${beam}`} stroke="#3f6b8f" strokeWidth={22} strokeLinecap="round" />
+          <path d={`M${cx + 70} ${floor} L${cx} ${beam}`} stroke="#4f7ba0" strokeWidth={22} strokeLinecap="round" />
+          <rect x={cx - 44} y={floor - 300} width={88} height={12} rx={5} fill="#3f6b8f" />
+        </g>
+      );
+      const rope = (cx: number) => <line x1={cx} y1={beam + 10} x2={cx} y2={seatY} stroke="#8a9096" strokeWidth={6} strokeDasharray="12 5" />;
+      return (
+        <g>
+          {pole(l + 30)}
+          {pole(l + w - 30)}
+          <rect x={l} y={beam - 16} width={w} height={26} rx={10} fill={ACCENT} />
+          {rope(x - 66)}
+          {rope(x + 66)}
+          <rect x={x - 86} y={seatY} width={172} height={20} rx={8} fill="#f2c94c" />
+          <rect x={x - 86} y={seatY + 14} width={172} height={6} rx={3} fill="#d9a92a" />
         </g>
       );
     }

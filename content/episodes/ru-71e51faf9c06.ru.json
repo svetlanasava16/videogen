@@ -7,12 +7,12 @@
   "place": "home-kitchen",
   "cast": [
     "vor",
-    "muzhik-ryzhy",
+    "paren",
     "kot"
   ],
   "roles": {
     "vor": "thief",
-    "muzhik-ryzhy": "thief",
+    "paren": "thief",
     "kot": "cat"
   },
   "lines": [
@@ -21,14 +21,23 @@
       "character": "narrator",
       "text": "Увидев на холодильнике всего два магнитика — из Магадана и Воркуты,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "воры покормили кота и вымыли посуду.",
+      "text": "воры покормили кота",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "narrator",
+      "text": "и вымыли посуду.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -42,34 +51,39 @@
       "location": "kukhnya",
       "cast": [
         "vor",
-        "muzhik-ryzhy",
+        "paren",
         "kot"
       ],
       "roles": {
         "vor": "thief",
-        "muzhik-ryzhy": "thief",
+        "paren": "thief",
         "kot": "cat"
       },
       "looks": {
-        "vor": {
-          "add": [
-            "loot-bag"
-          ],
-          "remove": []
-        },
-        "muzhik-ryzhy": {
+        "paren": {
           "add": [
             "eye-mask",
             "striped-shirt"
           ],
           "remove": []
+        },
+        "kot": {
+          "build": "portly",
+          "add": [],
+          "remove": []
         }
       },
+      "set": [
+        {
+          "item": "sink",
+          "at": "right"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "kot",
-          "to": "table"
+          "to": "stool-2"
         },
         {
           "type": "move",
@@ -79,27 +93,72 @@
         },
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "left",
+          "who": "paren",
+          "to": "front-left",
           "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "vor",
+          "item": "fridge-magnets",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "shiver"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
-          "type": "move",
+          "type": "prop",
           "who": "vor",
-          "to": "stove"
+          "item": "chicken",
+          "action": "hold"
         },
         {
           "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "center"
+          "who": "vor",
+          "to": "table"
+        },
+        {
+          "type": "prop",
+          "who": "vor",
+          "item": "chicken",
+          "action": "give",
+          "to": "kot"
+        },
+        {
+          "type": "act",
+          "who": "kot",
+          "act": "eat"
         },
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "prop",
+          "who": "paren",
+          "item": "dishes",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "vor",
+          "item": "towel",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
         }
       ],
       "transition": "cut"

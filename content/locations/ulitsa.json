@@ -69,7 +69,7 @@
     }
   },
   "bible": {
-    "summary": "Town street: house facades, a shop with an awning and a door, lamp post on the left, a street bench on the right for two (bench-1, bench-2), sidewalk and road in front. Variants: park, cemetery, stadium, zoo.",
+    "summary": "Town street: four house facades with windows, curtains, flower boxes and balconies; ground-floor shops — «Цветы» flowers on the left behind the lamp post, the «Хлеб» bakery with a striped awning and its door in the middle (shop, shop-door), the «Аптека» pharmacy, a house entrance with a circus poster; lamp post and litter bin on the left (lamp), a cast-iron street bench under a tree on the right for two (bench-1, bench-2), pigeons, paved sidewalk and a road with a manhole in front. Variants: park, cemetery, stadium, zoo, yard, yard-night.",
     "roles": [
       "street",
       "park",
@@ -88,7 +88,7 @@
         "roles": [
           "park"
         ],
-        "change": "Park: trees, bushes, a sandy path into the distance in the middle, lamp post on the left (lamp), park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers on the grass in front.",
+        "change": "Park: distant city, rows of trees and poplars, an ice-cream kiosk at the end of the sandy path in the middle (path), a flower bed, lamp post and bin on the left (lamp), a leafy tree with a squirrel, park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers and grass in front.",
         "marks": {
           "lamp": {
             "x": 0.23,
@@ -149,7 +149,7 @@
         "roles": [
           "cemetery"
         ],
-        "change": "Cemetery at dusk: crescent moon, bare tree with a crow on the left (tree), dark bench left of centre for two (bench-1, bench-2), distant fence and graves, a big gravestone with flowers on the right (grave), a stone cross at the far right.",
+        "change": "Cemetery at dusk: stars, crescent moon, a small church on the far hill, bare tree with crows on the left (tree), dark bench left of centre for two (bench-1, bench-2), a wrought-iron grave fence right of it, distant graves and fences, a big gravestone with flowers and a grave candle on the right (grave), a stone cross with a wreath at the far right.",
         "marks": {
           "tree": {
             "x": 0.14,
@@ -218,7 +218,7 @@
         "roles": [
           "stadium"
         ],
-        "change": "Football stadium: floodlights, packed stands, advertising boards, then the front row of red/coloured plastic seats along the back (seat-1…seat-4 — fans sit there), the pitch in front with a ball (players stand on the grass: center, left, right, front-*).",
+        "change": "Football stadium: scoreboard 2:1, floodlights, roofed stands packed with fans, flags and a «ВПЕРЁД!» banner, advertising boards, then the front row of red/yellow plastic seats along the back (seat-1…seat-4 — fans sit there), the pitch in front with a ball and a corner flag (players stand on the grass: center, left, right, front-*).",
         "marks": {
           "seat-1": {
             "x": 0.2,
@@ -276,7 +276,7 @@
         "roles": [
           "zoo"
         ],
-        "change": "Zoo: a giraffe behind a low wooden fence on the left (giraffe), a paw-print sign in the middle (sign), a lion in a barred cage on the right (cage), sand in front.",
+        "change": "Zoo: a giraffe under an acacia behind a low wooden fence with a «Жираф» sign on the left (giraffe), an elephant behind the trees and a paw-print sign in the middle (sign), a lion in a barred cage with a «Лев» sign on the right (cage), sand in front.",
         "marks": {
           "giraffe": {
             "x": 0.2,
@@ -300,6 +300,142 @@
           },
           "right": {
             "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "yard",
+        "name": {
+          "ru": "Двор",
+          "en": "Courtyard",
+          "de": "Innenhof"
+        },
+        "roles": [
+          "yard",
+          "courtyard",
+          "apartment-yard",
+          "playground"
+        ],
+        "change": "Courtyard of a Soviet five-storey panel block (khrushchevka): the facade with many windows and balconies fills the back; the entrance door with a concrete canopy, a lamp and an intercom left of centre (entrance), a green bench next to it on the right for two (bench-1, bench-2), a cat under the bench; a red slide, a leafy tree and a clothes line with laundry at the far left; a sandbox with a bucket and spade in front of the entrance (sandbox, mid plane); a blue swing frame right of centre — a puppet on the swing sits on its seat (swing, mid plane); a street lamp on a curved pole hanging over the swing; two garbage containers in front of the nose of an old red Zhiguli at the right edge; trodden paths and a puddle in front.",
+        "marks": {
+          "entrance": {
+            "x": 0.28,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.42,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench": {
+            "x": 0.48,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.54,
+            "z": 1,
+            "seat": "bench"
+          },
+          "sandbox": {
+            "x": 0.3,
+            "z": 0.5
+          },
+          "swing": {
+            "x": 0.72,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "left": {
+            "x": 0.1,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.92,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "yard-night",
+        "name": {
+          "ru": "Двор ночью",
+          "en": "Courtyard at night",
+          "de": "Innenhof bei Nacht"
+        },
+        "roles": [
+          "night-yard",
+          "yard-at-night"
+        ],
+        "change": "The same courtyard at night: dark blue sky with a moon (top left) and stars, the facade dark with a few lit yellow windows — on the top floor right of the entrance a lit window with someone's silhouette looking out (the one people shout from or to); the stairwell windows and the lamp over the entrance door glow; the street lamp over the swing throws a cone of light onto the swing and a pool of light on the ground, everything else in dim blue shadow: bench (bench-1, bench-2), sandbox, slide, laundry, containers and the car at the right edge.",
+        "marks": {
+          "entrance": {
+            "x": 0.28,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.42,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench": {
+            "x": 0.48,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.54,
+            "z": 1,
+            "seat": "bench"
+          },
+          "sandbox": {
+            "x": 0.3,
+            "z": 0.5
+          },
+          "swing": {
+            "x": 0.72,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "left": {
+            "x": 0.1,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.92,
             "z": 0.5
           },
           "front-left": {

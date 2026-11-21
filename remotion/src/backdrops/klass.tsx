@@ -1,6 +1,7 @@
 import { Canvas, Room, FLOOR_Y, W, type BackdropProps } from "./parts";
 import { SeatAt } from "./gostinaya";
 import { depthScale, feetY, seatTopY } from "../world/depth";
+import { WallShade, FloorShade, FloorPlanks, Glow, Shadow, Baseboard, rnd } from "./bolnitsa";
 
 /**
  * Фон «klass»: школьный класс (парты сбоку: стул под меткой pupil-*, парта справа от него; стул учителя слева от его стола);
@@ -140,6 +141,93 @@ const TeacherTable = ({ x, w, accent }: { x: number; w: number; accent: string }
       <circle cx={x + 230} cy={top - 70} r={22} fill={RED} />
       <rect x={x + 228} y={top - 100} width={5} height={14} fill="#6b4429" />
       <ellipse cx={x + 242} cy={top - 96} rx={10} ry={5} fill={accent} />
+      {/* стакан с карандашами и классный журнал */}
+      <rect x={x + 250} y={top - 34} width={24} height={34} rx={4} fill="#4a7ab0" />
+      {[0, 1, 2].map((i) => <rect key={i} x={x + 254 + i * 6} y={top - 54 + i * 3} width={4} height={24} fill={[RED, "#e8c46a", accent][i]} transform={`rotate(${(i - 1) * 10} ${x + 256 + i * 6} ${top - 34})`} />)}
+      <rect x={x + 150} y={top - 8} width={96} height={8} rx={2} fill="#f4efe2" />
+    </g>
+  );
+};
+
+/** Подвесной светильник-шар на штанге (школа). */
+const BallLamp = ({ x, len = 80 }: { x: number; len?: number }) => (
+  <g>
+    <Glow cx={x} cy={len + 40} rx={220} ry={150} opacity={0.5} />
+    <rect x={x - 3} y={0} width={6} height={len} fill="#5a5a5a" />
+    <rect x={x - 16} y={len - 6} width={32} height={14} rx={4} fill="#5a5a5a" />
+    <circle cx={x} cy={len + 40} r={44} fill="#fbf6e4" />
+    <ellipse cx={x - 14} cy={len + 26} rx={12} ry={16} fill="#ffffff" />
+  </g>
+);
+
+/** Портрет учёного в овальной рамке (борода или парик — по kind). */
+const Portrait = ({ x, y, w = 84, h = 104, kind = 0 }: { x: number; y: number; w?: number; h?: number; kind?: number }) => {
+  const cx = x + w / 2;
+  const hair = ["#e8e4dc", "#3a2a20", "#9a8a7a"][kind % 3];
+  return (
+    <g>
+      <rect x={x + 4} y={y + 6} width={w} height={h} rx={8} fill="#000000" opacity={0.14} />
+      <rect x={x} y={y} width={w} height={h} rx={8} fill="#8a5a3a" />
+      <rect x={x + 7} y={y + 7} width={w - 14} height={h - 14} rx={4} fill="#d8cfb8" />
+      <path d={`M${x + 12} ${y + h - 7} Q${cx} ${y + h * 0.55} ${x + w - 12} ${y + h - 7} Z`} fill="#3a3a44" />
+      <path d={`M${cx - 8} ${y + h * 0.66} L${cx} ${y + h - 10} L${cx + 8} ${y + h * 0.66} Z`} fill="#f4f1ea" />
+      <ellipse cx={cx} cy={y + h * 0.42} rx={w * 0.2} ry={h * 0.2} fill="#e8c4a0" />
+      {kind % 3 === 0 && <path d={`M${cx - w * 0.26} ${y + h * 0.4} Q${cx - w * 0.3} ${y + h * 0.15} ${cx} ${y + h * 0.18} Q${cx + w * 0.3} ${y + h * 0.15} ${cx + w * 0.26} ${y + h * 0.4} Q${cx + w * 0.3} ${y + h * 0.62} ${cx + w * 0.2} ${y + h * 0.62} L${cx + w * 0.18} ${y + h * 0.38} L${cx - w * 0.18} ${y + h * 0.38} L${cx - w * 0.2} ${y + h * 0.62} Q${cx - w * 0.3} ${y + h * 0.62} ${cx - w * 0.26} ${y + h * 0.4} Z`} fill={hair} />}
+      {kind % 3 === 1 && (
+        <>
+          <path d={`M${cx - w * 0.22} ${y + h * 0.36} Q${cx} ${y + h * 0.12} ${cx + w * 0.22} ${y + h * 0.36} Z`} fill={hair} />
+          <path d={`M${cx - w * 0.18} ${y + h * 0.48} Q${cx} ${y + h * 0.76} ${cx + w * 0.18} ${y + h * 0.48} Q${cx} ${y + h * 0.58} ${cx - w * 0.18} ${y + h * 0.48} Z`} fill={hair} />
+        </>
+      )}
+      {kind % 3 === 2 && (
+        <>
+          <ellipse cx={cx - w * 0.22} cy={y + h * 0.4} rx={w * 0.08} ry={h * 0.12} fill={hair} />
+          <ellipse cx={cx + w * 0.22} cy={y + h * 0.4} rx={w * 0.08} ry={h * 0.12} fill={hair} />
+          <path d={`M${cx - w * 0.14} ${y + h * 0.52} Q${cx} ${y + h * 0.62} ${cx + w * 0.14} ${y + h * 0.52} L${cx + w * 0.1} ${y + h * 0.58} Q${cx} ${y + h * 0.64} ${cx - w * 0.1} ${y + h * 0.58} Z`} fill={hair} />
+        </>
+      )}
+      <circle cx={cx - w * 0.07} cy={y + h * 0.42} r={2.5} fill={INK} />
+      <circle cx={cx + w * 0.07} cy={y + h * 0.42} r={2.5} fill={INK} />
+    </g>
+  );
+};
+
+/** Таблица элементов: цветная сетка клеток. */
+const PeriodicTable = ({ x, y, w, h, accent }: { x: number; y: number; w: number; h: number; accent: string }) => {
+  const cols = 18;
+  const cw = (w - 16) / cols;
+  const ch = (h - 34) / 7;
+  const cells: [number, number, string][] = [];
+  for (let r = 0; r < 7; r++)
+    for (let c = 0; c < cols; c++) {
+      if (r === 0 && c > 0 && c < 17) continue;
+      if ((r === 1 || r === 2) && c > 1 && c < 12) continue;
+      const col = c < 2 ? "#e88a6a" : c > 11 ? (c === 17 ? "#9a7ac0" : "#e8c46a") : "#8ab8d8";
+      cells.push([r, c, col]);
+    }
+  return (
+    <g>
+      <rect x={x + 4} y={y + 6} width={w} height={h} rx={4} fill="#000000" opacity={0.12} />
+      <rect x={x} y={y} width={w} height={h} rx={4} fill="#fbf8f0" />
+      <rect x={x + 8} y={y + 6} width={w * 0.5} height={10} rx={5} fill={accent} />
+      {cells.map(([r, c, col]) => <rect key={`${r}-${c}`} x={x + 8 + c * cw} y={y + 24 + r * ch} width={cw - 1.5} height={ch - 1.5} fill={col} />)}
+    </g>
+  );
+};
+
+/** Полоска цифр над доской: карточки 1…0. */
+const NumberStrip = ({ x, y, w, accent }: { x: number; y: number; w: number; accent: string }) => {
+  const n = 10;
+  const cw = w / n;
+  const cols = [accent, RED, "#e8c46a", "#4a7ab0", "#9a7ac0"];
+  return (
+    <g>
+      {Array.from({ length: n }).map((_, i) => (
+        <g key={i}>
+          <rect x={x + i * cw + 3} y={y} width={cw - 6} height={44} rx={5} fill={light(cols[i % cols.length], 0.25)} />
+          <text x={x + i * cw + cw / 2} y={y + 35} textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight={800} fontSize={32} fill="#ffffff">{(i + 1) % 10}</text>
+        </g>
+      ))}
     </g>
   );
 };
@@ -147,15 +235,35 @@ const TeacherTable = ({ x, w, accent }: { x: number; w: number; accent: string }
 const Classroom = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => (
   <>
     <Room wall={wall} floor={floor} />
+    <WallShade />
+    <FloorPlanks color={floor} step={70} rows={11} />
+    <FloorShade />
     <rect x={0} y={900} width={W} height={FLOOR_Y - 900} fill={dark(wall, 0.08)} />
+    {Array.from({ length: 18 }).map((_, i) => <rect key={i} x={i * 62 + 28} y={914} width={4} height={FLOOR_Y - 940} fill={dark(wall, 0.14)} />)}
     <rect x={0} y={890} width={W} height={12} fill={dark(wall, 0.18)} />
+    <Baseboard color={dark(WOOD, 0.3)} h={20} />
+    <BallLamp x={190} />
+    <BallLamp x={540} />
+    <BallLamp x={890} />
     <WorldMap x={40} y={460} w={190} h={150} accent={accent} />
-    <Blackboard x={280} y={430} w={640} h={270} accent={accent} />
+    <Portrait x={40} y={650} kind={0} />
+    <Portrait x={146} y={650} kind={1} />
+    <NumberStrip x={290} y={424} w={620} accent={accent} />
+    <Blackboard x={280} y={476} w={640} h={262} accent={accent} />
     <Clock cx={990} cy={500} r={50} />
+    <PeriodicTable x={940} y={575} w={130} h={92} accent={accent} />
+    {/* деревянный чертёжный треугольник на гвоздике */}
+    <path d="M240 650 L240 760 L268 760 Z" fill="none" stroke={WOOD} strokeWidth={8} strokeLinejoin="round" />
+    <circle cx={244} cy={646} r={4} fill={INK} />
+    <Shadow cx={0.1 * W + 60} w={200} />
+    <Shadow cx={0.34 * W + 60} w={200} />
     <SchoolDesk x={0.1} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
     <SchoolDesk x={0.34} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
+    <Shadow cx={920} w={300} />
     <TeacherTable x={775} w={290} accent={accent} />
+    <Shadow cx={0.66 * W} w={120} />
     <SeatAt x={0.66} z={1} kind="chair" color={dark(WOOD, 0.1)} pad={accent} />
+    <Shadow cx={0.16 * W + 70} w={240} y={1275} o={0.14} />
     <SchoolDesk x={0.16} z={0.5} accent={accent} />
   </>
 );
@@ -167,6 +275,26 @@ const LectureHall = ({ wall, floor, accent }: { wall: string; floor: string; acc
   return (
     <>
       <Room wall={wall} floor={floor} />
+      <WallShade />
+      <FloorPlanks color={floor} step={70} rows={11} />
+      <FloorShade />
+      {/* пилястры и портреты между окнами */}
+      {[210, 480, 750].map((xx, i) => (
+        <g key={xx}>
+          <Glow cx={xx + 60} cy={430} rx={70} ry={50} opacity={0.5} />
+          <path d={`M${xx + 46} 452 h28 l-6 14 h-16 Z`} fill="#c9a24a" />
+          <Portrait x={xx + 22} y={474} w={76} h={94} kind={i} />
+        </g>
+      ))}
+      {/* подвесные светильники рядами */}
+      {[140, 400, 680, 940].map((xx) => (
+        <g key={xx}>
+          <Glow cx={xx} cy={120} rx={200} ry={110} opacity={0.45} />
+          <rect x={xx - 2} y={0} width={4} height={90} fill="#5a5a5a" />
+          <path d={`M${xx - 56} 128 Q${xx} 70 ${xx + 56} 128 Z`} fill={dark(accent, 0.2)} />
+          <ellipse cx={xx} cy={128} rx={40} ry={8} fill="#fff6d0" />
+        </g>
+      ))}
       {/* высокие окна под потолком */}
       {[60, 330, 600, 870].map((xx) => (
         <g key={xx}>
@@ -187,20 +315,43 @@ const LectureHall = ({ wall, floor, accent }: { wall: string; floor: string; acc
             ))}
             <rect x={0} y={y} width={W} height={FLOOR_Y - y} fill={dark(wood, 0.12)} />
             <rect x={0} y={y - 4} width={W} height={20} rx={4} fill={wood} />
+            <rect x={0} y={y - 4} width={W} height={5} fill="#ffffff" opacity={0.2} />
+            {/* тетради, книги, ноутбуки на пюпитрах */}
+            {Array.from({ length: 10 }).map((_, k) => {
+              const xx = 30 + k * 108 + rnd(k + i * 11) * 30;
+              if (xx > 440 && xx < 620) return null;
+              const r = rnd(k * 3 + i * 17);
+              if (r < 0.35) return null;
+              return r < 0.6 ? (
+                <rect key={k} x={xx} y={y - 12} width={40} height={9} rx={2} fill={[RED, "#e8c46a", "#4a7ab0", light(accent, 0.3)][(k + i) % 4]} opacity={0.9 - i * 0.12} />
+              ) : (
+                <g key={k} opacity={0.95 - i * 0.12}>
+                  <path d={`M${xx} ${y - 4} l8 -34 h40 l-4 34 Z`} fill="#5a5f66" />
+                  <path d={`M${xx + 12} ${y - 8} l6 -24 h28 l-3 24 Z`} fill="#9cc6e0" />
+                </g>
+              );
+            })}
           </g>
         );
       })}
       {/* лестница-проход посередине */}
       <rect x={470} y={tierTop(3) - 4} width={140} height={FLOOR_Y - tierTop(3) + 4} fill={mix(floor, wall, 0.35)} />
       {tiers.map((i) => (
-        <rect key={i} x={470} y={tierTop(i) - 4} width={140} height={14} fill={dark(mix(floor, wall, 0.35), 0.15)} />
+        <g key={i}>
+          <rect x={470} y={tierTop(i) - 4} width={140} height={14} fill={dark(mix(floor, wall, 0.35), 0.15)} />
+          <circle cx={480} cy={tierTop(i) + 26} r={5} fill="#f5d77a" />
+          <circle cx={600} cy={tierTop(i) + 26} r={5} fill="#f5d77a" />
+          <Glow cx={480} cy={tierTop(i) + 26} rx={22} opacity={0.6} />
+          <Glow cx={600} cy={tierTop(i) + 26} rx={22} opacity={0.6} />
+        </g>
       ))}
       <rect x={0} y={FLOOR_Y - 18} width={W} height={18} fill="#00000022" />
       {/* передний ряд откидных сидений у фасада первого яруса (метки row-1…row-4) */}
       {[0.1, 0.24, 0.38, 0.62].map((x) => (
         <SeatAt key={x} x={x} z={1} kind="theater" color={mix(accent, wall, 0.15)} back={70} />
       ))}
-      {/* кафедра */}
+      {/* кафедра: ноутбук, бумаги, вода */}
+      <Shadow cx={940} w={240} />
       <path d={`M840 ${FLOOR_Y} L860 ${FLOOR_Y - 300} L1020 ${FLOOR_Y - 300} L1040 ${FLOOR_Y} Z`} fill={dark(WOOD, 0.1)} />
       <rect x={830} y={FLOOR_Y - 330} width={220} height={34} rx={8} fill={WOOD} />
       <rect x={880} y={FLOOR_Y - 250} width={120} height={150} rx={8} fill={accent} />
@@ -208,6 +359,10 @@ const LectureHall = ({ wall, floor, accent }: { wall: string; floor: string; acc
       <path d={`M880 ${FLOOR_Y - 330} Q880 ${FLOOR_Y - 400} 850 ${FLOOR_Y - 420}`} stroke={INK} strokeWidth={6} fill="none" strokeLinecap="round" />
       <ellipse cx={846} cy={FLOOR_Y - 426} rx={12} ry={16} fill={INK} />
       <rect x={990} y={FLOOR_Y - 380} width={30} height={50} rx={6} fill="#cfe6f5" opacity={0.9} />
+      <path d={`M900 ${FLOOR_Y - 330} l12 -50 h70 l-6 50 Z`} fill="#5a5f66" />
+      <path d={`M914 ${FLOOR_Y - 336} l9 -38 h56 l-5 38 Z`} fill="#9cc6e0" />
+      <circle cx={946} cy={FLOOR_Y - 356} r={8} fill="#ffffff" opacity={0.8} />
+      <rect x={846} y={FLOOR_Y - 338} width={46} height={8} rx={2} fill="#f4efe2" />
       <rect x={994} y={FLOOR_Y - 360} width={22} height={26} rx={4} fill="#9cc6e0" />
     </>
   );

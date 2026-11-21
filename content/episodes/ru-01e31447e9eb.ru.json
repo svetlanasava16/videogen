@@ -2,7 +2,7 @@
   "id": "ru-01e31447e9eb.ru",
   "jokeId": "ru-01e31447e9eb",
   "locale": "ru",
-  "title": "Хорошая песня",
+  "title": "Песня по заявке",
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -17,9 +17,9 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Звонит герла на радио.",
+      "text": "Звонит герла на радио и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,7 +28,7 @@
       "character": "devushka",
       "text": "Вчера нашла кошелёк, там было пять тысяч долларов, шестьсот восемнадцать марок и визитка на имя Гарика Марикяна, проспект Шверника, девятнадцать...",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -47,6 +47,7 @@
   "scenes": [
     {
       "location": "ofis",
+      "place": "tv-studio",
       "cast": [
         "nachalnik",
         "devushka"
@@ -63,16 +64,22 @@
           "remove": []
         }
       },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "devushka"
+        ]
+      },
       "beats": [
         {
           "type": "move",
           "who": "nachalnik",
-          "to": "desk"
+          "to": "host"
         },
         {
           "type": "move",
           "who": "devushka",
-          "to": "right"
+          "to": "sofa"
         },
         {
           "type": "prop",
@@ -85,8 +92,18 @@
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "nod"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "scratch-head"
         },
         {
           "type": "line",

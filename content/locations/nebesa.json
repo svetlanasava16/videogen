@@ -23,12 +23,13 @@
     "cloud": 0.82
   },
   "bible": {
-    "summary": "Heaven's gate with clouds (and the hell variant): Saint Peter jokes.",
+    "summary": "Heaven's gate on clouds: golden wrought gate with curls between pearl pillars, radiant light, doves, layered clouds, a golden path to the gate, Saint Peter's lectern with the book, a quill and inkpot (and variants hell, garden of Eden, space, crossroads of souls): Saint Peter jokes.",
     "roles": [
       "heaven",
       "hell",
       "garden-of-eden",
-      "space"
+      "space",
+      "crossroads-afterlife"
     ],
     "variants": [
       {
@@ -36,21 +37,64 @@
         "roles": [
           "hell"
         ],
-        "change": "red cave, flames, cauldron"
+        "change": "Red cave: stalactites, hanging chains, glowing cracks, lava falls and a lava lake at the back, flames along the walls, flying sparks, a boiling cauldron on a fire on the right, a pitchfork leaning on the left wall."
       },
       {
         "id": "garden-of-eden",
         "roles": [
           "garden-of-eden"
         ],
-        "change": "apple tree, lush garden"
+        "change": "Lush garden: blue sky with a faint rainbow, snowy mountains, hills with trees, a waterfall and a stream, a deer on the hill, an apple tree with red apples and the serpent on a branch on the right, bushes and flowers on the left, a rabbit, butterflies, birds."
       },
       {
         "id": "space",
         "roles": [
           "space"
         ],
-        "change": "stars, planet"
+        "change": "Space: starry sky with nebulae and the Milky Way, a spiral galaxy, a ringed planet with a moon, the Earth, a satellite, a shooting star; grey moon surface with craters and rocks, a small rocket on the left, footprints and a little flag."
+      },
+      {
+        "id": "crossroads",
+        "name": {
+          "ru": "Распутье душ",
+          "en": "Crossroads of souls",
+          "de": "Scheideweg der Seelen"
+        },
+        "roles": [
+          "crossroads-afterlife",
+          "judgement"
+        ],
+        "change": "Crossroads in the clouds: a pale road comes from the viewer to a fork at the back centre, where the judge of souls stands (judge) between golden scales on a cloud pedestal (left of him) and a golden lectern with the open book of souls, a quill and inkpot (right of him); behind him a signpost with two arrow boards without words: up-left a white board with a winged halo, down-right a dark red board with a flame; the left branch is a golden stairway climbing up to a small pearly gate of paradise on a cloud island in golden rays with doves (left-road at its foot), the right branch is dark cracked cobblestone going down into a fiery hole in the clouds with flames, smoke and sparks (right-road at its start); souls stand at center, front-left, front-center, front-right.",
+        "marks": {
+          "left-road": {
+            "x": 0.2,
+            "z": 1
+          },
+          "judge": {
+            "x": 0.5,
+            "z": 1
+          },
+          "right-road": {
+            "x": 0.8,
+            "z": 1
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "pearly gates on fluffy clouds, soft sky, golden light"
