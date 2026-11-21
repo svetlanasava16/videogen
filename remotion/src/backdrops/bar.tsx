@@ -1,13 +1,24 @@
 import { Canvas, Room, Plant, FLOOR_Y, W, H, type BackdropProps, type Palette } from "./parts";
 import { feetY, seatTopY } from "../world/depth";
 import { SeatAt, VShade, Glow, FloorBoards, FloorTiles, FloorRug, FloorShadow, PhotoFrame, CeilingLamp } from "./gostinaya";
+import { Label } from "./ulitsa";
+import { useSign } from "../i18n/signs";
 
 /**
  * Фон «bar»: уютный бар. Варианты (content/locations/bar.json → bible.variants):
  * restaurant / cafe, party, hotel. Остальное — базовый бар.
  * Сиденья под метки: бар — 4 табурета у стойки (stool-1…4); ресторан — два столика по два стула (chair-1…4);
  * банкет — 4 стула за столом-мебелью (chair-1…4, средний план); гостиница — кресло в холле (armchair).
+ *
+ * Глубина: в баре и гостинице стойка — передний слой (layer="front", content/locations/bar.json → front.z = 0.8):
+ * бармен / портье за ней (метка counter, z 0.95) скрыт по пояс, посетители на среднем плане (z 0.5) и табуреты — перед ней.
+ * Низ стойки стоит на полу плана 0.8 (FRONT_FEET), верх — y 1015 (бар) / 1010 (ресепшн), бармену по пояс; поверхность для предметов
+ * (surfaces.top) — середина столешницы. Ресторан и банкет переднего слоя не имеют.
  */
+
+/** План переднего слоя (стойка) и y её низа. */
+const FRONT_Z = 0.8;
+const FRONT_FEET = feetY(FRONT_Z);
 
 /** Смешать цвет с белым (t>0) или чёрным (t<0). */
 const shade = (hex: string, t: number) => {
@@ -45,14 +56,18 @@ const BottleShelf = ({ x0, x1, y, seed = 0 }: { x0: number; x1: number; y: numbe
 };
 
 /** Барная стойка поперёк задней стены (верх ~y 975). */
-const Counter = ({ accent, top = 975 }: { accent: string; top?: number }) => (
+const Counter = ({ accent, top = 975, bottom = FRONT_FEET }: { accent: string; top?: number; bottom?: number }) => (
   <g>
-    <rect x={0} y={top} width={W} height={30} rx={6} fill={WOOD_L} />
-    <rect x={0} y={top + 30} width={W} height={FLOOR_Y - top - 30} fill={WOOD} />
+    <rect x={0} y={bottom - 8} width={W} height={16} fill="#00000040" />
+    <rect x={0} y={top + 30} width={W} height={bottom - top - 30} fill={WOOD} />
     {Array.from({ length: 9 }).map((_, i) => (
-      <rect key={i} x={60 + i * 120} y={top + 30} width={8} height={FLOOR_Y - top - 30} fill="#00000018" />
+      <rect key={i} x={60 + i * 120} y={top + 30} width={8} height={bottom - top - 30} fill="#00000018" />
     ))}
-    <rect x={0} y={FLOOR_Y - 40} width={W} height={10} fill={accent} opacity={0.7} />
+    <rect x={0} y={top + 30} width={W} height={14} fill="#00000030" />
+    <rect x={0} y={bottom - 40} width={W} height={10} fill={accent} opacity={0.7} />
+    <rect x={0} y={bottom - 16} width={W} height={16} fill={WOOD_D} />
+    <rect x={0} y={top} width={W} height={30} rx={6} fill={WOOD_L} />
+    <rect x={0} y={top} width={W} height={8} rx={4} fill="#ffffff22" />
   </g>
 );
 
@@ -103,12 +118,12 @@ const Dartboard = ({ x, y, r = 70 }: { x: number; y: number; r?: number }) => (
 );
 
 /** Грифельная доска с меню. */
-const Chalkboard = ({ x, y, w = 170, h = 230 }: { x: number; y: number; w?: number; h?: number }) => (
+const Chalkboard = ({ x, y, w = 170, h = 230, title }: { x: number; y: number; w?: number; h?: number; title: string }) => (
   <g>
     <rect x={x + 6} y={y + 8} width={w} height={h} rx={6} fill="#00000030" />
     <rect x={x} y={y} width={w} height={h} rx={6} fill={WOOD_D} />
     <rect x={x + 12} y={y + 12} width={w - 24} height={h - 24} rx={3} fill="#2f3a34" />
-    <text x={x + w / 2} y={y + 52} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={30} fill="#f2efe6">МЕНЮ</text>
+    <Label x={x + w / 2} y={y + 52} text={title} size={30} weight={800} color="#f2efe6" maxW={w - 36} />
     {[0, 1, 2, 3, 4].map((i) => (
       <g key={i}>
         <rect x={x + 26} y={y + 80 + i * 26} width={70 - (i % 2) * 16} height={5} rx={2} fill="#e8e4d8" opacity={0.8} />
@@ -119,6 +134,7 @@ const Chalkboard = ({ x, y, w = 170, h = 230 }: { x: number; y: number; w?: numb
 );
 
 const BaseBar = ({ palette }: { palette: Palette }) => {
+  const t = useSign();
   const panel = shade(palette.wall, 0.08);
   return (
     <>
@@ -135,12 +151,18 @@ const BaseBar = ({ palette }: { palette: Palette }) => {
       <Glow cx={540} cy={680} r={360} rx={360} ry={220} color={palette.accent} opacity={0.35} />
       <BottleShelf x0={226} x1={854} y={600} seed={0} />
       <BottleShelf x0={226} x1={854} y={820} seed={3} />
+      {/* задний шкаф-тумба у стены за барменом: над стойкой видна его столешница с перевёрнутыми бокалами */}
+      <rect x={196} y={884} width={688} height={FLOOR_Y - 884} fill={shade(WOOD_D, -0.3)} />
+      <rect x={190} y={884} width={700} height={16} rx={4} fill={WOOD} />
+      {[250, 290, 330, 690, 730].map((x) => <path key={x} d={`M${x - 14} 884 l4 -40 h20 l4 40 Z`} fill="#e8dcc099" />)}
+      <rect x={430} y={840} width={120} height={44} rx={6} fill="#5d6870" />
+      <rect x={442} y={848} width={60} height={16} rx={3} fill="#9fd4a8" />
       {/* неон, дартс, меню */}
-      <Neon x={110} y={560} text="ПИВО" color="#ff6a8a" size={50} />
+      <Neon x={110} y={560} text={t("beer")} color="#ff6a8a" size={50} />
       <path d="M80 600 h50 v70 q0 16 -16 16 h-18 q-16 0 -16 -16 Z" fill="none" stroke="#ffd36a" strokeWidth={6} />
       <path d="M130 616 q24 0 24 22 q0 22 -24 22" fill="none" stroke="#ffd36a" strokeWidth={6} />
       <Glow cx={110} cy={640} r={100} color="#ffd36a" opacity={0.3} />
-      <Chalkboard x={30} y={700} w={160} h={220} />
+      <Chalkboard x={30} y={700} w={160} h={220} title={t("menu")} />
       <Dartboard x={970} y={610} r={64} />
       <PhotoFrame x={900} y={720} w={74} h={90} frame="#2b1d14" kind="portrait" tone="#c9b890" />
       <PhotoFrame x={986} y={736} w={70} h={80} frame="#c9a24a" kind="landscape" />
@@ -150,20 +172,33 @@ const BaseBar = ({ palette }: { palette: Palette }) => {
       <FloorBoards color={palette.floor} step={70} t={0.25} />
       <VShade y={FLOOR_Y} h={H - FLOOR_Y} from={0} to={0.35} />
       <Glow cx={540} cy={FLOOR_Y + 30} r={500} rx={560} ry={80} color={palette.accent} opacity={0.18} />
-      <Counter accent={palette.accent} />
-      {/* латунная подножка, подставки, стаканы на стойке */}
-      <rect x={0} y={FLOOR_Y - 70} width={W} height={10} rx={5} fill="#c9a24a" />
-      {[120, 380, 640, 900].map((x) => <rect key={x} x={x} y={FLOOR_Y - 70} width={8} height={70} fill="#a8823a" />)}
-      <Taps x={760} accent={palette.accent} />
-      <Mug x={330} />
-      <rect x={160} y={960} width={70} height={14} rx={3} fill="#b4452f" />
-      <path d="M180 960 h30 l-4 -46 h-22 Z" fill="#e8dcc099" />
-      <ellipse cx={560} cy={968} rx={40} ry={9} fill="#d9d4c8" />
-      {[540, 556, 572, 548, 566].map((x, i) => <circle key={i} cx={x} cy={962 - (i > 2 ? 8 : 0)} r={6} fill="#c8963d" />)}
-      <rect x={900} y={936} width={44} height={40} rx={6} fill="#c9ccd4" />
-      {[908, 918, 928].map((x) => <rect key={x} x={x} y={926} width={4} height={14} fill="#f6efe0" />)}
+      {/* тени табуретов (сами табуреты — в переднем слое, перед стойкой) */}
+      {[0.12, 0.3, 0.7, 0.88].map((x) => <FloorShadow key={x} cx={x * W} y={feetY(0.5)} w={110} o={0.3} h={10} />)}
+    </>
+  );
+};
+
+/** Передний слой бара: стойка с латунной подножкой, кранами и мелочами на столешнице, табуреты перед ней (средний план). */
+const BarFront = ({ palette }: { palette: Palette }) => {
+  const top = 1015;
+  return (
+    <>
+      <Counter accent={palette.accent} top={top} />
+      {/* латунная подножка */}
+      <rect x={0} y={FRONT_FEET - 74} width={W} height={10} rx={5} fill="#c9a24a" />
+      {[120, 380, 640, 900].map((x) => <rect key={x} x={x} y={FRONT_FEET - 74} width={8} height={74} fill="#a8823a" />)}
+      {/* на столешнице: краны, кружка, салфетница, арахис, ведёрко со льдом */}
+      <Taps x={780} top={top} accent={palette.accent} />
+      <Mug x={330} top={top + 14} />
+      <rect x={160} y={top + 2} width={70} height={14} rx={3} fill="#b4452f" />
+      <path d={`M180 ${top + 2} h30 l-4 -46 h-22 Z`} fill="#e8dcc099" />
+      <ellipse cx={560} cy={top + 10} rx={40} ry={9} fill="#d9d4c8" />
+      {[540, 556, 572, 548, 566].map((x, i) => <circle key={i} cx={x} cy={top + 4 - (i > 2 ? 8 : 0)} r={6} fill="#c8963d" />)}
+      <rect x={930} y={top - 26} width={44} height={40} rx={6} fill="#c9ccd4" />
+      {[938, 948, 958].map((x) => <rect key={x} x={x} y={top - 36} width={4} height={14} fill="#f6efe0" />)}
+      {/* табуреты посетителей — средний план, перед стойкой (метки stool-1…4) */}
       {[0.12, 0.3, 0.7, 0.88].map((x) => (
-        <SeatAt key={x} x={x} z={1} kind="bar-stool" color="#b4452f" />
+        <SeatAt key={x} x={x} z={0.5} kind="bar-stool" color="#b4452f" />
       ))}
     </>
   );
@@ -527,27 +562,8 @@ const Hotel = ({ palette }: { palette: Palette }) => {
       {[0, 1, 2].map((i) => (
         <path key={i} d={`M${740 + i * 50} 690 l8 18 l20 2 l-15 13 l5 20 l-18 -11 l-18 11 l5 -20 l-15 -13 l20 -2 Z`} fill={gold} />
       ))}
-      {/* стойка ресепшен: лампа, монитор, звонок, журнал, буклеты */}
-      <FloorShadow cx={540} w={780} o={0.3} />
-      <rect x={160} y={970} width={760} height={30} rx={8} fill={shade(WOOD_L, 0.1)} />
-      <rect x={176} y={1000} width={728} height={FLOOR_Y - 1000} fill={WOOD} />
-      <rect x={176} y={1040} width={728} height={18} fill={palette.accent} />
-      {[0, 1, 2, 3].map((i) => <rect key={i} x={210 + i * 175} y={1080} width={140} height={80} rx={6} fill="#00000018" />)}
-      <text x={540} y={1130} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={30} letterSpacing={6} fill={gold}>РЕСЕПШН</text>
-      <Glow cx={240} cy={930} r={90} color="#ffe9a8" opacity={0.45} />
-      <rect x={236} y={920} width={8} height={50} fill={gold} />
-      <ellipse cx={240} cy={968} rx={30} ry={6} fill={gold} />
-      <path d="M200 932 q40 -40 80 0 Z" fill="#2f6a4a" />
-      <rect x={560} y={890} width={100} height={70} rx={8} fill="#d8d4c8" />
-      <rect x={570} y={898} width={80} height={52} rx={4} fill="#4a6a8a" />
-      <rect x={596} y={960} width={28} height={12} fill="#b8b4a8" />
-      <ellipse cx={760} cy={968} rx={40} ry={8} fill="#8a6a2a" />
-      <path d="M726 966 a34 34 0 0 1 68 0 Z" fill={gold} />
-      <circle cx={760} cy={928} r={7} fill={gold} />
-      <rect x={330} y={952} width={150} height={18} rx={3} fill="#f6efe0" />
-      <rect x={400} y={952} width={8} height={18} fill="#b4452f" />
-      <rect x={850} y={924} width={50} height={46} rx={3} fill={gold} />
-      {[0, 1, 2].map((i) => <rect key={i} x={856 + i * 14} y={914 - (i % 2) * 6} width={12} height={40} rx={2} fill={["#4a7aa5", "#c8553d", "#5b8c5a"][i]} />)}
+      {/* тень стойки ресепшн (сама стойка — передний слой, HotelFront) */}
+      <FloorShadow cx={540} y={FRONT_FEET - 10} w={800} o={0.3} />
       <Plant x={80} scale={1.1} pot={WOOD_D} />
       <Plant x={1000} scale={1.1} pot={WOOD_D} />
       {/* кресло для гостей в холле (метка armchair, средний план) */}
@@ -557,16 +573,60 @@ const Hotel = ({ palette }: { palette: Palette }) => {
   );
 };
 
-export const Bar = ({ palette, variant }: BackdropProps) => (
-  <Canvas>
-    {variant === "restaurant" || variant === "cafe" ? (
-      <Restaurant palette={palette} />
-    ) : variant === "party" ? (
-      <Party palette={palette} />
-    ) : variant === "hotel" ? (
-      <Hotel palette={palette} />
-    ) : (
-      <BaseBar palette={palette} />
-    )}
-  </Canvas>
-);
+/** Передний слой гостиницы: стойка ресепшн (портье за ней — метка counter, z 0.95) с лампой, журналом, звонком, монитором. */
+const HotelFront = ({ palette }: { palette: Palette }) => {
+  const t = useSign();
+  const gold = "#c9a24a";
+  const top = 1010;
+  const b = FRONT_FEET;
+  return (
+    <>
+      <rect x={176} y={top + 30} width={728} height={b - top - 30} fill={WOOD} />
+      <rect x={176} y={top + 30} width={728} height={14} fill="#00000030" />
+      <rect x={176} y={top + 70} width={728} height={18} fill={palette.accent} />
+      {[0, 1, 2, 3].map((i) => <rect key={i} x={210 + i * 175} y={top + 110} width={140} height={b - top - 150} rx={6} fill="#00000018" />)}
+      <rect x={176} y={b - 18} width={728} height={18} fill={WOOD_D} />
+      <Label x={540} y={top + 150} text={t("reception")} size={30} weight={800} spacing={6} color={gold} maxW={520} />
+      <rect x={160} y={top} width={760} height={30} rx={8} fill={shade(WOOD_L, 0.1)} />
+      <rect x={160} y={top} width={760} height={8} rx={4} fill="#ffffff30" />
+      {/* лампа, журнал гостей, звонок — слева; монитор и буклеты — справа; посередине место портье */}
+      <Glow cx={230} cy={top - 40} r={90} color="#ffe9a8" opacity={0.45} />
+      <rect x={226} y={top - 50} width={8} height={50} fill={gold} />
+      <ellipse cx={230} cy={top - 2} rx={30} ry={6} fill={gold} />
+      <path d={`M190 ${top - 38} q40 -40 80 0 Z`} fill="#2f6a4a" />
+      <rect x={290} y={top - 18} width={140} height={18} rx={3} fill="#f6efe0" />
+      <rect x={356} y={top - 18} width={8} height={18} fill="#b4452f" />
+      <ellipse cx={470} cy={top - 2} rx={30} ry={7} fill="#8a6a2a" />
+      <path d={`M444 ${top - 4} a26 26 0 0 1 52 0 Z`} fill={gold} />
+      <circle cx={470} cy={top - 34} r={6} fill={gold} />
+      <rect x={650} y={top - 80} width={100} height={70} rx={8} fill="#d8d4c8" />
+      <rect x={660} y={top - 72} width={80} height={52} rx={4} fill="#4a6a8a" />
+      <rect x={686} y={top - 10} width={28} height={12} fill="#b8b4a8" />
+      <rect x={820} y={top - 46} width={50} height={46} rx={3} fill={gold} />
+      {[0, 1, 2].map((i) => <rect key={i} x={826 + i * 14} y={top - 56 - (i % 2) * 6} width={12} height={40} rx={2} fill={["#4a7aa5", "#c8553d", "#5b8c5a"][i]} />)}
+    </>
+  );
+};
+
+export const Bar = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  const hotel = variant === "hotel";
+  const counter = hotel || (variant !== "restaurant" && variant !== "cafe" && variant !== "party");
+  if (layer === "front") {
+    // передний слой есть только у стойки бара и ресепшн; ресторан и банкет — без него
+    if (!counter) return null;
+    return <Canvas>{hotel ? <HotelFront palette={palette} /> : <BarFront palette={palette} />}</Canvas>;
+  }
+  return (
+    <Canvas>
+      {variant === "restaurant" || variant === "cafe" ? (
+        <Restaurant palette={palette} />
+      ) : variant === "party" ? (
+        <Party palette={palette} />
+      ) : hotel ? (
+        <Hotel palette={palette} />
+      ) : (
+        <BaseBar palette={palette} />
+      )}
+    </Canvas>
+  );
+};

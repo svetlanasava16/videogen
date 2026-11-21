@@ -18,7 +18,7 @@ const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
-  <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], marks: false }} />
+  <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], marks: false, locale: "ru" as const }} />
   <Composition id="Props" component={PropsPreview} {...propsPreviewSize("props", allPropIds().length)} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], rest: true, mode: "props" }} calculateMetadata={({ props }) => { const p = props as { only?: string[]; mode?: string }; return propsPreviewSize(p.mode ?? "props", p.only?.length || allPropIds().length); }} />
   <Composition id="Vehicles" component={VehiclesPreview} {...VEHICLES_PREVIEW_SIZE} fps={30} durationInFrames={1} defaultProps={{ grid: false, moving: false }} />
   <Composition id="Cast" component={Cast} width={2450} height={2850} fps={30} durationInFrames={1} />

@@ -1,5 +1,6 @@
 import { AbsoluteFill } from "remotion";
-import { markOf, marksFor } from "@jf/core";
+import { markOf, marksFor, subLocation, type Locale } from "@jf/core";
+import { LocaleProvider } from "./i18n/signs";
 import { locations } from "./registry";
 import { Background } from "./components/Background";
 import { feetY, seatTopY } from "./world/depth";
@@ -9,16 +10,18 @@ import { feetY, seatTopY } from "./world/depth";
  * кружок — где стоят стопы куклы на метке (x, план z), полоска — верх сиденья (seat), подпись — имя метки.
  * Так видно, совпадают ли нарисованные стулья и скамьи с метками.
  */
-export const Locations = ({ only, marks }: { only?: string[]; marks?: boolean }) => {
+export const Locations = ({ only, marks, locale = "ru" }: { only?: string[]; marks?: boolean; locale?: Locale }) => {
   const tiles = Object.values(locations)
     .filter((l) => !only?.length || only.includes(l.id))
     .flatMap((l) => [{ l, place: undefined as string | undefined }, ...(l.bible?.variants ?? []).map((v) => ({ l, place: v.id ?? v.roles[0] }))]);
   return (
+    <LocaleProvider value={locale}>
     <AbsoluteFill style={{ background: "#2b1d14", display: "flex", flexWrap: "wrap", gap: 12, padding: 12, alignContent: "flex-start" }}>
       {tiles.map(({ l, place }) => (
         <div key={l.id + (place ?? "")} style={{ width: 270, height: 520, position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transform: "scale(0.25)", transformOrigin: "0 0" }}>
             <Background location={l} place={place} />
+            {(subLocation(l, place)?.front ?? (place ? undefined : l.front)) && <Background location={l} place={place} layer="front" />}
             {marks && (
               <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0 }}>
                 {Object.entries(marksFor(l, place)).map(([name, m]) => {
@@ -41,5 +44,6 @@ export const Locations = ({ only, marks }: { only?: string[]; marks?: boolean })
         </div>
       ))}
     </AbsoluteFill>
+    </LocaleProvider>
   );
 };

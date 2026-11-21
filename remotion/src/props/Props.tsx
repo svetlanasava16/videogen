@@ -20,11 +20,9 @@ const HOLD_ANGLE = 38;
 const FLOOR = 148;
 const upright = (children: React.ReactNode) => <g transform={`rotate(${HOLD_ANGLE})`}>{children}</g>;
 /**
- * Положенный предмет (prop put/drop): движок рисует его без поворота руки, кисть на PROP_REST = 40 над поверхностью.
- * Новые предметы рисуем так, чтобы низ был на y ≈ +40 от кисти, — тогда положенный стоит на столе/полу.
- * rest = true — нарисовать «как лежит»: без поворота up(...) (иначе предмет, нарисованный по вертикали экрана, лёг бы под 38°).
+ * Положенный предмет (prop put/drop): движок рисует <PropItem rest>, y = 0 — линия поверхности (стол/пол), x = 0 — место.
+ * Как предмет лежит/стоит, задаёт одна строка таблицы REST (ниже, у PropItem): поворот, «плоскость», сдвиг или свой рисунок.
  */
-export const REST_BOTTOM = 40;
 
 /** Колесо велосипеда: шина, спицы, втулка. */
 const Wheel = ({ cx, cy, r }: { cx: number; cy: number; r: number }) => (
@@ -90,9 +88,49 @@ const Laptop = ({ broken }: { broken?: boolean }) => {
   );
 };
 
-export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y: number; rest?: boolean }) => {
-  const g = (children: React.ReactNode) => <g transform={`translate(${x} ${y})`}>{children}</g>;
-  const up = (children: React.ReactNode) => (rest ? <g>{children}</g> : upright(children));
+/** Гонг на стойке (без колотушки); ножки стойки на y = FLOOR. */
+const GongStand = () => (
+  <g>
+    <rect x={26} y={-80} width={10} height={FLOOR + 80} rx={4} fill={WOOD_DARK} />
+    <rect x={150} y={-80} width={10} height={FLOOR + 80} rx={4} fill={WOOD_DARK} />
+    <rect x={18} y={-92} width={150} height={14} rx={6} fill={WOOD} />
+    <rect x={14} y={FLOOR - 8} width={30} height={10} rx={4} fill={WOOD_DARK} />
+    <rect x={142} y={FLOOR - 8} width={30} height={10} rx={4} fill={WOOD_DARK} />
+    <line x1={70} y1={-78} x2={80} y2={-20} stroke={INK} strokeWidth={3} />
+    <line x1={116} y1={-78} x2={106} y2={-20} stroke={INK} strokeWidth={3} />
+    <circle cx={93} cy={34} r={58} fill="#e0a030" />
+    <circle cx={93} cy={34} r={46} fill="#cf8f22" />
+    <circle cx={93} cy={34} r={18} fill="#f0c060" />
+  </g>
+);
+
+/** Открытый гроб стоймя (без ручки в кисти): изголовье вверху (y = -170), ноги на y = FLOOR, центр x = 74. */
+const CoffinBody = () => {
+  const cx = 74;
+  const pts = (k: number) => {
+    const top = -170 + k, sh = -100, bot = FLOOR - k;
+    const wT = 36 - k * 0.6, wS = 62 - k, wB = 34 - k * 0.6;
+    return `M${cx - wT} ${top} H${cx + wT} L${cx + wS} ${sh} L${cx + wB} ${bot} H${cx - wB} L${cx - wS} ${sh} Z`;
+  };
+  return (
+    <g>
+      <path d={pts(0)} fill={WOOD} />
+      <path d={pts(12)} fill={WOOD_DARK} />
+      <path d={pts(20)} fill="#efe2cc" />
+      <ellipse cx={cx} cy={-128} rx={26} ry={14} fill={PAPER} />
+      <path d={`M${cx - 30} -70 Q${cx - 20} -50 ${cx - 28} -20 M${cx + 30} -70 Q${cx + 20} -50 ${cx + 28} -20 M${cx - 24} 30 Q${cx - 16} 60 ${cx - 22} 100 M${cx + 24} 30 Q${cx + 16} 60 ${cx + 22} 100`} fill="none" stroke="#dccdb2" strokeWidth={4} />
+    </g>
+  );
+};
+
+/** Свисток без шнурка: мундштук назад, бочонок у кисти, низ бочонка на y = -5. */
+const WhistleBody = () => (
+  <g><rect x={-40} y={-24} width={36} height={10} rx={3} fill="#aeb6c2" /><circle cx={4} cy={-18} r={13} fill="#c9d0da" /><circle cx={8} cy={-22} r={4} fill={INK} /><circle cx={14} cy={-8} r={4} fill="none" stroke="#aeb6c2" strokeWidth={2.5} /></g>
+);
+
+/** Рисунок предмета «в руке» (кисть в (0,0)). up — upright(...) для руки или «как есть» для REST. */
+const propArt = (id: string, up: (children: React.ReactNode) => React.ReactNode): React.ReactNode => {
+  const g = (children: React.ReactNode) => <>{children}</>;
   switch (id) {
     case "bicycle": {
       // старый велосипед стоит рядом, кукла держит его за руль; колёса на полу
@@ -159,16 +197,7 @@ export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y:
     case "gong":
       // латунный гонг на стойке стоит рядом, в руке — колотушка
       return g(up(<>
-        <rect x={26} y={-80} width={10} height={FLOOR + 80} rx={4} fill={WOOD_DARK} />
-        <rect x={150} y={-80} width={10} height={FLOOR + 80} rx={4} fill={WOOD_DARK} />
-        <rect x={18} y={-92} width={150} height={14} rx={6} fill={WOOD} />
-        <rect x={14} y={FLOOR - 8} width={30} height={10} rx={4} fill={WOOD_DARK} />
-        <rect x={142} y={FLOOR - 8} width={30} height={10} rx={4} fill={WOOD_DARK} />
-        <line x1={70} y1={-78} x2={80} y2={-20} stroke={INK} strokeWidth={3} />
-        <line x1={116} y1={-78} x2={106} y2={-20} stroke={INK} strokeWidth={3} />
-        <circle cx={93} cy={34} r={58} fill="#e0a030" />
-        <circle cx={93} cy={34} r={46} fill="#cf8f22" />
-        <circle cx={93} cy={34} r={18} fill="#f0c060" />
+        <GongStand />
         <line x1={-4} y1={-6} x2={44} y2={18} stroke={WOOD} strokeWidth={7} strokeLinecap="round" />
         <circle cx={50} cy={21} r={14} fill="#c8553d" />
       </>));
@@ -265,23 +294,12 @@ export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y:
         <path d="M-20 54 q8 -6 16 0 M10 92 q8 -6 16 0 M-16 96 q6 -4 12 0" fill="none" stroke="#dbeef8" strokeWidth={4} strokeLinecap="round" />
         <circle cx={18} cy={58} r={3} fill="#ffffff" /><circle cx={-24} cy={80} r={2.5} fill="#ffffff" />
       </>));
-    case "coffin": {
+    case "coffin":
       // открытый деревянный гроб стоймя рядом с куклой, стоит на полу
-      const cx = 74;
-      const pts = (k: number) => {
-        const top = -170 + k, sh = -100, bot = FLOOR - k;
-        const wT = 36 - k * 0.6, wS = 62 - k, wB = 34 - k * 0.6;
-        return `M${cx - wT} ${top} H${cx + wT} L${cx + wS} ${sh} L${cx + wB} ${bot} H${cx - wB} L${cx - wS} ${sh} Z`;
-      };
       return g(up(<>
-        <path d={pts(0)} fill={WOOD} />
-        <path d={pts(12)} fill={WOOD_DARK} />
-        <path d={pts(20)} fill="#efe2cc" />
-        <ellipse cx={cx} cy={-128} rx={26} ry={14} fill={PAPER} />
-        <path d={`M${cx - 30} -70 Q${cx - 20} -50 ${cx - 28} -20 M${cx + 30} -70 Q${cx + 20} -50 ${cx + 28} -20 M${cx - 24} 30 Q${cx - 16} 60 ${cx - 22} 100 M${cx + 24} 30 Q${cx + 16} 60 ${cx + 22} 100`} fill="none" stroke="#dccdb2" strokeWidth={4} />
+        <CoffinBody />
         <rect x={-4} y={-18} width={20} height={14} rx={4} fill={BRASS} />
       </>));
-    }
     case "vase":
       // высокая фарфоровая ваза
       return g(up(<>
@@ -430,7 +448,7 @@ export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y:
     case "pen": // ручка, кончик внизу-сзади кисти (как при письме)
       return g(<><path d="M16 -26 L-9 14" stroke="#2f5fa8" strokeWidth={7} strokeLinecap="round" /><path d="M-9 14 L-12 19" stroke={INK} strokeWidth={4} strokeLinecap="round" /><path d="M16 -26 L12 -20" stroke="#f6f2e8" strokeWidth={7} strokeLinecap="round" /></>);
     case "whistle": // свисток: мундштук назад (ко рту), бочонок у кисти, красный шнурок
-      return g(<><path d="M14 -8 Q26 22 8 38" fill="none" stroke="#c8302e" strokeWidth={3} strokeLinecap="round" /><rect x={-40} y={-24} width={36} height={10} rx={3} fill="#aeb6c2" /><circle cx={4} cy={-18} r={13} fill="#c9d0da" /><circle cx={8} cy={-22} r={4} fill={INK} /><circle cx={14} cy={-8} r={4} fill="none" stroke="#aeb6c2" strokeWidth={2.5} /></>);
+      return g(<><path d="M14 -8 Q26 22 8 38" fill="none" stroke="#c8302e" strokeWidth={3} strokeLinecap="round" /><WhistleBody /></>);
     case "baton-striped": // жезл регулировщика: чёрно-белые полосы
       return g(up(<g transform="rotate(28)">
         <rect x={-7} y={-96} width={14} height={104} rx={6} fill="#f6f6f2" />
@@ -555,4 +573,135 @@ export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y:
     default:
       return null;
   }
+};
+
+/**
+ * Как предмет лежит/стоит на поверхности (rest). Рисунок — тот же, что в руке, но без поворота руки (или свой `draw`);
+ * к нему применяется `rotate(rot)`, затем `scale(s, s·flat)` (flat < 1 — плоский предмет «лежит» в лёгкой перспективе),
+ * затем сдвиг (dx, dy), после которого низ предмета ровно на y = 0, а середина — на x = 0.
+ * Новый предмет = одна строка: rot/flat/draw на глаз, dx/dy — обмером листа `Props` с mode "measure" (см. PropsPreview.tsx),
+ * проверка — лист `Props`: предмет должен стоять/лежать на красных линиях пола и стола.
+ */
+export type Rest = { rot?: number; flat?: number; s?: number; dx: number; dy: number; draw?: () => React.ReactNode };
+
+/** Пачка купюр, лежит плашмя. */
+const MoneyFlat = () => (
+  <g>
+    <path d="M-34 -6 L30 -6 L36 0 L-28 0 Z" fill="#6f9f6a" />
+    <path d="M-36 -10 L28 -10 L34 -5 L-30 -5 Z" fill="#7fb07a" />
+    <path d="M-30 -15 L32 -15 L38 -10 L-24 -10 Z" fill="#94c48d" />
+    <ellipse cx={4} cy={-12.5} rx={7} ry={2} fill="#7fb07a" />
+  </g>
+);
+/** Телефон экраном вверх. */
+const PhoneFlat = () => (
+  <g><path d="M-22 -7 L18 -7 L24 0 L-16 0 Z" fill={INK} /><path d="M-18 -6 L14 -6 L18 -2 L-14 -2 Z" fill="#7fb3d5" /></g>
+);
+/** Сложенная газета. */
+const NewspaperFlat = () => (
+  <g>
+    <path d="M-44 -4 L40 -4 L46 0 L-38 0 Z" fill="#d9d1c0" />
+    <path d="M-42 -14 L38 -14 L44 -4 L-36 -4 Z" fill="#efe9dc" />
+    <path d="M-36 -12 L-6 -12 L-4 -9 L-34 -9 Z" fill="#8a8072" />
+    <path d="M-32 -8 L36 -8 L37 -6.5 L-31 -6.5 Z" fill="#b8af9f" />
+  </g>
+);
+/** Сложенный зонт лежит. */
+const UmbrellaFlat = () => (
+  <g>
+    <rect x={-68} y={-10} width={128} height={5} rx={2.5} fill={INK} />
+    <path d="M-60 -8 L40 -17 Q48 -8 40 0 Z" fill="#3d6fb3" />
+    <path d="M60 -8 Q74 -8 74 -16" fill="none" stroke={INK} strokeWidth={6} strokeLinecap="round" />
+  </g>
+);
+/** Удочка лежит: катушка снизу, леска с поплавком рядом. */
+const FishingRodFlat = () => (
+  <g>
+    <path d="M-110 -16 L130 -9 L130 -7 L-110 -8 Z" fill={WOOD_DARK} />
+    <circle cx={-80} cy={-10} r={10} fill={METAL} />
+    <circle cx={-80} cy={-10} r={4} fill={INK} />
+    <path d="M130 -8 Q146 -2 150 -4" fill="none" stroke={INK} strokeWidth={2} opacity={0.55} />
+    <ellipse cx={160} cy={-7} rx={11} ry={7} fill="#c8553d" />
+    <rect x={158} y={-14} width={4} height={14} fill={PAPER} />
+  </g>
+);
+
+const REST: Record<string, Rest> = {
+  // стоят
+  bottle: { dx: 0, dy: 10 },
+  glass: { dx: 0, dy: 6 },
+  suitcase: { dx: 0, dy: -72 },
+  cake: { dx: 0, dy: 4 },
+  bicycle: { dx: 66, dy: -152.5 },
+  "road-sign": { dx: 0, dy: -60 },
+  gong: { dx: -130, dy: -150, draw: () => <><GongStand /><line x1={180} y1={FLOOR - 1.5} x2={222} y2={FLOOR - 1.5} stroke={WOOD} strokeWidth={7} strokeLinecap="round" /><circle cx={232} cy={FLOOR - 12} r={14} fill="#c8553d" /></> },
+  bucket: { dx: 0, dy: -110 },
+  vase: { dx: -16, dy: -74 },
+  birdcage: { dx: 0, dy: -120 },
+  globe: { dx: -17.2, dy: -6 },
+  "genie-bottle": { dx: 0, dy: 10.5 },
+  canister: { dx: 0, dy: -110 },
+  scales: { dx: -27, dy: -2 },
+  laptop: { dx: -54, dy: -40 },
+  "laptop-broken": { dx: -54, dy: -40 },
+  "plush-heart": { dx: -40, dy: -40 },
+  "bass-drum": { dx: 152, dy: -42 },
+  matchbox: { rot: 10, dx: 0, dy: 8 },
+  // лежат на боку
+  flowers: { rot: 90, dx: -41, dy: -22 },
+  keys: { rot: 90, flat: 0.6, dx: 18.8, dy: -7.5 },
+  cane: { rot: -90, dx: -60, dy: -8 },
+  "white-cane": { rot: -90, dx: -75, dy: -4 },
+  wrench: { rot: -70, dx: -23.5, dy: -17 },
+  pistol: { flat: 0.5, dx: -16.4, dy: -6 },
+  rifle: { rot: 58, dx: -32.5, dy: -16 },
+  bagpipes: { rot: 90, dx: -76.7, dy: -46 },
+  sandwich: { rot: 8, dx: 0, dy: 0 },
+  shovel: { rot: -82, flat: 0.5, dx: -19, dy: -12 },
+  chicken: { dx: -2, dy: -124 },
+  coffin: { rot: -90, flat: 0.55, dx: 11, dy: 6.5, draw: () => <CoffinBody /> },
+  snake: { rot: -90, flat: 0.4, dx: -52.2, dy: -18.5 },
+  "chocolate-bar": { rot: 98, flat: 0.45, dx: -42, dy: -10 },
+  baby: { rot: 18, dx: -5, dy: -6 },
+  pen: { rot: 58, dx: -4.8, dy: -3.5 },
+  "baton-striped": { rot: 62, dx: -41, dy: -8 },
+  gavel: { dx: -34, dy: -40 },
+  "voodoo-doll": { rot: -90, flat: 0.5, dx: 6, dy: -1 },
+  mirror: { rot: 90, flat: 0.5, dx: -43, dy: -14 },
+  // лежат плашмя (бумага, плоские вещи)
+  money: { dx: -1, dy: 0, draw: () => <MoneyFlat /> },
+  phone: { dx: -1, dy: 0, draw: () => <PhoneFlat /> },
+  newspaper: { dx: -1, dy: 0, draw: () => <NewspaperFlat /> },
+  umbrella: { dx: -4.5, dy: 0, draw: () => <UmbrellaFlat /> },
+  "fishing-rod": { dx: -30.5, dy: 0, draw: () => <FishingRodFlat /> },
+  whistle: { dx: -6.8, dy: 0, draw: () => <><WhistleBody /><path d="M14 -8 Q20 -1.5 34 -1.5 Q50 -1.5 52 -4" fill="none" stroke="#c8302e" strokeWidth={3} strokeLinecap="round" /></> },
+  letter: { flat: 0.22, dx: 0, dy: 1 },
+  certificate: { flat: 0.16, dx: 0, dy: 0.5 },
+  photo: { flat: 0.2, dx: 0, dy: 2.5 },
+  ticket: { flat: 0.25, dx: 0, dy: 2 },
+  bill: { flat: 0.16, dx: 0, dy: 1 },
+  map: { rot: 6, flat: 0.16, dx: -49, dy: 2 },
+  clipboard: { flat: 0.18, dx: 0, dy: -1.5 },
+  "playing-cards": { flat: 0.25, dx: 0, dy: 1 },
+  coin: { flat: 0.3, dx: -4, dy: 3 },
+  dishes: { flat: 0.35, dx: -39, dy: -14 },
+  "fridge-magnets": { flat: 0.25, dx: -24.4, dy: -10.5 },
+  "cable-coil": { flat: 0.35, dx: -57.2, dy: -15.5 },
+  towel: { flat: 0.55, dx: -39, dy: -22 },
+};
+
+/**
+ * Предмет. В руке: (x, y) — центр кисти, рисунок поворачивается вместе с рукой (Rig.tsx).
+ * rest: (x, y) — точка на поверхности; предмет стоит/лежит на ней по строке REST (без строки — рисунок как есть).
+ */
+export const PropItem = ({ id, x, y, rest = false }: { id: string; x: number; y: number; rest?: boolean }) => {
+  if (!rest) {
+    const art = propArt(id, upright);
+    return art === null ? null : <g transform={`translate(${x} ${y})`}>{art}</g>;
+  }
+  const r = REST[id];
+  const art = r?.draw ? r.draw() : propArt(id, (c) => <g>{c}</g>);
+  if (art === null) return null;
+  const s = r?.s ?? 1;
+  return <g transform={`translate(${x + (r?.dx ?? 0)} ${y + (r?.dy ?? 0)}) scale(${s} ${s * (r?.flat ?? 1)}) rotate(${r?.rot ?? 0})`}>{art}</g>;
 };

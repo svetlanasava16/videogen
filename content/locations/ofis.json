@@ -120,7 +120,8 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "surfaces": []
       },
       {
         "id": "police-station",
@@ -132,11 +133,11 @@
         "roles": [
           "police-station"
         ],
-        "change": "Police station: cork board with wanted posters linked by red thread, clock, height chart on the wall for mugshots, handcuffs on a hook, the duty desk with a computer, a lamp, a radio, papers and a box of doughnuts at the back left with the officer's chair right of it (desk), a stool for the detainee in front of the desk (suspect, middle plane), a barred cell door on the right with a bunk and a small barred window inside and keys hanging by it (cell).",
+        "change": "Police station: cork board with wanted posters linked by red thread, clock, height chart on the wall for mugshots, handcuffs on a hook; the duty desk with a computer, a lamp, a radio, papers and a box of doughnuts stands IN FRONT of the officer — the officer sits behind it (desk, hidden to the chest); a stool for the detainee in front of the desk on the left (suspect, middle plane); visitors stand in front (left, center, right); a barred cell door on the right with a bunk and a small barred window inside and keys hanging by it (cell). Things put down on the desk lie on it.",
         "marks": {
           "desk": {
             "x": 0.4,
-            "z": 1,
+            "z": 0.95,
             "seat": "chair"
           },
           "suspect": {
@@ -172,7 +173,18 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "front": {
+          "z": 0.8
+        },
+        "surfaces": [
+          {
+            "x0": 0.2,
+            "x1": 0.6,
+            "z": 0.8,
+            "top": 220
+          }
+        ]
       },
       {
         "id": "bank",
@@ -185,19 +197,31 @@
           "bank",
           "government-office"
         ],
-        "change": "Bank / government office: marble wall, exchange-rate boards and a clock above, a counter across the whole back wall with three numbered glass teller windows (window-1 left, window-2 middle, window-3 right — clients stand there), stamps, a pen on a chain, a bell, forms and a small plant on the counter, queue rope on the left (queue), three waiting chairs in the middle plane on the right (wait-1…wait-3).",
+        "change": "Bank / government office: marble wall, exchange-rate boards and a clock above; a counter with a glass partition and three numbered teller windows runs across the whole room IN FRONT of the staff — tellers/clerks stand behind it, seen through the glass and hidden to the waist (teller-1 left, teller-2 = desk middle, teller-3 right); clients stand in front of the windows (window-1, window-2 = window, window-3; center, left); stamps, a pen on a chain, a bell, forms and a small plant on the counter (things put down lie on it); queue rope on the left (queue), three waiting chairs in the middle plane on the right (wait-1…wait-3).",
         "marks": {
           "window-1": {
             "x": 0.18,
-            "z": 1
+            "z": 0.5
           },
           "window-2": {
             "x": 0.5,
-            "z": 1
+            "z": 0.5
           },
           "window-3": {
             "x": 0.82,
-            "z": 1
+            "z": 0.5
+          },
+          "teller-1": {
+            "x": 0.18,
+            "z": 0.95
+          },
+          "teller-2": {
+            "x": 0.5,
+            "z": 0.95
+          },
+          "teller-3": {
+            "x": 0.82,
+            "z": 0.95
           },
           "queue": {
             "x": 0.15,
@@ -205,11 +229,11 @@
           },
           "desk": {
             "x": 0.5,
-            "z": 1
+            "z": 0.95
           },
           "window": {
             "x": 0.5,
-            "z": 1
+            "z": 0.5
           },
           "wait-1": {
             "x": 0.66,
@@ -227,11 +251,11 @@
             "seat": "chair"
           },
           "left": {
-            "x": 0.3,
+            "x": 0.24,
             "z": 0.5
           },
           "center": {
-            "x": 0.48,
+            "x": 0.36,
             "z": 0.5
           },
           "front-left": {
@@ -246,7 +270,18 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "front": {
+          "z": 0.8
+        },
+        "surfaces": [
+          {
+            "x0": 0.02,
+            "x1": 0.98,
+            "z": 0.8,
+            "top": 220
+          }
+        ]
       }
     ],
     "prompt": "boss office, big desk with computer and papers, office chair, potted plant, window with blinds"

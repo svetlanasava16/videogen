@@ -1,4 +1,5 @@
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
+import { useSign } from "../i18n/signs";
 import { Birds, Label, Puff, rnd, shade } from "./ulitsa";
 
 /**
@@ -36,6 +37,7 @@ const Sail = ({ x, y, s = 1, c = "#ffffff" }: { x: number; y: number; s?: number
 );
 
 export const Plyazh = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const sand = palette.floor;
   const sky = palette.wall;
   return (
@@ -163,7 +165,7 @@ export const Plyazh = ({ palette }: BackdropProps) => {
       <g>
         <rect x={360} y={1060} width={8} height={120} fill="#8a6a3a" />
         <rect x={316} y={1030} width={96} height={40} rx={6} fill="#f4f1ea" />
-        <Label x={364} y={1057} text="ПЛЯЖ" size={20} color="#d24b4b" />
+        <Label x={364} y={1057} text={t("beach")} size={20} color="#d24b4b" maxW={84} />
       </g>
       <rect x={0} y={H - 220} width={W} height={220} fill="#00000008" />
     </Canvas>

@@ -1,10 +1,20 @@
 import { Canvas, Room, Plant, FLOOR_Y, W, H, type BackdropProps, type Palette } from "./parts";
 import { VShade, Glow, FloorTiles, FloorShadow, CeilingLamp, PotPlant, WallClock } from "./gostinaya";
+import { Label } from "./ulitsa";
+import { feetY } from "../world/depth";
+import { useSign } from "../i18n/signs";
 
 /**
  * Фон «magazin»: маленький магазин. Варианты (content/locations/magazin.json → bible.variants):
  * pharmacy, barbershop. Остальное — базовый магазин.
+ *
+ * Глубина: прилавок магазина и аптеки — передний слой (layer="front", content/locations/magazin.json → front.z = 0.8):
+ * продавец / фармацевт за ним (метка counter, z 0.95) скрыт по пояс, покупатели (z 0.5) — перед ним. Низ прилавка —
+ * на полу плана 0.8 (FRONT_FEET), верх — y 1015; surfaces.top — середина столешницы. Парикмахерская без переднего слоя.
  */
+
+const FRONT_FEET = feetY(0.8);
+const COUNTER_TOP = 1015;
 
 /** Смешать цвет с белым (t>0) или чёрным (t<0). */
 const shade = (hex: string, t: number) => {
@@ -102,12 +112,15 @@ const Register = ({ x, top, accent }: { x: number; top: number; accent: string }
   </g>
 );
 
-/** Прилавок справа (верх ~y 985). */
-const ShopCounter = ({ x0, x1, top = 985, body, topColor, stripe }: { x0: number; x1: number; top?: number; body: string; topColor: string; stripe: string }) => (
+/** Прилавок (верх COUNTER_TOP, низ — на полу плана 0.8). */
+const ShopCounter = ({ x0, x1, top = COUNTER_TOP, bottom = FRONT_FEET, body, topColor, stripe }: { x0: number; x1: number; top?: number; bottom?: number; body: string; topColor: string; stripe: string }) => (
   <g>
-    <rect x={x0} y={top} width={x1 - x0} height={26} rx={6} fill={topColor} />
-    <rect x={x0 + 14} y={top + 26} width={x1 - x0 - 28} height={FLOOR_Y - top - 26} fill={body} />
+    <rect x={x0} y={bottom - 8} width={x1 - x0} height={16} rx={6} fill="#00000030" />
+    <rect x={x0 + 14} y={top + 26} width={x1 - x0 - 28} height={bottom - top - 26} fill={body} />
+    <rect x={x0 + 14} y={top + 26} width={x1 - x0 - 28} height={12} fill="#00000020" />
     <rect x={x0 + 14} y={top + 50} width={x1 - x0 - 28} height={16} fill={stripe} />
+    <rect x={x0 + 14} y={bottom - 14} width={x1 - x0 - 28} height={14} fill="#00000028" />
+    <rect x={x0} y={top} width={x1 - x0} height={26} rx={6} fill={topColor} />
   </g>
 );
 
@@ -141,14 +154,16 @@ const Abacus = ({ x, top }: { x: number; top: number }) => (
 );
 
 /** Звезда-ярлык «Акция». */
-const Starburst = ({ x, y, r = 50, color = "#e0402a", text = "АКЦИЯ" }: { x: number; y: number; r?: number; color?: string; text?: string }) => (
+const Starburst = ({ x, y, r = 50, color = "#e0402a", text }: { x: number; y: number; r?: number; color?: string; text: string }) => (
   <g transform={`rotate(-12 ${x} ${y})`}>
     <path d={Array.from({ length: 24 }).map((_, i) => { const a = (i * Math.PI) / 12; const rr = i % 2 ? r * 0.78 : r; return `${i ? "L" : "M"}${x + rr * Math.cos(a)} ${y + rr * Math.sin(a)}`; }).join(" ") + " Z"} fill={color} />
-    <text x={x} y={y + 6} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={r * 0.34} fill="#fff6d8">{text}</text>
+    <Label x={x} y={y + 6} text={text} size={r * 0.34} color="#fff6d8" maxW={r * 1.5} />
   </g>
 );
 
-const BaseShop = ({ palette }: { palette: Palette }) => (
+const BaseShop = ({ palette }: { palette: Palette }) => {
+  const t = useSign();
+  return (
   <>
     <Room wall={palette.wall} floor={palette.floor} />
     <VShade y={0} h={700} from={0.12} to={0} />
@@ -168,15 +183,15 @@ const BaseShop = ({ palette }: { palette: Palette }) => (
     {/* нижние шкафчики и хлеб на нижней полке */}
     {[0, 1, 2, 3, 4, 5].map((i) => <rect key={i} x={66 + i * 160} y={1050} width={140} height={110} rx={6} fill={shade(palette.wall, -0.1)} />)}
     <rect x={46} y={1030} width={988} height={14} fill={WOOD_L} />
-    {[300, 380, 460, 530].map((x, i) => (
+    {[290, 350, 410].map((x, i) => (
       <g key={x}>
         <ellipse cx={x} cy={1010} rx={36} ry={22} fill={i % 2 ? "#c8904a" : "#a8703a"} />
         {[-14, 0, 14].map((d) => <path key={d} d={`M${x + d - 6} 998 l10 -6`} stroke="#e8c088" strokeWidth={4} />)}
       </g>
     ))}
-    <rect x={384} y={1030} width={44} height={22} rx={3} fill={TAG} />
-    <text x={406} y={1047} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={16} fill="#c8553d">16 ₽</text>
-    <Starburst x={1000} y={520} r={52} />
+    <rect x={322} y={1030} width={58} height={22} rx={3} fill={TAG} />
+    <Label x={351} y={1047} text={t("price-bread")} size={16} weight={800} color="#c8553d" spacing={0} maxW={54} />
+    <Starburst x={1000} y={520} r={52} text={t("sale")} />
     {/* ящики с фруктами и капустой слева */}
     <FloorShadow cx={160} w={260} o={0.22} />
     <rect x={40} y={1060} width={230} height={130} rx={8} fill={WOOD} />
@@ -189,7 +204,7 @@ const BaseShop = ({ palette }: { palette: Palette }) => (
       </g>
     ))}
     <rect x={130} y={1130} width={60} height={30} rx={4} fill={TAG} />
-    <text x={160} y={1151} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={17} fill="#c8553d">89 ₽</text>
+    <Label x={160} y={1151} text={t("price-fruit")} size={17} weight={800} color="#c8553d" spacing={0} maxW={56} />
     {/* колбасы над хлебом */}
     <rect x={310} y={808} width={210} height={8} rx={4} fill="#8a8a8a" />
     {[[340, 110, "#a8503a"], [384, 130, "#8a3a2a"], [430, 96, "#c86a4a"], [480, 120, "#9a4a32"]].map(([x, h, c], i) => (
@@ -199,13 +214,20 @@ const BaseShop = ({ palette }: { palette: Palette }) => (
         <rect x={(x as number) - 14} y={850} width={28} height={4} fill="#f2e6d0" opacity={0.6} />
       </g>
     ))}
-    {/* прилавок с кассой, весами и счётами */}
-    <FloorShadow cx={830} w={480} o={0.25} />
-    <ShopCounter x0={600} x1={1060} body={WOOD} topColor={WOOD_L} stripe={palette.accent} />
-    {[0, 1, 2].map((i) => <rect key={i} x={630 + i * 140} y={1080} width={120} height={80} rx={6} fill="#00000018" />)}
-    <Register x={860} top={985} accent={palette.accent} />
-    <Scales x={680} top={985} />
-    <Abacus x={740} top={985} />
+    {/* тень прилавка (сам прилавок — передний слой, ShopFront) */}
+    <FloorShadow cx={740} y={FRONT_FEET - 6} w={660} o={0.25} />
+  </>
+  );
+};
+
+/** Передний слой магазина: прилавок от середины вправо (x 420…1060) с весами, счётами и кассой (продавец за ним — метка counter). */
+const ShopFront = ({ palette }: { palette: Palette }) => (
+  <>
+    <ShopCounter x0={420} x1={1060} body={WOOD} topColor={WOOD_L} stripe={palette.accent} />
+    {[0, 1, 2, 3].map((i) => <rect key={i} x={450 + i * 150} y={COUNTER_TOP + 90} width={130} height={FRONT_FEET - COUNTER_TOP - 120} rx={6} fill="#00000018" />)}
+    <Scales x={670} top={COUNTER_TOP + 12} />
+    <Abacus x={730} top={COUNTER_TOP + 14} />
+    <Register x={900} top={COUNTER_TOP + 12} accent={palette.accent} />
   </>
 );
 
@@ -254,24 +276,39 @@ const Pharmacy = ({ palette }: { palette: Palette }) => {
           </g>
         )),
       )}
-      {/* белый прилавок с зелёной полосой и стеклом с окошком */}
-      <ShopCounter x0={0} x1={W} top={990} body="#f6fafa" topColor="#dfe8ea" stripe={green} />
-      {[0, 1, 2, 3].map((i) => <rect key={i} x={60 + i * 250} y={1080} width={210} height={90} rx={8} fill="#00000010" />)}
-      <rect x={20} y={830} width={W - 40} height={160} fill="#cfe6ee" opacity={0.35} />
+      <FloorShadow cx={540} y={FRONT_FEET - 6} w={1100} o={0.18} />
+    </>
+  );
+};
+
+/**
+ * Передний слой аптеки: белый прилавок во всю ширину и стеклянная перегородка над ним (полупрозрачная — фармацевт
+ * за ней виден, метка counter x 0.68), касса справа, коробочки, блистер, ступка и цветок слева от фармацевта.
+ */
+const PharmacyFront = () => {
+  const green = "#3a9a5a";
+  const top = COUNTER_TOP;
+  return (
+    <>
+      <ShopCounter x0={0} x1={W} body="#f6fafa" topColor="#dfe8ea" stripe={green} />
+      {[0, 1, 2, 3].map((i) => <rect key={i} x={60 + i * 250} y={top + 90} width={210} height={FRONT_FEET - top - 120} rx={8} fill="#00000010" />)}
+      {/* стекло с рамой: верхняя планка и стойки; окошко между стойками 280…800 */}
+      <rect x={20} y={834} width={W - 40} height={top - 834} fill="#cfe6ee" opacity={0.28} />
       <rect x={20} y={826} width={W - 40} height={8} fill="#b9c4c6" />
-      {[20, 280, 800, W - 26].map((x) => <rect key={x} x={x} y={826} width={6} height={164} fill="#b9c4c6" />)}
-      <path d={`M300 830 l60 0 l-150 160 l-60 0 Z`} fill="#ffffff" opacity={0.2} />
-      <Register x={860} top={990} accent={green} />
-      {/* коробочки, ступка и блистеры на прилавке */}
-      <rect x={120} y={940} width={70} height={50} rx={6} fill="#7ab8d9" />
-      <rect x={120} y={956} width={70} height={12} fill="#ffffff" />
-      <rect x={210} y={950} width={34} height={40} rx={8} fill="#e89a8a" />
-      <rect x={206} y={942} width={42} height={12} rx={4} fill="#ffffff" />
-      <path d="M690 950 h70 q0 40 -35 40 q-35 0 -35 -40 Z" fill="#e6e2d8" />
-      <rect x={716} y={900} width={14} height={60} rx={7} fill="#c9c4b8" transform="rotate(20 723 930)" />
-      <rect x={300} y={968} width={60} height={22} rx={4} fill="#d8dde0" />
-      {[0, 1, 2, 3].map((i) => <circle key={i} cx={312 + i * 12} cy={979} r={4} fill="#ffffff" />)}
-      <PotPlant x={640} y={990} s={0.7} pot={green} />
+      {[20, 280, 800, W - 26].map((x) => <rect key={x} x={x} y={826} width={6} height={top - 826} fill="#b9c4c6" />)}
+      <path d={`M320 834 l60 0 l-170 ${top - 834} l-60 0 Z`} fill="#ffffff" opacity={0.18} />
+      <path d={`M880 834 l30 0 l-90 ${top - 834} l-30 0 Z`} fill="#ffffff" opacity={0.15} />
+      <Register x={880} top={top + 10} accent={green} />
+      {/* коробочки, блистер, ступка, цветок */}
+      <rect x={120} y={top - 40} width={70} height={50} rx={6} fill="#7ab8d9" />
+      <rect x={120} y={top - 24} width={70} height={12} fill="#ffffff" />
+      <rect x={210} y={top - 30} width={34} height={40} rx={8} fill="#e89a8a" />
+      <rect x={206} y={top - 38} width={42} height={12} rx={4} fill="#ffffff" />
+      <rect x={300} y={top - 12} width={60} height={22} rx={4} fill="#d8dde0" />
+      {[0, 1, 2, 3].map((i) => <circle key={i} cx={312 + i * 12} cy={top - 1} r={4} fill="#ffffff" />)}
+      <path d={`M420 ${top - 30} h70 q0 40 -35 40 q-35 0 -35 -40 Z`} fill="#e6e2d8" />
+      <rect x={446} y={top - 80} width={14} height={60} rx={7} fill="#c9c4b8" transform={`rotate(20 453 ${top - 50})`} />
+      <PotPlant x={570} y={top + 10} s={0.7} pot={green} />
     </>
   );
 };
@@ -387,14 +424,21 @@ const Barbershop = ({ palette }: { palette: Palette }) => {
   );
 };
 
-export const Magazin = ({ palette, variant }: BackdropProps) => (
-  <Canvas>
-    {variant === "pharmacy" ? (
-      <Pharmacy palette={palette} />
-    ) : variant === "barbershop" ? (
-      <Barbershop palette={palette} />
-    ) : (
-      <BaseShop palette={palette} />
-    )}
-  </Canvas>
-);
+export const Magazin = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  if (layer === "front") {
+    // прилавок есть у магазина и аптеки; парикмахерская без переднего слоя
+    if (variant === "barbershop") return null;
+    return <Canvas>{variant === "pharmacy" ? <PharmacyFront /> : <ShopFront palette={palette} />}</Canvas>;
+  }
+  return (
+    <Canvas>
+      {variant === "pharmacy" ? (
+        <Pharmacy palette={palette} />
+      ) : variant === "barbershop" ? (
+        <Barbershop palette={palette} />
+      ) : (
+        <BaseShop palette={palette} />
+      )}
+    </Canvas>
+  );
+};

@@ -1,4 +1,5 @@
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
+import { useSign } from "../i18n/signs";
 import { depthScale, feetY, seatTopY } from "../world/depth";
 import { SeatFront, dark, light } from "./samolet";
 import { Bin, Birds, Cracks, LampPost, LeafyTree, Label, Manhole, Paving, Pigeon, Puff, Sign, Skyline, Tufts, Win, rnd } from "./ulitsa";
@@ -80,7 +81,9 @@ const Tractor = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
 );
 
 /* ---------- загородная трасса (по умолчанию) ---------- */
-const Countryside = ({ palette }: BackdropProps) => (
+const Countryside = ({ palette }: BackdropProps) => {
+  const t = useSign();
+  return (
   <>
     <rect x={0} y={0} width={W} height={H} fill={palette.wall} />
     <rect x={0} y={620} width={W} height={300} fill={light(palette.wall, 0.2)} />
@@ -166,12 +169,13 @@ const Countryside = ({ palette }: BackdropProps) => (
       <rect x={604} y={960} width={10} height={196} fill="#8a8f98" />
       <rect x={480} y={900} width={170} height={66} rx={6} fill="#ffffff" />
       <rect x={486} y={906} width={158} height={54} rx={4} fill="none" stroke={INK} strokeWidth={4} />
-      <Label x={565} y={942} text="БЕРЁЗОВКА" size={22} color={INK} />
+      <Label x={565} y={942} text={t("town_name")} size={22} color={INK} maxW={146} />
     </g>
     <RoadSign x={940} top={600} />
     <Pigeon x={980} y={1220} s={0.6} body="#3a3a40" />
   </>
-);
+  );
+};
 
 /* ---------- машина спереди: седоки сидят лицом к зрителю за лобовым стеклом ---------- */
 const CarFront = ({ palette, taxi }: BackdropProps & { taxi: boolean }) => {
@@ -293,7 +297,7 @@ const CarFront = ({ palette, taxi }: BackdropProps & { taxi: boolean }) => {
       ))}
       <rect x={20} y={1690} width={1040} height={50} rx={24} fill="#c9ccd2" />
       <rect x={460} y={1696} width={160} height={40} rx={6} fill={WHITE} />
-      <Label x={540} y={1728} text="А 123 ВС" size={26} color="#2b2a2e" spacing={0} />
+      <Label x={540} y={1728} text="A 123 BC" size={26} color="#2b2a2e" spacing={0} />
       <circle cx={540} cy={1440} r={26} fill={light(body, 0.35)} />
       <circle cx={540} cy={1440} r={16} fill={dark(body, 0.2)} />
       <path d="M540 1328 l-20 40 h40 z" fill={light(body, 0.3)} />
@@ -337,7 +341,8 @@ const TransitFloor = ({ color, y0 = FLOOR_Y }: { color: string; y0?: number }) =
 const StreetView = ({ x, y, w, h, kind, frame, seed = 1 }: { x: number; y: number; w: number; h: number; kind: "street" | "tunnel" | "field"; frame: string; seed?: number }) => {
   const id = `doroga-win-${x}-${y}`;
   const houses = ["#d8b48a", "#c9a0a0", "#b9c4a0", "#d0c0a0", "#c8a87a"];
-  const signs = ["ХЛЕБ", "КИНО", "ОБУВЬ", "КАФЕ", "ПОЧТА"];
+  const t = useSign();
+  const signs = ["bread", "cinema", "shoes", "cafe", "post_office"];
   return (
     <g>
       <rect x={x} y={y} width={w} height={h} rx={26} fill={frame} />
@@ -370,7 +375,7 @@ const StreetView = ({ x, y, w, h, kind, frame, seed = 1 }: { x: number; y: numbe
                       {[0, 1].map((r) => <rect key={r} x={hx + 12} y={hy + 22 + r * 46} width={18} height={24} fill="#f2e6d0" opacity={0.85} />)}
                       {[0, 1].map((r) => <rect key={`b${r}`} x={hx + 40} y={hy + 22 + r * 46} width={18} height={24} fill="#f2e6d0" opacity={0.85} />)}
                       <rect x={hx + 6} y={y + h * 0.7} width={w / 4 - 20} height={18} rx={3} fill={["#c8553d", "#2f8a5a", "#4a7fb0", "#8a4a2a"][i]} />
-                      <Label x={hx + (w / 4 - 8) / 2} y={y + h * 0.7 + 14} text={signs[(i + seed) % signs.length]} size={12} />
+                      <Label x={hx + (w / 4 - 8) / 2} y={y + h * 0.7 + 14} text={t(signs[(i + seed) % signs.length])} size={12} maxW={w / 4 - 24} />
                     </g>
                   );
                 })}
@@ -405,7 +410,7 @@ const Ad = ({ x, y, w, h, bg, text, fg = "#ffffff", icon }: { x: number; y: numb
     <rect x={x - 4} y={y - 4} width={w + 8} height={h + 8} rx={6} fill="#00000022" />
     <rect x={x} y={y} width={w} height={h} rx={4} fill={bg} />
     {icon && <circle cx={x + h / 2 + 4} cy={y + h / 2} r={h * 0.32} fill={icon} />}
-    <Label x={icon ? x + h + (w - h) / 2 : x + w / 2} y={y + h / 2 + h * 0.18} text={text} size={h * 0.46} color={fg} />
+    <Label x={icon ? x + h + (w - h) / 2 : x + w / 2} y={y + h / 2 + h * 0.18} text={text} size={h * 0.46} color={fg} maxW={icon ? w - h - 10 : w - 16} />
   </g>
 );
 
@@ -422,6 +427,7 @@ const Validator = ({ x, y, color = "#e0a030" }: { x: number; y: number; color?: 
 
 /* ---------- автобус: кабина водителя слева, передняя дверь, сиденья у окон, поручни ---------- */
 const BusInterior = () => {
+  const t = useSign();
   const wall = "#efe3c8";
   const seat = RED;
   const floor = "#6b6b6b";
@@ -435,7 +441,7 @@ const BusInterior = () => {
       <StreetView x={760} y={470} w={320} h={330} kind="street" frame={dark(wall, 0.25)} seed={2} />
       <rect x={430} y={830} width={650} height={16} fill={dark(wall, 0.15)} />
       {/* реклама и схема маршрута над окнами */}
-      <Ad x={450} y={424} w={190} h={38} bg="#4a7fb0" text="МОЛОКО" icon="#f4f1ea" />
+      <Ad x={450} y={424} w={190} h={38} bg="#4a7fb0" text={t("milk")} icon="#f4f1ea" />
       <rect x={656} y={424} width={410} height={38} rx={4} fill={WHITE} />
       <Label x={690} y={451} text="12" size={24} color={RED} />
       <path d="M720 443 H1050" stroke={RED} strokeWidth={5} />
@@ -546,7 +552,7 @@ const SubwayInterior = () => {
       <StreetView x={330} y={470} w={420} h={330} kind="tunnel" frame={dark(wall, 0.25)} />
       {/* эмблема «М» и аварийная связь */}
       <circle cx={540} cy={850} r={22} fill={RED} />
-      <Label x={540} y={860} text="М" size={28} />
+      <Label x={540} y={860} text="M" size={28} />
       <rect x={300} y={600} width={24} height={60} rx={6} fill="#e8e4d8" />
       <circle cx={312} cy={616} r={6} fill={RED} />
       <rect x={306} y={630} width={12} height={20} rx={3} fill="#8a9099" />
@@ -569,6 +575,7 @@ const SubwayInterior = () => {
 
 /* ---------- трамвай: деревянные сиденья, компостер, дверь в кабину вагоновожатого справа ---------- */
 const TramInterior = () => {
+  const t = useSign();
   const wall = "#ecdcb4";
   const seat = "#b07a4a";
   const trim = RED;
@@ -586,8 +593,8 @@ const TramInterior = () => {
       <path d="M44 520 Q200 530 356 520 M404 520 Q560 530 716 520" stroke="#3a3f47" strokeWidth={3} fill="none" />
       <rect x={0} y={820} width={760} height={14} fill={dark(wall, 0.2)} />
       {/* реклама над окнами */}
-      <Ad x={40} y={418} w={320} h={34} bg="#4a7fb0" text="ЦИРК" />
-      <Ad x={400} y={418} w={320} h={34} bg="#e0a030" text="КИНО" fg="#2b2a2e" />
+      <Ad x={40} y={418} w={320} h={34} bg="#4a7fb0" text={t("circus")} />
+      <Ad x={400} y={418} w={320} h={34} bg="#e0a030" text={t("cinema")} fg="#2b2a2e" />
       {/* обшивка рейками под окнами */}
       {Array.from({ length: 8 }).map((_, i) => <rect key={i} x={0} y={860 + i * 34} width={760} height={4} fill={dark(wall, 0.12)} />)}
       {/* кабина вагоновожатого: перегородка с окном, через него видно лобовое стекло и рельсы */}
@@ -604,7 +611,7 @@ const TramInterior = () => {
       {/* номер маршрута и табличка на перегородке */}
       <rect x={830} y={720} width={180} height={60} rx={8} fill={WHITE} />
       <Label x={870} y={764} text="7" size={40} color={trim} />
-      <Label x={950} y={758} text="ВАГОН" size={18} color="#2b2a2e" />
+      <Label x={950} y={758} text={t("tram_car")} size={18} color="#2b2a2e" maxW={96} />
       <rect x={846} y={820} width={60} height={60} rx={30} fill="#2f6fb0" />
       <path d="M866 834 h20 v12 h-20 z M862 852 h28 v14 h-28 z" fill={WHITE} />
       {/* сиденья (дальний план): seat-1..seat-3 */}
@@ -624,7 +631,9 @@ const TramInterior = () => {
 };
 
 /* ---------- остановка: дома, тротуар с навесом и скамейкой, дорога на переднем плане ---------- */
-const Facades = ({ y }: { y: number }) => (
+const Facades = ({ y }: { y: number }) => {
+  const t = useSign();
+  return (
   <g>
     {[
       [0, 260, "#d8b48a"], [250, 330, "#c9a0a0"], [560, 220, "#b9c4a0"], [770, 310, "#d0c0a0"],
@@ -658,8 +667,8 @@ const Facades = ({ y }: { y: number }) => (
     <rect x={334} y={610} width={142} height={6} fill="#3a3a40" />
     {Array.from({ length: 10 }).map((_, i) => <rect key={i} x={336 + i * 15} y={614} width={3} height={56} fill="#3a3a40" />)}
     {/* вывески первых этажей */}
-    <Sign x={20} y={906} w={210} h={46} text="ПРОДУКТЫ" bg="#c8553d" size={26} />
-    <Sign x={790} y={900} w={170} h={46} text="АПТЕКА" bg="#2f8a5a" size={26} />
+    <Sign x={20} y={906} w={210} h={46} text={t("groceries")} bg="#c8553d" size={26} />
+    <Sign x={790} y={900} w={170} h={46} text={t("pharmacy")} bg="#2f8a5a" size={26} />
     <circle cx={984} cy={923} r={22} fill="#ffffff" />
     <path d="M978 908 h12 v9 h9 v12 h-9 v9 h-12 v-9 h-9 v-12 h9 z" fill="#2f8a5a" />
     {[[30, 966, 200], [800, 960, 150]].map(([x, yy, w]) => (
@@ -669,9 +678,11 @@ const Facades = ({ y }: { y: number }) => (
       </g>
     ))}
   </g>
-);
+  );
+};
 
 const BusStop = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const pave = "#cfc8bc";
   const glass = "#cfe6f5";
   const frame = "#5a6470";
@@ -700,11 +711,11 @@ const BusStop = ({ palette }: BackdropProps) => {
       <circle cx={620} cy={758} r={16} fill="#fbe7a6" />
       <path d="M548 800 q12 -10 24 0 t24 0 t24 0 t22 0 V884 H548 Z" fill="#3d8fc4" />
       <rect x={548} y={846} width={94} height={38} fill="#ecd9a5" />
-      <Label x={595} y={872} text="МОРЕ" size={20} color="#c8553d" />
+      <Label x={595} y={872} text={t("sea")} size={20} color="#c8553d" maxW={86} />
       {/* крыша с названием остановки */}
       <rect x={80} y={650} width={620} height={46} rx={10} fill={frame} />
       <rect x={80} y={690} width={620} height={8} fill="#00000025" />
-      <Label x={390} y={683} text="УЛ. САДОВАЯ" size={26} color="#f4f1ea" />
+      <Label x={390} y={683} text={t("stop_garden_street")} size={26} color="#f4f1ea" maxW={580} />
       {/* скамейка (дальний план): bench-1, bench-2 */}
       <rect x={0.3 * W - 110} y={top - 10} width={0.15 * W + 220} height={28} rx={10} fill="#b07a4a" />
       {Array.from({ length: 5 }).map((_, i) => <rect key={i} x={0.3 * W - 100 + i * 80} y={top - 8} width={3} height={24} fill={dark("#b07a4a", 0.2)} />)}
@@ -722,7 +733,7 @@ const BusStop = ({ palette }: BackdropProps) => {
       <Label x={sx} y={704} text="12  7" size={26} color={INK} spacing={0} />
       <rect x={sx - 66} y={724} width={132} height={150} rx={8} fill={WHITE} />
       <rect x={sx - 66} y={724} width={132} height={28} rx={8} fill="#2f6fb0" />
-      <Label x={sx} y={744} text="РАСПИСАНИЕ" size={14} />
+      <Label x={sx} y={744} text={t("timetable")} size={14} maxW={120} />
       {Array.from({ length: 6 }).map((_, i) => (
         <g key={i}>
           <rect x={sx - 56} y={762 + i * 18} width={30} height={10} rx={3} fill="#8a8f98" />
@@ -764,6 +775,7 @@ const Pump = ({ x, color, num }: { x: number; color: string; num: string }) => (
 );
 
 const GasStation = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const conc = "#d2ccc0";
   const brand = "#2f8a5a";
   return (
@@ -783,10 +795,10 @@ const GasStation = ({ palette }: BackdropProps) => {
         <rect x={990} y={470} width={90} height={230} rx={8} fill={brand} />
         <circle cx={1035} cy={510} r={28} fill={WHITE} />
         <path d="M1035 490 q20 26 0 42 q-20 -16 0 -42 z" fill="#f2c230" />
-        {[["92", "52.4"], ["95", "57.8"], ["ДТ", "68.9"]].map(([f, p], i) => (
+        {[["92", "52.4"], ["95", "57.8"], [t("diesel"), "68.9"]].map(([f, p], i) => (
           <g key={f}>
             <rect x={998} y={550 + i * 46} width={74} height={38} rx={4} fill="#14181e" />
-            <Label x={1016} y={576 + i * 46} text={f} size={16} color={WHITE} />
+            <Label x={1016} y={576 + i * 46} text={f} size={16} color={WHITE} maxW={32} />
             <Label x={1052} y={576 + i * 46} text={p} size={16} color="#f2b84b" spacing={0} />
           </g>
         ))}
@@ -795,7 +807,7 @@ const GasStation = ({ palette }: BackdropProps) => {
       <rect x={720} y={760} width={360} height={FLOOR_Y - 760} fill="#e8e0d0" />
       <rect x={720} y={1150} width={360} height={40} fill="#c9c0b0" />
       <rect x={700} y={730} width={400} height={50} rx={8} fill={brand} />
-      <Label x={860} y={767} text="МАГАЗИН 24" size={28} color={WHITE} />
+      <Label x={860} y={767} text={t("shop_24")} size={28} color={WHITE} maxW={300} />
       <rect x={750} y={820} width={140} height={160} rx={8} fill="#a9c7d9" />
       {[860, 900, 940].map((y) => <rect key={y} x={758} y={y} width={124} height={6} fill="#8a8f98" />)}
       {[0, 1, 2].flatMap((r) => [0, 1, 2, 3, 4].map((k) => (

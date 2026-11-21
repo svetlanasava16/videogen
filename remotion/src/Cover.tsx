@@ -1,6 +1,7 @@
 import { AbsoluteFill, useVideoConfig } from "remotion";
 import { lookForRole, type Episode } from "@jf/core";
 import { costumeFor } from "./puppet/costume";
+import { LocaleProvider } from "./i18n/signs";
 import { characters, locations } from "./registry";
 import { Background } from "./components/Background";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
@@ -17,6 +18,7 @@ export const Cover = (ep: Episode) => {
   const top = height * FLOOR - (boxH * 585) / BOX_H;
   const n = ep.cast.length;
   return (
+    <LocaleProvider value={ep.locale}>
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       <Background location={locations[ep.location]} place={ep.place} />
       {ep.cast.map((id, i) => {
@@ -39,5 +41,6 @@ export const Cover = (ep: Episode) => {
       </div>
       <Watermark />
     </AbsoluteFill>
+    </LocaleProvider>
   );
 };

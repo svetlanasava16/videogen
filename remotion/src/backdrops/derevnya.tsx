@@ -1,4 +1,5 @@
 import { Canvas, Fence, FLOOR_Y, W, H, type BackdropProps } from "./parts";
+import { useSign } from "../i18n/signs";
 import { Birds, LeafyTree, Puff, Tufts, Label, shade } from "./ulitsa";
 
 /**
@@ -654,7 +655,9 @@ const Garden = ({ palette }: BackdropProps) => (
   </>
 );
 
-const Mountain = ({ palette }: BackdropProps) => (
+const Mountain = ({ palette }: BackdropProps) => {
+  const t = useSign();
+  return (
   <>
     <rect x={0} y={0} width={W} height={H} fill="#cfe0ee" />
     <rect x={0} y={560} width={W} height={400} fill="#e0ebf4" />
@@ -694,9 +697,9 @@ const Mountain = ({ palette }: BackdropProps) => (
     <g>
       <rect x={316} y={1000} width={10} height={170} fill="#8a5a3a" />
       <path d="M326 1010 h120 l18 18 l-18 18 h-120 z" fill="#c8553d" />
-      <Label x={388} y={1036} text="ВЕРШИНА" size={18} />
+      <Label x={388} y={1036} text={t("summit")} size={18} maxW={108} />
       <path d="M316 1060 h-110 l-16 16 l16 16 h110 z" fill="#e0a030" />
-      <Label x={256} y={1084} text="ДОМ" size={18} color="#2b2a2e" />
+      <Label x={256} y={1084} text={t("home")} size={18} color="#2b2a2e" maxW={100} />
     </g>
     <Pine x={60} y={1150} s={1.3} color="#3f6b45" trunk="#5a3a26" shadow="#365e3c" />
     <Pine x={150} y={1060} s={0.8} color="#4f7a4a" trunk="#5a3a26" shadow="#456c42" />
@@ -717,7 +720,8 @@ const Mountain = ({ palette }: BackdropProps) => (
     <GroundShade />
     <Tufts color={shade(palette.floor, -0.12)} items={[[60, 1300, 1.1], [420, 1460, 1], [700, 1380, 1.2], [1000, 1520, 1.3], [260, 1760, 1.4]]} />
   </>
-);
+  );
+};
 
 export const Derevnya = ({ palette, variant }: BackdropProps) => (
   <Canvas>

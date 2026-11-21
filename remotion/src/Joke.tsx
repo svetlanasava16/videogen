@@ -16,6 +16,7 @@ import { Crowd, CrowdFront } from "./world/Crowd";
 import { SEAT_ITEMS, SET_PIECES, SetPiece, pieceWidth } from "./world/SetPieces";
 import { VEHICLE_SPECS, VehicleArt } from "./world/Vehicles";
 import { PropItem } from "./props/Props";
+import { LocaleProvider } from "./i18n/signs";
 import { LANE, WALL_Y, depthScale, feetY } from "./world/depth";
 import { cameraAt, cameraTransform } from "./director/camera";
 
@@ -28,8 +29,8 @@ const ease = Easing.inOut(Easing.cubic);
 
 /** Высота столешницы над полом (px при масштабе 1) — куда ложится положенный предмет (prop put). */
 const TABLE_TOP: Record<string, number> = { "dining-table": 204, table: 200, desk: 330, counter: 380, lectern: 300, scales: 380, sink: 300 };
-/** Предмет рисуется от точки «кисти»: поднять кисть над поверхностью настолько (единицы рисунка), чтобы он лёг на неё. */
-const PROP_REST = 40;
+/** Положенный предмет рисуется в режиме rest (Props.tsx, таблица REST): его низ — на линии поверхности (y = 0). */
+const PROP_REST = 0;
 
 /** Насколько близко подходит кукла к цели действия (доля ширины бокса). */
 const NEAR = 0.55;
@@ -388,12 +389,22 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     if (sc.props.some((o) => o.item === e.item && o.frame > e.frame && o.frame <= frame && (o.action === "hold" || o.action === "give"))) continue;
     const b = geo.box(e.who, e.frame);
     const toCentre = b.x < geo.stageW / 2 ? 1 : -1;
-    const x = b.x + toCentre * b.w * 0.28;
+    // кладёт перед собой, на шаг в сторону центра; на стойку за собой — дальше, чтобы предмет не скрылся за телом
+    let x = b.x + toCentre * b.w * 0.28;
     // стол рядом (того же плана) — кладём на столешницу
     const table = e.action === "put" ? geo.setItems.find((it) => TABLE_TOP[it.item] !== undefined && Math.abs(geo.itemZ(it) - b.z) < 0.2 && Math.abs(geo.setX(it.at) - x) < pieceWidth(it, geo.stageW, geo.castK * depthScale(geo.itemZ(it))) / 2) : undefined;
-    const z = table ? geo.itemZ(table) - 0.02 : b.z - 0.005;
-    const k = geo.castK * depthScale(table ? geo.itemZ(table) : b.z);
-    const surface = feetY(table ? geo.itemZ(table) : b.z, height) - (table ? TABLE_TOP[table.item] * k : 0);
+    // поверхность фона (стойка, прилавок: location/variant.surfaces) — ближайшая по глубине, в пределах её x
+    const loc = locations[sc.scene.location];
+    // у сублокации свои поверхности и передний слой (ресторан без стойки), у базового вида — свои
+    const sub = subLocation(loc, sc.scene.place);
+    const surfaces = (sub ? sub.surfaces : loc?.surfaces) ?? [];
+    const bg = e.action === "put" && !table
+      ? surfaces.filter((sf) => x >= sf.x0 * geo.stageW && x <= sf.x1 * geo.stageW && Math.abs(sf.z - b.z) < 0.5).sort((p, q) => Math.abs(p.z - b.z) - Math.abs(q.z - b.z))[0]
+      : undefined;
+    if (bg && bg.z > b.z + 0.1) x = Math.min(bg.x1 * geo.stageW, Math.max(bg.x0 * geo.stageW, b.x + toCentre * b.w * 0.5));
+    const z = table ? geo.itemZ(table) - 0.02 : bg ? bg.z - 0.02 : b.z - 0.005;
+    const k = table ? geo.castK * depthScale(geo.itemZ(table)) : bg ? depthScale(bg.z) : geo.castK * depthScale(b.z);
+    const surface = table ? feetY(geo.itemZ(table), height) - TABLE_TOP[table.item] * k : bg ? feetY(bg.z, height) - bg.top * k : feetY(b.z, height);
     const u = (k * height * PUPPET_H) / BOX_H; // единица рисунка предмета (бокс куклы 600) в px
     draw.push({
       z, key: `prop:${i}`,
@@ -427,6 +438,20 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           {/* с последнего места к первому: водитель поверх */}
           {[...riders].reverse().map((id, i) => puppet(id, i, geo.box(id, frame), { facing: fc, inVehicle: true }))}
           {art("front")}
+        </div>
+      ),
+    });
+  }
+  // передний слой фона (стойка перед барменом): поверх тех, кто дальше его z, под теми, кто ближе
+  const subLoc = subLocation(locations[sc.scene.location], sc.scene.place);
+  const front = subLoc ? subLoc.front : locations[sc.scene.location]?.front;
+  if (front) {
+    draw.push({
+      z: front.z, key: "bg-front",
+      node: (
+        <div key="bg-front" style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0",
+          transform: bgScale > 1 ? `translate(0px, ${geo.floorY * (1 - bgScale)}px) scale(${bgScale})` : undefined }}>
+          <Background location={locations[sc.scene.location]} place={sc.scene.place} layer="front" />
         </div>
       ),
     });
@@ -502,6 +527,7 @@ export const Joke = (ep: Episode) => {
   const sc = tl.sceneAt(frame);
   const current = tl.lines.find((l) => frame >= l.startFrame && frame <= l.endFrame + 4);
   return (
+    <LocaleProvider value={ep.locale}>
     <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
       {sc.scene.split ? <SplitStage ep={ep} tl={tl} sc={sc} /> : <Stage ep={ep} tl={tl} sc={sc} />}
       {tl.scenes.slice(1).map((s) => {
@@ -518,5 +544,6 @@ export const Joke = (ep: Episode) => {
       <Watermark />
       <Soundtrack tl={tl} />
     </AbsoluteFill>
+    </LocaleProvider>
   );
 };

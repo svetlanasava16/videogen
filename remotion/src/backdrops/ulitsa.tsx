@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
 import { depthScale, feetY, seatTopY } from "../world/depth";
+import { useSign } from "../i18n/signs";
 
 /**
  * Фон «ulitsa»: улица; варианты park, cemetery, stadium, zoo, yard / yard-night (двор пятиэтажки днём и ночью, один рисунок Yard). Скамейки нарисованы под метки bench-1/bench-2 (дальний план),
@@ -28,10 +29,21 @@ export const rnd = (i: number) => {
 
 export const FONT = "Inter, 'Helvetica Neue', Arial, sans-serif";
 
+/** Кегль, при котором надпись влезает в maxW (грубая оценка: жирные заглавные ≈ 0.7 кегля на букву).
+ *  Нужна для переводов: немецкое слово часто длиннее русского. */
+export const fitSize = (text: string, size: number, maxW?: number, spacing = 1) => {
+  if (!maxW) return size;
+  const n = Math.max(1, [...text].length);
+  const need = n * size * 0.7 + (n - 1) * spacing;
+  return need <= maxW ? size : Math.max(6, (maxW - (n - 1) * spacing) / (n * 0.7));
+};
+
 /** Надпись (вывески, таблички). */
-export const Label = ({ x, y, text, size = 34, color = "#ffffff", anchor = "middle", weight = 900, spacing = 1 }: { x: number; y: number; text: string; size?: number; color?: string; anchor?: "start" | "middle" | "end"; weight?: number; spacing?: number }) => (
-  <text x={x} y={y} textAnchor={anchor} fontFamily={FONT} fontWeight={weight} fontSize={size} letterSpacing={spacing} fill={color}>{text}</text>
-);
+export const Label = ({ x, y, text, size = 34, color = "#ffffff", anchor = "middle", weight = 900, spacing = 1, maxW }: { x: number; y: number; text: string; size?: number; color?: string; anchor?: "start" | "middle" | "end"; weight?: number; spacing?: number; maxW?: number }) => {
+  // при уменьшении кегля (длинный перевод) базовая линия остаётся на месте, текст чуть ниже центра — сдвигаем вверх
+  const fs = fitSize(text, size, maxW, spacing);
+  return <text x={x} y={y - (size - fs) * 0.36} textAnchor={anchor} fontFamily={FONT} fontWeight={weight} fontSize={fs} letterSpacing={spacing} fill={color}>{text}</text>;
+};
 
 /** Вывеска: доска с надписью. */
 export const Sign = ({ x, y, w, h = 56, text, bg, fg = "#ffffff", size, r = 8 }: { x: number; y: number; w: number; h?: number; text: string; bg: string; fg?: string; size?: number; r?: number }) => (
@@ -39,7 +51,7 @@ export const Sign = ({ x, y, w, h = 56, text, bg, fg = "#ffffff", size, r = 8 }:
     <rect x={x} y={y + 5} width={w} height={h} rx={r} fill="#00000022" />
     <rect x={x} y={y} width={w} height={h} rx={r} fill={bg} />
     <rect x={x + 6} y={y + 6} width={w - 12} height={h - 12} rx={r * 0.6} fill="none" stroke={shade(bg, 0.25)} strokeWidth={3} />
-    <Label x={x + w / 2} y={y + h / 2 + (size ?? h * 0.55) * 0.36} text={text} size={size ?? h * 0.55} color={fg} />
+    <Label x={x + w / 2} y={y + h / 2 + (size ?? h * 0.55) * 0.36} text={text} size={size ?? h * 0.55} color={fg} maxW={w - 18} />
   </g>
 );
 
@@ -404,7 +416,9 @@ const Sidewalk = ({ asphalt }: { asphalt: string }) => (
   </g>
 );
 
-const Street = ({ palette }: BackdropProps) => (
+const Street = ({ palette }: BackdropProps) => {
+  const t = useSign();
+  return (
   <>
     <rect x={0} y={0} width={W} height={H} fill={palette.wall} />
     <rect x={0} y={560} width={W} height={540} fill={shade(palette.wall, 0.12)} />
@@ -416,7 +430,7 @@ const Street = ({ palette }: BackdropProps) => (
     <Skyline y={1000} color={shade(palette.wall, -0.1)} seed={2} />
     <Facade x={-20} w={320} top={560} color="#c8653d" cols={[60, 190]} seed={1} pipe={300} roof="chimney">
       {/* «Цветы»: витрина с вёдрами цветов */}
-      <Sign x={124} y={884} w={156} h={34} text="ЦВЕТЫ" bg="#5b8c5a" size={22} />
+      <Sign x={124} y={884} w={156} h={34} text={t("flowers")} bg="#5b8c5a" size={22} />
       <Win x={30} y={950} w={130} h={100} frame="#f2e6d0">
         <rect x={30} y={1010} width={130} height={40} fill="#f2e6d0" />
       </Win>
@@ -434,12 +448,12 @@ const Street = ({ palette }: BackdropProps) => (
       {/* табличка с названием улицы */}
       <rect x={196} y={590} width={92} height={40} rx={6} fill="#2f5f9a" />
       <rect x={200} y={594} width={84} height={32} rx={4} fill="none" stroke="#ffffff" strokeWidth={2} />
-      <Label x={242} y={617} text="САДОВАЯ" size={14} />
+      <Label x={242} y={617} text={t("garden_street")} size={14} maxW={78} />
     </Facade>
     <Facade x={300} w={340} top={470} color="#ead7b2" cols={[50, 216]} seed={2} roof="antenna">
       <Balcony x={340} y={804} w={120} color="#ead7b2" laundry />
       {/* булочная «Хлеб» */}
-      <Sign x={350} y={886} w={240} h={52} text="ХЛЕБ" bg="#8a4a2a" fg="#f7e3b0" />
+      <Sign x={350} y={886} w={240} h={52} text={t("bread")} bg="#8a4a2a" fg="#f7e3b0" />
       <Awning x={310} w={320} y={944} a={palette.accent} b="#fff4e0" h={36} />
       <rect x={326} y={1004} width={190} height={96} rx={6} fill="#cfe6f5" />
       <path d="M340 1090 l60 -80 h30 l-60 80 z" fill="#ffffff" opacity={0.45} />
@@ -447,7 +461,7 @@ const Street = ({ palette }: BackdropProps) => (
       <rect x={536} y={994} width={84} height={106} rx={6} fill="#8a5a3a" />
       <rect x={546} y={1004} width={64} height={46} rx={4} fill="#cfe6f5" opacity={0.7} />
       <circle cx={606} cy={1050} r={5} fill="#e0a030" />
-      <Label x={578} y={1072} text="ОТКРЫТО" size={10} color="#f7e3b0" />
+      <Label x={578} y={1072} text="OPEN" size={12} color="#f7e3b0" maxW={60} />
     </Facade>
     {/* кот в окне */}
     <g fill="#3a3030">
@@ -458,7 +472,7 @@ const Street = ({ palette }: BackdropProps) => (
     </g>
     <Facade x={640} w={240} top={600} color="#d9a44a" cols={[30, 136]} seed={3} roof="dish" pipe={232}>
       {/* аптека */}
-      <Sign x={652} y={890} w={180} h={44} text="АПТЕКА" bg="#2f8a5a" />
+      <Sign x={652} y={890} w={180} h={44} text={t("pharmacy")} bg="#2f8a5a" />
       <circle cx={846} cy={912} r={20} fill="#ffffff" />
       <path d="M840 898 h12 v8 h8 v12 h-8 v8 h-12 v-8 h-8 v-12 h8 z" fill="#2f8a5a" />
       <Win x={660} y={950} w={110} h={100}>
@@ -477,7 +491,7 @@ const Street = ({ palette }: BackdropProps) => (
       <Label x={975} y={972} text="12" size={20} />
       <rect x={898} y={960} width={84} height={110} rx={4} fill="#f2e6d0" />
       <rect x={904} y={966} width={72} height={40} fill="#c8553d" />
-      <Label x={940} y={994} text="ЦИРК" size={20} />
+      <Label x={940} y={994} text={t("circus")} size={20} maxW={66} />
       {[1016, 1028, 1040, 1052].map((ly) => <rect key={ly} x={908} y={ly} width={60 - (ly % 3) * 10} height={6} rx={3} fill="#8d93a0" />)}
     </Facade>
     {/* голуби на карнизе */}
@@ -492,9 +506,11 @@ const Street = ({ palette }: BackdropProps) => (
     <Pigeon x={640} y={1236} />
     <Pigeon x={690} y={1226} s={0.7} flip body="#9a9aa6" />
   </>
-);
+  );
+};
 
 const Park = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const grass = "#8fbf6a";
   return (
     <>
@@ -541,7 +557,7 @@ const Park = ({ palette }: BackdropProps) => {
         <rect x={650} y={906} width={90} height={30} rx={4} fill="#cfe6f5" />
         <path d="M630 892 h130 l-10 -30 h-110 z" fill="#d8506a" />
         <path d="M640 862 h20 v-6 h-20 z M680 862 h20 v-6 h-20 z M720 862 h20 v-6 h-20 z" fill="#ffffff" />
-        <Label x={695} y={954} text="МОРОЖЕНОЕ" size={11} color="#d8506a" />
+        <Label x={695} y={954} text={t("ice_cream")} size={11} color="#d8506a" maxW={96} />
       </g>
       {/* кусты и клумба */}
       <g fill="#5f9a4c">
@@ -723,6 +739,7 @@ const Cemetery = () => {
 };
 
 const Stadium = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const crowd = ["#c8553d", "#e0a030", "#4a6fa5", "#f2e6d0", "#5b8c5a", "#8a5a3a"];
   const tiers = [620, 690, 760, 830, 900];
   const aisles = [260, 800];
@@ -792,16 +809,16 @@ const Stadium = ({ palette }: BackdropProps) => {
         <path d="M930 740 h-70 v44 h70 z" fill="#4a6fa5" />
         <path d="M860 754 h70 v12 h-70 z" fill="#e0a030" />
         <rect x={340} y={846} width={400} height={50} rx={6} fill="#f2e6d0" />
-        <Label x={540} y={884} text="ВПЕРЁД!" size={36} color="#c8553d" />
+        <Label x={540} y={884} text={t("go_team")} size={36} color="#c8553d" maxW={370} />
       </g>
       {/* рекламный борт */}
-      {["СПОРТ", "МОЛОКО", "ЛОТО", "СОК", "СПОРТ", "МОЛОКО"].map((t, i) => {
+      {["sport", "milk", "lotto", "juice", "sport", "milk"].map((key, i) => {
         const bg = [palette.accent, "#c8553d", "#4a6fa5"][i % 3];
         return (
           <g key={i}>
             <rect x={i * 180} y={960} width={180} height={50} fill={bg} />
             <rect x={i * 180} y={960} width={4} height={50} fill="#00000022" />
-            <Label x={i * 180 + 90} y={995} text={t} size={26} color="#ffffff" />
+            <Label x={i * 180 + 90} y={995} text={t(key)} size={26} color="#ffffff" maxW={160} />
           </g>
         );
       })}
@@ -850,6 +867,7 @@ const StadiumSeat = ({ x, color }: { x: number; color: string }) => {
 };
 
 const Zoo = ({ palette }: BackdropProps) => {
+  const t = useSign();
   const sand = "#dcc38e";
   const bar = "#4f5562";
   return (
@@ -906,7 +924,7 @@ const Zoo = ({ palette }: BackdropProps) => {
         <rect x={0} y={1040} width={400} height={16} />
         {[20, 110, 200, 290, 380].map((x) => <rect key={x} x={x} y={985} width={18} height={95} rx={4} />)}
       </g>
-      <Sign x={60} y={1012} w={100} h={34} text="ЖИРАФ" bg="#2f6b4a" size={18} />
+      <Sign x={60} y={1012} w={100} h={34} text={t("giraffe")} bg="#2f6b4a" size={18} />
       {/* клетка со львом */}
       <rect x={600} y={640} width={480} height={460} fill="#00000014" />
       <path d="M620 1080 Q700 980 800 1000 Q900 960 1080 1000 V1080 Z" fill="#b89a6a" />
@@ -930,7 +948,7 @@ const Zoo = ({ palette }: BackdropProps) => {
         </g>
       ))}
       <rect x={590} y={860} width={500} height={10} fill={bar} />
-      <Sign x={790} y={590} w={120} h={40} text="ЛЕВ" bg="#8a4a2a" size={24} />
+      <Sign x={790} y={590} w={120} h={40} text={t("lion")} bg="#8a4a2a" size={24} />
       {/* табличка-лапка */}
       <rect x={496} y={1000} width={10} height={130} fill="#6b4429" />
       <rect x={446} y={940} width={110} height={80} rx={10} fill="#f2e6d0" />

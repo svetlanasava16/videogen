@@ -125,6 +125,12 @@ export type Mark = z.infer<typeof Mark>;
 export const markOf = (m: Mark | undefined): { x: number; z: number; seat?: Seat } | undefined =>
   m === undefined ? undefined : typeof m === "number" ? { x: m, z: PLANES.mid } : { x: m.x, z: m.z ?? PLANES.mid, seat: m.seat };
 
+/** Поверхность в фоне (стойка, прилавок, стол): положенный предмет (prop put) ложится на неё. x0..x1 — доли ширины, top — высота над полом плана z (px при масштабе 1). */
+export const Surface = z.object({ x0: z.number(), x1: z.number(), z: z.number().min(0).max(1), top: z.number() });
+export type Surface = z.infer<typeof Surface>;
+/** Передний слой фона (стойка бара, прилавок): рисуется поверх кукол, стоящих дальше z, и под теми, кто ближе. */
+export const FrontLayer = z.object({ z: z.number().min(0).max(1) });
+
 /** Транспорт снаружи: рисуется remotion/src/world/Vehicles.tsx (вид сбоку), седоки видны в окнах или сидят верхом. */
 export const VEHICLES = ["car", "taxi", "police-car", "ambulance", "bus", "tram", "train", "truck", "tractor", "bicycle", "motorcycle", "scooter", "horse-cart", "road-roller"] as const;
 export type VehicleKind = (typeof VEHICLES)[number];
@@ -355,6 +361,10 @@ export const Location = z.object({
     .optional(),
   /** Метки места: x (доля ширины кадра 0..1) или {x, z, seat} — door, counter, desk, bench-1… Нет — автослоты. */
   marks: z.record(z.string(), Mark).default({}),
+  /** Поверхности фона, на которые кладут предметы (стойка, прилавок). */
+  surfaces: z.array(Surface).optional(),
+  /** Передний слой фона (стойка перед барменом): компонент фона рисует его при layer="front". */
+  front: FrontLayer.optional(),
   bible: z
     .object({
       summary: z.string(),
@@ -372,6 +382,8 @@ export const Location = z.object({
         marks: z.record(z.string(), Mark).optional(),
         set: z.array(SetItem).optional(),
         crowd: Crowd.optional(),
+        surfaces: z.array(Surface).optional(),
+        front: FrontLayer.optional(),
       })).default([]),
       prompt: z.string(),
     })
@@ -600,7 +612,8 @@ export function stagingProblems(cast: string[], lines: { character: string; ente
 
 /** Сцены эпизода: явные (v2) или одна сцена из полей старого формата. */
 export function scenesOf(ep: Episode): Scene[] {
-  if (ep.scenes?.length) return ep.scenes;
+  // сцена в том же месте без своего place берёт place эпизода (аптека, полиция — сублокация из разметки)
+  if (ep.scenes?.length) return ep.scenes.map((s) => (s.place || s.location !== ep.location || !ep.place ? s : { ...s, place: ep.place }));
   return [{
     location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd, set: ep.set,
     beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut",

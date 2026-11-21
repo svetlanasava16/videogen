@@ -1,14 +1,22 @@
 import { Canvas, Room, Plant, FLOOR_Y, W, type BackdropProps, type Palette } from "./parts";
 import { SeatAt } from "./gostinaya";
 import { WallShade, FloorShade, FloorTiles, Glow, Shadow, Clock, Calendar, Radiator, Baseboard, Digit, persX, rnd } from "./bolnitsa";
-import { seatTopY } from "../world/depth";
+import { feetY, seatTopY } from "../world/depth";
 
 /**
  * Фон «ofis»: кабинет начальника. Варианты (content/locations/ofis.json → bible.variants):
  * tv-studio, police-station, bank / government-office. Остальное — базовый кабинет.
  * Сиденья под метки (content/locations/ofis.json): кресло начальника справа от стола (desk), стул посетителя (visitor);
  * студия — кресла ведущего и гостя по бокам стола; участок — стул дежурного и стул задержанного; банк — стулья ожидания.
+ *
+ * Глубина (content/locations/ofis.json → front.z = 0.8): в участке дежурный стол, в банке стойка с перегородкой и окошками —
+ * передний слой (layer="front"): дежурный / кассир за ним (desk, teller-1…3, z 0.95), посетители (z 0.5) — перед ним.
+ * Низ стола/стойки — на полу плана 0.8 (FRONT_FEET), верх — y 1015. Всё, что на среднем плане (табурет задержанного,
+ * стулья ожидания, стойки очереди), тоже в переднем слое: оно ближе стойки. Кабинет и студия переднего слоя не имеют.
  */
+
+const FRONT_FEET = feetY(0.8);
+const DESK_TOP = 1015;
 
 /** Смешать цвет с белым (t>0) или чёрным (t<0). */
 const shade = (hex: string, t: number) => {
@@ -434,54 +442,69 @@ const PoliceStation = ({ palette }: { palette: Palette }) => (
     <circle cx={812} cy={1000} r={12} fill="none" stroke="#c9a24a" strokeWidth={5} />
     <rect x={806} y={1010} width={6} height={30} fill="#c9a24a" transform="rotate(-15 809 1010)" />
     <rect x={814} y={1010} width={6} height={26} fill="#b8963a" transform="rotate(12 817 1010)" />
-    {/* дежурный стол слева: монитор, лампа, бумаги, рация, кружка, пончики */}
-    <Shadow cx={195} w={360} />
-    <rect x={30} y={985} width={330} height={26} rx={6} fill="#5d6870" />
-    <rect x={30} y={985} width={330} height={7} rx={4} fill="#7d878f" />
-    <rect x={44} y={1011} width={302} height={179} fill="#4a545c" />
-    <rect x={60} y={1030} width={120} height={60} rx={6} fill="#00000020" />
-    <rect x={60} y={1100} width={120} height={60} rx={6} fill="#00000020" />
-    <rect x={106} y={1056} width={28} height={8} rx={4} fill="#9aa5ad" />
-    <rect x={106} y={1126} width={28} height={8} rx={4} fill="#9aa5ad" />
-    <rect x={70} y={930} width={80} height={55} rx={6} fill="#2b3036" />
-    <rect x={80} y={940} width={60} height={30} rx={4} fill="#6aa0c8" />
-    <rect x={200} y={956} width={100} height={29} rx={3} fill={PAPER} />
-    <rect x={206} y={946} width={90} height={10} rx={2} fill="#e8c46a" />
-    <Glow cx={250} cy={960} rx={90} ry={40} opacity={0.5} />
-    <rect x={250} y={900} width={10} height={60} fill="#2b3036" transform="rotate(-20 255 960)" />
-    <path d="M222 880 l60 0 l-10 34 l-40 0 Z" fill={palette.accent} transform="rotate(-20 252 900)" />
-    <rect x={160} y={944} width={22} height={40} rx={5} fill="#2b3036" />
-    <rect x={168} y={924} width={5} height={22} fill="#2b3036" />
-    <rect x={164} y={952} width={14} height={8} rx={2} fill="#7fe0a0" opacity={0.8} />
-    <rect x={312} y={950} width={30} height={35} rx={4} fill="#f2e0b8" />
-    <circle cx={320} cy={950} r={9} fill="#d9a07a" />
-    <circle cx={320} cy={950} r={3.5} fill="#f2e0b8" />
-    <circle cx={336} cy={946} r={9} fill="#e88aa8" />
-    <circle cx={336} cy={946} r={3.5} fill="#f2e0b8" />
-    {/* стул дежурного справа от стола (метка desk) и табурет задержанного перед столом (suspect) */}
-    <Shadow cx={0.4 * W} w={130} />
-    <SeatAt x={0.4} z={1} kind="office" color="#3a4148" />
+    {/* стул дежурного (метка desk) — за столом; сам стол и табурет задержанного — передний слой (PoliceFront) */}
+    <Shadow cx={0.4 * W} w={130} y={feetY(0.95)} />
+    <SeatAt x={0.4} z={0.95} kind="office" color="#3a4148" />
+    <Shadow cx={435} w={480} y={FRONT_FEET - 4} o={0.18} />
     <Shadow cx={0.2 * W} w={110} y={1275} o={0.14} />
-    <SeatAt x={0.2} z={0.5} kind="stool" color="#5d6870" />
   </>
 );
 
+/** Передний слой участка: дежурный стол (дежурный сидит за ним — desk, z 0.95) и табурет задержанного перед столом (suspect). */
+const PoliceFront = ({ palette }: { palette: Palette }) => {
+  const top = DESK_TOP;
+  const x0 = 220, x1 = 650;
+  return (
+    <>
+      <rect x={x0 + 14} y={top + 26} width={x1 - x0 - 28} height={FRONT_FEET - top - 26} fill="#4a545c" />
+      <rect x={x0 + 14} y={top + 26} width={x1 - x0 - 28} height={12} fill="#00000025" />
+      <rect x={x0 + 34} y={top + 50} width={150} height={70} rx={6} fill="#00000020" />
+      <rect x={x0 + 34} y={top + 130} width={150} height={60} rx={6} fill="#00000020" />
+      <rect x={x0 + 94} y={top + 80} width={30} height={8} rx={4} fill="#9aa5ad" />
+      <rect x={x0 + 94} y={top + 156} width={30} height={8} rx={4} fill="#9aa5ad" />
+      <rect x={x0 + 210} y={top + 50} width={190} height={140} rx={6} fill="#00000014" />
+      <rect x={x0 + 280} y={top + 70} width={50} height={50} rx={25} fill={palette.accent} opacity={0.8} />
+      <path d={`M${x0 + 305} ${top + 78} l7 14 l15 2 l-11 10 l3 15 l-14 -8 l-14 8 l3 -15 l-11 -10 l15 -2 Z`} fill="#f4f1ea" />
+      <rect x={x0} y={top} width={x1 - x0} height={26} rx={6} fill="#5d6870" />
+      <rect x={x0} y={top} width={x1 - x0} height={7} rx={4} fill="#7d878f" />
+      {/* монитор и рация слева, бумаги посередине, коробка пончиков и лампа справа — место дежурного (x 0.4) свободно */}
+      <rect x={232} y={top - 55} width={80} height={55} rx={6} fill="#2b3036" />
+      <rect x={242} y={top - 45} width={60} height={30} rx={4} fill="#6aa0c8" />
+      <rect x={326} y={top - 40} width={22} height={40} rx={5} fill="#2b3036" />
+      <rect x={334} y={top - 60} width={5} height={22} fill="#2b3036" />
+      <rect x={330} y={top - 32} width={14} height={8} rx={2} fill="#7fe0a0" opacity={0.8} />
+      <rect x={440} y={top - 22} width={100} height={22} rx={3} fill={PAPER} />
+      <rect x={446} y={top - 32} width={90} height={10} rx={2} fill="#e8c46a" />
+      <rect x={556} y={top - 35} width={30} height={35} rx={4} fill="#f2e0b8" />
+      <circle cx={564} cy={top - 35} r={9} fill="#d9a07a" />
+      <circle cx={564} cy={top - 35} r={3.5} fill="#f2e0b8" />
+      <circle cx={580} cy={top - 39} r={9} fill="#e88aa8" />
+      <circle cx={580} cy={top - 39} r={3.5} fill="#f2e0b8" />
+      <Glow cx={620} cy={top - 20} rx={80} ry={36} opacity={0.5} />
+      <rect x={618} y={top - 80} width={10} height={60} fill="#2b3036" transform={`rotate(-20 623 ${top})`} />
+      <path d={`M590 ${top - 100} l60 0 l-10 34 l-40 0 Z`} fill={palette.accent} transform={`rotate(-20 620 ${top - 80})`} />
+      {/* табурет задержанного перед столом (suspect, средний план) */}
+      <SeatAt x={0.2} z={0.5} kind="stool" color="#5d6870" />
+    </>
+  );
+};
+
 /* ---------- bank / government-office ---------- */
 
-const Stamp = ({ x, color }: { x: number; color: string }) => (
+const Stamp = ({ x, top, color }: { x: number; top: number; color: string }) => (
   <g>
-    <rect x={x - 26} y={952} width={52} height={14} rx={4} fill={color} />
-    <rect x={x - 8} y={918} width={16} height={36} rx={4} fill="#5a4030" />
-    <circle cx={x} cy={914} r={14} fill="#5a4030" />
+    <rect x={x - 26} y={top - 8} width={52} height={14} rx={4} fill={color} />
+    <rect x={x - 8} y={top - 42} width={16} height={36} rx={4} fill="#5a4030" />
+    <circle cx={x} cy={top - 46} r={14} fill="#5a4030" />
   </g>
 );
 
-const Stanchion = ({ x }: { x: number }) => (
+const Stanchion = ({ x, y = FLOOR_Y }: { x: number; y?: number }) => (
   <g fill="#c9a24a">
-    <ellipse cx={x} cy={FLOOR_Y - 4} rx={34} ry={10} />
-    <rect x={x - 6} y={FLOOR_Y - 190} width={12} height={186} />
-    <rect x={x - 2} y={FLOOR_Y - 190} width={4} height={186} fill="#f2d68a" />
-    <circle cx={x} cy={FLOOR_Y - 194} r={12} />
+    <ellipse cx={x} cy={y - 4} rx={34} ry={10} />
+    <rect x={x - 6} y={y - 190} width={12} height={186} />
+    <rect x={x - 2} y={y - 190} width={4} height={186} fill="#f2d68a" />
+    <circle cx={x} cy={y - 194} r={12} />
   </g>
 );
 
@@ -509,9 +532,8 @@ const RateBoard = ({ x, y, w, accent }: { x: number; y: number; w: number; accen
   );
 };
 
+/** Банк: стена, табло, часы и то, что за перегородкой у стены (шкафы с ячейками, мониторы); пол. */
 const BankCounter = ({ palette }: { palette: Palette }) => {
-  const top = 960;
-  const glass = "#d8ecf4";
   const marble = shade(palette.wall, 0.25);
   return (
     <>
@@ -534,55 +556,84 @@ const BankCounter = ({ palette }: { palette: Palette }) => {
       <Clock cx={540} cy={500} r={52} rim={palette.accent} face="#f4f1ea" hand="#333333" h={11} m={50} />
       <RateBoard x={130} y={436} w={250} accent={palette.accent} />
       <RateBoard x={700} y={436} w={250} accent={palette.accent} />
-      {/* перегородка с окошками */}
+      {/* за перегородкой, у стены: шкафы с ячейками, мониторы, сейф */}
+      <rect x={0} y={640} width={W} height={FLOOR_Y - 640} fill={shade(palette.wall, -0.08)} />
+      {[0, 1, 2].map((i) => {
+        const x = 20 + i * 350;
+        return (
+          <g key={i}>
+            <rect x={x + 44} y={660} width={80} height={300} rx={4} fill={shade(palette.wall, -0.18)} />
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((k) => <rect key={k} x={x + 52} y={668 + k * 36} width={64} height={28} rx={2} fill={shade(palette.wall, -0.26)} />)}
+            <rect x={x + 236} y={800} width={70} height={52} rx={4} fill="#3a4148" />
+            <rect x={x + 242} y={806} width={58} height={38} rx={3} fill="#6aa0c8" opacity={0.8} />
+            <rect x={x + 262} y={852} width={18} height={60} fill="#3a4148" />
+          </g>
+        );
+      })}
+      <Shadow cx={540} w={1160} y={FRONT_FEET - 4} o={0.16} />
+      <Shadow cx={0.78 * W} w={0.32 * W} y={1275} o={0.14} />
+      <Shadow cx={155} w={260} y={1275} o={0.1} />
+    </>
+  );
+};
+
+/**
+ * Передний слой банка: перегородка с тремя стеклянными окошками (полупрозрачными — кассир за ними виден, teller-1…3)
+ * и стойка во всю ширину; на стойке штампы, ручка на цепочке, звонок, бланки, цветок. Перед стойкой — стойки очереди
+ * (queue) и стулья ожидания (wait-1…3) на среднем плане.
+ */
+const BankFront = ({ palette }: { palette: Palette }) => {
+  const top = DESK_TOP;
+  const glass = "#d8ecf4";
+  return (
+    <>
+      {/* перегородка: рама, простенки между окошками, стекло */}
       <rect x={0} y={590} width={W} height={24} fill={shade(palette.accent, -0.1)} />
       {[0, 1, 2].map((i) => {
         const x = 20 + i * 350;
         return (
           <g key={i}>
-            <rect x={x} y={614} width={340} height={top - 614} fill={shade(palette.wall, -0.12)} />
-            <rect x={x + 30} y={640} width={280} height={top - 640} rx={10} fill={glass} />
-            {/* за стеклом: шкаф с ячейками и монитор */}
-            <rect x={x + 44} y={660} width={70} height={140} rx={4} fill={shade(palette.wall, -0.05)} opacity={0.6} />
-            {[0, 1, 2, 3].map((k) => <rect key={k} x={x + 50} y={668 + k * 32} width={58} height={24} rx={2} fill={shade(palette.wall, -0.15)} opacity={0.5} />)}
-            <rect x={x + 230} y={810} width={64} height={46} rx={4} fill="#3a4148" opacity={0.55} />
-            <path d={`M${x + 120} ${top} v-70 a50 50 0 0 1 100 0 v70 Z`} fill={shade(palette.wall, -0.2)} />
+            <rect x={x} y={614} width={30} height={top - 614} fill={shade(palette.wall, -0.12)} />
+            <rect x={x + 310} y={614} width={30} height={top - 614} fill={shade(palette.wall, -0.12)} />
+            <rect x={x + 30} y={614} width={280} height={26} fill={shade(palette.wall, -0.12)} />
+            <rect x={x + 30} y={640} width={280} height={top - 640} fill={glass} opacity={0.3} />
+            <rect x={x + 30} y={640} width={280} height={top - 640} fill="none" stroke={shade(palette.wall, -0.2)} strokeWidth={6} />
+            <path d={`M${x + 120} ${top} v-60 a50 50 0 0 1 100 0 v60 Z`} fill="#000000" opacity={0.08} />
+            <path d={`M${x + 120} ${top} v-60 a50 50 0 0 1 100 0 v60`} fill="none" stroke={shade(palette.wall, -0.2)} strokeWidth={5} />
             <rect x={x + 120} y={650} width={100} height={36} rx={6} fill={palette.accent} />
             <Digit x={x + 158} y={656} d={String(i + 1)} s={0.6} color="#ffffff" />
-            <rect x={x + 60} y={660} width={30} height={200} rx={6} fill="#ffffff55" />
-            <rect x={x + 30} y={top - 12} width={280} height={12} fill="#ffffff" opacity={0.4} />
+            <path d={`M${x + 50} 700 l40 0 l-30 140 l-40 0 Z`} fill="#ffffff" opacity={0.25} />
           </g>
         );
       })}
+      <rect x={0} y={614} width={20} height={top - 614} fill={shade(palette.wall, -0.12)} />
+      <rect x={1060} y={614} width={20} height={top - 614} fill={shade(palette.wall, -0.12)} />
       {/* стойка */}
-      <Shadow cx={540} w={1160} y={FLOOR_Y} o={0.12} />
+      <rect x={0} y={top + 26} width={W} height={FRONT_FEET - top - 26} fill={shade(palette.wall, -0.22)} />
+      <rect x={0} y={top + 26} width={W} height={12} fill="#00000020" />
+      {[0, 1, 2].map((i) => (
+        <rect key={i} x={50 + i * 350} y={top + 60} width={280} height={FRONT_FEET - top - 90} rx={8} fill="#00000014" />
+      ))}
       <rect x={0} y={top} width={W} height={26} fill="#e8e1d2" />
       <rect x={0} y={top} width={W} height={7} fill="#ffffff" opacity={0.5} />
-      <rect x={0} y={top + 26} width={W} height={FLOOR_Y - top - 26} fill={shade(palette.wall, -0.22)} />
-      {[0, 1, 2].map((i) => (
-        <rect key={i} x={50 + i * 350} y={top + 60} width={280} height={110} rx={8} fill="#00000014" />
-      ))}
-      <Stamp x={110} color="#c8553d" />
-      <Stamp x={170} color={palette.accent} />
-      <rect x={760} y={940} width={110} height={20} rx={3} fill={PAPER} />
-      <rect x={764} y={930} width={104} height={12} rx={3} fill="#e6ddc8" />
-      {/* ручка на цепочке, звонок, бланки, цветок у окна 2 */}
-      <rect x={430} y={946} width={30} height={14} rx={4} fill="#3a4148" />
-      <rect x={440} y={926} width={5} height={24} fill="#2d3640" transform="rotate(25 442 950)" />
-      <path d="M446 960 q10 18 30 4" stroke="#9aa5ad" strokeWidth={3} fill="none" />
-      <ellipse cx={600} cy={958} rx={18} ry={5} fill="#3a4148" />
-      <path d="M584 958 a16 16 0 0 1 32 0 Z" fill="#c9a24a" />
-      <rect x={598} y={936} width={4} height={8} fill="#3a4148" />
-      <rect x={890} y={930} width={30} height={30} rx={5} fill={palette.accent} />
-      <ellipse cx={898} cy={914} rx={10} ry={20} fill="#5b8c5a" transform="rotate(-20 898 914)" />
-      <ellipse cx={914} cy={912} rx={9} ry={18} fill="#6a9c68" transform="rotate(20 914 912)" />
-      {[0, 1, 2].map((i) => <rect key={i} x={980 + i * 6} y={936 - i * 4} width={60} height={24} rx={2} fill={i === 2 ? "#ffffff" : "#efe8d8"} transform={`rotate(${-6 + i * 4} 1010 950)`} />)}
-      {/* ограждение очереди */}
-      <Stanchion x={60} />
-      <Stanchion x={250} />
-      <path d={`M60 ${FLOOR_Y - 186} Q155 ${FLOOR_Y - 120} 250 ${FLOOR_Y - 186}`} stroke="#b4452f" strokeWidth={14} fill="none" strokeLinecap="round" />
-      {/* стулья ожидания на среднем плане справа (метки wait-1…wait-3) */}
-      <Shadow cx={0.78 * W} w={0.32 * W} y={1275} o={0.14} />
+      <Stamp x={110} top={top + 14} color="#c8553d" />
+      <Stamp x={260} top={top + 14} color={palette.accent} />
+      <rect x={760} y={top - 6} width={110} height={20} rx={3} fill={PAPER} />
+      <rect x={764} y={top - 16} width={104} height={12} rx={3} fill="#e6ddc8" />
+      {/* ручка на цепочке, звонок, бланки, цветок */}
+      <rect x={400} y={top} width={30} height={14} rx={4} fill="#3a4148" />
+      <rect x={410} y={top - 20} width={5} height={24} fill="#2d3640" transform={`rotate(25 412 ${top + 4})`} />
+      <path d={`M416 ${top + 14} q10 18 30 4`} stroke="#9aa5ad" strokeWidth={3} fill="none" />
+      <ellipse cx={660} cy={top + 12} rx={18} ry={5} fill="#3a4148" />
+      <path d={`M644 ${top + 12} a16 16 0 0 1 32 0 Z`} fill="#c9a24a" />
+      <rect x={658} y={top - 10} width={4} height={8} fill="#3a4148" />
+      <rect x={990} y={top - 16} width={30} height={30} rx={5} fill={palette.accent} />
+      <ellipse cx={998} cy={top - 32} rx={10} ry={20} fill="#5b8c5a" transform={`rotate(-20 998 ${top - 32})`} />
+      <ellipse cx={1014} cy={top - 34} rx={9} ry={18} fill="#6a9c68" transform={`rotate(20 1014 ${top - 34})`} />
+      {/* ограждение очереди (queue) и стулья ожидания (wait-1…3) — средний план */}
+      <Stanchion x={60} y={feetY(0.5)} />
+      <Stanchion x={250} y={feetY(0.5)} />
+      <path d={`M60 ${feetY(0.5) - 186} Q155 ${feetY(0.5) - 120} 250 ${feetY(0.5) - 186}`} stroke="#b4452f" strokeWidth={14} fill="none" strokeLinecap="round" />
       {[0.66, 0.78, 0.9].map((x) => (
         <SeatAt key={x} x={x} z={0.5} kind="chair" color={shade(palette.accent, -0.3)} pad={palette.accent} back={130} />
       ))}
@@ -590,16 +641,25 @@ const BankCounter = ({ palette }: { palette: Palette }) => {
   );
 };
 
-export const Ofis = ({ palette, variant }: BackdropProps) => (
-  <Canvas>
-    {variant === "tv-studio" ? (
-      <TvStudio palette={palette} />
-    ) : variant === "police-station" ? (
-      <PoliceStation palette={palette} />
-    ) : variant === "bank" || variant === "government-office" ? (
-      <BankCounter palette={palette} />
-    ) : (
-      <BaseOffice palette={palette} />
-    )}
-  </Canvas>
-);
+export const Ofis = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  const bank = variant === "bank" || variant === "government-office";
+  if (layer === "front") {
+    // передний слой — дежурный стол участка и стойка банка; кабинет и студия без него
+    if (variant === "police-station") return <Canvas><PoliceFront palette={palette} /></Canvas>;
+    if (bank) return <Canvas><BankFront palette={palette} /></Canvas>;
+    return null;
+  }
+  return (
+    <Canvas>
+      {variant === "tv-studio" ? (
+        <TvStudio palette={palette} />
+      ) : variant === "police-station" ? (
+        <PoliceStation palette={palette} />
+      ) : bank ? (
+        <BankCounter palette={palette} />
+      ) : (
+        <BaseOffice palette={palette} />
+      )}
+    </Canvas>
+  );
+};

@@ -1,5 +1,6 @@
 import { Canvas, Room, Cloud, FLOOR_Y, W, H, type BackdropProps } from "./parts";
-import { Birds, Label, Puff } from "./ulitsa";
+import { Birds, Label, Puff, fitSize } from "./ulitsa";
+import { useSign } from "../i18n/signs";
 import { depthScale, feetY, seatTopY } from "../world/depth";
 
 /**
@@ -152,7 +153,7 @@ const Plane = ({ wall, floor, accent }: P) => {
         <polygon key={X} points={poly([[X - 12, -330, FAR], [X + 12, -330, FAR], [X + 12, FY, FAR], [X - 12, FY, FAR]])} fill={dark(accent, 0.15)} />
       ))}
       <polygon points={poly([[-90, -460, FAR], [90, -460, FAR], [90, -380, FAR], [-90, -380, FAR]])} fill="#3fae6a" />
-      <text x={VX} y={VY - 408 * FAR} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={70 * FAR} fill="#ffffff">ВЫХОД</text>
+      <text x={VX} y={VY - 408 * FAR} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={70 * FAR} fill="#ffffff">EXIT</text>
       {/* иллюминаторы */}
       {[-1, 1].map((side) =>
         windows.map((s) => (
@@ -267,7 +268,7 @@ const Cabin = ({ wall, floor, accent }: P) => {
       <polygon points={quad([[-70, 680, B], [70, 680, B], [70, 740, B], [-70, 740, B]])} fill="#3fae6a" />
       {(() => {
         const [x, y] = P(0, 694, B);
-        return <text x={x} y={y} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={40 * B} fill="#ffffff">ВЫХОД</text>;
+        return <text x={x} y={y} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={40 * B} fill="#ffffff">EXIT</text>;
       })()}
       {/* табло «пристегните ремни» и тележка у шторки */}
       {[-260, 260].map((X) => {
@@ -900,14 +901,17 @@ const FieldWindow = ({ x, plane = false, tower = false, wall }: { x: number; pla
 };
 
 const Hall = ({ wall, floor, accent }: P) => {
+  const t = useSign();
   const board = "#2b2f36";
+  // город и статус — ключи надписей (content/signs/samolet.json)
   const rows: [string, string, string, string][] = [
-    ["08:15", "МОСКВА", "3", "ПОСАДКА"],
-    ["09:40", "СОЧИ", "5", "ЗАДЕРЖАН"],
-    ["10:05", "КАЗАНЬ", "1", "ПО ПЛАНУ"],
-    ["11:30", "ПЕРМЬ", "4", "РЕГИСТРАЦИЯ"],
-    ["12:50", "ОМСК", "2", "ПО ПЛАНУ"],
+    ["08:15", "city_paris", "3", "status_boarding"],
+    ["09:40", "city_rome", "5", "status_delayed"],
+    ["10:05", "city_berlin", "1", "status_on_time"],
+    ["11:30", "city_london", "4", "status_check_in"],
+    ["12:50", "city_vienna", "2", "status_on_time"],
   ];
+  const departures = t("departures");
   return (
     <>
       <Room wall={wall} floor={floor} />
@@ -931,17 +935,17 @@ const Hall = ({ wall, floor, accent }: P) => {
       <rect x={188} y={438} width={720} height={250} rx={14} fill="#00000025" />
       <rect x={180} y={430} width={720} height={250} rx={14} fill={board} />
       <rect x={196} y={446} width={688} height={36} rx={6} fill={accent} />
-      <text x={540} y={473} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={24} fill="#ffffff" letterSpacing={3}>ОТПРАВЛЕНИЕ</text>
-      {rows.map(([t, city, gate, st], i) => {
+      <text x={540} y={473} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={fitSize(departures, 24, 660, 3)} fill="#ffffff" letterSpacing={3}>{departures}</text>
+      {rows.map(([time, city, gate, st], i) => {
         const y = 500 + i * 34;
-        const c = st === "ЗАДЕРЖАН" ? RED : st === "ПОСАДКА" ? "#5fb878" : st === "РЕГИСТРАЦИЯ" ? "#f2b84b" : "#e8e4d8";
+        const c = st === "status_delayed" ? RED : st === "status_boarding" ? "#5fb878" : st === "status_check_in" ? "#f2b84b" : "#e8e4d8";
         return (
-          <g key={t}>
+          <g key={time}>
             <rect x={196} y={y - 2} width={688} height={28} fill={i % 2 ? "#ffffff08" : "#00000000"} />
-            <Label x={206} y={y + 19} text={t} size={20} color="#f2b84b" anchor="start" spacing={0} />
-            <Label x={300} y={y + 19} text={city} size={20} color="#e8e4d8" anchor="start" />
+            <Label x={206} y={y + 19} text={time} size={20} color="#f2b84b" anchor="start" spacing={0} />
+            <Label x={300} y={y + 19} text={t(city)} size={20} color="#e8e4d8" anchor="start" maxW={300} />
             <Label x={640} y={y + 19} text={gate} size={20} color="#e8e4d8" />
-            <Label x={874} y={y + 19} text={st} size={16} color={c} anchor="end" />
+            <Label x={874} y={y + 19} text={t(st)} size={16} color={c} anchor="end" maxW={190} />
           </g>
         );
       })}
@@ -955,7 +959,7 @@ const Hall = ({ wall, floor, accent }: P) => {
       <path d="M990 520 L990 488 M990 520 L1014 530" stroke={INK} strokeWidth={6} strokeLinecap="round" />
       {/* указатели к выходам */}
       <rect x={20} y={560} width={150} height={50} rx={8} fill="#f2b84b" />
-      <Label x={78} y={594} text="ВЫХОД 1–3" size={18} color={INK} spacing={0} />
+      <Label x={78} y={594} text="GATE 1–3" size={18} color={INK} spacing={0} />
       <path d="M140 572 l18 13 l-18 13 z" fill={INK} />
       <rect x={60} y={440} width={4} height={120} fill="#8a8f98" />
       <rect x={130} y={440} width={4} height={120} fill="#8a8f98" />

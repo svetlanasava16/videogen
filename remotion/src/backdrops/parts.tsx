@@ -13,8 +13,13 @@ export const FLOOR_Y = 1190;
 export type Palette = { wall: string; floor: string; accent: string };
 export type BackdropProps = {
   palette: Palette;
-  /** Каноническая локация эпизода (например "park" для фона "ulitsa"); undefined = базовый вид. */
+  /** Сублокация (id варианта: "park" для "ulitsa"); undefined = базовый вид. */
   variant?: string;
+  /**
+   * Слой: "back" (по умолчанию) — весь фон, кроме переднего слоя; "front" — только передний слой (стойка, прилавок),
+   * который движок рисует поверх кукол, стоящих за ним (location.front.z). Фон без переднего слоя на "front" возвращает null.
+   */
+  layer?: "back" | "front";
 };
 
 /** Обёртка: svg на весь кадр. */

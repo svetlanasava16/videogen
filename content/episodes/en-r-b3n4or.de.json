@@ -6,10 +6,12 @@
   "location": "samolet",
   "place": "plane",
   "cast": [
+    "muzhik",
     "sluzhivy",
     "sluzhivy-ryadovoy"
   ],
   "roles": {
+    "muzhik": "customer",
     "sluzhivy": "pilot",
     "sluzhivy-ryadovoy": "pilot"
   },
@@ -110,11 +112,14 @@
   "scenes": [
     {
       "location": "samolet",
+      "place": "cabin",
       "cast": [
+        "muzhik",
         "sluzhivy",
         "sluzhivy-ryadovoy"
       ],
       "roles": {
+        "muzhik": "customer",
         "sluzhivy": "pilot",
         "sluzhivy-ryadovoy": "pilot"
       },
@@ -127,19 +132,22 @@
         },
         "sluzhivy-ryadovoy": {
           "add": [
-            "dark-glasses",
-            "aerodrome-cap"
+            "dark-glasses"
           ],
-          "remove": [
-            "army-cap"
-          ]
+          "remove": []
         }
       },
       "crowd": {
         "who": "passengers",
-        "size": "many"
+        "size": "many",
+        "seated": true
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-left"
+        },
         {
           "type": "prop",
           "who": "sluzhivy",
@@ -155,13 +163,13 @@
         {
           "type": "move",
           "who": "sluzhivy",
-          "to": "seat-left",
+          "to": "aisle-front",
           "from": "off-left"
         },
         {
           "type": "move",
           "who": "sluzhivy-ryadovoy",
-          "to": "left",
+          "to": "center",
           "from": "off-left"
         },
         {
@@ -182,14 +190,14 @@
           "shot": "wide"
         },
         {
-          "type": "act",
+          "type": "move",
           "who": "sluzhivy",
-          "act": "sit"
+          "to": "off-right"
         },
         {
-          "type": "act",
+          "type": "move",
           "who": "sluzhivy-ryadovoy",
-          "act": "sit"
+          "to": "off-right"
         },
         {
           "type": "shake",
@@ -201,8 +209,64 @@
           "react": "murmur"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "scratch-head"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "place": "cockpit",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "sluzhivy-ryadovoy": "pilot"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "captain"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "copilot"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "white-cane",
+          "action": "hold"
         },
         {
           "type": "shake",
@@ -219,16 +283,40 @@
           "strength": "strong"
         },
         {
-          "type": "crowd",
-          "react": "gasp"
-        },
-        {
           "type": "line",
           "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "place": "cabin",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many",
+        "seated": true
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "seat-left"
         },
         {
           "type": "crowd",
           "react": "scream"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shiver"
         },
         {
           "type": "line",
@@ -248,13 +336,69 @@
           "react": "calm"
         },
         {
-          "type": "line",
-          "ref": "l8"
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
         },
         {
-          "type": "camera",
-          "shot": "two",
-          "on": "sluzhivy-ryadovoy"
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "samolet",
+      "place": "cockpit",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "sluzhivy-ryadovoy": "pilot"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "captain"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "copilot"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "turn"
         },
         {
           "type": "line",

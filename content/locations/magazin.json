@@ -18,12 +18,38 @@
   "marks": {
     "left": 0.22,
     "center": 0.5,
+    "customer": {
+      "x": 0.6,
+      "z": 0.5
+    },
     "right": 0.78,
-    "shelf": 0.3,
-    "counter": 0.76
+    "shelf": {
+      "x": 0.3,
+      "z": 1
+    },
+    "counter": {
+      "x": 0.76,
+      "z": 0.95
+    },
+    "behind-counter": {
+      "x": 0.76,
+      "z": 0.95
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Grocery shop: striped awning and tube lights, shelves with goods and price tags along the back wall with a red 'sale' star, bread and hanging sausages on the lower shelf, crates of apples and oranges on the left, counter on the right with a cash register, dial scales and an abacus: customer and seller.",
+    "summary": "Grocery shop: striped awning and tube lights, shelves with goods and price tags along the back wall with a red sale star, bread and hanging sausages on the lower shelf, crates of apples and oranges on the left. The shop counter runs from the middle to the right wall IN FRONT of the seller: the seller stands behind it (counter = behind-counter, hidden to the waist), with a cash register, dial scales and an abacus on it; customers stand in front of the counter (customer, center, left, right); shelf — at the back wall on the left, where goods are taken. Things put down on the counter lie on it.",
     "roles": [
       "shop",
       "pharmacy",
@@ -35,16 +61,84 @@
         "roles": [
           "pharmacy"
         ],
-        "change": "Pharmacy: green cross glowing on the back wall between white medicine shelves, 'wash your hands' poster, drawer cabinets, a long white counter with a glass partition, cash register, mortar and pestle, pill boxes and a small plant"
+        "change": "Pharmacy: green cross glowing on the back wall between white medicine shelves, 'wash your hands' poster, drawer cabinets; a long white counter with a glass partition across the room IN FRONT of the pharmacist — the pharmacist stands behind it (counter, right of centre, seen through the glass, hidden to the waist), customers stand in front of it (customer = center, left, right); cash register, mortar and pestle, pill boxes and a small plant on the counter; things put down lie on the counter",
+        "marks": {
+          "counter": {
+            "x": 0.68,
+            "z": 0.95
+          },
+          "behind-counter": {
+            "x": 0.68,
+            "z": 0.95
+          },
+          "left": {
+            "x": 0.15,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.38,
+            "z": 0.5
+          },
+          "customer": {
+            "x": 0.38,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.88,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "front": {
+          "z": 0.8
+        },
+        "surfaces": [
+          {
+            "x0": 0.02,
+            "x1": 0.98,
+            "z": 0.8,
+            "top": 220
+          }
+        ]
       },
       {
         "id": "barbershop",
         "roles": [
           "barbershop"
         ],
-        "change": "Barbershop: striped barber pole, haircut posters and a wall clock, towels on a rail, big arched mirror over a shelf with tonics, a jar of combs and clippers, red barber chair with hair clippings around it, chequered wall tiles and floor, a lamp and a potted plant"
+        "change": "Barbershop: striped barber pole, haircut posters and a wall clock, towels on a rail, big arched mirror over a shelf with tonics, a jar of combs and clippers, red barber chair with hair clippings around it, chequered wall tiles and floor, a lamp and a potted plant",
+        "surfaces": [],
+        "marks": {
+          "left": 0.22,
+          "center": 0.5,
+          "right": 0.78,
+          "shelf": 0.3,
+          "counter": 0.76
+        }
       }
     ],
     "prompt": "small shop interior, counter with cash register, shelves with goods, price tags"
-  }
+  },
+  "front": {
+    "z": 0.8
+  },
+  "surfaces": [
+    {
+      "x0": 0.4,
+      "x1": 0.98,
+      "z": 0.8,
+      "top": 220
+    }
+  ]
 }

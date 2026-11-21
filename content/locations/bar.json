@@ -19,37 +19,49 @@
   "marks": {
     "stool-1": {
       "x": 0.12,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "stool-2": {
       "x": 0.3,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "stool-3": {
       "x": 0.7,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "stool-4": {
       "x": 0.88,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "stool-left": {
       "x": 0.12,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "stool-right": {
       "x": 0.88,
-      "z": 1,
+      "z": 0.5,
       "seat": "stool"
     },
     "counter": {
       "x": 0.5,
-      "z": 1
+      "z": 0.95
+    },
+    "behind-counter": {
+      "x": 0.5,
+      "z": 0.95
+    },
+    "behind-left": {
+      "x": 0.2,
+      "z": 0.95
+    },
+    "behind-right": {
+      "x": 0.8,
+      "z": 0.95
     },
     "left": {
       "x": 0.22,
@@ -77,7 +89,7 @@
     }
   },
   "bible": {
-    "summary": "Cosy bar: dark plank walls, mirrored back shelf with bottles, pink 'ПИВО' neon and a menu chalkboard on the left, dartboard and photos on the right, bar counter with beer taps, brass foot rail, mugs and peanuts across the back wall, four bar stools in front of it (stool-1…stool-4; stool-left = stool-1, stool-right = stool-4), the barman stands at the counter in the middle. Variants: restaurant/cafe, party banquet, hotel lobby.",
+    "summary": "Cosy bar: dark plank walls, mirrored back shelf with bottles over a low back cabinet with glasses and a till, pink beer neon and a menu chalkboard on the left, dartboard and photos on the right. The bar counter runs across the whole room in FRONT of the barman: the barman stands behind it (counter = behind-counter, middle; behind-left, behind-right — hidden to the waist), customers stand in front of it on the middle plane (left, center, right) or sit on the four bar stools in front of the counter (stool-1…stool-4; stool-left = stool-1, stool-right = stool-4). Things put down on the counter lie on its top. Beer taps, a mug, peanuts and an ice bucket on the counter, brass foot rail. Variants: restaurant/cafe, party banquet, hotel lobby.",
     "roles": [
       "bar",
       "restaurant",
@@ -155,7 +167,8 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "surfaces": []
       },
       {
         "id": "party",
@@ -218,7 +231,8 @@
           {
             "item": "dining-table"
           }
-        ]
+        ],
+        "surfaces": []
       },
       {
         "id": "hotel",
@@ -230,11 +244,15 @@
         "roles": [
           "hotel"
         ],
-        "change": "Hotel lobby: striped wallpaper with a marble lower wall, chandelier, three city clocks, a landscape painting, key board with keys and three stars, a long reception desk across the back with a bell, green banker's lamp, monitor, guest book and leaflets (the clerk stands at it: counter), guests stand in front of it (guest), red carpet runner over a marble checker floor, potted palms in the corners, a guest armchair in the middle plane on the right (armchair).",
+        "change": "Hotel lobby: striped wallpaper with a marble lower wall, chandelier, three city clocks, a landscape painting, key board with keys and three stars, a long reception desk with a bell, green banker's lamp, monitor, guest book and leaflets — the clerk stands BEHIND it (counter = behind-counter, hidden to the waist), guests stand in front of it (guest, left, center); things put down on the desk lie on it, red carpet runner over a marble checker floor, potted palms in the corners, a guest armchair in the middle plane on the right (armchair).",
         "marks": {
           "counter": {
             "x": 0.5,
-            "z": 1
+            "z": 0.95
+          },
+          "behind-counter": {
+            "x": 0.5,
+            "z": 0.95
           },
           "guest": {
             "x": 0.36,
@@ -269,9 +287,31 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "front": {
+          "z": 0.8
+        },
+        "surfaces": [
+          {
+            "x0": 0.15,
+            "x1": 0.85,
+            "z": 0.8,
+            "top": 226
+          }
+        ]
       }
     ],
     "prompt": "cosy bar interior, wooden counter, shelves with bottles, bar stools, warm hanging lamp"
-  }
+  },
+  "front": {
+    "z": 0.8
+  },
+  "surfaces": [
+    {
+      "x0": 0.02,
+      "x1": 0.98,
+      "z": 0.8,
+      "top": 220
+    }
+  ]
 }

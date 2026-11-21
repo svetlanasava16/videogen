@@ -1,12 +1,20 @@
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
-import { depthScale, seatTopY } from "../world/depth";
+import { depthScale, feetY, seatTopY } from "../world/depth";
 import { Label, shade } from "./ulitsa";
+import { useSign } from "../i18n/signs";
 
 /**
  * Фон «sud»: зал суда. По центру — судейская трибуна на подиуме с высоким креслом и нейтральным гербом (щит с весами,
  * лавровый венок) между бархатными портьерами (judge, x 0.5, дальний план); слева — клетка подсудимого с лавкой (dock, 0.14,
  * верх лавки = seatTopY(1)); справа — трибуна свидетеля с микрофоном (witness, 0.87). Стены — деревянные панели, высокие окна.
+ *
+ * Глубина (content/locations/sud.json → front.z = 0.8): судейский стол с подиумом, передняя решётка и барьер клетки, трибуна
+ * свидетеля — передний слой (layer="front"): судья, подсудимый и свидетель (z 1) за ними, адвокат и прокурор (z 0.5) — перед.
+ * Низ — на полу плана 0.8 (FRONT_FEET). Стол судьи — поверхность для предметов (surfaces).
  */
+
+const FRONT_FEET = feetY(0.8);
+const BENCH_TOP = 950;
 
 const GOLD = "#d9a94a";
 
@@ -63,7 +71,57 @@ const TallWindow = ({ x, accent }: { x: number; accent: string }) => (
   </g>
 );
 
-export const Sud = ({ palette }: BackdropProps) => {
+/** Передний слой: судейский стол на подиуме, передняя решётка и деревянный барьер клетки, трибуна свидетеля. */
+const SudFront = ({ wood }: { wood: string }) => {
+  const t = useSign();
+  const dockX = 0.14 * W;
+  const b = FRONT_FEET;
+  const top = BENCH_TOP;
+  const wx = 0.87 * W;
+  return (
+    <>
+      {/* подиум и судейский стол */}
+      <rect x={300} y={b - 74} width={480} height={74} fill={shade(wood, -0.15)} />
+      <rect x={300} y={b - 74} width={480} height={10} fill={shade(wood, 0.15)} />
+      <rect x={280} y={top + 20} width={520} height={b - 74 - top - 20} fill={wood} />
+      <rect x={280} y={top + 20} width={520} height={12} fill="#00000025" />
+      {[300, 460, 620].map((x) => <rect key={x} x={x + 14} y={top + 54} width={130} height={b - 74 - top - 84} rx={6} fill={shade(wood, -0.12)} />)}
+      <circle cx={540} cy={top + 120} r={40} fill={GOLD} opacity={0.85} />
+      <path d={`M520 ${top + 120} h40 M540 ${top + 100} v40`} stroke={shade(GOLD, -0.3)} strokeWidth={6} />
+      <rect x={270} y={top} width={540} height={34} rx={8} fill={shade(wood, 0.15)} />
+      <rect x={270} y={top} width={540} height={8} rx={4} fill="#ffffff22" />
+      {/* на столе: молоток на подставке (слева), папки (справа), табличка у кромки */}
+      <rect x={300} y={top - 14} width={80} height={16} rx={4} fill={shade(wood, -0.3)} />
+      <rect x={322} y={top - 34} width={46} height={20} rx={8} fill="#5a3a20" transform={`rotate(-12 345 ${top - 24})`} />
+      <rect x={340} y={top - 42} width={70} height={8} rx={4} fill="#5a3a20" transform={`rotate(-12 345 ${top - 24})`} />
+      <rect x={670} y={top - 24} width={110} height={26} rx={3} fill="#e8e4d8" />
+      <rect x={678} y={top - 34} width={100} height={12} rx={3} fill="#d8506a" />
+      <rect x={682} y={top - 44} width={92} height={12} rx={3} fill="#4a7fb0" />
+      <rect x={430} y={top + 40} width={220} height={36} rx={4} fill="#2b2a2e" />
+      <Label x={540} y={top + 66} text={t("judge")} size={22} color={GOLD} spacing={3} maxW={200} />
+      {/* клетка: верхняя рама, передние прутья, барьер, замок */}
+      <rect x={dockX - 160} y={680} width={320} height={16} rx={6} fill="#5a5f68" />
+      {Array.from({ length: 11 }).map((_, i) => <rect key={i} x={dockX - 156 + i * 31} y={690} width={8} height={b - 690} fill="#5a5f68" />)}
+      {Array.from({ length: 11 }).map((_, i) => <rect key={`h${i}`} x={dockX - 154 + i * 31} y={690} width={3} height={b - 690} fill="#ffffff" opacity={0.18} />)}
+      <rect x={dockX - 160} y={940} width={320} height={10} fill="#5a5f68" />
+      <rect x={dockX - 166} y={1090} width={332} height={b - 1090} rx={4} fill={shade(wood, -0.2)} />
+      <rect x={dockX - 166} y={1090} width={332} height={12} rx={4} fill={shade(wood, 0.1)} />
+      <rect x={dockX - 146} y={1116} width={292} height={b - 1136} rx={4} fill={shade(wood, -0.3)} />
+      <rect x={dockX + 110} y={980} width={22} height={34} rx={4} fill="#8a8f98" />
+      {/* трибуна свидетеля (witness) */}
+      <rect x={wx - 110} y={1000} width={220} height={b - 1000} rx={6} fill={wood} />
+      <rect x={wx - 90} y={1036} width={180} height={b - 1070} rx={6} fill={shade(wood, -0.12)} />
+      <rect x={wx - 120} y={986} width={240} height={26} rx={8} fill={shade(wood, 0.15)} />
+      <path d={`M${wx + 60} 986 q20 -60 -10 -90`} stroke="#2b2a2e" strokeWidth={6} fill="none" />
+      <ellipse cx={wx + 46} cy={892} rx={12} ry={16} fill="#2b2a2e" />
+      <rect x={wx - 60} y={970} width={60} height={16} rx={3} fill="#e8e4d8" />
+      <rect x={wx - 80} y={950} width={22} height={36} rx={4} fill="#bcd8e8" opacity={0.8} />
+    </>
+  );
+};
+
+export const Sud = ({ palette, layer = "back" }: BackdropProps) => {
+  if (layer === "front") return <Canvas><SudFront wood="#7a4f30" /></Canvas>;
   const wall = palette.wall;
   const wood = "#7a4f30";
   const panel = "#8a5a36";
@@ -103,9 +161,7 @@ export const Sud = ({ palette }: BackdropProps) => {
         </g>
       ))}
       <rect x={0} y={FLOOR_Y - 26} width={W} height={26} fill={shade(panel, -0.35)} />
-      {/* подиум и судейский стол с высоким креслом */}
-      <rect x={300} y={1120} width={480} height={70} fill={shade(wood, -0.15)} />
-      <rect x={300} y={1120} width={480} height={10} fill={shade(wood, 0.15)} />
+      {/* высокое кресло судьи (стол и подиум — передний слой) */}
       <g>
         <rect x={440} y={640} width={200} height={300} rx={40} fill="#6a1d16" />
         <rect x={456} y={656} width={168} height={270} rx={30} fill="#8a2a20" />
@@ -113,41 +169,13 @@ export const Sud = ({ palette }: BackdropProps) => {
         <rect x={430} y={630} width={220} height={24} rx={12} fill={wood} />
         <circle cx={540} cy={624} r={14} fill={GOLD} />
       </g>
-      <rect x={280} y={880} width={520} height={240} rx={6} fill={wood} />
-      <rect x={270} y={860} width={540} height={34} rx={8} fill={shade(wood, 0.15)} />
-      {[300, 460, 620].map((x) => <rect key={x} x={x + 14} y={914} width={130} height={184} rx={6} fill={shade(wood, -0.12)} />)}
-      <circle cx={540} cy={990} r={40} fill={GOLD} opacity={0.85} />
-      <path d="M520 990 h40 M540 970 v40" stroke={shade(GOLD, -0.3)} strokeWidth={6} />
-      {/* на столе: молоток, подставка, папки, табличка */}
-      <rect x={300} y={846} width={80} height={16} rx={4} fill={shade(wood, -0.3)} />
-      <rect x={322} y={826} width={46} height={20} rx={8} fill="#5a3a20" transform="rotate(-12 345 836)" />
-      <rect x={340} y={818} width={70} height={8} rx={4} fill="#5a3a20" transform="rotate(-12 345 836)" />
-      <rect x={660} y={836} width={110} height={26} rx={3} fill="#e8e4d8" />
-      <rect x={668} y={826} width={100} height={12} rx={3} fill="#d8506a" />
-      <rect x={672} y={816} width={92} height={12} rx={3} fill="#4a7fb0" />
-      <rect x={430} y={830} width={220} height={32} rx={4} fill="#2b2a2e" />
-      <Label x={540} y={854} text="СУДЬЯ" size={22} color={GOLD} spacing={3} />
-      {/* клетка подсудимого с лавкой (dock) */}
+      {/* клетка подсудимого: задняя решётка и лавка (dock); передняя решётка и барьер — передний слой */}
       <g>
+        <rect x={dockX - 160} y={680} width={320} height={FLOOR_Y - 680} fill="#00000022" />
+        {Array.from({ length: 11 }).map((_, i) => <rect key={i} x={dockX - 156 + i * 31} y={690} width={6} height={FLOOR_Y - 690} fill="#4a4f58" opacity={0.6} />)}
         <rect x={dockX - 140} y={top + 24 * s1} width={280} height={FLOOR_Y - top - 24 * s1} fill={shade(wood, -0.35)} />
         <rect x={dockX - 150} y={top - 4} width={300} height={28 * s1} rx={6} fill={shade(wood, 0.1)} />
         <rect x={dockX - 150} y={top - 4} width={300} height={7} rx={3} fill={shade(wood, 0.3)} />
-        <rect x={dockX - 160} y={680} width={320} height={16} rx={6} fill="#5a5f68" />
-        {Array.from({ length: 11 }).map((_, i) => <rect key={i} x={dockX - 156 + i * 31} y={690} width={8} height={FLOOR_Y - 690} fill="#5a5f68" />)}
-        {Array.from({ length: 11 }).map((_, i) => <rect key={`h${i}`} x={dockX - 154 + i * 31} y={690} width={3} height={FLOOR_Y - 690} fill="#ffffff" opacity={0.18} />)}
-        <rect x={dockX - 160} y={940} width={320} height={10} fill="#5a5f68" />
-        <rect x={dockX - 160} y={FLOOR_Y - 14} width={320} height={14} fill="#4a4f58" />
-        <rect x={dockX + 110} y={980} width={22} height={34} rx={4} fill="#8a8f98" />
-      </g>
-      {/* трибуна свидетеля (witness) */}
-      <g>
-        <rect x={0.87 * W - 110} y={1000} width={220} height={FLOOR_Y - 1000} rx={6} fill={wood} />
-        <rect x={0.87 * W - 120} y={986} width={240} height={26} rx={8} fill={shade(wood, 0.15)} />
-        <rect x={0.87 * W - 90} y={1030} width={180} height={130} rx={6} fill={shade(wood, -0.12)} />
-        <path d={`M${0.87 * W + 60} 986 q20 -60 -10 -90`} stroke="#2b2a2e" strokeWidth={6} fill="none" />
-        <ellipse cx={0.87 * W + 46} cy={892} rx={12} ry={16} fill="#2b2a2e" />
-        <rect x={0.87 * W - 60} y={970} width={60} height={16} rx={3} fill="#e8e4d8" />
-        <rect x={0.87 * W - 80} y={950} width={22} height={36} rx={4} fill="#bcd8e8" opacity={0.8} />
       </g>
       {/* пол: паркет «ёлочкой» и ковровая дорожка */}
       <rect x={0} y={FLOOR_Y} width={W} height={H - FLOOR_Y} fill={palette.floor} />

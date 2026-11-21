@@ -1,4 +1,6 @@
 import { Canvas, Room, W, H, FLOOR_Y, type BackdropProps, type Palette } from "./parts";
+import { useSign } from "../i18n/signs";
+import { fitSize } from "./ulitsa";
 import { mix, dark, light, WOOD, VShade, Glow, FloorTiles, FloorShadow, WindowView, PotPlant, CeilingLamp } from "./gostinaya";
 
 /**
@@ -108,6 +110,7 @@ const Mailboxes = ({ x, y, cols = 2, rows = 4 }: { x: number; y: number; cols?: 
 
 /* ---------- лестничная площадка ---------- */
 const Landing = ({ palette: p }: { palette: Palette }) => {
+  const t = useSign();
   const paint = p.wall;
   return (
     <>
@@ -131,7 +134,7 @@ const Landing = ({ palette: p }: { palette: Palette }) => {
       {/* надписи на стене */}
       <path d="M300 1000 q20 -30 40 0 q20 -30 40 0 l-40 46 z" fill="none" stroke={dark(paint, 0.35)} strokeWidth={5} />
       <path d="M470 1110 l30 -30 l20 24 l30 -36" fill="none" stroke={dark(paint, 0.3)} strokeWidth={5} strokeLinecap="round" />
-      <text x={322} y={1120} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={24} fill={dark(paint, 0.38)} transform="rotate(-6 322 1120)">ЦОЙ ЖИВ</text>
+      <text x={322} y={1120} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={fitSize(t("graffiti"), 24, 112)} fill={dark(paint, 0.38)} transform="rotate(-6 322 1120)">{t("graffiti")}</text>
       {/* лампочка */}
       <CeilingLamp x={500} y={70} len={230} kind="bulb" glow="#f5e6a8" r={330} o={0.32} />
       {/* окно над лестницей: двор, герань и банка-пепельница на подоконнике */}
