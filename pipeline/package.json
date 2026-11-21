@@ -17,17 +17,26 @@
     "metrics": "tsx src/metrics.ts",
     "voice": "tsx src/voice.ts",
     "board": "tsx src/board.ts",
-    "compile": "tsx src/compile.ts"
+    "compile": "tsx src/compile.ts",
+    "validate": "tsx src/validate.ts",
+    "stills": "tsx src/stills.ts",
+    "golden": "tsx src/golden.ts"
   },
   "dependencies": {
     "@jf/core": "workspace:*",
     "@jf/db": "workspace:^",
+    "@remotion/bundler": "4.0.545",
+    "@remotion/renderer": "4.0.545",
     "drizzle-orm": "^0.45.4",
     "hyparquet": "^1.33.1",
+    "pixelmatch": "5.3.0",
+    "pngjs": "7.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "@types/pixelmatch": "5.2.6",
+    "@types/pngjs": "6.0.5",
     "tsx": "^4.23.15",
     "typescript": "^5.6.0"
   }

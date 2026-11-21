@@ -391,6 +391,18 @@ export const Location = z.object({
 });
 export type Location = z.infer<typeof Location>;
 
+/**
+ * Роли без особого костюма — их играет любая кукла (обычный мужик, покупатель, жена, ребёнок, пациент…).
+ * Роли-внешность — их нельзя «одолжить» костюмом: внешность у куклы-хозяйки (блондинка — светлые волосы),
+ * сценарий должен брать саму эту куклу. Остальные роли чужой куклы берут костюм хозяйки (remotion/src/puppet/costume.ts).
+ */
+export const GENERIC_ROLES = [
+  "everyman", "customer", "child", "wife", "husband", "woman", "man", "friend", "neighbor", "employee", "father", "mother", "son",
+  "daughter", "patient", "relative", "student", "tourist", "grandma", "grandpa", "driver", "passenger", "guest", "old-man",
+  "old-woman", "boy", "girl", "lover", "drunk", "teenager", "baby", "visitor", "colleague", "citizen",
+];
+export const APPEARANCE_ROLES = ["blonde", "redhead"];
+
 /** Сублокация сцены: вариант по id или по roles (старые эпизоды хранят в place канонический архетип). */
 export function subLocation(loc: Location | undefined, place: string | undefined) {
   if (!loc || !place || place === loc.id) return undefined;
@@ -612,8 +624,8 @@ export function stagingProblems(cast: string[], lines: { character: string; ente
 
 /** Сцены эпизода: явные (v2) или одна сцена из полей старого формата. */
 export function scenesOf(ep: Episode): Scene[] {
-  // сцена в том же месте без своего place берёт place эпизода (аптека, полиция — сублокация из разметки)
-  if (ep.scenes?.length) return ep.scenes.map((s) => (s.place || s.location !== ep.location || !ep.place ? s : { ...s, place: ep.place }));
+  // place эпизода (архетип из разметки) в сцены НЕ переносится: сцена без place — вид по умолчанию (сценарист задаёт комнату сам)
+  if (ep.scenes?.length) return ep.scenes;
   return [{
     location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd, set: ep.set,
     beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut",
