@@ -1,0 +1,223 @@
+{
+  "id": "custom-three-buttons.ru",
+  "jokeId": "custom-three-buttons",
+  "locale": "ru",
+  "title": "Три кнопки и три унитаза",
+  "location": "zal",
+  "cast": [
+    "nachalnik",
+    "uchilka"
+  ],
+  "roles": {
+    "nachalnik": "politician",
+    "uchilka": "politician"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Президент Америки рассказывает канцлеру Германии:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l2",
+      "character": "nachalnik",
+      "text": "У меня есть три кнопки.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Нажимаю первую — нет Москвы, вторую — нет России, третью — России и Китая…",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l4",
+      "character": "narrator",
+      "text": "На что канцлер ответила:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l5",
+      "character": "uchilka",
+      "text": "У моей бабушки было три унитаза.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l6",
+      "character": "uchilka",
+      "text": "Золотой, серебряный и фаянсовый.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": [],
+      "offscreen": true
+    },
+    {
+      "id": "l7",
+      "character": "uchilka",
+      "text": "Но когда в Берлин вошли советские танки — она наложила в штаны прямо в коридоре!",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": [],
+      "offscreen": true
+    }
+  ],
+  "scenes": [
+    {
+      "location": "zal",
+      "cast": [
+        "nachalnik",
+        "uchilka"
+      ],
+      "roles": {
+        "nachalnik": "politician",
+        "uchilka": "politician"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "uchilka",
+          "to": "right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "flex"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "knock"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "uchilka",
+          "act": "nod"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "place": "bathroom-wide",
+      "cast": [
+        "tyoshcha",
+        "uchilka"
+      ],
+      "roles": {
+        "tyoshcha": "grandma",
+        "uchilka": "politician"
+      },
+      "set": [
+        {
+          "item": "toilet",
+          "at": "fixture-1",
+          "color": "#d9ad2b"
+        },
+        {
+          "item": "toilet",
+          "at": "fixture-2",
+          "color": "#c3c8d0"
+        },
+        {
+          "item": "toilet",
+          "at": "fixture-3",
+          "color": "#f4f2ec"
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "edge-right"
+        },
+        {
+          "type": "act",
+          "who": "tyoshcha",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "tyoshcha",
+        "uchilka"
+      ],
+      "roles": {
+        "tyoshcha": "grandma",
+        "uchilka": "politician"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "center"
+        },
+        {
+          "type": "shake",
+          "sec": 3,
+          "strength": "strong"
+        },
+        {
+          "type": "act",
+          "who": "tyoshcha",
+          "act": "shiver"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ]
+}
