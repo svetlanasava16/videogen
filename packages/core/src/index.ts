@@ -241,6 +241,11 @@ export const Episode = z.object({
   music: z.string().optional(),
   /** Рендер без цензуры: субтитры из lines[].uncensored (для неозвученных; озвучка — чистая версия). */
   explicit: z.boolean().default(false),
+  /**
+   * Флаги риска самого эпизода (как у разметки анекдота): political, real-person… Эпизод с флагом из PUBLISH_BLOCKING
+   * не попадает в постинг (db sync ставит rejected) и в автосборники. Для своих анекдотов без разметки.
+   */
+  flags: z.array(z.enum(["ethnic", "sexual", "political", "violence", "religion", "profanity", "dark", "real-person", "drugs", "homophobia", "exclude"])).optional(),
   /** Сцены (движок v2). Нет — эпизод из одной сцены: location/place/cast/roles + все lines по порядку. */
   scenes: z.array(Scene).optional(),
   /** Смех персонажей после панчлайна (их голосами): играют вместе, куклы смеются. Пишет `pnpm voice run`. */
@@ -404,6 +409,8 @@ export const GENERIC_ROLES = [
   "old-woman", "boy", "girl", "lover", "drunk", "teenager", "baby", "visitor", "colleague", "citizen",
 ];
 export const APPEARANCE_ROLES = ["blonde", "redhead"];
+/** Флаги эпизода, при которых он не публикуется (rejected) и не попадает в автосборники. */
+export const PUBLISH_BLOCKING = ["political", "real-person", "ethnic", "sexual", "homophobia", "drugs", "exclude"] as const;
 
 /** Сублокация сцены: вариант по id или по roles (старые эпизоды хранят в place канонический архетип). */
 export function subLocation(loc: Location | undefined, place: string | undefined) {

@@ -3,6 +3,7 @@
  * religion: none | setting | mocking. mocking — не озвучиваем, не рендерим, не публикуем (ст. 148 УК РФ и не наш юмор).
  */
 import { join } from "node:path";
+import { PUBLISH_BLOCKING } from "@jf/core";
 import { DATA, readJsonl } from "./util.js";
 
 export type Risk = { id: string; religion: "none" | "setting" | "mocking"; target: string; note: string };
@@ -13,3 +14,6 @@ export function riskOf(jokeId: string): Risk | undefined {
   return cache.get(jokeId);
 }
 export const blocked = (jokeId: string) => riskOf(jokeId)?.religion === "mocking";
+/** Эпизод не публикуется: анекдот высмеивает веру или у эпизода флаг из PUBLISH_BLOCKING (political, real-person…). */
+export const episodeBlocked = (ep: { jokeId: string; flags?: readonly string[] }) =>
+  blocked(ep.jokeId) || (ep.flags ?? []).some((f) => (PUBLISH_BLOCKING as readonly string[]).includes(f));

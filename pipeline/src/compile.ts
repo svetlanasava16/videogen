@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { CompilationSpec, Episode, type Locale } from "@jf/core";
-import { blocked } from "./risk.js";
+import { episodeBlocked } from "./risk.js";
 import { DATA, ROOT, readJsonl } from "./util.js";
 
 const DIR = join(ROOT, "content", "compilations");
@@ -53,7 +53,7 @@ function auto() {
   const pool = readdirSync(EPISODES)
     .filter((f) => f.endsWith(`.${locale}.json`) && !f.startsWith("test-") && !f.startsWith("demo-"))
     .map((f) => loadEpisode(f.replace(/\.json$/, "")))
-    .filter((e) => !used.has(e.id) && !blocked(e.jokeId))
+    .filter((e) => !used.has(e.id) && !episodeBlocked(e))
     .filter((e) => !voiced || e.lines.every((l) => l.audio))
     .sort((a, b) => (pop.get(b.jokeId) ?? 0) - (pop.get(a.jokeId) ?? 0));
   for (let k = 0; k < count; k++) {

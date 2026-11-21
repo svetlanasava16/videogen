@@ -16,7 +16,7 @@ import type { PgTable } from "drizzle-orm/pg-core";
 import { Character, Episode, Location } from "@jf/core";
 import { connect, migrate, schema as T, type Db } from "@jf/db";
 import { loadAudio } from "./audio.js";
-import { blocked } from "./risk.js";
+import { episodeBlocked } from "./risk.js";
 import { DATA, ROOT, readJsonl } from "./util.js";
 
 export const sha = (s: string | Buffer) => createHash("sha256").update(s).digest("hex");
@@ -105,6 +105,8 @@ function episodeRows(): Row[] {
       id: e.id, jokeId: e.jokeId, locale: e.locale, title: e.title, location: e.location, place: e.place ?? null,
       cast: e.cast, roles: e.roles, lines: e.lines, scenes: e.scenes ?? null, music: e.music ?? null, adaptation: adaptation.get(e.id) ?? null,
       contentHash: hashOf(e),
+      // не колонка таблицы: только для решения rejected ниже (upsert берёт поля схемы)
+      _flags: e.flags ?? [],
     }));
 }
 
@@ -126,12 +128,12 @@ export async function sync(db: Db) {
   report("locations", await upsert(db, T.locations, locations, "hash"));
   report("assets", await upsert(db, T.assets, assetRows(), "sha256"));
   const eps = episodeRows();
-  report("episodes", await upsert(db, T.episodes, eps, "contentHash", ["status"]));
-  // риск: эпизоды анекдотов, высмеивающих веру, — rejected (ручное решение approved не трогаем)
-  const bad = eps.filter((e) => blocked(e.jokeId as string)).map((e) => e.id);
+  report("episodes", await upsert(db, T.episodes, eps.map(({ _flags: _f, ...r }) => r), "contentHash", ["status"]));
+  // риск: эпизоды анекдотов, высмеивающих веру, и эпизоды с флагами political/real-person… — rejected (ручное approved не трогаем)
+  const bad = eps.filter((e) => episodeBlocked({ jokeId: e.jokeId as string, flags: e._flags as string[] })).map((e) => e.id);
   if (bad.length) {
     const r = await db.update(T.episodes).set({ status: "rejected" }).where(and(inArray(T.episodes.id, bad), eq(T.episodes.status, "draft"))).returning({ id: T.episodes.id });
-    console.log(`risk        ${bad.length} episodes of mocking jokes, ${r.length} newly rejected`);
+    console.log(`risk        ${bad.length} blocked episodes (mocking / flags), ${r.length} newly rejected`);
   }
   // аккаунты: хэш не храним в таблице — сравниваем по полям, postiz id из файла не затираем, если там пусто
   const acc = accountRows();
