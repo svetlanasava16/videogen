@@ -1,5 +1,5 @@
 import { Canvas, Room, Window, Shelf, HangingLamp, Table, Plant, W, FLOOR_Y, type BackdropProps } from "./parts";
-import { mix, dark, light, Plinth, WOOD } from "./gostinaya";
+import { mix, dark, light, Plinth, WOOD, SeatAt } from "./gostinaya";
 
 const ENAMEL = "#f3efe6";
 
@@ -53,7 +53,7 @@ const Stove = ({ x, w = 230, h = 300, accent }: { x: number; w?: number; h?: num
 };
 
 const Cup = ({ x, color }: { x: number; color: string }) => {
-  const y = FLOOR_Y - 252;
+  const y = FLOOR_Y - 254;
   return (
     <g>
       <ellipse cx={x} cy={y} rx={34} ry={8} fill="#ffffff" />
@@ -63,7 +63,7 @@ const Cup = ({ x, color }: { x: number; color: string }) => {
   );
 };
 
-/** Кухня: стол с чаем, холодильник, плита, окно с занавесками. */
+/** Кухня: дверной проём слева (door), холодильник, стол с чаем у окна и две табуретки по бокам (stool-1, stool-2), плита справа. */
 export const Kukhnya = ({ palette: p }: BackdropProps) => {
   const lower = mix(p.wall, p.accent, 0.45);
   const curtain = light(p.accent, 0.55);
@@ -94,23 +94,32 @@ export const Kukhnya = ({ palette: p }: BackdropProps) => {
         Array.from({ length: 5 }).map((__, c) => <rect key={`${r}-${c}`} x={806 + c * 56} y={706 + r * 56} width={50} height={50} rx={4} fill={light(p.wall, 0.55)} />),
       )}
       <Shelf x={800} y={640} w={270} color={WOOD} items={["#c8553d", "#e0b030", p.accent, "#c8553d"]} />
-      <Fridge x={30} accent={p.accent} />
+      {/* дверной проём в коридор */}
+      <rect x={0} y={FLOOR_Y - 540} width={160} height={540} fill={light(p.wall, 0.4)} />
+      <rect x={0} y={FLOOR_Y - 520} width={140} height={520} fill={dark(p.wall, 0.45)} />
+      <rect x={0} y={FLOOR_Y - 520} width={140} height={520} fill={dark(p.floor, 0.2)} opacity={0.4} />
+      <rect x={20} y={FLOOR_Y - 420} width={60} height={90} rx={6} fill={dark(p.wall, 0.3)} />
+      <Fridge x={170} w={210} accent={p.accent} />
       <Stove x={830} accent={p.accent} />
-      {/* стол с клеёнкой и чаем */}
-      <Table x={370} w={340} h={250} top={WOOD} legs={dark(WOOD, 0.2)} />
-      <rect x={350} y={FLOOR_Y - 254} width={380} height={86} rx={10} fill={cloth} />
-      {[0, 1, 2, 3, 4, 5].map((k) => <rect key={k} x={370 + k * 62} y={FLOOR_Y - 254} width={22} height={86} fill={light(p.accent, 0.45)} />)}
-      <Cup x={420} color="#ffffff" />
-      <Cup x={660} color="#ffffff" />
-      <circle cx={420} cy={FLOOR_Y - 280} r={10} fill="#c8553d" />
-      <circle cx={660} cy={FLOOR_Y - 280} r={10} fill="#c8553d" />
-      {/* заварочный чайник */}
-      <ellipse cx={540} cy={FLOOR_Y - 300} rx={56} ry={50} fill="#ffffff" />
-      <path d="M588 900 Q622 884 632 850 L644 856 Q636 892 596 914 Z" fill="#ffffff" />
-      <ellipse cx={540} cy={FLOOR_Y - 346} rx={30} ry={10} fill="#e9e4da" />
-      <circle cx={540} cy={FLOOR_Y - 358} r={9} fill="#c8553d" />
-      <circle cx={522} cy={FLOOR_Y - 300} r={12} fill="#c8553d" />
-      <circle cx={556} cy={FLOOR_Y - 290} r={9} fill="#c8553d" />
+      {/* стол с клеёнкой и чаем, табуретки по бокам */}
+      <Table x={480} w={220} h={250} top={WOOD} legs={dark(WOOD, 0.2)} />
+      <rect x={462} y={FLOOR_Y - 254} width={256} height={86} rx={10} fill={cloth} />
+      {[0, 1, 2, 3].map((k) => <rect key={k} x={480 + k * 62} y={FLOOR_Y - 254} width={22} height={86} fill={light(p.accent, 0.45)} />)}
+      <SeatAt x={0.395} z={1} kind="stool" color={dark(p.accent, 0.15)} />
+      <SeatAt x={0.705} z={1} kind="stool" color={dark(p.accent, 0.15)} />
+      <g transform="translate(50 0)">
+        <Cup x={450} color="#ffffff" />
+        <Cup x={630} color="#ffffff" />
+        <circle cx={450} cy={FLOOR_Y - 280} r={10} fill="#c8553d" />
+        <circle cx={630} cy={FLOOR_Y - 280} r={10} fill="#c8553d" />
+        {/* заварочный чайник */}
+        <ellipse cx={540} cy={FLOOR_Y - 300} rx={50} ry={46} fill="#ffffff" />
+        <path d="M582 900 Q616 884 626 850 L638 856 Q630 892 590 914 Z" fill="#ffffff" />
+        <ellipse cx={540} cy={FLOOR_Y - 342} rx={28} ry={10} fill="#e9e4da" />
+        <circle cx={540} cy={FLOOR_Y - 354} r={9} fill="#c8553d" />
+        <circle cx={522} cy={FLOOR_Y - 300} r={12} fill="#c8553d" />
+        <circle cx={556} cy={FLOOR_Y - 290} r={9} fill="#c8553d" />
+      </g>
     </Canvas>
   );
 };

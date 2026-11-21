@@ -1,5 +1,12 @@
 import type { ReactNode } from "react";
 import { Canvas, Cloud, FLOOR_Y, Tree, W, H, type BackdropProps } from "./parts";
+import { BenchAt, SeatAt } from "./gostinaya";
+import { seatTopY } from "../world/depth";
+
+/**
+ * Фон «ulitsa»: улица; варианты park, cemetery, stadium, zoo. Скамейки нарисованы под метки bench-1/bench-2 (дальний план),
+ * на стадионе — передний ряд трибуны (seat-1…seat-4).
+ */
 
 /** Осветлить (k>0) или затемнить (k<0) цвет #rrggbb. */
 const shade = (hex: string, k: number) => {
@@ -12,18 +19,6 @@ const shade = (hex: string, k: number) => {
 
 const SIDEWALK_TOP = 1100;
 const CURB_Y = 1250;
-
-const Bench = ({ x, y = FLOOR_Y - 6, w = 240, wood = "#a8673f", metal = "#3a3a40" }: { x: number; y?: number; w?: number; wood?: string; metal?: string }) => (
-  <g>
-    <rect x={x + 22} y={y - 200} width={12} height={200} fill={metal} />
-    <rect x={x + w - 34} y={y - 200} width={12} height={200} fill={metal} />
-    <rect x={x} y={y - 205} width={w} height={28} rx={10} fill={wood} />
-    <rect x={x} y={y - 165} width={w} height={28} rx={10} fill={wood} />
-    <rect x={x - 12} y={y - 112} width={w + 24} height={30} rx={10} fill={shade(wood, -0.15)} />
-    <rect x={x + 6} y={y - 84} width={14} height={84} fill={metal} />
-    <rect x={x + w - 20} y={y - 84} width={14} height={84} fill={metal} />
-  </g>
-);
 
 const LampPost = ({ x, top = 560, y = FLOOR_Y, color = "#2f3a40", light = "#f7dc8a", glow = 0.16 }: { x: number; top?: number; y?: number; color?: string; light?: string; glow?: number }) => (
   <g>
@@ -141,7 +136,7 @@ const Street = ({ palette }: BackdropProps) => (
     <Facade x={880} w={220} top={520} color="#b98a63" cols={[40, 140]} />
     <Sidewalk asphalt={palette.floor} />
     <LampPost x={100} top={560} />
-    <Bench x={780} />
+    <BenchAt x0={0.72} x1={0.96} />
     <Pigeon x={640} y={1236} />
   </>
 );
@@ -178,11 +173,11 @@ const Park = ({ palette }: BackdropProps) => {
       <Tree x={90} y={1200} s={1.25} crown="#5b8c5a" trunk="#7a5236" />
       <Tree x={1000} y={1180} s={1.1} crown="#4f8350" trunk="#7a5236" />
       <LampPost x={250} top={720} y={1110} glow={0} />
-      <Bench x={720} y={1150} w={210} wood="#b0703f" />
-      {/* шарик на скамейке */}
-      <path d="M915 1000 q-10 -80 10 -170" stroke="#2b1d14" strokeWidth={3} fill="none" />
-      <ellipse cx={926} cy={800} rx={34} ry={42} fill="#d8506a" />
-      <path d="M920 840 l6 10 l6 -10 z" fill="#d8506a" />
+      <BenchAt x0={0.66} x1={0.9} color="#b0703f" />
+      {/* шарик, привязанный к скамейке */}
+      <path d={`M960 ${seatTopY(1)} q-10 -150 -20 -290`} stroke="#2b1d14" strokeWidth={3} fill="none" />
+      <ellipse cx={940} cy={800} rx={34} ry={42} fill="#d8506a" />
+      <path d="M934 840 l6 10 l6 -10 z" fill="#d8506a" />
       {/* цветы */}
       {[[60, 1320, "#e0a030"], [110, 1360, "#d8506a"], [960, 1340, "#ffffff"], [1010, 1300, "#e0a030"], [150, 1420, "#ffffff"]].map(([x, y, c]) => (
         <g key={`${x}-${y}`}>
@@ -250,6 +245,8 @@ const Cemetery = () => {
         <path d="M332 740 l16 4 l-16 5 z" fill="#e0a030" />
         <path d="M278 752 l-26 10 l22 6 z" />
       </g>
+      {/* скамейка у оградки (метки bench-1, bench-2) */}
+      <BenchAt x0={0.26} x1={0.5} color="#5a4a3a" metal="#2a2430" />
       <Gravestone x={880} y={1200} s={1} color="#9a9cac" />
       <Gravestone x={1040} y={1170} s={0.8} color="#868899" cross />
       <Gravestone x={70} y={1220} s={0.85} color="#8c8fa0" />
@@ -309,9 +306,16 @@ const Stadium = ({ palette }: BackdropProps) => {
       {[1010, 1090, 1190, 1310, 1460, 1640].map((y, i) => i % 2 ? <rect key={y} x={0} y={y} width={W} height={[80, 100, 120, 150, 180, 280][i]} fill="#6aa95a" /> : null)}
       <rect x={0} y={1010} width={W} height={14} fill="#00000018" />
       <rect x={0} y={1290} width={W} height={10} fill="#ffffff" opacity={0.7} />
+      {/* передний ряд трибуны: бетонная ступень и пластиковые кресла (метки seat-1…seat-4 — через одно) */}
+      <rect x={0} y={1024} width={W} height={FLOOR_Y - 1024} fill="#9aa3b0" />
+      <rect x={0} y={1024} width={W} height={12} fill="#b4bcc8" />
+      <rect x={0} y={FLOOR_Y - 8} width={W} height={8} fill="#00000022" />
+      {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map((x, i) => (
+        <SeatAt key={x} x={x} z={1} kind="theater" color={i % 2 ? palette.accent : "#c8553d"} back={80} />
+      ))}
       {/* мяч */}
-      <circle cx={900} cy={1168} r={26} fill="#ffffff" />
-      <path d="M900 1154 l12 9 l-5 14 h-14 l-5 -14 z" fill="#2b2b2b" />
+      <circle cx={880} cy={1330} r={30} fill="#ffffff" />
+      <path d="M880 1314 l14 10 l-6 16 h-16 l-6 -16 z" fill="#2b2b2b" />
     </>
   );
 };

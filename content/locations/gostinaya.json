@@ -13,21 +13,71 @@
   "props": [
     "sofa",
     "tv",
-    "wardrobe",
-    "door"
+    "armchair",
+    "door",
+    "window"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "door": 0.14,
-    "sofa": 0.42,
-    "tv": 0.68,
-    "wardrobe": 0.88,
-    "table": 0.5
+    "door": {
+      "x": 0.11,
+      "z": 1
+    },
+    "sofa-1": {
+      "x": 0.31,
+      "z": 1,
+      "seat": "couch"
+    },
+    "sofa": {
+      "x": 0.41,
+      "z": 1,
+      "seat": "couch"
+    },
+    "sofa-2": {
+      "x": 0.51,
+      "z": 1,
+      "seat": "couch"
+    },
+    "tv": {
+      "x": 0.72,
+      "z": 1
+    },
+    "window": {
+      "x": 0.9,
+      "z": 1
+    },
+    "armchair": {
+      "x": 0.86,
+      "z": 0.5,
+      "seat": "armchair"
+    },
+    "left": {
+      "x": 0.2,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.7,
+      "z": 0.5
+    },
+    "table": 0.5,
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Ordinary flat: sofa, TV, wardrobe for the lover, door for the husband's return.",
+    "summary": "Living room: door on the left, sofa against the back wall (sofa-1, sofa-2), old TV on a stand, window with curtains on the right, armchair in the middle plane on the right; variants hallway, balcony, basement, dining room.",
     "roles": [
       "home-living-room",
       "front-door",
@@ -37,28 +87,223 @@
     ],
     "variants": [
       {
+        "id": "front-door",
+        "name": {
+          "ru": "Прихожая",
+          "en": "Hallway",
+          "de": "Flur"
+        },
         "roles": [
           "front-door"
         ],
-        "change": "hallway with front door, coat rack"
+        "change": "Hallway: padded front door at the back wall centre-right (mark door), coat rack with coat and hat on the left (coat-rack), low shoe bench to sit on left of centre (bench), mirror, umbrella on the right.",
+        "marks": {
+          "door": {
+            "x": 0.66,
+            "z": 1
+          },
+          "coat-rack": {
+            "x": 0.15,
+            "z": 1
+          },
+          "bench": {
+            "x": 0.37,
+            "z": 1,
+            "seat": "bench"
+          },
+          "umbrella": {
+            "x": 0.88,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.8,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "balcony",
+        "name": {
+          "ru": "Балкон",
+          "en": "Balcony",
+          "de": "Balkon"
+        },
         "roles": [
           "balcony"
         ],
-        "change": "balcony railing, night city"
+        "change": "Night balcony: lit balcony door at the far left (door), railing across the back with the night city and moon behind (railing), stool with an ashtray left of centre (stool), flower box on the railing right (flowers), washing line above.",
+        "marks": {
+          "door": {
+            "x": 0.08,
+            "z": 1
+          },
+          "stool": {
+            "x": 0.3,
+            "z": 1,
+            "seat": "stool"
+          },
+          "railing": {
+            "x": 0.55,
+            "z": 1
+          },
+          "flowers": {
+            "x": 0.82,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "basement",
+        "name": {
+          "ru": "Подвал",
+          "en": "Basement",
+          "de": "Keller"
+        },
         "roles": [
           "basement"
         ],
-        "change": "basement with pipes and storage shelves"
+        "change": "Basement: shelves with jars at the left wall (shelves), small barred window under the ceiling with a light beam, bare bulb, pipes, a low crate to sit on in the middle (crate), wooden stairs up on the right (stairs), stacked boxes.",
+        "marks": {
+          "shelves": {
+            "x": 0.13,
+            "z": 1
+          },
+          "crate": {
+            "x": 0.56,
+            "z": 1,
+            "seat": "stool"
+          },
+          "stairs": {
+            "x": 0.74,
+            "z": 1
+          },
+          "door": {
+            "x": 0.74,
+            "z": 1
+          },
+          "left": {
+            "x": 0.25,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.45,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "dining-room",
+        "name": {
+          "ru": "Столовая",
+          "en": "Dining room",
+          "de": "Esszimmer"
+        },
         "roles": [
           "dining-room"
         ],
-        "change": "long dining table laid with tablecloth, plates, cake and dishes behind the puppets; sideboard, chandelier",
+        "change": "Dining room: long laid table across the front (set piece: tablecloth, plates, cake, bottle) with four chairs behind it (chair-1…chair-4, left to right) — people there sit at the table; sideboard with dishes at the back left (sideboard), clock and picture on the wall, chandelier. Someone standing behind the table: behind-table; serving in front: front-left/front-right.",
+        "marks": {
+          "chair-1": {
+            "x": 0.2,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "chair-2": {
+            "x": 0.4,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "chair-3": {
+            "x": 0.6,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "chair-4": {
+            "x": 0.8,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "sideboard": {
+            "x": 0.15,
+            "z": 1
+          },
+          "behind-table": {
+            "x": 0.5,
+            "z": 1
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
         "set": [
           {
             "item": "dining-table"
@@ -66,6 +311,6 @@
         ]
       }
     ],
-    "prompt": "cosy ordinary apartment living room, old sofa, small tv, big wardrobe, door on the side, rug, wallpaper"
+    "prompt": "cosy ordinary apartment living room, old sofa, small tv, armchair, door on the side, window with curtains, rug, wallpaper"
   }
 }

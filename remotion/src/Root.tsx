@@ -10,12 +10,14 @@ import { TownPreview } from "./world/Flyover";
 import { Compilation, CompilationProps, compilationLayout } from "./Compilation";
 import demo2 from "../../content/episodes/test-scenes.ru.json";
 import { buildTimeline } from "./timeline";
+import { VehiclesPreview, VEHICLES_PREVIEW_SIZE } from "./VehiclesPreview";
 
 const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
-  <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[] }} />
+  <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], marks: false }} />
+  <Composition id="Vehicles" component={VehiclesPreview} {...VEHICLES_PREVIEW_SIZE} fps={30} durationInFrames={1} defaultProps={{ grid: false, moving: false }} />
   <Composition id="Cast" component={Cast} width={2450} height={2850} fps={30} durationInFrames={1} />
   <Composition id="Acts" component={Acts} width={3520} height={3120} fps={30} durationInFrames={1} defaultProps={{ who: "muzhik" }} />
   <Composition

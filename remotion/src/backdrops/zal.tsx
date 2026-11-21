@@ -1,11 +1,13 @@
 import { Canvas, Room, W, H, FLOOR_Y, type BackdropProps, type Palette } from "./parts";
-import { mix, dark, light, WOOD } from "./gostinaya";
+import { mix, dark, light, WOOD, SeatAt, BenchAt } from "./gostinaya";
 
 /**
  * Фон «zal»: актовый зал / зал заседаний — низкая сцена с трибуной и микрофоном, транспарант, ряды кресел внизу кадра.
  * Варианты (content/locations/zal.json → bible.variants): theater (сцена с красным занавесом и рампой),
  * museum (картины, статуя на постаменте, ограждение с канатом). Остальное — базовый зал (conference-hall).
- * Середина пола (x 120…960) свободна: куклы стоят перед сценой / на сцене.
+ * Зал: сцена — дальний план (стопы на y 1190): президиум из трёх стульев (seat-1…3) и трибуна (lectern);
+ * средний и передний планы — пол зала перед сценой. Театр: передний ряд кресел зрителей (seat-1…4) на переднем плане.
+ * Музей: банкетка посреди зала на среднем плане (bench-1, bench-2).
  */
 
 const GOLD = "#d9a630";
@@ -70,10 +72,10 @@ const Drape = ({ x, y, w, h, color }: { x: number; y: number; w: number; h: numb
   </g>
 );
 
-/* ---------- базовый зал заседаний ---------- */
+/* ---------- базовый зал заседаний: сцена на дальнем плане ---------- */
 const Hall = ({ palette: p }: { palette: Palette }) => {
-  const stageTop = 960;
-  const stageBase = 1110;
+  const stageTop = FLOOR_Y - 40; // настил сцены: дальний план стоит на нём (стопы y 1190)
+  const stageBase = FLOOR_Y + 42; // фасад сцены, ниже — пол зала (средний и передний план)
   const stageWood = mix(WOOD, p.wall, 0.15);
   return (
     <>
@@ -92,29 +94,22 @@ const Hall = ({ palette: p }: { palette: Palette }) => {
       <Drape x={830} y={360} w={110} h={stageTop - 360} color={p.accent} />
       <path d={`M140 360 H940 V408 ${Array.from({ length: 8 }).map((_, i) => `Q${940 - i * 100 - 50} 452 ${940 - (i + 1) * 100} 408`).join(" ")} Z`} fill={dark(p.accent, 0.12)} />
       <Banner x={280} y={470} w={520} accent={p.accent} />
-      {/* президиум: стол под зелёным сукном с графином */}
-      <rect x={300} y={880} width={330} height={20} rx={6} fill={dark(WOOD, 0.1)} />
-      <rect x={306} y={898} width={318} height={stageTop - 898} fill="#3f6b4f" />
-      <rect x={306} y={898} width={318} height={14} fill={dark("#3f6b4f", 0.2)} />
-      <path d="M380 880 L372 840 Q372 816 386 810 L386 790 L398 790 L398 810 Q412 816 412 840 L404 880 Z" fill="#d6ecf5" opacity={0.9} />
-      <rect x={440} y={846} width={20} height={34} rx={4} fill="#d6ecf5" opacity={0.85} />
-      <rect x={500} y={862} width={90} height={18} rx={3} fill="#f4efe2" />
-      {/* сцена: настил, фасад, ступени слева */}
-      <rect x={160} y={stageTop} width={W - 160} height={30} fill={light(stageWood, 0.15)} />
-      <rect x={160} y={stageTop + 30} width={W - 160} height={stageBase - stageTop - 30} fill={dark(stageWood, 0.18)} />
-      {Array.from({ length: 8 }).map((_, i) => (
-        <rect key={i} x={190 + i * 112} y={stageTop + 50} width={86} height={stageBase - stageTop - 70} rx={6} fill={dark(stageWood, 0.26)} />
+      {/* сцена: настил и фасад во всю ширину, ступени слева */}
+      <rect x={0} y={stageTop} width={W} height={46} fill={light(stageWood, 0.15)} />
+      <rect x={0} y={stageTop + 40} width={W} height={stageBase - stageTop - 40} fill={dark(stageWood, 0.18)} />
+      {Array.from({ length: 10 }).map((_, i) => (
+        <rect key={i} x={20 + i * 108} y={stageTop + 52} width={84} height={stageBase - stageTop - 60} rx={6} fill={dark(stageWood, 0.26)} />
       ))}
-      {[0, 1, 2].map((i) => {
-        const y = stageTop + 6 + i * 48;
-        return (
-          <g key={i}>
-            <rect x={110 - i * 50} y={y} width={50} height={stageBase - y} fill={dark(stageWood, 0.1 + i * 0.04)} />
-            <rect x={110 - i * 50} y={y} width={50} height={12} fill={light(stageWood, 0.15)} />
-          </g>
-        );
-      })}
-      <Lectern x={800} base={stageTop + 4} accent={p.accent} />
+      {/* столик президиума с графином слева */}
+      <rect x={160} y={stageTop - 170} width={150} height={16} rx={5} fill={dark(WOOD, 0.1)} />
+      <rect x={166} y={stageTop - 156} width={138} height={156} fill="#3f6b4f" />
+      <path d={`M210 ${stageTop - 170} L204 ${stageTop - 200} Q204 ${stageTop - 216} 214 ${stageTop - 220} L214 ${stageTop - 236} L224 ${stageTop - 236} L224 ${stageTop - 220} Q234 ${stageTop - 216} 234 ${stageTop - 200} L228 ${stageTop - 170} Z`} fill="#d6ecf5" opacity={0.9} />
+      <rect x={256} y={stageTop - 196} width={18} height={26} rx={4} fill="#d6ecf5" opacity={0.85} />
+      {/* президиум: три стула на сцене */}
+      {[0.36, 0.47, 0.58].map((x) => (
+        <SeatAt key={x} x={x} z={1} kind="chair" color={dark(WOOD, 0.05)} pad={p.accent} back={170} />
+      ))}
+      <Lectern x={850} base={FLOOR_Y} accent={p.accent} />
       {/* пол зала и кресла */}
       <rect x={0} y={stageBase} width={W} height={10} fill="#00000026" />
       <SeatRows color={dark(p.accent, 0.15)} />
@@ -170,6 +165,10 @@ const Theater = ({ palette: p }: { palette: Palette }) => {
       {/* зал: тёмная яма и кресла */}
       <rect x={0} y={edge + 34} width={W} height={H - edge - 34} fill="#1e1a24" />
       <SeatRows color={dark(red, 0.2)} aisle={-400} y1={1610} y2={1760} />
+      {/* передний ряд кресел зрителей у рампы (метки seat-1…seat-4, передний план) */}
+      {[0.28, 0.44, 0.6, 0.76].map((x) => (
+        <SeatAt key={x} x={x} z={0} kind="theater" color={dark(red, 0.1)} back={46} />
+      ))}
     </>
   );
 };
@@ -256,6 +255,8 @@ const Museum = ({ palette: p }: { palette: Palette }) => {
       </g>
       <path d={`M944 ${FLOOR_Y - 420} L940 ${FLOOR_Y - 300}`} stroke={stoneD} strokeWidth={6} />
       <circle cx={952} cy={FLOOR_Y - 600} r={6} fill={stoneD} />
+      {/* банкетка посреди зала (метки bench-1, bench-2, средний план) */}
+      <BenchAt x0={0.38} x1={0.62} z={0.5} color="#7a4a3a" back={false} plinth />
     </>
   );
 };

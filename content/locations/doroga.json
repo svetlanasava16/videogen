@@ -11,40 +11,424 @@
     "accent": "#e0a030"
   },
   "props": [
-    "car",
+    "road",
     "road sign",
-    "field"
+    "fields",
+    "vehicle interiors",
+    "bus stop",
+    "gas station"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "roadside": 0.2,
-    "car": 0.78
+    "roadside": {
+      "x": 0.2,
+      "z": 1
+    },
+    "roadside-right": {
+      "x": 0.62,
+      "z": 1
+    },
+    "sign": {
+      "x": 0.84,
+      "z": 1
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.78,
+      "z": 0.5
+    },
+    "road-left": {
+      "x": 0.2,
+      "z": 0.1
+    },
+    "road": {
+      "x": 0.5,
+      "z": 0.1
+    },
+    "road-right": {
+      "x": 0.8,
+      "z": 0.1
+    },
+    "car": {
+      "x": 0.78,
+      "z": 0.1
+    }
   },
   "bible": {
-    "summary": "Road with a car: traffic cops, drivers, hitch-hikers.",
+    "summary": "Country road and transport: drivers, traffic cops, hitch-hikers; car / taxi, bus, tram, subway interiors, bus stop, gas station.",
     "roles": [
       "road",
       "car",
+      "taxi",
       "bus",
-      "subway"
+      "trolleybus",
+      "minibus",
+      "subway",
+      "metro",
+      "tram",
+      "bus-stop",
+      "gas-station"
     ],
     "variants": [
       {
+        "id": "car",
+        "name": {
+          "ru": "В машине",
+          "en": "In the car",
+          "de": "Im Auto"
+        },
         "roles": [
-          "car"
+          "car",
+          "car-interior"
         ],
-        "change": "car interior, two front seats"
+        "change": "a blue car seen from the front: through the windshield the driver (right of frame, steering wheel) and the front passenger (left) sit facing the camera, two back-seat passengers between them further back, rear-view mirror with a pine air freshener; hood, headlights and bumper fill the bottom, country road behind the car",
+        "marks": {
+          "passenger": {
+            "x": 0.28,
+            "z": 0.5,
+            "seat": "car-seat"
+          },
+          "driver": {
+            "x": 0.72,
+            "z": 0.5,
+            "seat": "car-seat"
+          },
+          "back-left": {
+            "x": 0.42,
+            "z": 1,
+            "seat": "car-seat"
+          },
+          "back-right": {
+            "x": 0.58,
+            "z": 1,
+            "seat": "car-seat"
+          }
+        }
       },
       {
+        "id": "taxi",
+        "name": {
+          "ru": "В такси",
+          "en": "In the taxi",
+          "de": "Im Taxi"
+        },
+        "roles": [
+          "taxi"
+        ],
+        "change": "a yellow taxi seen from the front: checker sign on the roof and a checker stripe on the hood, taxi meter on the dashboard; through the windshield the driver (right of frame, steering wheel) and the front passenger (left) sit facing the camera, back-seat passengers between them further back",
+        "marks": {
+          "passenger": {
+            "x": 0.28,
+            "z": 0.5,
+            "seat": "car-seat"
+          },
+          "driver": {
+            "x": 0.72,
+            "z": 0.5,
+            "seat": "car-seat"
+          },
+          "back-left": {
+            "x": 0.42,
+            "z": 1,
+            "seat": "car-seat"
+          },
+          "back-right": {
+            "x": 0.58,
+            "z": 1,
+            "seat": "car-seat"
+          }
+        }
+      },
+      {
+        "id": "bus",
+        "name": {
+          "ru": "В автобусе",
+          "en": "On the bus",
+          "de": "Im Bus"
+        },
         "roles": [
           "bus",
-          "subway"
+          "trolleybus",
+          "minibus",
+          "marshrutka"
         ],
-        "change": "bus or subway car interior"
+        "change": "bus interior from the side: driver's cab on the far left (windshield, steering wheel, driver seat), folding front door next to it, red seats under the side windows (seat-1..seat-3), ceiling handrails with hanging straps over the aisle, a yellow pole with a red stop button in the middle",
+        "marks": {
+          "driver": {
+            "x": 0.16,
+            "z": 0.75,
+            "seat": "chair"
+          },
+          "door": {
+            "x": 0.33,
+            "z": 1
+          },
+          "seat-1": {
+            "x": 0.47,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-2": {
+            "x": 0.62,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-3": {
+            "x": 0.78,
+            "z": 1,
+            "seat": "bench"
+          },
+          "stand-1": {
+            "x": 0.42,
+            "z": 0.5
+          },
+          "stand-2": {
+            "x": 0.7,
+            "z": 0.5
+          },
+          "front-1": {
+            "x": 0.3,
+            "z": 0
+          },
+          "front-2": {
+            "x": 0.75,
+            "z": 0
+          },
+          "left": {
+            "x": 0.3,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.55,
+            "z": 0.3
+          },
+          "right": {
+            "x": 0.82,
+            "z": 0.5
+          }
+        }
+      },
+      {
+        "id": "subway",
+        "name": {
+          "ru": "В метро",
+          "en": "On the subway",
+          "de": "In der U-Bahn"
+        },
+        "roles": [
+          "subway",
+          "metro",
+          "underground"
+        ],
+        "change": "subway car interior from the side: sliding doors on the left and right with the dark tunnel behind, a long blue bench under the windows in the middle (seat-1..seat-3), line map above, poles and a ceiling handrail; standing passengers along the wall",
+        "marks": {
+          "door-left": {
+            "x": 0.17,
+            "z": 1
+          },
+          "seat-1": {
+            "x": 0.35,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-2": {
+            "x": 0.5,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-3": {
+            "x": 0.65,
+            "z": 1,
+            "seat": "bench"
+          },
+          "door-right": {
+            "x": 0.83,
+            "z": 1
+          },
+          "stand-left": {
+            "x": 0.27,
+            "z": 0.5
+          },
+          "stand-right": {
+            "x": 0.73,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.3
+          },
+          "front": {
+            "x": 0.5,
+            "z": 0
+          }
+        },
+        "crowd": {
+          "who": "passengers",
+          "size": "few"
+        }
+      },
+      {
+        "id": "tram",
+        "name": {
+          "ru": "В трамвае",
+          "en": "On the tram",
+          "de": "In der Straßenbahn"
+        },
+        "roles": [
+          "tram",
+          "streetcar"
+        ],
+        "change": "tram interior from the side: wooden seats under the windows with the street outside (seat-1..seat-3), a red ticket punch on the pole on the left, ceiling handrails with straps, the driver's cab on the right behind a partition with a window (windshield and rails visible) and a door",
+        "marks": {
+          "validator": {
+            "x": 0.15,
+            "z": 0.5
+          },
+          "seat-1": {
+            "x": 0.27,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-2": {
+            "x": 0.42,
+            "z": 1,
+            "seat": "bench"
+          },
+          "seat-3": {
+            "x": 0.57,
+            "z": 1,
+            "seat": "bench"
+          },
+          "cab": {
+            "x": 0.84,
+            "z": 1
+          },
+          "stand-1": {
+            "x": 0.4,
+            "z": 0.5
+          },
+          "stand-2": {
+            "x": 0.68,
+            "z": 0.5
+          },
+          "front-1": {
+            "x": 0.3,
+            "z": 0
+          },
+          "front-2": {
+            "x": 0.7,
+            "z": 0
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.3
+          }
+        }
+      },
+      {
+        "id": "bus-stop",
+        "name": {
+          "ru": "Остановка",
+          "en": "Bus stop",
+          "de": "Bushaltestelle"
+        },
+        "roles": [
+          "bus-stop",
+          "tram-stop",
+          "stop"
+        ],
+        "change": "town street with a bus stop: glass shelter with a roof and an ad poster, wooden bench under it (bench-1, bench-2), blue stop sign with a bus symbol and a litter bin on the right, houses behind the pavement, road with a kerb in the foreground where buses and cars stop",
+        "marks": {
+          "bench-1": {
+            "x": 0.3,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.45,
+            "z": 1,
+            "seat": "bench"
+          },
+          "sign": {
+            "x": 0.75,
+            "z": 1
+          },
+          "road-left": {
+            "x": 0.2,
+            "z": 0.1
+          },
+          "road": {
+            "x": 0.5,
+            "z": 0.1
+          },
+          "road-right": {
+            "x": 0.8,
+            "z": 0.1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          }
+        }
+      },
+      {
+        "id": "gas-station",
+        "name": {
+          "ru": "Заправка",
+          "en": "Gas station",
+          "de": "Tankstelle"
+        },
+        "roles": [
+          "gas-station",
+          "petrol-station"
+        ],
+        "change": "roadside gas station: canopy with a fuel-drop sign over two fuel pumps (red and blue) on the left, small green-roofed shop with a glass door on the right, concrete forecourt, road in the foreground for cars",
+        "marks": {
+          "pump-1": {
+            "x": 0.38,
+            "z": 0.5
+          },
+          "pump-2": {
+            "x": 0.62,
+            "z": 0.5
+          },
+          "shop-door": {
+            "x": 0.85,
+            "z": 1
+          },
+          "forecourt": {
+            "x": 0.2,
+            "z": 0.5
+          },
+          "road-left": {
+            "x": 0.2,
+            "z": 0.1
+          },
+          "road": {
+            "x": 0.5,
+            "z": 0.1
+          },
+          "road-right": {
+            "x": 0.8,
+            "z": 0.1
+          }
+        }
       }
     ],
-    "prompt": "country road with a parked old car, road sign, fields on the horizon"
+    "prompt": "country road, road sign, fields on the horizon"
   }
 }

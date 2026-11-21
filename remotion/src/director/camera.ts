@@ -51,11 +51,12 @@ function keys(tl: Timeline, sc: SceneTL, present: (id: string, frame: number) =>
 }
 
 /**
- * Состояние камеры на кадре. xOf — позиция x куклы на кадре, headY — высота головы, floorMidY — середина фигуры.
+ * Состояние камеры на кадре. xOf — позиция x куклы на кадре, headY/bodyY — высота головы и середины фигуры этой куклы
+ * (зависят от плана глубины и от того, сидит ли она).
  */
 export function cameraAt(
   tl: Timeline, sc: SceneTL, frame: number,
-  geo: { width: number; stageW?: number; height: number; headY: number; bodyY: number; xOf: (id: string, f: number) => number; present: (id: string, f: number) => boolean; lowOf?: (id: string, f: number) => number },
+  geo: { width: number; stageW?: number; height: number; headY: (id: string, f: number) => number; bodyY: (id: string, f: number) => number; xOf: (id: string, f: number) => number; present: (id: string, f: number) => boolean },
 ): Cam {
   const ks = keys(tl, sc, geo.present);
   const stateOf = (k: Key, f: number): Cam => {
@@ -79,10 +80,10 @@ export function cameraAt(
       // если собеседник далеко, двойной план не влезает — отъезжаем
       const span = hi - lo + geo.width * 0.3;
       const scale = Math.max(1, Math.min(SCALE[k.shot], geo.width / span));
-      return { scale, fx: (lo + hi) / 2, fy: geo.bodyY + (geo.lowOf?.(k.on, k.frame) ?? 0) };
+      return { scale, fx: (lo + hi) / 2, fy: geo.bodyY(k.on, k.frame) };
     }
     const push = k.push ? interpolate(f, [k.push.from, k.push.to], [0, PUSH], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
-    return { scale: SCALE.close + push, fx: x, fy: geo.headY + (geo.lowOf?.(k.on, k.frame) ?? 0) };
+    return { scale: SCALE.close + push, fx: x, fy: geo.headY(k.on, k.frame) };
   };
   let i = 0;
   while (i + 1 < ks.length && ks[i + 1].frame <= frame) i++;

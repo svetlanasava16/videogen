@@ -17,15 +17,51 @@
     "window"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "desk": 0.3,
-    "window": 0.62,
-    "plant": 0.88
+    "desk": {
+      "x": 0.53,
+      "z": 1,
+      "seat": "armchair"
+    },
+    "visitor": {
+      "x": 0.72,
+      "z": 0.5,
+      "seat": "chair"
+    },
+    "window": {
+      "x": 0.72,
+      "z": 1
+    },
+    "plant": {
+      "x": 0.91,
+      "z": 1
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.45,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.9,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Office or official's cabinet: boss, job interview, bureaucracy.",
+    "summary": "Boss's office: framed certificate, desk with a computer at the back left, the boss's black office chair right of the desk (desk), window with blinds, visitor's chair in the middle plane (visitor), potted plant. Variants: TV studio, police station, bank/government office.",
     "roles": [
       "office",
       "government-office",
@@ -35,23 +71,182 @@
     ],
     "variants": [
       {
+        "id": "tv-studio",
+        "name": {
+          "ru": "Телестудия",
+          "en": "TV studio",
+          "de": "Fernsehstudio"
+        },
         "roles": [
           "tv-studio"
         ],
-        "change": "studio lights, desk with microphone"
+        "change": "TV studio: dark studio with a lighting rig, coloured backdrop with a big circle, studio lights at both edges; a small curved desk with a microphone in the middle (desk — standing presenter), the host's office chair left of it (host) and the guest's armchair right of it (guest).",
+        "marks": {
+          "host": {
+            "x": 0.24,
+            "z": 1,
+            "seat": "chair"
+          },
+          "desk": {
+            "x": 0.5,
+            "z": 1
+          },
+          "guest": {
+            "x": 0.76,
+            "z": 1,
+            "seat": "armchair"
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "police-station",
+        "name": {
+          "ru": "Полицейский участок",
+          "en": "Police station",
+          "de": "Polizeiwache"
+        },
         "roles": [
           "police-station"
         ],
-        "change": "wanted posters, barred door"
+        "change": "Police station: cork board with wanted posters, clock, the duty desk with a computer and a lamp at the back left with the officer's chair right of it (desk), a stool for the detainee in front of the desk (suspect, middle plane), a barred cell door on the right (cell).",
+        "marks": {
+          "desk": {
+            "x": 0.4,
+            "z": 1,
+            "seat": "chair"
+          },
+          "suspect": {
+            "x": 0.2,
+            "z": 0.5,
+            "seat": "stool"
+          },
+          "cell": {
+            "x": 0.85,
+            "z": 1
+          },
+          "left": {
+            "x": 0.42,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.6,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.85,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "bank",
+        "name": {
+          "ru": "Банк",
+          "en": "Bank",
+          "de": "Bank"
+        },
         "roles": [
           "bank",
           "government-office"
         ],
-        "change": "counter window, stamps"
+        "change": "Bank / government office: a counter across the whole back wall with three glass teller windows (window-1 left, window-2 middle, window-3 right — clients stand there), stamps and papers, queue rope on the left (queue), three waiting chairs in the middle plane on the right (wait-1…wait-3).",
+        "marks": {
+          "window-1": {
+            "x": 0.18,
+            "z": 1
+          },
+          "window-2": {
+            "x": 0.5,
+            "z": 1
+          },
+          "window-3": {
+            "x": 0.82,
+            "z": 1
+          },
+          "queue": {
+            "x": 0.15,
+            "z": 0.5
+          },
+          "desk": {
+            "x": 0.5,
+            "z": 1
+          },
+          "window": {
+            "x": 0.5,
+            "z": 1
+          },
+          "wait-1": {
+            "x": 0.66,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "wait-2": {
+            "x": 0.78,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "wait-3": {
+            "x": 0.9,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "left": {
+            "x": 0.3,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.48,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "boss office, big desk with computer and papers, office chair, potted plant, window with blinds"

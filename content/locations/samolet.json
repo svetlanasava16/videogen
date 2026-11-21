@@ -24,9 +24,12 @@
     "seat-right": 0.8
   },
   "bible": {
-    "summary": "Plane cabin (and train / ship variants): passengers, pilots, travellers.",
+    "summary": "Plane (cabin, cockpit) and other travel: train compartment, ship deck, airport / station hall — passengers, pilots, stewardesses, travellers.",
     "roles": [
       "plane",
+      "airplane",
+      "plane-cabin",
+      "cockpit",
       "train",
       "ship",
       "airport",
@@ -34,23 +37,239 @@
     ],
     "variants": [
       {
+        "id": "cabin",
+        "name": {
+          "ru": "Салон самолёта",
+          "en": "Plane cabin",
+          "de": "Flugzeugkabine"
+        },
+        "roles": [
+          "plane",
+          "airplane",
+          "plane-cabin"
+        ],
+        "change": "plane cabin seen down the aisle: near row of three blue seats for the heroes (window and seat-left on the left, seat-right across the aisle), aisle slightly right of centre, emergency exit on the left wall, far rows of seats behind the passengers, galley curtain at the far end, overhead bins and round windows",
+        "marks": {
+          "window": {
+            "x": 0.204,
+            "z": 0.5,
+            "seat": "armchair"
+          },
+          "seat-left": {
+            "x": 0.407,
+            "z": 0.5,
+            "seat": "armchair"
+          },
+          "seat-right": {
+            "x": 0.796,
+            "z": 0.5,
+            "seat": "armchair"
+          },
+          "aisle": {
+            "x": 0.6,
+            "z": 0.5
+          },
+          "aisle-front": {
+            "x": 0.6,
+            "z": 0
+          },
+          "galley": {
+            "x": 0.6,
+            "z": 1
+          },
+          "left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "center": {
+            "x": 0.45,
+            "z": 0
+          },
+          "right": {
+            "x": 0.82,
+            "z": 0
+          }
+        },
+        "crowd": {
+          "who": "passengers",
+          "size": "many"
+        }
+      },
+      {
+        "id": "cockpit",
+        "name": {
+          "ru": "Кабина пилотов",
+          "en": "Cockpit",
+          "de": "Cockpit"
+        },
+        "roles": [
+          "cockpit",
+          "pilot-cabin",
+          "flight-deck"
+        ],
+        "change": "plane cockpit: two pilot seats side by side facing the camera (captain left, copilot right), instrument panel with screens and dials behind them, control yokes, throttle pedestal between the seats, big windshield with blue sky and clouds above the panel, overhead switch panel; the cabin door on the right wall",
+        "marks": {
+          "captain": {
+            "x": 0.27,
+            "z": 0.5,
+            "seat": "pilot-seat"
+          },
+          "copilot": {
+            "x": 0.73,
+            "z": 0.5,
+            "seat": "pilot-seat"
+          },
+          "door": {
+            "x": 0.86,
+            "z": 1
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "train",
+        "name": {
+          "ru": "Купе поезда",
+          "en": "Train compartment",
+          "de": "Zugabteil"
+        },
         "roles": [
           "train"
         ],
-        "change": "train compartment"
+        "change": "train compartment in perspective: window with curtains and a small table with a glass of tea in a holder at the far end, lower bunks as sofas along both side walls (seat-left / seat-right near, window-left / window-right by the window), upper bunks with rolled mattresses, carpet runner",
+        "marks": {
+          "seat-left": {
+            "x": 0.218,
+            "z": 0.5,
+            "seat": "couch"
+          },
+          "seat-right": {
+            "x": 0.782,
+            "z": 0.5,
+            "seat": "couch"
+          },
+          "window-left": {
+            "x": 0.274,
+            "z": 1,
+            "seat": "couch"
+          },
+          "window-right": {
+            "x": 0.726,
+            "z": 1,
+            "seat": "couch"
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.25
+          },
+          "door": {
+            "x": 0.5,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "ship",
+        "name": {
+          "ru": "Палуба корабля",
+          "en": "Ship deck",
+          "de": "Schiffsdeck"
+        },
         "roles": [
           "ship"
         ],
-        "change": "ship deck, sea"
+        "change": "ship deck: white railing with the sea behind, sun, gulls; ventilation funnel on the left, wooden bench by the railing (right), striped deck chair (left), lifebuoy on the railing",
+        "marks": {
+          "deckchair": {
+            "x": 0.3,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "rail": {
+            "x": 0.45,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.6,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.75,
+            "z": 1,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.2,
+            "z": 0.25
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.8,
+            "z": 0.25
+          },
+          "front": {
+            "x": 0.5,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "airport",
+        "name": {
+          "ru": "Зал ожидания",
+          "en": "Departure hall",
+          "de": "Wartehalle"
+        },
         "roles": [
           "airport",
           "train-station"
         ],
-        "change": "departures board, benches"
+        "change": "airport / station waiting hall: big departures board in the middle, clock, windows to the airfield; rows of plastic seats along the wall on the left (bench-1, bench-2) and right (bench-3, bench-4), a red suitcase by the left row",
+        "marks": {
+          "bench-1": {
+            "x": 0.18,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.32,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-3": {
+            "x": 0.68,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-4": {
+            "x": 0.82,
+            "z": 1,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.25,
+            "z": 0.4
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.75,
+            "z": 0.4
+          },
+          "front": {
+            "x": 0.5,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "airplane cabin interior, rows of seats, small round windows, aisle"

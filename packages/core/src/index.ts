@@ -100,15 +100,58 @@ export const STATE_ACTS: readonly Act[] = ["cover-ears", "cover-eyes", "cover-fa
 /** Действия по цели: кукла подходит к цели (to), цель вздрагивает (slap/punch/hit-head) или принимает (hug/kiss). */
 export const TARGET_ACTS: readonly Act[] = ["slap", "punch", "hit-head", "hug", "kiss", "throw"];
 
+/**
+ * Планы глубины (как в South Park): z = 0 — передний план (крупнее, ниже в кадре), 0.5 — средний (по умолчанию),
+ * 1 — дальний, у стены (мельче, выше). Геометрия плана — remotion/src/world/depth.ts.
+ */
+export const PLANES = { front: 0, mid: 0.5, back: 1 } as const;
+export const Plane = z.enum(["front", "mid", "back"]);
+export type Plane = z.infer<typeof Plane>;
+/** Сиденья, нарисованные в фоне или мебелью: кукла на метке с seat сидит сама. */
+export const SEATS = ["chair", "bench", "couch", "stool", "armchair", "car-seat", "pilot-seat", "bed"] as const;
+export type Seat = (typeof SEATS)[number];
+/**
+ * Метка места: число — x (доля ширины сцены, средний план), или {x, z, seat}: z — план (0 перед, 1 у стены),
+ * seat — на метке сиденье (кукла на ней сидит, пока не встанет или не пойдёт).
+ */
+export const Mark = z.union([
+  z.number().min(0).max(1),
+  z.object({ x: z.number().min(0).max(1), z: z.number().min(0).max(1).optional(), seat: z.enum(SEATS).optional() }),
+]);
+export type Mark = z.infer<typeof Mark>;
+export const markOf = (m: Mark | undefined): { x: number; z: number; seat?: Seat } | undefined =>
+  m === undefined ? undefined : typeof m === "number" ? { x: m, z: PLANES.mid } : { x: m.x, z: m.z ?? PLANES.mid, seat: m.seat };
+
+/** Транспорт снаружи: рисуется remotion/src/world/Vehicles.tsx (вид сбоку), седоки видны в окнах или сидят верхом. */
+export const VEHICLES = ["car", "taxi", "police-car", "ambulance", "bus", "tram", "train", "truck", "tractor", "bicycle", "motorcycle", "scooter", "horse-cart"] as const;
+export type VehicleKind = (typeof VEHICLES)[number];
+export const Vehicle = z.object({
+  /** id в сцене (car1, bus) — на него ссылаются биты drive/board/alight. */
+  id: z.string(),
+  kind: z.enum(VEHICLES),
+  /** Стоит на метке с начала сцены; нет — за краем, пока не въедет (drive с from). */
+  at: z.string().optional(),
+  plane: Plane.optional(),
+  /** Кто уже внутри с начала сцены (первый — водитель). */
+  riders: z.array(z.string()).default([]),
+  /** Смотрит влево (едет справа налево). */
+  facing: z.enum(["left", "right"]).optional(),
+  /** Цвет кузова легковой (car): две машины в одной сцене различаются цветом — «запорожец» и иномарка. */
+  color: z.string().optional(),
+});
+export type Vehicle = z.infer<typeof Vehicle>;
+
 /** Мебель на сцене (то, о чём говорит анекдот, но чего нет в фоне): стол, прилавок, кафедра… Рисует remotion/src/world/SetPieces.tsx. */
-export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree"] as const;
+export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree", "chair", "bench", "stool", "armchair", "row-of-chairs"] as const;
 export const SetItem = z.object({
   item: z.string(),
   /** Метка места (content/locations → marks), left/center/right; по умолчанию center. */
   at: z.string().optional(),
   size: z.enum(["small", "normal", "big"]).optional(),
-  /** Сидят за ним: куклы в пределах стола по умолчанию сидят (dining-table, table — да). */
+  /** Сидят за ним: куклы в пределах стола по умолчанию сидят (dining-table, table — да; стулья и скамьи — сиденья). */
   seat: z.boolean().optional(),
+  /** План (по умолчанию: стол — средний, диван/кровать/ёлка — дальний, стул — план метки). */
+  plane: Plane.optional(),
 });
 export type SetItem = z.infer<typeof SetItem>;
 export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);
@@ -118,7 +161,8 @@ export type CrowdReact = z.infer<typeof CrowdReact>;
 export const Beat = z.discriminatedUnion("type", [
   z.object({ type: z.literal("line"), ref: z.string() }),
   /** Пройти к метке места (content/locations → marks) или уйти за край; from — войти из-за края. */
-  z.object({ type: z.literal("move"), who: z.string(), to: z.string(), from: z.enum(["off-left", "off-right"]).optional() }),
+  /** plane — на какой план встать (иначе план метки); via — пройти впереди (front, по умолчанию) или за спинами (back). */
+  z.object({ type: z.literal("move"), who: z.string(), to: z.string(), from: z.enum(["off-left", "off-right"]).optional(), plane: Plane.optional(), via: z.enum(["front", "back"]).optional() }),
   /** Реквизит (content/props.json): взять, отдать (to — кому), уронить, положить. */
   z.object({ type: z.literal("prop"), who: z.string(), item: z.string(), action: z.enum(["hold", "give", "drop", "put"]), to: z.string().optional() }),
   /** Явный план камеры (иначе — авто-режиссура). */
@@ -132,6 +176,11 @@ export const Beat = z.discriminatedUnion("type", [
   z.object({ type: z.literal("act"), who: z.string(), act: z.enum(ACTS), to: z.string().optional(), sec: z.number().min(0.2).max(10).optional() }),
   /** Реакция массовки сцены (scene.crowd): кричит, ахает, смеётся, ликует, шумит, успокаивается. */
   z.object({ type: z.literal("crowd"), react: CrowdReact }),
+  /** Машина (scene.vehicles) едет к метке, въезжает из-за края (from) или уезжает (to: off-left/off-right) вместе с седоками. */
+  z.object({ type: z.literal("drive"), vehicle: z.string(), to: z.string(), from: z.enum(["off-left", "off-right"]).optional() }),
+  /** Садится в машину (виден в окне / верхом); alight — выходит рядом с ней или идёт к метке to. */
+  z.object({ type: z.literal("board"), who: z.string(), vehicle: z.string() }),
+  z.object({ type: z.literal("alight"), who: z.string(), vehicle: z.string(), to: z.string().optional() }),
 ]);
 export type Beat = z.infer<typeof Beat>;
 export const Transition = z.enum(["cut", "wipe", "flyover"]);
@@ -143,8 +192,10 @@ export const Scene = z.object({
   /** Костюм на эпизод: castId → патч внешности поверх роли (тёмные очки слепому, фартук…). */
   looks: z.record(z.string(), LookPatch).optional(),
   crowd: Crowd.optional(),
-  /** Мебель сцены: стол перед куклами («за столом»), прилавок, кафедра, диван сзади… */
+  /** Мебель сцены: стол перед куклами («за столом»), прилавок, кафедра, диван сзади, стулья… */
   set: z.array(SetItem).optional(),
+  /** Транспорт снаружи: машина, автобус, велосипед… (биты drive/board/alight). */
+  vehicles: z.array(Vehicle).optional(),
   /**
    * Разделённый экран (телефонный разговор двух мест): верхняя половина — location сцены,
    * нижняя — split.location; split.cast — кто из cast стоит внизу.
@@ -299,20 +350,41 @@ export const Location = z.object({
         .default([]),
     })
     .optional(),
-  /** Метки места: x (доля ширины кадра 0..1) — door, counter, desk, bed, center… Нет — автослоты. */
-  marks: z.record(z.string(), z.number().min(0).max(1)).default({}),
+  /** Метки места: x (доля ширины кадра 0..1) или {x, z, seat} — door, counter, desk, bench-1… Нет — автослоты. */
+  marks: z.record(z.string(), Mark).default({}),
   bible: z
     .object({
       summary: z.string(),
       /** Канонические локации, которые закрывает этот фон. */
       roles: z.array(z.string()),
-      /** set — мебель варианта перед куклами (стол столовой, банкетный стол): добавляется к сцене сама. */
-      variants: z.array(z.object({ roles: z.array(z.string()), change: z.string(), set: z.array(SetItem).optional() })).default([]),
+      /**
+       * Сублокации (комнаты места): id = scene.place (waiting-room, cockpit…), roles — канонические локации, которые она закрывает,
+       * change — что видно; marks — свои метки (иначе метки места), set — мебель, добавляемая к сцене сама, crowd — массовка по умолчанию.
+       */
+      variants: z.array(z.object({
+        id: z.string().optional(),
+        name: z.record(Locale, z.string()).optional(),
+        roles: z.array(z.string()),
+        change: z.string(),
+        marks: z.record(z.string(), Mark).optional(),
+        set: z.array(SetItem).optional(),
+        crowd: Crowd.optional(),
+      })).default([]),
       prompt: z.string(),
     })
     .optional(),
 });
 export type Location = z.infer<typeof Location>;
+
+/** Сублокация сцены: вариант по id или по roles (старые эпизоды хранят в place канонический архетип). */
+export function subLocation(loc: Location | undefined, place: string | undefined) {
+  if (!loc || !place || place === loc.id) return undefined;
+  const vs = loc.bible?.variants ?? [];
+  return vs.find((v) => v.id === place) ?? vs.find((v) => v.roles.includes(place));
+}
+/** Метки сцены: свои метки сублокации, иначе метки места. */
+export const marksFor = (loc: Location | undefined, place: string | undefined): Record<string, Mark> =>
+  subLocation(loc, place)?.marks ?? loc?.marks ?? {};
 
 /** Общий визуальный стиль: один на весь канал. */
 export const Style = z.object({
@@ -544,7 +616,8 @@ export function orderedLines(ep: Episode): Line[] {
  */
 export function sceneProblems(
   ep: { lines: { id: string; character: string; enter?: string[]; exit?: string[]; offscreen?: boolean }[]; scenes?: Scene[] },
-  opts: { marksOf: (location: string) => string[] | undefined; props: string[] },
+  /** marksOf(location, place) — метки сублокации (place) или места; places(location) — id сублокаций (для проверки place). */
+  opts: { marksOf: (location: string, place?: string) => string[] | undefined; props: string[]; places?: (location: string) => string[] | undefined },
 ): string[] {
   const pr: string[] = [];
   const scenes = ep.scenes ?? [];
@@ -553,12 +626,24 @@ export function sceneProblems(
     for (const id of Object.keys(sc.looks ?? {})) if (!sc.cast.includes(id)) pr.push(`scene ${si + 1}: looks for ${id} who is not in the scene cast`);
     for (const id of sc.split?.cast ?? []) if (!sc.cast.includes(id)) pr.push(`scene ${si + 1}: split.cast ${id} is not in the scene cast`);
     if (sc.split && sc.split.cast.length === sc.cast.length) pr.push(`scene ${si + 1}: split needs someone in the top half too`);
+    for (const [loc, place] of [[sc.location, sc.place], [sc.split?.location, sc.split?.place]] as const) {
+      const ps = loc && place && place !== loc ? opts.places?.(loc) : undefined;
+      if (ps && !ps.includes(place!)) pr.push(`scene ${si + 1}: unknown place "${place}" at ${loc} (places: ${ps.join(", ") || "none"})`);
+    }
+    const vids = (sc.vehicles ?? []).map((v) => v.id);
+    if (new Set(vids).size !== vids.length) pr.push(`scene ${si + 1}: vehicle ids must be unique`);
+    for (const v of sc.vehicles ?? []) for (const r of v.riders) if (!sc.cast.includes(r)) pr.push(`scene ${si + 1}: rider ${r} of ${v.id} is not in the scene cast`);
   }
   const byId = new Map(ep.lines.map((l) => [l.id, l]));
   const used = new Map<string, number>();
   scenes.forEach((sc, si) => {
     const tag = `scene ${si + 1}`;
-    const marks = opts.marksOf(sc.location);
+    const marks = opts.marksOf(sc.location, sc.place);
+    const markOk = (to: string, mk = marks) => to.startsWith("off-") || !mk?.length || mk.includes(to);
+    // машины: на месте с начала (at), иначе за краем до drive с from; седоки в кадре, пока в кадре машина
+    const vehicles = new Map((sc.vehicles ?? []).map((v) => [v.id, { here: !!v.at, riders: new Set(v.riders) }]));
+    for (const v of sc.vehicles ?? []) if (v.at && !markOk(v.at)) pr.push(`${tag}: vehicle ${v.id} at unknown mark "${v.at}"`);
+    const riding = (id: string) => [...vehicles.values()].find((v) => v.riders.has(id));
     // кто стартует за кадром: первое событие — вход (line.enter или move с from)
     const first = new Map<string, "in" | "out">();
     for (const b of sc.beats) {
@@ -572,7 +657,7 @@ export function sceneProblems(
     }
     // кто звучит только из-за кадра и ничего больше не делает — в кадре не стоит
     const voiceOnly = new Set(sc.beats.flatMap((b) => (b.type === "line" && byId.get(b.ref)?.offscreen ? [byId.get(b.ref)!.character] : [])).filter((id) => !first.has(id)));
-    const here = new Set(sc.cast.filter((id) => first.get(id) !== "in" && !voiceOnly.has(id)));
+    const here = new Set(sc.cast.filter((id) => first.get(id) !== "in" && !voiceOnly.has(id) && (riding(id)?.here ?? true)));
     const need = (who: string, what: string) => {
       if (who === NARRATOR) return;
       if (!sc.cast.includes(who)) pr.push(`${tag}: ${who} ${what} but is not in the scene cast`);
@@ -593,7 +678,7 @@ export function sceneProblems(
         else need(b.who, "moves");
         // в нижней половине разделённого экрана — метки своего места
         const loc = sc.split?.cast.includes(b.who) ? sc.split.location : sc.location;
-        const mk = loc === sc.location ? marks : opts.marksOf(loc);
+        const mk = loc === sc.location ? marks : opts.marksOf(loc, sc.split?.place);
         if (b.to.startsWith("off-")) here.delete(b.who);
         else if (mk && mk.length && !mk.includes(b.to)) pr.push(`${tag}: unknown mark "${b.to}" at ${loc} (marks: ${mk.join(", ")})`);
         else if (!mk?.length) pr.push(`${tag}: ${loc} has no marks; use enter/exit on lines instead of move`);
@@ -607,6 +692,30 @@ export function sceneProblems(
         need(b.who, `does ${b.act}`);
         if (b.to && b.to !== NARRATOR && !sc.cast.includes(b.to)) pr.push(`${tag}: ${b.who} ${b.act} to ${b.to} who is not in the scene cast`);
       } else if (b.type === "camera" && b.on) need(b.on, "is the camera target");
+      else if (b.type === "drive") {
+        const v = vehicles.get(b.vehicle);
+        if (!v) { pr.push(`${tag}: drive of unknown vehicle "${b.vehicle}" (scene.vehicles: ${[...vehicles.keys()].join(", ") || "none"})`); continue; }
+        if (b.from) { if (v.here) pr.push(`${tag}: ${b.vehicle} drives in from ${b.from} but is already here`); v.here = true; }
+        else if (!v.here) pr.push(`${tag}: ${b.vehicle} drives while off stage (use from)`);
+        if (!markOk(b.to)) pr.push(`${tag}: unknown mark "${b.to}" for ${b.vehicle}`);
+        if (b.to.startsWith("off-")) v.here = false;
+        for (const r of v.riders) if (v.here) here.add(r); else here.delete(r);
+      } else if (b.type === "board" || b.type === "alight") {
+        const v = vehicles.get(b.vehicle);
+        if (!v) { pr.push(`${tag}: ${b.type} unknown vehicle "${b.vehicle}"`); continue; }
+        if (!sc.cast.includes(b.who)) { pr.push(`${tag}: ${b.who} ${b.type}s but is not in the scene cast`); continue; }
+        if (b.type === "board") {
+          if (!v.here) pr.push(`${tag}: ${b.who} boards ${b.vehicle} which is off stage`);
+          need(b.who, "boards");
+          v.riders.add(b.who);
+        } else {
+          if (!v.riders.has(b.who)) pr.push(`${tag}: ${b.who} alights from ${b.vehicle} without riding it`);
+          if (!v.here) pr.push(`${tag}: ${b.who} alights from ${b.vehicle} which is off stage`);
+          v.riders.delete(b.who);
+          if (b.to && !markOk(b.to)) pr.push(`${tag}: unknown mark "${b.to}"`);
+          here.add(b.who);
+        }
+      }
     }
   });
   if (scenes.length) {

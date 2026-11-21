@@ -1,6 +1,11 @@
-import { Canvas, Room, Window, FLOOR_Y, W, type BackdropProps } from "./parts";
+import { Canvas, Room, Window, Door, Plant, FLOOR_Y, W, type BackdropProps } from "./parts";
+import { SeatAt, BenchAt } from "./gostinaya";
+import { seatTopY } from "../world/depth";
 
-/** Фон «bolnitsa»: кабинет врача; варианты hospital (палата) и madhouse (палата с мягкими стенами). */
+/**
+ * Фон «bolnitsa»: кабинет врача; варианты waiting-room (коридор поликлиники с очередью), hospital (палата),
+ * madhouse (палата с мягкими стенами). Сиденья нарисованы под метки content/locations/bolnitsa.json.
+ */
 
 const rgb = (c: string) => {
   const h = c.replace("#", "");
@@ -115,19 +120,18 @@ const Skeleton = ({ cx }: { cx: number }) => {
   );
 };
 
-/** Смотровая кушетка (у левой стены). */
+/** Смотровая кушетка у стены: верх матраса на высоте сиденья дальнего плана (метка couch). */
 const Couch = ({ x, w, accent }: { x: number; w: number; accent: string }) => {
-  const padTop = FLOOR_Y - 196;
+  const padTop = seatTopY(1);
   return (
     <g>
-      <rect x={x + 30} y={padTop + 40} width={14} height={FLOOR_Y - padTop - 40} fill={METAL} />
-      <rect x={x + w - 44} y={padTop + 40} width={14} height={FLOOR_Y - padTop - 40} fill={METAL} />
-      <rect x={x + 30} y={FLOOR_Y - 60} width={w - 60} height={10} fill={METAL} />
+      <rect x={x + 30} y={padTop + 30} width={12} height={FLOOR_Y - padTop - 30} fill={METAL} />
+      <rect x={x + w - 42} y={padTop + 30} width={12} height={FLOOR_Y - padTop - 30} fill={METAL} />
       {/* приподнятое изголовье */}
-      <path d={`M${x} ${padTop + 44} L${x + 14} ${padTop - 70} Q${x + 18} ${padTop - 84} ${x + 34} ${padTop - 80} L${x + 120} ${padTop - 6} L${x + 120} ${padTop + 44} Z`} fill={dark(accent, 0.12)} />
-      <rect x={x} y={padTop} width={w} height={46} rx={14} fill={accent} />
-      <rect x={x + 110} y={padTop - 8} width={w - 130} height={14} rx={6} fill={WHITE} opacity={0.9} />
-      <ellipse cx={x + 54} cy={padTop - 34} rx={40} ry={18} fill={WHITE} transform={`rotate(-50 ${x + 54} ${padTop - 34})`} />
+      <path d={`M${x} ${padTop + 34} L${x + 10} ${padTop - 80} Q${x + 14} ${padTop - 94} ${x + 30} ${padTop - 90} L${x + 96} ${padTop - 4} L${x + 96} ${padTop + 34} Z`} fill={dark(accent, 0.12)} />
+      <rect x={x} y={padTop} width={w} height={34} rx={12} fill={accent} />
+      <rect x={x + 96} y={padTop - 6} width={w - 110} height={12} rx={6} fill={WHITE} opacity={0.9} />
+      <ellipse cx={x + 44} cy={padTop - 40} rx={34} ry={15} fill={WHITE} transform={`rotate(-50 ${x + 44} ${padTop - 40})`} />
     </g>
   );
 };
@@ -168,22 +172,74 @@ const Diploma = ({ x, y }: { x: number; y: number }) => (
   </g>
 );
 
+/** Кабинет: дверь, кушетка под окном, таблица, стол врача со стулом врача слева (desk), стул пациента перед столом (patient-chair, средний план), скелет. */
 const Office = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => (
   <>
     <Room wall={wall} floor={floor} />
     <Wainscot wall={wall} accent={accent} />
-    <Window x={60} y={450} w={260} h={300} glass={light(accent, 0.55)} />
-    <EyeChart x={445} y={436} accent={accent} />
-    <Diploma x={690} y={500} />
-    <Skeleton cx={985} />
-    <Couch x={20} w={360} accent={accent} />
-    <Desk x={630} w={300} accent={accent} />
+    <Door x={24} w={190} color={light(accent, 0.45)} knob={METAL} />
+    <RedCross cx={119} cy={FLOOR_Y - 440} r={26} />
+    <Window x={250} y={450} w={240} h={280} glass={light(accent, 0.55)} />
+    <EyeChart x={500} y={436} accent={accent} />
+    <Diploma x={735} y={480} />
+    <Skeleton cx={990} />
+    <Couch x={250} w={260} accent={accent} />
+    <Desk x={660} w={250} accent={accent} />
+    <SeatAt x={0.56} z={1} kind="office" color={dark(accent, 0.45)} />
+    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD} pad={light(accent, 0.2)} />
   </>
 );
 
+/** Красный крест на белом кружке (табличка на двери). */
+const RedCross = ({ cx, cy, r }: { cx: number; cy: number; r: number }) => (
+  <g>
+    <circle cx={cx} cy={cy} r={r * 1.7} fill={WHITE} />
+    <rect x={cx - r * 0.4} y={cy - r * 1.15} width={r * 0.8} height={r * 2.3} fill="#c8553d" />
+    <rect x={cx - r * 1.15} y={cy - r * 0.4} width={r * 2.3} height={r * 0.8} fill="#c8553d" />
+  </g>
+);
+
+/** Коридор поликлиники: окошко регистратуры слева, ряд из 5 стульев у стены (chair-1…5), плакат, цветок, дверь кабинета справа. */
+const WaitingRoom = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => {
+  const seat = dark(accent, 0.35);
+  return (
+    <>
+      <Room wall={wall} floor={floor} />
+      <Wainscot wall={wall} accent={accent} />
+      {/* лампы дневного света */}
+      {[200, 540, 880].map((x) => <rect key={x} x={x - 120} y={300} width={240} height={22} rx={8} fill={WHITE} />)}
+      {/* окошко регистратуры */}
+      <rect x={20} y={560} width={230} height={FLOOR_Y - 560} fill={dark(wall, 0.12)} />
+      <rect x={40} y={590} width={190} height={230} rx={10} fill={light(accent, 0.6)} />
+      <path d="M90 820 v-60 a45 45 0 0 1 90 0 v60 Z" fill={dark(wall, 0.25)} />
+      <rect x={10} y={820} width={250} height={26} rx={6} fill={WOOD} />
+      <rect x={70} y={612} width={130} height={30} rx={6} fill={accent} />
+      <rect x={180} y={796} width={36} height={22} rx={3} fill={WHITE} />
+      {/* плакат о здоровье: сердце и строки */}
+      <rect x={360} y={470} width={200} height={260} rx={8} fill={WHITE} />
+      <path d="M460 560 C430 520 380 545 400 585 L460 640 L520 585 C540 545 490 520 460 560 Z" fill="#c8553d" />
+      {[660, 682, 704].map((y, i) => <rect key={y} x={390} y={y} width={140 - i * 30} height={10} rx={5} fill={light(INK, 0.6)} />)}
+      <rect x={610} y={500} width={170} height={120} rx={8} fill={light(accent, 0.4)} />
+      <circle cx={660} cy={560} r={28} fill={WHITE} />
+      <rect x={700} y={540} width={60} height={10} rx={5} fill={WHITE} />
+      <rect x={700} y={566} width={44} height={10} rx={5} fill={WHITE} />
+      {/* ряд стульев на балке */}
+      <rect x={0.28 * W - 70} y={seatTopY(1) + 26} width={0.42 * W + 140} height={12} fill={METAL} />
+      {[0.28, 0.385, 0.49, 0.595, 0.7].map((x) => (
+        <SeatAt key={x} x={x} z={1} kind="chair" color={seat} back={140} />
+      ))}
+      <Plant x={835} y={FLOOR_Y} scale={0.7} pot={WHITE} leaf="#5b8c5a" />
+      {/* дверь кабинета с крестом и лампочкой «занято» */}
+      <Door x={890} w={176} color={light(accent, 0.45)} knob={METAL} />
+      <RedCross cx={978} cy={FLOOR_Y - 430} r={24} />
+      <circle cx={978} cy={FLOOR_Y - 560} r={16} fill="#c8553d" />
+    </>
+  );
+};
+
 /** Больничная палата: кровать, капельница, шторка. */
 const Ward = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => {
-  const bedTop = FLOOR_Y - 250;
+  const bedTop = FLOOR_Y - 120;
   const bx = 560;
   const bw = 480;
   const curtain = light(accent, 0.35);
@@ -209,18 +265,18 @@ const Ward = ({ wall, floor, accent }: { wall: string; floor: string; accent: st
       <rect x={942} y={530} width={50} height={86} rx={16} fill={light(accent, 0.75)} opacity={0.95} />
       <rect x={950} y={570} width={34} height={38} rx={10} fill={light(accent, 0.35)} />
       <path d={`M967 616 Q960 760 900 ${bedTop - 10}`} stroke={light(METAL, 0.4)} strokeWidth={5} fill="none" />
-      {/* кровать */}
-      <rect x={bx + bw - 34} y={FLOOR_Y - 400} width={34} height={360} rx={12} fill={METAL} />
-      <rect x={bx} y={FLOOR_Y - 320} width={30} height={280} rx={12} fill={METAL} />
-      <rect x={bx + 10} y={bedTop + 50} width={bw - 20} height={22} fill={dark(METAL, 0.15)} />
-      <rect x={bx + 20} y={bedTop + 70} width={12} height={130} fill={METAL} />
-      <rect x={bx + bw - 50} y={bedTop + 70} width={12} height={130} fill={METAL} />
-      <circle cx={bx + 26} cy={FLOOR_Y - 18} r={18} fill={INK} />
-      <circle cx={bx + bw - 44} cy={FLOOR_Y - 18} r={18} fill={INK} />
-      <rect x={bx + 20} y={bedTop} width={bw - 50} height={54} rx={14} fill={WHITE} />
-      <rect x={bx + 330} y={bedTop - 34} width={110} height={44} rx={20} fill={WHITE} />
-      <rect x={bx + 26} y={bedTop - 6} width={300} height={66} rx={18} fill={accent} />
-      <rect x={bx + 280} y={bedTop - 6} width={46} height={66} rx={14} fill={light(accent, 0.5)} />
+      {/* стул посетителя (метка chair, средний план) */}
+      <SeatAt x={0.4} z={0.5} kind="chair" color={METAL} pad={light(accent, 0.2)} />
+      {/* кровать: край одеяла — на высоте сиденья дальнего плана (метка bed) */}
+      <rect x={bx + bw - 34} y={FLOOR_Y - 330} width={34} height={300} rx={12} fill={METAL} />
+      <rect x={bx} y={FLOOR_Y - 230} width={30} height={200} rx={12} fill={METAL} />
+      <rect x={bx + 10} y={bedTop + 76} width={bw - 20} height={16} fill={dark(METAL, 0.15)} />
+      <circle cx={bx + 40} cy={FLOOR_Y - 18} r={18} fill={INK} />
+      <circle cx={bx + bw - 60} cy={FLOOR_Y - 18} r={18} fill={INK} />
+      <rect x={bx + 20} y={bedTop - 10} width={bw - 50} height={88} rx={14} fill={WHITE} />
+      <rect x={bx + 330} y={bedTop - 46} width={110} height={44} rx={20} fill={WHITE} />
+      <rect x={bx + 26} y={bedTop - 16} width={300} height={88} rx={18} fill={accent} />
+      <rect x={bx + 280} y={bedTop - 16} width={46} height={88} rx={14} fill={light(accent, 0.5)} />
     </>
   );
 };
@@ -257,10 +313,7 @@ const Padded = ({ wall, floor, accent }: { wall: string; floor: string; accent: 
       ))}
       <rect x={426} y={524} width={228} height={12} fill={dark(METAL, 0.45)} />
       {/* скамья */}
-      <rect x={730} y={FLOOR_Y - 150} width={300} height={30} rx={12} fill={WOOD} />
-      <rect x={750} y={FLOOR_Y - 122} width={22} height={122} fill={dark(WOOD, 0.3)} />
-      <rect x={988} y={FLOOR_Y - 122} width={22} height={122} fill={dark(WOOD, 0.3)} />
-      <rect x={750} y={FLOOR_Y - 60} width={260} height={12} fill={dark(WOOD, 0.3)} />
+      <BenchAt x0={0.68} x1={0.95} color={WOOD} metal={dark(WOOD, 0.3)} back={false} />
       {/* подушка на полу и кружка */}
       <rect x={60} y={FLOOR_Y - 60} width={160} height={70} rx={30} fill={light(accent, 0.6)} />
       <rect x={90} y={FLOOR_Y - 46} width={100} height={8} rx={4} fill={light(accent, 0.35)} />
@@ -272,7 +325,9 @@ export const Bolnitsa = ({ palette, variant }: BackdropProps) => {
   const { wall, floor, accent } = palette;
   return (
     <Canvas>
-      {variant === "hospital" ? (
+      {variant === "waiting-room" ? (
+        <WaitingRoom wall={wall} floor={floor} accent={accent} />
+      ) : variant === "hospital" ? (
         <Ward wall={wall} floor={floor} accent={accent} />
       ) : variant === "madhouse" ? (
         <Padded wall={wall} floor={floor} accent={accent} />

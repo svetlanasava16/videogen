@@ -14,35 +14,258 @@
     "desk",
     "couch",
     "skeleton",
-    "chart"
+    "chart",
+    "door",
+    "chairs"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "couch": 0.2,
-    "desk": 0.62,
-    "skeleton": 0.86
+    "door": {
+      "x": 0.11,
+      "z": 1
+    },
+    "couch": {
+      "x": 0.35,
+      "z": 1,
+      "seat": "couch"
+    },
+    "desk": {
+      "x": 0.56,
+      "z": 1,
+      "seat": "chair"
+    },
+    "patient-chair": {
+      "x": 0.72,
+      "z": 0.5,
+      "seat": "chair"
+    },
+    "skeleton": {
+      "x": 0.92,
+      "z": 1
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.88,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Doctor's office: couch, desk, eye chart — and the madhouse ward variant.",
+    "summary": "Clinic: the doctor's office (door, examination couch under the window, eye chart, desk with the doctor's chair, patient chair in front, skeleton), a waiting-room corridor with a row of chairs, a ward with a bed, and a padded madhouse cell.",
     "roles": [
       "doctor-office",
       "hospital",
-      "madhouse"
+      "madhouse",
+      "waiting-room",
+      "hospital-corridor",
+      "clinic",
+      "polyclinic",
+      "queue"
     ],
     "variants": [
       {
+        "id": "hospital",
+        "name": {
+          "ru": "Больничная палата",
+          "en": "Hospital ward",
+          "de": "Krankenzimmer"
+        },
         "roles": [
           "hospital"
         ],
-        "change": "hospital bed, drip stand"
+        "change": "Hospital ward: curtain on the left (curtain), heart monitor on the wall, window, a hospital bed on the right against the back wall to sit or lie on (bed), drip stand at its foot, visitor's chair in the middle plane left of the bed (chair).",
+        "marks": {
+          "curtain": {
+            "x": 0.12,
+            "z": 1
+          },
+          "bed": {
+            "x": 0.66,
+            "z": 1,
+            "seat": "bed"
+          },
+          "chair": {
+            "x": 0.4,
+            "z": 0.5,
+            "seat": "chair"
+          },
+          "drip": {
+            "x": 0.93,
+            "z": 1
+          },
+          "left": {
+            "x": 0.2,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.82,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "madhouse",
+        "name": {
+          "ru": "Палата психбольницы",
+          "en": "Padded cell",
+          "de": "Gummizelle"
+        },
         "roles": [
           "madhouse"
         ],
-        "change": "padded walls, barred window"
+        "change": "Padded cell: soft quilted walls, small barred window with a light beam in the middle (window), a pillow on the floor on the left, wooden bench on the right against the wall for two (bench-1, bench-2).",
+        "marks": {
+          "window": {
+            "x": 0.5,
+            "z": 1
+          },
+          "pillow": {
+            "x": 0.13,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.74,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.88,
+            "z": 1,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "waiting-room",
+        "name": {
+          "ru": "Коридор поликлиники",
+          "en": "Clinic waiting room",
+          "de": "Wartezimmer"
+        },
+        "roles": [
+          "waiting-room",
+          "hospital-corridor",
+          "clinic",
+          "polyclinic",
+          "queue"
+        ],
+        "change": "Clinic corridor: reception window at the back left (reception), health posters, a row of five joined chairs along the back wall (chair-1…chair-5, left to right) for the queue, potted plant, doctor's door with a red cross and a red 'busy' lamp at the back right (door). Walking or standing in front of the seated queue: front-left / front-center / front-right.",
+        "marks": {
+          "reception": {
+            "x": 0.12,
+            "z": 1
+          },
+          "chair-1": {
+            "x": 0.28,
+            "z": 1,
+            "seat": "chair"
+          },
+          "chair-2": {
+            "x": 0.385,
+            "z": 1,
+            "seat": "chair"
+          },
+          "chair-3": {
+            "x": 0.49,
+            "z": 1,
+            "seat": "chair"
+          },
+          "chair-4": {
+            "x": 0.595,
+            "z": 1,
+            "seat": "chair"
+          },
+          "chair-5": {
+            "x": 0.7,
+            "z": 1,
+            "seat": "chair"
+          },
+          "door": {
+            "x": 0.9,
+            "z": 1
+          },
+          "left": {
+            "x": 0.2,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.8,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "doctor office, desk, examination couch, eye chart on the wall, skeleton model, window"

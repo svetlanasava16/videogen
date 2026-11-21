@@ -53,11 +53,11 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | office | Офис / Office / Büro | ofis |
 | hospital | Больница / Hospital / Krankenhaus | bolnitsa |
 | park | Парк / Park / Park | ulitsa:park |
-| square | Улица / Main Street / Hauptstraße | ulitsa, doroga:bus, doroga:subway |
+| square | Улица / Main Street / Hauptstraße | ulitsa, doroga:bus, doroga:subway, doroga:bus-stop, doroga:tram |
 | stadium | Стадион / Stadium / Stadion | ulitsa:stadium, ulitsa:zoo |
 | cemetery | Кладбище / Cemetery / Friedhof | ulitsa:cemetery |
-| road | Трасса / Highway / Landstraße | doroga |
-| airport | Аэропорт и вокзал / Airport & Station / Flughafen & Bahnhof | samolet |
+| road | Трасса / Highway / Landstraße | doroga, doroga:car, doroga:taxi, doroga:gas-station |
+| airport | Аэропорт и вокзал / Airport & Station / Flughafen & Bahnhof | samolet, samolet:cabin, samolet:cockpit, samolet:airport, samolet:train |
 | port | Порт / Harbour / Hafen | samolet:ship |
 | hell | Ад / Hell / Hölle | nebesa:hell |
 | court | Суд / Courthouse / Gericht | sud |
@@ -106,30 +106,113 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 | vovochka | Вовочка / Johnny / Fritzchen | vovochka | vovochka, fritzchen |
 | zhena | Жена / Linda / Gabi | zhena | wife, mother, maid |
 
-## Backdrops
+## Backdrops and places (sub-locations)
 
-| id | covers locations | marks (spots on the floor, left → right) |
-|---|---|---|
-| banya | bathhouse | left, bench, center, right, stove |
-| bar | bar, restaurant, cafe, party, hotel | stool-left, left, center, counter, right, stool-right |
-| bolnitsa | doctor-office, hospital, madhouse | couch, left, center, desk, right, skeleton |
-| derevnya | village, farm, forest, river-lake, garden, mountain | left, house, center, fence, right, tree |
-| doroga | road, car, bus, subway | roadside, left, center, right, car |
-| gostinaya | home-living-room, front-door, balcony, basement, dining-room | door, left, sofa, center, table, tv, right, wardrobe |
-| klass | school-classroom, university | left, student-desk, center, board, right, teacher-desk |
-| kukhnya | home-kitchen | fridge, left, center, table, right, stove |
-| magazin | shop, pharmacy, barbershop | left, shelf, center, counter, right |
-| nebesa | heaven, hell, garden-of-eden, space | lectern, left, center, gate, right, cloud |
-| ofis | office, government-office, tv-studio, bank, police-station | left, desk, center, window, right, plant |
-| plyazh | beach | left, umbrella, center, water, right, towel |
-| podyezd | stairwell, elevator | door-left, left, elevator, center, door-right, right, stairs |
-| samolet | plane, train, ship, airport, train-station | seat-left, left, center, aisle, right, seat-right |
-| spalnya | bedroom, bathroom | nightstand, left, center, bed, right, wardrobe, toilet |
-| sud | courtroom | dock, left, center, judge, right, witness |
-| tserkov | church | pew-left, left, center, altar, right, pew-right |
-| ulitsa | street, park, stadium, zoo, cemetery | lamp, left, shop, center, bench, right |
-| zal | conference-hall, theater, museum | aisle, left, stage-left, center, stage-right, lectern, right |
-| none | no location (narrator over a neutral backdrop) | |
+Each backdrop has a default view and places (rooms, interiors) chosen with `scene.place`. Marks are spots on the floor, left → right:
+`name` = middle plane; `name (back)` = by the wall, smaller; `name (front)` = close to the camera, bigger; `[bench]` = a seat — a puppet put there sits on it.
+A place's marks replace the backdrop's marks. `none` = no location (narrator over a neutral backdrop).
+
+### banya — A wooden bathhouse: log walls, a high shelf and a low bench along the left wall for three (bench-1, bench-2, bench-3; bench = bench-2), a wooden bucket, a hot stove with steam on the right (stove).
+- default (no place) — covers bathhouse; marks: bench-1 (back) [bench], left, front-left (front), bench (back) [bench], bench-2 (back) [bench], center, bench-3 (back) [bench], front-center (front), bucket (back), right, front-right (front), stove (back)
+
+### bar — Cosy bar: bottle shelves, bar counter across the back wall with beer taps, four bar stools in front of it (stool-1…stool-4; stool-left = stool-1, stool-right = stool-4), the barman stands at the counter in the middle. Variants: restaurant/cafe, party banquet, hotel lobby.
+- default (no place) — covers bar, restaurant, cafe, party, hotel; marks: stool-1 (back) [stool], stool-left (back) [stool], left, front-left (front), stool-2 (back) [stool], counter (back), center, front-center (front), stool-3 (back) [stool], front-right (front), right, stool-4 (back) [stool], stool-right (back) [stool]
+- place `restaurant` (also: cafe) — Restaurant: arched window with the evening city in the middle (window), two small round tables with tablecloths, flower and candle at the back wall — left table with chairs chair-1 (left) and chair-2 (right), right table with chair-3 and chair-4; a waiter stands between them (center) or at a table (table-1, table-2).; marks: chair-1 (back) [chair], left, table-1, front-left (front), chair-2 (back) [chair], window (back), center, front-center (front), chair-3 (back) [chair], table-2, front-right (front), right, chair-4 (back) [chair]
+- place `party` — Party hall: balloons, bunting, disco ball and coloured light spots; a long banquet table across the front (set piece with tablecloth, wedding cake, champagne) with four chairs behind it (chair-1…chair-4) — people there sit at the table; someone standing behind the table: behind-table; in front of it: front-left / front-center / front-right.; marks: left (back), chair-1 [chair], front-left (front), chair-2 [chair], behind-table (back), front-center (front), chair-3 [chair], front-right (front), chair-4 [chair], right (back); furniture: dining-table
+- place `hotel` — Hotel lobby: striped wallpaper, three clocks, key board with keys, a long reception desk across the back with a bell (the clerk stands at it: counter), guests stand in front of it (guest), potted palms in the corners, a guest armchair in the middle plane on the right (armchair).; marks: left, front-left (front), guest, counter (back), front-center (front), center, right, front-right (front), armchair [armchair]
+
+### bolnitsa — Clinic: the doctor's office (door, examination couch under the window, eye chart, desk with the doctor's chair, patient chair in front, skeleton), a waiting-room corridor with a row of chairs, a ward with a bed, and a padded madhouse cell.
+- default (no place) — covers doctor-office, hospital, madhouse, waiting-room, hospital-corridor, clinic, polyclinic, queue; marks: door (back), left, front-left (front), couch (back) [couch], center, front-center (front), desk (back) [chair], patient-chair [chair], front-right (front), right, skeleton (back)
+- place `hospital` — Hospital ward: curtain on the left (curtain), heart monitor on the wall, window, a hospital bed on the right against the back wall to sit or lie on (bed), drip stand at its foot, visitor's chair in the middle plane left of the bed (chair).; marks: curtain (back), left, front-left (front), chair [chair], front-center (front), center, bed (back) [bed], front-right (front), right, drip (back)
+- place `madhouse` — Padded cell: soft quilted walls, small barred window with a light beam in the middle (window), a pillow on the floor on the left, wooden bench on the right against the wall for two (bench-1, bench-2).; marks: pillow (back), left, front-left (front), window (back), center, front-center (front), bench-1 (back) [bench], front-right (front), right, bench-2 (back) [bench]
+- place `waiting-room` (also: hospital-corridor, clinic, polyclinic, queue) — Clinic corridor: reception window at the back left (reception), health posters, a row of five joined chairs along the back wall (chair-1…chair-5, left to right) for the queue, potted plant, doctor's door with a red cross and a red 'busy' lamp at the back right (door). Walking or standing in front of the seated queue: front-left / front-center / front-right.; marks: reception (back), left, front-left (front), chair-1 (back) [chair], chair-2 (back) [chair], chair-3 (back) [chair], center, front-center (front), chair-4 (back) [chair], chair-5 (back) [chair], front-right (front), right, door (back)
+
+### derevnya — Countryside: village, farm, forest, river — fishermen, hunters, farmers.
+- default (no place) — covers village, farm, forest, river-lake, garden, mountain; marks: left, house, center, fence, right, tree
+- place `forest` — dense trees, stumps; marks: as default
+- place `river-lake` — river bank, fishing spot; marks: as default
+- place `farm` — barn, cow; marks: as default
+- place `garden` — garden; marks: as default
+- place `mountain` — mountain; marks: as default
+
+### doroga — Country road and transport: drivers, traffic cops, hitch-hikers; car / taxi, bus, tram, subway interiors, bus stop, gas station.
+- default (no place) — covers road, car, taxi, bus, trolleybus, minibus, subway, metro, tram, bus-stop, gas-station; marks: roadside (back), road-left (front), left, center, road (front), roadside-right (back), right, car (front), road-right (front), sign (back)
+- place `car` (also: car-interior) — a blue car seen from the front: through the windshield the driver (right of frame, steering wheel) and the front passenger (left) sit facing the camera, two back-seat passengers between them further back, rear-view mirror with a pine air freshener; hood, headlights and bumper fill the bottom, country road behind the car; marks: passenger [car-seat], back-left (back) [car-seat], back-right (back) [car-seat], driver [car-seat]
+- place `taxi` — a yellow taxi seen from the front: checker sign on the roof and a checker stripe on the hood, taxi meter on the dashboard; through the windshield the driver (right of frame, steering wheel) and the front passenger (left) sit facing the camera, back-seat passengers between them further back; marks: passenger [car-seat], back-left (back) [car-seat], back-right (back) [car-seat], driver [car-seat]
+- place `bus` (also: trolleybus, minibus, marshrutka) — bus interior from the side: driver's cab on the far left (windshield, steering wheel, driver seat), folding front door next to it, red seats under the side windows (seat-1..seat-3), ceiling handrails with hanging straps over the aisle, a yellow pole with a red stop button in the middle; marks: driver [chair], front-1 (front), left, door (back), stand-1, seat-1 (back) [bench], center, seat-2 (back) [bench], stand-2, front-2 (front), seat-3 (back) [bench], right
+- place `subway` (also: metro, underground) — subway car interior from the side: sliding doors on the left and right with the dark tunnel behind, a long blue bench under the windows in the middle (seat-1..seat-3), line map above, poles and a ceiling handrail; standing passengers along the wall; marks: door-left (back), stand-left, seat-1 (back) [bench], seat-2 (back) [bench], center, front (front), seat-3 (back) [bench], stand-right, door-right (back); crowd: passengers
+- place `tram` (also: streetcar) — tram interior from the side: wooden seats under the windows with the street outside (seat-1..seat-3), a red ticket punch on the pole on the left, ceiling handrails with straps, the driver's cab on the right behind a partition with a window (windshield and rails visible) and a door; marks: validator, seat-1 (back) [bench], front-1 (front), stand-1, seat-2 (back) [bench], center, seat-3 (back) [bench], stand-2, front-2 (front), cab (back)
+- place `bus-stop` (also: tram-stop, stop) — town street with a bus stop: glass shelter with a roof and an ad poster, wooden bench under it (bench-1, bench-2), blue stop sign with a bus symbol and a litter bin on the right, houses behind the pavement, road with a kerb in the foreground where buses and cars stop; marks: road-left (front), left, bench-1 (back) [bench], bench-2 (back) [bench], road (front), center, sign (back), right, road-right (front)
+- place `gas-station` (also: petrol-station) — roadside gas station: canopy with a fuel-drop sign over two fuel pumps (red and blue) on the left, small green-roofed shop with a glass door on the right, concrete forecourt, road in the foreground for cars; marks: forecourt, road-left (front), pump-1, road (front), pump-2, road-right (front), shop-door (back)
+
+### gostinaya — Living room: door on the left, sofa against the back wall (sofa-1, sofa-2), old TV on a stand, window with curtains on the right, armchair in the middle plane on the right; variants hallway, balcony, basement, dining room.
+- default (no place) — covers home-living-room, front-door, balcony, basement, dining-room; marks: door (back), left, front-left (front), sofa-1 (back) [couch], sofa (back) [couch], center, table, front-center (front), sofa-2 (back) [couch], right, tv (back), front-right (front), armchair [armchair], window (back)
+- place `front-door` — Hallway: padded front door at the back wall centre-right (mark door), coat rack with coat and hat on the left (coat-rack), low shoe bench to sit on left of centre (bench), mirror, umbrella on the right.; marks: coat-rack (back), left, front-left (front), bench (back) [bench], center, front-center (front), door (back), front-right (front), right, umbrella (back)
+- place `balcony` — Night balcony: lit balcony door at the far left (door), railing across the back with the night city and moon behind (railing), stool with an ashtray left of centre (stool), flower box on the railing right (flowers), washing line above.; marks: door (back), left, front-left (front), stool (back) [stool], center, front-center (front), railing (back), front-right (front), right, flowers (back)
+- place `basement` — Basement: shelves with jars at the left wall (shelves), small barred window under the ceiling with a light beam, bare bulb, pipes, a low crate to sit on in the middle (crate), wooden stairs up on the right (stairs), stacked boxes.; marks: shelves (back), left, front-left (front), center, front-center (front), crate (back) [stool], stairs (back), door (back), front-right (front), right
+- place `dining-room` — Dining room: long laid table across the front (set piece: tablecloth, plates, cake, bottle) with four chairs behind it (chair-1…chair-4, left to right) — people there sit at the table; sideboard with dishes at the back left (sideboard), clock and picture on the wall, chandelier. Someone standing behind the table: behind-table; serving in front: front-left/front-right.; marks: sideboard (back), chair-1 [chair], front-left (front), chair-2 [chair], behind-table (back), front-center (front), chair-3 [chair], front-right (front), chair-4 [chair]; furniture: dining-table
+
+### klass — School classroom: world map, big green blackboard, two pupil desks with chairs at the back wall, one pupil desk in the middle plane on the left, the teacher's table with globe and apple on the right with the teacher's chair beside it; variant university lecture hall.
+- default (no place) — covers school-classroom, university; marks: pupil-1 (back) [chair], student-desk [chair], front-left (front), pupil-2 (back) [chair], left, board (back), front-center (front), center, teacher-desk (back) [chair], front-right (front), right
+- place `university` — University lecture hall: tiers of seats rising to tall arched windows, stairs up the middle, a front row of four folding seats along the first tier (row-1, row-2, row-3 left of the stairs, row-4 right of them; student-desk = row-2), lecturer's lectern with a microphone on the right — the lecturer stands beside it (lectern / teacher-desk).; marks: row-1 (back) [chair], left, row-2 (back) [chair], student-desk (back) [chair], front-left (front), row-3 (back) [chair], aisle (back), board (back), center, front-center (front), row-4 (back) [chair], lectern, teacher-desk, front-right (front), right
+
+### kukhnya — Soviet kitchen: doorway on the far left, old fridge, small table with tea under the window with a stool on each side, stove with a kettle on the right.
+- default (no place) — covers home-kitchen; marks: door (back), left, fridge (back), front-left (front), stool-1 (back) [stool], center, front-center (front), table, stool-2 (back) [stool], front-right (front), right, stove (back)
+
+### magazin — Shop with counter and shelves: customer and seller.
+- default (no place) — covers shop, pharmacy, barbershop; marks: left, shelf, center, counter, right
+- place `pharmacy` — medicine shelves, green cross; marks: as default
+- place `barbershop` — barber chair, mirror; marks: as default
+
+### nebesa — Heaven's gate with clouds (and the hell variant): Saint Peter jokes.
+- default (no place) — covers heaven, hell, garden-of-eden, space; marks: lectern, left, center, gate, right, cloud
+- place `hell` — red cave, flames, cauldron; marks: as default
+- place `garden-of-eden` — apple tree, lush garden; marks: as default
+- place `space` — stars, planet; marks: as default
+
+### ofis — Boss's office: framed certificate, desk with a computer at the back left, the boss's black office chair right of the desk (desk), window with blinds, visitor's chair in the middle plane (visitor), potted plant. Variants: TV studio, police station, bank/government office.
+- default (no place) — covers office, government-office, tv-studio, bank, police-station; marks: left, front-left (front), center, front-center (front), desk (back) [armchair], visitor [chair], window (back), front-right (front), right, plant (back)
+- place `tv-studio` — TV studio: dark studio with a lighting rig, coloured backdrop with a big circle, studio lights at both edges; a small curved desk with a microphone in the middle (desk — standing presenter), the host's office chair left of it (host) and the guest's armchair right of it (guest).; marks: left, host (back) [chair], front-left (front), desk (back), center, front-center (front), front-right (front), guest (back) [armchair], right
+- place `police-station` — Police station: cork board with wanted posters, clock, the duty desk with a computer and a lamp at the back left with the officer's chair right of it (desk), a stool for the detainee in front of the desk (suspect, middle plane), a barred cell door on the right (cell).; marks: suspect [stool], front-left (front), desk (back) [chair], left, front-center (front), center, front-right (front), cell (back), right
+- place `bank` (also: government-office) — Bank / government office: a counter across the whole back wall with three glass teller windows (window-1 left, window-2 middle, window-3 right — clients stand there), stamps and papers, queue rope on the left (queue), three waiting chairs in the middle plane on the right (wait-1…wait-3).; marks: queue, window-1 (back), front-left (front), left, center, window-2 (back), desk (back), window (back), front-center (front), wait-1 [chair], front-right (front), wait-2 [chair], window-3 (back), wait-3 [chair]
+
+### plyazh — A sunny beach: the sea on the horizon, a red sun umbrella on the left, towels on the sand.
+- default (no place) — covers beach; marks: left, umbrella, center, water, right, towel
+
+### podyezd — Apartment block stairwell: landing with neighbours' doors (door-left 12, door-right 13), elevator doors, stairs going up on the right — neighbours meet, someone rings the doorbell; variant inside the elevator cabin.
+- default (no place) — covers stairwell, elevator; marks: door-left (back), left, elevator (back), center, front (front), door-right (back), right, stairs (back)
+- place `elevator` (also: lift) — inside a cramped elevator cabin: wood-panel walls, mirror on the left of the back wall, button panel with one burnt button on the right, handrail, ceiling lamp; room for only two or three people (left, right, back against the mirror); marks: left, back (back), right
+
+### samolet — Plane (cabin, cockpit) and other travel: train compartment, ship deck, airport / station hall — passengers, pilots, stewardesses, travellers.
+- default (no place) — covers plane, airplane, plane-cabin, cockpit, train, ship, airport, train-station; marks: seat-left, left, center, aisle, right, seat-right
+- place `cabin` (also: plane, airplane, plane-cabin) — plane cabin seen down the aisle: near row of three blue seats for the heroes (window and seat-left on the left, seat-right across the aisle), aisle slightly right of centre, emergency exit on the left wall, far rows of seats behind the passengers, galley curtain at the far end, overhead bins and round windows; marks: window [armchair], left (front), seat-left [armchair], center (front), aisle, aisle-front (front), galley (back), seat-right [armchair], right (front); crowd: passengers
+- place `cockpit` (also: pilot-cabin, flight-deck) — plane cockpit: two pilot seats side by side facing the camera (captain left, copilot right), instrument panel with screens and dials behind them, control yokes, throttle pedestal between the seats, big windshield with blue sky and clouds above the panel, overhead switch panel; the cabin door on the right wall; marks: captain [pilot-seat], center (front), copilot [pilot-seat], door (back)
+- place `train` — train compartment in perspective: window with curtains and a small table with a glass of tea in a holder at the far end, lower bunks as sofas along both side walls (seat-left / seat-right near, window-left / window-right by the window), upper bunks with rolled mattresses, carpet runner; marks: seat-left [couch], window-left (back) [couch], center, door (front), window-right (back) [couch], seat-right [couch]
+- place `ship` — ship deck: white railing with the sea behind, sun, gulls; ventilation funnel on the left, wooden bench by the railing (right), striped deck chair (left), lifebuoy on the railing; marks: left, deckchair [chair], rail (back), center, front (front), bench-1 (back) [bench], bench-2 (back) [bench], right
+- place `airport` (also: train-station) — airport / station waiting hall: big departures board in the middle, clock, windows to the airfield; rows of plastic seats along the wall on the left (bench-1, bench-2) and right (bench-3, bench-4), a red suitcase by the left row; marks: bench-1 (back) [bench], left, bench-2 (back) [bench], center, front (front), bench-3 (back) [bench], right, bench-4 (back) [bench]
+
+### spalnya — Bedroom: door on the left, nightstand with a lamp, a low double bed against the back wall under the night window (sit on it: bed-1, bed-2), wardrobe on the right; bathroom variant.
+- default (no place) — covers bedroom, bathroom; marks: door (back), left, nightstand (back), front-left (front), bed-1 (back) [bed], center, front-center (front), bed (back) [bed], bed-2 (back) [bed], front-right (front), right, wardrobe (back)
+- place `bathroom` — Tiled bathroom: bathtub with foam and a rubber duck and a shower on the left (bathtub), towel on the wall, sink with a round mirror left of centre (sink), door right of centre (door), toilet at the right wall — sitting on it: toilet.; marks: bathtub (back), left, front-left (front), sink (back), nightstand (back), center, front-center (front), door (back), right, front-right (front), toilet (back) [stool]
+
+### sud — A small-town courtroom: the judge's bench in the middle under the emblem (judge stands at it), the dock on the left — a railed bench where the defendant sits (dock), the witness stand on the right (witness); lawyer and prosecutor stand in front (lawyer, prosecutor).
+- default (no place) — covers courtroom; marks: dock (back) [bench], left, front-left (front), lawyer, judge (back), center, front-center (front), prosecutor, front-right (front), right, witness (back)
+
+### tserkov — Neutral church: columns, apse with a stained-glass window, altar with candles at the back, tall candlesticks; two pews in the middle plane on both sides of the red aisle runner (pew-left, pew-left-2 | pew-right-2, pew-right); people stand in the aisle (center) or at the altar.
+- default (no place) — covers church; marks: pew-left [bench], front-left (front), pew-left-2 [bench], candles-left (back), left, altar (back), center, front-center (front), right, candles-right (back), pew-right-2 [bench], front-right (front), pew-right [bench]
+
+### ulitsa — Town street: house facades, a shop with an awning and a door, lamp post on the left, a street bench on the right for two (bench-1, bench-2), sidewalk and road in front. Variants: park, cemetery, stadium, zoo.
+- default (no place) — covers street, park, stadium, zoo, cemetery; marks: lamp (back), left, front-left (front), shop (back), center, front-center (front), shop-door (back), right, front-right (front), bench-1 (back) [bench], bench (back) [bench], bench-2 (back) [bench]
+- place `park` — Park: trees, bushes, a sandy path into the distance in the middle, lamp post on the left (lamp), park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers on the grass in front.; marks: left, lamp (back), front-left (front), path (back), center, front-center (front), bench-1 (back) [bench], front-right (front), bench (back) [bench], right, bench-2 (back) [bench]
+- place `cemetery` — Cemetery at dusk: crescent moon, bare tree with a crow on the left (tree), dark bench left of centre for two (bench-1, bench-2), distant fence and graves, a big gravestone with flowers on the right (grave), a stone cross at the far right.; marks: tree (back), lamp (back), left, front-left (front), bench-1 (back) [bench], bench (back) [bench], bench-2 (back) [bench], front-center (front), center, shop (back), grave, front-right (front), right
+- place `stadium` — Football stadium: floodlights, packed stands, advertising boards, then the front row of red/coloured plastic seats along the back (seat-1…seat-4 — fans sit there), the pitch in front with a ball (players stand on the grass: center, left, right, front-*).; marks: seat-1 (back) [chair], left, front-left (front), seat-2 (back) [chair], center, front-center (front), seat-3 (back) [chair], front-right (front), right, seat-4 (back) [chair]
+- place `zoo` — Zoo: a giraffe behind a low wooden fence on the left (giraffe), a paw-print sign in the middle (sign), a lion in a barred cage on the right (cage), sand in front.; marks: giraffe (back), left, front-left (front), sign (back), center, front-center (front), front-right (front), cage (back), right
+
+### zal — Assembly hall: a low stage across the back (back plane = on stage) with a presidium of three chairs, a side table with a carafe, a lectern with a microphone, banner and drapes; the hall floor in front (mid and front planes), audience seat backs at the bottom edge. Variants: theatre, museum.
+- default (no place) — covers conference-hall, theater, museum; marks: aisle, stage-left (back), left, front-left (front), seat-1 (back) [chair], seat-2 (back) [chair], center, front-center (front), seat-3 (back) [chair], lectern (back), front-right (front), right, stage-right (back)
+- place `theater` — Theatre: stage with red curtains, painted moonlit scenery and footlights; actors stand on stage (back and middle planes: stage-left, center, stage-right); in front of the footlights a front row of four red audience seats (seat-1…seat-4, front plane) facing us, dark auditorium with seat backs below.; marks: aisle (front), left, seat-1 (front) [chair], stage-left (back), seat-2 (front) [chair], center, seat-3 (front) [chair], stage-right (back), seat-4 (front) [chair], right, front-right (front)
+- place `museum` — Museum gallery: big landscape behind a rope barrier on the left (landscape), portrait in the middle (portrait), still life on the right (still-life), statue on a plinth at the far right; a backless visitors' bench in the middle of the room for two (bench-1, bench-2, middle plane).; marks: left, landscape, front-left (front), bench-1 [bench], portrait (back), center (back), front-center (front), bench-2 [bench], still-life (back), front-right (front), right
+
 
 ## Props (held in the right hand)
 
@@ -186,11 +269,19 @@ aerodrome-cap, apron, army-cap, badge, baguette, bandages, beard, beret, big-bea
 
 ## Acts (puppet actions for `act` beats)
 
-slap, punch, hit-head, cover-ears, cover-eyes, cover-face, hug, kiss, point, wave, facepalm, shrug, nod, shake-head, bow, kneel, sit, stand, fall, faint, lie, jump, run, cry, laugh, drink, eat, scratch-head, hands-up, clap, pray-hands, think, sleep, throw, grab, knock, dance, shiver, flex — state poses that hold until the next act of that puppet or `stand`: cover-ears, cover-eyes, cover-face, kneel, sit, lie, sleep, faint, pray-hands, hands-up, think; with a target (`to`): slap, punch, hit-head, hug, kiss, throw — the puppet walks up to the target first, the target flinches when hit.
+slap, punch, hit-head, cover-ears, cover-eyes, cover-face, hug, kiss, point, wave, facepalm, shrug, nod, shake-head, bow, kneel, sit, stand, fall, faint, lie, jump, run, cry, laugh, drink, eat, scratch-head, hands-up, clap, pray-hands, think, sleep, throw, grab, knock, dance, shiver, flex — state poses that hold until the next state act of that puppet, `stand` or walking (gestures play on top of a held state: kneel + shake-head, sit + cry): cover-ears, cover-eyes, cover-face, kneel, sit, lie, sleep, faint, pray-hands, hands-up, think; with a target (`to`): slap, punch, hit-head, hug, kiss, throw — the puppet walks up to the target first, the target flinches when hit.
 
 ## Set pieces (furniture for `set`)
 
-dining-table, table, desk, counter, lectern, sofa, bed, christmas-tree — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.
+dining-table, table, desk, counter, lectern, sofa, bed, christmas-tree, chair, bench, stool, armchair, row-of-chairs — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind; chair/bench/stool/armchair/row-of-chairs are seats (`{item, at, plane}`; a puppet at that spot sits). Check the place first: seats and furniture it already shows need no set piece.
+
+## Depth (planes)
+
+Three planes like a paper theatre: `back` (by the wall, smaller, higher), `mid` (default), `front` (close to the camera, bigger). A mark has its plane; `move` may override it with `plane`. Someone walking past people on the same plane passes in front of them (`via: "back"` — behind their backs). Use planes to stage: the nurse stands in front of the seated patients, the boss behind the desk, a passer-by crosses in the front.
+
+## Vehicles (outside)
+
+`scene.vehicles: [{id, kind, at?, riders?, facing?}]` with kind = car, taxi, police-car, ambulance, bus, tram, train, truck, tractor, bicycle, motorcycle, scooter, horse-cart. Beats: `{type:"drive", vehicle, to, from?}` (drives to a mark or in/out over the edge with everyone inside), `{type:"board", who, vehicle}`, `{type:"alight", who, vehicle, to?}`. Riders are seen in the windows (car, bus, tram, train) or sitting on it (bicycle, motorcycle, scooter, horse-cart); the first rider drives. Riders talk from the windows with normal lines. For the inside of a vehicle use the place (doroga:car, doroga:bus, doroga:tram, samolet:cockpit…).
 
 ## Crowd
 

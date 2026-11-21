@@ -17,26 +17,72 @@
     "mailboxes"
   ],
   "marks": {
-    "door-left": 0.14,
-    "left": 0.22,
-    "elevator": 0.47,
-    "center": 0.5,
-    "door-right": 0.72,
-    "right": 0.78,
-    "stairs": 0.9
+    "door-left": {
+      "x": 0.15,
+      "z": 1
+    },
+    "elevator": {
+      "x": 0.47,
+      "z": 1
+    },
+    "door-right": {
+      "x": 0.72,
+      "z": 1
+    },
+    "stairs": {
+      "x": 0.86,
+      "z": 1
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.78,
+      "z": 0.5
+    },
+    "front": {
+      "x": 0.5,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Apartment block stairwell: landing with neighbours' doors, elevator, stairs going up — neighbours meet, someone rings the doorbell; variant inside the elevator cabin.",
+    "summary": "Apartment block stairwell: landing with neighbours' doors (door-left 12, door-right 13), elevator doors, stairs going up on the right — neighbours meet, someone rings the doorbell; variant inside the elevator cabin.",
     "roles": [
       "stairwell",
       "elevator"
     ],
     "variants": [
       {
+        "id": "elevator",
         "roles": [
-          "elevator"
+          "elevator",
+          "lift"
         ],
-        "change": "inside a small elevator cabin: button panel, mirror, handrail"
+        "change": "inside a cramped elevator cabin: wood-panel walls, mirror on the left of the back wall, button panel with one burnt button on the right, handrail, ceiling lamp; room for only two or three people (left, right, back against the mirror)",
+        "name": {
+          "ru": "Лифт",
+          "en": "Elevator",
+          "de": "Aufzug"
+        },
+        "marks": {
+          "left": {
+            "x": 0.32,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.68,
+            "z": 0.5
+          },
+          "back": {
+            "x": 0.5,
+            "z": 1
+          }
+        }
       }
     ],
     "prompt": "soviet apartment block stairwell landing, two padded apartment doors with numbers, elevator doors, stairs with railing going up, painted green lower wall, bare bulb"

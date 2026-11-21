@@ -19,7 +19,15 @@ export const SET_PIECES: Record<string, { layer: "front" | "back"; w: number }> 
   sofa: { layer: "back", w: 560 },
   bed: { layer: "back", w: 620 },
   "christmas-tree": { layer: "back", w: 300 },
+  // сиденья: кукла на их x сидит (верх сиденья — SEAT_H над полом её плана, см. world/depth.ts)
+  chair: { layer: "back", w: 150 },
+  stool: { layer: "back", w: 120 },
+  armchair: { layer: "back", w: 220 },
+  bench: { layer: "back", w: 420 },
+  "row-of-chairs": { layer: "back", w: 640 },
 };
+/** Сиденья среди мебели: на них сидят сами (как за столом). */
+export const SEAT_ITEMS = ["chair", "stool", "armchair", "bench", "row-of-chairs"];
 
 const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floor: number }) => {
   const l = x - w / 2;
@@ -136,9 +144,80 @@ const Piece = ({ item, x, w, floor }: { item: string; x: number; w: number; floo
         </g>
       );
     }
+    case "chair":
+    case "stool":
+    case "armchair":
+    case "bench":
+    case "row-of-chairs": {
+      // верх сиденья на 72 px над полом (SEAT_H): сидящая кукла садится ровно на него
+      const seatY = floor - 72;
+      const n = item === "row-of-chairs" ? 4 : 1;
+      const cw = w / n;
+      const one = (cx: number, i: number) => {
+        const l0 = cx - cw / 2 + 8;
+        const ww = cw - 16;
+        if (item === "bench") {
+          return (
+            <g key={i}>
+              <rect x={l0} y={seatY - 120} width={ww} height={22} rx={8} fill={WOOD} />
+              <rect x={l0} y={seatY - 70} width={ww} height={22} rx={8} fill={WOOD} />
+              <rect x={l0 - 6} y={seatY} width={ww + 12} height={22} rx={8} fill={WOOD} />
+              <rect x={l0 + 20} y={seatY + 22} width={16} height={50} fill={WOOD_DARK} />
+              <rect x={l0 + ww - 36} y={seatY + 22} width={16} height={50} fill={WOOD_DARK} />
+            </g>
+          );
+        }
+        if (item === "armchair") {
+          return (
+            <g key={i}>
+              <rect x={l0} y={seatY - 170} width={ww} height={190} rx={40} fill={ACCENT} />
+              <rect x={l0 - 14} y={seatY - 60} width={46} height={110} rx={20} fill="#b4452f" />
+              <rect x={l0 + ww - 32} y={seatY - 60} width={46} height={110} rx={20} fill="#b4452f" />
+              <rect x={l0 + 10} y={seatY - 6} width={ww - 20} height={40} rx={14} fill="#b4452f" />
+              <rect x={l0 + 20} y={seatY + 34} width={14} height={38} fill={WOOD_DARK} />
+              <rect x={l0 + ww - 34} y={seatY + 34} width={14} height={38} fill={WOOD_DARK} />
+            </g>
+          );
+        }
+        const back = item === "stool" ? null : <rect x={l0 + 4} y={seatY - 150} width={18} height={160} rx={6} fill={WOOD_DARK} />;
+        return (
+          <g key={i}>
+            {back}
+            {item !== "stool" && <rect x={l0 + 4} y={seatY - 150} width={ww * 0.7} height={50} rx={10} fill={item === "row-of-chairs" ? "#3f6b8f" : WOOD} />}
+            <rect x={l0} y={seatY} width={ww} height={20} rx={8} fill={item === "row-of-chairs" ? "#3f6b8f" : WOOD} />
+            <rect x={l0 + 8} y={seatY + 20} width={12} height={52} fill={WOOD_DARK} />
+            <rect x={l0 + ww - 20} y={seatY + 20} width={12} height={52} fill={WOOD_DARK} />
+          </g>
+        );
+      };
+      return <g>{Array.from({ length: n }, (_, i) => one(l + cw * (i + 0.5), i))}</g>;
+    }
     default:
       return null;
   }
+};
+
+/**
+ * Один предмет мебели на своём плане глубины: floorY — пол этого плана, k — масштаб (план × размер кукол сцены).
+ * Движок сортирует предметы вместе с куклами по z (дальние раньше).
+ */
+export const SetPiece = ({ it, x, stageW, height, floorY, k }: { it: SetItem; x: number; stageW: number; height: number; floorY: number; k: number }) => {
+  const def = SET_PIECES[it.item];
+  if (!def) return null;
+  const w = def.w <= 1 ? (def.w * stageW) / k : def.w * (it.size === "big" ? 1.4 : it.size === "small" ? 0.7 : 1);
+  return (
+    <svg width={stageW} height={height} viewBox={`0 0 ${stageW} ${height}`} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
+      <g transform={`translate(${x} ${floorY}) scale(${k}) translate(${-x} ${-floorY})`}>
+        <Piece item={it.item} x={x} w={w} floor={floorY} />
+      </g>
+    </svg>
+  );
+};
+/** Ширина предмета на сцене (px) — для «сидит за столом / на скамье». */
+export const pieceWidth = (it: SetItem, stageW: number, k: number) => {
+  const def = SET_PIECES[it.item];
+  if (!def) return 0;
+  return def.w <= 1 ? def.w * stageW : def.w * k * (it.size === "big" ? 1.4 : it.size === "small" ? 0.7 : 1);
 };
 
 /** Слой мебели сцены. xOf — позиция по метке (доля ширины сцены → px). */

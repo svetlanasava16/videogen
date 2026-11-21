@@ -18,7 +18,7 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 5. Preview: `cd remotion && npx remotion still src/index.ts Joke ../renders/<id>.png --frame=60 --props=../content/episodes/<id>.json`; full render: `npx remotion render src/index.ts Joke ../renders/<id>.mp4 --props=…`. Look at a few stills (narrator jokes, translations) before reporting.
 
 ## Original wording and swearing (user's top rule)
-- `original` mode copies every spoken line from the source; only typos, numbers as words, splitting long lines, reported → direct speech, and cutting narration the picture shows are allowed. Translations go line by line. Paraphrase kills the joke.
+- `original` mode copies every line from the source — the narration too (it is the live telling of the joke); only typos, numbers as words and splitting into lines where the speaker or the action changes are allowed. Translations go line by line. Paraphrase kills the joke.
 - Tell the whole joke: every dialogue line and every step of an escalation; no word or scene limit — the video is as long as the joke; narration drops only what the picture shows.
 - Two versions at once: `lines[].text` is clean (only swear words softened: нахер → нафиг, блядь → блин, fuck → freaking, Scheiße → Mist), `lines[].uncensored` holds the source words and is set only when it differs. `Episode.explicit: true` makes captions show `uncensored` (voice-over is generated from `text`).
 - Check a batch: `python3` metric = share of dialogue words found in the source (old scripts: median 0.81; verbatim writer: 0.97–1.00). Compare lines to the source, not just the punchline.
@@ -40,6 +40,13 @@ description: Write video scripts (episodes) from annotated jokes in ru/en/de —
 - Specific joke: find its id in `data/jokes/<lang>.jsonl` (grep the text), then create a one-item batch: `pnpm llm prepare script` only picks pool jokes, so for outside-pool jokes write the input line by hand into a new `batch-NNNN.in.jsonl` (same fields as existing batches; `suggestedCast` from `castScene`).
 - Different tone or length: adjust `pipeline/prompts/script.md` (keep the output format) and re-run on a pilot.
 - Missing puppet for a joke: use **jokes-cast** first.
+
+## Staging rules the writer follows (details: `docs/ENGINE.md`)
+- The narrator tells, the puppets act it out at the same moment: beats before a line run during it; an `act` goes right before the line that names it; no pauses except an explicit comic `pause`.
+- Rooms: pick the `place` (hospital `waiting-room` → default doctor's office, `samolet` `cabin` → `cockpit`, home rooms); a new room = a new scene (`cut`).
+- Depth: seated people on seat marks, the one who serves or walks stands in front (front marks); `via: "back"` to pass behind.
+- Vehicles outside: `vehicles` + `drive`/`board`/`alight` on the narrator's words; riders talk from the windows.
+- The example showcase for these rules: compilation `content/compilations/ru-20261121-02.json`.
 
 ## Engine v2 (scenes)
 Scripts may include `scenes` (several places, walking to marks, props, flyover/wipe transitions) — see **jokes-engine** for the format. The writer's reference `data/llm/script/context.md` is regenerated on `prepare` from `content/world/bible.md`, `town.json`, location marks and `content/props.json`. Use scenes only when they serve the joke; simple one-place dialogues stay without them. `--per-lang N` is a cumulative top (ranks 101–110 = `--per-lang 110`).

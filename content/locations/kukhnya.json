@@ -12,20 +12,63 @@
   },
   "props": [
     "table",
+    "stools",
     "stove",
     "fridge",
-    "window"
+    "window",
+    "door"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "fridge": 0.15,
-    "table": 0.5,
-    "stove": 0.84
+    "door": {
+      "x": 0.07,
+      "z": 1
+    },
+    "fridge": {
+      "x": 0.25,
+      "z": 1
+    },
+    "stool-1": {
+      "x": 0.395,
+      "z": 1,
+      "seat": "stool"
+    },
+    "stool-2": {
+      "x": 0.705,
+      "z": 1,
+      "seat": "stool"
+    },
+    "stove": {
+      "x": 0.87,
+      "z": 1
+    },
+    "table": 0.55,
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.8,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Small kitchen with table and fridge: family talks, late-night conversations.",
+    "summary": "Soviet kitchen: doorway on the far left, old fridge, small table with tea under the window with a stool on each side, stove with a kettle on the right.",
     "roles": [
       "home-kitchen"
     ],

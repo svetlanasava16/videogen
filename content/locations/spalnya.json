@@ -14,29 +14,127 @@
     "bed",
     "wardrobe",
     "window",
-    "nightstand"
+    "nightstand",
+    "door"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "nightstand": 0.18,
-    "bed": 0.5,
-    "wardrobe": 0.86,
-    "toilet": 0.9
+    "door": {
+      "x": 0.1,
+      "z": 1
+    },
+    "nightstand": {
+      "x": 0.24,
+      "z": 1
+    },
+    "bed-1": {
+      "x": 0.42,
+      "z": 1,
+      "seat": "bed"
+    },
+    "bed": {
+      "x": 0.55,
+      "z": 1,
+      "seat": "bed"
+    },
+    "bed-2": {
+      "x": 0.68,
+      "z": 1,
+      "seat": "bed"
+    },
+    "wardrobe": {
+      "x": 0.9,
+      "z": 1
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.78,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Bedroom: double bed, wardrobe, window — classic infidelity and night scenes.",
+    "summary": "Bedroom: door on the left, nightstand with a lamp, a low double bed against the back wall under the night window (sit on it: bed-1, bed-2), wardrobe on the right; bathroom variant.",
     "roles": [
       "bedroom",
       "bathroom"
     ],
     "variants": [
       {
+        "id": "bathroom",
+        "name": {
+          "ru": "Ванная",
+          "en": "Bathroom",
+          "de": "Badezimmer"
+        },
         "roles": [
           "bathroom"
         ],
-        "change": "bathtub, sink with mirror, toilet"
+        "change": "Tiled bathroom: bathtub with foam and a rubber duck and a shower on the left (bathtub), towel on the wall, sink with a round mirror left of centre (sink), door right of centre (door), toilet at the right wall — sitting on it: toilet.",
+        "marks": {
+          "bathtub": {
+            "x": 0.2,
+            "z": 1
+          },
+          "sink": {
+            "x": 0.5,
+            "z": 1
+          },
+          "door": {
+            "x": 0.7,
+            "z": 1
+          },
+          "toilet": {
+            "x": 0.9,
+            "z": 1,
+            "seat": "stool"
+          },
+          "nightstand": {
+            "x": 0.5,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.75,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "bedroom with double bed, big wardrobe, nightstand lamp, window at night"

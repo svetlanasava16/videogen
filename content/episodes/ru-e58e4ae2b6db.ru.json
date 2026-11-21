@@ -6,84 +6,636 @@
   "location": "doroga",
   "place": "road",
   "cast": [
-    "sluzhivy",
+    "nachalnik",
     "ded",
-    "nachalnik"
+    "sluzhivy"
   ],
   "roles": {
-    "sluzhivy": "traffic-cop",
+    "nachalnik": "gangster",
     "ded": "old-man",
-    "nachalnik": "gangster"
+    "sluzhivy": "traffic-cop"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Стоит гаишник под знаком «сорок километров».",
+      "text": "Стоит гаишник под знаком сорок километров.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l1.mp3",
+        "durationSec": 3.161,
+        "words": [
+          {
+            "text": "Стоит",
+            "start": 0,
+            "end": 0.406
+          },
+          {
+            "text": "гаишник",
+            "start": 0.464,
+            "end": 0.929
+          },
+          {
+            "text": "под",
+            "start": 0.987,
+            "end": 1.103
+          },
+          {
+            "text": "знаком",
+            "start": 1.149,
+            "end": 1.498
+          },
+          {
+            "text": "сорок",
+            "start": 1.567,
+            "end": 1.858
+          },
+          {
+            "text": "километров.",
+            "start": 1.881,
+            "end": 3.111
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "84b68186"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Мимо едет запор, скорость сорок один километр. Гаишник свистит.",
+      "text": "Мимо едет запор — скорость сорок один километр.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l2.mp3",
+        "durationSec": 3.474,
+        "words": [
+          {
+            "text": "Мимо",
+            "start": 0,
+            "end": 0.325
+          },
+          {
+            "text": "едет",
+            "start": 0.406,
+            "end": 0.673
+          },
+          {
+            "text": "запор",
+            "start": 0.731,
+            "end": 1.138
+          },
+          {
+            "text": "—",
+            "start": 1.254,
+            "end": 1.3
+          },
+          {
+            "text": "скорость",
+            "start": 1.37,
+            "end": 1.846
+          },
+          {
+            "text": "сорок",
+            "start": 1.904,
+            "end": 2.218
+          },
+          {
+            "text": "один",
+            "start": 2.287,
+            "end": 2.508
+          },
+          {
+            "text": "километр.",
+            "start": 2.566,
+            "end": 3.437
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "fb0fb601"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "sluzhivy",
-      "text": "Вы превысили скорость. Будете платить штраф, или я заберу права.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Гаишник свистит.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l3.mp3",
+        "durationSec": 1.254,
+        "words": [
+          {
+            "text": "Гаишник",
+            "start": 0,
+            "end": 0.476
+          },
+          {
+            "text": "свистит.",
+            "start": 0.511,
+            "end": 1.207
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "11032a5f"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "ded",
-      "text": "Нету денег у меня.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Запор останавливается.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l4.mp3",
+        "durationSec": 1.62,
+        "words": [
+          {
+            "text": "Запор",
+            "start": 0,
+            "end": 0.383
+          },
+          {
+            "text": "останавливается.",
+            "start": 0.418,
+            "end": 1.579
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "9e860b6f"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy",
-      "text": "Тогда заберу права.",
-      "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Вылазит зачуханный дедок.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l5.mp3",
+        "durationSec": 2.038,
+        "words": [
+          {
+            "text": "Вылазит",
+            "start": 0,
+            "end": 0.453
+          },
+          {
+            "text": "зачуханный",
+            "start": 0.499,
+            "end": 0.975
+          },
+          {
+            "text": "дедок.",
+            "start": 1.022,
+            "end": 1.997
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "f70212d7"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Тут мимо летит иномарка. Гаишник свистит.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "sluzhivy",
+      "text": "Вы превысили скорость. Будете платить штраф или я заберу права.",
+      "emotion": "smug",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l6.mp3",
+        "durationSec": 3.527,
+        "words": [
+          {
+            "text": "Вы",
+            "start": 0,
+            "end": 0.139
+          },
+          {
+            "text": "превысили",
+            "start": 0.174,
+            "end": 0.615
+          },
+          {
+            "text": "скорость.",
+            "start": 0.639,
+            "end": 1.207
+          },
+          {
+            "text": "Будете",
+            "start": 1.382,
+            "end": 1.695
+          },
+          {
+            "text": "платить",
+            "start": 1.73,
+            "end": 2.043
+          },
+          {
+            "text": "штраф",
+            "start": 2.09,
+            "end": 2.392
+          },
+          {
+            "text": "или",
+            "start": 2.45,
+            "end": 2.577
+          },
+          {
+            "text": "я",
+            "start": 2.601,
+            "end": 2.635
+          },
+          {
+            "text": "заберу",
+            "start": 2.694,
+            "end": 2.961
+          },
+          {
+            "text": "права.",
+            "start": 2.995,
+            "end": 3.483
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "pNInz6obpgDQGcFmaJgB",
+        "model": "eleven_multilingual_v2",
+        "textHash": "79cfd794"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
-      "character": "nachalnik",
-      "text": "А ну, кто свистел?!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
+      "character": "ded",
+      "text": "Нету денег у меня.",
+      "emotion": "sad",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l7.mp3",
+        "durationSec": 1.515,
+        "words": [
+          {
+            "text": "Нету",
+            "start": 0,
+            "end": 0.325
+          },
+          {
+            "text": "денег",
+            "start": 0.372,
+            "end": 0.65
+          },
+          {
+            "text": "у",
+            "start": 0.708,
+            "end": 0.731
+          },
+          {
+            "text": "меня.",
+            "start": 0.778,
+            "end": 1.486
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "pqHfZKP75CvOlQylNhV4",
+        "model": "eleven_multilingual_v2",
+        "textHash": "66d7d604"
+      },
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "sluzhivy",
+      "text": "Тогда заберу права.",
+      "emotion": "smug",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l8.mp3",
+        "durationSec": 1.384,
+        "words": [
+          {
+            "text": "Тогда",
+            "start": 0,
+            "end": 0.313
+          },
+          {
+            "text": "заберу",
+            "start": 0.372,
+            "end": 0.662
+          },
+          {
+            "text": "права.",
+            "start": 0.697,
+            "end": 1.347
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "pNInz6obpgDQGcFmaJgB",
+        "model": "eleven_multilingual_v2",
+        "textHash": "0e0df335"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Тут мимо летит иномарка.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l9.mp3",
+        "durationSec": 1.567,
+        "words": [
+          {
+            "text": "Тут",
+            "start": 0,
+            "end": 0.209
+          },
+          {
+            "text": "мимо",
+            "start": 0.267,
+            "end": 0.453
+          },
+          {
+            "text": "летит",
+            "start": 0.499,
+            "end": 0.766
+          },
+          {
+            "text": "иномарка.",
+            "start": 0.813,
+            "end": 1.533
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "45bfe3b1"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Гаишник свистит.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l10.mp3",
+        "durationSec": 1.254,
+        "words": [
+          {
+            "text": "Гаишник",
+            "start": 0,
+            "end": 0.441
+          },
+          {
+            "text": "свистит.",
+            "start": 0.476,
+            "end": 1.207
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "11032a5f"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Иномарка останавливается.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l11.mp3",
+        "durationSec": 1.802,
+        "words": [
+          {
+            "text": "Иномарка",
+            "start": 0,
+            "end": 0.58
+          },
+          {
+            "text": "останавливается.",
+            "start": 0.604,
+            "end": 1.765
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "ac70fb62"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "narrator",
+      "text": "Вылазит Амбал:",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l12.mp3",
+        "durationSec": 1.149,
+        "words": [
+          {
+            "text": "Вылазит",
+            "start": 0,
+            "end": 0.476
+          },
+          {
+            "text": "Амбал:",
+            "start": 0.534,
+            "end": 1.115
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "c29d12f4"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "nachalnik",
+      "text": "А ну, кто свистел?!",
+      "emotion": "angry",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l13.mp3",
+        "durationSec": 1.515,
+        "words": [
+          {
+            "text": "А",
+            "start": 0,
+            "end": 0.104
+          },
+          {
+            "text": "ну,",
+            "start": 0.186,
+            "end": 0.29
+          },
+          {
+            "text": "кто",
+            "start": 0.313,
+            "end": 0.476
+          },
+          {
+            "text": "свистел?!",
+            "start": 0.534,
+            "end": 1.486
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "cjVigY5qzO86Huf0OWal",
+        "model": "eleven_multilingual_v2",
+        "textHash": "4b2ed2f3"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "narrator",
+      "text": "Гаишник молчит.",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l14.mp3",
+        "durationSec": 1.202,
+        "words": [
+          {
+            "text": "Гаишник",
+            "start": 0,
+            "end": 0.488
+          },
+          {
+            "text": "молчит.",
+            "start": 0.534,
+            "end": 1.161
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "e2496f4b"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
+      "character": "narrator",
+      "text": "Дедок — гаишнику:",
+      "emotion": "neutral",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l15.mp3",
+        "durationSec": 1.672,
+        "words": [
+          {
+            "text": "Дедок",
+            "start": 0,
+            "end": 0.453
+          },
+          {
+            "text": "—",
+            "start": 0.499,
+            "end": 0.546
+          },
+          {
+            "text": "гаишнику:",
+            "start": 0.604,
+            "end": 1.625
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+        "model": "eleven_multilingual_v2",
+        "textHash": "999e122b"
+      },
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l16",
       "character": "ded",
       "text": "Отдай права, а то скажу, кто свистел!",
       "emotion": "smug",
+      "audio": {
+        "file": "audio/voice/ru-e58e4ae2b6db.ru/l16.mp3",
+        "durationSec": 2.821,
+        "words": [
+          {
+            "text": "Отдай",
+            "start": 0,
+            "end": 0.337
+          },
+          {
+            "text": "права,",
+            "start": 0.395,
+            "end": 0.882
+          },
+          {
+            "text": "а",
+            "start": 1.033,
+            "end": 1.115
+          },
+          {
+            "text": "то",
+            "start": 1.161,
+            "end": 1.265
+          },
+          {
+            "text": "скажу,",
+            "start": 1.324,
+            "end": 1.66
+          },
+          {
+            "text": "кто",
+            "start": 1.683,
+            "end": 1.858
+          },
+          {
+            "text": "свистел!",
+            "start": 1.904,
+            "end": 2.786
+          }
+        ],
+        "provider": "elevenlabs-free",
+        "voiceId": "pqHfZKP75CvOlQylNhV4",
+        "model": "eleven_multilingual_v2",
+        "textHash": "0e0228b6"
+      },
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -95,52 +647,85 @@
     {
       "location": "doroga",
       "cast": [
-        "sluzhivy",
+        "nachalnik",
         "ded",
-        "nachalnik"
+        "sluzhivy"
       ],
       "roles": {
-        "sluzhivy": "traffic-cop",
+        "nachalnik": "gangster",
         "ded": "old-man",
-        "nachalnik": "gangster"
+        "sluzhivy": "traffic-cop"
       },
       "looks": {
         "ded": {
+          "clothes": "#6b604f",
           "add": [
             "flat-cap"
           ],
           "remove": []
         },
         "nachalnik": {
+          "clothes": "#2a2422",
+          "hairStyle": "bald",
+          "build": "stocky",
           "add": [
             "gold-chain"
           ],
           "remove": []
         }
       },
+      "vehicles": [
+        {
+          "id": "zapor",
+          "kind": "car",
+          "riders": [
+            "ded"
+          ],
+          "color": "#d8c9a0"
+        },
+        {
+          "id": "inomarka",
+          "kind": "car",
+          "plane": "mid",
+          "riders": [
+            "nachalnik"
+          ],
+          "color": "#2b2b33"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "sluzhivy",
-          "to": "roadside"
+          "to": "sign"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
-          "type": "line",
-          "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "ded",
-          "to": "center",
+          "type": "drive",
+          "vehicle": "zapor",
+          "to": "road",
           "from": "off-right"
         },
         {
           "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "point"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "drive",
+          "vehicle": "zapor",
+          "to": "road-left"
         },
         {
           "type": "line",
@@ -153,8 +738,32 @@
           "action": "hold"
         },
         {
+          "type": "alight",
+          "who": "ded",
+          "vehicle": "zapor",
+          "to": "road"
+        },
+        {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "road-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "ded",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
         },
         {
           "type": "prop",
@@ -165,31 +774,94 @@
         },
         {
           "type": "line",
-          "ref": "l6"
+          "ref": "l8"
         },
         {
-          "type": "move",
-          "who": "nachalnik",
-          "to": "right",
+          "type": "drive",
+          "vehicle": "inomarka",
+          "to": "roadside-right",
           "from": "off-right"
         },
         {
           "type": "line",
-          "ref": "l7"
+          "ref": "l9"
         },
         {
-          "type": "pause",
-          "sec": 1.5
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "point"
         },
         {
           "type": "line",
-          "ref": "l8"
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "alight",
+          "who": "nachalnik",
+          "vehicle": "inomarka",
+          "to": "car"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "flex"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "shiver"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
+        },
+        {
+          "type": "line",
+          "ref": "l16"
         }
       ],
       "transition": "cut"
     }
   ],
-  "outroLaughs": [],
+  "outroLaughs": [
+    {
+      "character": "nachalnik",
+      "file": "audio/voice/ru-e58e4ae2b6db.ru/laugh-nachalnik.mp3",
+      "durationSec": 1.881,
+      "provider": "elevenlabs-free",
+      "voiceId": "cjVigY5qzO86Huf0OWal"
+    },
+    {
+      "character": "ded",
+      "file": "audio/voice/ru-e58e4ae2b6db.ru/laugh-ded.mp3",
+      "durationSec": 1.071,
+      "provider": "elevenlabs-free",
+      "voiceId": "pqHfZKP75CvOlQylNhV4"
+    },
+    {
+      "character": "sluzhivy",
+      "file": "audio/voice/ru-e58e4ae2b6db.ru/laugh-sluzhivy.mp3",
+      "durationSec": 1.149,
+      "provider": "elevenlabs-free",
+      "voiceId": "pNInz6obpgDQGcFmaJgB"
+    }
+  ],
   "format": {
     "width": 1080,
     "height": 1920,

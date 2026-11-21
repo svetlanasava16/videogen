@@ -41,7 +41,7 @@ export const Captions = ({ line, locale, narrator = false, top }: { line?: Timed
     <div
       lang={locale}
       style={{
-        position: "absolute", left: 60, right: 60, top: top ?? (narrator ? "8%" : "66%"),
+        position: "absolute", left: 60, right: 60, top: top ?? (narrator ? "8%" : "72%"),
         fontStyle: narrator || line.offscreen ? "italic" : "normal", // голос из-за кадра — курсивом
         ...(narrator ? { background: "rgba(0,0,0,0.55)", borderRadius: 28, padding: "24px 32px" } : {}),
         display: "flex", flexWrap: "wrap", justifyContent: "center", gap: `12px ${GAP}px`,

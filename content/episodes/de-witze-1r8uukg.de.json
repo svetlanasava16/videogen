@@ -2,17 +2,19 @@
   "id": "de-witze-1r8uukg.de",
   "jokeId": "de-witze-1r8uukg",
   "locale": "de",
-  "title": "Im Bus",
+  "title": "Der Busfahrer",
   "location": "doroga",
   "place": "bus",
   "cast": [
     "muzhik-ryzhy",
     "zhena",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
+    "vovochka": "child",
     "muzhik": "customer"
   },
   "lines": [
@@ -22,7 +24,10 @@
       "text": "Eine Frau steigt mit ihrem Baby auf dem Arm vorne beim Fahrer in den Bus ein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "zhena",
+        "vovochka"
+      ],
       "exit": []
     },
     {
@@ -75,23 +80,14 @@
       "character": "muzhik",
       "text": "Wir machen jetzt Folgendes.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Sie gehen vor zum Fahrer, verlangen eine Entschuldigung,",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "muzhik",
-      "text": "und ich halte derweil Ihren Affen.",
+      "text": "Sie gehen vor zum Fahrer, verlangen eine Entschuldigung, und ich halte derweil Ihren Affen.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -107,11 +103,13 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
+        "vovochka",
         "muzhik"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
+        "vovochka": "child",
         "muzhik": "customer"
       },
       "looks": {
@@ -122,33 +120,7 @@
           "remove": []
         }
       },
-      "crowd": {
-        "who": "passengers",
-        "size": "few"
-      },
       "beats": [
-        {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "roadside"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "right"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "left",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "baby",
-          "action": "hold"
-        },
         {
           "type": "line",
           "ref": "l1"
@@ -156,11 +128,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
         },
         {
           "type": "line",
@@ -185,10 +152,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "cut"

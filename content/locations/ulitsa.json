@@ -16,15 +16,60 @@
     "shop front"
   ],
   "marks": {
-    "left": 0.22,
-    "center": 0.5,
-    "right": 0.78,
-    "lamp": 0.12,
-    "shop": 0.4,
-    "bench": 0.75
+    "lamp": {
+      "x": 0.1,
+      "z": 1
+    },
+    "shop": {
+      "x": 0.4,
+      "z": 1
+    },
+    "shop-door": {
+      "x": 0.53,
+      "z": 1
+    },
+    "bench-1": {
+      "x": 0.78,
+      "z": 1,
+      "seat": "bench"
+    },
+    "bench": {
+      "x": 0.84,
+      "z": 1,
+      "seat": "bench"
+    },
+    "bench-2": {
+      "x": 0.9,
+      "z": 1,
+      "seat": "bench"
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.72,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "City street with a bench and lamp post.",
+    "summary": "Town street: house facades, a shop with an awning and a door, lamp post on the left, a street bench on the right for two (bench-1, bench-2), sidewalk and road in front. Variants: park, cemetery, stadium, zoo.",
     "roles": [
       "street",
       "park",
@@ -34,23 +79,242 @@
     ],
     "variants": [
       {
+        "id": "park",
+        "name": {
+          "ru": "Парк",
+          "en": "Park",
+          "de": "Park"
+        },
         "roles": [
           "park"
         ],
-        "change": "trees and a bench"
+        "change": "Park: trees, bushes, a sandy path into the distance in the middle, lamp post on the left (lamp), park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers on the grass in front.",
+        "marks": {
+          "lamp": {
+            "x": 0.23,
+            "z": 1
+          },
+          "path": {
+            "x": 0.5,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.72,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench": {
+            "x": 0.78,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.84,
+            "z": 1,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.2,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.8,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "cemetery",
+        "name": {
+          "ru": "Кладбище",
+          "en": "Cemetery",
+          "de": "Friedhof"
+        },
         "roles": [
           "cemetery"
         ],
-        "change": "gravestones, dusk"
+        "change": "Cemetery at dusk: crescent moon, bare tree with a crow on the left (tree), dark bench left of centre for two (bench-1, bench-2), distant fence and graves, a big gravestone with flowers on the right (grave), a stone cross at the far right.",
+        "marks": {
+          "tree": {
+            "x": 0.14,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.32,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench": {
+            "x": 0.38,
+            "z": 1,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.44,
+            "z": 1,
+            "seat": "bench"
+          },
+          "grave": {
+            "x": 0.72,
+            "z": 0.5
+          },
+          "lamp": {
+            "x": 0.14,
+            "z": 1
+          },
+          "shop": {
+            "x": 0.6,
+            "z": 1
+          },
+          "left": {
+            "x": 0.2,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.85,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "stadium",
+        "name": {
+          "ru": "Стадион",
+          "en": "Stadium",
+          "de": "Stadion"
+        },
         "roles": [
-          "stadium",
+          "stadium"
+        ],
+        "change": "Football stadium: floodlights, packed stands, advertising boards, then the front row of red/coloured plastic seats along the back (seat-1…seat-4 — fans sit there), the pitch in front with a ball (players stand on the grass: center, left, right, front-*).",
+        "marks": {
+          "seat-1": {
+            "x": 0.2,
+            "z": 1,
+            "seat": "chair"
+          },
+          "seat-2": {
+            "x": 0.4,
+            "z": 1,
+            "seat": "chair"
+          },
+          "seat-3": {
+            "x": 0.6,
+            "z": 1,
+            "seat": "chair"
+          },
+          "seat-4": {
+            "x": 0.8,
+            "z": 1,
+            "seat": "chair"
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "zoo",
+        "name": {
+          "ru": "Зоопарк",
+          "en": "Zoo",
+          "de": "Zoo"
+        },
+        "roles": [
           "zoo"
         ],
-        "change": "stands or cages in the background"
+        "change": "Zoo: a giraffe behind a low wooden fence on the left (giraffe), a paw-print sign in the middle (sign), a lion in a barred cage on the right (cage), sand in front.",
+        "marks": {
+          "giraffe": {
+            "x": 0.2,
+            "z": 1
+          },
+          "sign": {
+            "x": 0.46,
+            "z": 1
+          },
+          "cage": {
+            "x": 0.78,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "simple city street, sidewalk, lamp post, bench, shop fronts, daytime"

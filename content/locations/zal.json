@@ -18,16 +18,64 @@
     "seats"
   ],
   "marks": {
-    "aisle": 0.1,
-    "left": 0.22,
-    "stage-left": 0.32,
-    "center": 0.5,
-    "stage-right": 0.64,
-    "lectern": 0.74,
-    "right": 0.84
+    "stage-left": {
+      "x": 0.2,
+      "z": 1
+    },
+    "seat-1": {
+      "x": 0.36,
+      "z": 1,
+      "seat": "chair"
+    },
+    "seat-2": {
+      "x": 0.47,
+      "z": 1,
+      "seat": "chair"
+    },
+    "seat-3": {
+      "x": 0.58,
+      "z": 1,
+      "seat": "chair"
+    },
+    "lectern": {
+      "x": 0.7,
+      "z": 1
+    },
+    "stage-right": {
+      "x": 0.9,
+      "z": 1
+    },
+    "aisle": {
+      "x": 0.08,
+      "z": 0.5
+    },
+    "left": {
+      "x": 0.22,
+      "z": 0.5
+    },
+    "center": {
+      "x": 0.5,
+      "z": 0.5
+    },
+    "right": {
+      "x": 0.8,
+      "z": 0.5
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Assembly / conference hall: low stage with a lectern and microphone, banner, rows of seats — meetings, speeches, press conferences; variants for theater and museum.",
+    "summary": "Assembly hall: a low stage across the back (back plane = on stage) with a presidium of three chairs, a side table with a carafe, a lectern with a microphone, banner and drapes; the hall floor in front (mid and front planes), audience seat backs at the bottom edge. Variants: theatre, museum.",
     "roles": [
       "conference-hall",
       "theater",
@@ -35,16 +83,126 @@
     ],
     "variants": [
       {
+        "id": "theater",
+        "name": {
+          "ru": "Театр",
+          "en": "Theatre",
+          "de": "Theater"
+        },
         "roles": [
           "theater"
         ],
-        "change": "stage with red curtains and footlights, painted scenery, audience seats in front"
+        "change": "Theatre: stage with red curtains, painted moonlit scenery and footlights; actors stand on stage (back and middle planes: stage-left, center, stage-right); in front of the footlights a front row of four red audience seats (seat-1…seat-4, front plane) facing us, dark auditorium with seat backs below.",
+        "marks": {
+          "stage-left": {
+            "x": 0.3,
+            "z": 1
+          },
+          "stage-right": {
+            "x": 0.7,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "seat-1": {
+            "x": 0.28,
+            "z": 0,
+            "seat": "chair"
+          },
+          "seat-2": {
+            "x": 0.44,
+            "z": 0,
+            "seat": "chair"
+          },
+          "seat-3": {
+            "x": 0.6,
+            "z": 0,
+            "seat": "chair"
+          },
+          "seat-4": {
+            "x": 0.76,
+            "z": 0,
+            "seat": "chair"
+          },
+          "aisle": {
+            "x": 0.1,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.92,
+            "z": 0
+          }
+        }
       },
       {
+        "id": "museum",
+        "name": {
+          "ru": "Музей",
+          "en": "Museum",
+          "de": "Museum"
+        },
         "roles": [
           "museum"
         ],
-        "change": "paintings in gold frames, statue on a plinth, rope barrier"
+        "change": "Museum gallery: big landscape behind a rope barrier on the left (landscape), portrait in the middle (portrait), still life on the right (still-life), statue on a plinth at the far right; a backless visitors' bench in the middle of the room for two (bench-1, bench-2, middle plane).",
+        "marks": {
+          "landscape": {
+            "x": 0.24,
+            "z": 0.5
+          },
+          "portrait": {
+            "x": 0.5,
+            "z": 1
+          },
+          "still-life": {
+            "x": 0.75,
+            "z": 1
+          },
+          "center": {
+            "x": 0.5,
+            "z": 1
+          },
+          "bench-1": {
+            "x": 0.44,
+            "z": 0.5,
+            "seat": "bench"
+          },
+          "bench-2": {
+            "x": 0.56,
+            "z": 0.5,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.14,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.8,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        }
       }
     ],
     "prompt": "assembly hall of a culture house, low wooden stage with lectern and microphone, red banner, presidium table with green cloth, rows of seat backs in the foreground"

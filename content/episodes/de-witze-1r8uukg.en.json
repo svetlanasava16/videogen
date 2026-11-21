@@ -2,17 +2,19 @@
   "id": "de-witze-1r8uukg.en",
   "jokeId": "de-witze-1r8uukg",
   "locale": "en",
-  "title": "On the Bus",
+  "title": "The Bus Driver",
   "location": "doroga",
   "place": "bus",
   "cast": [
     "muzhik-ryzhy",
     "zhena",
+    "vovochka",
     "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
+    "vovochka": "child",
     "muzhik": "customer"
   },
   "lines": [
@@ -22,13 +24,16 @@
       "text": "A woman with her baby in her arms gets on the bus at the front, by the driver.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [],
+      "enter": [
+        "zhena",
+        "vovochka"
+      ],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "That has got to be the ugliest child I've ever seen.",
+      "text": "That has to be the ugliest child I've ever seen.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -37,7 +42,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The woman, shocked but unable to say anything, sits down next to a man who can see that something is wrong.",
+      "text": "The woman, shocked but unable to say a word, sits down next to a man, who can tell something is wrong.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -64,7 +69,7 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "That is absolutely outrageous, and you don't have to put up with that.",
+      "text": "That is an absolute outrage, and you don't have to put up with that.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -75,23 +80,14 @@
       "character": "muzhik",
       "text": "Here's what we'll do.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0.6,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "You go up front to the driver and demand an apology,",
-      "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "muzhik",
-      "text": "and I'll hold your monkey in the meantime.",
+      "text": "You go up front to the driver and demand an apology, and I'll hold your monkey in the meantime.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -107,11 +103,13 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
+        "vovochka",
         "muzhik"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
+        "vovochka": "child",
         "muzhik": "customer"
       },
       "looks": {
@@ -122,33 +120,7 @@
           "remove": []
         }
       },
-      "crowd": {
-        "who": "passengers",
-        "size": "few"
-      },
       "beats": [
-        {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "roadside"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "right"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "left",
-          "from": "off-left"
-        },
-        {
-          "type": "prop",
-          "who": "zhena",
-          "item": "baby",
-          "action": "hold"
-        },
         {
           "type": "line",
           "ref": "l1"
@@ -156,11 +128,6 @@
         {
           "type": "line",
           "ref": "l2"
-        },
-        {
-          "type": "move",
-          "who": "zhena",
-          "to": "center"
         },
         {
           "type": "line",
@@ -185,10 +152,6 @@
         {
           "type": "line",
           "ref": "l8"
-        },
-        {
-          "type": "line",
-          "ref": "l9"
         }
       ],
       "transition": "cut"

@@ -1,6 +1,11 @@
 import { Canvas, Room, FLOOR_Y, W, type BackdropProps } from "./parts";
+import { SeatAt } from "./gostinaya";
+import { depthScale, feetY, seatTopY } from "../world/depth";
 
-/** Фон «klass»: школьный класс; вариант university — аудитория с рядами амфитеатром. */
+/**
+ * Фон «klass»: школьный класс (парты сбоку: стул под меткой pupil-*, парта справа от него; стул учителя слева от его стола);
+ * вариант university — аудитория с рядами амфитеатром и передним рядом откидных сидений (row-1…row-4).
+ */
 
 const rgb = (c: string) => {
   const h = c.replace("#", "");
@@ -84,25 +89,34 @@ const Clock = ({ cx, cy, r = 52 }: { cx: number; cy: number; r?: number }) => (
   </g>
 );
 
-/** Ученическая парта со стулом (вид сбоку). */
-const SchoolDesk = ({ x, s = 1, wood = WOOD, accent }: { x: number; s?: number; wood?: string; accent: string }) => (
-  <g transform={`translate(${x + 234 * s} ${FLOOR_Y}) scale(${-s} ${s})`}>
-    {/* стул */}
-    <rect x={190} y={-260} width={16} height={260} fill={METAL} />
-    <rect x={150} y={-110} width={14} height={110} fill={METAL} />
-    <rect x={144} y={-124} width={90} height={18} rx={8} fill={dark(wood, 0.08)} />
-    <rect x={194} y={-262} width={30} height={96} rx={10} fill={dark(wood, 0.08)} />
-    {/* парта */}
-    <rect x={10} y={-180} width={16} height={180} fill={METAL} />
-    <rect x={150} y={-180} width={16} height={60} fill={METAL} />
-    <rect x={0} y={-150} width={170} height={56} rx={6} fill={dark(wood, 0.18)} />
-    <path d="M-6 -204 L176 -196 L176 -176 L-6 -180 Z" fill={wood} />
-    {/* книжки */}
-    <rect x={20} y={-222} width={70} height={16} rx={3} fill={accent} transform="rotate(2 55 -214)" />
-    <rect x={28} y={-236} width={58} height={14} rx={3} fill={RED} transform="rotate(2 57 -229)" />
-    <rect x={110} y={-212} width={50} height={8} rx={4} fill="#f3d27a" />
-  </g>
-);
+/** Ученическая парта со стулом, вид сбоку: сиденье стула под меткой (x, z), парта справа — ученик смотрит на доску. */
+const SchoolDesk = ({ x, z, wood = WOOD, accent }: { x: number; z: number; wood?: string; accent: string }) => {
+  const s = depthScale(z);
+  const cx = x * W;
+  const top = seatTopY(z);
+  const fy = feetY(z);
+  const hw = 52 * s;
+  const dl = cx + hw + 4 * s;
+  const dw = 130 * s;
+  const dtop = top - 74 * s;
+  return (
+    <g>
+      {/* стул: спинка слева */}
+      <rect x={cx - hw} y={top - 130 * s} width={16 * s} height={fy - top + 130 * s} fill={METAL} />
+      <rect x={cx + hw - 16 * s} y={top} width={14 * s} height={fy - top} fill={METAL} />
+      <rect x={cx - hw - 4 * s} y={top - 132 * s} width={30 * s} height={90 * s} rx={10 * s} fill={dark(wood, 0.08)} />
+      <rect x={cx - hw} y={top} width={hw * 2} height={18 * s} rx={8 * s} fill={dark(wood, 0.08)} />
+      {/* парта */}
+      <rect x={dl + 6 * s} y={dtop} width={14 * s} height={fy - dtop} fill={METAL} />
+      <rect x={dl + dw - 20 * s} y={dtop} width={14 * s} height={fy - dtop} fill={METAL} />
+      <rect x={dl} y={dtop + 22 * s} width={dw} height={40 * s} rx={6 * s} fill={dark(wood, 0.18)} />
+      <path d={`M${dl - 6 * s} ${dtop - 10 * s} L${dl + dw + 4 * s} ${dtop - 2 * s} L${dl + dw + 4 * s} ${dtop + 18 * s} L${dl - 6 * s} ${dtop + 14 * s} Z`} fill={wood} />
+      {/* книжки */}
+      <rect x={dl + 50 * s} y={dtop - 26 * s} width={60 * s} height={16 * s} rx={3 * s} fill={accent} />
+      <rect x={dl + 56 * s} y={dtop - 40 * s} width={50 * s} height={14 * s} rx={3 * s} fill={RED} />
+    </g>
+  );
+};
 
 /** Учительский стол с глобусом, книгами и яблоком. */
 const TeacherTable = ({ x, w, accent }: { x: number; w: number; accent: string }) => {
@@ -138,9 +152,11 @@ const Classroom = ({ wall, floor, accent }: { wall: string; floor: string; accen
     <WorldMap x={40} y={460} w={190} h={150} accent={accent} />
     <Blackboard x={280} y={430} w={640} h={270} accent={accent} />
     <Clock cx={990} cy={500} r={50} />
-    <SchoolDesk x={-150} s={1.05} wood={mix(WOOD, wall, 0.35)} accent={mix(accent, wall, 0.35)} />
-    <SchoolDesk x={20} s={1.25} accent={accent} />
-    <TeacherTable x={740} w={330} accent={accent} />
+    <SchoolDesk x={0.1} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
+    <SchoolDesk x={0.34} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
+    <TeacherTable x={775} w={290} accent={accent} />
+    <SeatAt x={0.66} z={1} kind="chair" color={dark(WOOD, 0.1)} pad={accent} />
+    <SchoolDesk x={0.16} z={0.5} accent={accent} />
   </>
 );
 
@@ -180,6 +196,10 @@ const LectureHall = ({ wall, floor, accent }: { wall: string; floor: string; acc
         <rect key={i} x={470} y={tierTop(i) - 4} width={140} height={14} fill={dark(mix(floor, wall, 0.35), 0.15)} />
       ))}
       <rect x={0} y={FLOOR_Y - 18} width={W} height={18} fill="#00000022" />
+      {/* передний ряд откидных сидений у фасада первого яруса (метки row-1…row-4) */}
+      {[0.1, 0.24, 0.38, 0.62].map((x) => (
+        <SeatAt key={x} x={x} z={1} kind="theater" color={mix(accent, wall, 0.15)} back={70} />
+      ))}
       {/* кафедра */}
       <path d={`M840 ${FLOOR_Y} L860 ${FLOOR_Y - 300} L1020 ${FLOOR_Y - 300} L1040 ${FLOOR_Y} Z`} fill={dark(WOOD, 0.1)} />
       <rect x={830} y={FLOOR_Y - 330} width={220} height={34} rx={8} fill={WOOD} />

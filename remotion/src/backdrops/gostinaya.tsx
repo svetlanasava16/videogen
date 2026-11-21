@@ -1,4 +1,5 @@
-import { Canvas, Room, Door, Picture, Rug, HangingLamp, W, H, FLOOR_Y, type BackdropProps, type Palette } from "./parts";
+import { Canvas, Room, Door, Rug, HangingLamp, Window, Plant, Picture, W, H, FLOOR_Y, type BackdropProps, type Palette } from "./parts";
+import { depthScale, feetY, seatTopY } from "../world/depth";
 
 /* ---------- цветовые помощники (используются и в соседних фонах) ---------- */
 const rgb = (c: string) => {
@@ -14,6 +15,161 @@ export const dark = (c: string, t = 0.2) => mix(c, "#000000", t);
 export const light = (c: string, t = 0.2) => mix(c, "#ffffff", t);
 
 export const WOOD = "#8a5a3a";
+
+/* ---------- сиденья под метки (content/locations → marks {x, z, seat}) ----------
+ * Рисуются по тем же числам, что и метка: x — доля ширины кадра, z — план (1 у стены, 0.5 середина, 0 перед).
+ * Верх сиденья ровно на seatTopY(z), ножки до feetY(z), ширина ~140·depthScale(z) на одного сидящего.
+ */
+type SeatKind = "chair" | "stool" | "bar-stool" | "armchair" | "office" | "theater";
+
+/** Одно сиденье анфас под меткой. back — высота спинки (px при масштабе 1), 0 — без спинки. */
+export const SeatAt = ({ x, z = 1, kind = "chair", color = WOOD, pad, back }: { x: number; z?: number; kind?: SeatKind; color?: string; pad?: string; back?: number }) => {
+  const s = depthScale(z);
+  const cx = x * W;
+  const top = seatTopY(z);
+  const fy = feetY(z);
+  const hw = 70 * s;
+  const leg = dark(color, 0.35);
+  if (kind === "stool" || kind === "bar-stool") {
+    const r = kind === "bar-stool" ? 56 * s : 50 * s;
+    return (
+      <g>
+        {kind === "bar-stool" ? (
+          <>
+            <rect x={cx - 6 * s} y={top} width={12 * s} height={fy - top} fill="#2b1d14" />
+            <rect x={cx - 34 * s} y={top + (fy - top) * 0.55} width={68 * s} height={7 * s} rx={3 * s} fill="#2b1d14" />
+            <ellipse cx={cx} cy={fy - 2} rx={34 * s} ry={7 * s} fill="#2b1d14" />
+          </>
+        ) : (
+          <>
+            <path d={`M${cx - r + 10 * s} ${top} L${cx - r - 4 * s} ${fy} h${12 * s} L${cx - r + 24 * s} ${top} Z`} fill={leg} />
+            <path d={`M${cx + r - 10 * s} ${top} L${cx + r + 4 * s} ${fy} h${-12 * s} L${cx + r - 24 * s} ${top} Z`} fill={leg} />
+            <rect x={cx - 6 * s} y={top} width={12 * s} height={fy - top} fill={dark(leg, 0.1)} />
+          </>
+        )}
+        <rect x={cx - r} y={top} width={r * 2} height={20 * s} rx={10 * s} fill={color} />
+        <rect x={cx - r} y={top} width={r * 2} height={7 * s} rx={4 * s} fill={light(color, 0.18)} />
+      </g>
+    );
+  }
+  if (kind === "armchair") {
+    const bh = (back ?? 170) * s;
+    return (
+      <g>
+        <rect x={cx - hw - 6 * s} y={top - bh} width={hw * 2 + 12 * s} height={bh + 30 * s} rx={34 * s} fill={dark(color, 0.12)} />
+        <rect x={cx - hw * 0.7} y={top - bh + 18 * s} width={hw * 1.4} height={bh * 0.6} rx={24 * s} fill={dark(color, 0.04)} />
+        <rect x={cx - hw * 0.9} y={top} width={hw * 1.8} height={30 * s} rx={10 * s} fill={color} />
+        <rect x={cx - hw - 30 * s} y={top - 46 * s} width={40 * s} height={98 * s} rx={18 * s} fill={light(color, 0.06)} />
+        <rect x={cx + hw - 10 * s} y={top - 46 * s} width={40 * s} height={98 * s} rx={18 * s} fill={light(color, 0.06)} />
+        <rect x={cx - hw - 24 * s} y={top + 30 * s} width={hw * 2 + 48 * s} height={(fy - top) - 46 * s} rx={10 * s} fill={dark(color, 0.22)} />
+        <rect x={cx - hw - 10 * s} y={fy - 18 * s} width={14 * s} height={18 * s} fill="#4a3020" />
+        <rect x={cx + hw - 4 * s} y={fy - 18 * s} width={14 * s} height={18 * s} fill="#4a3020" />
+      </g>
+    );
+  }
+  if (kind === "office") {
+    const bh = (back ?? 190) * s;
+    return (
+      <g>
+        <rect x={cx - hw * 0.8} y={top - bh} width={hw * 1.6} height={bh - 10 * s} rx={30 * s} fill={color} />
+        <rect x={cx - hw * 0.6} y={top - bh + 16 * s} width={hw * 1.2} height={bh * 0.4} rx={20 * s} fill={light(color, 0.1)} />
+        <rect x={cx - 7 * s} y={top} width={14 * s} height={fy - top - 12 * s} fill="#2a2a30" />
+        <path d={`M${cx - 46 * s} ${fy - 4 * s} L${cx} ${fy - 16 * s} L${cx + 46 * s} ${fy - 4 * s}`} stroke="#2a2a30" strokeWidth={8 * s} fill="none" strokeLinecap="round" />
+        <circle cx={cx - 46 * s} cy={fy - 4 * s} r={6 * s} fill="#2a2a30" />
+        <circle cx={cx + 46 * s} cy={fy - 4 * s} r={6 * s} fill="#2a2a30" />
+        <rect x={cx - hw} y={top} width={hw * 2} height={22 * s} rx={10 * s} fill={dark(color, 0.1)} />
+        <rect x={cx - hw - 6 * s} y={top - 50 * s} width={14 * s} height={52 * s} rx={6 * s} fill="#2a2a30" />
+        <rect x={cx + hw - 8 * s} y={top - 50 * s} width={14 * s} height={52 * s} rx={6 * s} fill="#2a2a30" />
+      </g>
+    );
+  }
+  if (kind === "theater") {
+    const bh = (back ?? 90) * s;
+    return (
+      <g>
+        <rect x={cx - hw} y={top - bh} width={hw * 2} height={bh + 10 * s} rx={22 * s} fill={dark(color, 0.12)} />
+        <rect x={cx - hw * 0.72} y={top - bh + 12 * s} width={hw * 1.44} height={bh * 0.6} rx={14 * s} fill={light(color, 0.08)} />
+        <rect x={cx - hw} y={top} width={hw * 2} height={26 * s} rx={10 * s} fill={color} />
+        <rect x={cx - hw - 12 * s} y={top - 30 * s} width={16 * s} height={fy - top + 30 * s} rx={6 * s} fill="#2b1d14" />
+        <rect x={cx + hw - 4 * s} y={top - 30 * s} width={16 * s} height={fy - top + 30 * s} rx={6 * s} fill="#2b1d14" />
+      </g>
+    );
+  }
+  // обычный стул анфас
+  const bh = (back ?? 150) * s;
+  return (
+    <g>
+      {bh > 0 && (
+        <>
+          <rect x={cx - hw + 8 * s} y={top - bh} width={14 * s} height={bh} fill={dark(color, 0.2)} />
+          <rect x={cx + hw - 22 * s} y={top - bh} width={14 * s} height={bh} fill={dark(color, 0.2)} />
+          <rect x={cx - hw + 4 * s} y={top - bh} width={hw * 2 - 8 * s} height={bh * 0.42} rx={14 * s} fill={dark(color, 0.08)} />
+          {pad && <rect x={cx - hw + 20 * s} y={top - bh + 12 * s} width={hw * 2 - 40 * s} height={bh * 0.24} rx={8 * s} fill={pad} />}
+        </>
+      )}
+      <rect x={cx - hw + 8 * s} y={top + 14 * s} width={14 * s} height={fy - top - 14 * s} fill={leg} />
+      <rect x={cx + hw - 22 * s} y={top + 14 * s} width={14 * s} height={fy - top - 14 * s} fill={leg} />
+      <rect x={cx - hw} y={top} width={hw * 2} height={20 * s} rx={8 * s} fill={color} />
+      {pad && <rect x={cx - hw + 6 * s} y={top - 4 * s} width={hw * 2 - 12 * s} height={10 * s} rx={5 * s} fill={pad} />}
+    </g>
+  );
+};
+
+/** Скамья под несколькими метками: от x0 до x1 (доли кадра) на плане z; back — спинка из досок; legs — металл/дерево. */
+export const BenchAt = ({ x0, x1, z = 1, color = "#a8673f", metal = "#3a3a40", back = true, plinth = false }: { x0: number; x1: number; z?: number; color?: string; metal?: string; back?: boolean; plinth?: boolean }) => {
+  const s = depthScale(z);
+  const l = x0 * W;
+  const r = x1 * W;
+  const top = seatTopY(z);
+  const fy = feetY(z);
+  return (
+    <g>
+      {back && (
+        <>
+          <rect x={l + 24 * s} y={top - 150 * s} width={12 * s} height={150 * s} fill={metal} />
+          <rect x={r - 36 * s} y={top - 150 * s} width={12 * s} height={150 * s} fill={metal} />
+          <rect x={l} y={top - 150 * s} width={r - l} height={30 * s} rx={10 * s} fill={color} />
+          <rect x={l} y={top - 100 * s} width={r - l} height={30 * s} rx={10 * s} fill={color} />
+        </>
+      )}
+      {plinth ? (
+        <rect x={l + 10 * s} y={top + 20 * s} width={r - l - 20 * s} height={fy - top - 20 * s} rx={6 * s} fill={dark(color, 0.3)} />
+      ) : (
+        <>
+          <rect x={l + 10 * s} y={top + 16 * s} width={16 * s} height={fy - top - 16 * s} fill={metal} />
+          <rect x={r - 26 * s} y={top + 16 * s} width={16 * s} height={fy - top - 16 * s} fill={metal} />
+          {r - l > 400 * s && <rect x={(l + r) / 2 - 8 * s} y={top + 16 * s} width={16 * s} height={fy - top - 16 * s} fill={metal} />}
+        </>
+      )}
+      <rect x={l - 8 * s} y={top} width={r - l + 16 * s} height={26 * s} rx={10 * s} fill={dark(color, 0.12)} />
+      <rect x={l - 8 * s} y={top} width={r - l + 16 * s} height={9 * s} rx={5 * s} fill={light(color, 0.1)} />
+    </g>
+  );
+};
+
+/** Диван у стены под метками: сиденье от x0 до x1 (доли кадра), подлокотники снаружи. */
+export const SofaAt = ({ x0, x1, z = 1, color }: { x0: number; x1: number; z?: number; color: string }) => {
+  const s = depthScale(z);
+  const l = x0 * W;
+  const r = x1 * W;
+  const top = seatTopY(z);
+  const fy = feetY(z);
+  const arm = 66 * s;
+  const mid = (l + r) / 2;
+  return (
+    <g>
+      <rect x={l - arm + 20 * s} y={top - 200 * s} width={r - l + arm * 2 - 40 * s} height={230 * s} rx={44 * s} fill={dark(color, 0.12)} />
+      <rect x={l + 10 * s} y={top - 182 * s} width={mid - l - 18 * s} height={150 * s} rx={34 * s} fill={dark(color, 0.04)} />
+      <rect x={mid + 8 * s} y={top - 182 * s} width={r - mid - 18 * s} height={150 * s} rx={34 * s} fill={dark(color, 0.04)} />
+      <rect x={l - 6 * s} y={top} width={r - l + 12 * s} height={36 * s} rx={14 * s} fill={color} />
+      <rect x={l - arm} y={top - 70 * s} width={arm} height={(fy - top) + 40 * s} rx={28 * s} fill={light(color, 0.06)} />
+      <rect x={r} y={top - 70 * s} width={arm} height={(fy - top) + 40 * s} rx={28 * s} fill={light(color, 0.06)} />
+      <rect x={l - arm + 10 * s} y={top + 34 * s} width={r - l + arm * 2 - 20 * s} height={fy - top - 50 * s} rx={10 * s} fill={dark(color, 0.22)} />
+      <rect x={l - arm + 24 * s} y={fy - 16 * s} width={16 * s} height={16 * s} fill="#4a3020" />
+      <rect x={r + arm - 40 * s} y={fy - 16 * s} width={16 * s} height={16 * s} fill="#4a3020" />
+    </g>
+  );
+};
 
 /** Плинтус вдоль линии пола. */
 export const Plinth = ({ color }: { color: string }) => <rect x={0} y={FLOOR_Y - 26} width={W} height={26} fill={color} />;
@@ -50,23 +206,6 @@ const Wallpaper = ({ wall, step = 90 }: { wall: string; step?: number }) => (
   </g>
 );
 
-const Sofa = ({ x, w, color }: { x: number; w: number; color: string }) => (
-  <g>
-    <rect x={x + 30} y={FLOOR_Y - 280} width={w - 60} height={170} rx={44} fill={dark(color, 0.12)} />
-    <rect x={x + 50} y={FLOOR_Y - 262} width={(w - 110) / 2} height={120} rx={34} fill={dark(color, 0.04)} />
-    <rect x={x + 60 + (w - 110) / 2} y={FLOOR_Y - 262} width={(w - 110) / 2} height={120} rx={34} fill={dark(color, 0.04)} />
-    <rect x={x + 20} y={FLOOR_Y - 160} width={w - 40} height={74} rx={24} fill={color} />
-    <rect x={x} y={FLOOR_Y - 215} width={74} height={150} rx={34} fill={light(color, 0.06)} />
-    <rect x={x + w - 74} y={FLOOR_Y - 215} width={74} height={150} rx={34} fill={light(color, 0.06)} />
-    <rect x={x + 10} y={FLOOR_Y - 96} width={w - 20} height={50} rx={14} fill={dark(color, 0.22)} />
-    <rect x={x + 30} y={FLOOR_Y - 46} width={18} height={46} fill="#4a3020" />
-    <rect x={x + w - 48} y={FLOOR_Y - 46} width={18} height={46} fill="#4a3020" />
-    {/* подушка и заплатка — для уюта */}
-    <rect x={x + 92} y={FLOOR_Y - 228} width={84} height={76} rx={20} fill="#e0b030" transform={`rotate(-12 ${x + 134} ${FLOOR_Y - 190})`} />
-    <rect x={x + w - 170} y={FLOOR_Y - 150} width={50} height={36} rx={6} fill={light(color, 0.25)} />
-  </g>
-);
-
 const TvStand = ({ x }: { x: number }) => (
   <g>
     <rect x={x} y={FLOOR_Y - 170} width={170} height={150} rx={8} fill={WOOD} />
@@ -85,23 +224,34 @@ const TvStand = ({ x }: { x: number }) => (
   </g>
 );
 
-/* ---------- базовая гостиная ---------- */
+/* ---------- базовая гостиная ----------
+ * Метки (content/locations/gostinaya.json): door 0.11 (z1), sofa-1 0.31 / sofa 0.41 / sofa-2 0.51 (диван, z1),
+ * tv 0.72 (z1), window 0.9 (z1), armchair 0.86 (кресло, z0.5).
+ */
 const Living = ({ palette: p }: { palette: Palette }) => (
   <>
     <Room wall={p.wall} floor={p.floor} />
     <Wallpaper wall={p.wall} />
     <Plinth color={dark(p.wall, 0.3)} />
-    <HangingLamp x={540} len={40} color="#e0a030" />
-    <Picture x={360} y={530} w={200} h={140} frame={WOOD} art="#9cc3d8" />
-    <ellipse cx={630} cy={590} rx={42} ry={54} fill={WOOD} />
-    <ellipse cx={630} cy={590} rx={30} ry={42} fill={light(p.accent, 0.35)} />
-    <Door x={30} w={200} color={dark(WOOD, 0.05)} />
-    <Sofa x={258} w={410} color={p.accent} />
-    <TvStand x={676} />
-    <Wardrobe x={854} w={216} h={700} />
-    <rect x={890} y={FLOOR_Y - 760} width={150} height={60} rx={8} fill="#6b7f5a" />
-    <rect x={930} y={FLOOR_Y - 790} width={90} height={30} rx={6} fill="#e0b030" />
+    <HangingLamp x={460} len={40} color="#e0a030" />
+    <ellipse cx={330} cy={600} rx={42} ry={54} fill={WOOD} />
+    <ellipse cx={330} cy={600} rx={30} ry={42} fill={light(p.accent, 0.35)} />
+    <rect x={410} y={520} width={190} height={140} rx={6} fill={WOOD} />
+    <rect x={422} y={532} width={166} height={116} fill="#9cc3d8" />
+    <path d="M422 648 L480 580 L520 620 L550 595 L588 648 Z" fill="#5b8c5a" />
+    <Door x={24} w={190} color={dark(WOOD, 0.05)} />
+    <SofaAt x0={0.26} x1={0.56} color={p.accent} />
+    <rect x={300} y={seatTopY(1) - 150} width={70} height={64} rx={18} fill="#e0b030" transform={`rotate(-12 335 ${seatTopY(1) - 118})`} />
+    <TvStand x={692} />
+    {/* окно со шторами справа */}
+    <Window x={880} y={470} w={180} h={300} />
+    <rect x={860} y={450} width={220} height={12} rx={6} fill={WOOD} />
+    <path d="M866 456 L920 456 Q906 620 930 800 L866 800 Z" fill={dark(p.accent, 0.15)} />
+    <path d="M1080 456 L1030 456 Q1044 620 1020 800 L1080 800 Z" fill={dark(p.accent, 0.15)} />
+    <Plant x={975} y={FLOOR_Y} scale={0.55} />
     <Rug cx={480} color={dark(p.accent, 0.1)} w={600} />
+    {/* кресло на среднем плане справа */}
+    <SeatAt x={0.86} z={0.5} kind="armchair" color={mix(p.accent, "#7a5a8a", 0.4)} />
   </>
 );
 
@@ -139,15 +289,12 @@ const Hallway = ({ palette: p }: { palette: Palette }) => {
       <rect x={196} y={690} width={14} height={180} fill={p.accent} />
       <path d="M118 628 Q158 560 198 628 Z" fill="#3a3a3a" />
       <ellipse cx={158} cy={630} rx={58} ry={12} fill="#3a3a3a" />
-      {/* обувь и зонтик */}
-      <rect x={276} y={FLOOR_Y - 140} width={260} height={20} rx={6} fill={WOOD} />
-      <rect x={290} y={FLOOR_Y - 120} width={16} height={120} fill={dark(WOOD, 0.25)} />
-      <rect x={506} y={FLOOR_Y - 120} width={16} height={120} fill={dark(WOOD, 0.25)} />
-      <rect x={276} y={FLOOR_Y - 66} width={260} height={14} rx={5} fill={dark(WOOD, 0.1)} />
-      <ellipse cx={340} cy={FLOOR_Y - 76} rx={30} ry={12} fill="#2b2b2b" />
-      <ellipse cx={400} cy={FLOOR_Y - 76} rx={30} ry={12} fill="#2b2b2b" />
-      <ellipse cx={460} cy={FLOOR_Y - 10} rx={34} ry={12} fill="#c8553d" />
-      <ellipse cx={500} cy={FLOOR_Y - 10} rx={34} ry={12} fill="#c8553d" />
+      {/* банкетка для обуви — сиденье (метка bench 0.37, z1); обувь под ней */}
+      <BenchAt x0={0.26} x1={0.48} color={WOOD} metal={dark(WOOD, 0.25)} back={false} />
+      <ellipse cx={320} cy={FLOOR_Y - 8} rx={26} ry={9} fill="#2b2b2b" />
+      <ellipse cx={372} cy={FLOOR_Y - 8} rx={26} ry={9} fill="#2b2b2b" />
+      <ellipse cx={440} cy={FLOOR_Y - 8} rx={28} ry={9} fill="#c8553d" />
+      <ellipse cx={478} cy={FLOOR_Y + 6} rx={28} ry={10} fill="#c8553d" />
       <path d={`M960 ${FLOOR_Y} L940 ${FLOOR_Y - 300}`} stroke="#2b2b2b" strokeWidth={8} strokeLinecap="round" />
       <path d={`M900 ${FLOOR_Y - 300} Q940 ${FLOOR_Y - 380} 980 ${FLOOR_Y - 300} Z`} fill="#4a6a8a" />
       <rect x={936} y={FLOOR_Y - 300} width={10} height={200} rx={4} fill="#4a6a8a" />
@@ -207,6 +354,9 @@ const Balcony = ({ palette: p }: { palette: Palette }) => {
       <rect x={100} y={940} width={W} height={26} rx={8} fill={rail} />
       <rect x={100} y={FLOOR_Y - 30} width={W} height={18} fill={rail} />
       {Array.from({ length: 20 }).map((_, i) => <rect key={i} x={140 + i * 50} y={966} width={10} height={FLOOR_Y - 996} fill={rail} />)}
+      {/* табуретка курильщика (метка stool 0.3, z1) и пепельница */}
+      <SeatAt x={0.3} kind="stool" color={WOOD} />
+      <ellipse cx={420} cy={FLOOR_Y - 6} rx={22} ry={7} fill="#9aa6aa" />
       {/* ящик с цветами */}
       <rect x={760} y={880} width={240} height={60} rx={8} fill={WOOD} />
       {[790, 840, 890, 940, 975].map((x, i) => (
@@ -279,10 +429,13 @@ const Basement = ({ palette: p }: { palette: Palette }) => {
       })}
       <path d={`M1080 360 L800 ${FLOOR_Y - 330}`} stroke={dark(WOOD, 0.3)} strokeWidth={12} strokeLinecap="round" />
       <rect x={794} y={FLOOR_Y - 336} width={12} height={336} fill={dark(WOOD, 0.3)} />
-      {/* ящики */}
+      {/* ящики: низкий ящик посередине — сиденье (метка crate 0.56, z1) */}
       <rect x={900} y={FLOOR_Y - 120} width={150} height={120} rx={6} fill="#a07a50" />
       <rect x={900} y={FLOOR_Y - 70} width={150} height={12} fill="#86643f" />
       <rect x={930} y={FLOOR_Y - 200} width={100} height={80} rx={6} fill="#b58e60" />
+      <rect x={0.56 * W - 62} y={seatTopY(1)} width={124} height={FLOOR_Y - seatTopY(1)} rx={5} fill="#a07a50" />
+      <rect x={0.56 * W - 62} y={seatTopY(1)} width={124} height={9} rx={4} fill="#b58e60" />
+      <rect x={0.56 * W - 62} y={seatTopY(1) + 28} width={124} height={7} fill="#86643f" />
     </>
   );
 };
@@ -339,12 +492,9 @@ const DiningRoom = ({ palette: p }: { palette: Palette }) => {
       <circle cx={640} cy={560} r={32} fill="#f4f1ea" />
       <rect x={637} y={536} width={6} height={26} rx={3} fill="#333" />
       <rect x={638} y={558} width={20} height={6} rx={3} fill="#333" />
-      {/* спинки стульев за столом */}
-      {[230, 420, 660, 850].map((x) => (
-        <g key={x}>
-          <rect x={x - 50} y={top - 150} width={100} height={160} rx={18} fill={chair} />
-          <rect x={x - 34} y={top - 132} width={68} height={70} rx={12} fill={p.accent} />
-        </g>
+      {/* стулья на среднем плане (метки chair-1…chair-4, z0.5): перед ними — стол варианта (set: dining-table), он закрывает сиденья */}
+      {[0.2, 0.4, 0.6, 0.8].map((x) => (
+        <SeatAt key={x} x={x} z={0.5} color={chair} pad={p.accent} back={190} />
       ))}
       {/* сам стол с едой — мебель варианта перед куклами (locations/gostinaya.json → set: dining-table), чтобы сидели за ним */}
       <Rug cx={540} color={dark(p.accent, 0.1)} w={760} />

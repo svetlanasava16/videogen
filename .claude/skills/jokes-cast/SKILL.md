@@ -12,7 +12,7 @@ description: Customize the puppet cast and backdrops — add a puppet, a double 
   - `bible.roles`: canonical roles this puppet plays. **Each role belongs to exactly one puppet.**
   - `bible.variants[]`: `{roles, change, look: {clothes?, accent?, hair?, hairStyle?, add[], remove[]}}` — costume per role, same puppet.
   - `family`: set on a **double** (same rig as the base puppet, different hair/clothes). A scene may contain as many roles of a family as the family has puppets.
-- **Backdrop**: `content/locations/<id>.json`, `bible.roles` = canonical locations it covers, `bible.variants` for sub-places.
+- **Backdrop**: `content/locations/<id>.json`, `bible.roles` = canonical locations it covers, `bible.variants` = rooms/sub-locations (`id` = `scene.place`, `name`, `roles`, `change`, own `marks` with depth `z` and `seat`, default `set` and `crowd`). See `docs/ENGINE.md` §6–7.
 - Global art style: `content/style.json`. Everything is drawn in code (SVG); ComfyUI is not used.
 - Accessories are drawn by `remotion/src/puppet/Accessories.tsx` (`Accessory` switch); the rig is in `remotion/src/puppet/` — for drawing changes use the **jokes-draw** skill. Existing ids include: beard, white-beard, goatee, stubble, mustache, mustache-curled, side-curls, glasses, round-glasses, cat-eye-glasses, dark-glasses, monocle, eye-mask, freckles, red-nose, mole, lipstick, earrings, flat-cap, police-cap, army-cap, helmet, shako, papakha, chef-hat, nurse-cap, crown, halo, horns, kippah, black-hat, bowler, cowboy-hat, beret, tyrolean-hat, aerodrome-cap, straw-hat, headscarf, curlers, turban, hood, zucchetto, nun-veil, bows, headset, cowlick, cross, tie, bow-tie, gold-chain, stethoscope, apron, towel, brooch, badge, striped-shirt, loot-bag, camera, collar, robe-white/red/black, keys, scythe, baguette, suspenders. A new accessory = a new `case` there (see **jokes-draw**).
 
@@ -21,6 +21,7 @@ description: Customize the puppet cast and backdrops — add a puppet, a double 
 - **New puppet for missing roles**: pick roles from the catalog line "Чаще всего не хватает одной роли", create the JSON (copy a similar puppet), move those roles out of any other puppet.
 - **Double for scene conflicts**: catalog lines "конфликт" / "Частые конфликты" show pairs like `everyman+neighbor (muzhik)`. Create `<base>-<suffix>.json` with `"family": "<base>"`, different hair colour/style and clothes, and give it the conflicting secondary roles (neighbor, friend…). Doubles are also how hair-colour jokes work (blonde = `devushka-blondinka`).
 - **Backdrop**: add `content/locations/<id>.json` with `bible.roles` from the location canon and draw it with **jokes-draw**.
+- **Room in an existing place** (hospital waiting room, cockpit, tram): a new `bible.variants[]` entry with `id`, `roles` (canonical locations it covers, so annotation archetypes map to it), `change`, `marks` (seats where people sit), then draw it; add it to `content/world/town.json`.
 - **Colour check**: a role variant's clothes must not match the wall colour of the backdrops where that role appears (the patient gown once vanished against the clinic wall).
 
 ## After every change

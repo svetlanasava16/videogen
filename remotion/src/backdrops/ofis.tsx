@@ -1,8 +1,11 @@
 import { Canvas, Room, Plant, FLOOR_Y, W, type BackdropProps, type Palette } from "./parts";
+import { SeatAt } from "./gostinaya";
 
 /**
  * Фон «ofis»: кабинет начальника. Варианты (content/locations/ofis.json → bible.variants):
  * tv-studio, police-station, bank / government-office. Остальное — базовый кабинет.
+ * Сиденья под метки (content/locations/ofis.json): кресло начальника справа от стола (desk), стул посетителя (visitor);
+ * студия — кресла ведущего и гостя по бокам стола; участок — стул дежурного и стул задержанного; банк — стулья ожидания.
  */
 
 /** Смешать цвет с белым (t>0) или чёрным (t<0). */
@@ -64,14 +67,11 @@ const Certificate = ({ x, y, accent }: { x: number; y: number; accent: string })
   </g>
 );
 
-/** Большой стол начальника с монитором, бумагами и креслом (слева). */
+/** Стол начальника с монитором и бумагами у стены слева; кресло начальника — справа от стола (метка desk). */
 const BossDesk = ({ accent }: { accent: string }) => {
   const top = 965;
   return (
     <g>
-      {/* кресло за столом */}
-      <rect x={250} y={770} width={170} height={210} rx={40} fill="#2f2a2a" />
-      <rect x={268} y={790} width={134} height={60} rx={24} fill="#3d3636" />
       {/* монитор */}
       <rect x={70} y={790} width={190} height={130} rx={12} fill="#2d3640" />
       <rect x={82} y={802} width={166} height={106} rx={6} fill={shade(accent, 0.45)} />
@@ -85,13 +85,13 @@ const BossDesk = ({ accent }: { accent: string }) => {
       <rect x={430} y={922} width={34} height={43} rx={8} fill={accent} />
       <path d="M464 932 q18 0 18 14 q0 12 -18 12" stroke={accent} strokeWidth={7} fill="none" />
       {/* столешница и тумба */}
-      <rect x={30} y={top} width={490} height={30} rx={8} fill={WOOD} />
-      <rect x={46} y={top + 30} width={458} height={FLOOR_Y - top - 30} fill={WOOD_D} />
+      <rect x={30} y={top} width={460} height={30} rx={8} fill={WOOD} />
+      <rect x={46} y={top + 30} width={428} height={FLOOR_Y - top - 30} fill={WOOD_D} />
       <rect x={66} y={top + 50} width={180} height={70} rx={6} fill="#00000020" />
       <rect x={66} y={top + 132} width={180} height={70} rx={6} fill="#00000020" />
       <rect x={136} y={top + 80} width={40} height={10} rx={5} fill="#d9a630" />
       <rect x={136} y={top + 162} width={40} height={10} rx={5} fill="#d9a630" />
-      <rect x={274} y={top + 50} width={210} height={152} rx={6} fill="#00000014" />
+      <rect x={274} y={top + 50} width={180} height={152} rx={6} fill="#00000014" />
     </g>
   );
 };
@@ -105,7 +105,9 @@ const BaseOffice = ({ palette }: { palette: Palette }) => (
     <Certificate x={120} y={460} accent={palette.accent} />
     <BlindsWindow x={600} y={450} w={340} h={360} wall={palette.wall} />
     <BossDesk accent={palette.accent} />
+    <SeatAt x={0.53} z={1} kind="office" color="#2f2a2a" back={230} />
     <Plant x={985} scale={1.15} pot={palette.accent} />
+    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD_D} pad={palette.accent} />
   </>
 );
 
@@ -149,14 +151,16 @@ const TvStudio = ({ palette }: { palette: Palette }) => {
       {/* лучи света */}
       <path d="M420 140 L250 1190 L560 1190 Z" fill="#fff4cf" opacity={0.07} />
       <path d="M660 140 L520 1190 L840 1190 Z" fill="#fff4cf" opacity={0.07} />
-      {/* дикторский стол с микрофоном */}
-      <path d="M200 980 Q540 940 880 980 L860 1190 L220 1190 Z" fill="#e8e4dc" />
-      <path d="M190 968 Q540 926 890 968 L890 994 Q540 954 190 994 Z" fill={palette.accent} />
-      <rect x={470} y={1040} width={140} height={60} rx={10} fill={shade(palette.accent, -0.1)} />
-      <rect x={612} y={880} width={10} height={80} rx={4} fill="#2a2a30" />
-      <rect x={598} y={950} width={38} height={14} rx={6} fill="#2a2a30" />
-      <rect x={603} y={846} width={28} height={50} rx={14} fill="#4a4a54" />
-      <rect x={300} y={936} width={90} height={20} rx={3} fill={PAPER} />
+      {/* стол с микрофоном посередине, кресло ведущего слева (host), кресло гостя справа (guest) */}
+      <path d="M380 1000 Q540 976 700 1000 L690 1190 L390 1190 Z" fill="#e8e4dc" />
+      <path d="M370 988 Q540 962 710 988 L710 1014 Q540 990 370 1014 Z" fill={palette.accent} />
+      <rect x={490} y={1060} width={100} height={50} rx={10} fill={shade(palette.accent, -0.1)} />
+      <rect x={612} y={906} width={10} height={80} rx={4} fill="#2a2a30" />
+      <rect x={598} y={972} width={38} height={14} rx={6} fill="#2a2a30" />
+      <rect x={603} y={872} width={28} height={50} rx={14} fill="#4a4a54" />
+      <rect x={420} y={958} width={90} height={20} rx={3} fill={PAPER} />
+      <SeatAt x={0.24} z={1} kind="office" color="#3a3a44" back={210} />
+      <SeatAt x={0.76} z={1} kind="armchair" color={shade(palette.accent, -0.25)} />
       <StudioLight x={70} />
       <StudioLight x={1010} flip />
     </>
@@ -221,6 +225,9 @@ const PoliceStation = ({ palette }: { palette: Palette }) => (
     <rect x={200} y={956} width={100} height={29} rx={3} fill={PAPER} />
     <rect x={250} y={900} width={10} height={60} fill="#2b3036" transform="rotate(-20 255 960)" />
     <path d="M222 880 l60 0 l-10 34 l-40 0 Z" fill={palette.accent} transform="rotate(-20 252 900)" />
+    {/* стул дежурного справа от стола (метка desk) и табурет задержанного перед столом (suspect) */}
+    <SeatAt x={0.4} z={1} kind="office" color="#3a4148" />
+    <SeatAt x={0.2} z={0.5} kind="stool" color="#5d6870" />
   </>
 );
 
@@ -284,6 +291,10 @@ const BankCounter = ({ palette }: { palette: Palette }) => {
       <Stanchion x={60} />
       <Stanchion x={250} />
       <path d={`M60 ${FLOOR_Y - 186} Q155 ${FLOOR_Y - 120} 250 ${FLOOR_Y - 186}`} stroke="#b4452f" strokeWidth={14} fill="none" strokeLinecap="round" />
+      {/* стулья ожидания на среднем плане справа (метки wait-1…wait-3) */}
+      {[0.66, 0.78, 0.9].map((x) => (
+        <SeatAt key={x} x={x} z={0.5} kind="chair" color={shade(palette.accent, -0.3)} pad={palette.accent} back={130} />
+      ))}
     </>
   );
 };

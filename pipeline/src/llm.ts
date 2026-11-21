@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, type Location, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -157,15 +157,16 @@ const STAGES: Record<string, Stage> = {
       checkLooks(row.looks, row.cast, "");
       for (const [i, sc] of (row.scenes ?? []).entries()) checkLooks(sc.looks, sc.cast, `scene ${i + 1}: `);
       // мебель: известные предметы, метки места
-      const checkSet = (set: { item: string; at?: string }[] | undefined, loc: string, tag: string) => {
-        const marks = Object.keys(C.backdrops.find((b) => b.id === loc)?.marks ?? {});
+      const bdOf = (loc: string) => C.backdrops.find((b) => b.id === loc) as Location | undefined;
+      const checkSet = (set: { item: string; at?: string }[] | undefined, loc: string, tag: string, place?: string) => {
+        const marks = Object.keys(marksFor(bdOf(loc), place));
         for (const it of set ?? []) {
           if (!(SET_ITEMS as readonly string[]).includes(it.item)) pr.push(`${tag}set: unknown item "${it.item}" (items: ${SET_ITEMS.join(", ")}; ask for a new one in needs, kind "backdrop")`);
           if (it.at && !["left", "center", "right", ...marks].includes(it.at)) pr.push(`${tag}set: unknown mark "${it.at}" at ${loc}`);
         }
       };
       checkSet(row.set, row.location, "");
-      for (const [i, sc] of (row.scenes ?? []).entries()) checkSet(sc.set, sc.location, `scene ${i + 1}: `);
+      for (const [i, sc] of (row.scenes ?? []).entries()) checkSet(sc.set, sc.location, `scene ${i + 1}: `, sc.place);
       if (row.scenes?.length && (row.looks || row.crowd || row.set)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
       if (row.scenes?.length) {
         // движок v2: проверка сцен, меток и реквизита
@@ -176,7 +177,11 @@ const STAGES: Record<string, Stage> = {
           for (const c of sc.cast) if (!ids.has(c)) pr.push(`scene: unknown puppet ${c}`);
           if (sc.split && (!bds.has(sc.split.location) || sc.split.location === "none")) pr.push(`scene: unknown split backdrop ${sc.split.location}`);
         }
-        pr.push(...sceneProblems({ lines, scenes: row.scenes }, { marksOf: (loc) => Object.keys(C.backdrops.find((b) => b.id === loc)?.marks ?? {}), props }));
+        pr.push(...sceneProblems({ lines, scenes: row.scenes }, {
+          marksOf: (loc, place) => Object.keys(marksFor(bdOf(loc), place)),
+          places: (loc) => (bdOf(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
+          props,
+        }));
         const s0 = row.scenes[0];
         if (s0.location !== row.location) pr.push("top-level location must repeat the first scene");
         if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
@@ -198,6 +203,22 @@ function accessoryIds(): string[] {
   return [...new Set([...cases, ...rig])].filter((a) => !hair.has(a)).sort();
 }
 
+/** Строки справочника для фона: вид по умолчанию и сублокации с метками (план, сиденье). */
+function placeLines(b: Location): string[] {
+  const fmt = (marks: Record<string, unknown>) =>
+    Object.entries(marks)
+      .map(([k, m]) => ({ k, ...markOf(m as never)! }))
+      .sort((a, c) => a.x - c.x)
+      .map((m) => `${m.k}${m.z >= 0.8 ? " (back)" : m.z <= 0.2 ? " (front)" : ""}${m.seat ? ` [${m.seat}]` : ""}`)
+      .join(", ") || "—";
+  const out = [`### ${b.id} — ${b.bible?.summary ?? ""}`, `- default (no place) — covers ${b.bible?.roles.join(", ")}; marks: ${fmt(b.marks ?? {})}`];
+  for (const v of b.bible?.variants ?? []) {
+    const id = v.id ?? v.roles[0];
+    out.push(`- place \`${id}\`${v.roles.filter((r) => r !== id).length ? ` (also: ${v.roles.filter((r) => r !== id).join(", ")})` : ""} — ${v.change}; marks: ${v.marks ? fmt(v.marks) : "as default"}${v.set?.length ? `; furniture: ${v.set.map((x) => x.item).join(", ")}` : ""}${v.crowd ? `; crowd: ${v.crowd.who}` : ""}`);
+  }
+  return [...out, ""];
+}
+
 /** Справочник кукол и фонов для сценариста: data/llm/script/context.md */
 function writeScriptContext() {
   const C = loadCast();
@@ -213,9 +234,11 @@ function writeScriptContext() {
     "", "## Puppets", "",
     "| id | names ru / en / de | family | roles it plays |", "|---|---|---|---|",
     ...C.puppets.map((p) => `| ${p.id} | ${p.name.ru} / ${p.name.en} / ${p.name.de} | ${p.family ?? p.id} | ${p.bible!.roles.join(", ")} |`),
-    "", "## Backdrops", "", "| id | covers locations | marks (spots on the floor, left → right) |", "|---|---|---|",
-    ...C.backdrops.map((b) => `| ${b.id} | ${b.bible!.roles.join(", ")} | ${Object.entries(b.marks ?? {}).sort((x, y) => x[1] - y[1]).map(([k]) => k).join(", ")} |`),
-    "| none | no location (narrator over a neutral backdrop) | |",
+    "", "## Backdrops and places (sub-locations)", "",
+    "Each backdrop has a default view and places (rooms, interiors) chosen with `scene.place`. Marks are spots on the floor, left → right:",
+    "`name` = middle plane; `name (back)` = by the wall, smaller; `name (front)` = close to the camera, bigger; `[bench]` = a seat — a puppet put there sits on it.",
+    "A place's marks replace the backdrop's marks. `none` = no location (narrator over a neutral backdrop).", "",
+    ...C.backdrops.flatMap((b) => placeLines(b as Location)),
     "", "## Props (held in the right hand)", "", "| id | ru | en | de |", "|---|---|---|---|",
     ...props.map((p) => `| ${p.id} | ${p.ru} | ${p.en} | ${p.de} |`), "",
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
@@ -223,7 +246,11 @@ function writeScriptContext() {
     "## Acts (puppet actions for `act` beats)", "",
     `${ACTS.join(", ")} — state poses that hold until the next state act of that puppet, \`stand\` or walking (gestures play on top of a held state: kneel + shake-head, sit + cry): ${STATE_ACTS.join(", ")}; with a target (\`to\`): ${TARGET_ACTS.join(", ")} — the puppet walks up to the target first, the target flinches when hit.`, "",
     "## Set pieces (furniture for `set`)", "",
-    `${SET_ITEMS.join(", ")} — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.`, "",
+    `${SET_ITEMS.join(", ")} — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind; chair/bench/stool/armchair/row-of-chairs are seats (\`{item, at, plane}\`; a puppet at that spot sits). Check the place first: seats and furniture it already shows need no set piece.`, "",
+    "## Depth (planes)", "",
+    "Three planes like a paper theatre: `back` (by the wall, smaller, higher), `mid` (default), `front` (close to the camera, bigger). A mark has its plane; `move` may override it with `plane`. Someone walking past people on the same plane passes in front of them (`via: \"back\"` — behind their backs). Use planes to stage: the nurse stands in front of the seated patients, the boss behind the desk, a passer-by crosses in the front.", "",
+    "## Vehicles (outside)", "",
+    `\`scene.vehicles: [{id, kind, at?, riders?, facing?, color?}]\` (color = body colour of a car, e.g. two cars in one scene) with kind = ${VEHICLES.join(", ")}. Beats: \`{type:"drive", vehicle, to, from?}\` (drives to a mark or in/out over the edge with everyone inside), \`{type:"board", who, vehicle}\`, \`{type:"alight", who, vehicle, to?}\`. Riders are seen in the windows (car, bus, tram, train) or sitting on it (bicycle, motorcycle, scooter, horse-cart); the first rider drives. Riders talk from the windows with normal lines. For the inside of a vehicle use the place (doroga:car, doroga:bus, doroga:tram, samolet:cockpit…).`, "",
     "## Crowd", "",
     `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). Any number of puppets per scene: from 6 on the stage gets wider than the frame and the camera pans along it.`, "",
   ];

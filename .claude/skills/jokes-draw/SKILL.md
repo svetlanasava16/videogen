@@ -16,12 +16,22 @@ Everything visual is React SVG in `remotion/`. Style: flat rounded shapes, no ou
 - Use on a puppet: edit `content/characters/<id>.json` (`look.kind`, `look.build`, `look.accessories`, role variants `bible.variants[].look`). See **jokes-cast** for roles and doubles.
 
 ## Backdrops — `remotion/src/backdrops/`
-- `parts.tsx` — canvas 1080×1920, `FLOOR_Y = 1190` (puppets' feet), layout rules in the header (keep x 120…960 × y 640…1190 calm; narrator caption y 150…420; subtitles below 1250), primitives: Room, Outdoor, Window, Door, Shelf, HangingLamp, Table, Plant, Cloud, Tree, Fence, Picture, Rug.
-- One file per backdrop id (`gostinaya.tsx`, `bar.tsx`…), signature `({ palette, variant }: BackdropProps)`. `variant` is the canonical location (`Episode.place`, e.g. `park` on `ulitsa`); handle every id in `content/locations/<id>.json → bible.variants[].roles`, unknown → base scene.
+- `parts.tsx` — canvas 1080×1920, `FLOOR_Y = 1190` (the wall line = feet of the back plane), primitives: Room, Outdoor, Window, Door, Shelf, HangingLamp, Table, Plant, Cloud, Tree, Fence, Picture, Rug. Narrator caption y 150…420, character subtitles from y≈1380 (72 %).
+- **Depth** (`remotion/src/world/depth.ts`): puppets stand on three planes — back z=1 (feet 1190, ×0.8), mid z=0.5 (≈1275, ×1.0), front z=0 (≈1360, ×1.2). The floor below 1190 must stay walkable; furniture against the wall belongs to the back plane.
+- One file per backdrop id (`gostinaya.tsx`, `bar.tsx`…), signature `({ palette, variant }: BackdropProps)`. `variant` = the sub-location id (`bible.variants[].id`, resolved from `scene.place` by id or roles in `components/Background.tsx`); unknown → default view.
+- **Rooms (sub-locations):** each variant in `content/locations/<id>.json` has `id`, `name {ru,en,de}`, `roles`, `change` (a sentence listing what is visible and where — writers only see this), its own `marks`. A mark is `x` (0..1) or `{x, z, seat}`; seat = chair|bench|couch|stool|armchair|car-seat|pilot-seat|bed.
+- **Seats:** draw a seat's top surface at `seatTopY(z)` centred on the mark x, ~140×`depthScale(z)` px per sitter; one mark per sitting spot (bench-1, bench-2). Give every place back, mid and front marks (front-left/front-center/front-right) so people can stand in front of seated ones. Puppets are always drawn over the backdrop: "behind the counter" needs a `set` piece (counter, desk), not a drawn one. Shared seat helpers: `SeatAt`/`BenchAt`/`SofaAt` (`backdrops/gostinaya.tsx`), `SeatFront`/`persp` (`backdrops/samolet.tsx`).
+- Check marks against the drawing: `npx remotion still src/index.ts Locations out.png --props='{"only":["bolnitsa"],"marks":true}'` — pink circle = feet on the mark, pink bar = seat top.
 - New backdrop: create `content/locations/<id>.json` (name, palette, props, bible.roles = canonical locations it covers, variants), create `remotion/src/backdrops/<id>.tsx`, add it to `remotion/src/backdrops/index.ts`, run `pnpm registry`.
 
+## Puppet actions (acts)
+Poses for `act` beats are numbers in `remotion/src/puppet/acts.ts` (`ACT_POSES`: arm/leg angles, drop, lean, head, face, effects); `Rig.tsx` only draws them. Layers: sitting (`seated`) → held state (`base`) → gesture (`act`) → flinch. New act = id in `ACTS` (core) + a pose function; check the sheet `npx remotion still src/index.ts Acts out.png --props='{"who":"muzhik"}'`.
+
+## Vehicles
+`remotion/src/world/Vehicles.tsx`: side view, origin = bottom centre on the floor, facing right, scale 1 = mid plane. `VEHICLE_SPECS[kind]` = size, rider seats `{dx, dy, s}` (driver first; dx = puppet box centre), `open` (rider on top) or windowed, `door`, `driveSec`. `VehicleArt part="back"` (interior) → riders → `part="front"` (body with window holes / handlebar). Sheet: `npx remotion still src/index.ts Vehicles out.png`.
+
 ## Staging
-`remotion/src/timeline.ts` turns `lines[].enter/exit` into walk-in/walk-out moves (0.7 s) and presence per frame; `remotion/src/Joke.tsx` lays out on-screen puppets in slots weighted by presence, walks newcomers in from the nearest edge, turns speakers toward the others. Validation of enter/exit lives in `stagingProblems` (`packages/core/src/index.ts`).
+`remotion/src/timeline.ts` turns beats into moves, acts, drives and rides (see **jokes-engine** / `docs/ENGINE.md`); `remotion/src/Joke.tsx` (`stageGeometry`) places puppets by x and depth z, seats them, draws everything sorted by plane.
 
 ## Sound — laughs and music
 - Library: `content/audio.json` (id, kind laugh|music, intensity chuckle|laugh|big or mood, file, duration, source, author, license) + files in `remotion/public/audio/{laughs,music}/`. CC0 / free licences only (Freesound with the CC0 filter, Pixabay Music); the user downloads, you import:
@@ -38,7 +48,7 @@ npx remotion still src/index.ts Locations ../renders/locations.png [--props='{"o
 npx remotion still src/index.ts Joke ../renders/x.png --frame=40 --props=../content/episodes/<id>.json
 npx remotion render src/index.ts Joke ../renders/x.mp4 --props=../content/episodes/<id>.json
 ```
-`content/episodes/test-enter.ru.json` is a ready staging test (patient walks in, then out). Check: puppets don't blend into the wall colour (variant clothes vs backdrop palette), feet on the floor line, accessories sit on the body for every build.
+`content/episodes/test-enter.ru.json` is a ready staging test (patient walks in, then out). Check: puppets don't blend into the wall colour (variant clothes vs backdrop palette), feet on their plane, seated puppets on the drawn seat, accessories sit on the body for every build.
 
 ## Engine v2 additions
 Camera (`remotion/src/director/camera.ts`), location `marks`, hand props (`remotion/src/props/Props.tsx`), the town map (`remotion/src/world/TownMap.tsx`) and data-only backdrops (`kit`, `remotion/src/backdrops/Kit.tsx`) — see **jokes-engine**.

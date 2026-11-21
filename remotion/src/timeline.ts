@@ -4,6 +4,8 @@ import {
 } from "@jf/core";
 import audioData from "../../content/audio.json";
 import voicesData from "../../content/voices.json";
+import { VEHICLE_SPECS } from "./world/Vehicles";
+import { PLANES } from "@jf/core";
 
 const clips = AudioLibrary.parse(audioData).clips;
 /** Темп озвучки (content/voices.json → tempo): рассказчик и персонажи. */
@@ -36,7 +38,18 @@ export type TimedLine = {
  * enter — появляется (0→1) у края или у метки; exit — уходит (1→0) за край; walk — идёт к метке, оставаясь в кадре.
  * target: "slot" — автослот (старый формат), иначе id метки места.
  */
-export type Move = { id: string; from: number; to: number; kind: "enter" | "exit" | "walk"; target: string; edge?: "left" | "right" };
+export type Move = {
+  id: string; from: number; to: number; kind: "enter" | "exit" | "walk"; target: string; edge?: "left" | "right";
+  /** План, на который встаёт кукла (z), если задан битом (иначе план метки); via — обход впереди или за спинами. */
+  z?: number; via?: "front" | "back";
+};
+/**
+ * Машина сцены (scene.vehicles): едет к метке (drive), въезжает (enter) или уезжает (exit) за край.
+ * target — метка или "slot" (для уезда); edge — край.
+ */
+export type Drive = { vehicle: string; from: number; to: number; kind: "enter" | "exit" | "drive"; target: string; edge?: "left" | "right" };
+/** Посадка и высадка: с кадра frame кукла едет в машине (board) или уже снаружи у двери (alight). */
+export type Ride = { who: string; vehicle: string; frame: number; kind: "board" | "alight" };
 
 /** Реквизит: событие в кадре (взять, отдать, уронить, положить). */
 export type PropEvent = { who: string; item: string; action: "hold" | "give" | "drop" | "put"; to?: string; frame: number };
@@ -61,6 +74,9 @@ export type SceneTL = {
   shakes: { from: number; to: number; strength: "light" | "strong" }[];
   /** Действия кукол (кадры; to_ = Infinity — поза держится). */
   acts: ActEvent[];
+  /** Машины: поездки (кадры) и посадки/высадки. */
+  drives: Drive[];
+  rides: Ride[];
 };
 
 /** Действие куклы: act с кадра from до to_ (Infinity — до следующего действия или stand). */
@@ -84,6 +100,8 @@ const PUNCH_GAP_SEC = 0.25;
 /** Действие по умолчанию длится; подойти к цели. */
 const ACT_SEC = 1.2;
 const APPROACH_SEC = 0.45;
+/** Подойти к двери машины и сесть. */
+const BOARD_SEC = 0.8;
 /** Длительность перехода между сценами (перекрытие стыка). */
 export const TRANSITION_SEC: Record<Scene["transition"], number> = { cut: 0, wipe: 0.5, flyover: 1.6 };
 /** Смех персонажей в конце: начинается после панчлайна, второй вступает чуть позже первого. */
@@ -131,6 +149,8 @@ export function buildTimeline(ep: Episode) {
     const shots: CameraShot[] = [];
     const crowd: CrowdEvent[] = [];
     const shakes: SceneTL["shakes"] = [];
+    const drives: Drive[] = [];
+    const rides: Ride[] = [];
 
     // кто начинает за кадром: первое событие — вход
     const first = new Map<string, "in" | "out">();
@@ -155,10 +175,12 @@ export function buildTimeline(ep: Episode) {
       const busy = new Map<string, number>(); // кукла → когда освободится
       let end = at;
       const startOf = (who: string) => Math.max(at, busy.get(who) ?? at);
+      const placed = new Set<string>();
       for (const b of pending) {
-        if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-")) {
-          // начальная расстановка: кукла сразу стоит на метке
-          moves.push({ id: b.who, from: f(at) - 1, to: f(at) - 1, kind: "walk", target: b.to });
+        if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-") && !placed.has(b.who)) {
+          // начальная расстановка: кукла сразу стоит на метке (второй move той же куклы до первой реплики — уже ходьба на первых словах)
+          placed.add(b.who);
+          moves.push({ id: b.who, from: f(at) - 1, to: f(at) - 1, kind: "walk", target: b.to, z: b.plane ? PLANES[b.plane] : undefined });
         } else if (b.type === "move") {
           const s0 = startOf(b.who);
           const off = b.to.startsWith("off-");
@@ -167,6 +189,7 @@ export function buildTimeline(ep: Episode) {
             kind: b.from ? "enter" : off ? "exit" : "walk",
             target: off ? "slot" : b.to,
             edge: b.from ? (b.from === "off-left" ? "left" : "right") : off ? (b.to === "off-left" ? "left" : "right") : undefined,
+            z: b.plane ? PLANES[b.plane] : undefined, via: b.via,
           });
           busy.set(b.who, s0 + WALK_SEC); end = Math.max(end, s0 + WALK_SEC);
         } else if (b.type === "prop") {
@@ -184,6 +207,36 @@ export function buildTimeline(ep: Episode) {
           acts.push({ who: b.who, act: b.act, to: b.to, from: f(s0), to_: Number.isFinite(sec) ? f(s0 + sec) : Infinity });
           const dur = Number.isFinite(sec) ? sec : 0.6;
           busy.set(b.who, s0 + dur); end = Math.max(end, s0 + dur);
+        } else if (b.type === "drive") {
+          const v = sc.vehicles?.find((x) => x.id === b.vehicle);
+          if (!v) continue;
+          const key = `veh:${b.vehicle}`;
+          const off = b.to.startsWith("off-");
+          if (!started && !b.from && !off) {
+            drives.push({ vehicle: b.vehicle, from: f(at) - 1, to: f(at) - 1, kind: "drive", target: b.to });
+            continue;
+          }
+          const sec = VEHICLE_SPECS[v.kind].driveSec;
+          const s0 = startOf(key);
+          drives.push({
+            vehicle: b.vehicle, from: f(s0), to: f(s0 + sec), kind: b.from ? "enter" : off ? "exit" : "drive", target: off ? "slot" : b.to,
+            edge: b.from ? (b.from === "off-left" ? "left" : "right") : off ? (b.to === "off-left" ? "left" : "right") : undefined,
+          });
+          busy.set(key, s0 + sec); end = Math.max(end, s0 + sec);
+        } else if (b.type === "board") {
+          // подойти к двери машины (после её приезда), затем — внутри
+          const s0 = Math.max(startOf(b.who), busy.get(`veh:${b.vehicle}`) ?? at);
+          moves.push({ id: b.who, from: f(s0), to: f(s0 + BOARD_SEC), kind: "walk", target: `veh:${b.vehicle}` });
+          rides.push({ who: b.who, vehicle: b.vehicle, frame: f(s0 + BOARD_SEC), kind: "board" });
+          busy.set(b.who, s0 + BOARD_SEC); busy.set(`veh:${b.vehicle}`, s0 + BOARD_SEC); end = Math.max(end, s0 + BOARD_SEC);
+        } else if (b.type === "alight") {
+          // выйти у двери (машина сначала доезжает), затем, если задано, пройти к метке
+          const s0 = Math.max(startOf(b.who), busy.get(`veh:${b.vehicle}`) ?? at);
+          rides.push({ who: b.who, vehicle: b.vehicle, frame: f(s0), kind: "alight" });
+          moves.push({ id: b.who, from: f(s0), to: f(s0), kind: "walk", target: `veh:${b.vehicle}` });
+          let e = s0 + 0.2;
+          if (b.to) { moves.push({ id: b.who, from: f(e), to: f(e + WALK_SEC), kind: "walk", target: b.to }); e += WALK_SEC; }
+          busy.set(b.who, e); end = Math.max(end, e);
         } else if (b.type === "camera") {
           shots.push({ frame: f(at), shot: b.shot, on: b.on, auto: false });
         } else if (b.type === "sfx") {
@@ -249,7 +302,7 @@ export function buildTimeline(ep: Episode) {
     if (pending.length) t = Math.max(t, flush(t));
     const next = scenesOf(ep)[si + 1];
     if (next) t += TRANSITION_SEC[next.transition] / 2;
-    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd, shakes, acts };
+    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd, shakes, acts, drives, rides };
   });
 
   const outro: OutroLaugh[] = ep.outroLaughs.map((x, k) => ({
@@ -342,11 +395,30 @@ export function buildTimeline(ep: Episode) {
     sc.moves.some((m) => m.id === id && m.from <= frame && m.to !== m.from && m.from > sc.from) ||
     sc.acts.some((a) => a.who === id && a.act === "stand" && a.from <= frame);
 
+  /** В какой машине едет кукла на кадре (scene.vehicles[].riders + посадки/высадки) — id машины или undefined. */
+  const ridingIn = (sc: SceneTL, id: string, frame: number): string | undefined => {
+    let v = sc.scene.vehicles?.find((x) => x.riders.includes(id))?.id;
+    for (const r of sc.rides) if (r.who === id && r.frame <= frame) v = r.kind === "board" ? r.vehicle : undefined;
+    return v;
+  };
+  /** Порядок седоков машины на кадре (первый — водитель): места в машине по этому порядку. */
+  const ridersOf = (sc: SceneTL, vehicle: string, frame: number): string[] => {
+    const v = sc.scene.vehicles?.find((x) => x.id === vehicle);
+    const out = [...(v?.riders ?? [])];
+    for (const r of [...sc.rides].sort((a, b) => a.frame - b.frame)) {
+      if (r.vehicle !== vehicle || r.frame > frame) continue;
+      const i = out.indexOf(r.who);
+      if (r.kind === "board" && i < 0) out.push(r.who);
+      if (r.kind === "alight" && i >= 0) out.splice(i, 1);
+    }
+    return out;
+  };
+
   /** Смеётся ли кукла сейчас (смех в конце). */
   const laughing = (id: string, frame: number) => outro.some((o) => o.character === id && frame >= o.from && frame <= o.from + o.frames);
 
   const music = musicFor(ep);
-  return { lines, scenes, sceneAt, presence, holding, actAt, flinchAt, standsUp, laughing, laughs: laughCues, sfx: sfxCues, outro, music, durationInFrames };
+  return { lines, scenes, sceneAt, presence, holding, actAt, flinchAt, standsUp, ridingIn, ridersOf, laughing, laughs: laughCues, sfx: sfxCues, outro, music, durationInFrames };
 }
 
 export type Timeline = ReturnType<typeof buildTimeline>;

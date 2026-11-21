@@ -1,5 +1,6 @@
 import { Canvas, Room, W, H, FLOOR_Y, type BackdropProps } from "./parts";
 import { mix, dark, light, WOOD } from "./gostinaya";
+import { depthScale, feetY, seatTopY } from "../world/depth";
 
 const Flame = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
@@ -21,15 +22,25 @@ const Candlestand = ({ x, gold }: { x: number; gold: string }) => (
   </g>
 );
 
-const Pew = ({ x, w, top, color }: { x: number; w: number; top: number; color: string }) => (
-  <g>
-    <rect x={x} y={top} width={w} height={96} rx={16} fill={color} />
-    <rect x={x} y={top + 96} width={w} height={14} fill={dark(color, 0.25)} />
-    <rect x={x + 10} y={top + 126} width={w - 20} height={24} rx={6} fill={dark(color, 0.1)} />
-    <rect x={x + 24} y={top + 110} width={22} height={FLOOR_Y - top - 110} fill={dark(color, 0.3)} />
-    <rect x={x + w - 46} y={top + 110} width={22} height={FLOOR_Y - top - 110} fill={dark(color, 0.3)} />
-  </g>
-);
+/** Церковная скамья на плане z от x0 до x1 (доли кадра): сиденье на seatTopY(z), спинка-панель, глухие боковины. */
+const Pew = ({ x0, x1, z, color }: { x0: number; x1: number; z: number; color: string }) => {
+  const s = depthScale(z);
+  const l = x0 * W;
+  const r = x1 * W;
+  const top = seatTopY(z);
+  const fy = feetY(z);
+  return (
+    <g>
+      <rect x={l} y={top - 130 * s} width={r - l} height={130 * s} rx={14 * s} fill={color} />
+      <rect x={l} y={top - 130 * s} width={r - l} height={16 * s} rx={8 * s} fill={light(color, 0.12)} />
+      <rect x={l + 10 * s} y={top - 100 * s} width={r - l - 20 * s} height={60 * s} rx={8 * s} fill={dark(color, 0.08)} />
+      <rect x={l - 6 * s} y={top} width={r - l + 12 * s} height={22 * s} rx={8 * s} fill={dark(color, 0.12)} />
+      <rect x={l + 14 * s} y={top + 22 * s} width={r - l - 28 * s} height={fy - top - 22 * s} fill={dark(color, 0.32)} />
+      <rect x={l - 12 * s} y={top - 150 * s} width={26 * s} height={fy - top + 150 * s} rx={10 * s} fill={dark(color, 0.18)} />
+      <rect x={r - 14 * s} y={top - 150 * s} width={26 * s} height={fy - top + 150 * s} rx={10 * s} fill={dark(color, 0.18)} />
+    </g>
+  );
+};
 
 /** Нейтральный храм: алтарь со свечами, скамьи по бокам, высокое цветное окно. Без символа конфессии. */
 export const Tserkov = ({ palette: p }: BackdropProps) => {
@@ -91,13 +102,11 @@ export const Tserkov = ({ palette: p }: BackdropProps) => {
       <rect x={510} y={FLOOR_Y - 292} width={60} height={8} rx={3} fill={runner} />
       <Candlestand x={300} gold={gold} />
       <Candlestand x={780} gold={gold} />
-      {/* скамьи по бокам */}
-      <Pew x={-30} w={220} top={930} color={light(WOOD, 0.12)} />
-      <Pew x={-40} w={250} top={1030} color={WOOD} />
-      <Pew x={890} w={220} top={930} color={light(WOOD, 0.12)} />
-      <Pew x={870} w={250} top={1030} color={WOOD} />
       {/* дорожка */}
       <path d={`M430 ${FLOOR_Y} L650 ${FLOOR_Y} L720 ${H} L360 ${H} Z`} fill={runner} opacity={0.85} />
+      {/* скамьи по бокам прохода, средний план (метки pew-left, pew-left-2, pew-right-2, pew-right) */}
+      <Pew x0={0.04} x1={0.33} z={0.5} color={WOOD} />
+      <Pew x0={0.67} x1={0.96} z={0.5} color={WOOD} />
     </Canvas>
   );
 };

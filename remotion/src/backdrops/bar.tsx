@@ -1,8 +1,11 @@
 import { Canvas, Room, HangingLamp, Plant, FLOOR_Y, W, type BackdropProps, type Palette } from "./parts";
+import { SeatAt } from "./gostinaya";
 
 /**
  * Фон «bar»: уютный бар. Варианты (content/locations/bar.json → bible.variants):
  * restaurant / cafe, party, hotel. Остальное — базовый бар.
+ * Сиденья под метки: бар — 4 табурета у стойки (stool-1…4); ресторан — два столика по два стула (chair-1…4);
+ * банкет — 4 стула за столом-мебелью (chair-1…4, средний план); гостиница — кресло в холле (armchair).
  */
 
 /** Смешать цвет с белым (t>0) или чёрным (t<0). */
@@ -52,16 +55,6 @@ const Counter = ({ accent, top = 975 }: { accent: string; top?: number }) => (
   </g>
 );
 
-/** Барный стул. */
-const Stool = ({ x }: { x: number }) => (
-  <g>
-    <rect x={x - 6} y={1060} width={12} height={FLOOR_Y - 1060} fill="#2b1d14" />
-    <rect x={x - 34} y={1130} width={68} height={8} rx={4} fill="#2b1d14" />
-    <ellipse cx={x} cy={FLOOR_Y - 2} rx={36} ry={8} fill="#2b1d14" />
-    <rect x={x - 52} y={1036} width={104} height={30} rx={14} fill="#b4452f" />
-  </g>
-);
-
 /** Пивной кран и бокал на стойке. */
 const Taps = ({ x, top = 975, accent }: { x: number; top?: number; accent: string }) => (
   <g>
@@ -96,30 +89,32 @@ const BaseBar = ({ palette }: { palette: Palette }) => (
     <Counter accent={palette.accent} />
     <Taps x={760} accent={palette.accent} />
     <Mug x={330} />
-    <Stool x={110} />
-    <Stool x={970} />
+    {[0.12, 0.3, 0.7, 0.88].map((x) => (
+      <SeatAt key={x} x={x} z={1} kind="bar-stool" color="#b4452f" />
+    ))}
   </>
 );
 
 /* ---------- restaurant / cafe ---------- */
 
+/** Столик на одной ножке, по стулу слева и справа (метки на x ± 150 px, дальний план). */
 const CafeTable = ({ x, cloth, hem, accent }: { x: number; cloth: string; hem: string; accent: string }) => {
-  const top = 1000;
+  const top = 1040;
   return (
     <g>
-      {/* стулья за столом */}
-      <rect x={x - 130} y={940} width={70} height={250} rx={14} fill={WOOD_D} />
-      <rect x={x + 60} y={940} width={70} height={250} rx={14} fill={WOOD_D} />
+      {[-150, 150].map((dx) => (
+        <SeatAt key={dx} x={(x + dx) / W} z={1} kind="chair" color={WOOD_D} pad={shade(accent, -0.1)} back={190} />
+      ))}
       <rect x={x - 6} y={top} width={12} height={FLOOR_Y - top} fill="#2b1d14" />
-      <ellipse cx={x} cy={FLOOR_Y - 4} rx={50} ry={10} fill="#2b1d14" />
-      <path d={`M${x - 120} ${top} L${x + 120} ${top} L${x + 136} ${top + 110} L${x - 136} ${top + 110} Z`} fill={cloth} />
-      <rect x={x - 136} y={top + 96} width={272} height={16} rx={4} fill={hem} />
+      <ellipse cx={x} cy={FLOOR_Y - 4} rx={44} ry={9} fill="#2b1d14" />
+      <path d={`M${x - 84} ${top} L${x + 84} ${top} L${x + 96} ${top + 84} L${x - 96} ${top + 84} Z`} fill={cloth} />
+      <rect x={x - 96} y={top + 72} width={192} height={14} rx={4} fill={hem} />
       {/* вазочка с цветком и свеча */}
-      <rect x={x - 46} y={top - 46} width={26} height={46} rx={10} fill={shade(accent, -0.1)} />
-      <rect x={x - 35} y={top - 92} width={4} height={50} fill="#5b8c5a" />
-      <circle cx={x - 33} cy={top - 98} r={14} fill="#c8553d" />
-      <rect x={x + 22} y={top - 40} width={16} height={40} rx={4} fill="#f6efe0" />
-      <ellipse cx={x + 30} cy={top - 52} rx={7} ry={12} fill={accent} />
+      <rect x={x - 40} y={top - 40} width={22} height={40} rx={9} fill={shade(accent, -0.1)} />
+      <rect x={x - 31} y={top - 82} width={4} height={44} fill="#5b8c5a" />
+      <circle cx={x - 29} cy={top - 88} r={13} fill="#c8553d" />
+      <rect x={x + 20} y={top - 36} width={14} height={36} rx={4} fill="#f6efe0" />
+      <ellipse cx={x + 27} cy={top - 46} rx={6} ry={11} fill={accent} />
     </g>
   );
 };
@@ -146,10 +141,10 @@ const Restaurant = ({ palette }: { palette: Palette }) => {
       <rect x={830} y={480} width={150} height={190} rx={8} fill={palette.accent} />
       <rect x={844} y={494} width={122} height={162} fill="#f2e6d0" />
       <path d="M860 640 l40 -70 l30 40 l20 -24 l18 54 Z" fill="#5b8c5a" />
-      <HangingLamp x={190} len={60} color={palette.accent} />
-      <HangingLamp x={890} len={60} color={palette.accent} />
-      <CafeTable x={190} cloth="#f6efe0" hem="#b4452f" accent={palette.accent} />
-      <CafeTable x={890} cloth="#f6efe0" hem="#b4452f" accent={palette.accent} />
+      <HangingLamp x={270} len={60} color={palette.accent} />
+      <HangingLamp x={810} len={60} color={palette.accent} />
+      <CafeTable x={270} cloth="#f6efe0" hem="#b4452f" accent={palette.accent} />
+      <CafeTable x={810} cloth="#f6efe0" hem="#b4452f" accent={palette.accent} />
     </>
   );
 };
@@ -265,7 +260,10 @@ const Party = ({ palette }: { palette: Palette }) => {
       <Balloon x={1020} y={560} color={colors[2]} />
       <Balloon x={940} y={620} color={colors[4]} r={42} />
       <Balloon x={1010} y={690} color={colors[0]} r={40} />
-      {/* банкетный стол — мебель варианта перед куклами (locations/bar.json → set) */}
+      {/* банкетный стол — мебель варианта перед куклами (locations/bar.json → set); за ним 4 стула на среднем плане */}
+      {[0.2, 0.4, 0.6, 0.8].map((x) => (
+        <SeatAt key={x} x={x} z={0.5} kind="chair" color={shade(palette.wall, -0.35)} pad={palette.accent} back={190} />
+      ))}
 
       {/* конфетти на полу */}
       {[[150, 1230, colors[0]], [420, 1260, colors[2]], [700, 1240, colors[1]], [930, 1270, colors[3]]].map(([x, y, c], i) => (
@@ -338,6 +336,8 @@ const Hotel = ({ palette }: { palette: Palette }) => {
       <rect x={400} y={952} width={8} height={18} fill="#b4452f" />
       <Plant x={80} scale={1.1} pot={WOOD_D} />
       <Plant x={1000} scale={1.1} pot={WOOD_D} />
+      {/* кресло для гостей в холле (метка armchair, средний план) */}
+      <SeatAt x={0.86} z={0.5} kind="armchair" color={palette.accent} />
     </>
   );
 };
