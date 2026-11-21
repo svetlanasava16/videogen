@@ -1,0 +1,44 @@
+{
+  "id": "podyezd",
+  "name": {
+    "ru": "Подъезд",
+    "en": "Stairwell",
+    "de": "Treppenhaus"
+  },
+  "palette": {
+    "wall": "#8fb3a2",
+    "floor": "#7d6e62",
+    "accent": "#8a4a3a"
+  },
+  "props": [
+    "flat-doors",
+    "elevator",
+    "stairs",
+    "mailboxes"
+  ],
+  "marks": {
+    "door-left": 0.14,
+    "left": 0.22,
+    "elevator": 0.47,
+    "center": 0.5,
+    "door-right": 0.72,
+    "right": 0.78,
+    "stairs": 0.9
+  },
+  "bible": {
+    "summary": "Apartment block stairwell: landing with neighbours' doors, elevator, stairs going up — neighbours meet, someone rings the doorbell; variant inside the elevator cabin.",
+    "roles": [
+      "stairwell",
+      "elevator"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "elevator"
+        ],
+        "change": "inside a small elevator cabin: button panel, mirror, handrail"
+      }
+    ],
+    "prompt": "soviet apartment block stairwell landing, two padded apartment doors with numbers, elevator doors, stairs with railing going up, painted green lower wall, bare bulb"
+  }
+}

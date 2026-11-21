@@ -11,10 +11,12 @@ import { Kukhnya } from "./kukhnya";
 import { Magazin } from "./magazin";
 import { Nebesa } from "./nebesa";
 import { Ofis } from "./ofis";
+import { Podyezd } from "./podyezd";
 import { Samolet } from "./samolet";
 import { Spalnya } from "./spalnya";
 import { Tserkov } from "./tserkov";
 import { Ulitsa } from "./ulitsa";
+import { Zal } from "./zal";
 
 export const BACKDROPS: Record<string, ComponentType<BackdropProps>> = {
   "bar": Bar,
@@ -27,8 +29,10 @@ export const BACKDROPS: Record<string, ComponentType<BackdropProps>> = {
   "magazin": Magazin,
   "nebesa": Nebesa,
   "ofis": Ofis,
+  "podyezd": Podyezd,
   "samolet": Samolet,
   "spalnya": Spalnya,
   "tserkov": Tserkov,
   "ulitsa": Ulitsa,
+  "zal": Zal,
 };

@@ -181,6 +181,64 @@ const Bunting = ({ y, colors }: { y: number; colors: string[] }) => {
   );
 };
 
+/** Длинный банкетный стол со скатертью и фестонами (свадьба, юбилей): позади кукол, верх ~FLOOR_Y-195. */
+const BanquetTable = ({ colors }: { colors: string[] }) => {
+  const top = FLOOR_Y - 195;
+  const front = FLOOR_Y - 40;
+  const x0 = 40;
+  const x1 = W - 40;
+  const cloth = "#f6efe0";
+  const n = 8;
+  const seg = (x1 - x0) / n;
+  return (
+    <g>
+      <ellipse cx={W / 2} cy={front + 6} rx={(x1 - x0) / 2 + 20} ry={16} fill="#00000040" />
+      <rect x={x0} y={top} width={x1 - x0} height={34} rx={10} fill={shade(cloth, 0.4)} />
+      <rect x={x0} y={top + 28} width={x1 - x0} height={front - top - 28} fill={cloth} />
+      {Array.from({ length: n * 2 }).map((_, i) => (
+        <rect key={i} x={x0 + (i + 0.5) * (seg / 2) - 4} y={top + 34} width={8} height={front - top - 34} fill="#00000010" />
+      ))}
+      {/* фестоны и банты */}
+      {Array.from({ length: n }).map((_, i) => {
+        const a = x0 + i * seg;
+        return (
+          <g key={i}>
+            <path d={`M${a} ${top + 34} Q${a + seg / 2} ${top + 110} ${a + seg} ${top + 34}`} stroke={colors[i % 2 ? 4 : 0]} strokeWidth={14} fill="none" />
+            <circle cx={a} cy={top + 38} r={12} fill={colors[1]} />
+          </g>
+        );
+      })}
+      <circle cx={x1} cy={top + 38} r={12} fill={colors[1]} />
+      {/* тарелки и бокалы */}
+      {[130, 260, 380, 700, 820, 950].map((x, i) => (
+        <g key={x}>
+          <ellipse cx={x} cy={top + 10} rx={40} ry={10} fill="#ffffff" stroke="#d8d0c0" strokeWidth={4} />
+          <g fill="#f6efe0cc">
+            <path d={`M${x + 34 - (i % 2) * 74} ${top - 50} h30 l-15 26 Z`} />
+            <rect x={x + 47 - (i % 2) * 74} y={top - 26} width={4} height={30} />
+          </g>
+        </g>
+      ))}
+      {/* шампанское в ведёрке и букет */}
+      <path d={`M300 ${top + 4} L306 ${top - 50} L354 ${top - 50} L360 ${top + 4} Z`} fill="#c9ccd4" />
+      <rect x={322} y={top - 120} width={20} height={76} rx={8} fill="#2f5a3a" />
+      <rect x={322} y={top - 122} width={20} height={18} rx={5} fill="#e0b030" />
+      <rect x={760} y={top - 40} width={30} height={44} rx={8} fill="#cfe2ea" />
+      {[[760, -70, colors[1]], [790, -78, colors[4]], [775, -96, colors[0]], [748, -92, "#ffffff"], [802, -100, "#ffffff"]].map(([x, dy, c], i) => (
+        <circle key={i} cx={x as number} cy={top + (dy as number)} r={18} fill={c as string} />
+      ))}
+      {/* свадебный торт: три яруса, чуть правее центра */}
+      <ellipse cx={630} cy={top + 4} rx={96} ry={12} fill="#ffffff" />
+      <rect x={560} y={top - 70} width={140} height={72} rx={10} fill={cloth} />
+      <rect x={580} y={top - 130} width={100} height={62} rx={10} fill={cloth} />
+      <rect x={602} y={top - 178} width={56} height={50} rx={10} fill={cloth} />
+      <rect x={560} y={top - 46} width={140} height={12} fill={colors[4]} />
+      <rect x={580} y={top - 104} width={100} height={10} fill={colors[4]} />
+      <circle cx={630} cy={top - 190} r={14} fill={colors[1]} />
+    </g>
+  );
+};
+
 const Party = ({ palette }: { palette: Palette }) => {
   const colors = [palette.accent, "#c8553d", "#5b8c5a", "#4a7aa5", "#c86fa0"];
   const spots = [
@@ -207,18 +265,8 @@ const Party = ({ palette }: { palette: Palette }) => {
       <Balloon x={1020} y={560} color={colors[2]} />
       <Balloon x={940} y={620} color={colors[4]} r={42} />
       <Balloon x={1010} y={690} color={colors[0]} r={40} />
-      <Counter accent={palette.accent} top={1010} />
-      {/* торт и бокалы на стойке */}
-      <rect x={760} y={940} width={130} height={70} rx={10} fill="#f6efe0" />
-      <rect x={760} y={962} width={130} height={14} fill="#c86fa0" />
-      {[790, 825, 860].map((x) => <rect key={x} x={x - 4} y={910} width={8} height={30} rx={3} fill={colors[(x / 5) % 5 | 0]} />)}
-      {[200, 260].map((x) => (
-        <g key={x} fill="#f6efe0aa">
-          <path d={`M${x - 20} 930 h40 l-20 30 Z`} />
-          <rect x={x - 3} y={958} width={6} height={44} />
-          <rect x={x - 16} y={1000} width={32} height={8} rx={4} />
-        </g>
-      ))}
+      <BanquetTable colors={colors} />
+
       {/* конфетти на полу */}
       {[[150, 1230, colors[0]], [420, 1260, colors[2]], [700, 1240, colors[1]], [930, 1270, colors[3]]].map(([x, y, c], i) => (
         <rect key={i} x={x as number} y={y as number} width={18} height={10} rx={2} fill={c as string} transform={`rotate(${i * 40} ${x} ${y})`} />

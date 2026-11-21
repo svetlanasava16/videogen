@@ -58,13 +58,46 @@
   {
    "id": "front-door",
    "names": {
-    "ru": "прихожая, лестничная площадка",
+    "ru": "прихожая, входная дверь",
     "en": "front door",
     "de": "Haustür"
    },
    "group": "home",
    "folk": false,
-   "note": "front door, hallway, landing, stairwell, elevator"
+   "note": "front door, home hallway, doorstep, porch"
+  },
+  {
+   "id": "stairwell",
+   "names": {
+    "ru": "подъезд, лестничная площадка",
+    "en": "stairwell",
+    "de": "Treppenhaus"
+   },
+   "group": "home",
+   "folk": false,
+   "note": "apartment block stairwell, landing with neighbours' doors, staircase"
+  },
+  {
+   "id": "elevator",
+   "names": {
+    "ru": "лифт",
+    "en": "elevator",
+    "de": "Aufzug"
+   },
+   "group": "home",
+   "folk": false,
+   "note": "inside an elevator cabin"
+  },
+  {
+   "id": "dining-room",
+   "names": {
+    "ru": "столовая, накрытый стол",
+    "en": "dining room",
+    "de": "Esszimmer"
+   },
+   "group": "home",
+   "folk": false,
+   "note": "dining room, family dinner or holiday feast at a laid table at home"
   },
   {
    "id": "balcony",
@@ -818,7 +851,7 @@
   "garage": "garage",
   "garden": "garden",
   "gym": "gym",
-  "stairwell": "front-door",
+  "stairwell": "stairwell",
   "golf-course": "golf-course",
   "ship": "ship",
   "barbershop": "barbershop",
@@ -857,7 +890,7 @@
   "apartment-doorway": "front-door",
   "balcony": "balcony",
   "art-gallery": "museum",
-  "elevator": "front-door",
+  "elevator": "elevator",
   "subway": "subway",
   "garden-of-eden": "garden-of-eden",
   "basement": "basement",
@@ -962,12 +995,12 @@
   "briefing-room": "army-barracks",
   "parking-lot": "street",
   "landmark": "street",
-  "staircase": "front-door",
+  "staircase": "stairwell",
   "manor": "home-living-room",
   "clinic": "doctor-office",
   "dry-cleaner": "shop",
   "street-market": "shop",
-  "apartment-hallway": "front-door",
+  "apartment-hallway": "stairwell",
   "nuclear-plant": "factory",
   "port": "ship",
   "army-headquarters": "army-barracks",
@@ -1056,7 +1089,13 @@
   "town-square": "street",
   "tattoo-studio": "barbershop",
   "snowstorm": "army-barracks",
-  "home-staircase": "front-door",
-  "arctic": "arctic"
+  "home-staircase": "stairwell",
+  "arctic": "arctic",
+  "dining-room": "dining-room",
+  "home-dining-room": "dining-room",
+  "family-dinner": "dining-room",
+  "dinner-table": "dining-room",
+  "holiday-table": "dining-room",
+  "festive-table": "dining-room"
  }
 }

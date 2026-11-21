@@ -84,7 +84,8 @@ const Bathroom = ({ palette: p }: { palette: Palette }) => {
       <circle cx={438} cy={934} r={15} fill="#f2c230" />
       <path d="M450 932 L466 937 L450 942 Z" fill="#e07a30" />
       <circle cx={440} cy={930} r={3} fill="#2b1d14" />
-      {/* раковина и зеркало */}
+      {/* раковина и зеркало — левее, рядом унитаз */}
+      <g transform="translate(-250 0)">
       <rect x={790} y={812} width={180} height={14} rx={6} fill="#f6f3ee" />
       <rect x={810} y={770} width={28} height={42} rx={8} fill={light(p.accent, 0.2)} />
       <rect x={816} y={740} width={6} height={40} rx={3} fill="#4a8ab0" />
@@ -97,10 +98,25 @@ const Bathroom = ({ palette: p }: { palette: Palette }) => {
       <path d="M780 900 L980 900 Q975 980 880 990 Q785 980 780 900 Z" fill={enamel} />
       <rect x={772} y={892} width={216} height={22} rx={11} fill={light(enamel, 0.4)} />
       <path d={`M850 985 L910 985 L926 ${FLOOR_Y} L834 ${FLOOR_Y} Z`} fill={enamel} />
+      </g>
+      {/* унитаз с бачком у правой стены, рулон бумаги левее */}
+      <g transform="translate(76 0)">
+      <rect x={846} y={860} width={116} height={150} rx={14} fill={enamel} />
+      <rect x={838} y={848} width={132} height={22} rx={10} fill={light(enamel, 0.4)} />
+      <circle cx={904} cy={842} r={10} fill="#b9b4aa" />
+      <rect x={846} y={990} width={116} height={14} fill="#00000012" />
+      <path d={`M812 1018 L996 1018 Q992 1092 940 1110 L952 ${FLOOR_Y} L856 ${FLOOR_Y} L868 1110 Q816 1092 812 1018 Z`} fill={enamel} />
+      <rect x={804} y={1004} width={200} height={24} rx={12} fill={light(p.accent, 0.45)} />
+      <rect x={856} y={FLOOR_Y - 10} width={96} height={10} fill="#00000014" />
+      </g>
+      <rect x={808} y={930} width={56} height={10} rx={4} fill="#b9b4aa" />
+      <circle cx={836} cy={966} r={28} fill="#ffffff" />
+      <circle cx={836} cy={966} r={9} fill="#d8d0c0" />
+      <rect x={836} y={966} width={18} height={70} fill="#ffffff" />
       {/* полотенце */}
-      <circle cx={1030} cy={760} r={10} fill="#b9b4aa" />
-      <rect x={1000} y={764} width={62} height={180} rx={12} fill={towel} />
-      <rect x={1000} y={900} width={62} height={14} fill={light(towel, 0.4)} />
+      <circle cx={262} cy={640} r={10} fill="#b9b4aa" />
+      <rect x={232} y={644} width={62} height={180} rx={12} fill={towel} />
+      <rect x={232} y={780} width={62} height={14} fill={light(towel, 0.4)} />
       {/* коврик */}
       <rect x={130} y={FLOOR_Y + 12} width={240} height={40} rx={20} fill={light(p.accent, 0.3)} />
     </>

@@ -287,11 +287,112 @@ const Basement = ({ palette: p }: { palette: Palette }) => {
   );
 };
 
-/** Гостиная: базовый вид + прихожая (front-door), балкон (balcony), подвал (basement). */
+/* ---------- столовая: длинный накрытый стол позади кукол ---------- */
+const Chandelier = ({ x }: { x: number }) => (
+  <g>
+    <rect x={x - 3} y={0} width={6} height={150} fill="#2b1d14" />
+    <circle cx={x} cy={210} r={210} fill="#f5e6a8" opacity={0.1} />
+    <path d={`M${x - 130} 190 Q${x} 250 ${x + 130} 190`} stroke="#c9a24a" strokeWidth={10} fill="none" />
+    <ellipse cx={x} cy={170} rx={34} ry={26} fill="#c9a24a" />
+    {[-130, -65, 0, 65, 130].map((dx) => (
+      <g key={dx}>
+        <rect x={x + dx - 6} y={dx === 0 ? 196 : 176 + Math.abs(dx) * 0.05} width={12} height={24} fill="#c9a24a" />
+        <path d={`M${x + dx} ${dx === 0 ? 168 : 146} q-16 22 0 34 q16 -12 0 -34 z`} fill="#fff0b8" />
+      </g>
+    ))}
+  </g>
+);
+
+/** Сервант с посудой за стеклом. */
+const Sideboard = ({ x, w, h }: { x: number; w: number; h: number }) => {
+  const y = FLOOR_Y - h;
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} rx={8} fill={WOOD} />
+      <rect x={x + 16} y={y + 20} width={w - 32} height={h * 0.55} rx={6} fill="#cfe2ea" />
+      {[0.22, 0.42].map((t) => <rect key={t} x={x + 16} y={y + h * t} width={w - 32} height={8} fill={dark(WOOD, 0.1)} />)}
+      {[0, 1, 2, 3].map((i) => <ellipse key={i} cx={x + 50 + i * ((w - 100) / 3)} cy={y + h * 0.22 - 26} rx={20} ry={26} fill={i % 2 ? "#f6f3ee" : "#c8553d"} />)}
+      {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={x + 36 + i * ((w - 90) / 4)} y={y + h * 0.42 - 44} width={18} height={44} rx={5} fill="#f6f3ee" opacity={0.85} />)}
+      <rect x={x + 16} y={y + h * 0.6} width={w - 32} height={h * 0.36} rx={6} fill={dark(WOOD, 0.12)} />
+      <rect x={x + w / 2 - 4} y={y + h * 0.6} width={8} height={h * 0.36} fill={WOOD} />
+    </g>
+  );
+};
+
+const DiningRoom = ({ palette: p }: { palette: Palette }) => {
+  const top = FLOOR_Y - 195; // столешница чуть ниже середины взрослой куклы
+  const front = FLOOR_Y - 40; // передний край стола — за линией ног
+  const cloth = "#f6efe0";
+  const x0 = 70;
+  const x1 = W - 70;
+  const chair = dark(WOOD, 0.15);
+  return (
+    <>
+      <Room wall={p.wall} floor={p.floor} />
+      <Wallpaper wall={p.wall} />
+      <Plinth color={dark(p.wall, 0.3)} />
+      <Chandelier x={540} />
+      <Sideboard x={40} w={250} h={560} />
+      <Picture x={760} y={500} w={220} h={160} frame={WOOD} art="#9cc3d8" />
+      {/* часы */}
+      <circle cx={640} cy={560} r={44} fill={WOOD} />
+      <circle cx={640} cy={560} r={32} fill="#f4f1ea" />
+      <rect x={637} y={536} width={6} height={26} rx={3} fill="#333" />
+      <rect x={638} y={558} width={20} height={6} rx={3} fill="#333" />
+      {/* спинки стульев за столом */}
+      {[230, 420, 660, 850].map((x) => (
+        <g key={x}>
+          <rect x={x - 50} y={top - 150} width={100} height={160} rx={18} fill={chair} />
+          <rect x={x - 34} y={top - 132} width={68} height={70} rx={12} fill={p.accent} />
+        </g>
+      ))}
+      {/* стол: ножки, скатерть с каймой */}
+      <ellipse cx={W / 2} cy={front + 6} rx={(x1 - x0) / 2 + 30} ry={16} fill="#00000022" />
+      {[x0 + 40, x1 - 60].map((x) => <rect key={x} x={x} y={front - 60} width={22} height={64} fill={dark(WOOD, 0.3)} />)}
+      <rect x={x0} y={top} width={x1 - x0} height={34} rx={10} fill={light(cloth, 0.3)} />
+      <path d={`M${x0} ${top + 28} H${x1} V${front - 70} ${Array.from({ length: 9 }).map((_, i) => `Q${x1 - (i + 0.5) * ((x1 - x0) / 9)} ${front - 36} ${x1 - (i + 1) * ((x1 - x0) / 9)} ${front - 70}`).join(" ")} Z`} fill={cloth} />
+      <rect x={x0} y={front - 104} width={x1 - x0} height={12} fill={p.accent} opacity={0.8} />
+      {/* тарелки и бокалы */}
+      {[170, 300, 780, 910].map((x) => (
+        <g key={x}>
+          <ellipse cx={x} cy={top + 12} rx={46} ry={11} fill="#ffffff" stroke="#d8d0c0" strokeWidth={4} />
+          <path d={`M${x + 50} ${top - 46} h26 l-13 24 Z`} fill="#e8f2f6" opacity={0.9} />
+          <rect x={x + 61} y={top - 24} width={4} height={30} fill="#e8f2f6" />
+        </g>
+      ))}
+      {/* салатница, бутылка, торт, курица */}
+      <path d={`M380 ${top + 6} Q420 ${top + 46} 460 ${top + 6} Z`} fill={p.accent} />
+      <ellipse cx={420} cy={top + 6} rx={42} ry={10} fill="#e8d6a0" />
+      {[402, 420, 438].map((x) => <circle key={x} cx={x} cy={top - 2} r={7} fill={x === 420 ? "#5b8c5a" : "#f2c230"} />)}
+      <rect x={492} y={top - 96} width={26} height={100} rx={9} fill="#3f6b4f" />
+      <rect x={498} y={top - 126} width={14} height={34} rx={5} fill="#3f6b4f" />
+      <rect x={496} y={top - 130} width={18} height={14} rx={4} fill="#e0b030" />
+      <rect x={490} y={top - 60} width={30} height={26} rx={4} fill="#f6efe0" />
+      <rect x={560} y={top - 70} width={130} height={70} rx={10} fill="#f6efe0" />
+      <rect x={560} y={top - 48} width={130} height={14} fill="#c86fa0" />
+      <rect x={580} y={top - 112} width={90} height={44} rx={8} fill="#f6efe0" />
+      {[600, 625, 650].map((x) => (
+        <g key={x}>
+          <rect x={x - 3} y={top - 140} width={6} height={28} rx={3} fill={x === 625 ? p.accent : "#4a7aa5"} />
+          <path d={`M${x} ${top - 156} q-6 8 0 14 q6 -6 0 -14 z`} fill="#f2c230" />
+        </g>
+      ))}
+      <ellipse cx={625} cy={top + 6} rx={90} ry={12} fill="#ffffff" />
+      <ellipse cx={740} cy={top - 4} rx={56} ry={14} fill="#ffffff" stroke="#d8d0c0" strokeWidth={3} />
+      <ellipse cx={740} cy={top - 28} rx={44} ry={30} fill="#c8813d" />
+      <ellipse cx={724} cy={top - 40} rx={14} ry={8} fill="#e0a860" />
+      <Rug cx={540} color={dark(p.accent, 0.1)} w={760} />
+    </>
+  );
+};
+
+/** Гостиная: базовый вид + прихожая (front-door), балкон (balcony), подвал (basement), столовая (dining-room). */
 export const Gostinaya = ({ palette, variant }: BackdropProps) => (
   <Canvas>
     {variant === "front-door" ? (
       <Hallway palette={palette} />
+    ) : variant === "dining-room" ? (
+      <DiningRoom palette={palette} />
     ) : variant === "balcony" ? (
       <Balcony palette={palette} />
     ) : variant === "basement" ? (

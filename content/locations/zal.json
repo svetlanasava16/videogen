@@ -1,0 +1,52 @@
+{
+  "id": "zal",
+  "name": {
+    "ru": "Актовый зал",
+    "en": "Hall",
+    "de": "Saal"
+  },
+  "palette": {
+    "wall": "#d6c7a8",
+    "floor": "#8a6a4a",
+    "accent": "#a83a32"
+  },
+  "props": [
+    "stage",
+    "lectern",
+    "microphone",
+    "banner",
+    "seats"
+  ],
+  "marks": {
+    "aisle": 0.1,
+    "left": 0.22,
+    "stage-left": 0.32,
+    "center": 0.5,
+    "stage-right": 0.64,
+    "lectern": 0.74,
+    "right": 0.84
+  },
+  "bible": {
+    "summary": "Assembly / conference hall: low stage with a lectern and microphone, banner, rows of seats — meetings, speeches, press conferences; variants for theater and museum.",
+    "roles": [
+      "conference-hall",
+      "theater",
+      "museum"
+    ],
+    "variants": [
+      {
+        "roles": [
+          "theater"
+        ],
+        "change": "stage with red curtains and footlights, painted scenery, audience seats in front"
+      },
+      {
+        "roles": [
+          "museum"
+        ],
+        "change": "paintings in gold frames, statue on a plinth, rope barrier"
+      }
+    ],
+    "prompt": "assembly hall of a culture house, low wooden stage with lectern and microphone, red banner, presidium table with green cloth, rows of seat backs in the foreground"
+  }
+}
