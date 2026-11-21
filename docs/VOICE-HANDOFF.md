@@ -13,27 +13,30 @@ git checkout joke-factory-pipeline
 ```bash
 pnpm install
 ```
-Создать файл `.env` в корне репо (в git не попадает, ключ никому не пересылать):
+Файл `.env` в корне репо (в git не попадает, ключ никому не пересылать; шаблон — `.env.example`). Два аккаунта:
 ```
-ELEVENLABS_API_KEY=<ключ: elevenlabs.io → Developers → API keys, права Text to Speech и Voices>
-ELEVENLABS_PLAN=paid
+ELEVENLABS_API_KEY=<бесплатный ключ — по умолчанию, для тестов>
+ELEVENLABS_PLAN=free
+ELEVENLABS_API_KEY_PAID=<платный ключ — включается флагом --paid>
 ```
+Права ключа: Text to Speech (Access), Voices (Read + Write), User (Read). Проверка ключа без трат: `pnpm voice doctor [--paid]`.
+Если на компьютере только платный аккаунт: `ELEVENLABS_API_KEY=<платный>` и `ELEVENLABS_PLAN=paid`, флаг `--paid` не нужен.
 Тариф — Starter или Creator: у бесплатного нет коммерческой лицензии.
 
 ## 2. Один раз на язык: выбрать голоса
 Таблица кандидатов — `docs/CASTING.md`: роль, описание голоса и ссылки, по которым голос можно послушать в Voice Library.
 Если другой кандидат звучит лучше, поменяйте `pick` в `content/casting.json`. Потом:
 ```bash
-pnpm voice apply-casting --locale ru --dry-run   # какие голоса найдены
-pnpm voice apply-casting --locale ru             # добавить их в My voices и записать куклам
+pnpm voice apply-casting --locale ru --dry-run --paid   # какие голоса найдены
+pnpm voice apply-casting --locale ru --paid             # добавить их в My voices (20 голосов для ru: нужен Creator, у Starter 10 слотов) и записать куклам
 pnpm voice cast --locale ru                      # проверка: у кого ещё нет голоса (TODO)
 ```
 
 ## 3. Озвучить
 Сейчас готовы три сборника (18 эпизодов, около 9 100 знаков):
 ```bash
-pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01          # смета: знаки и остаток подписки
-pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01 --yes    # озвучка
+pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01 --paid          # смета: знаки и остаток подписки
+pnpm voice run --compilation ru-20261121-01,ru-20261121-02,ru-20261122-01 --paid --yes    # озвучка
 pnpm voice check                                                                     # всё ли озвучено
 ```
 - Озвучиваются только реплики без актуального голоса. Тестовая озвучка с бесплатного аккаунта (помечена `elevenlabs-free`) на платном ключе переозвучивается сама.

@@ -123,6 +123,23 @@ export async function addSharedVoice(publicOwnerId: string, voiceId: string, nam
   return (await call<{ voice_id: string }>("POST", `/voices/add/${publicOwnerId}/${voiceId}`, { new_name: name })).voice_id;
 }
 
+/**
+ * Проверка ключа без трат символов (pnpm voice doctor): подписка (тариф, остаток), чтение Voice Library,
+ * свои голоса, модели. tts=true — ещё одна короткая пробная озвучка (несколько символов) для проверки права Text to Speech.
+ */
+export async function probe(opts: { ttsVoiceId?: string } = {}) {
+  const check = async <T>(name: string, f: () => Promise<T>) => {
+    try { return { name, ok: true as const, value: await f() }; } catch (e) { return { name, ok: false as const, error: String((e as Error).message).slice(0, 200) }; }
+  };
+  return {
+    subscription: await check("User: Read (подписка)", () => call<{ tier: string; character_count: number; character_limit: number; status?: string; voice_limit?: number; voice_slots_used?: number }>("GET", "/user/subscription")),
+    library: await check("Voices: Read (Voice Library)", () => call<{ voices: unknown[] }>("GET", "/shared-voices?page_size=1")),
+    voices: await check("Voices: Read (My voices)", () => call<{ voices: { voice_id: string; category?: string }[] }>("GET", "/voices")),
+    models: await check("Models (список моделей)", () => call<{ model_id: string; can_do_text_to_speech?: boolean }[]>("GET", "/models")),
+    tts: opts.ttsVoiceId ? await check("Text to Speech (пробная фраза)", () => tts({ voiceId: opts.ttsVoiceId!, text: "Да.", model: "eleven_multilingual_v2", locale: "ru", emotion: "neutral" }).then((r) => ({ bytes: r.audio.length }))) : undefined,
+  };
+}
+
 /** Остаток символов в подписке. */
 export async function quota() {
   const s = await call<{ character_count: number; character_limit: number; tier: string }>("GET", "/user/subscription");

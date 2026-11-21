@@ -1,37 +1,297 @@
 {
   "note": "Кандидаты из ElevenLabs Voice Library (ноябрь 2026), отбор по voiceBrief кукол и популярности. Первый — основной, остальные — запасные. Голоса с этническим акцентом для комических ролей не берём (правило 11). Выбор: послушать в библиотеке (ссылки в docs/CASTING.md), затем `pnpm voice apply-casting --locale ru` (нужен ключ).",
   "ru": {
-    "narrator": { "pick": 0, "brief": "тёплый мужской 40–55, неторопливый, с иронией", "candidates": ["Stanislav - Deep, Empathetic and Warm", "Georgy - Clear, Engaging and Confident", "VASKO - Deep, Warm and Pleasant"] },
-    "muzhik": { "pick": 0, "brief": "баритон 40–50, простоватый, хрипловатый", "candidates": ["Nester Surovy - Gravely yet Refined", "Arty Grumson - Raspy and Calm", "Nikolay - Confident, Clear and Engaging"] },
-    "paren": { "pick": 0, "brief": "молодой 20–30, быстрый, немного неуверенный", "candidates": ["Denis - Pleasant, Engaging and Friendly", "Egor - Young & Energetic", "Dzmitry - Expressive Russian Narrator"] },
-    "zhena": { "pick": 0, "brief": "женский 40–50, громкий, уверенный, «опять?»", "candidates": ["Elena Gromova — Podcasts & Conversation", "Mariia - Measured, Calm and Engaging", "Rina - Soft , Clear and Comforting"] },
-    "sluzhivy": { "pick": 0, "brief": "мужской 35–45, командный, отрывистый", "candidates": ["Egor Gadzhiyev - Clear and Commanding", "Evelon - Intimidating and Energetic"] },
-    "nachalnik": { "pick": 0, "brief": "густой бас 50–60, важный, неторопливый", "candidates": ["Alex Bell - Deep and Confident", "Maxim - Premium Baritone"] },
-    "vovochka": { "pick": 0, "brief": "мальчик 8–10, озорной (по традиции мультфильмов можно женский голос)", "candidates": ["Elena Tymanova", "Mila Svetlova - Russian Fairy"] },
-    "barmen": { "pick": 0, "brief": "низкий мужской 40–50, усталый, ироничный", "candidates": ["Broken Future - Narrator", "Artspace - Engaging, Warm and Pleasant"] },
-    "doktor": { "pick": 0, "brief": "мужской 50–60, спокойный, сухой, интеллигентный", "candidates": ["Alex - Calm Russian Analyst", "Anton - Calm and Poetic"] },
-    "muzhik-ryzhy": { "pick": 0, "brief": "мужской 30–40, громкий, деревенский", "candidates": ["Dmitry - Energetic and Confident", "Alexandr Vlasov - Vibrant and Energetic"] },
-    "devushka": { "pick": 0, "brief": "молодая девушка, живая", "candidates": ["Larisa Actrisa - Confident and Clear", "Nadia - Energetic, Clear and Polished"] },
-    "devushka-ryzhaya": { "pick": 0, "brief": "вторая молодая девушка, отличимая от первой", "candidates": ["Nastya", "Ekaterina - Soft, Silky and Tender"] },
-    "uchilka": { "pick": 0, "brief": "учительница, строгая, чёткая", "candidates": ["Viktoriya Voloshina - Curious Educator", "Kate - Calm, Natural and Versatile"] },
-    "vor": { "pick": 0, "brief": "мужской, хитрый, вкрадчивый", "candidates": ["Alexey - Character", "Miron - Charismatic Storyteller"] },
-    "tyoshcha": { "pick": 0, "brief": "пожилая женщина, тёща/бабушка", "candidates": ["Babushka Valya - Grandma Storyteller"] }
+    "narrator": {
+      "pick": 0,
+      "brief": "тёплый мужской 40–55, неторопливый, с иронией",
+      "candidates": [
+        "Stanislav - Deep, Empathetic and Warm",
+        "Georgy - Clear, Engaging and Confident",
+        "VASKO - Deep, Warm and Pleasant"
+      ]
+    },
+    "muzhik": {
+      "pick": 0,
+      "brief": "баритон 40–50, простоватый, хрипловатый",
+      "candidates": [
+        "Nester Surovy - Gravely yet Refined",
+        "Arty Grumson - Raspy and Calm",
+        "Nikolay - Confident, Clear and Engaging"
+      ]
+    },
+    "paren": {
+      "pick": 0,
+      "brief": "молодой 20–30, быстрый, немного неуверенный",
+      "candidates": [
+        "Denis - Pleasant, Engaging and Friendly",
+        "Egor - Young & Energetic",
+        "Dzmitry - Expressive Russian Narrator"
+      ]
+    },
+    "zhena": {
+      "pick": 0,
+      "brief": "женский 40–50, громкий, уверенный, «опять?»",
+      "candidates": [
+        "Elena Gromova — Podcasts & Conversation",
+        "Mariia - Measured, Calm and Engaging",
+        "Rina - Soft , Clear and Comforting"
+      ]
+    },
+    "sluzhivy": {
+      "pick": 0,
+      "brief": "мужской 35–45, командный, отрывистый",
+      "candidates": [
+        "Egor Gadzhiyev - Clear and Commanding",
+        "Evelon - Intimidating and Energetic"
+      ]
+    },
+    "nachalnik": {
+      "pick": 0,
+      "brief": "густой бас 50–60, важный, неторопливый",
+      "candidates": [
+        "Alex Bell - Deep and Confident",
+        "Maxim - Premium Baritone"
+      ]
+    },
+    "vovochka": {
+      "pick": 0,
+      "brief": "мальчик 8–10, озорной (по традиции мультфильмов можно женский голос)",
+      "candidates": [
+        "Elena Tymanova",
+        "Mila Svetlova - Russian Fairy"
+      ]
+    },
+    "barmen": {
+      "pick": 0,
+      "brief": "низкий мужской 40–50, усталый, ироничный",
+      "candidates": [
+        "Broken Future - Narrator",
+        "Artspace - Engaging, Warm and Pleasant"
+      ]
+    },
+    "doktor": {
+      "pick": 0,
+      "brief": "мужской 50–60, спокойный, сухой, интеллигентный",
+      "candidates": [
+        "Alex - Calm Russian Analyst",
+        "Anton - Calm and Poetic"
+      ]
+    },
+    "muzhik-ryzhy": {
+      "pick": 0,
+      "brief": "мужской 30–40, громкий, деревенский",
+      "candidates": [
+        "Dmitry - Energetic and Confident",
+        "Alexandr Vlasov - Vibrant and Energetic"
+      ]
+    },
+    "devushka": {
+      "pick": 0,
+      "brief": "молодая девушка, живая",
+      "candidates": [
+        "Larisa Actrisa - Confident and Clear",
+        "Nadia - Energetic, Clear and Polished"
+      ]
+    },
+    "devushka-ryzhaya": {
+      "pick": 0,
+      "brief": "вторая молодая девушка, отличимая от первой",
+      "candidates": [
+        "Nastya",
+        "Ekaterina - Soft, Silky and Tender"
+      ]
+    },
+    "uchilka": {
+      "pick": 0,
+      "brief": "учительница, строгая, чёткая",
+      "candidates": [
+        "Viktoriya Voloshina - Curious Educator",
+        "Kate - Calm, Natural and Versatile"
+      ]
+    },
+    "vor": {
+      "pick": 0,
+      "brief": "мужской, хитрый, вкрадчивый",
+      "candidates": [
+        "Alexey - Character",
+        "Miron - Charismatic Storyteller"
+      ]
+    },
+    "tyoshcha": {
+      "pick": 0,
+      "brief": "пожилая женщина, тёща/бабушка",
+      "candidates": [
+        "Babushka Valya - Grandma Storyteller"
+      ]
+    },
+    "ded": {
+      "pick": 0,
+      "brief": "старческий мужской голос 70+, скрипучий, хитрый",
+      "candidates": [
+        "Ivan - New Year Storyteller",
+        "Alexrady"
+      ]
+    },
+    "muzhik-sosed": {
+      "pick": 0,
+      "brief": "мужской голос 50+, добродушный, болтливый",
+      "candidates": [
+        "Dmitry - True Russian",
+        "Andrii - Casual",
+        "Vladislav - Calm"
+      ]
+    },
+    "sluzhivy-ryadovoy": {
+      "pick": 0,
+      "brief": "молодой мужской голос 18–22, простоватый",
+      "candidates": [
+        "Danik - Casual",
+        "Kup - Natural Russian",
+        "Motya Sugar - Chill"
+      ]
+    },
+    "vovochka-drug": {
+      "pick": 0,
+      "brief": "детский голос мальчика 8–10, озорной (взрослый актёр тоже подойдёт)",
+      "candidates": [
+        "Allesia K - Interactive Kids Teacher",
+        "Kristina Denophine - Energetic & Clear"
+      ]
+    },
+    "devushka-blondinka": {
+      "pick": 0,
+      "brief": "молодой женский голос, мягкий, наивный",
+      "candidates": [
+        "Marusya G - Sweet E-Learning Teacher",
+        "Sofia - Pleasant",
+        "Yulia - Soft"
+      ]
+    }
   },
   "en": {
-    "narrator": { "pick": 0, "brief": "warm male 40–55, unhurried, dry wit", "candidates": ["Jon - Warm & Grounded Storyteller", "James - Husky, Engaging and Bold", "Peter"] },
-    "muzhik": { "pick": 0, "brief": "male baritone 40–50, working-class, gravelly, deadpan", "candidates": ["Chuck Miller - Deep, Raspy, American", "Austin - Deep, Raspy and Authentic", "Bob - Rugged and Warm Cowboy"] },
-    "paren": { "pick": 0, "brief": "young male 20–30, quick, a bit unsure", "candidates": ["Lukas - Excited youthful young man", "Jett - Gritty and Spunky Young Hero"] },
-    "zhena": { "pick": 0, "brief": "female 40–50, loud, confident, 'again?!'", "candidates": ["Meaghan", "Tessa - Wise leader", "Charmion - Soft and husky"] },
-    "sluzhivy": { "pick": 0, "brief": "male 35–45, commanding, clipped", "candidates": ["Jerry B. - Gruff and Gritty Commander", "Rob - Tough & Calloused"] },
-    "nachalnik": { "pick": 0, "brief": "deep bass 50–60, self-important, slow", "candidates": ["W. Clint Oxley", "Julian - Deep, Rich and Mature", "Sully - Mature, Deep and Intriguing"] },
-    "vovochka": { "pick": 0, "brief": "boy 8–10, cheeky (Little Johnny)", "candidates": ["Little Dude II - Cartoon Character", "Michael Mouse - Pitchy, Energetic Comic"] },
-    "barmen": { "pick": 0, "brief": "low male 40–50, tired, ironic", "candidates": ["Christopher - Friendly, Kind and Raspy", "Flint - Deep, Raspy, and Warm"] },
-    "doktor": { "pick": 0, "brief": "male 50–60, calm, dry, intelligent", "candidates": ["Oliver - Clean, British and Steady", "Christopher - Gentle and Trustworthy"] },
-    "muzhik-ryzhy": { "pick": 0, "brief": "male 30–40, loud, rural", "candidates": ["Bob - Rugged and Warm Cowboy", "Austin - Deep, Raspy and Authentic"] },
-    "devushka": { "pick": 0, "brief": "young woman, lively", "candidates": ["Ember - Energetic, Confident Protagonist", "Candy - Young and Sweet"] },
-    "devushka-ryzhaya": { "pick": 0, "brief": "second young woman, clearly different", "candidates": ["Jen Frankie - Entitled & Spoiled", "Emmaline - young British girl"] },
-    "uchilka": { "pick": 0, "brief": "teacher, strict, clear", "candidates": ["Teacher Rayla - Storyteller", "Eliza - Elegant & Lovely"] },
-    "vor": { "pick": 0, "brief": "male, sly, shady", "candidates": ["Northern Terry", "Oxley - Evil Character"] },
-    "tyoshcha": { "pick": 0, "brief": "older woman, mother-in-law / grandma", "candidates": ["Carol - Relatable, Real, Likeable Gran", "Maria Moody - Grandmotherly Storykeeper"] }
+    "narrator": {
+      "pick": 0,
+      "brief": "warm male 40–55, unhurried, dry wit",
+      "candidates": [
+        "Jon - Warm & Grounded Storyteller",
+        "James - Husky, Engaging and Bold",
+        "Peter"
+      ]
+    },
+    "muzhik": {
+      "pick": 0,
+      "brief": "male baritone 40–50, working-class, gravelly, deadpan",
+      "candidates": [
+        "Chuck Miller - Deep, Raspy, American",
+        "Austin - Deep, Raspy and Authentic",
+        "Bob - Rugged and Warm Cowboy"
+      ]
+    },
+    "paren": {
+      "pick": 0,
+      "brief": "young male 20–30, quick, a bit unsure",
+      "candidates": [
+        "Lukas - Excited youthful young man",
+        "Jett - Gritty and Spunky Young Hero"
+      ]
+    },
+    "zhena": {
+      "pick": 0,
+      "brief": "female 40–50, loud, confident, 'again?!'",
+      "candidates": [
+        "Meaghan",
+        "Tessa - Wise leader",
+        "Charmion - Soft and husky"
+      ]
+    },
+    "sluzhivy": {
+      "pick": 0,
+      "brief": "male 35–45, commanding, clipped",
+      "candidates": [
+        "Jerry B. - Gruff and Gritty Commander",
+        "Rob - Tough & Calloused"
+      ]
+    },
+    "nachalnik": {
+      "pick": 0,
+      "brief": "deep bass 50–60, self-important, slow",
+      "candidates": [
+        "W. Clint Oxley",
+        "Julian - Deep, Rich and Mature",
+        "Sully - Mature, Deep and Intriguing"
+      ]
+    },
+    "vovochka": {
+      "pick": 0,
+      "brief": "boy 8–10, cheeky (Little Johnny)",
+      "candidates": [
+        "Little Dude II - Cartoon Character",
+        "Michael Mouse - Pitchy, Energetic Comic"
+      ]
+    },
+    "barmen": {
+      "pick": 0,
+      "brief": "low male 40–50, tired, ironic",
+      "candidates": [
+        "Christopher - Friendly, Kind and Raspy",
+        "Flint - Deep, Raspy, and Warm"
+      ]
+    },
+    "doktor": {
+      "pick": 0,
+      "brief": "male 50–60, calm, dry, intelligent",
+      "candidates": [
+        "Oliver - Clean, British and Steady",
+        "Christopher - Gentle and Trustworthy"
+      ]
+    },
+    "muzhik-ryzhy": {
+      "pick": 0,
+      "brief": "male 30–40, loud, rural",
+      "candidates": [
+        "Bob - Rugged and Warm Cowboy",
+        "Austin - Deep, Raspy and Authentic"
+      ]
+    },
+    "devushka": {
+      "pick": 0,
+      "brief": "young woman, lively",
+      "candidates": [
+        "Ember - Energetic, Confident Protagonist",
+        "Candy - Young and Sweet"
+      ]
+    },
+    "devushka-ryzhaya": {
+      "pick": 0,
+      "brief": "second young woman, clearly different",
+      "candidates": [
+        "Jen Frankie - Entitled & Spoiled",
+        "Emmaline - young British girl"
+      ]
+    },
+    "uchilka": {
+      "pick": 0,
+      "brief": "teacher, strict, clear",
+      "candidates": [
+        "Teacher Rayla - Storyteller",
+        "Eliza - Elegant & Lovely"
+      ]
+    },
+    "vor": {
+      "pick": 0,
+      "brief": "male, sly, shady",
+      "candidates": [
+        "Northern Terry",
+        "Oxley - Evil Character"
+      ]
+    },
+    "tyoshcha": {
+      "pick": 0,
+      "brief": "older woman, mother-in-law / grandma",
+      "candidates": [
+        "Carol - Relatable, Real, Likeable Gran",
+        "Maria Moody - Grandmotherly Storykeeper"
+      ]
+    }
   }
 }

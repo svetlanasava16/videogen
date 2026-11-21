@@ -7,6 +7,8 @@
  *   pnpm voice run <episodeId…> | --locale ru --top 30 [--yes] [--provider fake] [--no-laughs]
  *     (кроме реплик озвучивает смех каждой куклы в конце — content/voices.json → laughModel, по умолчанию eleven_v3)
  *   pnpm voice check                                        — устаревшая озвучка (текст поменялся), пропавшие файлы
+ *   pnpm voice doctor [--compilation <ids>] [--tts]         — проверка ключа: тариф, остаток, права, модели, кому нужен голос
+ *   --paid (у любой команды)                                — платный аккаунт: ELEVENLABS_API_KEY_PAID из .env вместо бесплатного ключа
  *   pnpm voice casting                                      — docs/CASTING.md: кандидаты из content/casting.json со ссылками для прослушивания
  *   pnpm voice apply-casting --locale ru [--roles zhena,vovochka] [--dry-run] [--force]  — найти выбранных кандидатов в библиотеке, добавить в My voices, назначить
  * Без --yes `run` только показывает список и смету символов. Результат: remotion/public/audio/voice/<episodeId>/<lineId>.mp3
@@ -20,6 +22,16 @@ import { duration, tool } from "./audio.js";
 import { DATA, ROOT, readJsonl } from "./util.js";
 import * as EL from "./voice/elevenlabs.js";
 import { blocked } from "./risk.js";
+
+// Два аккаунта ElevenLabs в .env: ELEVENLABS_API_KEY — бесплатный, по умолчанию (тесты, озвучка помечается elevenlabs-free);
+// ELEVENLABS_API_KEY_PAID — платный, включается флагом --paid (озвучка для публикации, настоящие голоса из кастинга).
+if (process.argv.includes("--paid")) {
+  if (!process.env.ELEVENLABS_API_KEY_PAID || process.env.ELEVENLABS_API_KEY_PAID === "PASTE_KEY_HERE") {
+    throw new Error("--paid: в .env нет ELEVENLABS_API_KEY_PAID — вставьте ключ платного аккаунта");
+  }
+  process.env.ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY_PAID;
+  process.env.ELEVENLABS_PLAN = "paid";
+}
 
 const CHARS = join(ROOT, "content", "characters");
 const EPISODES = join(ROOT, "content", "episodes");
@@ -45,13 +57,14 @@ const characters = () =>
 
 /** voiceId говорящего на языке; undefined — голос не назначен. */
 function voiceOf(who: string, locale: Locale, chars = characters(), cfg = voiceConfig()) {
-  const id = who === NARRATOR ? cfg.narrator[locale]?.elevenlabsVoiceId : chars[who]?.voice?.[locale]?.elevenlabsVoiceId;
-  if (id && id !== "TODO") return id as string;
-  // бесплатный план: стандартные голоса из content/voices-test.json (озвучка помечается elevenlabs-free)
+  // бесплатный план: сначала стандартные голоса из content/voices-test.json (голоса кастинга живут на платном аккаунте)
   if (process.env.ELEVENLABS_PLAN === "free") {
     const test = join(dirname(VOICES), "voices-test.json");
-    if (existsSync(test)) return (readRaw(test).voices as Record<string, string>)[who];
+    const t = existsSync(test) ? (readRaw(test).voices as Record<string, string>)[who] : undefined;
+    if (t) return t;
   }
+  const id = who === NARRATOR ? cfg.narrator[locale]?.elevenlabsVoiceId : chars[who]?.voice?.[locale]?.elevenlabsVoiceId;
+  if (id && id !== "TODO") return id as string;
   return undefined;
 }
 
@@ -92,7 +105,8 @@ function staleLaughs(ep: Raw, voiceOfChar: (c: string) => string | undefined) {
   const have = new Map(((ep.outroLaughs ?? []) as Raw[]).map((x) => [x.character, x]));
   return laughers(ep).filter((c) => {
     const x = have.get(c);
-    return !x || !existsSync(join(PUBLIC, x.file)) || (voiceOfChar(c) && x.voiceId !== voiceOfChar(c)) || (process.env.ELEVENLABS_PLAN !== "free" && x.provider === "elevenlabs-free");
+    const free = process.env.ELEVENLABS_PLAN === "free";
+    return !x || !existsSync(join(PUBLIC, x.file)) || (!free && voiceOfChar(c) && x.voiceId !== voiceOfChar(c)) || (!free && x.provider === "elevenlabs-free");
   });
 }
 
@@ -325,8 +339,10 @@ async function applyCasting() {
     if (only && !only.includes(role)) continue;
     const want = r.candidates[r.pick ?? 0];
     if (!want) continue;
-    if (voiceOf(role, locale) && !flag("force")) {
-      console.log(`${role.padEnd(18)} уже назначен (${voiceOf(role, locale)}), пропуск (--force — переназначить)`);
+    // назначенный голос — только настоящий (тестовые голоса бесплатного плана не в счёт)
+    const real = role === NARRATOR ? voiceConfig().narrator[locale]?.elevenlabsVoiceId : characters()[role]?.voice?.[locale]?.elevenlabsVoiceId;
+    if (real && real !== "TODO" && !flag("force")) {
+      console.log(`${role.padEnd(18)} уже назначен (${real}), пропуск (--force — переназначить)`);
       continue;
     }
     const found = await EL.searchVoices({ search: head(want), language: locale, pageSize: 30 });
@@ -361,6 +377,63 @@ async function applyCasting() {
   if (dry) console.log("\nэто проверка; без --dry-run голоса будут добавлены в My voices (занимают слоты плана) и записаны куклам");
 }
 
+/**
+ * Проверка перед озвучкой на платном ключе (символы не тратятся; --tts — пробная фраза в 3 символа):
+ * ключ и ELEVENLABS_PLAN в .env, тариф и остаток, права ключа (Voices Read, User Read, модели), каким куклам
+ * ещё нужен голос для сборников (--compilation, по умолчанию — отладочный набор) и что делать дальше.
+ */
+async function doctor() {
+  const envFile = join(ROOT, ".env");
+  const plan = process.env.ELEVENLABS_PLAN ?? "(не задан)";
+  const hasKey = !!process.env.ELEVENLABS_API_KEY && process.env.ELEVENLABS_API_KEY !== "PASTE_KEY_HERE";
+  console.log(`аккаунт: ${flag("paid") ? "платный (--paid, ELEVENLABS_API_KEY_PAID)" : "по умолчанию (ELEVENLABS_API_KEY)"}`);
+  console.log(`.env: ${existsSync(envFile) ? "есть" : "НЕТ — скопируйте .env.example в .env"}`);
+  console.log(`ELEVENLABS_API_KEY: ${hasKey ? "задан" : "НЕ задан — вставьте ключ в .env"}`);
+  console.log(`ELEVENLABS_PLAN: ${plan}`);
+  if (!hasKey) { process.exitCode = 1; return; }
+  const testVoice = existsSync(join(dirname(VOICES), "voices-test.json")) ? (readRaw(join(dirname(VOICES), "voices-test.json")).voices as Record<string, string>).narrator : undefined;
+  const p = await EL.probe({ ttsVoiceId: flag("tts") ? testVoice : undefined });
+  const line = (c: { name: string; ok: boolean; error?: string }, extra = "") => console.log(`${c.ok ? "✓" : "✗"} ${c.name}${extra}${c.ok ? "" : ` — ${c.error}`}`);
+  const sub = p.subscription;
+  let bad = false;
+  if (sub.ok) {
+    const v = sub.value;
+    const paidTier = v.tier !== "free";
+    line(sub, `: тариф ${v.tier}, использовано ${v.character_count} из ${v.character_limit}, осталось ${v.character_limit - v.character_count}${v.voice_limit ? `, слотов голосов ${v.voice_slots_used ?? "?"}/${v.voice_limit}` : ""}`);
+    if (!paidTier && plan === "paid") { console.log("  ! ключ от БЕСПЛАТНОГО аккаунта, а ELEVENLABS_PLAN=paid: озвучку нельзя публиковать — поставьте ключ платного аккаунта"); bad = true; }
+    if (paidTier && plan !== "paid") console.log("  ! аккаунт платный, а ELEVENLABS_PLAN не paid: озвучка будет помечена тестовой — поставьте ELEVENLABS_PLAN=paid");
+  } else { line(sub); bad = true; }
+  line(p.library);
+  line(p.voices, p.voices.ok ? `: в My voices ${p.voices.value.voices.length}` : "");
+  if (p.models.ok) {
+    const ids = p.models.value.map((m) => m.model_id);
+    const cfg = voiceConfig() as Raw;
+    for (const m of [cfg.model ?? "eleven_multilingual_v2", cfg.laughModel ?? "eleven_v3"]) console.log(`${ids.includes(m) ? "✓" : "✗"} модель ${m}${ids.includes(m) ? "" : " — недоступна на этом аккаунте"}`);
+  } else console.log(`· список моделей недоступен (${p.models.error.slice(0, 80)}) — не мешает озвучке`);
+  if (p.tts) line(p.tts); else console.log("· Text to Speech проверяется пробной фразой: pnpm voice doctor --tts (3 символа)");
+  console.log("· Voices: Write проверится при первом pnpm voice apply-casting (без --dry-run)");
+  if (!p.library.ok || !p.voices.ok) bad = true;
+
+  // кому нужен голос: эпизоды сборников (или отладочного набора)
+  const comps = arg("compilation");
+  const ids = comps
+    ? comps.split(",").flatMap((c) => JSON.parse(readFileSync(join(ROOT, "content", "compilations", `${c}.json`), "utf8")).episodes as string[])
+    : (JSON.parse(readFileSync(join(ROOT, "content", "debug-set.json"), "utf8")).episodes as string[]);
+  const chars = characters(), cfg = voiceConfig();
+  const need = new Map<string, Set<string>>();
+  for (const id of ids) {
+    const ep = readRaw(join(EPISODES, `${id}.json`));
+    for (const l of ep.lines as Raw[]) {
+      const real = l.character === NARRATOR ? cfg.narrator[ep.locale as Locale]?.elevenlabsVoiceId : chars[l.character]?.voice?.[ep.locale]?.elevenlabsVoiceId;
+      if (!real || real === "TODO") (need.get(ep.locale) ?? need.set(ep.locale, new Set()).get(ep.locale)!).add(l.character);
+    }
+  }
+  if (need.size) for (const [loc, who] of need) console.log(`голоса не выбраны (${loc}, ${ids.length} эпизодов): ${[...who].join(", ")} → pnpm voice apply-casting --locale ${loc}`);
+  else console.log(`голоса выбраны для всех говорящих (${ids.length} эпизодов)`);
+  console.log(bad ? "\nключ не готов — см. ✗ выше" : `\nключ готов. Дальше: ${need.size ? "pnpm voice apply-casting --locale ru, затем " : ""}pnpm voice run ${comps ? `--compilation ${comps}` : "<эпизоды>"} (смета), затем с --yes`);
+  process.exitCode = bad ? 1 : 0;
+}
+
 function check() {
   let voiced = 0;
   const bad: string[] = [];
@@ -380,9 +453,9 @@ function check() {
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
   const cmd = process.argv[2];
-  const cmds: Record<string, () => unknown> = { cast, search, assign, preview, run, check, casting, "apply-casting": applyCasting };
+  const cmds: Record<string, () => unknown> = { cast, search, assign, preview, run, check, casting, "apply-casting": applyCasting, doctor };
   if (!cmds[cmd]) {
-    console.error("usage: voice cast|search|assign|preview|run|check (см. шапку pipeline/src/voice.ts)");
+    console.error("usage: voice cast|search|assign|preview|run|check|doctor (см. шапку pipeline/src/voice.ts)");
     process.exitCode = 1;
   } else await cmds[cmd]();
 }
