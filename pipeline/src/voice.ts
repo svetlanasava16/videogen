@@ -13,7 +13,7 @@
  * и поле lines[].audio в content/episodes/<id>.json — закоммитить и запушить.
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { NARRATOR, VoiceConfig, estimateWords, textHash, type Emotion, type Locale, type WordTiming } from "@jf/core";
 import { duration, tool } from "./audio.js";
@@ -46,7 +46,13 @@ const characters = () =>
 /** voiceId говорящего на языке; undefined — голос не назначен. */
 function voiceOf(who: string, locale: Locale, chars = characters(), cfg = voiceConfig()) {
   const id = who === NARRATOR ? cfg.narrator[locale]?.elevenlabsVoiceId : chars[who]?.voice?.[locale]?.elevenlabsVoiceId;
-  return id && id !== "TODO" ? (id as string) : undefined;
+  if (id && id !== "TODO") return id as string;
+  // бесплатный план: стандартные голоса из content/voices-test.json (озвучка помечается elevenlabs-free)
+  if (process.env.ELEVENLABS_PLAN === "free") {
+    const test = join(dirname(VOICES), "voices-test.json");
+    if (existsSync(test)) return (readRaw(test).voices as Record<string, string>)[who];
+  }
+  return undefined;
 }
 
 function popularity() {
