@@ -92,13 +92,15 @@ function staleLaughs(ep: Raw, voiceOfChar: (c: string) => string | undefined) {
   const have = new Map(((ep.outroLaughs ?? []) as Raw[]).map((x) => [x.character, x]));
   return laughers(ep).filter((c) => {
     const x = have.get(c);
-    return !x || !existsSync(join(PUBLIC, x.file)) || (voiceOfChar(c) && x.voiceId !== voiceOfChar(c));
+    return !x || !existsSync(join(PUBLIC, x.file)) || (voiceOfChar(c) && x.voiceId !== voiceOfChar(c)) || (process.env.ELEVENLABS_PLAN !== "free" && x.provider === "elevenlabs-free");
   });
 }
 
 /** Реплики эпизода, которым нужна (пере)озвучка. */
 function stale(ep: Raw) {
-  return (ep.lines as Raw[]).filter((l) => !l.audio || l.audio.textHash !== textHash(l.text) || !existsSync(join(PUBLIC, l.audio.file)));
+  // тестовая озвучка бесплатного аккаунта (elevenlabs-free) на платном ключе переозвучивается настоящими голосами
+  const paid = process.env.ELEVENLABS_PLAN !== "free";
+  return (ep.lines as Raw[]).filter((l) => !l.audio || l.audio.textHash !== textHash(l.text) || !existsSync(join(PUBLIC, l.audio.file)) || (paid && l.audio.provider === "elevenlabs-free"));
 }
 
 // ---------- команды ----------
@@ -185,6 +187,10 @@ async function run() {
   const cfg = voiceConfig();
   const chars = characters();
   let files = positional().map((id) => `${id}.json`);
+  // --compilation <id>[,<id>…]: все эпизоды сборников (content/compilations/<id>.json)
+  const comps = arg("compilation");
+  if (comps) for (const c of comps.split(",")) files.push(...(JSON.parse(readFileSync(join(ROOT, "content", "compilations", `${c}.json`), "utf8")).episodes as string[]).map((id) => `${id}.json`));
+  files = [...new Set(files)];
   if (!files.length) {
     const locale = arg("locale") as Locale;
     if (!locale) throw new Error("укажите эпизоды или --locale ru --top N");

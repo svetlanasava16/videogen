@@ -48,23 +48,18 @@ export const Flyover = ({ at, frames, from, to, locale }: { at: number; frames: 
 };
 
 /** Заставка сборника: город сверху, плавный наезд к первому зданию. */
-export const TownIntro = ({ frames, to, locale, title }: { frames: number; to: Building; locale: Locale; title: string }) => {
+/** Заставка сборника: пролёт над картой города к первому зданию. Без названия поверх (пользователь убрал «Анекдоты из Анекдотска»). */
+export const TownIntro = ({ frames, to, locale }: { frames: number; to: Building; locale: Locale; title?: string }) => {
   const frame = useCurrentFrame();
   if (frame > frames) return null;
   const p = ease(Math.min(1, frame / frames));
   const all: Box = { cx: TOWN_W / 2, cy: TOWN_H / 2, w: TOWN_H / ASPECT };
   const box = mix(all, focus(to), p);
-  const titleOpacity = interpolate(frame, [0, 6, frames * 0.7, frames], [0, 1, 1, 0]);
   const fade = interpolate(p, [0.85, 1], [1, 0], { extrapolateLeft: "clamp" });
   return (
     <AbsoluteFill style={{ opacity: fade }}>
       <TownMap viewBox={viewBox(box)} locale={locale} labels={p > 0.3} />
       <Watermark />
-      {/* название сборника (логотип — только в углу, водяным знаком) */}
-      <div style={{ position: "absolute", left: 60, right: 60, top: "16%", textAlign: "center", opacity: titleOpacity, fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif",
-        fontSize: 72, fontWeight: 900, color: "#fff", WebkitTextStroke: "10px #2b1d14", paintOrder: "stroke fill" }}>
-        {title}
-      </div>
     </AbsoluteFill>
   );
 };

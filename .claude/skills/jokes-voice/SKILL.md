@@ -37,6 +37,7 @@ pnpm voice preview muzhik --locale ru  # sample line → out/voice-preview/muzhi
 pnpm voice run --locale ru --top 30          # estimate: list, characters, remaining subscription balance
 pnpm voice run --locale ru --top 30 --yes    # generate
 pnpm voice run ru-63f080198c11.ru --yes      # specific episodes (re-voice a fixed line the same way)
+pnpm voice run --compilation <id>[,<id>] --yes   # all episodes of compilations (content/compilations/<id>.json)
 pnpm voice check                             # stale lines (text changed after voicing) or missing files
 ```
 - Each run also voices the **outro laugh** of every puppet still on stage at the end (`[laughs heartily] Ха-ха-ха!` with `content/voices.json → laughModel`, default `eleven_v3`, ~25 characters per puppet) into `outroLaughs`; skip with `--no-laughs`.
@@ -44,6 +45,9 @@ pnpm voice check                             # stale lines (text changed after v
 - Model and settings: `content/voices.json → model` (default `eleven_multilingual_v2`: stable, timings confirmed, request stitching via previous/next text). Line emotion → voice settings (stability/style); with `eleven_v3`/`eleven_v4` it becomes an audio tag instead — try on 2–3 episodes before switching, and check the model is not marked beta on the account (beta output is excluded from commercial use).
 - Listen to a few results before a big batch: render one episode with `cd remotion && npx remotion render src/index.ts Joke ../renders/check.mp4 --props=../content/episodes/<id>.json` (keep the screen awake on macOS).
 - Testing the pipeline without spending credits: `--provider fake` writes tones with even timings — never commit fake audio (`git checkout content/episodes && rm -r remotion/public/audio/voice/<id>`).
+
+- Test voice-over from the free account (`ELEVENLABS_PLAN=free`, provider `elevenlabs-free`) is re-voiced automatically when the key is paid (`ELEVENLABS_PLAN=paid`).
+- Step-by-step guide for the second computer (Russian): `docs/VOICE-HANDOFF.md`.
 
 ## Hand-off
 ```bash
