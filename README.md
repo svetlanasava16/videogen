@@ -14,35 +14,35 @@
 
 **Куклы** (`content/characters`, риг `remotion/src/puppet`):
 
-![Куклы](docs/img/cast.jpg)
+![Куклы](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/cast.jpg)
 
 **Роли и форма** — роль сама одевает куклу (пилот, полиция, ГАИ, военные, повар, строитель, стюардесса, начальник, врач, заключённый, моряк):
 
-![Роли](docs/img/roles.jpg)
+![Роли](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/roles.jpg)
 
 **Действия** — куклы отыгрывают сказанное рассказчиком (подзатыльник, закрыть уши, сесть, упасть, пишет, звонит, свистит…):
 
-![Действия](docs/img/acts.jpg)
+![Действия](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/acts.jpg)
 
 **Предметы** — в руке и положенные на стол (`content/props.json`, рисунок `remotion/src/props/Props.tsx`):
 
-![Предметы](docs/img/props.jpg)
+![Предметы](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/props.jpg)
 
 **Места и комнаты** — дом, бар, магазин, офис, школа, зал:
 
-![Места 1](docs/img/loc1.jpg)
+![Места 1](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/loc1.jpg)
 
 …больница, самолёт, дорога и транспорт внутри, улица, деревня, небеса, церковь, суд, баня, пляж:
 
-![Места 2](docs/img/loc2.jpg)
+![Места 2](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/loc2.jpg)
 
 **Как устроено место** — бар и его комнаты с метками: кружок — где стоит кукла (ниже — ближе к камере), розовая полоса — сиденье, на котором кукла сидит сама; стойка — передний слой, бармен за ней:
 
-![Метки бара](docs/img/marks.jpg)
+![Метки бара](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/marks.jpg)
 
 **Транспорт снаружи** — седоки в окнах или верхом:
 
-![Транспорт](docs/img/vehicles.jpg)
+![Транспорт](https://raw.githubusercontent.com/svetlanasava16/videogen/joke-factory-pipeline/docs/img/vehicles.jpg)
 
 ### Превью (пересобрать картинки)
 ```bash
