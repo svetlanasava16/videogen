@@ -1,6 +1,7 @@
 import { useCurrentFrame } from "remotion";
 import type { Locale } from "@jf/core";
 import type { TimedLine } from "../timeline";
+import { FONT } from "../fonts";
 
 /** Зазор между словами, px (≈0,45 em при 76px). */
 const GAP = 34;
@@ -45,7 +46,7 @@ export const Captions = ({ line, locale, narrator = false, top }: { line?: Timed
         fontStyle: narrator || line.offscreen ? "italic" : "normal", // голос из-за кадра — курсивом
         ...(narrator ? { background: "rgba(0,0,0,0.55)", borderRadius: 28, padding: "24px 32px" } : {}),
         display: "flex", flexWrap: "wrap", justifyContent: "center", gap: `12px ${GAP}px`,
-        fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif", fontWeight: narrator ? 700 : 900, fontSize: narrator ? 60 : 76, lineHeight: 1.1,
+        fontFamily: FONT, fontWeight: narrator ? 700 : 900, fontSize: narrator ? 60 : 76, lineHeight: 1.1,
         letterSpacing: "0.01em",
         textAlign: "center", textTransform: narrator ? "none" : "uppercase",
       }}

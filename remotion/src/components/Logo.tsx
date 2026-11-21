@@ -2,7 +2,7 @@
  * Логотип ANEK● : «ANEK» и крупная жирная точка на уровне середины заглавных букв (не внизу, как обычная точка).
  * Точка — круг, а не символ шрифта, чтобы форма не зависела от шрифта.
  */
-const FONT = "Inter, 'Helvetica Neue', Arial, sans-serif";
+import { FONT } from "../fonts";
 export const LOGO_DOT = "#e0a030";
 
 export const Logo = ({ size, color = "#fff", stroke, dot = LOGO_DOT }: { size: number; color?: string; stroke?: string; dot?: string }) => {

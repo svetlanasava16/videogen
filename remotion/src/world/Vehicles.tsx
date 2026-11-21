@@ -17,6 +17,7 @@ import type { VehicleKind } from "@jf/core";
 
 export { VEHICLE_SPECS, DESIGN, type VehicleSpec } from "./vehicleSpecs";
 import { DESIGN } from "./vehicleSpecs";
+import { FONT } from "../fonts";
 
 // ——— палитра и мелочи ———
 
@@ -41,7 +42,6 @@ const LAMP = "#f6e3a1";
 const RED_LAMP = "#d8402f";
 const WOOD = "#b07a45";
 const SEAT = "#6b3b33";
-const FONT = "Inter, Arial, sans-serif";
 
 type P = [number, number];
 const poly = (pts: P[]) => `M${pts.map((p) => `${p[0]} ${p[1]}`).join(" L")} Z`;

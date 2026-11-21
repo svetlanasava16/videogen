@@ -3,6 +3,7 @@ import { ACTS } from "@jf/core";
 import type { Act } from "@jf/core";
 import { characters } from "./registry";
 import { Puppet, BOX_H, BOX_W } from "./puppet/Rig";
+import { FONT } from "./fonts";
 
 /** Показательный момент каждого действия (секунды от начала): взмах — посередине, позы — когда устоялись. */
 const T: Partial<Record<Act, number>> = {
@@ -55,7 +56,7 @@ export const Acts = ({ who = "muzhik" }: { who?: string }) => {
           {tile.table && (
             <div style={{ position: "absolute", left: CX - 10, top: FLOOR - 190 * (PH / 768), width: 220, height: 190 * (PH / 768), background: "#f6efe0", borderTop: "10px solid #fff", borderBottom: `${18 * (PH / 768)}px solid #c8553d` }} />
           )}
-          <div style={{ position: "absolute", left: 14, top: 10, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 34, color: "#2b1d14" }}>{tile.label}</div>
+          <div style={{ position: "absolute", left: 14, top: 10, fontFamily: FONT, fontWeight: 800, fontSize: 34, color: "#2b1d14" }}>{tile.label}</div>
         </div>
       ))}
     </AbsoluteFill>

@@ -3,6 +3,7 @@ import { feetY, seatTopY } from "../world/depth";
 import { SeatAt, VShade, Glow, FloorBoards, FloorTiles, FloorRug, FloorShadow, PhotoFrame, CeilingLamp } from "./gostinaya";
 import { Label } from "./ulitsa";
 import { useSign } from "../i18n/signs";
+import { FONT } from "../fonts";
 
 /**
  * Фон «bar»: уютный бар. Варианты (content/locations/bar.json → bible.variants):
@@ -96,8 +97,8 @@ const Mug = ({ x, top = 975 }: { x: number; top?: number }) => (
 const Neon = ({ x, y, text, color, size = 64 }: { x: number; y: number; text: string; color: string; size?: number }) => (
   <g>
     <Glow cx={x} cy={y - size * 0.35} r={size * 2.4} rx={size * text.length * 0.55} ry={size * 1.1} color={color} opacity={0.45} />
-    <text x={x} y={y} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={size} fill="none" stroke={color} strokeWidth={size * 0.16} strokeLinejoin="round" opacity={0.55}>{text}</text>
-    <text x={x} y={y} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={size} fill="none" stroke="#fff6e8" strokeWidth={size * 0.05} strokeLinejoin="round">{text}</text>
+    <text x={x} y={y} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="none" stroke={color} strokeWidth={size * 0.16} strokeLinejoin="round" opacity={0.55}>{text}</text>
+    <text x={x} y={y} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="none" stroke="#fff6e8" strokeWidth={size * 0.05} strokeLinejoin="round">{text}</text>
   </g>
 );
 

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
 import { depthScale, feetY, seatTopY } from "../world/depth";
 import { useSign } from "../i18n/signs";
+import { FONT } from "../fonts";
 
 /**
  * Фон «ulitsa»: улица; варианты park, cemetery, stadium, zoo, yard / yard-night (двор пятиэтажки днём и ночью, один рисунок Yard). Скамейки нарисованы под метки bench-1/bench-2 (дальний план),
@@ -27,7 +28,6 @@ export const rnd = (i: number) => {
   return s - Math.floor(s);
 };
 
-export const FONT = "Inter, 'Helvetica Neue', Arial, sans-serif";
 
 /** Кегль, при котором надпись влезает в maxW (грубая оценка: жирные заглавные ≈ 0.7 кегля на букву).
  *  Нужна для переводов: немецкое слово часто длиннее русского. */

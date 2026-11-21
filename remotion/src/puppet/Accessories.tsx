@@ -8,6 +8,7 @@
  * на голове отсюда), ghost-sheet (простыня поверх всей фигуры, рисуется последней).
  * geo — размеры тела текущего телосложения: для деталей, которые должны подстраиваться под build.
  */
+import { FONT } from "../fonts";
 export const DEFAULT_HAIR: Record<string, { color: string; style: string }> = {
   man: { color: "#3a2a20", style: "short" },
   woman: { color: "#6b3e26", style: "long" },
@@ -369,7 +370,7 @@ export function Accessory({ id, hair, skin = "#f0d0b0", geo = DEFAULT_GEO, part 
     case "brooch": return <circle cx="122" cy="256" r="9" fill="#e0a030" />;
     case "badge": return <path d="M112 262 l10 -14 10 14 -10 14 z" fill="#e0b030" />;
     case "striped-shirt": return <g fill="#111">{[250, 280, 310, 340, 370, 400].map((y) => <rect key={y} x="62" y={y} width="176" height="12" />)}</g>;
-    case "loot-bag": return (<><ellipse cx="248" cy="340" rx="40" ry="46" fill="#9a8a6a" /><text x="230" y="352" fontSize="34" fontWeight="900" fill="#2b1d14">$</text></>);
+    case "loot-bag": return (<><ellipse cx="248" cy="340" rx="40" ry="46" fill="#9a8a6a" /><text x="230" y="352" fontFamily={FONT} fontSize="34" fontWeight="900" fill="#2b1d14">$</text></>);
     case "camera": return <rect x="122" y="292" width="56" height="38" rx="6" fill="#2b2b2b" />;
     case "collar": return <rect x="98" y="226" width="104" height="14" rx="7" fill="#c8553d" />;
     case "robe-white": return <rect x="56" y="228" width="188" height="192" rx="40" fill="#f6f2e8" />;
@@ -526,7 +527,7 @@ export function Accessory({ id, hair, skin = "#f0d0b0", geo = DEFAULT_GEO, part 
           <Base g={geo} color={PRISON} />
           <g fill="#2b2b2b">{ys.map((y) => <rect key={y} x={geo.bx - 40} y={y} width={geo.w + 80} height={12} />)}</g>
           <rect x={150 + f.iw * 0.04} y={f.top + f.h * 0.22} width={Math.min(64, f.iw * 0.44)} height={26} rx={3} fill="#f6f2e8" />
-          <text x={150 + f.iw * 0.04 + Math.min(64, f.iw * 0.44) / 2} y={f.top + f.h * 0.22 + 19} fontSize={17} fontWeight={900} fontFamily="Arial, sans-serif" textAnchor="middle" fill="#2b1d14">0451</text>
+          <text x={150 + f.iw * 0.04 + Math.min(64, f.iw * 0.44) / 2} y={f.top + f.h * 0.22 + 19} fontSize={17} fontWeight={900} fontFamily={FONT} textAnchor="middle" fill="#2b1d14">0451</text>
         </g>
       );
     }

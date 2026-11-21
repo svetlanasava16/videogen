@@ -2,6 +2,7 @@ import { Canvas, Room, FLOOR_Y, W, type BackdropProps } from "./parts";
 import { SeatAt } from "./gostinaya";
 import { depthScale, feetY, seatTopY } from "../world/depth";
 import { WallShade, FloorShade, FloorPlanks, Glow, Shadow, Baseboard, rnd } from "./bolnitsa";
+import { FONT } from "../fonts";
 
 /**
  * Фон «klass»: школьный класс (парты сбоку: стул под меткой pupil-*, парта справа от него; стул учителя слева от его стола);
@@ -225,7 +226,7 @@ const NumberStrip = ({ x, y, w, accent }: { x: number; y: number; w: number; acc
       {Array.from({ length: n }).map((_, i) => (
         <g key={i}>
           <rect x={x + i * cw + 3} y={y} width={cw - 6} height={44} rx={5} fill={light(cols[i % cols.length], 0.25)} />
-          <text x={x + i * cw + cw / 2} y={y + 35} textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight={800} fontSize={32} fill="#ffffff">{(i + 1) % 10}</text>
+          <text x={x + i * cw + cw / 2} y={y + 35} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={32} fill="#ffffff">{(i + 1) % 10}</text>
         </g>
       ))}
     </g>

@@ -2,6 +2,7 @@ import { Canvas, Room, W, H, FLOOR_Y, type BackdropProps, type Palette } from ".
 import { useSign } from "../i18n/signs";
 import { fitSize } from "./ulitsa";
 import { mix, dark, light, WOOD, VShade, Glow, FloorTiles, FloorShadow, WindowView, PotPlant, CeilingLamp } from "./gostinaya";
+import { FONT } from "../fonts";
 
 /**
  * Фон «podyezd»: лестничная площадка многоэтажки — двери квартир слева и справа, лифт, лестница наверх справа.
@@ -25,7 +26,7 @@ const FlatDoor = ({ x, w, color, num }: { x: number; w: number; color: string; n
       )}
       <circle cx={x + w / 2} cy={y + 150} r={8} fill="#d9c070" />
       <rect x={x + w / 2 - 26} y={y + 30} width={52} height={30} rx={4} fill="#d9c070" />
-      <text x={x + w / 2} y={y + 53} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={22} fill={dark(color, 0.2)}>{num}</text>
+      <text x={x + w / 2} y={y + 53} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={22} fill={dark(color, 0.2)}>{num}</text>
       <rect x={x + w - 46} y={y + 280} width={30} height={14} rx={7} fill="#d9c070" />
       <rect x={x + w - 40} y={y + 316} width={14} height={30} rx={5} fill="#b9a060" />
       {/* звонок и коврик */}
@@ -134,7 +135,7 @@ const Landing = ({ palette: p }: { palette: Palette }) => {
       {/* надписи на стене */}
       <path d="M300 1000 q20 -30 40 0 q20 -30 40 0 l-40 46 z" fill="none" stroke={dark(paint, 0.35)} strokeWidth={5} />
       <path d="M470 1110 l30 -30 l20 24 l30 -36" fill="none" stroke={dark(paint, 0.3)} strokeWidth={5} strokeLinecap="round" />
-      <text x={322} y={1120} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={fitSize(t("graffiti"), 24, 112)} fill={dark(paint, 0.38)} transform="rotate(-6 322 1120)">{t("graffiti")}</text>
+      <text x={322} y={1120} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={fitSize(t("graffiti"), 24, 112)} fill={dark(paint, 0.38)} transform="rotate(-6 322 1120)">{t("graffiti")}</text>
       {/* лампочка */}
       <CeilingLamp x={500} y={70} len={230} kind="bulb" glow="#f5e6a8" r={330} o={0.32} />
       {/* окно над лестницей: двор, герань и банка-пепельница на подоконнике */}

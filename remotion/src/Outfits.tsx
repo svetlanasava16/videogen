@@ -3,6 +3,7 @@ import { lookForRole } from "@jf/core";
 import type { Act, Look } from "@jf/core";
 import { characters } from "./registry";
 import { Puppet, BOX_H, BOX_W } from "./puppet/Rig";
+import { FONT } from "./fonts";
 
 /**
  * Лист формы: mode "outfits" — каждая форма на разных телосложениях (и в движении: руки вверх, хлопок, взгляд назад);
@@ -51,7 +52,7 @@ const Tile = ({ look, label, act, t, facing, hold, bg }: { look: Look; label: st
       <div style={{ position: "absolute", left: (TW - pw) / 2, top: TH - 40 - (PH * 585) / BOX_H, width: pw, height: PH, display: "flex", justifyContent: "center" }}>
         <Puppet look={look} emotion="neutral" speaking={false} seed={0} facing={facing ?? 1} hold={hold} act={act ? { name: act, k: 1, t: t ?? 1 } : undefined} />
       </div>
-      <div style={{ position: "absolute", left: 10, top: 6, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 22, color: "#2b1d14" }}>{label}</div>
+      <div style={{ position: "absolute", left: 10, top: 6, fontFamily: FONT, fontWeight: 800, fontSize: 22, color: "#2b1d14" }}>{label}</div>
     </div>
   );
 };
@@ -71,11 +72,11 @@ export const Outfits = ({ mode = "outfits" }: { mode?: string }) => {
   return (
     <AbsoluteFill style={{ background: "#efe3cc" }}>
       <div style={{ display: "flex", height: 60, marginLeft: LW }}>
-        {BODIES.map((b) => <div key={b.label} style={{ width: TW, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 24, padding: 14, color: "#5b4636" }}>{b.label}</div>)}
+        {BODIES.map((b) => <div key={b.label} style={{ width: TW, fontFamily: FONT, fontWeight: 800, fontSize: 24, padding: 14, color: "#5b4636" }}>{b.label}</div>)}
       </div>
       {ROWS.map((r, ri) => (
         <div key={r.label} style={{ display: "flex" }}>
-          <div style={{ width: LW, height: TH, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 30, padding: 16, color: "#2b1d14", boxSizing: "border-box" }}>
+          <div style={{ width: LW, height: TH, fontFamily: FONT, fontWeight: 800, fontSize: 30, padding: 16, color: "#2b1d14", boxSizing: "border-box" }}>
             {r.label}
             <div style={{ fontWeight: 400, fontSize: 18, color: "#5b4636", marginTop: 8 }}>{r.acc.join(" + ")}</div>
           </div>

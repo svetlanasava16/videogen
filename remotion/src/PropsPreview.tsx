@@ -4,6 +4,7 @@ import { characters } from "./registry";
 import { Puppet, BOX_H, BOX_W } from "./puppet/Rig";
 import { PropItem } from "./props/Props";
 import { SetPiece } from "./world/SetPieces";
+import { FONT } from "./fonts";
 
 /**
  * Лист реквизита: каждый предмет в руке куклы и положенный (prop put/drop, PropItem rest) — на пол и на стол.
@@ -37,7 +38,7 @@ const Tile = ({ id, rest, i }: { id: string; rest: boolean; i: number }) => {
         <line x1={FLOOR_X - 180} x2={FLOOR_X + 120} y1={FLOOR} y2={FLOOR} stroke="#e0201a" strokeWidth={1.5} opacity={0.8} />
         {[FLOOR_X, TABLE_X].map((cx) => <line key={cx} x1={cx} x2={cx} y1={(cx === FLOOR_X ? FLOOR : surf) + 2} y2={(cx === FLOOR_X ? FLOOR : surf) + 10} stroke="#e0201a" strokeWidth={2} />)}
       </svg>
-      <div style={{ position: "absolute", left: 10, top: 6, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 24, color: "#2b1d14" }}>{id}</div>
+      <div style={{ position: "absolute", left: 10, top: 6, fontFamily: FONT, fontWeight: 800, fontSize: 24, color: "#2b1d14" }}>{id}</div>
     </div>
   );
 };
@@ -77,7 +78,7 @@ const SetTile = ({ item, i, sit }: { item: string; i: number; sit?: boolean }) =
           emotion="neutral" speaking={false} seed={0} facing={-1} seated={sit ? 1 : 0} hold={item === "sink" ? "dishes" : undefined}
         />
       </div>
-      <div style={{ position: "absolute", left: 16, top: 10, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 40, color: "#2b1d14" }}>{item === "towel" ? "towel-wrap + bath-hat" : item}</div>
+      <div style={{ position: "absolute", left: 16, top: 10, fontFamily: FONT, fontWeight: 800, fontSize: 40, color: "#2b1d14" }}>{item === "towel" ? "towel-wrap + bath-hat" : item}</div>
     </div>
   );
 };

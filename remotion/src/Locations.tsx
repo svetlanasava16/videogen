@@ -4,6 +4,7 @@ import { LocaleProvider } from "./i18n/signs";
 import { locations } from "./registry";
 import { Background } from "./components/Background";
 import { feetY, seatTopY } from "./world/depth";
+import { FONT } from "./fonts";
 
 /**
  * Превью всех фонов и их сублокаций. props.only — ограничить списком id; props.marks — нарисовать метки:
@@ -31,14 +32,14 @@ export const Locations = ({ only, marks, locale = "ru" }: { only?: string[]; mar
                     <g key={name}>
                       {mk.seat && <rect x={x - 70} y={seatTopY(mk.z) - 6} width={140} height={12} fill="#ff2fd0" />}
                       <circle cx={x} cy={y} r={18} fill="#ff2fd0" stroke="#fff" strokeWidth={5} />
-                      <text x={x} y={y + 62} textAnchor="middle" fontSize={40} fontWeight={800} fill="#fff" stroke="#000" strokeWidth={8} paintOrder="stroke">{name}</text>
+                      <text x={x} y={y + 62} textAnchor="middle" fontFamily={FONT} fontSize={40} fontWeight={800} fill="#fff" stroke="#000" strokeWidth={8} paintOrder="stroke">{name}</text>
                     </g>
                   );
                 })}
               </svg>
             )}
           </div>
-          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, background: "#000a", color: "#fff", font: "700 18px Inter, Arial", padding: 4 }}>
+          <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, background: "#000a", color: "#fff", font: `700 18px ${FONT}`, padding: 4 }}>
             {l.id}{place ? ` · ${place}` : ""}
           </div>
         </div>

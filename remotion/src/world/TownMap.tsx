@@ -5,6 +5,7 @@
  */
 import type { Locale } from "@jf/core";
 import { town, type Building } from "./town";
+import { FONT } from "../fonts";
 
 const W = town.size.w;
 const H = town.size.h;
@@ -209,7 +210,7 @@ export const TownMap = ({ viewBox, locale, highlight, labels = true }: { viewBox
         {highlight === b.id && <ellipse cx={0} cy={-6} rx={240} ry={70} fill="#fff6c8" opacity={0.55} />}
         <Icon b={b} />
         {labels && (
-          <text x={0} y={52} textAnchor="middle" fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif" fontWeight={800} fontSize={44}
+          <text x={0} y={52} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={44}
             fill={b.type === "hell" || b.type === "space" ? "#fff" : C.ink} stroke={b.type === "hell" || b.type === "space" ? C.ink : "#fff"} strokeWidth={10} paintOrder="stroke">
             {b.name[locale]}
           </text>

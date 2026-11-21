@@ -1,5 +1,6 @@
 import type { Fx, Mat } from "./acts";
 import { mApply } from "./acts";
+import { FONT } from "../fonts";
 
 /** Эффекты действий: след взмаха, вспышка удара, дуги движения, звёздочки, слёзы, Z, сердечко, нота, «?», мысли. */
 const INK = "#2b1d14";
@@ -32,7 +33,7 @@ function Glyph({ g, t }: { g: string; t: number }) {
   switch (g) {
     case "z":
       return (
-        <g fontFamily="Arial, sans-serif" fontWeight={900} fill="#4a5a7a">
+        <g fontFamily={FONT} fontWeight={900} fill="#4a5a7a">
           {[0, 1, 2].map((i) => {
             const ph = frac(t * 0.6 + i / 3);
             return <text key={i} x={10 + ph * 50} y={-ph * 110} fontSize={28 + ph * 30} opacity={Math.min(1, (1 - ph) * 2.5)}>Z</text>;
@@ -54,7 +55,7 @@ function Glyph({ g, t }: { g: string; t: number }) {
       );
     }
     case "q":
-      return <text x={0} y={0} fontSize={76} fontWeight={900} fontFamily="Arial, sans-serif" fill={INK} transform={`rotate(${Math.sin(t * 4) * 8})`}>?</text>;
+      return <text x={0} y={0} fontSize={76} fontWeight={900} fontFamily={FONT} fill={INK} transform={`rotate(${Math.sin(t * 4) * 8})`}>?</text>;
     case "dots":
       return <g fill="#ffffff" stroke={INK} strokeWidth={4}>{[[0, 0, 7], [22, -26, 11], [50, -58, 16]].map(([x, y, r], i) => <circle key={i} cx={x} cy={y} r={r} opacity={frac(t * 0.8) * 3 > i ? 1 : 0.35} />)}</g>;
     default:

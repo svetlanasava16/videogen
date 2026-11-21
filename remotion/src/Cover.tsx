@@ -6,6 +6,7 @@ import { characters, locations } from "./registry";
 import { Background } from "./components/Background";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
 import { Watermark } from "./components/Branding";
+import { FONT } from "./fonts";
 
 const FLOOR = 0.62;
 const PUPPET_H = 0.4;
@@ -33,7 +34,7 @@ export const Cover = (ep: Episode) => {
       <div
         style={{
           position: "absolute", left: 70, right: 70, top: "10%", textAlign: "center",
-          fontFamily: "Inter, 'Helvetica Neue', Arial, sans-serif", fontWeight: 900, fontSize: 120, lineHeight: 1.05,
+          fontFamily: FONT, fontWeight: 900, fontSize: 120, lineHeight: 1.05,
           color: "#ffd400", textTransform: "uppercase", WebkitTextStroke: "14px #000", paintOrder: "stroke fill",
         }}
       >

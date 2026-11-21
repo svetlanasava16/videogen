@@ -1,6 +1,7 @@
 import { useId } from "react";
 import { Canvas, Room, Door, W, H, FLOOR_Y, type BackdropProps, type Palette } from "./parts";
 import { depthScale, feetY, seatTopY } from "../world/depth";
+import { FONT } from "../fonts";
 
 /* ---------- цветовые помощники (используются и в соседних фонах) ---------- */
 const rgb = (c: string) => {
@@ -508,7 +509,7 @@ export const Calendar = ({ x, y, accent = "#c8553d", day = "21" }: { x: number; 
     <rect x={x} y={y} width={84} height={110} rx={5} fill="#f8f4ea" />
     <rect x={x} y={y} width={84} height={28} rx={5} fill={accent} />
     <rect x={x} y={y + 20} width={84} height={8} fill={accent} />
-    <text x={x + 42} y={y + 84} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={46} fill="#3a3330">{day}</text>
+    <text x={x + 42} y={y + 84} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={46} fill="#3a3330">{day}</text>
     <rect x={x + 16} y={y + 94} width={52} height={5} rx={2} fill="#c9c1b2" />
     <circle cx={x + 42} cy={y - 6} r={5} fill="#5a5048" />
   </g>
@@ -860,7 +861,7 @@ const Hallway = ({ palette: p }: { palette: Palette }) => {
       )}
       <circle cx={dx + 130} cy={dy + 150} r={9} fill="#e0b030" />
       <rect x={dx + 104} y={dy + 40} width={52} height={30} rx={4} fill="#e0b030" />
-      <text x={dx + 130} y={dy + 63} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={22} fill={dark(door, 0.1)}>48</text>
+      <text x={dx + 130} y={dy + 63} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={22} fill={dark(door, 0.1)}>48</text>
       <rect x={dx + 214} y={dy + 290} width={30} height={14} rx={7} fill="#e0b030" />
       <rect x={dx + 222} y={dy + 330} width={14} height={30} rx={5} fill="#c9b070" />
       <rect x={dx + 214} y={dy + 220} width={24} height={14} rx={4} fill="#c9b070" />

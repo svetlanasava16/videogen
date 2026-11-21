@@ -1,6 +1,7 @@
 import { AbsoluteFill } from "remotion";
 import { characters } from "./registry";
 import { Puppet } from "./components/Puppet";
+import { FONT } from "./fonts";
 
 const roles = (n: number) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? "роль" : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? "роли" : "ролей"}`;
 
@@ -15,10 +16,10 @@ export const Cast = () => {
           <div style={{ height: 360 }}>
             <Puppet look={c.look} speaking={false} emotion="neutral" seed={0} />
           </div>
-          <div style={{ fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 30, color: "#2b1d14", textAlign: "center" }}>
+          <div style={{ fontFamily: FONT, fontWeight: 800, fontSize: 30, color: "#2b1d14", textAlign: "center" }}>
             {c.name.ru}
           </div>
-          <div style={{ fontFamily: "Inter, Arial, sans-serif", fontSize: 20, color: "#5b4636", textAlign: "center" }}>
+          <div style={{ fontFamily: FONT, fontSize: 20, color: "#5b4636", textAlign: "center" }}>
             {c.name.en} · {c.name.de} · {roles(c.bible!.roles.length)}
           </div>
         </div>

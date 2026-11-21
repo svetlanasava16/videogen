@@ -2,6 +2,7 @@ import { Canvas, Room, Cloud, FLOOR_Y, W, H, type BackdropProps } from "./parts"
 import { Birds, Label, Puff, fitSize } from "./ulitsa";
 import { useSign } from "../i18n/signs";
 import { depthScale, feetY, seatTopY } from "../world/depth";
+import { FONT } from "../fonts";
 
 /**
  * Фон «samolet»: салон самолёта (вид вдоль прохода, по умолчанию — старый вид для старых эпизодов);
@@ -153,7 +154,7 @@ const Plane = ({ wall, floor, accent }: P) => {
         <polygon key={X} points={poly([[X - 12, -330, FAR], [X + 12, -330, FAR], [X + 12, FY, FAR], [X - 12, FY, FAR]])} fill={dark(accent, 0.15)} />
       ))}
       <polygon points={poly([[-90, -460, FAR], [90, -460, FAR], [90, -380, FAR], [-90, -380, FAR]])} fill="#3fae6a" />
-      <text x={VX} y={VY - 408 * FAR} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={70 * FAR} fill="#ffffff">EXIT</text>
+      <text x={VX} y={VY - 408 * FAR} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={70 * FAR} fill="#ffffff">EXIT</text>
       {/* иллюминаторы */}
       {[-1, 1].map((side) =>
         windows.map((s) => (
@@ -268,7 +269,7 @@ const Cabin = ({ wall, floor, accent }: P) => {
       <polygon points={quad([[-70, 680, B], [70, 680, B], [70, 740, B], [-70, 740, B]])} fill="#3fae6a" />
       {(() => {
         const [x, y] = P(0, 694, B);
-        return <text x={x} y={y} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={40 * B} fill="#ffffff">EXIT</text>;
+        return <text x={x} y={y} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={40 * B} fill="#ffffff">EXIT</text>;
       })()}
       {/* табло «пристегните ремни» и тележка у шторки */}
       {[-260, 260].map((X) => {
@@ -935,7 +936,7 @@ const Hall = ({ wall, floor, accent }: P) => {
       <rect x={188} y={438} width={720} height={250} rx={14} fill="#00000025" />
       <rect x={180} y={430} width={720} height={250} rx={14} fill={board} />
       <rect x={196} y={446} width={688} height={36} rx={6} fill={accent} />
-      <text x={540} y={473} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={900} fontSize={fitSize(departures, 24, 660, 3)} fill="#ffffff" letterSpacing={3}>{departures}</text>
+      <text x={540} y={473} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={fitSize(departures, 24, 660, 3)} fill="#ffffff" letterSpacing={3}>{departures}</text>
       {rows.map(([time, city, gate, st], i) => {
         const y = 500 + i * 34;
         const c = st === "status_delayed" ? RED : st === "status_boarding" ? "#5fb878" : st === "status_check_in" ? "#f2b84b" : "#e8e4d8";

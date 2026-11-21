@@ -1,4 +1,5 @@
 import { Composition } from "remotion";
+import "./fonts"; // Inter из remotion/public/fonts — до любой композиции
 import { Episode } from "@jf/core";
 import demo from "../../content/episodes/demo-ru.json";
 import { Joke } from "./Joke";

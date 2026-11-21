@@ -4,6 +4,7 @@ import {
   mix, dark, light, WOOD, SeatAt,
   VShade, Glow, Ceiling, Skirting, FloorTiles, FloorShadow, WindowView, Curtains, WallClock, Calendar, PotPlant, Outlet, CeilingLamp,
 } from "./gostinaya";
+import { FONT } from "../fonts";
 
 const ENAMEL = "#f3efe6";
 
@@ -21,7 +22,7 @@ const Fridge = ({ x, w = 230, h = 600, accent }: { x: number; w?: number; h?: nu
       <rect x={x + w - 34} y={y + 70} width={14} height={80} rx={7} fill="#b9b4aa" />
       <rect x={x + w - 34} y={y + 220} width={14} height={120} rx={7} fill="#b9b4aa" />
       <rect x={x + 40} y={y + 40} width={60} height={14} rx={7} fill="#c9c4ba" />
-      <text x={x + 70} y={y + 90} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontStyle="italic" fontWeight={800} fontSize={24} fill="#b9b4aa">{t("fridge_brand")}</text>
+      <text x={x + 70} y={y + 90} textAnchor="middle" fontFamily={FONT} fontStyle="italic" fontWeight={800} fontSize={24} fill="#b9b4aa">{t("fridge_brand")}</text>
       <rect x={x + 18} y={FLOOR_Y - 18} width={30} height={18} fill="#5a5048" />
       <rect x={x + w - 48} y={FLOOR_Y - 18} width={30} height={18} fill="#5a5048" />
       {/* магнитики, записка, рисунок */}

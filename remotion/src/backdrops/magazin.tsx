@@ -3,6 +3,7 @@ import { VShade, Glow, FloorTiles, FloorShadow, CeilingLamp, PotPlant, WallClock
 import { Label } from "./ulitsa";
 import { feetY } from "../world/depth";
 import { useSign } from "../i18n/signs";
+import { FONT } from "../fonts";
 
 /**
  * Фон «magazin»: маленький магазин. Варианты (content/locations/magazin.json → bible.variants):
@@ -78,7 +79,7 @@ const GoodsShelf = ({ x0, x1, y, colors, kinds, step = 64, board = WOOD_L, seed 
       {Array.from({ length: Math.ceil(n / 2) }).map((_, i) => (
         <g key={i}>
           <rect x={x0 + off + i * step * 2 - 18} y={y + 3} width={36} height={20} rx={3} fill={TAG} />
-          <text x={x0 + off + i * step * 2} y={y + 18} textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={13} fill="#c8553d">{PRICES[(i + seed) % PRICES.length]}</text>
+          <text x={x0 + off + i * step * 2} y={y + 18} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={13} fill="#c8553d">{PRICES[(i + seed) % PRICES.length]}</text>
         </g>
       ))}
     </g>

@@ -4,6 +4,7 @@ import { characters } from "./registry";
 import { BOX_H, BOX_W, Puppet } from "./components/Puppet";
 import { VEHICLE_SPECS, VehicleArt } from "./world/Vehicles";
 import { PUPPET_BOX_H } from "./world/depth";
+import { FONT } from "./fonts";
 
 const TW = 1000;
 const TH = 860;
@@ -62,7 +63,7 @@ const Tile = ({ kind, i, grid, moving }: { kind: VehicleKind; i: number; grid: b
       <svg width={TW} height={TH} style={{ position: "absolute", left: 0, top: 0 }}>
         <path d={`M${ox + sp.door * sc - 14} ${FLOOR + 62} l14 -22 l14 22 z`} fill="#c8253d" />
       </svg>
-      <div style={{ position: "absolute", left: 18, top: 10, fontFamily: "Inter, Arial, sans-serif", fontWeight: 800, fontSize: 38, color: "#2b1d14" }}>
+      <div style={{ position: "absolute", left: 18, top: 10, fontFamily: FONT, fontWeight: 800, fontSize: 38, color: "#2b1d14" }}>
         {kind} <span style={{ fontWeight: 400, fontSize: 26 }}>×{sc.toFixed(2)} · {sp.seats.length} seats · {sp.driveSec}s</span>
       </div>
     </div>
