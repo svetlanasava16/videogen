@@ -259,6 +259,10 @@ function materialize() {
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(1.2, Math.max(0.1, l.pauseAfterSec)),
       })),
       scenes: d.scenes?.length ? d.scenes : undefined,
+      // смех в конце, музыку и режим без цензуры не теряем при пересборке (смех — только тех, кто ещё в составе)
+      outroLaughs: (prev?.outroLaughs ?? []).filter((o) => [...d.cast, ...(d.scenes ?? []).flatMap((sc) => sc.cast)].includes(o.character)),
+      music: prev?.music,
+      explicit: prev?.explicit,
     });
     writeFileSync(file, JSON.stringify(ep, null, 2) + "\n");
     n++;

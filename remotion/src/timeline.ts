@@ -1,10 +1,13 @@
 import {
-  AudioLibrary, estimateWords, laughs, lineDuration, orderedLines, pick, scenesOf,
+  AudioLibrary, VoiceConfig, estimateWords, laughs, lineDuration, orderedLines, pick, scenesOf,
   type AudioClip, type CrowdReact, type Episode, type Scene, type Shot, type WordTiming,
 } from "@jf/core";
 import audioData from "../../content/audio.json";
+import voicesData from "../../content/voices.json";
 
 const clips = AudioLibrary.parse(audioData).clips;
+/** Темп озвучки (content/voices.json → tempo): рассказчик и персонажи. */
+const TEMPO = VoiceConfig.parse(voicesData).tempo;
 
 export type TimedLine = {
   id: string;
@@ -22,6 +25,8 @@ export type TimedLine = {
   punch: boolean;
   /** Голос из-за кадра: говорящего не видно. */
   offscreen?: boolean;
+  /** Скорость воспроизведения озвучки (темп рассказчика/персонажей). */
+  rate: number;
 };
 
 /**
@@ -50,6 +55,8 @@ export type SceneTL = {
   shots: CameraShot[];
   /** Реакции массовки (кадры). */
   crowd: CrowdEvent[];
+  /** Тряска кадра (кадры). */
+  shakes: { from: number; to: number; strength: "light" | "strong" }[];
 };
 
 /** Реакция массовки: с кадра from до to. */
@@ -108,6 +115,7 @@ export function buildTimeline(ep: Episode) {
     const props: PropEvent[] = [];
     const shots: CameraShot[] = [];
     const crowd: CrowdEvent[] = [];
+    const shakes: SceneTL["shakes"] = [];
 
     // кто начинает за кадром: первое событие — вход
     const first = new Map<string, "in" | "out">();
@@ -134,13 +142,14 @@ export function buildTimeline(ep: Episode) {
         }
         // без цензуры — только для неозвученных реплик (озвучена чистая версия)
         const shown = ep.explicit && !l.audio && l.uncensored ? l.uncensored : l.text;
-        const words: WordTiming[] = l.audio ? l.audio.words : estimateWords(shown);
-        const dur = lineDuration(l);
+        const rate = l.character === "narrator" ? TEMPO.narrator : TEMPO.characters;
+        const words: WordTiming[] = (l.audio ? l.audio.words : estimateWords(shown)).map((w) => ({ ...w, start: w.start / rate, end: w.end / rate }));
+        const dur = lineDuration(l) / rate;
         lines.push({
           id: l.id, character: l.character, text: shown, emotion: l.emotion,
           startFrame: f(t), endFrame: f(t + dur),
           words: words.map((w) => ({ text: w.text, startFrame: f(t + w.start), endFrame: f(t + w.end) })),
-          audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId, offscreen: l.offscreen,
+          audioFile: l.audio?.file, scene: si, punch: l.id === lastLineId, offscreen: l.offscreen, rate,
         });
         t += dur;
         if (l.id === lastLineId) punchEnd = t;
@@ -180,6 +189,8 @@ export function buildTimeline(ep: Episode) {
         if (clip) sfxCues.push({ clip, from: f(t), frames: f(clip.durationSec) });
       } else if (b.type === "pause") {
         t += b.sec;
+      } else if (b.type === "shake") {
+        shakes.push({ from: f(t), to: f(t + b.sec), strength: b.strength });
       } else if (b.type === "crowd") {
         started = true;
         const sec = CROWD_SEC[b.react];
@@ -192,7 +203,7 @@ export function buildTimeline(ep: Episode) {
     }
     const next = scenesOf(ep)[si + 1];
     if (next) t += TRANSITION_SEC[next.transition] / 2;
-    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd };
+    return { index: si, scene: sc, from, to: f(t), transition: { kind: sc.transition, frames: f(trans) }, startsOn, moves, props, shots, crowd, shakes };
   });
 
   const outro: OutroLaugh[] = ep.outroLaughs.map((x, k) => ({

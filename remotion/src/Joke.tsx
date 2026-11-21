@@ -119,7 +119,8 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
   const bgScale = geo.stageW / width;
 
   return (
-    <div style={{ position: "absolute", left: 0, top: 0, width: geo.stageW, height, transform: cameraTransform(cam, width, height, geo.stageW), transformOrigin: "0 0" }}>
+    <div style={{ position: "absolute", left: 0, top: 0, width: geo.stageW, height, transformOrigin: "0 0",
+      transform: `${shakeOffset(sc, frame)} ${cameraTransform(cam, width, height, geo.stageW)}` }}>
       <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0",
         transform: bgScale > 1 ? `translate(0px, ${geo.floorY * (1 - bgScale)}px) scale(${bgScale})` : undefined }}>
         <Background location={locations[sc.scene.location]} place={sc.scene.place} />
@@ -159,6 +160,17 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     </div>
   );
 };
+
+/** Тряска кадра: дрожание холста сцены (затухает к концу). */
+function shakeOffset(sc: SceneTL, frame: number) {
+  const s = sc.shakes.find((x) => frame >= x.from && frame <= x.to);
+  if (!s) return "";
+  const k = 1 - (frame - s.from) / Math.max(1, s.to - s.from);
+  const amp = (s.strength === "strong" ? 26 : 11) * (0.4 + 0.6 * k);
+  // кадр чуть увеличен вокруг центра, чтобы при дрожании не открывались края
+  const z = 1.06;
+  return `translate(${-540 * (z - 1) + Math.sin(frame * 2.3) * amp}px, ${-960 * (z - 1) + Math.cos(frame * 3.1) * amp * 0.7}px) scale(${z}) rotate(${Math.sin(frame * 1.7) * amp * 0.02}deg)`;
+}
 
 /** Разделённый экран: полоса под субтитры между половинами и какая полоса холста видна в каждой половине. */
 export const SPLIT = { band: 280, from: 400 };

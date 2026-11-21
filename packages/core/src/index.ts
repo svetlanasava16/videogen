@@ -109,6 +109,8 @@ export const Beat = z.discriminatedUnion("type", [
   /** Звуковой эффект из content/audio.json (kind sfx). */
   z.object({ type: z.literal("sfx"), id: z.string() }),
   z.object({ type: z.literal("pause"), sec: z.number().min(0).max(5) }),
+  /** Тряска кадра (взлёт, турбуленция, удар, взрыв): идёт параллельно со следующими репликами, sec секунд. */
+  z.object({ type: z.literal("shake"), sec: z.number().min(0.2).max(10).default(1.5), strength: z.enum(["light", "strong"]).default("light") }),
   /** Реакция массовки сцены (scene.crowd): кричит, ахает, смеётся, ликует, шумит, успокаивается. */
   z.object({ type: z.literal("crowd"), react: CrowdReact }),
 ]);
@@ -344,6 +346,8 @@ export const VoiceConfig = z.object({
   model: z.string().default("eleven_multilingual_v2"),
   /** Модель для смеха персонажей в конце (нужны аудио-теги [laughs]). */
   laughModel: z.string().default("eleven_v3"),
+  /** Темп воспроизведения озвучки на рендере (высота голоса сохраняется): рассказчик живее персонажей. */
+  tempo: z.object({ narrator: z.number().default(1.25), characters: z.number().default(1.1) }).default({ narrator: 1.25, characters: 1.1 }),
   narrator: z.record(Locale, z.object({ elevenlabsVoiceId: z.string(), notes: z.string().optional() })),
 });
 export type VoiceConfig = z.infer<typeof VoiceConfig>;
