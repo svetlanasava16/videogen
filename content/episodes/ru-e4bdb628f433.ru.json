@@ -2,16 +2,16 @@
   "id": "ru-e4bdb628f433.ru",
   "jokeId": "ru-e4bdb628f433",
   "locale": "ru",
-  "title": "У ворот",
+  "title": "Вежливый пёс",
   "location": "derevnya",
   "place": "street",
   "cast": [
-    "muzhik",
-    "pyos"
+    "pyos",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "pyos": "dog"
+    "pyos": "dog",
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -19,60 +19,87 @@
       "character": "narrator",
       "text": "Подходит мужик к воротам своего соседа и стучится.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Стучит, стучит, но никто не отвечает. Стучит сильнее.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Стучит, стучит, но никто не отвечает.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "К воротам тихо подходит собака и говорит:",
+      "text": "Стучит сильнее.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "pyos",
-      "text": "Мужик, не стучи, никого дома нет.",
+      "character": "narrator",
+      "text": "К воротам тихо подходит пёс и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "Тут мужик падает сразу в обморок. После пришёл в себя, смотрит на собаку и говорит:",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "pyos",
+      "text": "Мужик, не стучи, никого дома нет.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Ты чего, собака, гавкать не умеешь?",
+      "character": "narrator",
+      "text": "Тут мужик падает сразу в обморок.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "После пришёл в себя, смотрит на пса и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Ты чего, пёс, гавкать не умеешь?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Пёс отвечает:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "pyos",
       "text": "Умею, но не хотел тебя пугать.",
-      "emotion": "smug",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -84,26 +111,50 @@
     {
       "location": "derevnya",
       "cast": [
-        "muzhik",
-        "pyos"
+        "pyos",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "pyos": "dog"
+        "pyos": "dog",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
       },
       "beats": [
         {
           "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
+          "type": "shake",
+          "sec": 1,
+          "strength": "light"
         },
         {
           "type": "line",
@@ -124,12 +175,34 @@
           "ref": "l5"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "faint"
+        },
+        {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "stand"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
         }
       ],
       "transition": "cut"

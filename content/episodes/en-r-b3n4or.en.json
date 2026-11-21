@@ -2,7 +2,7 @@
   "id": "en-r-b3n4or.en",
   "jokeId": "en-r-b3n4or",
   "locale": "en",
-  "title": "Two Blind Pilots",
+  "title": "Blind Pilots",
   "location": "samolet",
   "place": "plane",
   "cast": [
@@ -19,7 +19,7 @@
       "character": "narrator",
       "text": "Two blind pilots enter a plane.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,7 +28,7 @@
       "character": "narrator",
       "text": "They have sunglasses and white sticks.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -37,7 +37,7 @@
       "character": "narrator",
       "text": "As the plane starts to move, the passengers are uncomfortable.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -46,7 +46,7 @@
       "character": "narrator",
       "text": "The plane gains speed, but it stays on the ground.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -55,51 +55,51 @@
       "character": "narrator",
       "text": "The remaining runway gets smaller and smaller, and the plane is rushing towards a fence.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "The passengers start shrieking and suddenly the plane lifts, avoiding the fence at the last second.",
+      "text": "The passengers start shrieking",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "All the passengers calm down, thinking it was a bad joke.",
+      "text": "and suddenly the plane lifts, avoiding the fence at the last second.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "In the pilot cabin, the co-pilot turns to the pilot and says:",
+      "text": "All the passengers calm down, thinking it was a bad joke.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "sluzhivy-ryadovoy",
-      "text": "You know what?",
+      "character": "narrator",
+      "text": "In the pilot cabin, the co-pilot turns to the pilot and says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
       "character": "sluzhivy-ryadovoy",
-      "text": "One day they're going to scream too late, and we're all going to die.",
-      "emotion": "sad",
+      "text": "You know what? One day they're going to scream too late, and we're all going to die.",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -110,7 +110,6 @@
   "scenes": [
     {
       "location": "samolet",
-      "place": "plane",
       "cast": [
         "sluzhivy",
         "sluzhivy-ryadovoy"
@@ -128,7 +127,8 @@
         },
         "sluzhivy-ryadovoy": {
           "add": [
-            "dark-glasses"
+            "dark-glasses",
+            "aerodrome-cap"
           ],
           "remove": [
             "army-cap"
@@ -141,40 +141,60 @@
       },
       "beats": [
         {
-          "type": "line",
-          "ref": "l1"
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy-ryadovoy",
+          "item": "white-cane",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "sluzhivy",
+          "to": "seat-left",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
           "to": "left",
           "from": "off-left"
         },
         {
-          "type": "move",
-          "who": "sluzhivy-ryadovoy",
-          "to": "aisle",
-          "from": "off-left"
+          "type": "line",
+          "ref": "l1"
         },
         {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "sluzhivy-ryadovoy",
-          "item": "white-cane",
-          "action": "hold"
+          "type": "camera",
+          "shot": "two",
+          "on": "sluzhivy"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "line",
-          "ref": "l3"
+          "type": "camera",
+          "shot": "wide"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "sit"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "sit"
+        },
+        {
+          "type": "shake",
+          "sec": 3,
+          "strength": "light"
         },
         {
           "type": "crowd",
@@ -182,7 +202,25 @@
         },
         {
           "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "shake",
+          "sec": 4,
+          "strength": "light"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "shake",
+          "sec": 5,
+          "strength": "strong"
+        },
+        {
+          "type": "crowd",
+          "react": "gasp"
         },
         {
           "type": "line",
@@ -197,59 +235,26 @@
           "ref": "l6"
         },
         {
+          "type": "shake",
+          "sec": 3,
+          "strength": "strong"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
           "type": "crowd",
           "react": "calm"
         },
         {
           "type": "line",
-          "ref": "l7"
-        }
-      ],
-      "transition": "cut"
-    },
-    {
-      "location": "samolet",
-      "place": "plane",
-      "cast": [
-        "sluzhivy",
-        "sluzhivy-ryadovoy"
-      ],
-      "roles": {
-        "sluzhivy": "pilot",
-        "sluzhivy-ryadovoy": "pilot"
-      },
-      "looks": {
-        "sluzhivy": {
-          "add": [
-            "dark-glasses"
-          ],
-          "remove": []
-        },
-        "sluzhivy-ryadovoy": {
-          "add": [
-            "dark-glasses"
-          ],
-          "remove": [
-            "army-cap"
-          ]
-        }
-      },
-      "beats": [
-        {
-          "type": "prop",
-          "who": "sluzhivy",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "sluzhivy-ryadovoy",
-          "item": "white-cane",
-          "action": "hold"
-        },
-        {
-          "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "camera",
+          "shot": "two",
+          "on": "sluzhivy-ryadovoy"
         },
         {
           "type": "line",
@@ -260,7 +265,7 @@
           "ref": "l10"
         }
       ],
-      "transition": "wipe"
+      "transition": "cut"
     }
   ],
   "outroLaughs": [],

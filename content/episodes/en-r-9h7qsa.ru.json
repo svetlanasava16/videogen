@@ -2,7 +2,7 @@
   "id": "en-r-9h7qsa.ru",
   "jokeId": "en-r-9h7qsa",
   "locale": "ru",
-  "title": "Двадцать монет",
+  "title": "Сдача",
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -17,88 +17,132 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Мужик заходит в бар.",
+      "text": "Заходит мужик в бар и просит пива.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Пива, пожалуйста.",
+      "character": "barmen",
+      "text": "С вас сто рублей.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "С вас сто рублей.",
+      "character": "narrator",
+      "text": "Говорит бармен, а мужик бросает на пол двадцать пятирублёвых монет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Мужик бросает на пол двадцать пятирублёвых монет. Бармен нехотя собирает мелочь и наливает пиво.",
+      "text": "Бармен нехотя собирает монеты",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "На следующий день мужик приходит в бар, просит пива и бросает на пол двадцать пятирублёвых монет.",
+      "text": "и наливает пиво.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "На следующий день снова.",
+      "text": "На следующий день мужик снова приходит в бар, просит пива,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "На четвёртый день он просит пива и протягивает бармену двухсотрублёвую купюру.",
+      "text": "бросает на пол двадцать пятирублёвых монет, и так далее.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Бармен пользуется случаем отомстить, бросает на пол двадцать пятирублёвых монет и орёт:",
-      "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "text": "На следующий день — опять.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "barmen",
-      "text": "Держи сдачу, козёл!",
-      "uncensored": "Держи сдачу, мудак!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "На четвёртый день он просит пива",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "и протягивает бармену двухсотрублёвую купюру.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Бармен пользуется шансом отомстить,",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "narrator",
+      "text": "бросает на пол двадцать пятирублёвых монет и орёт:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "barmen",
+      "text": "Вот твоя сдача, козёл!",
+      "uncensored": "Вот твоя сдача, мудак!",
+      "emotion": "angry",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
+      "character": "narrator",
+      "text": "Мужик смотрит на монеты и говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l15",
       "character": "muzhik",
       "text": "Мне ещё пива, пожалуйста.",
       "emotion": "smug",
@@ -127,42 +171,90 @@
           "to": "counter"
         },
         {
-          "type": "line",
-          "ref": "l1"
-        },
-        {
           "type": "move",
           "who": "muzhik",
-          "to": "stool-left",
+          "to": "center",
           "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "drop"
+          "type": "act",
+          "who": "barmen",
+          "act": "kneel"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
+          "type": "act",
+          "who": "barmen",
+          "act": "stand"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
           "type": "line",
           "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "hold"
         },
         {
           "type": "line",
@@ -171,8 +263,86 @@
         {
           "type": "prop",
           "who": "muzhik",
-          "item": "money",
-          "action": "hold"
+          "item": "coin",
+          "action": "drop"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "facepalm"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "kneel"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         },
         {
           "type": "prop",
@@ -183,28 +353,52 @@
         },
         {
           "type": "line",
-          "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
+          "ref": "l10"
         },
         {
           "type": "prop",
           "who": "barmen",
-          "item": "money",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "coin",
           "action": "drop"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l12"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "point"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l13"
+        },
+        {
+          "type": "camera",
+          "shot": "close",
+          "on": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l15"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

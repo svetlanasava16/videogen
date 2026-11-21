@@ -21,18 +21,18 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Family dinner. The father and his sons at the table. Suddenly the father turns to the eldest:",
+      "text": "Family dinner. At the table, the father and his sons. Suddenly the father says to the eldest:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Eat your soup properly! Stop picking at it like that, it's disgusting to watch!",
+      "text": "Eat your soup properly! Why are you just picking at it, it's disgusting to watch!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -41,66 +41,75 @@
       "character": "paren",
       "text": "What are you yelling for?",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Me, yelling? Why, you little punk!",
+      "text": "I'm yelling? Why, you little punk!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "And whack, a slap on the back of the head! Another son steps in:",
+      "text": "And whack, a smack on the back of the head! The second son chimes in:",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "vovochka-drug",
-      "text": "Dad, if a person doesn't want to eat, why are you forcing him, and hitting him too? You're just like a tyrant.",
+      "text": "Dad, if a person doesn't want to eat, why are you forcing him, and hitting him on top of that? You're just like a tyrant.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Me, a tyrant? Why, you little rat!",
+      "text": "I'm a tyrant? Why, you swine!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "And whack, whack, round his ears. Then the youngest puts down his spoon and covers his ears with his hands. The father:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "And whack-whack, he boxes his ears.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "muzhik",
-      "text": "And why are you covering up? You eat well, you're polite, you don't talk back to your father, what are you afraid of?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Then the youngest puts down his spoon and covers his ears with his hands. The father:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "muzhik",
+      "text": "And why are you covering up? You eat well, you're polite, you don't talk back to your father, what are you afraid of?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "vovochka",
       "text": "I know I'm polite. It's just in case, you're such a jerk...",
       "uncensored": "I know I'm polite. It's just in case, you're such an asshole...",
@@ -138,8 +147,23 @@
       },
       "beats": [
         {
+          "type": "act",
+          "who": "paren",
+          "act": "eat"
+        },
+        {
+          "type": "act",
+          "who": "vovochka",
+          "act": "eat"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
         },
         {
           "type": "line",
@@ -148,6 +172,12 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "hit-head",
+          "to": "paren"
         },
         {
           "type": "line",
@@ -166,8 +196,19 @@
           "ref": "l7"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "slap",
+          "to": "vovochka-drug"
+        },
+        {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "act",
+          "who": "vovochka",
+          "act": "cover-ears"
         },
         {
           "type": "line",
@@ -176,6 +217,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

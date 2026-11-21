@@ -2,48 +2,43 @@
   "id": "en-r-70b5ut.de",
   "jokeId": "en-r-70b5ut",
   "locale": "de",
-  "title": "Prügelei trennen",
+  "title": "Zwei Blinde",
   "location": "ulitsa",
   "place": "street",
   "cast": [
-    "muzhik",
     "muzhik-ryzhy",
-    "paren"
+    "muzhik-sosed",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "disabled-person",
     "muzhik-ryzhy": "disabled-person",
-    "paren": "everyman"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    }
+    "muzhik-sosed": "disabled-person",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Wie trennt man zwei blinde Typen, die sich prügeln?",
+      "text": "Wie trennt man zwei Blinde, die sich prügeln?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "paren",
+      "character": "narrator",
+      "text": "Man ruft:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
       "text": "Ich setze auf den mit dem Messer!",
-      "emotion": "smug",
+      "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -51,6 +46,84 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "disabled-person",
+        "muzhik-sosed": "disabled-person",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-sosed",
+          "item": "white-cane",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "punch",
+          "to": "muzhik-sosed"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-sosed",
+          "act": "punch",
+          "to": "muzhik-ryzhy"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "hands-up"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-sosed",
+          "act": "hands-up"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

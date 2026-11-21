@@ -2,106 +2,86 @@
   "id": "ru-d5685e61ca2a.en",
   "jokeId": "ru-d5685e61ca2a",
   "locale": "en",
-  "title": "The Little Worm",
+  "title": "The Sysadmin",
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
-    "doktor",
-    "paren"
+    "paren",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "paren": "programmer"
+    "paren": "programmer",
+    "doktor": "doctor"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A psychiatrist sits in his office, bored... No patients are coming.",
+      "text": "A psychiatrist is sitting in his office, bored... no patients are coming.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Then the door quietly opens a crack, and a man crawls in on all fours, clutching something in his teeth, his hands and so on, with something else dragging behind him.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
+      "text": "Then the door quietly creaks open, and a man crawls in on all fours, clutching something in his teeth, his hands and so on, plus something else dragging behind him. The psychiatrist:",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Oh, who's this crawling in to see us! It must be a little snake.",
+      "text": "Oh, who's this crawling in to see us! It must be a little snakey. Crawl in, snakey, crawl in, little one, the doctor will help you.",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "doktor",
-      "text": "Come on in, little snake, come on in, little one, the doctor will help you.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "The man shakes his head no.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "narrator",
-      "text": "The man shakes his head.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "doktor",
+      "text": "A-a-ah, it must be a little turtle come to visit us. Crawl into the armchair, little turtle, and tell Uncle Doctor what happened to you...",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "doktor",
-      "text": "Ahh, then it must be a little turtle come to visit us.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.2,
+      "character": "narrator",
+      "text": "The man shakes his head no.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Crawl into the chair, little turtle, and tell the nice doctor what happened to you...",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "text": "So who have we got here? A little wormy, maybe?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "The man shakes his head.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l9",
-      "character": "doktor",
-      "text": "So who have we got here, then? A little worm, maybe?",
-      "emotion": "smug",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
-    },
-    {
-      "id": "l10",
       "character": "paren",
-      "text": "Doctor, screw you, I'm the sysadmin, I'm laying your network cable!",
-      "uncensored": "Doctor, fuck you, I'm the sysadmin, I'm laying your network cable!",
+      "text": "Doctor, back off, I'm the sysadmin, I'm laying your network cable!",
+      "uncensored": "Doctor, fuck off, I'm the sysadmin, I'm laying your network cable!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -110,6 +90,105 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "programmer",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "sit"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "kneel"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "shake-head"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "kneel"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "shake-head"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "kneel"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -129,7 +129,6 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     const others = people.filter((c) => c !== except);
     return others.length ? others.reduce((a, c) => a + geo.xAt(c, frame), 0) / others.length : undefined;
   };
-  const cam = cameraAt(tl, sc, frame, { width, stageW: geo.stageW, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present });
   // мебель по метке места (доля ширины сцены), иначе left/center/right; мебель варианта места добавляется сама
   const marks = locations[sc.scene.location]?.marks ?? {};
   const variantSet = locations[sc.scene.location]?.bible?.variants.find((v) => sc.scene.place && v.roles.includes(sc.scene.place))?.set ?? [];
@@ -142,6 +141,13 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     return [cx - w / 2, cx + w / 2] as const;
   });
   const seatedAt = (id: string, x: number) => (seats.some(([a, b]) => x >= a && x <= b) && !tl.standsUp(sc, id, frame) ? 1 : 0);
+  // сидящий (за столом, act sit/kneel) ниже на высоту ног — камера опускает план на него
+  const lowOf = (id: string, f: number) => {
+    const b = tl.actAt(sc, id, f).base;
+    const low = seatedAt(id, geo.xAt(id, f)) || (b && ["sit", "kneel"].includes(b.name)) ? 1 : 0;
+    return low * geo.boxH * 0.11;
+  };
+  const cam = cameraAt(tl, sc, frame, { width, stageW: geo.stageW, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present, lowOf });
   // широкая сцена: фон увеличен до ширины сцены, линия пола на месте
   const bgScale = geo.stageW / width;
 
@@ -165,9 +171,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         const talking = current?.character === id && current.words.some((w) => frame >= w.startFrame - 1 && frame <= w.endFrame);
         const laughing = tl.laughing(id, frame);
         const c = centre(id);
-        const act = tl.actAt(sc, id, frame);
+        const { act, base } = tl.actAt(sc, id, frame);
         // действие по цели — лицом к цели
-        const target = act ? sc.acts.filter((a) => a.who === id && a.from <= frame).pop()?.to : undefined;
+        const target = act || base ? sc.acts.filter((a) => a.who === id && a.from <= frame).pop()?.to : undefined;
         const tx = target && people.includes(target) ? geo.xAt(target, frame) : undefined;
         const facing: 1 | -1 = walk > 0.2 ? (dx > 0 ? 1 : -1) : tx !== undefined ? (tx >= x ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1;
         return (
@@ -181,6 +187,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
               hold={tl.holding(sc, id, frame)}
               seed={sc.scene.cast.indexOf(id) * 17 + i}
               act={act}
+              base={base}
               seated={seatedAt(id, x)}
               flinch={tl.flinchAt(sc, id, frame)}
             />

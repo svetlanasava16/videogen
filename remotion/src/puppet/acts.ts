@@ -465,8 +465,8 @@ export function basePose(arms: { left: number; right: number }, legs: { left: nu
 
 export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape } };
 
-/** Итоговая поза: обычная → сидя (seated) → действие (k) → вздрагивание (flinch). */
-export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string }): Resolved {
+/** Итоговая поза: обычная → сидя (seated) → поза-состояние (base) → жест (act) → вздрагивание (flinch). */
+export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; base?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string }): Resolved {
   const p = base;
   const seated = clamp(o.seated ?? 0, 0, 1);
   if (seated > 0) blend(p, seatPart(g), seated);
@@ -474,16 +474,19 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
   const fx: Fx[] = [];
   let over = { F: false, B: false };
   let hand: Resolved["hand"] = {};
-  const k = clamp(o.act?.k ?? 0, 0, 1);
-  const fxK = clamp((k - 0.3) / 0.4, 0, 1);
-  const fn = o.act && ACT_POSES[o.act.name];
-  if (fn && k > 0) {
-    const r = fn({ g, t: Math.max(0, o.act!.t), hold: o.hold });
+  let fxK = 0;
+  // слои: сначала состояние, жест поверх (частичная поза жеста перекрывает только свои суставы)
+  for (const layer of [o.base, o.act]) {
+    const k = clamp(layer?.k ?? 0, 0, 1);
+    const fn = layer && ACT_POSES[layer.name];
+    if (!fn || k <= 0) continue;
+    const r = fn({ g, t: Math.max(0, layer!.t), hold: o.hold });
     nearArms(p, r.pose);
     blend(p, r.pose, k);
-    if (k > 0.5) { face = r.face; hand = r.hand ?? {}; }
-    if (k > 0.35) over = { F: !!r.over?.F, B: !!r.over?.B };
-    if (fxK > 0) fx.push(...(r.fx ?? []));
+    if (k > 0.5) { face = r.face ?? face; hand = { ...hand, ...(r.hand ?? {}) }; }
+    if (k > 0.35) over = { F: over.F || !!r.over?.F, B: over.B || !!r.over?.B };
+    const lk = clamp((k - 0.3) / 0.4, 0, 1);
+    if (lk > 0) { fx.push(...(r.fx ?? [])); fxK = Math.max(fxK, lk); }
   }
   const fl = clamp(o.flinch ?? 0, 0, 1);
   if (fl > 0) {

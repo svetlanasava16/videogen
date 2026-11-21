@@ -2,16 +2,18 @@
   "id": "ru-e39938a189b5.en",
   "jokeId": "ru-e39938a189b5",
   "locale": "en",
-  "title": "Casualties",
+  "title": "The Firefighters",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "doktor",
-    "sluzhivy-ryadovoy"
+    "sluzhivy",
+    "sluzhivy-ryadovoy",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "sluzhivy-ryadovoy": "firefighter"
+    "sluzhivy": "firefighter",
+    "sluzhivy-ryadovoy": "firefighter",
+    "doktor": "doctor"
   },
   "lines": [
     {
@@ -19,98 +21,96 @@
       "character": "narrator",
       "text": "Dedicated to our valiant Fire Brigade...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Firefighters were called out to put out a fire at the hospital.",
+      "text": "The firefighters were called out to put out a fire at the hospital.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "They did everything the way real heroes should: put out the fire and didn't fall flat on their faces.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Well, they did everything the way real heroes should:",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "When it was over, the crew commander reported to the head doctor:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "They put out the fire and didn't fall flat on their faces.",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Mission accomplished, the fire has been eliminated.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
+      "character": "narrator",
+      "text": "When the job is done, the crew commander reports to the head doctor:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy-ryadovoy",
-      "text": "Although... there are casualties. Nine people.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Mission accomplished, the fire has been put out.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "We revived seven, but two, unfortunately, could not be saved.",
+      "text": "Although... there are casualties. Nine people.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "At these words the head doctor faints.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "sluzhivy-ryadovoy",
+      "text": "We revived seven, but unfortunately we couldn't save the other two.",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Coming to, stammering and barely getting the words out, he says:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "At these words the head doctor faints.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "doktor",
-      "text": "What do you mean, seven?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "When he comes to, stammering and barely able to get the words out, he says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
       "character": "doktor",
-      "text": "Guys, you were putting out the morgue...",
-      "emotion": "sad",
+      "text": "What do you mean, seven??? Guys, that was the morgue you were putting out...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -118,6 +118,119 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "doktor"
+      ],
+      "roles": {
+        "sluzhivy": "firefighter",
+        "sluzhivy-ryadovoy": "firefighter",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "couch",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "flex"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "faint"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

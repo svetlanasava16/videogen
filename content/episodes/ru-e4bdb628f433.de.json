@@ -2,74 +2,110 @@
   "id": "ru-e4bdb628f433.de",
   "jokeId": "ru-e4bdb628f433",
   "locale": "de",
-  "title": "Keiner zu Hause",
+  "title": "Der höfliche Hund",
   "location": "derevnya",
   "place": "street",
   "cast": [
-    "muzhik",
-    "pyos"
+    "pyos",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "pyos": "dog"
+    "pyos": "dog",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann geht zum Tor seines Nachbarn und klopft.",
+      "text": "Ein Mann kommt an das Tor seines Nachbarn",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er klopft und klopft, aber niemand antwortet. Er klopft fester.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "und klopft.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Leise kommt ein Hund ans Tor und sagt:",
+      "text": "Er klopft und klopft, aber niemand antwortet.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "pyos",
-      "text": "Mann, hör auf zu klopfen, es ist keiner zu Hause.",
+      "character": "narrator",
+      "text": "Er klopft fester.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Da fällt der Mann sofort in Ohnmacht. Als er wieder zu sich kommt, sieht er den Hund an und sagt:",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Leise kommt ein Hund ans Tor und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Was ist los, Hund, kannst du nicht bellen?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "pyos",
+      "text": "Mann, klopf nicht, es ist keiner zu Hause.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Da fällt der Mann sofort in Ohnmacht.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Danach kommt er wieder zu sich, schaut den Hund an und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "Was ist los mit dir, Hund, kannst du nicht bellen?",
+      "emotion": "angry",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Der Hund antwortet:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "pyos",
       "text": "Kann ich, aber ich wollte dich nicht erschrecken.",
       "emotion": "smug",
@@ -84,40 +120,75 @@
     {
       "location": "derevnya",
       "cast": [
-        "muzhik",
-        "pyos"
+        "pyos",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "pyos": "dog"
+        "pyos": "dog",
+        "muzhik": "everyman"
       },
       "beats": [
         {
           "type": "move",
+          "who": "pyos",
+          "to": "house"
+        },
+        {
+          "type": "act",
+          "who": "pyos",
+          "act": "lie"
+        },
+        {
+          "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
         },
         {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "move",
-          "who": "pyos",
-          "to": "fence",
-          "from": "off-left"
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
+          "type": "shake",
+          "sec": 1,
+          "strength": "light"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "act",
+          "who": "pyos",
+          "act": "stand"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence"
         },
         {
           "type": "line",
@@ -128,8 +199,34 @@
           "ref": "l6"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "faint"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

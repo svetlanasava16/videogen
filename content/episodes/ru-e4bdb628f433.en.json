@@ -2,74 +2,110 @@
   "id": "ru-e4bdb628f433.en",
   "jokeId": "ru-e4bdb628f433",
   "locale": "en",
-  "title": "Nobody's Home",
+  "title": "The Polite Dog",
   "location": "derevnya",
   "place": "street",
   "cast": [
-    "muzhik",
-    "pyos"
+    "pyos",
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "pyos": "dog"
+    "pyos": "dog",
+    "muzhik": "everyman"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A man walks up to his neighbor's gate and knocks.",
+      "text": "A man comes up to his neighbour's gate",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He knocks and knocks, but nobody answers. He knocks harder.",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "and knocks.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "A dog quietly walks up to the gate and says:",
+      "text": "He knocks and knocks, but nobody answers.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
-      "character": "pyos",
-      "text": "Man, stop knocking, nobody's home.",
+      "character": "narrator",
+      "text": "He knocks harder.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "The man faints on the spot. When he comes to, he looks at the dog and says:",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "The dog quietly comes up to the gate and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "What's the matter, dog, can't you bark?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "pyos",
+      "text": "Hey man, don't knock, there's nobody home.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Right then the man faints on the spot.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "narrator",
+      "text": "Afterwards he comes to, looks at the dog and says:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "What's wrong with you, dog, can't you bark?",
+      "emotion": "angry",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "The dog answers:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "pyos",
       "text": "I can, but I didn't want to scare you.",
       "emotion": "smug",
@@ -84,40 +120,75 @@
     {
       "location": "derevnya",
       "cast": [
-        "muzhik",
-        "pyos"
+        "pyos",
+        "muzhik"
       ],
       "roles": {
-        "muzhik": "everyman",
-        "pyos": "dog"
+        "pyos": "dog",
+        "muzhik": "everyman"
       },
       "beats": [
         {
           "type": "move",
+          "who": "pyos",
+          "to": "house"
+        },
+        {
+          "type": "act",
+          "who": "pyos",
+          "act": "lie"
+        },
+        {
+          "type": "move",
           "who": "muzhik",
-          "to": "right"
+          "to": "right",
+          "from": "off-right"
         },
         {
           "type": "line",
           "ref": "l1"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
         },
         {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "move",
-          "who": "pyos",
-          "to": "fence",
-          "from": "off-left"
+          "type": "act",
+          "who": "muzhik",
+          "act": "knock"
+        },
+        {
+          "type": "shake",
+          "sec": 1,
+          "strength": "light"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "act",
+          "who": "pyos",
+          "act": "stand"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "fence"
         },
         {
           "type": "line",
@@ -128,8 +199,34 @@
           "ref": "l6"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "faint"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

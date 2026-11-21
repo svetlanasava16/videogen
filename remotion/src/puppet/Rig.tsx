@@ -41,6 +41,8 @@ export type PuppetProps = {
    * t — секунды с начала действия (для циклов: машет, хлопает, смеётся, бежит, дрожит).
    */
   act?: { name: Act; k: number; t: number };
+  /** Поза-состояние под жестом (сидит, на коленях, лежит, закрыл уши): держится, пока идут жесты act. */
+  base?: { name: Act; k: number; t: number };
   /** Сидит (за столом): 0..1 — кукла опускается на высоту ног. */
   seated?: number;
   /** Вздрагивает от удара: 0..1 — отшатывается, голова в сторону. */
@@ -53,7 +55,7 @@ export type PuppetProps = {
  * Позы действий (act, seated, flinch) — в acts.ts: там поза — набор углов, здесь она только рисуется.
  * Руки и ноги — по два звена (плечо+предплечье, бедро+голень); без действия звенья на одной линии и фигура как прежде.
  */
-export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, act, seated = 0, flinch = 0 }: PuppetProps) => {
+export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, act, base, seated = 0, flinch = 0 }: PuppetProps) => {
   const frame = useCurrentFrame();
   const uid = useId().replace(/:/g, "");
   const { kind, skin, clothes, accent } = look;
@@ -100,9 +102,11 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
     shY: shoulderY, sxF: 150 + (build.bodyW / 2 - 6), sxB: 150 - (build.bodyW / 2 - 6), L: (armL - 6) / 2,
     hipY, Lf: footY - hipY, legGap: build.legGap, bodyW: build.bodyW, bodyH: build.bodyH, bodyBottom,
   };
-  const { pose, face, fx, fxK, over, hand } = resolvePose(basePose(arms, legs, tilt0), rg, { act, seated, flinch, hold });
+  const { pose, face, fx, fxK, over, hand } = resolvePose(basePose(arms, legs, tilt0), rg, { act, base, seated, flinch, hold });
   const sy = shoulderY - pose.shoulder;
-  const actK = Math.min(1, Math.max(0, act?.k ?? 0));
+  // стул под act sit (за столом — seated: стулья уже в фоне)
+  const chairK = seated > 0.5 ? 0 : Math.max(base?.name === "sit" ? base.k : 0, act?.name === "sit" ? act.k : 0);
+  const actK = Math.min(1, Math.max(0, act?.k ?? 0, base?.k ?? 0));
   const bent = pose.drop > 8 || Math.abs(pose.legF.a) > 30 || Math.abs(pose.legB.a) > 30;
   const backShade = Math.min(1, Math.max(0, pose.drop / 40)) * 0.15;
   // матрицы для значков над головой (Z, сердечко): корпус и голова в кадре фигуры
@@ -231,6 +235,19 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
         {pose.lift > 3 && Math.abs(pose.rot) < 20 && (
           <ellipse cx={150 + pose.x} cy={FEET_Y} rx={(build.bodyW / 2 + 20) * Math.max(0.5, 1 - pose.lift / 400)} ry={12} fill="#000" opacity={0.15} />
         )}
+        {/* сидит не за столом (act sit) — под ним стул, иначе висит в воздухе */}
+        {chairK > 0.02 && (() => {
+          const sy0 = bodyBottom + dy + rg.Lf / 2 - 4; // сиденье под тазом в позе sit
+          const l = 150 - build.bodyW / 2 - 26, r = 150 + build.bodyW / 2 + 16;
+          return (
+            <g opacity={chairK}>
+              <rect x={l - 4} y={sy0 - 150} width={22} height={150} rx={8} fill="#6b4429" />
+              <rect x={l + 6} y={sy0 + 14} width={14} height={FEET_Y - sy0 - 14} fill="#6b4429" />
+              <rect x={r - 18} y={sy0 + 14} width={14} height={FEET_Y - sy0 - 14} fill="#6b4429" />
+              <rect x={l - 4} y={sy0} width={r - l + 8} height={18} rx={6} fill="#8a5a3a" />
+            </g>
+          );
+        })()}
         <g transform={`translate(${pose.x} ${-pose.lift}) rotate(${pose.rot} 150 ${FEET_Y})`}>
         <g transform={`translate(0 ${dy + bob + pose.drop})`}>
           {/* ноги (под длинной рясой видны только ботинки; сидя/на коленях ряса — на ногах) */}

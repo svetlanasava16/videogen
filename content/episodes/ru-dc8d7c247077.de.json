@@ -2,7 +2,7 @@
   "id": "ru-dc8d7c247077.de",
   "jokeId": "ru-dc8d7c247077",
   "locale": "de",
-  "title": "Na, angeln wir?",
+  "title": "Der Angler",
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -17,68 +17,113 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Hitze, es geht bergauf, er ist völlig fertig. Auf der Brücke will er sich ausruhen.",
+      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Es ist heiß, die Straße geht bergauf, er ist fix und fertig. Auf der Brücke beschließt er, sich auszuruhen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Na, angeln wir?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Er sieht: Auf der Brücke steht einer mit einer Angel und schaut auf den Schwimmer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "muzhik",
-      "text": "Ich sag, angeln wir?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "character": "narrator",
+      "text": "Der Mann geht zu ihm hin und fragt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Was ist, bist du taub? Ich frage: angeln wir?",
-      "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "text": "Na, fangen wir Fische?",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Der Mann spuckt aus, steigt wieder aufs Rad und strampelt schweißgebadet weiter bergauf.",
+      "text": "Der Angler schweigt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "narrator",
-      "text": "Nach gut drei Kilometern dreht er sich um und sieht: Der Angler winkt ihm wie wild, komm schnell zurück!",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "character": "muzhik",
+      "text": "Ich sag, fangen wir Fische?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Also wendet er und rollt wieder hinunter.",
+      "text": "Wieder Schweigen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
+      "character": "muzhik",
+      "text": "Was ist, bist du taub? Ich frag, fangen wir Fische?",
+      "emotion": "angry",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Der schaut immer nur auf den Schwimmer.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
+      "character": "narrator",
+      "text": "Der Mann spuckt aus, setzt sich aufs Rad und strampelt schweißgebadet weiter bergauf.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Er ist schon gut drei Kilometer weg, dreht sich um und sieht: Der Angler winkt ihm mit aller Kraft, er soll schnell zurückkommen.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "narrator",
+      "text": "Also dreht er um und rollt wieder runter. Der Angler zu ihm:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
       "character": "muzhik-ryzhy",
       "text": "Na, fahren wir Fahrrad?",
       "emotion": "smug",
@@ -113,7 +158,7 @@
         {
           "type": "move",
           "who": "muzhik-ryzhy",
-          "to": "left"
+          "to": "right"
         },
         {
           "type": "prop",
@@ -128,47 +173,40 @@
           "action": "hold"
         },
         {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l1"
         },
         {
-          "type": "move",
+          "type": "act",
           "who": "muzhik",
-          "to": "center",
-          "from": "off-right"
+          "act": "point"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
-          "type": "pause",
-          "sec": 1.5
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
         },
         {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "pause",
-          "sec": 1.5
-        },
-        {
           "type": "line",
           "ref": "l4"
         },
         {
-          "type": "pause",
-          "sec": 1.5
-        },
-        {
           "type": "line",
           "ref": "l5"
-        },
-        {
-          "type": "move",
-          "who": "muzhik",
-          "to": "off-left"
         },
         {
           "type": "line",
@@ -179,6 +217,42 @@
           "ref": "l7"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
           "type": "move",
           "who": "muzhik",
           "to": "center",
@@ -186,7 +260,11 @@
         },
         {
           "type": "line",
-          "ref": "l8"
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
         }
       ],
       "transition": "cut"

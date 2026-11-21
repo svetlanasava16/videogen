@@ -21,89 +21,98 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Familienessen. Am Tisch sitzen der Vater und die Söhne. Plötzlich sagt der Vater zum Ältesten:",
+      "text": "Familienessen. Am Tisch der Vater und die Söhne. Plötzlich sagt der Vater zum Ältesten:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Iss deine Suppe ordentlich! Was stocherst du da so lustlos herum, das ist ja widerlich anzusehen!",
+      "text": "Iss deine Suppe ordentlich! Was stocherst du da so lustlos rum, das ist ja widerlich anzusehen!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "paren",
-      "text": "Was brüllst du denn so?",
+      "text": "Was schreist du denn so rum?",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ich brülle? Du Hornochse!",
+      "text": "Ich schreie rum? Du Mistkerl!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Und zack, eine Kopfnuss! Der andere Sohn mischt sich ein:",
+      "text": "Und zack, eine Kopfnuss! Der zweite Sohn mischt sich ein:",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "vovochka-drug",
-      "text": "Papa, wenn einer nicht essen will, warum zwingst du ihn und schlägst ihn auch noch? Du bist ja wie ein Tyrann.",
+      "text": "Papa, wenn jemand nicht essen will, warum zwingst du ihn dann und schlägst ihn auch noch? Du bist ja wie ein Tyrann.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Ich, ein Tyrann? Du Mistkerl!",
+      "text": "Ich ein Tyrann? Du Lump!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Und zack, zack, eins hinter die Ohren. Da legt der Jüngste den Löffel hin und hält sich die Ohren zu. Der Vater:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Und zack-zack, gibt's was auf die Ohren.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "muzhik",
-      "text": "Und warum hältst du dir die Ohren zu? Du isst brav, bist höflich, widersprichst deinem Vater nicht, wovor hast du Angst?",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Da legt der Jüngste den Löffel weg und hält sich die Ohren zu. Der Vater:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
+      "character": "muzhik",
+      "text": "Und warum hältst du dir die Ohren zu? Du isst schön, bist höflich, widersprichst deinem Vater nicht, wovor hast du denn Angst?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
       "character": "vovochka",
-      "text": "Ich weiß, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Blödmann...",
-      "uncensored": "Ich weiß, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Arschloch...",
+      "text": "Ich weiß ja, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Blödmann...",
+      "uncensored": "Ich weiß ja, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Arschloch...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -138,8 +147,23 @@
       },
       "beats": [
         {
+          "type": "act",
+          "who": "paren",
+          "act": "eat"
+        },
+        {
+          "type": "act",
+          "who": "vovochka",
+          "act": "eat"
+        },
+        {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
         },
         {
           "type": "line",
@@ -148,6 +172,12 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "hit-head",
+          "to": "paren"
         },
         {
           "type": "line",
@@ -166,8 +196,19 @@
           "ref": "l7"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "slap",
+          "to": "vovochka-drug"
+        },
+        {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "act",
+          "who": "vovochka",
+          "act": "cover-ears"
         },
         {
           "type": "line",
@@ -176,6 +217,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
         }
       ],
       "transition": "cut"

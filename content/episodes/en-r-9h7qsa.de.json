@@ -17,88 +17,123 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Typ kommt in eine Kneipe.",
+      "text": "Ein Typ kommt in eine Kneipe und bestellt ein Bier.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l2",
-      "character": "muzhik",
-      "text": "Ein Bier, bitte.",
+      "character": "barmen",
+      "text": "Das macht fünf Euro,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
-      "character": "barmen",
-      "text": "Das macht fünf Euro.",
+      "character": "narrator",
+      "text": "sagt der Wirt, und der Typ wirft zehn Fünfzig-Cent-Münzen auf den Boden.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Der Typ wirft zehn Fünfzig-Cent-Stücke auf den Boden. Widerwillig sammelt der Wirt die Münzen auf und zapft das Bier.",
+      "text": "Widerwillig hebt der Wirt die Münzen auf",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Am nächsten Tag kommt der Typ wieder in die Kneipe, bestellt ein Bier und wirft zehn Fünfzig-Cent-Stücke auf den Boden.",
+      "text": "und serviert das Bier.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Am nächsten Tag wieder.",
+      "text": "Am nächsten Tag kommt der Typ in die Kneipe, bestellt ein Bier,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "narrator",
-      "text": "Am vierten Tag bestellt er ein Bier und gibt dem Wirt einen Zehn-Euro-Schein.",
+      "text": "wirft zehn Fünfzig-Cent-Münzen auf den Boden, und so weiter.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "narrator",
-      "text": "Der Wirt nutzt die Chance auf Rache, wirft zehn Fünfzig-Cent-Stücke auf den Boden und brüllt:",
-      "emotion": "smug",
-      "pauseAfterSec": 0.2,
+      "text": "Am Tag darauf wieder.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
-      "character": "barmen",
-      "text": "Hier ist dein Wechselgeld, du Blödmann!",
-      "uncensored": "Hier ist dein Wechselgeld, du Arschloch!",
-      "emotion": "angry",
-      "pauseAfterSec": 0.8,
+      "character": "narrator",
+      "text": "Am vierten Tag bestellt er ein Bier",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
-      "exit": [],
-      "laugh": "chuckle"
+      "exit": []
     },
     {
       "id": "l10",
+      "character": "narrator",
+      "text": "und gibt dem Wirt einen Zehn-Euro-Schein.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l11",
+      "character": "narrator",
+      "text": "Der Wirt nutzt seine Chance auf Rache, wirft zehn Fünfzig-Cent-Münzen auf den Boden und brüllt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l12",
+      "character": "barmen",
+      "text": "Hier ist dein Wechselgeld, Mistkerl!",
+      "uncensored": "Hier ist dein Wechselgeld, Arschloch!",
+      "emotion": "angry",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l13",
+      "character": "narrator",
+      "text": "Der Typ schaut auf die Münzen und sagt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l14",
       "character": "muzhik",
       "text": "Ich nehme noch ein Bier, bitte.",
       "emotion": "smug",
@@ -127,52 +162,205 @@
           "to": "counter"
         },
         {
-          "type": "line",
-          "ref": "l1"
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "hold"
         },
         {
           "type": "move",
           "who": "muzhik",
-          "to": "stool-left",
+          "to": "center",
           "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
         },
         {
           "type": "line",
           "ref": "l2"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "throw"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
         {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "hold"
-        },
-        {
-          "type": "prop",
-          "who": "muzhik",
-          "item": "money",
-          "action": "drop"
+          "type": "act",
+          "who": "barmen",
+          "act": "kneel"
         },
         {
           "type": "line",
           "ref": "l4"
         },
         {
+          "type": "act",
+          "who": "barmen",
+          "act": "stand"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
           "type": "line",
           "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
         },
         {
           "type": "line",
           "ref": "l6"
         },
         {
+          "type": "act",
+          "who": "muzhik",
+          "act": "throw"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "kneel"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "throw"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "coin",
+          "action": "drop"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "kneel"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "wipe"
+    },
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "counter"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "money",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         },
         {
           "type": "prop",
@@ -183,28 +371,48 @@
         },
         {
           "type": "line",
-          "ref": "l7"
-        },
-        {
-          "type": "line",
-          "ref": "l8"
+          "ref": "l10"
         },
         {
           "type": "prop",
           "who": "barmen",
-          "item": "money",
+          "item": "coin",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "barmen",
+          "act": "throw"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "coin",
           "action": "drop"
         },
         {
           "type": "line",
-          "ref": "l9"
+          "ref": "l11"
         },
         {
           "type": "line",
-          "ref": "l10"
+          "ref": "l12"
+        },
+        {
+          "type": "camera",
+          "shot": "close",
+          "on": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l14"
         }
       ],
-      "transition": "cut"
+      "transition": "wipe"
     }
   ],
   "outroLaughs": [],

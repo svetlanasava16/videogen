@@ -184,6 +184,10 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 
 aerodrome-cap, apron, army-cap, badge, baguette, bandages, beard, beret, big-beard, black-eye, black-hat, bow-tie, bowler, bows, brooch, camera, cat-eye-glasses, chef-hat, collar, cowboy-hat, cowlick, cross, crown, curlers, dark-glasses, earrings, eye-mask, eye-patch, flat-cap, freckles, fur-coat, ghost-sheet, glasses, goatee, gold-chain, halo, headscarf, headset, helmet, high-drawn-eyebrows, hood, hook-hand, horns, keys, kippah, lipstick, lipstick-marks, loot-bag, mole, monocle, mustache, mustache-curled, nun-veil, nurse-cap, onesie-snaps, papakha, police-cap, red-nose, robe-black, robe-red, robe-white, round-glasses, santa-hat, sash, scythe, shaggy, shako, side-curls, spots, stethoscope, straw-hat, striped-shirt, stubble, suspenders, tie, towel, turban, tyrolean-hat, white-beard, wisp, zucchetto
 
+## Acts (puppet actions for `act` beats)
+
+slap, punch, hit-head, cover-ears, cover-eyes, cover-face, hug, kiss, point, wave, facepalm, shrug, nod, shake-head, bow, kneel, sit, stand, fall, faint, lie, jump, run, cry, laugh, drink, eat, scratch-head, hands-up, clap, pray-hands, think, sleep, throw, grab, knock, dance, shiver, flex — state poses that hold until the next act of that puppet or `stand`: cover-ears, cover-eyes, cover-face, kneel, sit, lie, sleep, faint, pray-hands, hands-up, think; with a target (`to`): slap, punch, hit-head, hug, kiss, throw — the puppet walks up to the target first, the target flinches when hit.
+
 ## Set pieces (furniture for `set`)
 
 dining-table, table, desk, counter, lectern, sofa, bed, christmas-tree — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.

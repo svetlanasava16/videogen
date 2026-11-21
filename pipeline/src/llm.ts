@@ -221,7 +221,7 @@ function writeScriptContext() {
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
     "## Acts (puppet actions for `act` beats)", "",
-    `${ACTS.join(", ")} — state poses that hold until the next act of that puppet or \`stand\`: ${STATE_ACTS.join(", ")}; with a target (\`to\`): ${TARGET_ACTS.join(", ")} — the puppet walks up to the target first, the target flinches when hit.`, "",
+    `${ACTS.join(", ")} — state poses that hold until the next state act of that puppet, \`stand\` or walking (gestures play on top of a held state: kneel + shake-head, sit + cry): ${STATE_ACTS.join(", ")}; with a target (\`to\`): ${TARGET_ACTS.join(", ")} — the puppet walks up to the target first, the target flinches when hit.`, "",
     "## Set pieces (furniture for `set`)", "",
     `${SET_ITEMS.join(", ")} — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.`, "",
     "## Crowd", "",

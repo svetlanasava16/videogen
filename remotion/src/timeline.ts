@@ -287,18 +287,44 @@ export function buildTimeline(ep: Episode) {
     return item;
   };
 
-  /** Действие куклы на кадре: имя, сила позы k (плавный вход/выход за ACT_RAMP) и секунды с начала. */
-  const actAt = (sc: SceneTL, id: string, frame: number): { name: Act; k: number; t: number } | undefined => {
-    const mine = sc.acts.filter((a) => a.who === id && a.from <= frame);
-    const a = mine[mine.length - 1];
-    if (!a || a.act === "stand") return undefined;
-    // поза-состояние держится до следующего действия этой куклы
-    const next = sc.acts.find((x) => x.who === id && x.from > a.from);
-    const endF = Math.min(a.to_, next ? next.from : Infinity);
-    if (frame > endF + ACT_RAMP_F) return undefined;
-    const kIn = Math.min(1, (frame - a.from) / ACT_RAMP_F);
-    const kOut = Number.isFinite(endF) ? Math.min(1, Math.max(0, (endF + ACT_RAMP_F - frame) / ACT_RAMP_F)) : 1;
-    return { name: a.act, k: Math.min(kIn, kOut), t: (frame - a.from) / fps };
+  /**
+   * Действия куклы на кадре — два слоя: base — поза-состояние (сидит, на коленях, лежит, закрыл уши),
+   * держится до следующего состояния, stand или ходьбы; act — разовый жест поверх неё (кивок, удар, плач).
+   * k — сила позы (плавный вход/выход за ACT_RAMP), t — секунды с начала.
+   */
+  type ActNow = { name: Act; k: number; t: number };
+  const actAt = (sc: SceneTL, id: string, frame: number): { act?: ActNow; base?: ActNow } => {
+    const mine = sc.acts.filter((a) => a.who === id);
+    const ramp = (from: number, endF: number): number => {
+      const kIn = Math.min(1, (frame - from) / ACT_RAMP_F);
+      const kOut = Number.isFinite(endF) ? Math.min(1, Math.max(0, (endF + ACT_RAMP_F - frame) / ACT_RAMP_F)) : 1;
+      return Math.max(0, Math.min(kIn, kOut));
+    };
+    const isState = (a: ActEvent) => a.act === "stand" || STATE_ACTS.includes(a.act);
+    let base: ActNow | undefined;
+    const st = mine.filter((a) => isState(a) && a.from <= frame).pop();
+    if (st && st.act !== "stand") {
+      const nextState = mine.find((a) => isState(a) && a.from > st.from);
+      const walk = sc.moves.find((m) => m.id === id && m.from > st.from && m.to !== m.from);
+      const endF = Math.min(st.to_, nextState?.from ?? Infinity, walk?.from ?? Infinity);
+      // повтор того же состояния (kneel … kneel) — продолжение, а не новый вход в позу
+      const states = mine.filter((a) => isState(a) && a.from <= st.from);
+      let start = st.from;
+      for (let i = states.length - 2; i >= 0 && states[i].act === st.act; i--) {
+        if (sc.moves.some((m) => m.id === id && m.from > states[i].from && m.from < start && m.to !== m.from)) break;
+        start = states[i].from;
+      }
+      const k = ramp(start, endF);
+      if (k > 0) base = { name: st.act, k, t: (frame - start) / fps };
+    }
+    let act: ActNow | undefined;
+    const g = mine.filter((a) => !isState(a) && a.from <= frame).pop();
+    if (g) {
+      const next = mine.find((a) => !isState(a) && a.from > g.from);
+      const k = ramp(g.from, Math.min(g.to_, next?.from ?? Infinity));
+      if (k > 0) act = { name: g.act, k, t: (frame - g.from) / fps };
+    }
+    return { act, base };
   };
   /** Вздрагивает ли кукла от удара (0..1): чуть позже начала удара по ней, ~0.5 с. */
   const flinchAt = (sc: SceneTL, id: string, frame: number) => {

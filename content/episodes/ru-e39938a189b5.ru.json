@@ -2,16 +2,18 @@
   "id": "ru-e39938a189b5.ru",
   "jokeId": "ru-e39938a189b5",
   "locale": "ru",
-  "title": "Пострадавшие",
+  "title": "Пожарные",
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "doktor",
-    "sluzhivy-ryadovoy"
+    "sluzhivy",
+    "sluzhivy-ryadovoy",
+    "doktor"
   ],
   "roles": {
-    "doktor": "doctor",
-    "sluzhivy-ryadovoy": "firefighter"
+    "sluzhivy": "firefighter",
+    "sluzhivy-ryadovoy": "firefighter",
+    "doktor": "doctor"
   },
   "lines": [
     {
@@ -19,7 +21,7 @@
       "character": "narrator",
       "text": "Доблестной Пожарной Охране посвящается...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -28,89 +30,87 @@
       "character": "narrator",
       "text": "Приехали пожарные на вызов тушить больницу.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Ну, все сделали как и подобает настоящим героям: пожар потушили, в грязь лицом не упали.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Ну, все сделали как и подобает настоящим героям:",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l4",
       "character": "narrator",
-      "text": "После окончания тушения командир расчета докладывает главному врачу:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "Пожар потушили, в грязь лицом не упали.",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
-      "character": "sluzhivy-ryadovoy",
-      "text": "Задача выполнена, возгорание ликвидировано.",
-      "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
+      "character": "narrator",
+      "text": "После окончания тушения командир расчета докладывает главному врачу:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
       "character": "sluzhivy-ryadovoy",
-      "text": "Правда... есть пострадавшие. Девять человек.",
-      "emotion": "sad",
-      "pauseAfterSec": 0.3,
+      "text": "Задача выполнена, возгорание ликвидировано.",
+      "emotion": "smug",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
       "character": "sluzhivy-ryadovoy",
-      "text": "Семерых мы откачали, а двоих, к сожалению, спасти не удалось.",
+      "text": "Правда... есть пострадавшие. Девять человек.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
-      "character": "narrator",
-      "text": "После этих слов главврач падает в обморок.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.4,
+      "character": "sluzhivy-ryadovoy",
+      "text": "Семерых мы откачали, а двоих, к сожалению, спасти не удалось.",
+      "emotion": "sad",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Очнувшись, заикаясь и едва выговаривая слова, говорит:",
-      "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "text": "После этих слов главврач падает в обморок.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l10",
-      "character": "doktor",
-      "text": "Как семерых?!",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "Очнувшись, заикаясь и едва выговаривая слова, говорит:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l11",
       "character": "doktor",
-      "text": "Ребята, вы же морг тушили...",
-      "emotion": "sad",
+      "text": "Как семерых??? Ребята, вы же морг тушили...",
+      "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -118,6 +118,119 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "doktor"
+      ],
+      "roles": {
+        "sluzhivy": "firefighter",
+        "sluzhivy-ryadovoy": "firefighter",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "couch",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "flex"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "bucket",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "faint"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

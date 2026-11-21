@@ -2,24 +2,14 @@
   "id": "de-witze-1lo14k2.de",
   "jokeId": "de-witze-1lo14k2",
   "locale": "de",
-  "title": "Der Fallschirm",
-  "location": "gostinaya",
+  "title": "Der Notschirm",
+  "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik",
-    "barmen"
+    "muzhik"
   ],
   "roles": {
-    "muzhik": "everyman",
-    "barmen": "plumber"
-  },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "helmet"
-      ],
-      "remove": []
-    }
+    "muzhik": "everyman"
   },
   "lines": [
     {
@@ -27,16 +17,18 @@
       "character": "narrator",
       "text": "Springt ein Mann mit dem Fallschirm aus dem Flugzeug.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
-      "exit": []
+      "exit": [
+        "muzhik"
+      ]
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Nach einiger Zeit will er den Fallschirm öffnen, aber nichts passiert.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "text": "Nach einiger Zeit will er den Fallschirm öffnen, aber nichts passiert. Denkt er:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -45,7 +37,7 @@
       "character": "muzhik",
       "text": "Macht nix, hab ja den Notschirm noch.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
@@ -53,36 +45,61 @@
       "id": "l4",
       "character": "narrator",
       "text": "Er will ihn öffnen, doch nichts tut sich.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "So langsam wird er panisch, als ihm plötzlich von unten ein Mann mit Werkzeugkiste entgegengeflogen kommt.",
-      "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
+      "text": "So langsam wird er panisch,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
       "exit": []
     },
     {
       "id": "l6",
-      "character": "muzhik",
-      "text": "Sie schickt der Himmel! Reparieren Sie Fallschirme?",
-      "emotion": "happy",
-      "pauseAfterSec": 0.7,
+      "character": "narrator",
+      "text": "als ihm plötzlich von unten ein Mann mit Werkzeugkiste entgegengeflogen kommt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
       "enter": [],
       "exit": []
     },
     {
       "id": "l7",
+      "character": "narrator",
+      "text": "Da fragt er ihn:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l8",
+      "character": "muzhik",
+      "text": "Sie schickt der Himmel, reparieren Sie Fallschirme?",
+      "emotion": "happy",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "narrator",
+      "text": "Darauf dieser:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l10",
       "character": "barmen",
       "text": "Nein, Gasleitungen.",
-      "emotion": "sad",
+      "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "enter": [],
       "exit": [],
@@ -90,6 +107,147 @@
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "aisle"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "jump"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "barmen": "plumber"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "grab"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "grab"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shiver"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "wrench",
+          "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "pray-hands"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,
