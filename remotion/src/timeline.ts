@@ -4,7 +4,7 @@ import {
 } from "@jf/core";
 import audioData from "../../content/audio.json";
 import voicesData from "../../content/voices.json";
-import { VEHICLE_SPECS } from "./world/Vehicles";
+import { VEHICLE_SPECS } from "./world/vehicleSpecs";
 import { PLANES } from "@jf/core";
 
 const clips = AudioLibrary.parse(audioData).clips;
@@ -180,7 +180,8 @@ export function buildTimeline(ep: Episode) {
         if (b.type === "move" && !started && !b.from && !b.to.startsWith("off-") && !placed.has(b.who)) {
           // начальная расстановка: кукла сразу стоит на метке (второй move той же куклы до первой реплики — уже ходьба на первых словах)
           placed.add(b.who);
-          moves.push({ id: b.who, from: f(at) - 1, to: f(at) - 1, kind: "walk", target: b.to, z: b.plane ? PLANES[b.plane] : undefined });
+          // с первого кадра сцены (а не с первой реплики), иначе в начале сцены куклы мелькают в автослотах
+          moves.push({ id: b.who, from, to: from, kind: "walk", target: b.to, z: b.plane ? PLANES[b.plane] : undefined });
         } else if (b.type === "move") {
           const s0 = startOf(b.who);
           const off = b.to.startsWith("off-");
@@ -213,7 +214,7 @@ export function buildTimeline(ep: Episode) {
           const key = `veh:${b.vehicle}`;
           const off = b.to.startsWith("off-");
           if (!started && !b.from && !off) {
-            drives.push({ vehicle: b.vehicle, from: f(at) - 1, to: f(at) - 1, kind: "drive", target: b.to });
+            drives.push({ vehicle: b.vehicle, from, to: from, kind: "drive", target: b.to });
             continue;
           }
           const sec = VEHICLE_SPECS[v.kind].driveSec;

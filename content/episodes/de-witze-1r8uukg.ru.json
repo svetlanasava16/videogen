@@ -2,38 +2,33 @@
   "id": "de-witze-1r8uukg.ru",
   "jokeId": "de-witze-1r8uukg",
   "locale": "ru",
-  "title": "Водитель автобуса",
+  "title": "В автобусе",
   "location": "doroga",
   "place": "bus",
   "cast": [
     "muzhik-ryzhy",
     "zhena",
-    "vovochka",
     "muzhik"
   ],
   "roles": {
     "muzhik-ryzhy": "driver",
     "zhena": "mother",
-    "vovochka": "child",
     "muzhik": "customer"
   },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Женщина с младенцем на руках заходит в автобус через переднюю дверь, рядом с водителем.",
+      "text": "Женщина с младенцем на руках входит в автобус через переднюю дверь, у водителя.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena",
-        "vovochka"
-      ],
+      "enter": [],
       "exit": []
     },
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Это, пожалуй, самый уродливый ребёнок, которого я когда-либо видел.",
+      "text": "Это, пожалуй, самый уродливый ребёнок, какого я когда-либо видел.",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
       "enter": [],
@@ -42,7 +37,7 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Женщина в шоке, но не может вымолвить ни слова. Она садится рядом с мужчиной, который видит, что с ней что-то не так.",
+      "text": "Женщина, потрясённая, но не в силах ничего сказать, садится рядом с мужчиной, который видит, что с ней что-то не так.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -51,7 +46,7 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Милая женщина, что-то случилось?",
+      "text": "Женщина, у вас что-то случилось?",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -69,7 +64,7 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Это просто возмутительно, и вы не обязаны такое терпеть.",
+      "text": "Это просто безобразие, и вы не обязаны такое терпеть.",
       "emotion": "angry",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -80,14 +75,23 @@
       "character": "muzhik",
       "text": "Давайте сделаем так.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
+      "pauseAfterSec": 0.3,
       "enter": [],
       "exit": []
     },
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Вы идёте к водителю и требуете извинений, а я пока подержу вашу обезьянку.",
+      "text": "Вы идёте вперёд к водителю и требуете извинений,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.6,
+      "enter": [],
+      "exit": []
+    },
+    {
+      "id": "l9",
+      "character": "muzhik",
+      "text": "а я пока подержу вашу обезьянку.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "enter": [],
@@ -103,13 +107,11 @@
       "cast": [
         "muzhik-ryzhy",
         "zhena",
-        "vovochka",
         "muzhik"
       ],
       "roles": {
         "muzhik-ryzhy": "driver",
         "zhena": "mother",
-        "vovochka": "child",
         "muzhik": "customer"
       },
       "looks": {
@@ -120,7 +122,33 @@
           "remove": []
         }
       },
+      "crowd": {
+        "who": "passengers",
+        "size": "few"
+      },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "seat-2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "baby",
+          "action": "hold"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -128,6 +156,11 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
         },
         {
           "type": "line",
@@ -152,6 +185,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
         }
       ],
       "transition": "cut"
