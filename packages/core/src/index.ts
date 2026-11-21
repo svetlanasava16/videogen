@@ -83,6 +83,15 @@ export const Crowd = z.object({
 });
 export type Crowd = z.infer<typeof Crowd>;
 /** flee — массовка с криком убегает за край кадра и больше не возвращается в этой сцене. */
+/** Мебель на сцене (то, о чём говорит анекдот, но чего нет в фоне): стол, прилавок, кафедра… Рисует remotion/src/world/SetPieces.tsx. */
+export const SET_ITEMS = ["dining-table", "table", "desk", "counter", "lectern", "sofa", "bed", "christmas-tree"] as const;
+export const SetItem = z.object({
+  item: z.string(),
+  /** Метка места (content/locations → marks), left/center/right; по умолчанию center. */
+  at: z.string().optional(),
+  size: z.enum(["small", "normal", "big"]).optional(),
+});
+export type SetItem = z.infer<typeof SetItem>;
 export const CrowdReact = z.enum(["scream", "gasp", "laugh", "cheer", "murmur", "calm", "flee"]);
 export type CrowdReact = z.infer<typeof CrowdReact>;
 
@@ -111,6 +120,8 @@ export const Scene = z.object({
   /** Костюм на эпизод: castId → патч внешности поверх роли (тёмные очки слепому, фартук…). */
   looks: z.record(z.string(), LookPatch).optional(),
   crowd: Crowd.optional(),
+  /** Мебель сцены: стол перед куклами («за столом»), прилавок, кафедра, диван сзади… */
+  set: z.array(SetItem).optional(),
   /**
    * Разделённый экран (телефонный разговор двух мест): верхняя половина — location сцены,
    * нижняя — split.location; split.cast — кто из cast стоит внизу.
@@ -138,6 +149,8 @@ export const Episode = z.object({
   looks: z.record(z.string(), LookPatch).optional(),
   /** Массовка (без scenes). */
   crowd: Crowd.optional(),
+  /** Мебель (без scenes). */
+  set: z.array(SetItem).optional(),
   lines: z.array(Line).min(1),
   /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
   music: z.string().optional(),
@@ -425,6 +438,8 @@ export const ScriptDraft = z.object({
   looks: z.record(z.string(), LookPatch).optional(),
   /** Массовка — без scenes. */
   crowd: Crowd.optional(),
+  /** Мебель — без scenes. */
+  set: z.array(SetItem).optional(),
   /** Заявки художнику: чего не хватает, чтобы шутка работала (сценарий всё равно написан на имеющихся куклах). */
   needs: z
     .array(z.object({ kind: z.enum(["accessory", "puppet", "prop", "backdrop", "crowd"]), id: z.string(), description: z.string(), why: z.string().default("") }))
@@ -486,7 +501,7 @@ export function stagingProblems(cast: string[], lines: { character: string; ente
 export function scenesOf(ep: Episode): Scene[] {
   if (ep.scenes?.length) return ep.scenes;
   return [{
-    location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd,
+    location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd, set: ep.set,
     beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut",
   }];
 }

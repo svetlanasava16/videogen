@@ -24,6 +24,7 @@ Goal: any joke or sketch becomes **data** (an episode JSON); code is written onl
 - `crowd` — `{who, size: few|many}`: a silent back row of dimmed, smaller figures built from existing puppets (`remotion/src/world/Crowd.tsx`; pupils/children → kids). Reacts on `{type:"crowd", react: scream|gasp|laugh|cheer|murmur|calm}` beats (animation; sound if `content/audio.json` has an sfx `crowd-<react>`).
 - `lines[].offscreen: true` — a voice from off screen (genie in a bottle, behind the door, from above, invisible man): the speaker must be in the scene `cast` for the voice, is never shown unless it also walks in/moves; captions in italics.
 - `split: {location, place?, cast}` — split screen for a phone call between two places: top half = the scene's location with the rest of the cast, bottom half = `split.location` with `split.cast`, captions in the band between (`SPLIT` in `Joke.tsx`), each half has its own auto camera.
+- `set: [{item, at?, size?}]` — furniture on stage (`remotion/src/world/SetPieces.tsx`, ids in `SET_ITEMS` in core): dining-table, table, desk, counter, lectern in front of the puppets (hide their legs), sofa, bed, christmas-tree behind; scaled to the puppets' size, `at` = mark or left/center/right. New piece = a `case` in `SetPieces.tsx` + id in `SET_ITEMS`.
 - `looks` also patches `build` (portly = big belly) and `skin` (grey = statue).
 Beats:
   - `{type:"line", ref:"l3"}` — every line exactly once, in order;

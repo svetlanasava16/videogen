@@ -64,15 +64,28 @@
         "devushka": "woman",
         "muzhik": "everyman"
       },
+      "looks": {
+        "devushka": {
+          "hairStyle": "short",
+          "add": [],
+          "remove": []
+        }
+      },
       "crowd": {
         "who": "audience",
         "size": "many"
       },
+      "set": [
+        {
+          "item": "lectern",
+          "at": "center"
+        }
+      ],
       "beats": [
         {
           "type": "move",
           "who": "devushka",
-          "to": "desk"
+          "to": "center"
         },
         {
           "type": "move",
@@ -88,12 +101,12 @@
           "ref": "l2"
         },
         {
-          "type": "crowd",
-          "react": "cheer"
-        },
-        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "crowd",
+          "react": "cheer"
         },
         {
           "type": "line",

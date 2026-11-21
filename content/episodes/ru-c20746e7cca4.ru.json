@@ -48,14 +48,12 @@
       "emotion": "neutral",
       "pauseAfterSec": 0.4,
       "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "exit": []
     },
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Наутро воробей приходит в себя, оглядывается по сторонам.",
+      "text": "Наутро воробей приходит в себя, оглядывается по сторонам и говорит сам себе.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
       "enter": [],
@@ -153,7 +151,7 @@
       "transition": "cut"
     },
     {
-      "location": "gostinaya",
+      "location": "spalnya",
       "cast": [
         "muzhik-ryzhy",
         "ptitsa"
@@ -180,16 +178,16 @@
       },
       "beats": [
         {
-          "type": "move",
-          "who": "muzhik-ryzhy",
-          "to": "center",
-          "from": "off-left"
-        },
-        {
           "type": "prop",
           "who": "muzhik-ryzhy",
           "item": "birdcage",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "nightstand",
+          "from": "off-left"
         },
         {
           "type": "prop",
@@ -200,6 +198,11 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "bed"
         },
         {
           "type": "pause",

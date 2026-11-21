@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -156,7 +156,17 @@ const STAGES: Record<string, Stage> = {
       };
       checkLooks(row.looks, row.cast, "");
       for (const [i, sc] of (row.scenes ?? []).entries()) checkLooks(sc.looks, sc.cast, `scene ${i + 1}: `);
-      if (row.scenes?.length && (row.looks || row.crowd)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
+      // мебель: известные предметы, метки места
+      const checkSet = (set: { item: string; at?: string }[] | undefined, loc: string, tag: string) => {
+        const marks = Object.keys(C.backdrops.find((b) => b.id === loc)?.marks ?? {});
+        for (const it of set ?? []) {
+          if (!(SET_ITEMS as readonly string[]).includes(it.item)) pr.push(`${tag}set: unknown item "${it.item}" (items: ${SET_ITEMS.join(", ")}; ask for a new one in needs, kind "backdrop")`);
+          if (it.at && !["left", "center", "right", ...marks].includes(it.at)) pr.push(`${tag}set: unknown mark "${it.at}" at ${loc}`);
+        }
+      };
+      checkSet(row.set, row.location, "");
+      for (const [i, sc] of (row.scenes ?? []).entries()) checkSet(sc.set, sc.location, `scene ${i + 1}: `);
+      if (row.scenes?.length && (row.looks || row.crowd || row.set)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
       if (row.scenes?.length) {
         // движок v2: проверка сцен, меток и реквизита
         const props = (JSON.parse(readFileSync(join(ROOT, "content", "props.json"), "utf8")).props as { id: string }[]).map((p) => p.id);
@@ -210,6 +220,8 @@ function writeScriptContext() {
     ...props.map((p) => `| ${p.id} | ${p.ru} | ${p.en} | ${p.de} |`), "",
     "## Accessories (for `looks`: add to / remove from a puppet in this episode)", "",
     accessoryIds().join(", "), "",
+    "## Set pieces (furniture for `set`)", "",
+    `${SET_ITEMS.join(", ")} — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.`, "",
     "## Crowd", "",
     `Background crowd: \`crowd: {who, size: few|many}\` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat \`{type: "crowd", react}\` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). Any number of puppets per scene: from 6 on the stage gets wider than the frame and the camera pans along it.`, "",
   ];
@@ -240,7 +252,7 @@ function materialize() {
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
       location: d.location === "none" ? "gostinaya" : d.location,
       place: places.get(d.id),
-      cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd,
+      cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd, set: d.set,
       lines: d.lines.map((l, i) => ({
         id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, offscreen: l.offscreen || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
         audio: voiced(i, l.character, l.text.trim()),

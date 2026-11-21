@@ -3,7 +3,7 @@
   "jokeId": "en-r-fjni2q",
   "locale": "de",
   "title": "Sicher ist sicher",
-  "location": "derevnya",
+  "location": "ofis",
   "place": "forest",
   "cast": [
     "uchilka",
@@ -84,8 +84,7 @@
   "explicit": false,
   "scenes": [
     {
-      "location": "derevnya",
-      "place": "forest",
+      "location": "ofis",
       "cast": [
         "uchilka",
         "muzhik-ryzhy",
@@ -104,16 +103,24 @@
           "remove": []
         }
       },
+      "split": {
+        "location": "derevnya",
+        "place": "forest",
+        "cast": [
+          "muzhik-ryzhy",
+          "muzhik-sosed"
+        ]
+      },
       "beats": [
         {
           "type": "move",
           "who": "uchilka",
-          "to": "left"
+          "to": "desk"
         },
         {
           "type": "move",
           "who": "muzhik-ryzhy",
-          "to": "right"
+          "to": "center"
         },
         {
           "type": "move",
@@ -153,8 +160,20 @@
           "ref": "l5"
         },
         {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "rifle",
+          "action": "hold"
+        },
+        {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik-ryzhy",
+          "item": "phone",
+          "action": "hold"
         },
         {
           "type": "line",

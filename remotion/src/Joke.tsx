@@ -11,6 +11,7 @@ import { SceneTransition } from "./world/Transitions";
 import { Flyover } from "./world/Flyover";
 import { buildingFor } from "./world/town";
 import { Crowd } from "./world/Crowd";
+import { SetLayer } from "./world/SetPieces";
 import { cameraAt, cameraTransform } from "./director/camera";
 
 const FLOOR = 0.62; // линия пола (доля высоты кадра) — совпадает с FLOOR_Y фонов
@@ -111,6 +112,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     return others.length ? others.reduce((a, c) => a + geo.xAt(c, frame), 0) / others.length : undefined;
   };
   const cam = cameraAt(tl, sc, frame, { width, stageW: geo.stageW, height, headY: geo.headY, bodyY: geo.bodyY, xOf: geo.xAt, present: geo.present });
+  // мебель по метке места (доля ширины сцены), иначе left/center/right
+  const marks = locations[sc.scene.location]?.marks ?? {};
+  const setX = (at?: string) => (marks[at ?? ""] ?? ({ left: 0.25, right: 0.75 } as Record<string, number>)[at ?? ""] ?? 0.5) * geo.stageW;
   // широкая сцена: фон увеличен до ширины сцены, линия пола на месте
   const bgScale = geo.stageW / width;
 
@@ -120,6 +124,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         transform: bgScale > 1 ? `translate(0px, ${geo.floorY * (1 - bgScale)}px) scale(${bgScale})` : undefined }}>
         <Background location={locations[sc.scene.location]} place={sc.scene.place} />
       </div>
+      {sc.scene.set && <SetLayer items={sc.scene.set} layer="back" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
       {sc.scene.crowd && (
         <Crowd spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} />
       )}
@@ -147,6 +152,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           </div>
         );
       })}
+      {sc.scene.set && <SetLayer items={sc.scene.set} layer="front" stageW={geo.stageW} height={height} floorY={geo.floorY} xOf={setX} k={geo.boxH / (height * PUPPET_H)} />}
     </div>
   );
 };
@@ -163,7 +169,7 @@ const SplitStage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) 
   const split = sc.scene.split!;
   const half = (height - SPLIT.band) / 2;
   const top: SceneTL = { ...sc, scene: { ...sc.scene, cast: sc.scene.cast.filter((id) => !split.cast.includes(id)), split: undefined } };
-  const bottom: SceneTL = { ...sc, scene: { ...sc.scene, cast: split.cast, location: split.location, place: split.place, crowd: undefined, split: undefined } };
+  const bottom: SceneTL = { ...sc, scene: { ...sc.scene, cast: split.cast, location: split.location, place: split.place, crowd: undefined, set: undefined, split: undefined } };
   const Half = ({ part, y }: { part: SceneTL; y: number }) => (
     <div style={{ position: "absolute", left: 0, top: y, width, height: half, overflow: "hidden" }}>
       <div style={{ position: "absolute", left: 0, top: -SPLIT.from, width, height }}>

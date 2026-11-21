@@ -181,6 +181,10 @@ Our puppets are townspeople with steady, recognisable traits. Each joke casts th
 
 aerodrome-cap, apron, army-cap, badge, baguette, bandages, beard, beret, big-beard, black-eye, black-hat, bow-tie, bowler, bows, brooch, camera, cat-eye-glasses, chef-hat, collar, cowboy-hat, cowlick, cross, crown, curlers, dark-glasses, earrings, eye-mask, eye-patch, flat-cap, freckles, fur-coat, ghost-sheet, glasses, goatee, gold-chain, halo, headscarf, headset, helmet, high-drawn-eyebrows, hood, hook-hand, horns, keys, kippah, lipstick, lipstick-marks, loot-bag, mole, monocle, mustache, mustache-curled, nun-veil, nurse-cap, onesie-snaps, papakha, police-cap, red-nose, robe-black, robe-red, robe-white, round-glasses, santa-hat, sash, scythe, shaggy, shako, side-curls, spots, stethoscope, straw-hat, striped-shirt, stubble, suspenders, tie, towel, turban, tyrolean-hat, white-beard, wisp, zucchetto
 
+## Set pieces (furniture for `set`)
+
+dining-table, table, desk, counter, lectern, sofa, bed, christmas-tree — dining-table/table/desk/counter/lectern stand in front of the puppets, sofa/bed/christmas-tree behind. Check the backdrop first: what it already shows needs no set piece.
+
 ## Crowd
 
 Background crowd: `crowd: {who, size: few|many}` — who: passengers, pupils, guests, audience, patients, soldiers, people (pupils/children are kids, the rest adults), or animals: penguins, dogs, cats, cows, birds, horses. Reactions: crowd beat `{type: "crowd", react}` with react = scream, gasp, laugh, cheer, murmur, calm, flee (the crowd runs off screen for good). Any number of puppets per scene: from 6 on the stage gets wider than the frame and the camera pans along it.

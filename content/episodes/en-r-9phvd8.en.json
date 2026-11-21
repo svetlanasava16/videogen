@@ -101,6 +101,7 @@
   "scenes": [
     {
       "location": "magazin",
+      "place": "pharmacy",
       "cast": [
         "zhena",
         "doktor"
@@ -168,10 +169,79 @@
           "who": "zhena",
           "item": "photo",
           "action": "hold"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "devushka": "woman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "bed"
         },
         {
           "type": "line",
           "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "magazin",
+      "place": "pharmacy",
+      "cast": [
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "doktor": "pharmacist"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "brooch"
+          ],
+          "remove": []
+        },
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "counter"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "photo",
+          "action": "hold"
         },
         {
           "type": "prop",
