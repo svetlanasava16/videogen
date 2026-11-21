@@ -72,8 +72,9 @@ git commit -m "Voice: ru" && git push
 База и готовые ролики для озвучки не нужны: озвучка уходит через git, на Маке Мити — `git pull` и `pnpm render --compilation <id>`. Тестовая озвучка с бесплатного аккаунта на платном ключе переозвучивается сама.
 
 ## Установка
-Нужны Node.js 22+, pnpm и Docker.
+Нужны Node.js 22+, pnpm, Docker и Git LFS (эталонные кадры и озвучка лежат в LFS).
 ```bash
+brew install git-lfs && git lfs install --local && git lfs pull
 pnpm install
 pnpm typecheck
 docker compose -f infra/docker-compose.yml up -d anek-db   # база проекта

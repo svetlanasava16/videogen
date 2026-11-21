@@ -145,6 +145,10 @@
 `content/compilations/<id>.json` (`episodes`, `transition: flyover`) → `pnpm render --compilation <id>`: заставка над городом, анекдоты, пролёты между ними.
 
 ## 12. Проверка и превью
+- **Шрифт** — Inter (OFL), вшит в `remotion/public/fonts` и грузится явно (`remotion/src/fonts.ts`, `FONT`): субтитры, логотип и надписи в фонах не зависят от шрифтов компьютера, рендер одинаков на Маке и Linux. Новые надписи — только `fontFamily={FONT}`.
+- **CI** (`.github/workflows/ci.yml`): typecheck, validate и golden на каждый push; диффы golden — артефакт `golden-diffs`.
+- **Git LFS**: эталонные PNG (`tests/golden/**/*.png`) и озвучка (`remotion/public/audio/**/*.mp3`); клонировать с git-lfs.
+- **Флаги риска эпизода** (`flags: ["political", "real-person"]`): эпизод не публикуется (db sync ставит rejected) и не попадает в автосборники — для своих анекдотов без разметки.
 - **Перед каждым коммитом в движок:**
   - `pnpm validate` — схема и ссылки всех эпизодов (`--debug` — только отладочный набор `content/debug-set.json`);
   - `pnpm golden` — сравнение с эталонными кадрами `tests/golden` (после намеренного изменения: `pnpm golden --update`);

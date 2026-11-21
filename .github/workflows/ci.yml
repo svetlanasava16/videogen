@@ -1,0 +1,58 @@
+# Проверки движка на каждый push: typecheck, validate (все эпизоды), golden (эталонные кадры отладочного набора).
+# Golden сравнивает рендер на Linux с эталонами, снятыми на Маке: шрифт Inter вшит (remotion/public/fonts), поэтому кадры совпадают.
+name: engine
+
+on:
+  push:
+    branches: [joke-factory-pipeline, main]
+  pull_request:
+
+concurrency:
+  group: engine-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Validate episodes
+        run: pnpm validate --quiet
+
+      - name: Browser for Remotion (Chrome Headless Shell + system libraries)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libgbm-dev libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libatk-bridge2.0-0 libpango-1.0-0 libcairo2 libcups2
+          cd remotion && npx remotion browser ensure
+
+      - name: Golden frames
+        run: pnpm golden
+
+      - name: Golden report
+        if: always()
+        run: cat out/golden/report.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-diffs
+          path: out/golden
+          retention-days: 7
