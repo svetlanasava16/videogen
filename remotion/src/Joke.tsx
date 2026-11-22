@@ -45,6 +45,8 @@ const WIDE_PER_FRAME = 4.5;
 const SAME_PLANE = 0.25;
 /** На разных планах — меньший зазор (доля MIN_GAP): дальний стоит за плечом ближнего, но его лицо видно. */
 const BEHIND_GAP = 0.8;
+/** Насколько сидящий на метке-сиденье сдвигается, когда раздвигают его с идущим (доля; идущий — 1). */
+const PIN_SLIDE = 0.15;
 /** Машины по умолчанию едут по дороге между средним и передним планом. */
 const VEHICLE_Z = 0.3;
 /** Машины чуть меньше «настоящих»: в вертикальном кадре легковая в профиле иначе шире кадра и закрывает героев. */
@@ -144,14 +146,39 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     return ms[ms.length - 1];
   };
 
+  // ---- автослоты места (location/variant.slots): кто без своей метки — встаёт по данным места ----
+  // у сублокации свои слоты, у вида по умолчанию — свои (как передний слой и поверхности)
+  const subPlace = subLocation(loc, sc.scene.place);
+  const placeSlots = (subPlace ? subPlace.slots : loc?.slots) ?? [];
+  const autoMarks = new Map<string, string>();
+  if (placeSlots.length) {
+    // автослот нужен тем, у кого нет хода к своей метке (только вход/уход за край или move to "auto")
+    const ownMark = (id: string) => sc.moves.some((m) => m.id === id && m.kind !== "exit" && m.target !== "slot" && !m.target.startsWith("near:") && !m.target.startsWith("veh:"));
+    const users = cast.filter((id) => !ownMark(id));
+    const taken = new Set(sc.moves.filter((m) => m.target !== "slot").map((m) => m.target));
+    const free = placeSlots.filter((sl) => !taken.has(sl.mark) && mark(sl.mark));
+    for (const id of users) {
+      const r = sc.scene.roles[id];
+      const i = r ? free.findIndex((sl) => sl.roles?.includes(r)) : -1;
+      if (i >= 0) { autoMarks.set(id, free[i].mark); free.splice(i, 1); }
+    }
+    const rest = users.filter((id) => !autoMarks.has(id));
+    const pool = free.filter((sl) => !sl.roles?.length).slice(0, rest.length).sort((a, b) => mark(a.mark)!.x - mark(b.mark)!.x);
+    rest.slice(0, pool.length).forEach((id, i) => autoMarks.set(id, pool[i].mark));
+  }
+  /** x автослота: метка места или прежняя раскладка по ширине. */
+  const slotPos = (id: string, f: number) => (autoMarks.has(id) ? markX(autoMarks.get(id)!) : slotX(id, f));
+  /** Метка, на которой кукла стоит: своя (последний ход) или автослот. */
+  const standMark = (id: string, m?: { target: string }) => (!m || m.target === "slot" ? autoMarks.get(id) : m.target);
+
   const xAt = (id: string, f: number): number => {
     const riding = tl.ridingIn(sc, id, f);
     if (riding && vehOf(riding)) return vehX(riding, f) + riderSeat(id, riding, f).dx * vehScale(riding) * vehFacing(riding, f);
     const m = lastMove(id, f);
-    if (!m) return slotX(id, f);
+    if (!m) return slotPos(id, f);
     const k = ease(Math.min(1, (f - m.from) / Math.max(1, m.to - m.from)));
     const target = (ff: number) => {
-      if (m.target === "slot") return slotX(id, ff);
+      if (m.target === "slot") return slotPos(id, ff);
       // подойти вплотную к другой кукле (удар, объятие): встать с той стороны, откуда пришёл
       if (m.target.startsWith("near:")) {
         const tid = m.target.slice(5);
@@ -183,7 +210,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     if (m.z !== undefined) return m.z;
     if (m.target.startsWith("near:")) { const t = m.target.slice(5); return t === id ? zBase(id, m.from - 1) : zBase(t, m.from); }
     if (m.target.startsWith("veh:")) return Math.max(0, vehZ(m.target.slice(4)) - ALIGHT_DZ);
-    if (m.target === "slot") return m.kind === "exit" ? zBase(id, m.from - 1) : PLANES.mid;
+    if (m.target === "slot") return m.kind === "exit" ? zBase(id, m.from - 1) : mark(autoMarks.get(id) ?? "")?.z ?? PLANES.mid;
     return mark(m.target)?.z ?? PLANES.mid;
   };
   /** Ход пересекает кукол того же плана — тогда обход по передней дорожке (или за спинами, via: back). */
@@ -209,7 +236,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     const riding = tl.ridingIn(sc, id, f);
     if (riding && vehOf(riding)) return vehZ(riding);
     const m = lastMove(id, f);
-    if (!m) return PLANES.mid;
+    if (!m) return mark(autoMarks.get(id) ?? "")?.z ?? PLANES.mid;
     const tz = targetZ(id, m);
     if (m.kind === "enter" || m.from === m.to) return tz;
     const k = ease(Math.min(1, (f - m.from) / Math.max(1, m.to - m.from)));
@@ -234,7 +261,14 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     if (hit) return hit;
     // кто подошёл вплотную (удар, объятие) — не раздвигаем его с целью
     const close = new Set(sc.moves.filter((m) => m.from <= f && m.target.startsWith("near:")).flatMap((m) => [m.id, m.target.slice(5)]));
-    const xs = cast.map((id) => ({ id, x: xAt(id, f), z: zAt(id, f), on: pres(id, f) > 0.5 && !tl.ridingIn(sc, id, f) })).sort((a, b) => a.x - b.x);
+    // сидит на метке-сиденье и не идёт — не сдвигается (иначе соскальзывает со стула); сдвигается сосед
+    const pinned = (id: string) => {
+      const m = lastMove(id, f);
+      if (m && f < m.to) return false;
+      const st = standMark(id, m && m.kind !== "exit" ? m : undefined);
+      return !!(st && mark(st)?.seat);
+    };
+    const xs = cast.map((id) => ({ id, x: xAt(id, f), z: zAt(id, f), on: pres(id, f) > 0.5 && !tl.ridingIn(sc, id, f), pin: pinned(id) })).sort((a, b) => a.x - b.x);
     for (let it = 0; it < 4; it++) {
       for (let i = 0; i < xs.length; i++) {
         for (let j = i + 1; j < xs.length; j++) {
@@ -243,10 +277,14 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
           // один план — не стоят друг в друге; разные — можно стоять за спиной, но лицо дальнего не закрыто ближним
           const gap = (Math.abs(a.z - b.z) >= SAME_PLANE ? MIN_GAP * BEHIND_GAP : MIN_GAP) * depthScale((a.z + b.z) / 2);
           const d = b.x - a.x;
-          if (d < gap) {
-            const push = (gap - d) / 2;
-            a.x = Math.max(boxW * 0.45, a.x - push);
-            b.x = Math.min(stageW - boxW * 0.45, b.x + push);
+          // соседи на сиденьях одного плана (скамья, ряд кресел) сидят рядом — не раздвигаем;
+          // сидящие на разных планах — раздвигаем поровну (лицо дальнего видно); идущий уступает сидящему почти целиком
+          const samePlane = Math.abs(a.z - b.z) < SAME_PLANE;
+          if (d < gap && !(a.pin && b.pin && samePlane)) {
+            const push = gap - d;
+            const wa = a.pin && !b.pin ? PIN_SLIDE : 1, wb = b.pin && !a.pin ? PIN_SLIDE : 1;
+            a.x = Math.max(boxW * 0.45, a.x - (push * wa) / (wa + wb));
+            b.x = Math.min(stageW - boxW * 0.45, b.x + (push * wb) / (wa + wb));
           }
         }
       }
@@ -295,7 +333,8 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     const since = m ? m.to : sc.from;
     if (sc.acts.some((a) => a.who === id && a.act === "stand" && a.from >= since && a.from <= f)) return 0;
     const ramp = m && m.to > m.from ? Math.min(1, (f - m.to) / 6) : 1;
-    if (m && mark(m.target)?.seat) return ramp;
+    const st = standMark(id, m && m.kind !== "exit" ? m : undefined);
+    if (st && mark(st)?.seat) return ramp;
     const x = xOf(id, f), z = zAt(id, f);
     if (furnitureSeats.some((s) => x >= s.lo && x <= s.hi && Math.abs(s.z - z) < 0.2)) return ramp;
     const sitting = tl.actAt(sc, id, f).base?.name === "sit";

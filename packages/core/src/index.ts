@@ -126,6 +126,13 @@ export const Surface = z.object({ x0: z.number(), x1: z.number(), z: z.number().
 export type Surface = z.infer<typeof Surface>;
 /** Передний слой фона (стойка бара, прилавок): рисуется поверх кукол, стоящих дальше z, и под теми, кто ближе. */
 export const FrontLayer = z.object({ z: z.number().min(0).max(1) });
+/**
+ * Автослот места: куда встаёт кукла без своей метки (нет move или move to "auto"). Порядок в списке — приоритет.
+ * roles — слот для этих ролей (бармен за стойкой); без roles — для остальных: берутся первые по числу кукол
+ * и раздаются слева направо в порядке cast. Слотов не хватило — прежняя раскладка по ширине.
+ */
+export const Slot = z.object({ mark: z.string(), roles: z.array(z.string()).optional() });
+export type Slot = z.infer<typeof Slot>;
 
 /** Транспорт снаружи: рисуется remotion/src/world/Vehicles.tsx (вид сбоку), седоки видны в окнах или сидят верхом. */
 export const VEHICLES = ["car", "taxi", "police-car", "ambulance", "bus", "tram", "train", "truck", "tractor", "bicycle", "motorcycle", "scooter", "horse-cart", "road-roller"] as const;
@@ -367,6 +374,8 @@ export const Location = z.object({
   surfaces: z.array(Surface).optional(),
   /** Передний слой фона (стойка перед барменом): компонент фона рисует его при layer="front". */
   front: FrontLayer.optional(),
+  /** Автослоты вида по умолчанию (у сублокации — свои). */
+  slots: z.array(Slot).optional(),
   bible: z
     .object({
       summary: z.string(),
@@ -386,6 +395,7 @@ export const Location = z.object({
         crowd: Crowd.optional(),
         surfaces: z.array(Surface).optional(),
         front: FrontLayer.optional(),
+        slots: z.array(Slot).optional(),
       })).default([]),
       prompt: z.string(),
     })
