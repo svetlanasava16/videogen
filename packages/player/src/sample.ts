@@ -4,8 +4,8 @@
  * тряска, субтитр, переходы), здесь; обёртки (Remotion, веб, позже Pixi) только рисуют FrameState.
  */
 import type { Act, Emotion, Look, SetItem } from "@jf/core";
-import { frameOf, sampleLin, sampleStep, sec } from "./tracks.js";
-import type { ActorMode, PerfActor, PerfLine, PerfScene, PerfView, Performance } from "./types.js";
+import { frameOf, sampleLin, sampleStep, sec } from "./tracks";
+import type { ActorMode, PerfActor, PerfLine, PerfScene, PerfView, Performance } from "./types";
 
 export type Pose = { name: Act; k: number; t: number };
 /** Кукла на кадре. Бокс — px холста сцены; t позы — секунды с начала жеста. */

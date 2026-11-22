@@ -3,9 +3,9 @@
  * Те же правила, что у дорожки Remotion: озвучка — 1, эффекты — 0,8, закадровый смех — 0,7 с затуханием
  * в последние 8 кадров, музыка — 0,1 и 0,05 под речью, вход/выход по 15 кадров.
  */
-import { frameOf } from "./tracks.js";
-import type { Performance } from "./types.js";
-import type { CaptionLine } from "./sample.js";
+import { frameOf } from "./tracks";
+import type { Performance } from "./types";
+import type { CaptionLine } from "./sample";
 
 export const VOLUME = { voice: 1, sfx: 0.8, laugh: 0.7, music: 0.1, musicDucked: 0.05 };
 /** Вход и выход музыки, кадров. */
