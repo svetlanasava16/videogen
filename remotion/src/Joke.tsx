@@ -152,6 +152,8 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   const subPlace = subLocation(loc, sc.scene.place);
   const placeSlots = (subPlace ? subPlace.slots : loc?.slots) ?? [];
   const autoMarks = new Map<string, string>();
+  /** План переднего слоя места (стойка, стол, кафедра): кто дальше него — за ним. */
+  const frontZ = (subPlace ? subPlace.front : loc?.front)?.z;
   if (placeSlots.length) {
     // автослот нужен тем, у кого нет хода к своей метке (только вход/уход за край или move to "auto")
     const ownMark = (id: string) => sc.moves.some((m) => m.id === id && m.kind !== "exit" && m.target !== "slot" && !m.target.startsWith("near:") && !m.target.startsWith("veh:"));
@@ -164,7 +166,10 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
       if (i >= 0) { autoMarks.set(id, free[i].mark); free.splice(i, 1); }
     }
     const rest = users.filter((id) => !autoMarks.has(id));
-    const pool = free.filter((sl) => !sl.roles?.length).slice(0, rest.length).sort((a, b) => mark(a.mark)!.x - mark(b.mark)!.x);
+    let pool = free.filter((sl) => !sl.roles?.length).slice(0, rest.length).sort((a, b) => mark(a.mark)!.x - mark(b.mark)!.x);
+    // один без метки — в центр, если у места есть свободный слот center (а не на край пары)
+    const centre = free.find((sl) => !sl.roles?.length && sl.mark === "center");
+    if (rest.length === 1 && centre) pool = [centre];
     rest.slice(0, pool.length).forEach((id, i) => autoMarks.set(id, pool[i].mark));
   }
   /** x автослота: метка места или прежняя раскладка по ширине. */
@@ -283,7 +288,10 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
           const samePlane = Math.abs(a.z - b.z) < SAME_PLANE;
           if (d < gap && !(a.pin && b.pin && samePlane)) {
             const push = gap - d;
-            const wa = a.pin && !b.pin ? PIN_SLIDE : 1, wb = b.pin && !a.pin ? PIN_SLIDE : 1;
+            let wa = a.pin && !b.pin ? PIN_SLIDE : 1, wb = b.pin && !a.pin ? PIN_SLIDE : 1;
+            // сидящий за передним слоем (врач за столом, начальник за столом) не съезжает со стула: уступает тот, кто перед столом
+            const behind = (v: { z: number }) => frontZ !== undefined && v.z > frontZ;
+            if (behind(a) !== behind(b)) { if (a.pin && behind(a)) { wa = 0; wb = 1; } else if (b.pin && behind(b)) { wb = 0; wa = 1; } }
             a.x = Math.max(boxW * 0.45, a.x - (push * wa) / (wa + wb));
             b.x = Math.min(stageW - boxW * 0.45, b.x + (push * wb) / (wa + wb));
           }
@@ -342,6 +350,14 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
     if (sitting && Object.values(marks).some((mk) => { const o = markOf(mk)!; return !!o.seat && Math.abs(o.x * stageW - x) < boxW * 0.5; })) return 1;
     return 0;
   };
+  /** В кровати: сидит на метке-сиденье bed (лёжа — голова на подушке, тело под одеялом переднего слоя). */
+  const inBedAt = (id: string, f: number): number => {
+    const k = seatedAt(id, f);
+    if (!k || tl.ridingIn(sc, id, f)) return 0;
+    const m = lastMove(id, f);
+    const st = standMark(id, m && m.kind !== "exit" ? m : undefined);
+    return st && mark(st)?.seat === "bed" ? k : 0;
+  };
   /** Голова и середина фигуры (для камеры): сидящий ниже на высоту ног. */
   const headY = (id: string, f: number) => { const b = box(id, f); return b.top + b.h * (0.33 + (seatedAt(id, f) > 0.5 && !tl.ridingIn(sc, id, f) ? 0.11 : 0)); };
   const bodyY = (id: string, f: number) => { const b = box(id, f); return b.top + b.h * (0.5 + (seatedAt(id, f) > 0.5 && !tl.ridingIn(sc, id, f) ? 0.11 : 0)); };
@@ -352,7 +368,7 @@ export function stageGeometry(tl: Timeline, sc: SceneTL, width: number, height: 
   };
 
   return {
-    boxW, boxH, castK, stageW, floorY: height * FLOOR, xAt: xOf, zAt, box, present, headY, bodyY, seatedAt,
+    boxW, boxH, castK, stageW, floorY: height * FLOOR, xAt: xOf, zAt, box, present, headY, bodyY, seatedAt, inBedAt,
     setItems, itemZ, setX, vehicles, vehX, vehZ, vehScale, vehPresent, vehMoving, vehFacing, riderSeat,
   };
 }
@@ -378,6 +394,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     const x = b.x;
     const dx = opts.inVehicle ? 0 : x - geo.xAt(id, frame - 1);
     const walk = Math.min(1, Math.abs(dx) / 6);
+    const inBed = opts.inVehicle ? 0 : geo.inBedAt(id, frame);
     // рот двигается только пока звучит слово (а не всю реплику с паузами и хвостом)
     const talking = current?.character === id && current.words.some((w) => frame >= w.startFrame - 1 && frame <= w.endFrame);
     const laughing = tl.laughing(id, frame);
@@ -388,7 +405,9 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     const tx = target && people.includes(target) ? geo.xAt(target, frame) : undefined;
     const facing: 1 | -1 = opts.facing ?? (walk > 0.2 ? (dx > 0 ? 1 : -1) : tx !== undefined ? (tx >= x ? 1 : -1) : c === undefined ? 1 : c >= x ? 1 : -1);
     return (
-      <div key={id} style={{ position: "absolute", left: x - b.w / 2, top: b.top, width: b.w, height: b.h, display: "flex", justifyContent: "center" }}>
+      <div key={id} style={{ position: "absolute", left: x - b.w / 2, top: b.top, width: b.w, height: b.h, display: "flex", justifyContent: "center",
+        // в кровати: ниже пола плана ничего (опущенное под одеяло тело не торчит из-под кровати)
+        clipPath: inBed > 0.5 ? `polygon(-200% -100%, 300% -100%, 300% ${(585 / 600) * 100}%, -200% ${(585 / 600) * 100}%)` : undefined }}>
         <Puppet
           look={costumeFor(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id])}
           speaking={talking || laughing}
@@ -401,6 +420,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           act={act}
           base={base}
           seated={geo.seatedAt(id, frame)}
+          bed={inBed}
           flinch={tl.flinchAt(sc, id, frame)}
         />
       </div>

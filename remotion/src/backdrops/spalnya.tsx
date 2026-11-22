@@ -28,10 +28,42 @@ const BearsPicture = ({ x, y, w, h }: { x: number; y: number; w: number; h: numb
   </g>
 );
 
+/**
+ * Передний слой спальни (content/locations/spalnya.json → front.z): отогнутая простыня, одеяло, край кровати, ножки и кот в ногах.
+ * Кто лежит или сидит в кровати (метки bed-1, bed, bed-2), — под одеялом: видна голова на подушке (Joke.tsx → inBedAt).
+ */
+const BedFront = ({ palette: p }: { palette: Palette }) => {
+  const blanket = mix(p.accent, "#c8553d", 0.35);
+  const dy = seatTopY(1) - 1140;
+  return (
+    <>
+      <g transform={`translate(60 ${dy})`}>
+        <rect x={250} y={1020} width={580} height={36} rx={14} fill="#f4efe6" />
+        <rect x={250} y={1046} width={580} height={110} rx={18} fill={blanket} />
+        <rect x={250} y={1046} width={580} height={22} rx={10} fill={light(blanket, 0.15)} />
+        {/* узор пододеяльника */}
+        {Array.from({ length: 9 }).map((_, i) => <circle key={i} cx={290 + i * 62} cy={1110} r={8} fill={light(blanket, 0.25)} />)}
+        <rect x={380} y={1090} width={70} height={66} rx={6} fill={dark(blanket, 0.08)} />
+        <rect x={630} y={1090} width={70} height={66} rx={6} fill={dark(blanket, 0.08)} />
+        <rect x={262} y={1150} width={556} height={26} rx={8} fill={dark(WOOD, 0.15)} />
+        {/* кот спит в ногах */}
+        <ellipse cx={800} cy={1036} rx={34} ry={18} fill="#8a8a8a" />
+        <circle cx={776} cy={1030} r={14} fill="#8a8a8a" />
+        <path d="M766 1020 l4 -12 l6 10 Z M780 1018 l6 -12 l4 12 Z" fill="#8a8a8a" />
+        <path d="M832 1040 q14 0 8 -16" stroke="#8a8a8a" strokeWidth={8} fill="none" strokeLinecap="round" />
+        <path d="M770 1032 h8 M782 1032 h8" stroke="#3a3a3a" strokeWidth={2} />
+      </g>
+      {/* тень под кроватью: тело лежащего под одеялом не просвечивает между ножками */}
+      <rect x={336} y={1170 + dy} width={528} height={FLOOR_Y - 1170 - dy} fill={dark(p.floor, 0.45)} />
+      <rect x={336} y={1182 + dy} width={22} height={FLOOR_Y - 1182 - dy} fill={dark(WOOD, 0.35)} />
+      <rect x={842} y={1182 + dy} width={22} height={FLOOR_Y - 1182 - dy} fill={dark(WOOD, 0.35)} />
+    </>
+  );
+};
+
 /* ---------- спальня ---------- */
 const Bedroom = ({ palette: p }: { palette: Palette }) => {
   const curtain = dark(p.wall, 0.35);
-  const blanket = mix(p.accent, "#c8553d", 0.35);
   const dy = seatTopY(1) - 1140;
   return (
     <>
@@ -78,23 +110,7 @@ const Bedroom = ({ palette: p }: { palette: Palette }) => {
         <rect x={560} y={960} width={220} height={74} rx={30} fill="#f4efe6" />
         <path d="M320 980 q90 -14 180 0" stroke="#e0d8c8" strokeWidth={4} fill="none" />
         <path d="M580 980 q90 -14 180 0" stroke="#e0d8c8" strokeWidth={4} fill="none" />
-        <rect x={250} y={1020} width={580} height={36} rx={14} fill="#f4efe6" />
-        <rect x={250} y={1046} width={580} height={110} rx={18} fill={blanket} />
-        <rect x={250} y={1046} width={580} height={22} rx={10} fill={light(blanket, 0.15)} />
-        {/* узор пододеяльника */}
-        {Array.from({ length: 9 }).map((_, i) => <circle key={i} cx={290 + i * 62} cy={1110} r={8} fill={light(blanket, 0.25)} />)}
-        <rect x={380} y={1090} width={70} height={66} rx={6} fill={dark(blanket, 0.08)} />
-        <rect x={630} y={1090} width={70} height={66} rx={6} fill={dark(blanket, 0.08)} />
-        <rect x={262} y={1150} width={556} height={26} rx={8} fill={dark(WOOD, 0.15)} />
-        {/* кот спит в ногах */}
-        <ellipse cx={800} cy={1036} rx={34} ry={18} fill="#8a8a8a" />
-        <circle cx={776} cy={1030} r={14} fill="#8a8a8a" />
-        <path d="M766 1020 l4 -12 l6 10 Z M780 1018 l6 -12 l4 12 Z" fill="#8a8a8a" />
-        <path d="M832 1040 q14 0 8 -16" stroke="#8a8a8a" strokeWidth={8} fill="none" strokeLinecap="round" />
-        <path d="M770 1032 h8 M782 1032 h8" stroke="#3a3a3a" strokeWidth={2} />
       </g>
-      <rect x={336} y={1182 + dy} width={22} height={FLOOR_Y - 1182 - dy} fill={dark(WOOD, 0.35)} />
-      <rect x={842} y={1182 + dy} width={22} height={FLOOR_Y - 1182 - dy} fill={dark(WOOD, 0.35)} />
       {/* тумбочка с лампой, будильником, книгой и очками */}
       <Glow cx={260} cy={890} r={260} color={light(p.accent, 0.3)} opacity={0.4} />
       <FloorShadow cx={259} w={130} o={0.25} />
@@ -256,6 +272,8 @@ const Bathroom = ({ palette: p, noToilet = false }: { palette: Palette; noToilet
 };
 
 /** Спальня: базовый вид + ванная (bathroom). */
-export const Spalnya = ({ palette, variant }: BackdropProps) => (
-  <Canvas>{variant === "bathroom" || variant === "bathroom-wide" ? <Bathroom palette={palette} noToilet={variant === "bathroom-wide"} /> : <Bedroom palette={palette} />}</Canvas>
-);
+export const Spalnya = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  const bath = variant === "bathroom" || variant === "bathroom-wide";
+  if (layer === "front") return bath ? null : <Canvas><BedFront palette={palette} /></Canvas>;
+  return <Canvas>{bath ? <Bathroom palette={palette} noToilet={variant === "bathroom-wide"} /> : <Bedroom palette={palette} />}</Canvas>;
+};

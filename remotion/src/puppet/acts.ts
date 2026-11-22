@@ -517,15 +517,20 @@ export function basePose(arms: { left: number; right: number }, legs: { left: nu
   };
 }
 
-export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape }; itemR: { F: number; B: number }; puff: number };
+export type Resolved = { pose: Pose; face?: FaceFx; fx: Fx[]; fxK: number; over: { F: boolean; B: boolean }; hand: { F?: HandShape; B?: HandShape }; itemR: { F: number; B: number }; puff: number; /** в кровати: ноги под одеялом не рисуются */ noLegs?: boolean };
 
 /** Лёжа тело сдвигается на половину роста (единицы бокса), чтобы лежать по центру места, а не вбок от стоп. */
 const LIE_SHIFT = 240;
 /** Высота сиденья/матраса в единицах бокса куклы (SEAT_H 72 px кадра при боксе 768 px = 600 единиц). */
 const SEAT_BOX = 56;
+/**
+ * В кровати (кровать нарисована анфас: изголовье у стены, одеяло к зрителю) лёжа = голова на подушке, тело под одеялом:
+ * кукла не поворачивается, а опускается на BED_SINK (единицы бокса); одеяло — передний слой места.
+ */
+const BED_SINK = 64;
 
 /** Итоговая поза: обычная → сидя (seated) → поза-состояние (base) → жест (act) → вздрагивание (flinch). */
-export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; base?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string }): Resolved {
+export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: number; t: number }; base?: { name: Act; k: number; t: number }; seated?: number; flinch?: number; hold?: string; bed?: number }): Resolved {
   const p = base;
   const seated = clamp(o.seated ?? 0, 0, 1);
   if (seated > 0) blend(p, seatPart(g), seated);
@@ -563,6 +568,18 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
       fx.push({ type: "burst", space: "head", at: [226, 78], r: 30 * fl });
     }
   }
+  // в кровати (bed): лёжа — не поворот на бок, а голова на подушке, тело под одеялом; сидя — сидит в кровати по пояс в одеяле
+  const inBed = clamp(o.bed ?? 0, 0, 1);
+  if (inBed > 0) {
+    const lie = clamp(Math.abs(p.rot) / 80, 0, 1) * inBed;
+    p.rot = mix(p.rot, 0, inBed);
+    if (lie > 0) {
+      p.drop += BED_SINK * lie;
+      p.tilt += 10 * lie;
+      p.lean = mix(p.lean, 0, lie);
+      blend(p, { armF: { u: 8, f: 10 }, armB: { u: 6, f: 8 } }, lie);
+    }
+  }
   // лёжа (lie, sleep, faint, после падения): ноги прямые (поза «сидя» снимается), тело лежит по центру своего места,
   // а не торчит вбок от стоп; на кровати/сиденье (seated) — спиной на матрасе, а не на полу
   const lyingK = clamp((Math.abs(p.rot) - 30) / 50, 0, 1);
@@ -575,7 +592,7 @@ export function resolvePose(base: Pose, g: RigGeo, o: { act?: { name: Act; k: nu
   }
   // лёжа/падая: приподнять, чтобы спина легла на пол, а не ушла под него
   p.lift += Math.max(g.bodyW / 2, 78) * Math.abs(Math.sin(p.rot / D)) ** 1.5;
-  return { pose: p, face, fx, fxK: fl > 0.4 && fxK === 0 ? 1 : fxK, over, hand, itemR, puff };
+  return { pose: p, face, fx, fxK: fl > 0.4 && fxK === 0 ? 1 : fxK, over, hand, itemR, puff, noLegs: inBed > 0.5 };
 }
 
 /** Аффинные матрицы SVG (a b c d e f) — чтобы эффекты «над головой» оставались вертикальными при наклоне/падении. */
