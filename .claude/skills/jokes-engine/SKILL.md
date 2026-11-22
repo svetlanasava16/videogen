@@ -27,16 +27,17 @@ Goal: any joke or sketch becomes **data** (an episode JSON); code is written onl
 | Content | `content/characters`, `content/locations` (+ `marks`, `kit`), `content/props.json`, `content/audio.json` | puppets, places with named spots, hand props, sounds |
 | Script | `content/episodes/<id>.json` (`lines` + optional `scenes`) | what is said and done |
 | Director | `remotion/src/timeline.ts`, `remotion/src/director/camera.ts` | timing from voice, staging, automatic shots |
-| Render | `remotion/src/Joke.tsx`, `Compilation.tsx`, `world/*` | puppets, backdrops, transitions, flyovers |
+| Compile | `remotion/src/perf/compile.ts`, `stage/geometry.ts` | staging, camera, captions, sound → `performance.json` once (`pnpm compile-episode`) |
+| Render | `remotion/src/perf/Play.tsx`, `Joke.tsx`, `Compilation.tsx`, `world/*` | draws a frame from the tracks only: puppets, backdrops, transitions, flyovers |
 
 ## Episode format (v2)
 - `lines` — flat list of spoken lines (ids `l1…`): voice-over, subtitles and captions use it.
 - `scenes` (optional) — `[{ location, place?, cast, roles, looks?, crowd?, transition, beats }]`; without it the episode is one scene (`location`/`cast`/`roles`/`looks`/`crowd`/all lines).
-- `cast` — any number of puppets; 4–5 are drawn smaller (`CAST_SCALE` in `Joke.tsx`), from 6 (`WIDE_FROM`) the stage is wider than the frame (`stageGeometry` → `stageW`, backdrop scaled up around the floor line) and the auto camera pans along it.
+- `cast` — any number of puppets; 4–5 are drawn smaller (`CAST_SCALE` in `stage/geometry.ts`), from 6 (`WIDE_FROM`) the stage is wider than the frame (`stageGeometry` → `stageW`, backdrop scaled up around the floor line) and the auto camera pans along it.
 - `looks` — costume for this episode: puppet → `LookPatch` (`add`/`remove` accessories, `clothes`, `hair`, `hairStyle`) applied on top of the role costume (`lookForRole(c, role, patch)`). Blind pilots = `add: ["dark-glasses"]` + `cane` prop.
 - `crowd` — `{who, size: few|many, at?: back|front}` (`front` = audience silhouettes in the seats seen from behind, `CrowdFront`): a silent back row of dimmed, smaller figures built from existing puppets (`remotion/src/world/Crowd.tsx`; pupils/children → kids). Reacts on `{type:"crowd", react: scream|gasp|laugh|cheer|murmur|calm}` beats (animation; sound if `content/audio.json` has an sfx `crowd-<react>`).
 - `lines[].offscreen: true` — a voice from off screen (genie in a bottle, behind the door, from above, invisible man): the speaker must be in the scene `cast` for the voice, is never shown unless it also walks in/moves; captions in italics.
-- `split: {location, place?, cast}` — split screen for a phone call between two places: top half = the scene's location with the rest of the cast, bottom half = `split.location` with `split.cast`, captions in the band between (`SPLIT` in `Joke.tsx`), each half has its own auto camera.
+- `split: {location, place?, cast}` — split screen for a phone call between two places: top half = the scene's location with the rest of the cast, bottom half = `split.location` with `split.cast`, captions in the band between (`SPLIT` in `perf/Play.tsx`), each half has its own auto camera.
 - `set: [{item, at?, size?}]` — furniture on stage (`remotion/src/world/SetPieces.tsx`, ids in `SET_ITEMS` in core): dining-table, table, desk, counter, lectern in front of the puppets (hide their legs), sofa, bed, christmas-tree behind; scaled to the puppets' size, `at` = mark or left/center/right. New piece = a `case` in `SetPieces.tsx` + id in `SET_ITEMS`.
 - `looks` also patches `build` (portly = big belly) and `skin` (grey = statue).
 Beats:
@@ -52,7 +53,7 @@ Beats:
 - Example: `content/episodes/test-scenes.ru.json` (two scenes, walk-in at the door, flowers handed over, wipe to the bar).
 
 ## Auto director (`director/camera.ts`)
-Wide on scene start, narrator lines and crowd reactions; two-shot in dialogue (speaker + the previous speaker, else the nearest listener); group shot when 3+ others are on stage (speaker, addressee, nearest; zooms out if they stand far apart); close-up with a slow push-in on the punchline; wide on the outro laughs. Puppets standing too close are pushed apart (`stageGeometry` in `Joke.tsx`). Tune constants there, not per episode.
+Wide on scene start, narrator lines and crowd reactions; two-shot in dialogue (speaker + the previous speaker, else the nearest listener); group shot when 3+ others are on stage (speaker, addressee, nearest; zooms out if they stand far apart); close-up with a slow push-in on the punchline; wide on the outro laughs. Puppets standing too close are pushed apart (`stageGeometry` in `stage/geometry.ts`). Tune constants there, not per episode.
 
 ## Town and compilations
 - Map: `remotion/src/world/TownMap.tsx` (icons by building `type`), preview `npx remotion still src/index.ts Town out.png`. A building's `places` decide which scenes fly to it (`buildingFor(location, place)` in `world/town.ts`).

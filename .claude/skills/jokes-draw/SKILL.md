@@ -46,7 +46,7 @@ Poses for `act` beats are numbers in `remotion/src/puppet/acts.ts` (`ACT_POSES`:
 `remotion/src/world/Vehicles.tsx`: side view, origin = bottom centre on the floor, facing right, scale 1 = mid plane. `VEHICLE_SPECS[kind]` = size, rider seats `{dx, dy, s}` (driver first; dx = puppet box centre), `open` (rider on top) or windowed, `door`, `driveSec`. `VehicleArt part="back"` (interior) → riders → `part="front"` (body with window holes / handlebar). Sheet: `npx remotion still src/index.ts Vehicles out.png`.
 
 ## Staging
-`remotion/src/timeline.ts` turns beats into moves, acts, drives and rides (see **jokes-engine** / `docs/ENGINE.md`); `remotion/src/Joke.tsx` (`stageGeometry`) places puppets by x and depth z, seats them, draws everything sorted by plane.
+`remotion/src/timeline.ts` turns beats into moves, acts, drives and rides (see **jokes-engine** / `docs/ENGINE.md`); `remotion/src/stage/geometry.ts` (`stageGeometry`) places puppets by x and depth z and seats them; `perf/compile.ts` runs it once into a performance track and `perf/Play.tsx` draws everything sorted by plane (ENGINE §11а).
 
 ## Sound — laughs and music
 - Library: `content/audio.json` (id, kind laugh|music, intensity chuckle|laugh|big or mood, file, duration, source, author, license) + files in `remotion/public/audio/{laughs,music}/`. CC0 / free licences only (Freesound with the CC0 filter, Pixabay Music); the user downloads, you import:

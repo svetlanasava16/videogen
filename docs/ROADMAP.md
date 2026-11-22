@@ -1,6 +1,6 @@
 # ANEK.: план движка, сериала и игры
 
-Статус: этапы 1–4 сделаны (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md)); дальше этап 5.
+Статус: этапы 1–5 сделаны (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md), [stage-5](reports/stage-5/README.md)); дальше этап 6.
 Принцип: LLM пишет только текст — сценарий анекдота, связки серии, арку. Всё остальное — детерминированный код и данные: постановка, раскладка, камера, рендер, проверки. Масштабирование почти не должно тратить токены.
 
 ## 0. Где мы сейчас
@@ -61,6 +61,7 @@
 - **Сломаться может:** вид кукол. Это самый рискованный этап, делается только при работающем golden; отдельно смотрим лист `Outfits` и `Cast`.
 
 ## 5. Скомпилированный эпизод: `performance.json`
+- **Сделано** ([отчёт](reports/stage-5/README.md)): компилятор `remotion/src/perf/compile.ts`, `pnpm compile-episode [--check]`, проигрыватель `perf/Play.tsx`; кадры совпадают с прежней постановкой. Типы и `sample` лежат в `remotion/src/perf` (чистый TS) — на этапе 7 переезжают в `packages/player`.
 - **`pnpm compile-episode <id>`.** Эпизод и озвучка превращаются в явный трек по времени в секундах, не в кадрах:
   ```
   { v, id, locale, duration, scenes: [{from, to, location, place, transition}],
