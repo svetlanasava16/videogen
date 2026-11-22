@@ -8,6 +8,7 @@ import { Cast } from "./Cast";
 import { Acts } from "./Acts";
 import { Outfits, outfitsSize } from "./Outfits";
 import { Locations } from "./Locations";
+import { BackdropLayer } from "./art/BackdropLayer";
 import { Cover } from "./Cover";
 import { TownPreview } from "./world/Flyover";
 import { Compilation, CompilationProps, compilationLayout } from "./Compilation";
@@ -20,6 +21,7 @@ const defaultEpisode = Episode.parse(demo);
 
 export const Root = () => (
   <>
+  <Composition id="BackdropLayer" component={BackdropLayer} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ location: "bar", place: undefined as string | undefined, layer: "back" as "back" | "front", locale: "ru" as const }} />
   <Composition id="Locations" component={Locations} width={2860} height={3240} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], marks: false, locale: "ru" as const }} />
   <Composition id="Props" component={PropsPreview} {...propsPreviewSize("props", allPropIds().length)} fps={30} durationInFrames={1} defaultProps={{ only: [] as string[], rest: true, mode: "props" }} calculateMetadata={({ props }) => { const p = props as { only?: string[]; mode?: string }; return propsPreviewSize(p.mode ?? "props", p.only?.length || allPropIds().length); }} />
   <Composition id="Vehicles" component={VehiclesPreview} {...VEHICLES_PREVIEW_SIZE} fps={30} durationInFrames={1} defaultProps={{ grid: false, moving: false }} />
