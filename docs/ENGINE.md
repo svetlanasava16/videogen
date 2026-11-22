@@ -4,21 +4,31 @@
 
 Кадр 1080×1920, 30 fps. Схемы — `packages/core/src/index.ts`; таймлайн — `remotion/src/timeline.ts`; сцена — `remotion/src/Joke.tsx`; камера — `remotion/src/director/camera.ts`.
 
-## 1. Эпизод
+## 1. Эпизод (формат v2, заморожен)
+Схема — `Episode` в `packages/core`. Дальше она только расширяется необязательными полями; старые файлы переводит `pnpm migrate-episodes` (`migrateEpisodeData`, детерминированно, без LLM).
 ```json
 {
   "id": "ru-4b75a0e1bc8d.ru", "jokeId": "ru-4b75a0e1bc8d", "locale": "ru", "title": "Икота",
-  "location": "bolnitsa", "cast": ["doktor", "baba"], "roles": {"doktor": "doctor", "baba": "patient"},
+  "kind": "joke", "v": 2,
+  "location": "bolnitsa", "place": "doctor-office",
+  "cast": ["paren", "tyoshcha", "doktor"], "roles": {"paren": "doctor", "tyoshcha": "patient", "doktor": "doctor"},
   "lines": [
-    {"id": "l1", "character": "narrator", "text": "Мария Петровна пошла к врачу.", "emotion": "neutral"},
-    {"id": "l2", "character": "doktor", "text": "В чём дело?", "emotion": "angry", "uncensored": null}
+    {"id": "l1", "character": "narrator", "text": "Мария Петровна пошла к врачу.", "emotion": "neutral", "pauseAfterSec": 0}
   ],
-  "scenes": [ { "location": "bolnitsa", "place": "waiting-room", "cast": ["…"], "beats": ["…"] } ]
+  "scenes": [
+    {"location": "bolnitsa", "cast": ["paren", "tyoshcha"], "roles": {"paren": "doctor", "tyoshcha": "patient"},
+     "beats": [{"type": "move", "who": "tyoshcha", "to": "patient-chair", "from": "off-left"}, {"type": "line", "ref": "l1"}]}
+  ],
+  "flags": [], "outroLaughs": [], "music": "…", "explicit": false
 }
 ```
-- `lines` — все реплики по порядку (озвучка, субтитры). Рассказчик — `narrator`: голос без куклы, субтитры сверху. Текст — дословно из источника; `uncensored` — оригинал с матом (в субтитрах при `explicit`).
-- `scenes` — постановка: место, кто в кадре и биты. Без `scenes` эпизод — одна сцена из `location`/`cast`.
-- Смена комнаты или места = новая сцена; `transition`: `cut` (по умолчанию), `wipe` (прошло время), `flyover` (пролёт над городом к другому зданию).
+- **`lines`** — только речь: кто, текст (дословно), `uncensored`, эмоция, `offscreen`, `pauseAfterSec`, `laugh`, озвучка (`audio`). Никакой постановки в репликах.
+- **`scenes`** — обязательно, хотя бы одна: место (`location`, `place` — комната), кто в кадре (`cast`, `roles`, `looks`), `crowd`, `set`, `vehicles`, `split`, `transition` и **биты**. Каждая реплика — ровно в одном бите `line`, по порядку.
+- **Входы и уходы — только биты `move`**: `from: off-left|off-right` — войти, `to: off-*` — уйти, `to: "auto"` — автослот (место по порядку в cast).
+- **Сводка верхнего уровня**: `location` — первой сцены; `cast`/`roles` — все куклы и роли эпизода; `place` — архетип из разметки (метаданные, не рисуется).
+- **`kind`** — `joke` (сейчас), `meme` и `bridge` (связка серии) зарезервированы; **`v`** — версия схемы.
+- **`flags`** — риски эпизода (`political`, `real-person`…): с ними эпизод не публикуется.
+- Смена комнаты или места = новая сцена; `transition`: `cut` (по умолчанию), `wipe` (прошло время), `flyover` (пролёт над городом).
 
 ## 2. Ритм: биты идут параллельно с речью
 Время двигает только речь и явный `pause`. Не-речевые биты (`move`, `act`, `prop`, `crowd`, `shake`, `camera`, `sfx`, `drive`, `board`, `alight`), стоящие **перед** репликой, начинаются **вместе с ней**: рассказчик говорит «пилоты заходят» — они заходят в этот момент. Шаги одной куклы идут по очереди, разные куклы — одновременно.
@@ -151,7 +161,7 @@
 - **Флаги риска эпизода** (`flags: ["political", "real-person"]`): эпизод не публикуется (db sync ставит rejected) и не попадает в автосборники — для своих анекдотов без разметки.
 - **Перед каждым коммитом в движок:**
   - `pnpm validate` — схема и ссылки всех эпизодов (`--debug` — только отладочный набор `content/debug-set.json`);
-  - `pnpm golden` — сравнение с эталонными кадрами `tests/golden` (после намеренного изменения: `pnpm golden --update`);
+  - `pnpm golden:docker` — сравнение с эталонными кадрами `tests/golden` в единой Linux-среде `tests/golden-env` (как CI); после намеренного изменения — `pnpm golden:docker --update`. `pnpm golden` без Docker рендерит на этом компьютере: годится для быстрой проверки, но текст растеризуется иначе, чем в CI;
   - `pnpm stills <id>|--debug` — ключевые кадры и контактный лист в `out/stills/<id>/`, смотреть глазами.
 - `pnpm llm check script --batch batch-NNNN` — схема, места, метки сублокаций, реквизит, машины и седоки, порядок реплик (`sceneProblems` в core).
 - Кадр эпизода: `cd remotion && npx remotion still src/index.ts Joke out.png --props=../content/episodes/<id>.json --frame=120`.

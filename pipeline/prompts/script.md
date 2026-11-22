@@ -30,8 +30,18 @@ JSONL, exactly one line per input line, same order, same `id`:
   "roles": {"zhena": "wife", "muzhik": "husband"},
   "lines": [
     {"character": "narrator", "text": "A young man is coming to ask for their daughter's hand.", "emotion": "neutral", "pauseAfterSec": 0},
-    {"character": "zhena", "text": "Yasha, when he comes, just say yes.", "emotion": "smug", "pauseAfterSec": 0, "enter": ["zhena"]},
+    {"character": "zhena", "text": "Yasha, when he comes, just say yes.", "emotion": "smug", "pauseAfterSec": 0},
     {"character": "zhena", "text": "You don't have to cry and kiss his hand and call him our saviour, damn it.", "uncensored": "You don't have to cry and kiss his hand and call him our saviour, for fuck's sake.", "emotion": "angry", "pauseAfterSec": 0.8}
+  ],
+  "scenes": [
+    {"location": "gostinaya", "cast": ["zhena", "muzhik"], "roles": {"zhena": "wife", "muzhik": "husband"}, "beats": [
+      {"type": "move", "who": "muzhik", "to": "sofa"},
+      {"type": "line", "ref": "l1"},
+      {"type": "move", "who": "zhena", "to": "center", "from": "off-left"},
+      {"type": "line", "ref": "l2"},
+      {"type": "act", "who": "zhena", "act": "point", "to": "muzhik"},
+      {"type": "line", "ref": "l3"}
+    ]}
   ]
 }
 ```
@@ -47,8 +57,7 @@ JSONL, exactly one line per input line, same order, same `id`:
 - `lines[].character`: a puppet id from `cast`, or `narrator` (voice-over, no puppet on screen).
 - `lines[].text`: the **clean** line that will be voiced and published. `lines[].uncensored` (optional): the same line with the source's swear words kept as written — fill it ONLY when `text` differs from it because you softened profanity; otherwise omit the field. Both versions must be identical except for the softened words.
 - `lines[].offscreen` (optional, `true`): a voice from off screen — the speaker is not seen (from inside a bottle, behind a door, from above, an invisible man, a voice on the phone when only the listener is shown). The puppet must be in `cast` (it gives the voice) but does not have to appear; if all its lines are off screen and it never walks in, it is never shown. Captions show such lines in italics.
-- `lines[].enter` / `lines[].exit` (optional, default `[]`): puppet ids that walk in right before this line / walk out right after it. A puppet whose first event is `enter` starts off screen; everyone else is on screen from the start. Only on-screen puppets may speak. The checker rejects speaking while off screen, entering twice, or leaving when absent.
-- `scenes` (optional, engine v2): use it when the story moves to another place, or when walking to a spot or handing over an object makes the joke clearer. Leave it out for a simple one-place dialogue (the renderer then plays all lines in `location` with `cast`). Line ids are `l1`, `l2`, … by position in `lines`.
+- `scenes` (**required**, frozen format v2): where it happens, who is there, what they do. Every line is referenced once, in order, by a `line` beat (ids `l1`, `l2`, … by position in `lines`). Arrivals and departures are `move` beats: `{"type":"move","who":"zhena","to":"center","from":"off-left"}` walks in during the next line, `"to":"off-right"` walks out; `"to":"auto"` takes an automatic spot (for places without suitable marks). Top-level `location`, `cast`, `roles` repeat the first scene.
   ```json
   "scenes": [
     {"location": "gostinaya", "cast": ["zhena", "muzhik"], "roles": {"zhena": "wife", "muzhik": "husband"}, "beats": [
@@ -87,13 +96,11 @@ JSONL, exactly one line per input line, same order, same `id`:
   - A scene's `location` must be a real backdrop (`none` is allowed only at the top level of a scene-less script). Open sky or a fall from a plane → `nebesa` (clouds); anywhere outdoors → `ulitsa` or `doroga`.
   - `place` picks the **room / sub-location** of the backdrop for that scene — the `place` ids listed under each backdrop in context.md (`bolnitsa` + `waiting-room` then a new scene `bolnitsa` + default doctor's office; `samolet` + `cabin` then `samolet` + `cockpit`; home = `gostinaya` (living room, `dining-room`, `front-door`, `balcony`), `kukhnya`, `spalnya` (+ `bathroom`); transport interiors `doroga` + `car` / `taxi` / `bus` / `tram` / `subway`, `doroga` + `bus-stop`). Without it the default view is shown. A place has its own marks — use only those. When the story moves to another room, start a new scene (`cut` within one building, `flyover` to another building).
   - Puppets without a `move` stand in automatic spots, left to right in `cast` order. A `move` (without `from`) placed **before the first line** of a scene is a starting position: the puppet simply stands at that mark, no walking; a second `move` of the same puppet before the first line is a walk during that line (the stewardess starts at the galley and walks down the aisle on the first words). After the first line, `move` is a visible walk — use it only for real walking (arriving, approaching someone, leaving).
-  - Inside one scene, line `enter`/`exit` and `move` beats may be mixed for different puppets, but use only one of them for any single arrival or departure.
-  - A one-scene `scenes` block is worth it only when a named spot matters (arrives at the door, goes to the counter/desk/bed) or an object changes hands. A plain arrival is `enter` on the line, without `scenes`.
   - Phone calls between two places: one scene with a split screen — `"split": {"location": "<backdrop of the other place>", "place": "<variant, optional>", "cast": ["<puppets in the bottom half>"]}`; the scene's own `location` is the top half with the rest of `cast`. Both callers hold a `phone`. Use it for long back-and-forth calls (the 911 operator at her desk, the caller in the forest). A short call can still be one shared scene or a voice `offscreen`.
   - Physical action is told by the narrator and acted at the same time (`act`, `move`, `shake`…); a deliberate silence is a `pause` beat (inside scenes).
   - When `scenes` is present, top-level `location`/`cast`/`roles` repeat the first scene exactly — the top-level cast is the first scene's cast, including anyone who walks in later in that scene (but NOT `looks` or `crowd`: those live only inside scenes); a character who first appears in a later scene only needs to be in that scene's `cast`.
   - Every scene starts fresh: puppets stand in automatic spots (or the starting `move`s of that scene); positions do not carry over from the previous scene.
-  - In a scene with `move` beats use the backdrop's marks; arrivals can be either `enter` on a line (walks to an automatic spot) or `move` with `from` (walks to a named spot). Don't use both for the same arrival.
+  - In a scene with `move` beats use the backdrop's marks; arrivals are `move` with `from` (to a named spot, or `"auto"`).
 - `lines[].laugh` (optional): laugh track after the line — `chuckle` | `laugh` | `big`. Put `big` (or `laugh` for a mild joke) on the punchline. At most one `chuckle` on an earlier comic beat, only if there is a real one. If you set none, the renderer adds `big` after the last line.
 
 ## Writing rules
@@ -113,7 +120,7 @@ JSONL, exactly one line per input line, same order, same `id`:
    Roles for generic people (a passenger, a passer-by, a customer, a guest): use `customer` for a client or passenger and `everyman` for anyone else.
 7. Translation and adaptation: write what a native speaker would actually say, with natural rhythm and register. For `adapt`, follow `adaptNote`, except when it proposes swapping in another ethnic, national or religious group: rule 11 wins, use a neutral character with the same trait. If the pun cannot be rebuilt honestly, mark `unfit`.
 8. Localise units, currency and everyday details for the target audience (km → miles in English, roubles → dollars/euros) unless the joke depends on them. Match grammatical gender to the puppet (the cat puppet is male: «кот»). Non-speaking characters that must be visible (the cat, the cow) may be in `cast` without lines.
-9. Staging (enter/exit): the scene starts with whoever is already there; people who arrive walk in on their first line. Examples: "a man comes to the doctor" → doctor on screen, the man has `enter` on his first line; "the husband comes home early" → husband `enter` right before his first line; "he storms out" or a punchline from behind the door → `exit` after the line. Use it only when the joke has an arrival or departure; never shuffle people in and out for no reason. A silent character who must be visible stays in `cast` without lines.
+9. Arrivals and departures: the scene starts with whoever is already there; people who arrive walk in on the words that say so. Examples: "a man comes to the doctor" → doctor on screen, the man `move … from: "off-left"` right before that line; "the husband comes home early" → husband walks in before his first line; "he storms out" → `move … to: "off-right"` before the words that say it. Use it only when the joke has an arrival or departure; never shuffle people in and out for no reason. A silent character who must be visible stays in `cast` without lines.
    **Everyone the joke is about is on screen.** No limit on puppets per scene: two pilots are two puppets, a father and three sons are four, a nurse and four fathers are five, seven dwarfs are seven — never drop one because it is silent or because the scene got crowded. A group that only reacts (passengers, pupils, wedding guests) is a `crowd`, not cast members. Every individual character gets a puppet; use doubles (families) when one puppet is already taken.
 10. Emotions per line: neutral, happy, angry, surprised, sad, smug. They drive the puppet's face; vary them to match the delivery.
 11. Never introduce an ethnic, national or religious stereotype that the source joke does not have. When a regional stereotype (Swabian thrift, Ostfriese naivety) does not travel, replace it with a neutral character trait (a stingy neighbour, a naive farmer), not with another group.
