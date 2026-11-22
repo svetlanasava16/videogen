@@ -10,6 +10,7 @@ Every ANEK. story happens in one small town: **Анекдотск** (ru), **Joke
 - **Above and below:** heaven with its gate and St. Peter's desk, the Garden of Eden, outer space; hell underground.
 
 ## Residents
+The full list with names in each language, homes, jobs and relations is data: `content/world/canon.json` (`pnpm world cast <episode>` shows who plays whom).
 Our puppets are townspeople with steady, recognisable traits. Each joke casts them in its roles, but their personality stays the same.
 - **Muzhik / Joe / Horst** (`muzhik`): the everyman, simple and sly, fond of a drink; his neighbours look like him (`muzhik-sosed`, chatty and older; `muzhik-ryzhy`, loud).
 - **The wife** (`zhena`): sharp-tongued, runs the household, wins every argument.

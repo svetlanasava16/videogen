@@ -1,0 +1,1279 @@
+{
+ "v": 1,
+ "districts": [
+  {
+   "id": "center",
+   "name": {
+    "ru": "Центр",
+    "en": "Downtown",
+    "de": "Stadtmitte"
+   },
+   "kind": "center",
+   "node": "main-street",
+   "note": "bar, shop, office tower, hospital, square, park, stadium"
+  },
+  {
+   "id": "quarter-ru",
+   "name": {
+    "ru": "Русский квартал",
+    "en": "Russian Quarter",
+    "de": "Russisches Viertel"
+   },
+   "kind": "quarter",
+   "locale": "ru",
+   "node": "ru-street",
+   "note": "home of Russian-language jokes and their folk heroes"
+  },
+  {
+   "id": "quarter-en",
+   "name": {
+    "ru": "Английский квартал",
+    "en": "English Quarter",
+    "de": "Englisches Viertel"
+   },
+   "kind": "quarter",
+   "locale": "en",
+   "node": "en-street",
+   "note": "home of English-language jokes; church, court, culture house"
+  },
+  {
+   "id": "quarter-de",
+   "name": {
+    "ru": "Немецкий квартал",
+    "en": "German Quarter",
+    "de": "Deutsches Viertel"
+   },
+   "kind": "quarter",
+   "locale": "de",
+   "node": "de-street",
+   "note": "home of German-language jokes; the school"
+  },
+  {
+   "id": "village",
+   "name": {
+    "ru": "Заречье",
+    "en": "Across the River",
+    "de": "Überm Fluss"
+   },
+   "kind": "village",
+   "node": "village-road",
+   "note": "village, farm, forest, lake, mountains, sauna, beach"
+  },
+  {
+   "id": "outskirts",
+   "name": {
+    "ru": "Окраина",
+    "en": "Outskirts",
+    "de": "Stadtrand"
+   },
+   "kind": "outskirts",
+   "node": "ring-road",
+   "note": "highway, airport, harbour, cemetery"
+  },
+  {
+   "id": "otherworld",
+   "name": {
+    "ru": "Тот свет",
+    "en": "The Other World",
+    "de": "Jenseits"
+   },
+   "kind": "otherworld",
+   "node": "heaven",
+   "note": "heaven's gate, the Garden of Eden, outer space, hell"
+  }
+ ],
+ "residents": [
+  {
+   "id": "vasya",
+   "puppet": "muzhik",
+   "name": {
+    "ru": "Вася",
+    "en": "Joe",
+    "de": "Horst"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "everyman",
+    "husband",
+    "father",
+    "customer",
+    "patient",
+    "drunk",
+    "homeless",
+    "prisoner"
+   ],
+   "traits": "simple and sly everyman, fond of a drink, always has an excuse",
+   "gags": [
+    "comes home late with a story",
+    "hides a bottle somewhere new"
+   ]
+  },
+  {
+   "id": "lyusya",
+   "puppet": "zhena",
+   "name": {
+    "ru": "Люся",
+    "en": "Linda",
+    "de": "Gabi"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "wife",
+    "mother",
+    "maid"
+   ],
+   "traits": "sharp-tongued, runs the household, wins every argument",
+   "gags": [
+    "checks his pockets",
+    "her mother is always right"
+   ]
+  },
+  {
+   "id": "vovochka",
+   "puppet": "vovochka",
+   "name": {
+    "ru": "Вовочка",
+    "en": "Johnny",
+    "de": "Fritzchen"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "vovochka",
+    "fritzchen",
+    "child",
+    "son"
+   ],
+   "traits": "cheeky schoolboy who asks the wrong question at the right time",
+   "gags": [
+    "raises his hand in class",
+    "takes everything literally"
+   ]
+  },
+  {
+   "id": "tyoma",
+   "puppet": "mladenets",
+   "name": {
+    "ru": "Тёма",
+    "en": "Baby Sam",
+    "de": "Baby Paul"
+   },
+   "district": "home",
+   "home": {
+    "location": "spalnya"
+   },
+   "roles": [
+    "baby"
+   ],
+   "traits": "the youngest; says nothing, sees everything",
+   "gags": []
+  },
+  {
+   "id": "zinaida",
+   "puppet": "tyoshcha",
+   "name": {
+    "ru": "Зинаида Петровна",
+    "en": "Mildred",
+    "de": "Gertrud"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "mother-in-law",
+    "grandma",
+    "old-woman"
+   ],
+   "traits": "the mother-in-law: visits too often, knows best",
+   "gags": [
+    "arrives without warning",
+    "has an opinion on everything"
+   ]
+  },
+  {
+   "id": "barsik",
+   "puppet": "kot",
+   "name": {
+    "ru": "Барсик",
+    "en": "Whiskers",
+    "de": "Mietze"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "cat"
+   ],
+   "traits": "the family cat; lazy, smug, judges everyone",
+   "gags": [
+    "sleeps on the warmest spot"
+   ]
+  },
+  {
+   "id": "fomich",
+   "puppet": "domovoi",
+   "name": {
+    "ru": "Домовой Фомич",
+    "en": "the Brownie",
+    "de": "der Kobold"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya",
+    "place": "basement"
+   },
+   "roles": [
+    "domovoi"
+   ],
+   "traits": "old house spirit in the basement; grumbles about modern life",
+   "gags": []
+  },
+  {
+   "id": "kolya",
+   "puppet": "muzhik-sosed",
+   "name": {
+    "ru": "Коля",
+    "en": "Bob",
+    "de": "Günther"
+   },
+   "district": "home",
+   "home": {
+    "location": "podyezd"
+   },
+   "roles": [
+    "neighbor",
+    "friend",
+    "relative",
+    "tourist"
+   ],
+   "traits": "the neighbour across the landing: chatty bachelor who gives marriage advice",
+   "gags": [
+    "borrows and never returns",
+    "always on the stairwell"
+   ]
+  },
+  {
+   "id": "katya",
+   "puppet": "devochka",
+   "name": {
+    "ru": "Катя",
+    "en": "Lily",
+    "de": "Lisa"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "red-riding-hood"
+   ],
+   "traits": "the little daughter, Vovochka's younger sister: polite, curious, repeats what grown-ups say",
+   "gags": []
+  },
+  {
+   "id": "sharik",
+   "puppet": "pyos",
+   "name": {
+    "ru": "Шарик",
+    "en": "Rex",
+    "de": "Bello"
+   },
+   "district": "home",
+   "home": {
+    "location": "ulitsa",
+    "place": "yard"
+   },
+   "roles": [
+    "dog",
+    "wolf"
+   ],
+   "traits": "the neighbour's dog; loyal, not very bright",
+   "gags": []
+  },
+  {
+   "id": "seryozha",
+   "puppet": "vovochka-drug",
+   "name": {
+    "ru": "Серёжка",
+    "en": "Billy",
+    "de": "Max"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "child"
+   ],
+   "traits": "Vovochka's best friend and accomplice",
+   "gags": []
+  },
+  {
+   "id": "masha",
+   "puppet": "devochka-podruga",
+   "name": {
+    "ru": "Маша",
+    "en": "Molly",
+    "de": "Lena"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [],
+   "traits": "Vovochka's classmate, top of the class",
+   "gags": []
+  },
+  {
+   "id": "kostya",
+   "puppet": "paren",
+   "name": {
+    "ru": "Костя",
+    "en": "Kevin",
+    "de": "Tobi"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "work": {
+    "location": "ofis",
+    "role": "employee"
+   },
+   "roles": [
+    "boyfriend",
+    "lover",
+    "son",
+    "teenager",
+    "student",
+    "employee",
+    "programmer",
+    "journalist"
+   ],
+   "traits": "the elder son: grown up, still lives at home, works at the office; a bit naive, always in love",
+   "gags": [
+    "fails to ask the boss for a raise"
+   ]
+  },
+  {
+   "id": "dasha",
+   "puppet": "devushka",
+   "name": {
+    "ru": "Даша",
+    "en": "Jessica",
+    "de": "Jenny"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "work": {
+    "location": "bolnitsa",
+    "place": "hospital",
+    "role": "nurse"
+   },
+   "roles": [
+    "woman",
+    "girlfriend",
+    "nurse",
+    "cashier"
+   ],
+   "traits": "young nurse; kind, quick, unimpressed by flirting",
+   "gags": []
+  },
+  {
+   "id": "sveta",
+   "puppet": "devushka-blondinka",
+   "name": {
+    "ru": "Света",
+    "en": "Tiffany",
+    "de": "Mandy"
+   },
+   "district": "center",
+   "home": {
+    "location": "gostinaya"
+   },
+   "work": {
+    "location": "ofis",
+    "role": "secretary"
+   },
+   "roles": [
+    "blonde",
+    "secretary",
+    "flight-attendant"
+   ],
+   "traits": "the boss's secretary; seems naive, always gets her way",
+   "gags": []
+  },
+  {
+   "id": "alyona",
+   "puppet": "devushka-ryzhaya",
+   "name": {
+    "ru": "Алёна",
+    "en": "Ginger",
+    "de": "Nina"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "daughter",
+    "princess"
+   ],
+   "traits": "the daughter: a student, lively, has a new boyfriend every month",
+   "gags": []
+  },
+  {
+   "id": "petrovich",
+   "puppet": "barmen",
+   "name": {
+    "ru": "Петрович",
+    "en": "Pete",
+    "de": "Pit"
+   },
+   "district": "center",
+   "work": {
+    "location": "bar",
+    "role": "bartender"
+   },
+   "roles": [
+    "bartender",
+    "waiter",
+    "salesman",
+    "cook",
+    "janitor",
+    "mechanic",
+    "plumber",
+    "craftsman"
+   ],
+   "traits": "the bartender: has heard every story, ironic, pours on credit",
+   "gags": [
+    "polishes the same glass",
+    "keeps a tab for half the town"
+   ]
+  },
+  {
+   "id": "semyonov",
+   "puppet": "doktor",
+   "name": {
+    "ru": "Доктор Семёнов",
+    "en": "Dr. Simmons",
+    "de": "Dr. Sommer"
+   },
+   "district": "center",
+   "work": {
+    "location": "bolnitsa",
+    "role": "doctor"
+   },
+   "roles": [
+    "doctor",
+    "therapist",
+    "scientist",
+    "professor"
+   ],
+   "traits": "the doctor: dry, tired, has seen everything",
+   "gags": [
+    "prescribes rest for everything"
+   ]
+  },
+  {
+   "id": "palych",
+   "puppet": "nachalnik",
+   "name": {
+    "ru": "Иван Палыч",
+    "en": "Mr. Bigsby",
+    "de": "Herr Bremer"
+   },
+   "district": "center",
+   "work": {
+    "location": "ofis",
+    "role": "boss"
+   },
+   "roles": [
+    "boss",
+    "politician",
+    "businessman",
+    "bureaucrat",
+    "judge",
+    "lawyer",
+    "new-russian"
+   ],
+   "traits": "the boss: self-important, pompous, afraid of his own boss",
+   "gags": [
+    "holds a meeting about meetings"
+   ]
+  },
+  {
+   "id": "marivanna",
+   "puppet": "uchilka",
+   "name": {
+    "ru": "Марь Иванна",
+    "en": "Ms. Smith",
+    "de": "Frau Müller"
+   },
+   "district": "quarter-de",
+   "work": {
+    "location": "klass",
+    "role": "teacher"
+   },
+   "roles": [
+    "teacher",
+    "clerk",
+    "operator",
+    "pharmacist",
+    "nun"
+   ],
+   "traits": "the teacher: strict, tired of Vovochka, secretly fond of him",
+   "gags": [
+    "calls parents to school"
+   ]
+  },
+  {
+   "id": "krause",
+   "puppet": "sluzhivy",
+   "name": {
+    "ru": "Сержант Петренко",
+    "en": "Officer Barnes",
+    "de": "Wachtmeister Krause"
+   },
+   "district": "center",
+   "work": {
+    "location": "ofis",
+    "place": "police-station",
+    "role": "police-officer"
+   },
+   "roles": [
+    "police-officer",
+    "traffic-cop",
+    "customs-officer",
+    "guard",
+    "officer",
+    "pilot"
+   ],
+   "traits": "the policeman: by the book, easily confused",
+   "gags": [
+    "writes everything in his notebook"
+   ]
+  },
+  {
+   "id": "sidorov",
+   "puppet": "sluzhivy-ryadovoy",
+   "name": {
+    "ru": "Рядовой Сидоров",
+    "en": "Private Jones",
+    "de": "Gefreiter Schulz"
+   },
+   "district": "outskirts",
+   "roles": [
+    "soldier",
+    "sailor",
+    "firefighter"
+   ],
+   "traits": "the private: obedient, takes orders literally",
+   "gags": []
+  },
+  {
+   "id": "nikolai",
+   "puppet": "batyushka",
+   "name": {
+    "ru": "Отец Николай",
+    "en": "Father Mike",
+    "de": "Pfarrer Weber"
+   },
+   "district": "quarter-en",
+   "work": {
+    "location": "tserkov",
+    "role": "priest"
+   },
+   "roles": [
+    "priest"
+   ],
+   "traits": "the parish priest: patient, kind, sometimes caught being human",
+   "gags": []
+  },
+  {
+   "id": "andrei",
+   "puppet": "batyushka-molodoy",
+   "name": {
+    "ru": "Отец Андрей",
+    "en": "Father Tom",
+    "de": "Kaplan Jonas"
+   },
+   "district": "quarter-en",
+   "work": {
+    "location": "tserkov",
+    "role": "priest"
+   },
+   "roles": [
+    "monk"
+   ],
+   "traits": "the young priest: earnest, still learning",
+   "gags": []
+  },
+  {
+   "id": "rebbe",
+   "puppet": "batyushka-ravvin",
+   "name": {
+    "ru": "Ребе",
+    "en": "the Rabbi",
+    "de": "der Rabbi"
+   },
+   "district": "center",
+   "roles": [
+    "rabbi"
+   ],
+   "traits": "the rabbi: kind, wise, patient",
+   "gags": []
+  },
+  {
+   "id": "pierre",
+   "puppet": "inostranets",
+   "name": {
+    "ru": "Пьер",
+    "en": "Pierre",
+    "de": "Pierre"
+   },
+   "district": "center",
+   "roles": [
+    "foreigner"
+   ],
+   "traits": "a visitor from abroad who is puzzled by local customs",
+   "gags": []
+  },
+  {
+   "id": "zhora",
+   "puppet": "vor",
+   "name": {
+    "ru": "Жора",
+    "en": "Slim",
+    "de": "Ede"
+   },
+   "district": "outskirts",
+   "roles": [
+    "thief"
+   ],
+   "traits": "the small-time burglar: unlucky, polite",
+   "gags": [
+    "gets caught in the silliest way"
+   ]
+  },
+  {
+   "id": "gosha",
+   "puppet": "pingvin",
+   "name": {
+    "ru": "Пингвин Гоша",
+    "en": "Percy",
+    "de": "Paul"
+   },
+   "district": "center",
+   "home": {
+    "location": "ulitsa",
+    "place": "zoo"
+   },
+   "roles": [
+    "penguin"
+   ],
+   "traits": "the zoo penguin who keeps escaping",
+   "gags": []
+  },
+  {
+   "id": "roma",
+   "puppet": "ptitsa",
+   "name": {
+    "ru": "Попугай Рома",
+    "en": "Polly",
+    "de": "Coco"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [
+    "bird",
+    "parrot",
+    "chicken",
+    "duck"
+   ],
+   "traits": "the mother-in-law's parrot: repeats exactly the wrong thing",
+   "gags": []
+  },
+  {
+   "id": "fifi",
+   "puppet": "pyos-pudel",
+   "name": {
+    "ru": "Фифи",
+    "en": "Fifi",
+    "de": "Fifi"
+   },
+   "district": "home",
+   "home": {
+    "location": "gostinaya"
+   },
+   "roles": [],
+   "traits": "the mother-in-law's poodle",
+   "gags": []
+  },
+  {
+   "id": "domino",
+   "puppet": "pyos-dalmatin",
+   "name": {
+    "ru": "Пятныш",
+    "en": "Domino",
+    "de": "Flecki"
+   },
+   "district": "outskirts",
+   "roles": [],
+   "traits": "the fire station dog",
+   "gags": []
+  },
+  {
+   "id": "matvey",
+   "puppet": "ded",
+   "name": {
+    "ru": "Дед Матвей",
+    "en": "Grandpa Jim",
+    "de": "Opa Karl"
+   },
+   "district": "village",
+   "home": {
+    "location": "derevnya"
+   },
+   "roles": [
+    "old-man",
+    "grandpa",
+    "ded-moroz",
+    "wizard"
+   ],
+   "traits": "Vasya's father: old, crafty, remembers how it used to be",
+   "gags": [
+    "fishing stories that grow every time"
+   ]
+  },
+  {
+   "id": "fyodor",
+   "puppet": "muzhik-ryzhy",
+   "name": {
+    "ru": "Рыжий Фёдор",
+    "en": "Red",
+    "de": "Rudi"
+   },
+   "district": "village",
+   "home": {
+    "location": "derevnya",
+    "place": "farm"
+   },
+   "work": {
+    "location": "derevnya",
+    "place": "farm",
+    "role": "farmer"
+   },
+   "roles": [
+    "farmer",
+    "hunter",
+    "fisherman",
+    "driver",
+    "biker"
+   ],
+   "traits": "the farmer: loud, practical, drives everything with wheels",
+   "gags": []
+  },
+  {
+   "id": "burenka",
+   "puppet": "korova",
+   "name": {
+    "ru": "Бурёнка",
+    "en": "Daisy",
+    "de": "Berta"
+   },
+   "district": "village",
+   "home": {
+    "location": "derevnya",
+    "place": "farm"
+   },
+   "roles": [
+    "cow"
+   ],
+   "traits": "the farm cow",
+   "gags": []
+  },
+  {
+   "id": "chernushka",
+   "puppet": "korova-chyornaya",
+   "name": {
+    "ru": "Чернушка",
+    "en": "Bessie",
+    "de": "Liesel"
+   },
+   "district": "village",
+   "home": {
+    "location": "derevnya",
+    "place": "farm"
+   },
+   "roles": [],
+   "traits": "the other farm cow",
+   "gags": []
+  },
+  {
+   "id": "zorka",
+   "puppet": "loshad",
+   "name": {
+    "ru": "Зорька",
+    "en": "Clover",
+    "de": "Lotte"
+   },
+   "district": "village",
+   "home": {
+    "location": "derevnya",
+    "place": "farm"
+   },
+   "roles": [
+    "horse"
+   ],
+   "traits": "the farm horse, wiser than the farmer",
+   "gags": []
+  },
+  {
+   "id": "peter",
+   "puppet": "ded",
+   "name": {
+    "ru": "Апостол Пётр",
+    "en": "Saint Peter",
+    "de": "Petrus"
+   },
+   "district": "otherworld",
+   "work": {
+    "location": "nebesa",
+    "role": "saint-peter"
+   },
+   "roles": [
+    "saint-peter"
+   ],
+   "traits": "keeper of the gate with the big book",
+   "gags": [
+    "checks the list twice"
+   ]
+  },
+  {
+   "id": "god",
+   "puppet": "ded",
+   "name": {
+    "ru": "Бог",
+    "en": "God",
+    "de": "der liebe Gott"
+   },
+   "district": "otherworld",
+   "work": {
+    "location": "nebesa",
+    "role": "god"
+   },
+   "roles": [
+    "god",
+    "biblical-figure"
+   ],
+   "traits": "the Almighty as an old man on a cloud: patient, a little tired of people",
+   "gags": []
+  },
+  {
+   "id": "chort",
+   "puppet": "chort",
+   "name": {
+    "ru": "Чёрт",
+    "en": "the Devil",
+    "de": "der Teufel"
+   },
+   "district": "otherworld",
+   "work": {
+    "location": "nebesa",
+    "place": "hell",
+    "role": "devil"
+   },
+   "roles": [
+    "devil",
+    "death",
+    "genie",
+    "vampire",
+    "monster"
+   ],
+   "traits": "the devil: a bureaucrat of the underworld",
+   "gags": []
+  },
+  {
+   "id": "rzhevsky",
+   "puppet": "sluzhivy",
+   "name": {
+    "ru": "Поручик Ржевский",
+    "en": "Lieutenant Rzhevsky",
+    "de": "Leutnant Rschewski"
+   },
+   "district": "quarter-ru",
+   "roles": [
+    "rzhevsky"
+   ],
+   "traits": "the hussar lieutenant from folk jokes: bold, tactless",
+   "gags": []
+  },
+  {
+   "id": "stirlitz",
+   "puppet": "sluzhivy",
+   "name": {
+    "ru": "Штирлиц",
+    "en": "Stirlitz",
+    "de": "Stierlitz"
+   },
+   "district": "quarter-ru",
+   "roles": [
+    "stirlitz"
+   ],
+   "traits": "the spy from folk jokes who explains the obvious",
+   "gags": []
+  }
+ ],
+ "relations": [
+  {
+   "a": "vasya",
+   "b": "lyusya",
+   "kind": "spouse",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "vovochka",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "lyusya",
+   "b": "vovochka",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "tyoma",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "lyusya",
+   "b": "tyoma",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "zinaida",
+   "b": "lyusya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "zinaida",
+   "b": "vasya",
+   "kind": "in-law",
+   "note": "his mother-in-law"
+  },
+  {
+   "a": "matvey",
+   "b": "vasya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "kolya",
+   "kind": "neighbor",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "kolya",
+   "kind": "drinking-buddy",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "petrovich",
+   "kind": "friend",
+   "note": "his regular bar"
+  },
+  {
+   "a": "kolya",
+   "b": "sharik",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "vovochka",
+   "b": "seryozha",
+   "kind": "friend",
+   "note": ""
+  },
+  {
+   "a": "vovochka",
+   "b": "masha",
+   "kind": "friend",
+   "note": ""
+  },
+  {
+   "a": "marivanna",
+   "b": "vovochka",
+   "kind": "teacher",
+   "note": ""
+  },
+  {
+   "a": "marivanna",
+   "b": "masha",
+   "kind": "teacher",
+   "note": ""
+  },
+  {
+   "a": "marivanna",
+   "b": "seryozha",
+   "kind": "teacher",
+   "note": ""
+  },
+  {
+   "a": "palych",
+   "b": "kostya",
+   "kind": "boss",
+   "note": ""
+  },
+  {
+   "a": "palych",
+   "b": "sveta",
+   "kind": "boss",
+   "note": ""
+  },
+  {
+   "a": "kostya",
+   "b": "dasha",
+   "kind": "friend",
+   "note": "in love with her"
+  },
+  {
+   "a": "semyonov",
+   "b": "vasya",
+   "kind": "doctor",
+   "note": "family doctor"
+  },
+  {
+   "a": "semyonov",
+   "b": "dasha",
+   "kind": "boss",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "barsik",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "zinaida",
+   "b": "fifi",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "zinaida",
+   "b": "roma",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "fyodor",
+   "b": "burenka",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "fyodor",
+   "b": "chernushka",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "fyodor",
+   "b": "zorka",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "matvey",
+   "b": "fyodor",
+   "kind": "neighbor",
+   "note": ""
+  },
+  {
+   "a": "sidorov",
+   "b": "domino",
+   "kind": "owner",
+   "note": ""
+  },
+  {
+   "a": "krause",
+   "b": "zhora",
+   "kind": "rival",
+   "note": "always after him"
+  },
+  {
+   "a": "vasya",
+   "b": "kostya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "alyona",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "vasya",
+   "b": "katya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "lyusya",
+   "b": "kostya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "lyusya",
+   "b": "alyona",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "lyusya",
+   "b": "katya",
+   "kind": "parent",
+   "note": ""
+  },
+  {
+   "a": "marivanna",
+   "b": "katya",
+   "kind": "teacher",
+   "note": ""
+  }
+ ],
+ "landmarks": [
+  {
+   "id": "petrovich-bar",
+   "name": {
+    "ru": "Бар «У Петровича»",
+    "en": "Pete's Bar",
+    "de": "Pits Kneipe"
+   },
+   "location": "bar",
+   "node": "bar",
+   "owner": "petrovich"
+  },
+  {
+   "id": "clinic",
+   "name": {
+    "ru": "Поликлиника",
+    "en": "the Clinic",
+    "de": "die Praxis"
+   },
+   "location": "bolnitsa",
+   "node": "hospital"
+  },
+  {
+   "id": "police",
+   "name": {
+    "ru": "Отделение",
+    "en": "the Police Station",
+    "de": "die Wache"
+   },
+   "location": "ofis",
+   "place": "police-station",
+   "node": "office"
+  },
+  {
+   "id": "office",
+   "name": {
+    "ru": "Контора",
+    "en": "the Office",
+    "de": "das Büro"
+   },
+   "location": "ofis",
+   "node": "office"
+  },
+  {
+   "id": "school",
+   "name": {
+    "ru": "Школа",
+    "en": "the School",
+    "de": "die Schule"
+   },
+   "location": "klass",
+   "node": "school"
+  },
+  {
+   "id": "church",
+   "name": {
+    "ru": "Церковь",
+    "en": "the Church",
+    "de": "die Kirche"
+   },
+   "location": "tserkov",
+   "node": "church"
+  },
+  {
+   "id": "shop",
+   "name": {
+    "ru": "Магазин",
+    "en": "the Shop",
+    "de": "der Laden"
+   },
+   "location": "magazin",
+   "node": "shop"
+  },
+  {
+   "id": "sauna",
+   "name": {
+    "ru": "Баня",
+    "en": "the Sauna",
+    "de": "die Sauna"
+   },
+   "location": "banya",
+   "node": "banya"
+  },
+  {
+   "id": "farm",
+   "name": {
+    "ru": "Ферма Рыжего",
+    "en": "Red's Farm",
+    "de": "Rudis Hof"
+   },
+   "location": "derevnya",
+   "place": "farm",
+   "node": "farm",
+   "owner": "fyodor"
+  },
+  {
+   "id": "gate",
+   "name": {
+    "ru": "Райские врата",
+    "en": "the Pearly Gates",
+    "de": "die Himmelspforte"
+   },
+   "location": "nebesa",
+   "node": "heaven",
+   "owner": "peter"
+  }
+ ]
+}

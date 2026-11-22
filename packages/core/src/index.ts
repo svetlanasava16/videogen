@@ -842,3 +842,183 @@ export type CompilationSpec = z.infer<typeof CompilationSpec>;
 /** Пропсы рендера сборника: эпизоды целиком. */
 export const CompilationProps = z.object({ id: z.string(), locale: Locale, title: z.string(), episodes: z.array(Episode).min(1) });
 export type CompilationProps = z.infer<typeof CompilationProps>;
+
+/* ============================== Мир (ROADMAP §8) ============================== */
+/** Имя на трёх языках. */
+export const Names3 = z.object({ ru: z.string().min(1), en: z.string().min(1), de: z.string().min(1) });
+
+/**
+ * Канон городка (content/world/canon.json): кварталы, жители, их отношения, постоянные места.
+ * Его читают сценарист связок серии и игра. Житель — кукла с именем на каждом языке (одна и та же личность во всех языках).
+ */
+export const DISTRICT_KINDS = ["center", "quarter", "village", "outskirts", "otherworld"] as const;
+export const District = z.object({
+  id: z.string(),
+  name: Names3,
+  kind: z.enum(DISTRICT_KINDS),
+  /** Национальный квартал: культурно-специфичные анекдоты этого языка живут здесь. */
+  locale: Locale.optional(),
+  /** Узел карты (content/world/map.json), где квартал на карте. */
+  node: z.string(),
+  note: z.string().default(""),
+});
+/** Место в городке: фон и сублокация. */
+export const PlaceRef = z.object({ location: z.string(), place: z.string().optional() });
+export const Resident = z.object({
+  id: z.string(),
+  puppet: z.string(),
+  name: Names3,
+  /**
+   * Квартал. "home" — квартал языка эпизода (семья Мужика: в ru — русский квартал, в de — немецкий);
+   * иначе id квартала из districts.
+   */
+  district: z.string(),
+  home: PlaceRef.optional(),
+  /** Работа: место и роль (бармен в баре, доктор в поликлинике). */
+  work: PlaceRef.extend({ role: z.string() }).optional(),
+  /** Роли анекдотов, которые этот житель играет (сопоставление ролей с каноном — pnpm canon-cast). */
+  roles: z.array(z.string()).default([]),
+  /** Характер — коротко, по-английски (для сценариста). */
+  traits: z.string(),
+  /** Повторяющиеся шутки и привычки. */
+  gags: z.array(z.string()).default([]),
+});
+export const RELATION_KINDS = ["spouse", "parent", "sibling", "in-law", "neighbor", "boss", "friend", "drinking-buddy", "teacher", "doctor", "owner", "rival"] as const;
+/** Отношение: a — к b (parent: a — родитель b; boss: a — начальник b; owner: a — хозяин животного b). spouse, sibling, neighbor, friend — взаимные. */
+export const Relation = z.object({ a: z.string(), b: z.string(), kind: z.enum(RELATION_KINDS), note: z.string().default("") });
+export const Landmark = z.object({ id: z.string(), name: Names3, location: z.string(), place: z.string().optional(), node: z.string(), owner: z.string().optional() });
+export const Canon = z.object({
+  v: z.literal(1),
+  districts: z.array(District),
+  residents: z.array(Resident),
+  relations: z.array(Relation),
+  landmarks: z.array(Landmark),
+});
+export type Canon = z.infer<typeof Canon>;
+export type Resident = z.infer<typeof Resident>;
+
+/**
+ * Состояние мира (content/world/state.json): журнал фактов серий по порядку. Факт держится, пока его не отменит
+ * другой (undoes): «машина разбита» → «машину починили». Сценарист связок получает выжимку про участников серии.
+ */
+export const WorldFact = z.object({
+  id: z.string(),
+  /** Что произошло: короткий ключ (car-broken, repeats-year) и описание. */
+  fact: z.string(),
+  text: Names3.partial().default({}),
+  actors: z.array(z.string()).default([]),
+  /** Где (место и комната), если факт привязан к месту: «бар закрыт на ремонт». */
+  place: PlaceRef.optional(),
+  series: z.string().optional(),
+  episode: z.string().optional(),
+  /** Отменяет ранее записанный факт (его id). */
+  undoes: z.string().optional(),
+});
+export const WorldState = z.object({ v: z.literal(1), facts: z.array(WorldFact) });
+export type WorldState = z.infer<typeof WorldState>;
+
+/**
+ * Карта городка как граф (content/world/map.json): узлы — здания (из town.json) и улицы, рёбра — переходы с временем пути.
+ * Пролёты в сборниках идут по графу; новая локация = узел и рёбра в данных.
+ */
+export const EDGE_KINDS = ["street", "bridge", "road", "bus", "tram", "boat", "plane", "sky", "underground"] as const;
+export const MapNode = z.object({
+  id: z.string(),
+  kind: z.enum(["building", "street", "stop"]),
+  x: z.number(), y: z.number(),
+  district: z.string(),
+  name: Names3.optional(),
+});
+export const MapEdge = z.object({ a: z.string(), b: z.string(), kind: z.enum(EDGE_KINDS), min: z.number().positive() });
+export const TownGraph = z.object({ v: z.literal(1), nodes: z.array(MapNode), edges: z.array(MapEdge) });
+export type TownGraph = z.infer<typeof TownGraph>;
+
+// ---------- Мир: маршруты по графу и роли → жители (чистые функции; ROADMAP §8) ----------
+
+export type Route = { nodes: string[]; edges: z.infer<typeof MapEdge>[]; minutes: number };
+
+/** Кратчайший по времени путь между узлами графа городка (Дейкстра; граф маленький — без кучи). */
+export function shortestRoute(g: z.infer<typeof TownGraph>, from: string, to: string): Route | undefined {
+  const adj = new Map<string, { to: string; e: z.infer<typeof MapEdge> }[]>();
+  for (const e of g.edges) {
+    (adj.get(e.a) ?? adj.set(e.a, []).get(e.a)!).push({ to: e.b, e });
+    (adj.get(e.b) ?? adj.set(e.b, []).get(e.b)!).push({ to: e.a, e });
+  }
+  const dist = new Map<string, number>([[from, 0]]);
+  const prev = new Map<string, { n: string; e: z.infer<typeof MapEdge> }>();
+  const done = new Set<string>();
+  for (;;) {
+    let u: string | undefined, best = Infinity;
+    for (const [n, d] of dist) if (!done.has(n) && (d < best || (d === best && u !== undefined && n < u))) { u = n; best = d; }
+    if (u === undefined) return undefined;
+    if (u === to) break;
+    done.add(u);
+    for (const { to: v, e } of adj.get(u) ?? []) {
+      const d = best + e.min;
+      if (d < (dist.get(v) ?? Infinity)) { dist.set(v, d); prev.set(v, { n: u, e }); }
+    }
+  }
+  const nodes = [to], edges: z.infer<typeof MapEdge>[] = [];
+  for (let n = to; n !== from; ) { const p = prev.get(n)!; edges.unshift(p.e); nodes.unshift(p.n); n = p.n; }
+  return { nodes, edges, minutes: dist.get(to)! };
+}
+
+/** Узел графа здания, где показывают место (location/place); сначала точное совпадение place, потом здание локации. */
+export function nodeForPlace(g: z.infer<typeof TownGraph>, town: { buildings: { id: string; places: { location: string; place?: string }[] }[] }, location: string, place?: string): string | undefined {
+  const b = town.buildings.find((b) => b.places.some((p) => p.location === location && p.place === place))
+    ?? town.buildings.find((b) => b.places.some((p) => p.location === location && !p.place))
+    ?? town.buildings.find((b) => b.places.some((p) => p.location === location));
+  return b && g.nodes.some((n) => n.id === b.id) ? b.id : undefined;
+}
+
+export type CastLink = { puppet: string; role?: string; resident?: string; how: "role" | "default" | "none" };
+
+/**
+ * Роль куклы в эпизоде → житель канона: сначала житель этой куклы с этой ролью, иначе основной житель куклы
+ * (первый в canon.residents). Детерминированно, без LLM. Один житель на двух кукол эпизода — конфликт (см. castConflicts).
+ */
+export function residentFor(canon: z.infer<typeof Canon>, puppet: string, role?: string): CastLink {
+  const mine = canon.residents.filter((r) => r.puppet === puppet);
+  const byRole = role ? mine.find((r) => r.roles.includes(role)) : undefined;
+  if (byRole) return { puppet, role, resident: byRole.id, how: "role" };
+  if (mine[0]) return { puppet, role, resident: mine[0].id, how: "default" };
+  return { puppet, role, how: "none" };
+}
+
+/** Пары ролей, которым в каноне нужна связь (муж и жена — супруги и т. п.). */
+export const ROLE_RELATIONS: { a: string[]; b: string[]; kind: (typeof RELATION_KINDS)[number] }[] = [
+  { a: ["husband"], b: ["wife"], kind: "spouse" },
+  { a: ["father", "mother"], b: ["son", "daughter", "child", "vovochka", "fritzchen", "baby"], kind: "parent" },
+  { a: ["mother-in-law"], b: ["husband"], kind: "in-law" },
+  { a: ["boss"], b: ["employee", "secretary"], kind: "boss" },
+  { a: ["teacher"], b: ["vovochka", "fritzchen", "child", "student"], kind: "teacher" },
+];
+
+/** Связь a–b нужного вида в каноне (в любую сторону; parent/boss/teacher — направленные: a старший). */
+export function related(canon: z.infer<typeof Canon>, a: string, b: string, kind: string): boolean {
+  const directed = kind === "parent" || kind === "boss" || kind === "teacher" || kind === "owner";
+  return canon.relations.some((r) => r.kind === kind && ((r.a === a && r.b === b) || (!directed && r.a === b && r.b === a)));
+}
+
+/** Конфликты состава эпизода с каноном: один житель на двух кукол; роли-пары без связи в каноне. */
+export function castConflicts(canon: z.infer<typeof Canon>, links: CastLink[]): string[] {
+  const out: string[] = [];
+  const seen = new Map<string, string>();
+  for (const l of links) {
+    if (!l.resident) continue;
+    if (seen.has(l.resident)) out.push(`${l.resident} plays both ${seen.get(l.resident)} and ${l.puppet}${l.role ? ` (${l.role})` : ""}`);
+    else seen.set(l.resident, `${l.puppet}${l.role ? ` (${l.role})` : ""}`);
+  }
+  for (const rr of ROLE_RELATIONS) for (const x of links) for (const y of links) {
+    if (x === y || !x.resident || !y.resident || x.resident === y.resident) continue;
+    if (!x.role || !y.role || !rr.a.includes(x.role) || !rr.b.includes(y.role)) continue;
+    if (!related(canon, x.resident, y.resident, rr.kind)) out.push(`${x.role} ${x.resident} and ${y.role} ${y.resident}: no "${rr.kind}" relation in canon`);
+  }
+  return out;
+}
+
+/** Действующие факты журнала мира: без отменённых и без самих отмен (undoes). */
+export function activeFacts(state: z.infer<typeof WorldState>): z.infer<typeof WorldFact>[] {
+  const undone = new Set(state.facts.map((f) => f.undoes).filter(Boolean) as string[]);
+  return state.facts.filter((f) => !undone.has(f.id) && !f.undoes);
+}
