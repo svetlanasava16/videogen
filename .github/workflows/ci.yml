@@ -1,5 +1,6 @@
 # Проверки движка на каждый push: typecheck, validate (все эпизоды), golden (эталонные кадры отладочного набора).
-# Golden сравнивает рендер на Linux с эталонами, снятыми на Маке: шрифт Inter вшит (remotion/public/fonts), поэтому кадры совпадают.
+# Golden рендерится в контейнере tests/golden-env (linux/amd64) — в том же, где эталоны снимаются локально (pnpm golden:docker):
+# растеризация текста в Chrome на macOS и Linux разная, поэтому эталоны снимаются только в контейнере. Шрифт Inter вшит.
 name: engine
 
 on:
@@ -36,14 +37,8 @@ jobs:
       - name: Validate episodes
         run: pnpm validate --quiet
 
-      - name: Browser for Remotion (Chrome Headless Shell + system libraries)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libgbm-dev libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libatk-bridge2.0-0 libpango-1.0-0 libcairo2 libcups2
-          cd remotion && npx remotion browser ensure
-
-      - name: Golden frames
-        run: pnpm golden
+      - name: Golden frames (same Linux container as pnpm golden:docker locally)
+        run: bash tests/golden-env/golden.sh
 
       - name: Golden report
         if: always()
