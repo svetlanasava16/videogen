@@ -1,6 +1,6 @@
 # ANEK.: план движка, сериала и игры
 
-Статус: этапы 1–6 сделаны, этап 7 — плеер и веб-обёртка готовы, арт для Pixi впереди (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md), [stage-5](reports/stage-5/README.md), [stage-6](reports/stage-6/README.md), [stage-7](reports/stage-7/README.md)).
+Статус: этапы 1–7 сделаны (обёртка Pixi — когда начнём игру) (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md), [stage-5](reports/stage-5/README.md), [stage-6](reports/stage-6/README.md), [stage-7](reports/stage-7/README.md)).
 Принцип: LLM пишет только текст — сценарий анекдота, связки серии, арку. Всё остальное — детерминированный код и данные: постановка, раскладка, камера, рендер, проверки. Масштабирование почти не должно тратить токены.
 
 ## 0. Где мы сейчас
@@ -88,7 +88,7 @@
 - **Промпт** обновляется по мере появления возможностей (уже: глубина, комнаты, сиденья, транспорт, форма).
 
 ## 7. Плеер трека: `packages/player`
-- **Сделано** ([отчёт](reports/stage-7/README.md)): `@jf/player` (`sample`, план звука), `FrameView` без Remotion, обёртки Remotion и веб (`pnpm player`, WebAudio). **Осталось:** `pnpm export-art` (атлас фонов) и display list кукол для Pixi.
+- **Сделано** ([отчёт](reports/stage-7/README.md)): `@jf/player` (`sample`, план звука), `FrameView` без Remotion, обёртки Remotion и веб (`pnpm player`, WebAudio). `pnpm export-art` (фоны SVG/PNG + метаданные), display list кукол и рендерер Canvas2D (операции Pixi Graphics). **Осталось:** сама обёртка Pixi — вместе с игрой (нужен пакет `pixi.js`).
 - **Пакет без Remotion и React:**
   - типы `performance.json`;
   - `sample(perf, t) → FrameState`: чистая функция, где кто стоит, поза, рот, камера, субтитр, какие звуки играют.
