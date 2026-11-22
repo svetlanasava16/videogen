@@ -56,6 +56,7 @@ Beats:
 Wide on scene start, narrator lines and crowd reactions; two-shot in dialogue (speaker + the previous speaker, else the nearest listener); group shot when 3+ others are on stage (speaker, addressee, nearest; zooms out if they stand far apart); close-up with a slow push-in on the punchline; wide on the outro laughs. Puppets standing too close are pushed apart (`stageGeometry` in `stage/geometry.ts`). Tune constants there, not per episode.
 
 ## Town and compilations
+- World canon (ENGINE §11в): `content/world/canon.json` (districts, residents with names per language, relations, landmarks), `state.json` (fact log, `undoes`), `map.json` (town graph; flyovers follow the shortest route). `pnpm world check | cast [ids|--all] | route <a> <b>`; a new building = node + edges in `map.json`, its residents in `canon.json`.
 - Map: `remotion/src/world/TownMap.tsx` (icons by building `type`), preview `npx remotion still src/index.ts Town out.png`. A building's `places` decide which scenes fly to it (`buildingFor(location, place)` in `world/town.ts`).
 - Compilation: `pnpm compile --locale ru --size 3 [--voiced]` (popular, different backdrops, not used before) or `--episodes a,b,c`; `pnpm render --compilation <id>`; `pnpm posts plan --account ig-ru --kind compilation`. Layout: intro over the town (`TownIntro`) → episodes → flyover between them (`Flyover`), next joke starts while the map still covers the frame.
 
