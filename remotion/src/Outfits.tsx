@@ -4,6 +4,7 @@ import type { Act, Look } from "@jf/core";
 import { characters } from "./registry";
 import { Puppet, BOX_H, BOX_W } from "./puppet/Rig";
 import { FONT } from "./fonts";
+import { WARDROBE } from "./puppet/wardrobe";
 
 /**
  * Лист формы: mode "outfits" — каждая форма на разных телосложениях (и в движении: руки вверх, хлопок, взгляд назад);
@@ -40,8 +41,19 @@ const ROLES: [string, string][] = [
   ["muzhik", "prisoner"], ["paren", "employee"], ["nachalnik", "judge"],
 ];
 
+/** Лист гардероба (mode "wardrobe"): каждая вещь на мужчине, женщине и полном (руки вверх); причёски — на мужчине. Новая вещь в JSON — проверить здесь. */
+/** Все вещи гардероба (content/wardrobe), кроме причёсок, — в порядке файлов. */
+const WARDROBE_IDS: string[] = Object.values(WARDROBE).filter((it) => it.slot !== "hair").map((it) => it.id);
+const HAIR_STYLES: string[] = Object.values(WARDROBE).filter((it) => it.slot === "hair").map((it) => it.id);
+const WARDROBE_BODIES: { kind: string; build: string; act?: Act; facing?: 1 | -1 }[] = [
+  { kind: "man", build: "average" }, { kind: "woman", build: "slim" }, { kind: "man", build: "portly", act: "hands-up", facing: -1 },
+];
+const W_COLS = 4;
+const wardrobeTiles = () => WARDROBE_IDS.length + Math.ceil(HAIR_STYLES.length / 3);
+
 const TW = 300, TH = 400, PH = 330, LW = 250;
 export const outfitsSize = (mode: string) =>
+  mode === "wardrobe" ? { width: W_COLS * 3 * TW, height: Math.ceil(wardrobeTiles() / W_COLS) * TH } :
   mode === "roles" ? { width: 6 * TW, height: Math.ceil(ROLES.length / 6) * TH } : { width: LW + BODIES.length * TW, height: 60 + ROWS.length * TH };
 
 const Tile = ({ look, label, act, t, facing, hold, bg }: { look: Look; label: string; act?: Act; t?: number; facing?: 1 | -1; hold?: string; bg: string }) => {
@@ -58,6 +70,17 @@ const Tile = ({ look, label, act, t, facing, hold, bg }: { look: Look; label: st
 };
 
 export const Outfits = ({ mode = "outfits" }: { mode?: string }) => {
+  if (mode === "wardrobe") {
+    const tiles: { look: Look; label: string; act?: Act; facing?: 1 | -1 }[] = [];
+    for (const id of WARDROBE_IDS) for (const b of WARDROBE_BODIES)
+      tiles.push({ look: { kind: b.kind, build: b.build, skin: "#f0c8a0", clothes: "#8a6a4a", accessories: [id] }, label: b.kind === "man" && !b.act ? id : "", act: b.act, facing: b.facing });
+    for (const h of HAIR_STYLES) tiles.push({ look: { kind: "man", build: "average", skin: "#f0c8a0", clothes: "#8a6a4a", accessories: [], hairStyle: h }, label: `hair: ${h}` });
+    return (
+      <AbsoluteFill style={{ background: "#efe3cc", display: "grid", gridTemplateColumns: `repeat(${W_COLS * 3}, ${TW}px)`, gridAutoRows: `${TH}px` }}>
+        {tiles.map((t, i) => <Tile key={i} look={t.look} label={t.label} act={t.act} facing={t.facing} bg={Math.floor(i / 3) % 2 ? "#f2e6d0" : "#f6ecd9"} />)}
+      </AbsoluteFill>
+    );
+  }
   if (mode === "roles") {
     return (
       <AbsoluteFill style={{ background: "#efe3cc", display: "grid", gridTemplateColumns: `repeat(6, ${TW}px)`, gridAutoRows: `${TH}px` }}>

@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, migrateEpisodeData, subLocation, type Location, ScriptDraft, sceneProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, migrateEpisodeData, subLocation, type Location, ScriptDraft, sceneProblems, type LookPatch, WardrobeFile } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -192,15 +192,11 @@ const STAGES: Record<string, Stage> = {
   },
 };
 
-/** id аксессуаров, которые умеет рисовать риг (case в remotion/src/puppet/Accessories.tsx). */
+/** id вещей гардероба (content/wardrobe/*.json), кроме причёсок (hairStyle): то, что можно добавить кукле через looks. */
 function accessoryIds(): string[] {
-  const src = readFileSync(join(ROOT, "remotion", "src", "puppet", "Accessories.tsx"), "utf8");
-  // в том же файле — причёски (hairStyle), это не аксессуары
-  const hair = new Set(["short", "long", "pigtails", "curly", "fringe", "bun", "perm", "bald", "none"]);
-  const cases = [...src.matchAll(/case "([a-z0-9-]+)"/g)].map((m) => m[1]);
-  // аксессуары, которые рисует сам риг (крюк вместо руки, простыня-привидение): RIG = new Set([...])
-  const rig = [...(src.match(/RIG = new Set\(\[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
-  return [...new Set([...cases, ...rig])].filter((a) => !hair.has(a)).sort();
+  const dir = join(ROOT, "content", "wardrobe");
+  const items = readdirSync(dir).filter((f) => f.endsWith(".json")).flatMap((f) => WardrobeFile.parse(JSON.parse(readFileSync(join(dir, f), "utf8"))).items);
+  return items.filter((i) => i.slot !== "hair").map((i) => i.id).sort();
 }
 
 /** Строки справочника для фона: вид по умолчанию и сублокации с метками (план, сиденье). */

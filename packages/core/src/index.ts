@@ -276,6 +276,57 @@ export const Look = z.object({
 });
 export type Look = z.infer<typeof Look>;
 
+/**
+ * Гардероб (content/wardrobe/*.json): одежда, аксессуары, причёски — данные, код рисует их библиотекой примитивов
+ * (remotion/src/puppet/wardrobe.tsx). Слот — куда крепится вещь на риге:
+ * head-back — за головой (капюшон, платок); hair — причёска (look.hairStyle: draw — поверх головы, back — за головой);
+ * face, head, hat — на голове поверх лица, в порядке look.accessories (hat — головной убор: один на голове, при чужой форме свой снимается);
+ * torso — на теле (обрезка по контуру тела, порядок по layer; clip: false — поверх тела без обрезки, как шуба);
+ * hand — после рук (предмет у тела); rig — вещь целиком рисует риг (ряса, крюк, простыня-привидение).
+ */
+export const WARDROBE_SLOTS = ["head-back", "hair", "face", "head", "hat", "torso", "hand", "rig"] as const;
+/** Фигура примитива: { p: "path" | "rect" | … | "each" | имя примитива, …параметры }. Числа — числа или выражения над размерами тела. */
+export const WardrobeShape: z.ZodType<{ p: string; [k: string]: unknown }> = z.object({ p: z.string() }).passthrough();
+export const WardrobeItem = z.object({
+  id: z.string(),
+  slot: z.enum(WARDROBE_SLOTS),
+  /** Короткое описание для людей. */
+  note: z.string().optional(),
+  /** Порядок на теле (torso): 0 — форма (низ), 1 — жилет/халат поверх, 2 — нагрудные детали (по умолчанию). */
+  layer: z.number().optional(),
+  /** torso: false — рисуется поверх тела без обрезки по контуру (шуба, полотенце). */
+  clip: z.boolean().optional(),
+  /** Переносится как форма роли от куклы — хозяйки роли (costumeFor). */
+  wear: z.boolean().optional(),
+  /** Форма на руках и ногах (рисует риг): рукава, брюки, нашивки на манжетах, погоны, полосы. */
+  outfit: z.object({
+    sleeve: z.string().optional(),
+    pants: z.string().optional(),
+    cuff: z.object({ color: z.string(), n: z.number() }).optional(),
+    board: z.object({ color: z.string(), edge: z.string().optional(), stars: z.number().optional(), star: z.string().optional() }).optional(),
+    stripes: z.string().optional(),
+  }).optional(),
+  /** Эффекты, которые рисует сам риг: ряса цвета robe, крюк вместо кисти, гипс, мех на рукавах, пятна, помада, без бровей, простыня. */
+  rig: z.object({
+    robe: z.string().optional(),
+    hook: z.boolean().optional(),
+    plaster: z.boolean().optional(),
+    fur: z.boolean().optional(),
+    spots: z.boolean().optional(),
+    lips: z.string().optional(),
+    brows: z.boolean().optional(),
+    ghost: z.boolean().optional(),
+  }).optional(),
+  /** Локальные переменные (выражения), вычисляются по порядку перед рисованием. */
+  let: z.record(z.union([z.string(), z.number()])).optional(),
+  draw: z.array(WardrobeShape).default([]),
+  /** Ещё и на голове (пятна) или, у причёски, — часть за головой. */
+  head: z.array(WardrobeShape).optional(),
+  back: z.array(WardrobeShape).optional(),
+});
+export type WardrobeItem = z.infer<typeof WardrobeItem>;
+export const WardrobeFile = z.object({ items: z.array(WardrobeItem) });
+
 export function applyLook(look: Look, patch?: LookPatch): Look {
   if (!patch) return look;
   const acc = look.accessories.filter((a) => !patch.remove.includes(a));

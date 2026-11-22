@@ -5,12 +5,12 @@
  */
 import { applyLook, lookForRole, type Character, type Look, type LookPatch } from "@jf/core";
 import { characters } from "../registry";
-import { OUTFIT } from "./Accessories";
+import { HAT_IDS, WEAR_IDS } from "./wardrobe";
 
-/** Головные уборы: при чужой форме свой убор снимается (одна шапка на голове). */
-const HATS = ["pilot-cap", "police-cap", "officer-cap", "army-cap", "hard-hat", "chef-hat", "stewardess-hat", "sailor-cap", "prisoner-cap", "nurse-cap", "aerodrome-cap", "helmet", "shako", "papakha", "flat-cap", "beret", "bowler", "cowboy-hat", "black-hat", "straw-hat", "tyrolean-hat"];
-/** Что считается формой (переносится от хозяйки роли): комплекты одежды, галстуки, фартук, стетоскоп, головные уборы. */
-const WEAR = new Set([...Object.keys(OUTFIT), "traffic-vest", "suit", "stewardess-uniform", "doctor-coat", "sailor", "prisoner", "tie", "bow-tie", "stethoscope", "apron", "robe-white", "robe-black", "robe-red", ...HATS]);
+/** Головные уборы (слот hat в content/wardrobe): при чужой форме свой убор снимается (одна шапка на голове). */
+const HATS = HAT_IDS();
+/** Что считается формой (переносится от хозяйки роли): вещи гардероба с wear: true — комплекты, галстуки, фартук, стетоскоп, рясы, головные уборы. */
+const WEAR = WEAR_IDS();
 
 export function costumeFor(ch: Character, role?: string, episode?: LookPatch): Look {
   const own = !role || ch.bible?.roles.includes(role) || ch.bible?.variants.some((v) => v.roles.includes(role));

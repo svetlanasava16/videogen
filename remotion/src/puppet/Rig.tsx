@@ -1,7 +1,8 @@
 import { useId } from "react";
 import type { Act, Emotion, Look } from "@jf/core";
-import { ANIMALS, Accessory, BACK, BOTH, DEFAULT_HAIR, FRONT, FUR, FUR_TRIM, GhostSheet, HAND, HairBack, HairTop, LAYER, OVER, PLASTER, RIG, ROBES, defaultBuild, isChild, isDark as isDarkC, outfitOf, spotColor } from "./Accessories";
+import { ANIMALS, DEFAULT_HAIR, FUR, FUR_TRIM, GhostSheet, PLASTER, defaultBuild, isChild, isDark as isDarkC, spotColor } from "./Accessories";
 import type { BodyGeo } from "./Accessories";
+import { WARDROBE, WardrobePiece, inSlot, outfitOf, rigOf, torsoClipped, torsoOver } from "./wardrobe";
 import { Face } from "./Face";
 import { PropItem } from "../props/Props";
 import { BODY_TOP, BUILDS, armAngles, asBuild, blink, bodyBob, frameAt, legAngles, mouthOpen } from "./motion";
@@ -14,7 +15,6 @@ export const BOX_W = 300;
 export const BOX_H = 600;
 const FEET_Y = 585;
 
-const ROBE_COLORS: Record<string, string> = { "robe-white": "#f6f2e8", "robe-red": "#b3261e", "robe-black": "#1d1d1d" };
 const SKIRTED = new Set(["woman", "old-woman", "girl"]);
 
 /** Затемнить цвет #rrggbb на k (0..1). */
@@ -48,6 +48,8 @@ export type PuppetProps = {
   seated?: number;
   /** Вздрагивает от удара: 0..1 — отшатывается, голова в сторону. */
   flinch?: number;
+  /** В кровати (метка-сиденье bed): 0..1 — лёжа голова на подушке, тело под одеялом; ноги не рисуются. */
+  bed?: number;
 };
 
 /**
@@ -56,7 +58,7 @@ export type PuppetProps = {
  * Позы действий (act, seated, flinch) — в acts.ts: там поза — набор углов, здесь она только рисуется.
  * Руки и ноги — по два звена (плечо+предплечье, бедро+голень); без действия звенья на одной линии и фигура как прежде.
  */
-export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, t, act, base, seated = 0, flinch = 0 }: PuppetProps) => {
+export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, t, act, base, seated = 0, flinch = 0, bed = 0 }: PuppetProps) => {
   const frame = frameAt(t);
   const uid = useId().replace(/:/g, "");
   const { kind, skin, clothes, accent } = look;
@@ -66,12 +68,14 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
   const def = DEFAULT_HAIR[kind];
   const hairColor = look.hair ?? def?.color ?? "#3a2a20";
   const hairStyle = look.hairStyle ?? def?.style ?? "none";
-  const robe = acc.find((a) => ROBES.has(a));
-  const robeColor = robe ? ROBE_COLORS[robe] : undefined;
-  const hook = acc.includes("hook-hand");
-  const bandaged = acc.includes("bandages");
-  const fur = acc.includes("fur-coat") && !robeColor;
-  const spots = acc.includes("spots") ? spotColor(skin) : undefined;
+  // гардероб (content/wardrobe): что рисует сам риг — ряса, крюк, гипс, мех, пятна, помада, брови, простыня
+  const rigFx = rigOf(acc);
+  const robeColor = acc.map((a) => WARDROBE[a]?.rig?.robe).find(Boolean);
+  const hook = !!rigFx.hook;
+  const bandaged = !!rigFx.plaster;
+  const fur = !!rigFx.fur && !robeColor;
+  const spots = rigFx.spots ? spotColor(skin) : undefined;
+  const piece = (id: string, part?: "draw" | "head" | "back") => <WardrobePiece key={`${id}-${part ?? "draw"}`} id={id} part={part} geo={geo} hair={hairColor} skin={skin} clothes={clothes} />;
   const poodle = kind === "dog" && look.hairStyle === "curly";
   const penguin = kind === "penguin";
   const baby = kind === "baby";
@@ -105,7 +109,7 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
     shY: shoulderY, sxF: 150 + (build.bodyW / 2 - 6), sxB: 150 - (build.bodyW / 2 - 6), L: (armL - 6) / 2,
     hipY, Lf: footY - hipY, legGap: build.legGap, bodyW: build.bodyW, bodyH: build.bodyH, bodyBottom,
   };
-  const { pose, face, fx, fxK, over, hand, itemR, puff } = resolvePose(basePose(arms, legs, tilt0), rg, { act, base, seated, flinch, hold });
+  const { pose, face, fx, fxK, over, hand, itemR, puff, noLegs } = resolvePose(basePose(arms, legs, tilt0), rg, { act, base, seated, flinch, hold, bed });
   const sy = shoulderY - pose.shoulder;
   // поворот головы (act turn): сжатие по x до отражения — голова смотрит назад
   const turnC = Math.cos(Math.PI * Math.min(1, Math.max(0, pose.turn)));
@@ -280,7 +284,7 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
         <g transform={`translate(${pose.x} ${-pose.lift}) rotate(${pose.rot} 150 ${FEET_Y})`}>
         <g transform={`translate(0 ${dy + bob + pose.drop})`}>
           {/* ноги (под длинной рясой видны только ботинки; сидя/на коленях ряса — на ногах) */}
-          {robeColor && !bent ? (
+          {noLegs ? null : robeColor && !bent ? (
             <>
               <path d={`M${bx - 10} ${BODY_TOP + 40} L${bx - 30} ${bodyBottom + build.legH} H${bx + build.bodyW + 30} L${bx + build.bodyW + 10} ${BODY_TOP + 40} Z`} fill={robeColor} />
               <ellipse cx={150 - build.legGap} cy={bodyBottom + build.legH} rx={28} ry={12} fill="#2b1d14" />
@@ -304,8 +308,8 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
 
           <g transform={pose.lean ? `rotate(${pose.lean} 150 ${hipY})` : undefined}>
           <g transform={`${pose.headX || pose.headY ? `translate(${pose.headX} ${pose.headY}) ` : ""}${turnT}`}>
-            {acc.filter((a) => BACK.has(a)).map((a) => <Accessory key={a} id={a} hair={hairColor} />)}
-            {!animal && <HairBack style={hairStyle} color={hairColor} />}
+            {inSlot(acc, "head-back").map((a) => piece(a))}
+            {!animal && piece(hairStyle, "back")}
           </g>
 
           {/* тело */}
@@ -314,14 +318,14 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
           {build === BUILDS.portly && !robeColor && <ellipse cx={150} cy={bodyBottom - 50} rx={build.bodyW / 2 - 6} ry={60} fill={shade(uni.sleeve ?? clothes, uni.sleeve && !isDarkC(uni.sleeve) ? 0.035 : 0.08)} />}
           <g clipPath={`url(#body-${uid})`}>
             {accent && !robeColor && <rect x={130} y={BODY_TOP} width={40} height={build.bodyH} fill={accent} opacity={0.8} />}
-            {acc.filter((a) => FRONT.has(a) && !HAND.has(a)).sort((a, b) => (LAYER[a] ?? 2) - (LAYER[b] ?? 2)).map((a) => <Accessory key={a} id={a} hair={hairColor} skin={skin} geo={geo} part="body" clothes={clothes} />)}
+            {torsoClipped(acc).map((a) => piece(a))}
           </g>
-          {!robeColor && acc.filter((a) => OVER.has(a)).map((a) => <Accessory key={a} id={a} hair={hairColor} skin={skin} geo={geo} part="body" />)}
+          {!robeColor && torsoOver(acc).map((a) => piece(a))}
 
           {/* руки и реквизит в руках (рука у лица — поверх головы, ниже) */}
           {!over.B && armB}
           {!over.F && armF}
-          {acc.filter((a) => HAND.has(a)).map((a) => <Accessory key={a} id={a} hair={hairColor} skin={skin} geo={geo} />)}
+          {inSlot(acc, "hand").map((a) => piece(a))}
 
           {/* голова */}
           <g transform={`${pose.headX || pose.headY ? `translate(${pose.headX} ${pose.headY}) ` : ""}rotate(${pose.tilt} 150 236) ${turnT}`}>
@@ -340,12 +344,12 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
             {penguin && <path d="M150 104 Q186 104 204 136 Q214 176 196 206 Q176 236 150 236 Q124 236 104 206 Q86 176 96 136 Q114 104 150 104 Z" fill="#f6f2e8" />}
             {baby && (<><circle cx="104" cy="190" r="13" fill="#f0a0a0" opacity="0.45" /><circle cx="196" cy="190" r="13" fill="#f0a0a0" opacity="0.45" /></>)}
 
-            {(!animal || poodle) && <HairTop style={hairStyle} color={hairColor} />}
+            {(!animal || poodle) && piece(hairStyle)}
             {kind !== "bird" && !penguin && (animal ? <ellipse cx="150" cy={kind === "cow" ? 206 : 182} rx="14" ry="10" fill="#2b1d14" /> : <ellipse cx="150" cy="176" rx="8" ry="10" fill="#00000022" />)}
 
             <Face emotion={emotion} speaking={speaking} open={open} blinking={blink(frame, seed)} skin={skin} animal={animal}
               mouthY={kind === "horse" ? 230 : kind === "cow" ? 222 : 208} beak={kind === "bird"} beakFront={penguin}
-              brows={!acc.includes("high-drawn-eyebrows")} fx={face} lips={acc.includes("lipstick") ? "#c0263e" : undefined} />
+              brows={rigFx.brows !== false} fx={face} lips={rigFx.lips} />
             {puff > 0.02 && !animal && (
               <g opacity={Math.min(1, puff * 1.4)}>
                 {[1, -1].map((s) => <circle key={s} cx={150 + s * 50} cy={202} r={16 + 7 * puff} fill={skin} />)}
@@ -353,8 +357,9 @@ export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, se
               </g>
             )}
 
-            {acc.includes("ghost-sheet") && <GhostSheet geo={geo} />}
-            {acc.filter((a) => (!FRONT.has(a) || BOTH.has(a)) && !ROBES.has(a) && !BACK.has(a) && !OVER.has(a) && !RIG.has(a)).map((a) => <Accessory key={a} id={a} hair={hairColor} skin={skin} geo={geo} part="head" />)}
+            {rigFx.ghost && <GhostSheet geo={geo} />}
+            {/* на голове, в порядке look.accessories: лицо, голова, шапка; у вещей тела — их часть на голове (пятна) */}
+            {acc.map((a) => { const it = WARDROBE[a]; return !it ? null : it.slot === "face" || it.slot === "head" || it.slot === "hat" ? piece(a) : it.head ? piece(a, "head") : null; })}
             {fx.length > 0 && <FxLayer items={fx} where="head" facing={facing} opacity={fxK} />}
           </g>
           {over.B && armB}

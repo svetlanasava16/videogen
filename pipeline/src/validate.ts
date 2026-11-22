@@ -13,7 +13,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import { APPEARANCE_ROLES, GENERIC_ROLES, Character, Episode, Location, sceneProblems, subLocation, marksFor, type Scene } from "@jf/core";
+import { APPEARANCE_ROLES, GENERIC_ROLES, Character, Episode, Location, WardrobeFile, sceneProblems, subLocation, marksFor, type Scene } from "@jf/core";
 import { ROOT } from "./util.js";
 
 export type Issue = { id: string; level: "error" | "warn" | "info"; kind: string; msg: string };
@@ -28,7 +28,29 @@ export function loadAssets() {
   /** Роль → кукла, которой она принадлежит (bible.roles или варианты). */
   const owner = new Map<string, string>();
   for (const c of characters.values()) for (const r of [...(c.bible?.roles ?? []), ...(c.bible?.variants ?? []).flatMap((v) => v.roles)]) if (!owner.has(r)) owner.set(r, c.id);
-  return { characters, locations, props, owner };
+  // гардероб: вещи (accessories) и причёски (hairStyle) — content/wardrobe/*.json
+  const items = dir("wardrobe").flatMap((f) => WardrobeFile.parse(readJson(join(ROOT, "content/wardrobe", f))).items);
+  const wear = new Set(items.filter((i) => i.slot !== "hair").map((i) => i.id));
+  const hair = new Set([...items.filter((i) => i.slot === "hair").map((i) => i.id), "none"]);
+  return { characters, locations, props, owner, wear, hair };
+}
+
+/** Неизвестные вещи и причёски в облике (look, патч роли или эпизода). */
+function lookProblems(l: { accessories?: string[]; add?: string[]; hairStyle?: string }, A: ReturnType<typeof loadAssets>): string[] {
+  const out: string[] = [];
+  for (const a of [...(l.accessories ?? []), ...(l.add ?? [])]) if (!A.wear.has(a)) out.push(`unknown wardrobe item "${a}" (content/wardrobe)`);
+  if (l.hairStyle && !A.hair.has(l.hairStyle)) out.push(`unknown hairStyle "${l.hairStyle}" (content/wardrobe/hair.json)`);
+  return out;
+}
+
+/** Куклы: облик и варианты ролей ссылаются только на вещи гардероба. */
+export function validateCharacters(A = loadAssets()): Issue[] {
+  const out: Issue[] = [];
+  for (const c of A.characters.values()) {
+    for (const m of lookProblems(c.look, A)) out.push({ id: `character:${c.id}`, level: "error", kind: "wardrobe", msg: m });
+    for (const v of c.bible?.variants ?? []) for (const m of lookProblems(v.look ?? {}, A)) out.push({ id: `character:${c.id}`, level: "error", kind: "wardrobe", msg: `${v.roles.join("/")}: ${m}` });
+  }
+  return out;
 }
 
 export function debugSet(): string[] {
@@ -101,6 +123,7 @@ export function validateEpisode(id: string, A = loadAssets()): Issue[] {
     },
   );
   for (const p of problems) add("error", "staging", p);
+  for (const [si, sc] of scenes.entries()) for (const [who, l] of Object.entries(sc.looks ?? {})) for (const m of lookProblems(l, A)) add("error", "wardrobe", `scene ${si + 1}: looks.${who}: ${m}`);
 
   // озвучка: файлы на месте
   for (const l of ep.lines) if (l.audio && !existsSync(join(ROOT, "remotion/public", l.audio.file))) add("error", "audio", `${l.id}: missing ${l.audio.file}`);
@@ -116,7 +139,7 @@ function main() {
   const { values, positionals } = parseArgs({ options: { debug: { type: "boolean" }, json: { type: "boolean" }, quiet: { type: "boolean" } }, allowPositionals: true });
   const ids = positionals.length ? positionals : values.debug ? debugSet() : dir("episodes").map((f) => f.replace(/\.json$/, ""));
   const A = loadAssets();
-  const issues = ids.flatMap((id) => validateEpisode(id, A));
+  const issues = [...validateCharacters(A), ...ids.flatMap((id) => validateEpisode(id, A))];
   if (values.json) { console.log(JSON.stringify(issues, null, 2)); process.exitCode = issues.some((i) => i.level === "error") ? 1 : 0; return; }
   const errors = issues.filter((i) => i.level === "error"), warns = issues.filter((i) => i.level === "warn"), infos = issues.filter((i) => i.level === "info");
   const byKind = (xs: Issue[]) => Object.entries(xs.reduce<Record<string, number>>((a, i) => ((a[i.kind] = (a[i.kind] ?? 0) + 1), a), {})).map(([k, n]) => `${k} ${n}`).join(", ");

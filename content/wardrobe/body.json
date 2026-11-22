@@ -1,0 +1,47 @@
+{
+  "items": [
+    { "id": "spots", "slot": "torso", "note": "dalmatian spots on body, head, arms and legs (light spots on dark fur)", "rig": { "spots": true },
+      "draw": [ { "p": "spots-body" } ],
+      "head": [ { "p": "g", "fill": "$spot", "do": [
+        { "p": "circle", "cx": 104, "cy": 114, "r": 11 }, { "p": "circle", "cx": 198, "cy": 112, "r": 8 }, { "p": "circle", "cx": 206, "cy": 200, "r": 9 },
+        { "p": "circle", "cx": 96, "cy": 196, "r": 7 }, { "p": "circle", "cx": 150, "cy": 96, "r": 6 } ] } ] },
+    { "id": "fur-coat", "slot": "torso", "clip": false, "note": "long fluffy fur coat over the clothes; the rig paints fur sleeves with trim", "rig": { "fur": true },
+      "draw": [ { "p": "fur-coat" } ] },
+    { "id": "towel-wrap", "slot": "torso", "clip": false, "wear": true, "note": "bath towel round the waist; bare legs (look.clothes in skin colour for a bare torso)",
+      "outfit": { "pants": "#efc8a0" }, "draw": [ { "p": "towel-wrap" } ] },
+    { "id": "sash", "slot": "torso", "note": "sash on a peasant shirt", "draw": [
+      { "p": "rect", "x": "bx", "y": "bottom - 44", "w": "w", "h": 14, "fill": "#c8553d" },
+      { "p": "path", "d": "M{bx + w * 0.3} {bottom - 32} l-8 34 h10 l4 -30 l6 30 h10 l-6 -34 z", "fill": "#c8553d" } ] },
+    { "id": "onesie-snaps", "slot": "torso", "draw": [ { "p": "g", "fill": "#f6f2e8", "do": [ { "p": "each", "var": "k", "in": [0.25, 0.5, 0.75], "do": [ { "p": "circle", "cx": 150, "cy": "top + (bottom - top) * k", "r": 6 } ] } ] } ] },
+    { "id": "cross", "slot": "torso", "draw": [
+      { "p": "path", "d": "M138 232 L150 262 L162 232", "stroke": "#c8a227", "sw": 3, "fill": "none" },
+      { "p": "rect", "x": 145, "y": 262, "w": 10, "h": 44, "fill": "#c8a227" }, { "p": "rect", "x": 133, "y": 274, "w": 34, "h": 9, "fill": "#c8a227" } ] },
+    { "id": "tie", "slot": "torso", "wear": true, "note": "collar tips, knot and a tie down to mid-body", "let": { "y1": "top + max(70, (bottom - top) * 0.5)" }, "draw": [
+      { "p": "path", "d": "M124 230 L148 240 L136 254 Z M176 230 L152 240 L164 254 Z", "fill": "#f4f4ef" },
+      { "p": "tie", "y0": 236, "y1": "y1", "color": "#b3261e" } ] },
+    { "id": "bow-tie", "slot": "torso", "wear": true, "draw": [ { "p": "path", "d": "M126 236 L150 246 L174 236 L174 258 L150 248 L126 258 Z", "fill": "#111" } ] },
+    { "id": "gold-chain", "slot": "torso", "draw": [ { "p": "path", "d": "M104 236 Q150 300 196 236", "stroke": "#e0b030", "sw": 8, "fill": "none" } ] },
+    { "id": "stethoscope", "slot": "torso", "wear": true, "draw": [ { "p": "path", "d": "M114 236 Q110 290 150 296 Q190 290 186 236 M150 296 v20", "stroke": "#2b2b2b", "sw": 5, "fill": "none" } ] },
+    { "id": "apron", "slot": "torso", "wear": true, "draw": [ { "p": "path", "d": "M100 270 L200 270 L208 420 L92 420 Z", "fill": "#f2e6d0", "opacity": 0.95 } ] },
+    { "id": "towel", "slot": "torso", "draw": [ { "p": "rect", "x": 190, "y": 228, "w": 28, "h": 64, "rx": 6, "fill": "#f2f2f2" } ] },
+    { "id": "brooch", "slot": "torso", "draw": [ { "p": "circle", "cx": 122, "cy": 256, "r": 9, "fill": "#e0a030" } ] },
+    { "id": "badge", "slot": "torso", "draw": [ { "p": "path", "d": "M112 262 l10 -14 10 14 -10 14 z", "fill": "#e0b030" } ] },
+    { "id": "striped-shirt", "slot": "torso", "layer": 0, "draw": [ { "p": "g", "fill": "#111", "do": [
+      { "p": "rect", "x": 62, "y": 250, "w": 176, "h": 12 }, { "p": "rect", "x": 62, "y": 280, "w": 176, "h": 12 }, { "p": "rect", "x": 62, "y": 310, "w": 176, "h": 12 },
+      { "p": "rect", "x": 62, "y": 340, "w": 176, "h": 12 }, { "p": "rect", "x": 62, "y": 370, "w": 176, "h": 12 }, { "p": "rect", "x": 62, "y": 400, "w": 176, "h": 12 } ] } ] },
+    { "id": "collar", "slot": "torso", "draw": [ { "p": "rect", "x": 98, "y": 226, "w": 104, "h": 14, "rx": 7, "fill": "#c8553d" } ] },
+    { "id": "suspenders", "slot": "torso", "draw": [ { "p": "rect", "x": 96, "y": 232, "w": 12, "h": 188, "fill": "#5b4636" }, { "p": "rect", "x": 192, "y": 232, "w": 12, "h": 188, "fill": "#5b4636" } ] },
+
+    { "id": "loot-bag", "slot": "hand", "draw": [ { "p": "ellipse", "cx": 248, "cy": 340, "rx": 40, "ry": 46, "fill": "#9a8a6a" }, { "p": "text", "x": 230, "y": 352, "size": 34, "weight": 900, "fill": "#2b1d14", "text": "$" } ] },
+    { "id": "camera", "slot": "hand", "draw": [ { "p": "rect", "x": 122, "y": 292, "w": 56, "h": 38, "rx": 6, "fill": "#2b2b2b" } ] },
+    { "id": "keys", "slot": "hand", "draw": [ { "p": "g", "stroke": "#c8a227", "sw": 6, "fill": "none", "do": [ { "p": "circle", "cx": 232, "cy": 300, "r": 12 }, { "p": "path", "d": "M232 312 v40 h10 M232 330 h8" } ] } ] },
+    { "id": "scythe", "slot": "hand", "draw": [ { "p": "path", "d": "M262 420 L262 180 Q200 170 180 210", "stroke": "#5b4636", "sw": 8, "fill": "none" } ] },
+    { "id": "baguette", "slot": "hand", "draw": [ { "p": "rect", "x": 230, "y": 250, "w": 18, "h": 120, "rx": 9, "fill": "#d9a65a", "transform": "rotate(20 239 310)" } ] },
+
+    { "id": "robe-white", "slot": "rig", "wear": true, "note": "long robe to the shoes (the rig draws it over body and legs)", "rig": { "robe": "#f6f2e8" } },
+    { "id": "robe-red", "slot": "rig", "wear": true, "rig": { "robe": "#b3261e" } },
+    { "id": "robe-black", "slot": "rig", "wear": true, "rig": { "robe": "#1d1d1d" } },
+    { "id": "hook-hand", "slot": "rig", "note": "pirate hook instead of the left hand", "rig": { "hook": true } },
+    { "id": "ghost-sheet", "slot": "rig", "note": "ghost sheet over the whole figure, face in the cut-out", "rig": { "ghost": true } }
+  ]
+}

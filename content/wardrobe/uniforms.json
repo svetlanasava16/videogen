@@ -1,0 +1,125 @@
+{
+  "items": [
+    { "id": "pilot-uniform", "slot": "torso", "layer": 0, "wear": true, "note": "dark-blue double-breasted jacket, white shirt and black tie, gold wings, gold cuff stripes",
+      "outfit": { "sleeve": "#1e2a44", "pants": "#1e2a44", "cuff": { "color": "#d9a92a", "n": 4 } },
+      "let": { "vy": "top + h * 0.42" },
+      "draw": [
+        { "p": "base", "color": "#1e2a44" },
+        { "p": "vneck", "top": "top", "vy": "vy", "color": "#f4f4ef" },
+        { "p": "tie", "y0": "top + 8", "y1": "vy - 4", "color": "#151515" },
+        { "p": "lapels", "top": "top", "vy": "vy", "color": "shade(#1e2a44, -0.1)" },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "buttons", "x": "150 + s * 17", "y0": "vy + 14", "y1": "bottom - 26", "n": 3 } ] },
+        { "p": "g", "transform": "translate({150 - iw * 0.3} {top + h * 0.5})", "fill": "#d9a92a", "do": [
+          { "p": "path", "d": "M-26 -2 Q-14 -10 0 -4 Q14 -10 26 -2 Q14 2 0 2 Q-14 2 -26 -2 Z" }, { "p": "circle", "cx": 0, "cy": -2, "r": 6 } ] },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "rect", "x": "150 + s * iw * 0.32 - iw * 0.13", "y": "bottom - h * 0.24", "w": "iw * 0.26", "h": 6, "rx": 3, "fill": "shade(#1e2a44, 0.25)" } ] }
+      ] },
+    { "id": "police-uniform", "slot": "torso", "layer": 0, "wear": true, "note": "grey-blue militia jacket: light-blue shirt and tie, red piping, badge, pockets, belt",
+      "outfit": { "sleeve": "#5f7088", "pants": "#3e4958", "board": { "color": "#5f7088", "edge": "#b3261e", "stars": 2, "star": "#d9a92a" } },
+      "let": { "vy": "top + h * 0.36", "belt": "top + h * 0.7" },
+      "draw": [
+        { "p": "base", "color": "#5f7088" },
+        { "p": "vneck", "top": "top", "vy": "vy", "color": "#b9cde6" },
+        { "p": "tie", "y0": "top + 8", "y1": "vy - 4", "color": "#22304a" },
+        { "p": "lapels", "top": "top", "vy": "vy", "color": "shade(#5f7088, 0.08)", "edge": "#b3261e" },
+        { "p": "buttons", "x": 150, "y0": "vy + 14", "y1": "belt - 12", "n": "max(2, round((belt - vy) / 30))" },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "pocket", "cx": "150 + s * iw * 0.3", "y": "vy + 2", "w": "iw * 0.24", "color": "#5f7088", "button": "#d9a92a" } ] },
+        { "p": "g", "transform": "translate({150 + iw * 0.3} {vy + 4 + iw * 0.34})", "do": [
+          { "p": "circle", "cx": 0, "cy": 0, "r": 10, "fill": "#d9a92a" }, { "p": "circle", "cx": 0, "cy": 0, "r": 6.5, "fill": "#b3261e" }, { "p": "star", "cx": 0, "cy": 0, "r": 5, "fill": "#d9a92a" } ] },
+        { "p": "belt", "y": "belt", "color": "#3b2a1e" }
+      ] },
+    { "id": "traffic-vest", "slot": "torso", "layer": 1, "wear": true, "note": "lime high-visibility vest (traffic police), over the uniform",
+      "draw": [ { "p": "hivis", "color": "#c6e03a" } ] },
+    { "id": "military-uniform", "slot": "torso", "layer": 0, "wear": true, "note": "khaki tunic: stand collar, button placket, chest pockets, belt with a star",
+      "outfit": { "sleeve": "#757645", "pants": "#525330", "board": { "color": "#b3261e", "edge": "#7d1b15" } },
+      "let": { "belt": "top + h * 0.66" },
+      "draw": [
+        { "p": "base", "color": "#757645" },
+        { "p": "rect", "x": "150 - 32", "y": "top - 8", "w": 64, "h": 24, "rx": 6, "fill": "shade(#757645, 0.12)" },
+        { "p": "rect", "x": "150 - 8", "y": "top", "w": 16, "h": "h * 0.38", "rx": 3, "fill": "shade(#757645, 0.1)" },
+        { "p": "buttons", "x": 150, "y0": "top + 18", "y1": "top + h * 0.34", "n": 3, "color": "#4a4a2a", "r": 4.5 },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "pocket", "cx": "150 + s * iw * 0.3", "y": "top + h * 0.14", "w": "iw * 0.26", "color": "#757645", "button": "#4a4a2a" } ] },
+        { "p": "belt", "y": "belt", "color": "#5a3a22", "buckle": "#d9a92a", "star": true }
+      ] },
+    { "id": "officer-uniform", "slot": "torso", "layer": 0, "wear": true, "note": "officer jacket: lapels, shirt and tie, ribbon bars and medals, gold buttons, belt",
+      "outfit": { "sleeve": "#56603e", "pants": "#383e28", "board": { "color": "#d9a92a", "edge": "#b3261e", "stars": 3, "star": "#8a6a10" } },
+      "let": { "vy": "top + h * 0.34", "belt": "top + h * 0.68", "bx0": "150 - iw * 0.44", "by0": "vy - 6" },
+      "draw": [
+        { "p": "base", "color": "#56603e" },
+        { "p": "vneck", "top": "top", "vy": "vy", "color": "#b9b08a" },
+        { "p": "tie", "y0": "top + 8", "y1": "vy - 4", "color": "#3a3a2a" },
+        { "p": "lapels", "top": "top", "vy": "vy", "color": "shade(#56603e, 0.1)", "edge": "#b3261e" },
+        { "p": "buttons", "x": 150, "y0": "vy + 14", "y1": "belt - 12", "n": "max(2, round((belt - vy) / 30))" },
+        { "p": "ribbons", "x": "bx0", "y": "by0", "colors": ["#b3261e", "#e0b030", "#3d6fb3", "#5b8c5a", "#c8553d", "#f2f2f2"] },
+        { "p": "g", "transform": "translate({bx0 + 8 + 0 * 20} {by0 + 22})", "do": [ { "p": "path", "d": "M-5 0 H5 L3 10 H-3 Z", "fill": "#b3261e" }, { "p": "circle", "cx": 0, "cy": 16, "r": 7, "fill": "#d9a92a" } ] },
+        { "p": "g", "transform": "translate({bx0 + 8 + 1 * 20} {by0 + 22})", "do": [ { "p": "path", "d": "M-5 0 H5 L3 10 H-3 Z", "fill": "#3d6fb3" }, { "p": "circle", "cx": 0, "cy": 16, "r": 7, "fill": "#d9a92a" } ] },
+        { "p": "g", "transform": "translate({150 + iw * 0.32} {vy + 8})", "do": [ { "p": "star", "cx": 0, "cy": 0, "r": 11, "fill": "#b3261e" }, { "p": "circle", "cx": 0, "cy": 0, "r": 4, "fill": "#d9a92a" } ] },
+        { "p": "belt", "y": "belt", "color": "#4a2e1a", "buckle": "#d9a92a", "star": true }
+      ] },
+    { "id": "chef-whites", "slot": "torso", "layer": 0, "wear": true, "note": "white double-breasted chef jacket: stand collar, two rows of buttons, red neckerchief",
+      "outfit": { "sleeve": "#f7f6f1", "pants": "#3a3a3e" },
+      "let": { "dx": "max(14, iw * 0.14)" },
+      "draw": [
+        { "p": "base", "color": "#f7f6f1" },
+        { "p": "rect", "x": "150 - 34", "y": "top - 8", "w": 68, "h": 26, "rx": 8, "fill": "#e6e3d8" },
+        { "p": "path", "d": "M{150 + dx + 14} {top + 18} V{bottom + 10}", "stroke": "#d8d4c6", "sw": 4 },
+        { "p": "path", "d": "M{150 - 34} {top + 18} Q{150 + dx} {top + 22} {150 + dx + 14} {top + 18}", "stroke": "#d8d4c6", "sw": 4, "fill": "none" },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "buttons", "x": "150 + s * dx", "y0": "top + 36", "y1": "bottom - 22", "n": "max(3, round(h / 45))", "color": "#b3ad98", "r": 5 } ] },
+        { "p": "path", "d": "M132 236 L168 236 L156 262 L150 268 L144 262 Z", "fill": "#c8302e" },
+        { "p": "circle", "cx": 150, "cy": 246, "r": 8, "fill": "shade(#c8302e, 0.15)" }
+      ] },
+    { "id": "construction", "slot": "torso", "layer": 1, "wear": true, "note": "orange hi-vis vest over a work shirt (shirt = look.clothes)",
+      "outfit": { "pants": "#3d5a80" }, "draw": [ { "p": "hivis", "color": "#f2771a" } ] },
+    { "id": "suit", "slot": "torso", "layer": 0, "wear": true, "note": "jacket in look.clothes colour with lapels, white shirt, pocket square, buttons (tie: tie / bow-tie)",
+      "let": { "vy": "top + h * 0.5" },
+      "draw": [
+        { "p": "base", "color": "$clothes" },
+        { "p": "vneck", "top": "top", "vy": "vy", "color": "#f4f4ef" },
+        { "p": "lapels", "top": "top", "vy": "vy", "color": "contrast($clothes, -0.12, 0.15)" },
+        { "p": "buttons", "x": 150, "y0": "vy + 16", "y1": "vy + 44", "n": 2, "color": "contrast($clothes, -0.3, 0.4)", "r": 5 },
+        { "p": "rect", "x": "150 - iw * 0.4", "y": "top + h * 0.36", "w": "iw * 0.22", "h": 5, "rx": 2, "fill": "shade($clothes, 0.25)" },
+        { "p": "path", "d": "M{150 - iw * 0.36} {top + h * 0.36} l6 -12 l6 9 l6 -10 l4 13 z", "fill": "#f4f4ef" },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "rect", "x": "150 + s * iw * 0.3 - iw * 0.13", "y": "bottom - h * 0.22", "w": "iw * 0.26", "h": 6, "rx": 3, "fill": "shade($clothes, 0.25)" } ] }
+      ] },
+    { "id": "stewardess-uniform", "slot": "torso", "layer": 0, "wear": true, "note": "fitted dark-blue jacket with gold buttons, neck scarf, darker skirt",
+      "outfit": { "sleeve": "#233660", "pants": "#1d2c4f", "cuff": { "color": "#d9a92a", "n": 1 } },
+      "let": { "vy": "top + h * 0.26", "waist": "top + h * 0.56" },
+      "draw": [
+        { "p": "base", "color": "shade(#233660, 0.18)" },
+        { "p": "path", "d": "M{bx - 40} {top - 12} H{bx + w + 40} V{waist} Q150 {waist + 22} {bx - 40} {waist} Z", "fill": "#233660" },
+        { "p": "vneck", "top": "top", "vy": "vy", "color": "#f4f4ef", "half": 22 },
+        { "p": "lapels", "top": "top", "vy": "vy", "color": "shade(#233660, -0.12)", "half": 22 },
+        { "p": "buttons", "x": 150, "y0": "vy + 16", "y1": "waist - 4", "n": 2 },
+        { "p": "g", "transform": "translate({150 - iw * 0.3} {vy + 18})", "fill": "#d9a92a", "do": [
+          { "p": "path", "d": "M-16 -1 Q-8 -7 0 -3 Q8 -7 16 -1 Q8 2 0 2 Q-8 2 -16 -1 Z" }, { "p": "circle", "cx": 0, "cy": -1, "r": 4 } ] },
+        { "p": "path", "d": "M128 238 L172 238 L150 262 Z", "fill": "#d23b33" },
+        { "p": "path", "d": "M150 246 L176 262 L166 274 Z M150 246 L180 250 L176 264 Z", "fill": "#e8564d" },
+        { "p": "circle", "cx": 150, "cy": 246, "r": 7, "fill": "#a82a24" },
+        { "p": "circle", "cx": 138, "cy": 243, "r": 2.5, "fill": "#f6f2e8" }, { "p": "circle", "cx": 158, "cy": 243, "r": 2.5, "fill": "#f6f2e8" }, { "p": "circle", "cx": 148, "cy": 254, "r": 2.5, "fill": "#f6f2e8" }
+      ] },
+    { "id": "doctor-coat", "slot": "torso", "layer": 1, "wear": true, "note": "open white coat over the clothes: lapels, breast pocket with pens, lower pockets",
+      "outfit": { "sleeve": "#fbfbf8" },
+      "let": { "gap": "max(14, iw * 0.16)", "vy": "top + h * 0.4", "px": "150 - iw * 0.34" },
+      "draw": [
+        { "p": "each", "var": "s", "in": [1, -1], "do": [ { "p": "path", "d": "M{150 - s * 200} {top - 12} H{150 - s * 24} L{150 - s * gap} {vy} V{bottom + 30} H{150 - s * 200} Z", "fill": "#fbfbf8" } ] },
+        { "p": "each", "var": "s", "in": [1, -1], "do": [ { "p": "path", "d": "M{150 - s * 24} {top - 12} L{150 - s * gap} {vy} L{150 - s * (gap + 16)} {top + (vy - top) * 0.45} L{150 - s * 46} {top + 6} Z", "fill": "#e6e6df" } ] },
+        { "p": "path", "d": "M{150 - gap} {vy} V{bottom + 30} M{150 + gap} {vy} V{bottom + 30}", "stroke": "#dedcd2", "sw": 3 },
+        { "p": "rect", "x": "px - 3", "y": "top + h * 0.38 - 18", "w": 4, "h": 22, "rx": 2, "fill": "#3d6fb3" },
+        { "p": "rect", "x": "px + 4", "y": "top + h * 0.38 - 14", "w": 4, "h": 18, "rx": 2, "fill": "#c8302e" },
+        { "p": "rect", "x": "px - iw * 0.12", "y": "top + h * 0.38", "w": "iw * 0.24", "h": "iw * 0.2", "rx": 3, "fill": "#ecebe4" },
+        { "p": "each", "var": "s", "in": [-1, 1], "do": [ { "p": "rect", "x": "150 + s * iw * 0.32 - iw * 0.13", "y": "bottom - h * 0.28", "w": "iw * 0.26", "h": "iw * 0.2", "rx": 3, "fill": "#ecebe4" } ] },
+        { "p": "buttons", "x": "150 + gap + 9", "y0": "vy + 20", "y1": "bottom - 30", "n": 2, "color": "#d6d4ca", "r": 4.5 }
+      ] },
+    { "id": "prisoner", "slot": "torso", "layer": 0, "wear": true, "note": "striped prison robe with a number on the chest (striped sleeves: the rig)",
+      "outfit": { "sleeve": "#e6e2d6", "pants": "#3a3a3e", "stripes": "#2b2b2b" },
+      "draw": [
+        { "p": "base", "color": "#e6e2d6" },
+        { "p": "hstripes", "y0": "top + 8", "y1": "bottom + 20", "step": 26, "height": 12, "x": "bx - 40", "width": "w + 80", "fill": "#2b2b2b" },
+        { "p": "rect", "x": "150 + iw * 0.04", "y": "top + h * 0.22", "w": "min(64, iw * 0.44)", "h": 26, "rx": 3, "fill": "#f6f2e8" },
+        { "p": "text", "x": "150 + iw * 0.04 + min(64, iw * 0.44) / 2", "y": "top + h * 0.22 + 19", "size": 17, "weight": 900, "anchor": "middle", "fill": "#2b1d14", "text": "0451" }
+      ] },
+    { "id": "sailor", "slot": "torso", "layer": 0, "wear": true, "note": "navy sailor shirt: striped undershirt in the neckline, blue collar with white stripes",
+      "outfit": { "sleeve": "#1f2d50", "pants": "#1f2d50" },
+      "let": { "vy": "top + h * 0.4" },
+      "draw": [ { "p": "base", "color": "#1f2d50" }, { "p": "sailor-collar", "top": "top", "vy": "vy", "half": 26 } ] }
+  ]
+}
