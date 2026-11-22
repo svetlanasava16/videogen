@@ -37,6 +37,16 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
+  packages/player:
+    dependencies:
+      '@jf/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+
   pipeline:
     dependencies:
       '@jf/core':
@@ -45,6 +55,9 @@ importers:
       '@jf/db':
         specifier: workspace:^
         version: link:../packages/db
+      '@jf/player':
+        specifier: workspace:*
+        version: link:../packages/player
       '@remotion/bundler':
         specifier: 4.0.545
         version: 4.0.545(postcss@8.5.33)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -76,6 +89,9 @@ importers:
       '@types/pngjs':
         specifier: 6.0.5
         version: 6.0.5
+      esbuild:
+        specifier: 0.25.12
+        version: 0.25.12
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
@@ -88,6 +104,9 @@ importers:
       '@jf/core':
         specifier: workspace:*
         version: link:../packages/core
+      '@jf/player':
+        specifier: workspace:*
+        version: link:../packages/player
       '@remotion/cli':
         specifier: ^4.0.545
         version: 4.0.545(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
@@ -2287,13 +2306,13 @@ snapshots:
       '@remotion/timeline-utils': 4.0.545(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@rspack/core': 2.3.0
       '@rspack/plugin-react-refresh': 2.0.2(@rspack/core@2.3.0)(react-refresh@0.18.0)
-      css-loader: 7.1.4(@rspack/core@2.3.0)(webpack@5.105.0(postcss@8.5.33))
+      css-loader: 7.1.4(@rspack/core@2.3.0)(webpack@5.105.0(esbuild@0.28.1)(postcss@8.5.33))
       esbuild: 0.28.1
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
       react-refresh: 0.18.0
       remotion: 4.0.545(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      style-loader: 4.0.0(webpack@5.105.0(postcss@8.5.33))
+      style-loader: 4.0.0(webpack@5.105.0(esbuild@0.28.1)(postcss@8.5.33))
       webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
     transitivePeerDependencies:
       - '@minify-html/node'
@@ -2973,6 +2992,20 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
+  css-loader@7.1.4(@rspack/core@2.3.0)(webpack@5.105.0(esbuild@0.28.1)(postcss@8.5.33)):
+    dependencies:
+      icss-utils: 5.1.0(postcss@8.5.33)
+      postcss: 8.5.33
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.33)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.33)
+      postcss-modules-scope: 3.2.1(postcss@8.5.33)
+      postcss-modules-values: 4.0.0(postcss@8.5.33)
+      postcss-value-parser: 4.2.0
+      semver: 7.8.6
+    optionalDependencies:
+      '@rspack/core': 2.3.0
+      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
+
   css-loader@7.1.4(@rspack/core@2.3.0)(webpack@5.105.0(esbuild@0.28.1)):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.33)
@@ -2986,20 +3019,6 @@ snapshots:
     optionalDependencies:
       '@rspack/core': 2.3.0
       webpack: 5.105.0(esbuild@0.28.1)
-
-  css-loader@7.1.4(@rspack/core@2.3.0)(webpack@5.105.0(postcss@8.5.33)):
-    dependencies:
-      icss-utils: 5.1.0(postcss@8.5.33)
-      postcss: 8.5.33
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.33)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.33)
-      postcss-modules-scope: 3.2.1(postcss@8.5.33)
-      postcss-modules-values: 4.0.0(postcss@8.5.33)
-      postcss-value-parser: 4.2.0
-      semver: 7.8.6
-    optionalDependencies:
-      '@rspack/core': 2.3.0
-      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
 
   csstype@3.2.4: {}
 
@@ -3389,6 +3408,15 @@ snapshots:
 
   scheduler@0.28.0: {}
 
+  schema-utils@4.8.5(webpack@5.105.0(esbuild@0.25.12)(postcss@8.5.33)):
+    dependencies:
+      '@types/json-schema': 7.0.15
+      ajv: 8.20.0
+      ajv-formats: 3.0.1(ajv@8.20.0)
+      ajv-keywords: 5.1.0(ajv@8.20.0)
+    optionalDependencies:
+      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
+
   schema-utils@4.8.5(webpack@5.105.0(esbuild@0.28.1)):
     dependencies:
       '@types/json-schema': 7.0.15
@@ -3397,15 +3425,6 @@ snapshots:
       ajv-keywords: 5.1.0(ajv@8.20.0)
     optionalDependencies:
       webpack: 5.105.0(esbuild@0.28.1)
-
-  schema-utils@4.8.5(webpack@5.105.0(postcss@8.5.33)):
-    dependencies:
-      '@types/json-schema': 7.0.15
-      ajv: 8.20.0
-      ajv-formats: 3.0.1(ajv@8.20.0)
-      ajv-keywords: 5.1.0(ajv@8.20.0)
-    optionalDependencies:
-      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
 
   semver@6.3.2: {}
 
@@ -3443,13 +3462,13 @@ snapshots:
 
   strip-final-newline@2.0.0: {}
 
+  style-loader@4.0.0(webpack@5.105.0(esbuild@0.28.1)(postcss@8.5.33)):
+    dependencies:
+      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
+
   style-loader@4.0.0(webpack@5.105.0(esbuild@0.28.1)):
     dependencies:
       webpack: 5.105.0(esbuild@0.28.1)
-
-  style-loader@4.0.0(webpack@5.105.0(postcss@8.5.33)):
-    dependencies:
-      webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
 
   supports-color@8.1.1:
     dependencies:
@@ -3459,11 +3478,11 @@ snapshots:
 
   tapable@2.3.4: {}
 
-  terser-webpack-plugin@5.6.1(esbuild@0.28.1)(postcss@8.5.33)(webpack@5.105.0(postcss@8.5.33)):
+  terser-webpack-plugin@5.6.1(esbuild@0.28.1)(postcss@8.5.33)(webpack@5.105.0(esbuild@0.25.12)(postcss@8.5.33)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
-      schema-utils: 4.8.5(webpack@5.105.0(postcss@8.5.33))
+      schema-utils: 4.8.5(webpack@5.105.0(esbuild@0.25.12)(postcss@8.5.33))
       terser: 5.51.2
       webpack: 5.105.0(esbuild@0.28.1)(postcss@8.5.33)
     optionalDependencies:
@@ -3580,9 +3599,9 @@ snapshots:
       loader-runner: 4.3.2
       mime-types: 2.1.35
       neo-async: 2.6.2
-      schema-utils: 4.8.5(webpack@5.105.0(postcss@8.5.33))
+      schema-utils: 4.8.5(webpack@5.105.0(esbuild@0.25.12)(postcss@8.5.33))
       tapable: 2.3.4
-      terser-webpack-plugin: 5.6.1(esbuild@0.28.1)(postcss@8.5.33)(webpack@5.105.0(postcss@8.5.33))
+      terser-webpack-plugin: 5.6.1(esbuild@0.28.1)(postcss@8.5.33)(webpack@5.105.0(esbuild@0.25.12)(postcss@8.5.33))
       watchpack: 2.6.4
       webpack-sources: 3.7.1
     transitivePeerDependencies:

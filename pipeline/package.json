@@ -21,6 +21,7 @@
     "validate": "tsx src/validate.ts",
     "stills": "tsx src/stills.ts",
     "golden": "tsx src/golden.ts",
+    "player": "tsx src/player.ts",
     "lint-scripts": "tsx src/lint.ts",
     "compile-episode": "tsx src/compile-episode.ts",
     "migrate-episodes": "tsx src/migrate.ts"
@@ -28,6 +29,7 @@
   "dependencies": {
     "@jf/core": "workspace:*",
     "@jf/db": "workspace:^",
+    "@jf/player": "workspace:*",
     "@remotion/bundler": "4.0.545",
     "@remotion/renderer": "4.0.545",
     "drizzle-orm": "^0.45.4",
@@ -40,6 +42,7 @@
     "@types/node": "^26.6.6",
     "@types/pixelmatch": "5.2.6",
     "@types/pngjs": "6.0.5",
+    "esbuild": "0.25.12",
     "tsx": "^4.23.15",
     "typescript": "^5.6.0"
   }
