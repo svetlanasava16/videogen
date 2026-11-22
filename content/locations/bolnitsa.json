@@ -65,10 +65,14 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "nurse": {
+      "x": 0.26,
+      "z": 0.95
     }
   },
   "bible": {
-    "summary": "Clinic: the doctor's office (tiled lower walls, fluorescent ceiling lights, door with a red cross and a white coat on a hook, wall clock, window with a valance and a plant on the sill, examination couch under it, eye chart, blood-pressure gauge, framed diploma, glass medicine cabinet, desk with lamp, patient cards, stethoscope and mug, the doctor's chair, patient chair in front, skeleton), a waiting-room corridor with a row of chairs, a ward with a bed, and a padded madhouse cell.",
+    "summary": "Clinic: the doctor's office (tiled lower walls, fluorescent ceiling lights, door with a red cross and a white coat on a hook, wall clock, window with a valance and a plant on the sill, examination couch under it, eye chart, blood-pressure gauge, framed diploma, glass medicine cabinet, the doctor's desk with lamp, patient cards, stethoscope and mug stands IN FRONT of the doctor — the doctor sits behind it on his chair (desk, hidden to the waist), the patient sits on the chair in front of the desk's right end (patient-chair, middle plane), a nurse stands by the couch (nurse); things put down on the desk lie on it; skeleton), a waiting-room corridor with a row of chairs, a ward with a bed, and a padded madhouse cell.",
     "roles": [
       "doctor-office",
       "hospital",
@@ -90,7 +94,7 @@
         "roles": [
           "hospital"
         ],
-        "change": "Hospital ward: curtain on a rail on the left (curtain), small framed picture, wall clock and a heart monitor on the wall, window with a tree outside, oxygen panel with outlets above the bed, bedside table with a water glass, oranges and flowers, a hospital bed on the right against the back wall to sit or lie on (bed) with a chart clipboard at its foot, drip stand at its head (drip), visitor's chair in the middle plane left of the bed (chair).",
+        "change": "Hospital ward: curtain on a rail on the left (curtain), small framed picture, wall clock and a heart monitor on the wall, window with a tree outside, oxygen panel with outlets above the bed, bedside table with a water glass, oranges and flowers, a hospital bed on the right against the back wall to sit or lie on (bed) with a chart clipboard at its foot, drip stand at its head (drip), visitor's chair in the middle plane left of the bed (chair); a doctor stands at the head of the bed (right), a nurse by the drip.",
         "marks": {
           "curtain": {
             "x": 0.12,
@@ -134,7 +138,42 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "bed",
+            "roles": [
+              "patient"
+            ]
+          },
+          {
+            "mark": "right",
+            "roles": [
+              "doctor",
+              "therapist",
+              "surgeon",
+              "psychiatrist"
+            ]
+          },
+          {
+            "mark": "drip",
+            "roles": [
+              "nurse"
+            ]
+          },
+          {
+            "mark": "chair"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "madhouse",
@@ -190,7 +229,34 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "center",
+            "roles": [
+              "doctor",
+              "psychiatrist",
+              "therapist",
+              "nurse",
+              "orderly"
+            ]
+          },
+          {
+            "mark": "bench-1"
+          },
+          {
+            "mark": "bench-2"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "waiting-room",
@@ -206,7 +272,7 @@
           "polyclinic",
           "queue"
         ],
-        "change": "Clinic corridor: reception window with a counter and a bell at the back left (reception), fire extinguisher, electronic queue-number board, health posters (heart, hand washing, no smoking), appointment timetable, 'no phones' sign, a row of five joined chairs along the back wall (chair-1…chair-5, left to right) for the queue, potted plant, doctor's door with a red cross, a name plate and a red 'busy' lamp at the back right (door). Walking or standing in front of the seated queue: front-left / front-center / front-right.",
+        "change": "Clinic corridor: reception window in the wall at the back left with a counter and a bell — the receptionist stands BEHIND the glass and the counter (reception, seen to the chest), patients come up to it from the middle plane (left); things put down on the counter lie on it, fire extinguisher, electronic queue-number board, health posters (heart, hand washing, no smoking), appointment timetable, 'no phones' sign, a row of five joined chairs along the back wall (chair-1…chair-5, left to right) for the queue, potted plant, doctor's door with a red cross, a name plate and a red 'busy' lamp at the back right (door). Walking or standing in front of the seated queue: front-left / front-center / front-right.",
         "marks": {
           "reception": {
             "x": 0.12,
@@ -265,9 +331,121 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "front": {
+          "z": 0.97
+        },
+        "surfaces": [
+          {
+            "x0": 0.01,
+            "x1": 0.24,
+            "z": 0.97,
+            "top": 212
+          }
+        ],
+        "slots": [
+          {
+            "mark": "reception",
+            "roles": [
+              "receptionist",
+              "clerk",
+              "nurse",
+              "registrar"
+            ]
+          },
+          {
+            "mark": "door",
+            "roles": [
+              "doctor",
+              "therapist",
+              "dentist",
+              "surgeon"
+            ]
+          },
+          {
+            "mark": "chair-3"
+          },
+          {
+            "mark": "chair-2"
+          },
+          {
+            "mark": "chair-4"
+          },
+          {
+            "mark": "chair-1"
+          },
+          {
+            "mark": "chair-5"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "doctor office, desk, examination couch, eye chart on the wall, skeleton model, window"
-  }
+  },
+  "front": {
+    "z": 0.9
+  },
+  "surfaces": [
+    {
+      "x0": 0.4,
+      "x1": 0.72,
+      "z": 0.9,
+      "top": 183
+    }
+  ],
+  "slots": [
+    {
+      "mark": "desk",
+      "roles": [
+        "doctor",
+        "therapist",
+        "psychiatrist",
+        "dentist",
+        "surgeon"
+      ]
+    },
+    {
+      "mark": "nurse",
+      "roles": [
+        "nurse"
+      ]
+    },
+    {
+      "mark": "patient-chair",
+      "roles": [
+        "patient",
+        "wife",
+        "husband",
+        "father",
+        "mother",
+        "old-woman",
+        "old-man",
+        "everyman",
+        "woman",
+        "man",
+        "son",
+        "daughter",
+        "child",
+        "student"
+      ]
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "couch"
+    },
+    {
+      "mark": "front-right"
+    },
+    {
+      "mark": "front-left"
+    }
+  ]
 }

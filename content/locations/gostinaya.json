@@ -74,10 +74,14 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "rug": {
+      "x": 0.3,
+      "z": 0.6
     }
   },
   "bible": {
-    "summary": "Living room: door on the left with a wall clock above it, a red Soviet carpet on the wall over the sofa against the back wall (sofa-1, sofa-2), floor lamp, old TV with antenna and a lace napkin on a stand, a bookshelf with photos above it, window to the yard with curtains on tiebacks, radiator and flowers on the sill on the right, armchair in the middle plane on the right; plank floor with a rug; variants hallway, balcony, basement, dining room.",
+    "summary": "Living room: door on the left with a wall clock above it, a red Soviet carpet on the wall over the sofa against the back wall (sofa-1, sofa-2), floor lamp, old TV with antenna and a lace napkin on a stand, a bookshelf with photos above it, window to the yard with curtains on tiebacks, radiator and flowers on the sill on the right, armchair in the middle plane on the right (armchair); plank floor with a rug in the middle (a child or a pet at its left end: rug); variants hallway, balcony, basement, dining room.",
     "roles": [
       "home-living-room",
       "front-door",
@@ -96,7 +100,7 @@
         "roles": [
           "front-door"
         ],
-        "change": "Hallway: padded front door no. 48 with a chain at the back wall centre-right (mark door), electricity meter and tear-off calendar above, coat rack with coat, scarf and hat on the left (coat-rack), wall phone on a shelf, low shoe bench to sit on left of centre (bench), oval mirror, key holder, umbrella and shoehorn on the right; panelled lower wall, tiled floor, doormat.",
+        "change": "Hallway: padded front door no. 48 with a chain at the back wall centre-right (mark door), electricity meter and tear-off calendar above, coat rack with coat, scarf and hat on the left (coat-rack), wall phone on a shelf, low shoe bench to sit on left of centre (bench), oval mirror, key holder, umbrella and shoehorn on the right; a visitor stands at the door, the host faces them from inside (inside); panelled lower wall, tiled floor, doormat.",
         "marks": {
           "door": {
             "x": 0.66,
@@ -138,8 +142,54 @@
           "front-right": {
             "x": 0.75,
             "z": 0
+          },
+          "inside": {
+            "x": 0.4,
+            "z": 0.5
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "door",
+            "roles": [
+              "police-officer",
+              "officer",
+              "firefighter",
+              "drunk",
+              "postman",
+              "neighbor",
+              "salesman",
+              "politician",
+              "plumber",
+              "doctor"
+            ]
+          },
+          {
+            "mark": "inside",
+            "roles": [
+              "everyman",
+              "husband",
+              "wife",
+              "woman",
+              "father",
+              "mother",
+              "grandma",
+              "old-woman"
+            ]
+          },
+          {
+            "mark": "bench"
+          },
+          {
+            "mark": "front-right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-center"
+          }
+        ]
       },
       {
         "id": "balcony",
@@ -194,7 +244,24 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "stool"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "railing"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "basement",
@@ -206,7 +273,7 @@
         "roles": [
           "basement"
         ],
-        "change": "Basement: shelves with labelled jars at the left wall (shelves), pegboard with tools, small barred window under the ceiling with a light beam, bare bulb, ceiling beams and pipes, riser pipe with a valve dripping into a puddle, cobwebs, mouse hole, a low crate to sit on in the middle (crate), wooden stairs up on the right (stairs), boxes and a potato sack; concrete slab floor.",
+        "change": "Basement: shelves with labelled jars at the left wall (shelves), pegboard with tools, small barred window under the ceiling with a light beam, bare bulb, ceiling beams and pipes, riser pipe with a valve dripping into a puddle (someone fixing it stands at pipe), cobwebs, mouse hole, a low crate to sit on in the middle (crate), wooden stairs up on the right (stairs), boxes and a potato sack; concrete slab floor.",
         "marks": {
           "shelves": {
             "x": 0.13,
@@ -248,8 +315,37 @@
           "front-right": {
             "x": 0.75,
             "z": 0
+          },
+          "pipe": {
+            "x": 0.62,
+            "z": 0.75
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "pipe",
+            "roles": [
+              "plumber",
+              "handyman",
+              "electrician"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "crate"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "dining-room",
@@ -308,9 +404,94 @@
           {
             "item": "dining-table"
           }
+        ],
+        "slots": [
+          {
+            "mark": "chair-2"
+          },
+          {
+            "mark": "chair-3"
+          },
+          {
+            "mark": "chair-1"
+          },
+          {
+            "mark": "chair-4"
+          },
+          {
+            "mark": "behind-table"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
         ]
       }
     ],
     "prompt": "cosy ordinary apartment living room, old sofa, small tv, armchair, door on the side, window with curtains, rug, wallpaper"
-  }
+  },
+  "slots": [
+    {
+      "mark": "armchair",
+      "roles": [
+        "husband",
+        "father",
+        "grandpa"
+      ]
+    },
+    {
+      "mark": "center",
+      "roles": [
+        "wife",
+        "mother",
+        "grandma",
+        "girlfriend"
+      ]
+    },
+    {
+      "mark": "rug",
+      "roles": [
+        "child",
+        "son",
+        "daughter",
+        "vovochka",
+        "fritzchen",
+        "teenager",
+        "cat",
+        "dog"
+      ]
+    },
+    {
+      "mark": "door",
+      "roles": [
+        "police-officer",
+        "officer",
+        "postman",
+        "firefighter",
+        "plumber",
+        "salesman",
+        "thief"
+      ]
+    },
+    {
+      "mark": "sofa-1"
+    },
+    {
+      "mark": "sofa-2"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

@@ -1,11 +1,15 @@
 import type { ReactElement } from "react";
 import { Canvas, Room, Window, Door, Plant, FLOOR_Y, W, H, type BackdropProps } from "./parts";
 import { SeatAt, BenchAt } from "./gostinaya";
-import { seatTopY } from "../world/depth";
+import { feetY, seatTopY } from "../world/depth";
 
 /**
  * Фон «bolnitsa»: кабинет врача; варианты waiting-room (коридор поликлиники с очередью), hospital (палата),
  * madhouse (палата с мягкими стенами). Сиденья нарисованы под метки content/locations/bolnitsa.json.
+ *
+ * Передний слой (layer="front", front.z в JSON): в кабинете — стол врача (z 0.9; врач на стуле desk за ним по пояс,
+ * стул пациента patient-chair перед столом тоже в переднем слое), в коридоре — окошко регистратуры (z 0.97; регистратор
+ * на метке reception за стеклом и стойкой по грудь). Палата и мягкая палата переднего слоя не имеют.
  *
  * В начале файла — набор деталей «интерьера» (тени, градиенты стены и пола, плитка, паркет, светильники, часы,
  * календарь), им пользуются и соседние фоны ofis / klass / zal / tserkov.
@@ -383,45 +387,63 @@ const Couch = ({ x, w, accent }: { x: number; w: number; accent: string }) => {
   );
 };
 
-/** Стол врача: лампа, монитор-«ящик», карточки пациентов, стетоскоп, кружка, ручки. */
-const Desk = ({ x, w, accent }: { x: number; w: number; accent: string }) => {
-  const top = FLOOR_Y - 240;
+/** План переднего слоя кабинета (стол врача) и y его низа; верх столешницы — DESK_TOP (врачу на стуле desk — по пояс). */
+const OFFICE_FRONT_Z = 0.9;
+const OFFICE_FEET = feetY(OFFICE_FRONT_Z);
+const DESK_TOP = 1040;
+
+/**
+ * Стол врача — передний слой (layer="front", front.z 0.9): врач сидит за ним на стуле desk (x 0.56, дальний план),
+ * пациент — на стуле patient-chair перед правым краем стола (средний план, тоже в переднем слое: он ближе стола).
+ * Столешница x 420…780 (слева с запасом: ноги сидящего врача, сдвинутого раздвижкой, не торчат из-под стола); над местом врача (x ≈ 605) на столе только низкие вещи, чтобы не закрыть лицо.
+ */
+const Desk = ({ accent }: { accent: string }) => {
+  const x0 = 420, x1 = 780, top = DESK_TOP, bottom = OFFICE_FEET;
   return (
     <g>
-      <Shadow cx={x + w / 2} w={w + 20} />
-      <rect x={x + 20} y={top + 24} width={20} height={240 - 24} fill={dark(WOOD, 0.25)} />
-      <rect x={x + w - 130} y={top + 24} width={120} height={240 - 24} rx={6} fill={dark(WOOD, 0.1)} />
-      <rect x={x + w - 118} y={top + 46} width={96} height={60} rx={6} fill={dark(WOOD, 0.22)} />
-      <rect x={x + w - 118} y={top + 122} width={96} height={60} rx={6} fill={dark(WOOD, 0.22)} />
-      <circle cx={x + w - 70} cy={top + 76} r={6} fill="#e0b030" />
-      <circle cx={x + w - 70} cy={top + 152} r={6} fill="#e0b030" />
-      {/* корзина для бумаг под столом */}
-      <path d={`M${x + 56} ${FLOOR_Y - 70} h60 l-6 70 h-48 Z`} fill={dark(METAL, 0.25)} />
-      <rect x={x + 58} y={FLOOR_Y - 84} width={20} height={16} rx={4} fill={WHITE} transform={`rotate(-20 ${x + 68} ${FLOOR_Y - 76})`} />
-      <rect x={x} y={top} width={w} height={26} rx={8} fill={WOOD} />
-      <rect x={x} y={top} width={w} height={7} rx={4} fill={light(WOOD, 0.2)} />
-      {/* лампа */}
-      <Glow cx={x + 120} cy={top - 20} rx={110} ry={50} opacity={0.6} />
-      <rect x={x + 40} y={top - 10} width={60} height={12} rx={6} fill={INK} />
-      <path d={`M${x + 70} ${top - 6} L${x + 92} ${top - 92}`} stroke={INK} strokeWidth={8} strokeLinecap="round" />
-      <path d={`M${x + 64} ${top - 82} L${x + 130} ${top - 128} L${x + 150} ${top - 82} Z`} fill={accent} />
-      {/* стопка карточек и раскрытая карта */}
-      <rect x={x + 150} y={top - 14} width={90} height={14} rx={3} fill={WHITE} />
-      <rect x={x + 156} y={top - 24} width={80} height={10} rx={3} fill={light(accent, 0.6)} />
-      <rect x={x + 152} y={top - 34} width={84} height={10} rx={3} fill="#e8c46a" />
-      <rect x={x + 158} y={top - 44} width={76} height={10} rx={3} fill={light(RED, 0.4)} />
-      {/* стетоскоп */}
-      <path d={`M${x + 100} ${top - 2} q-10 -26 12 -30 q26 -2 22 26`} stroke={INK} strokeWidth={5} fill="none" strokeLinecap="round" />
-      <circle cx={x + 136} cy={top - 3} r={9} fill={METAL} />
-      {/* ручки в стакане и кружка */}
-      <rect x={x + w - 130} y={top - 34} width={26} height={34} rx={5} fill={dark(accent, 0.3)} />
-      <rect x={x + w - 126} y={top - 54} width={4} height={24} fill={RED} transform={`rotate(-12 ${x + w - 124} ${top - 34})`} />
-      <rect x={x + w - 116} y={top - 56} width={4} height={26} fill="#3a5fa0" transform={`rotate(10 ${x + w - 114} ${top - 34})`} />
-      <rect x={x + w - 80} y={top - 46} width={36} height={46} rx={8} fill={RED} />
-      <path d={`M${x + w - 44} ${top - 36} q20 4 0 22`} stroke={RED} strokeWidth={7} fill="none" />
+      <Shadow cx={(x0 + x1) / 2} w={x1 - x0 + 30} y={bottom - 4} o={0.18} />
+      {/* передняя панель во всю ширину (ноги врача за ней) и тумба с ящиками справа */}
+      <rect x={x0 + 12} y={top + 24} width={x1 - x0 - 24} height={bottom - top - 24} fill={dark(WOOD, 0.18)} />
+      <rect x={x0 + 12} y={top + 24} width={x1 - x0 - 24} height={10} fill="#000000" opacity={0.15} />
+      <rect x={x0 + 30} y={top + 48} width={x1 - x0 - 200} height={bottom - top - 70} rx={6} fill={dark(WOOD, 0.26)} />
+      <rect x={x1 - 150} y={top + 44} width={126} height={56} rx={6} fill={dark(WOOD, 0.3)} />
+      <rect x={x1 - 150} y={top + 108} width={126} height={56} rx={6} fill={dark(WOOD, 0.3)} />
+      <circle cx={x1 - 87} cy={top + 72} r={6} fill="#e0b030" />
+      <circle cx={x1 - 87} cy={top + 136} r={6} fill="#e0b030" />
+      <rect x={x0} y={top} width={x1 - x0} height={26} rx={8} fill={WOOD} />
+      <rect x={x0} y={top} width={x1 - x0} height={7} rx={4} fill={light(WOOD, 0.2)} />
+      {/* лампа на левом краю */}
+      <Glow cx={x0 + 60} cy={top - 10} rx={80} ry={36} opacity={0.55} />
+      <rect x={x0 + 8} y={top - 10} width={50} height={12} rx={6} fill={INK} />
+      <path d={`M${x0 + 32} ${top - 6} L${x0 + 22} ${top - 84}`} stroke={INK} strokeWidth={7} strokeLinecap="round" />
+      <path d={`M${x0 + 4} ${top - 78} L${x0 + 40} ${top - 104} L${x0 + 62} ${top - 66} Z`} fill={accent} />
+      {/* стопка карточек пациентов */}
+      <rect x={x0 + 70} y={top - 14} width={66} height={14} rx={3} fill={WHITE} />
+      <rect x={x0 + 74} y={top - 24} width={60} height={10} rx={3} fill={light(accent, 0.6)} />
+      <rect x={x0 + 72} y={top - 34} width={62} height={10} rx={3} fill="#e8c46a" />
+      <rect x={x0 + 76} y={top - 44} width={56} height={10} rx={3} fill={light(RED, 0.4)} />
+      {/* раскрытая карта перед врачом и стетоскоп — низко, лицо врача открыто */}
+      <rect x={x0 + 126} y={top - 6} width={70} height={8} rx={2} fill={WHITE} transform={`rotate(-4 ${x0 + 160} ${top})`} />
+      <path d={`M${x0 + 200} ${top - 2} q-8 -22 10 -26 q22 -2 18 22`} stroke={INK} strokeWidth={5} fill="none" strokeLinecap="round" />
+      <circle cx={x0 + 230} cy={top - 3} r={8} fill={METAL} />
+      {/* ручки в стакане и кружка на правом краю */}
+      <rect x={x1 - 82} y={top - 34} width={24} height={34} rx={5} fill={dark(accent, 0.3)} />
+      <rect x={x1 - 78} y={top - 54} width={4} height={24} fill={RED} transform={`rotate(-12 ${x1 - 76} ${top - 34})`} />
+      <rect x={x1 - 68} y={top - 56} width={4} height={26} fill="#3a5fa0" transform={`rotate(10 ${x1 - 66} ${top - 34})`} />
+      <rect x={x1 - 50} y={top - 40} width={32} height={40} rx={7} fill={RED} />
+      <path d={`M${x1 - 18} ${top - 32} q16 4 0 20`} stroke={RED} strokeWidth={6} fill="none" />
     </g>
   );
 };
+
+/** Передний слой кабинета: стол врача и стул пациента перед ним. */
+const OfficeFront = ({ accent }: { accent: string }) => (
+  <>
+    <Desk accent={accent} />
+    <Shadow cx={0.72 * W} w={130} y={feetY(0.5)} o={0.14} />
+    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD} pad={light(accent, 0.2)} />
+  </>
+);
 
 /** Диплом в рамке. */
 const Diploma = ({ x, y }: { x: number; y: number }) => (
@@ -488,7 +510,7 @@ const MedCabinet = ({ x, y, w = 160, h = 150, accent }: { x: number; y: number; 
   </g>
 );
 
-/** Кабинет: дверь с халатом, кушетка под окном, таблица, тонометр, стол врача (стул врача desk, стул пациента patient-chair), аптечка, скелет. */
+/** Кабинет: дверь с халатом, кушетка под окном, таблица, тонометр, кресло врача (desk), аптечка, скелет; стол и стул пациента — в OfficeFront. */
 const Office = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => (
   <>
     <Room wall={wall} floor={floor} />
@@ -517,11 +539,9 @@ const Office = ({ wall, floor, accent }: { wall: string; floor: string; accent: 
     <MedCabinet x={720} y={640} w={170} h={140} accent={accent} />
     <Skeleton cx={990} />
     <Couch x={250} w={260} accent={accent} />
-    <Desk x={660} w={250} accent={accent} />
+    {/* кресло врача (метка desk) — за столом; сам стол и стул пациента — передний слой (OfficeFront) */}
     <Shadow cx={0.56 * W} w={120} />
     <SeatAt x={0.56} z={1} kind="office" color={dark(accent, 0.45)} />
-    <Shadow cx={0.72 * W} w={130} y={1275} o={0.14} />
-    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD} pad={light(accent, 0.2)} />
   </>
 );
 
@@ -642,7 +662,7 @@ const Timetable = ({ x, y, w = 200, h = 170, accent }: { x: number; y: number; w
   </g>
 );
 
-/** Коридор поликлиники: окошко регистратуры слева, ряд из 5 стульев у стены (chair-1…5), плакаты, расписание, цветок, дверь кабинета справа. */
+/** Коридор поликлиники: окошко регистратуры слева (за ним регистратор — метка reception; рама и стойка — WaitingFront), ряд из 5 стульев у стены (chair-1…5), плакаты, расписание, цветок, дверь кабинета справа. */
 const WaitingRoom = ({ wall, floor, accent }: { wall: string; floor: string; accent: string }) => {
   const seat = dark(accent, 0.35);
   return (
@@ -655,21 +675,11 @@ const WaitingRoom = ({ wall, floor, accent }: { wall: string; floor: string; acc
       <Wainscot wall={wall} accent={accent} />
       {/* окошко регистратуры: табличка, звонок, журнал, карточки за стеклом */}
       <rect x={20} y={560} width={230} height={FLOOR_Y - 560} fill={dark(wall, 0.12)} />
-      <rect x={40} y={590} width={190} height={230} rx={10} fill={light(accent, 0.6)} />
+      <rect x={40} y={590} width={190} height={RECEPTION_TOP - 590} rx={10} fill={light(accent, 0.6)} />
       {[0, 1, 2].map((i) => <rect key={i} x={56 + i * 22} y={680} width={16} height={60} rx={2} fill={["#e8c46a", WHITE, light(RED, 0.3)][i]} opacity={0.7} />)}
       <rect x={160} y={690} width={56} height={8} fill={dark(wall, 0.2)} opacity={0.6} />
       {[0, 1, 2, 3].map((i) => <rect key={i} x={164 + (i % 2) * 24} y={660 - Math.floor(i / 2) * 26} width={18} height={24} rx={2} fill={["#7fb3d5", "#e8c46a", RED, WHITE][i]} opacity={0.65} />)}
-      <path d="M90 820 v-60 a45 45 0 0 1 90 0 v60 Z" fill={dark(wall, 0.25)} />
-      <path d="M50 600 L100 600 L50 680 Z" fill="#ffffff" opacity={0.35} />
-      <rect x={10} y={820} width={250} height={26} rx={6} fill={WOOD} />
-      <rect x={10} y={820} width={250} height={7} rx={4} fill={light(WOOD, 0.2)} />
-      <rect x={70} y={612} width={130} height={30} rx={6} fill={accent} />
-      <rect x={90} y={622} width={90} height={10} rx={5} fill={WHITE} opacity={0.8} />
-      <rect x={180} y={796} width={36} height={22} rx={3} fill={WHITE} />
-      <ellipse cx={60} cy={814} rx={18} ry={6} fill={dark(METAL, 0.2)} />
-      <path d="M44 814 a16 16 0 0 1 32 0 Z" fill="#d9a630" />
-      <rect x={30} y={846} width={210} height={FLOOR_Y - 846} fill={dark(wall, 0.18)} />
-      <rect x={30} y={846} width={210} height={FLOOR_Y - 846} fill="none" stroke={dark(wall, 0.25)} strokeWidth={4} />
+      {/* рама окошка, стекло, стойка со звонком и низ стены под окошком — передний слой (WaitingFront): регистратор за ними */}
       {/* плакаты о здоровье и пиктограммы */}
       <HealthPoster x={340} y={460} w={180} h={240} kind="heart" accent={accent} />
       <HealthPoster x={545} y={470} w={150} h={200} kind="hands" accent={accent} />
@@ -695,6 +705,37 @@ const WaitingRoom = ({ wall, floor, accent }: { wall: string; floor: string; acc
       <circle cx={978} cy={FLOOR_Y - 560} r={16} fill={RED} />
       <circle cx={973} cy={FLOOR_Y - 565} r={5} fill="#ffd0c0" />
       <Extinguisher x={300} y={724} />
+    </>
+  );
+};
+
+/** Верх стойки окошка регистратуры: низко, чтобы регистратор (reception, z 1) был виден за стеклом и при мелком масштабе (5 кукол). */
+const RECEPTION_TOP = 1010;
+
+/** Передний слой коридора (front.z 0.97, регистратор на reception z 1 — за ним по грудь): рама окошка регистратуры, полупрозрачное стекло с вырезом, табличка, стойка со звонком и журналом, стена под окошком. */
+const WaitingFront = ({ wall, accent }: { wall: string; accent: string }) => {
+  const frame = dark(wall, 0.12);
+  const top = RECEPTION_TOP;
+  return (
+    <>
+      <rect x={20} y={560} width={230} height={30} fill={frame} />
+      <rect x={20} y={590} width={20} height={top - 590} fill={frame} />
+      <rect x={230} y={590} width={20} height={top - 590} fill={frame} />
+      <rect x={40} y={590} width={190} height={top - 590} fill={light(accent, 0.6)} opacity={0.22} />
+      <rect x={40} y={590} width={190} height={top - 590} fill="none" stroke={dark(wall, 0.25)} strokeWidth={5} />
+      <path d="M50 600 L100 600 L50 680 Z" fill="#ffffff" opacity={0.3} />
+      {/* щель для документов в стекле над стойкой — низкая, лицо регистратора не перечёркивает */}
+      <path d={`M85 ${top} v-18 q0 -10 10 -10 h80 q10 0 10 10 v18`} fill="none" stroke={dark(wall, 0.3)} strokeWidth={4} />
+      <rect x={70} y={563} width={130} height={26} rx={6} fill={accent} />
+      <rect x={90} y={571} width={90} height={10} rx={5} fill={WHITE} opacity={0.8} />
+      <rect x={10} y={top} width={250} height={26} rx={6} fill={WOOD} />
+      <rect x={10} y={top} width={250} height={7} rx={4} fill={light(WOOD, 0.2)} />
+      <rect x={180} y={top - 24} width={36} height={22} rx={3} fill={WHITE} />
+      <ellipse cx={60} cy={top - 6} rx={18} ry={6} fill={dark(METAL, 0.2)} />
+      <path d={`M44 ${top - 6} a16 16 0 0 1 32 0 Z`} fill="#d9a630" />
+      <rect x={20} y={top + 26} width={230} height={FLOOR_Y - top - 26} fill={frame} />
+      <rect x={30} y={top + 26} width={210} height={FLOOR_Y - top - 26} fill={dark(wall, 0.18)} />
+      <rect x={30} y={top + 26} width={210} height={FLOOR_Y - top - 26} fill="none" stroke={dark(wall, 0.25)} strokeWidth={4} />
     </>
   );
 };
@@ -881,8 +922,14 @@ const Padded = ({ wall, floor, accent }: { wall: string; floor: string; accent: 
   );
 };
 
-export const Bolnitsa = ({ palette, variant }: BackdropProps) => {
+export const Bolnitsa = ({ palette, variant, layer = "back" }: BackdropProps) => {
   const { wall, floor, accent } = palette;
+  if (layer === "front") {
+    // передний слой: стол врача в кабинете и окошко регистратуры в коридоре; палата и мягкая палата — без него
+    if (variant === "waiting-room") return <Canvas><WaitingFront wall={wall} accent={accent} /></Canvas>;
+    if (variant === "hospital" || variant === "madhouse") return null;
+    return <Canvas><OfficeFront accent={accent} /></Canvas>;
+  }
   return (
     <Canvas>
       {variant === "waiting-room" ? (

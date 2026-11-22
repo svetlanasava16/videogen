@@ -63,10 +63,14 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "behind-desk": {
+      "x": 0.852,
+      "z": 0.95
     }
   },
   "bible": {
-    "summary": "School classroom: hanging ball lamps, a number strip 1–0 above the big green blackboard with chalk drawings, chalk and rag on its ledge, world map and two portraits of scientists on the left, wall clock and periodic table on the right, wood-panelled lower walls, parquet floor; two pupil desks with chairs at the back wall, one pupil desk in the middle plane on the left, the teacher's table with globe, books, apple and a pencil cup on the right with the teacher's chair beside it; variant university lecture hall.",
+    "summary": "School classroom: hanging ball lamps, a number strip 1–0 above the big green blackboard with chalk drawings, chalk and rag on its ledge, world map and two portraits of scientists on the left, wall clock and periodic table on the right, wood-panelled lower walls, parquet floor; two pupil desks with chairs at the back wall, one pupil desk in the middle plane on the left, the teacher's table with globe, books, apple and a pencil cup on the right with the teacher's chair beside it (teacher-desk) — the table stands in front: a teacher standing behind it (behind-desk) is hidden to the waist, things put down lie on it; variant university lecture hall.",
     "roles": [
       "school-classroom",
       "university"
@@ -82,7 +86,7 @@
         "roles": [
           "university"
         ],
-        "change": "University lecture hall: pendant lamps, tall arched windows with portraits of scholars between them, tiers of seats with notebooks and laptops on the desks rising to the windows, lit stairs up the middle, a front row of four folding seats along the first tier (row-1, row-2, row-3 left of the stairs, row-4 right of them; student-desk = row-2), lecturer's lectern with a microphone, a laptop, papers and a glass of water on the right — the lecturer stands beside it (lectern / teacher-desk).",
+        "change": "University lecture hall: pendant lamps, tall arched windows with portraits of scholars between them, tiers of seats with notebooks and laptops on the desks rising to the windows, lit stairs up the middle, a front row of four folding seats along the first tier (row-1, row-2, row-3 left of the stairs, row-4 right of them; student-desk = row-2), lecturer's lectern with a microphone, a laptop, papers and a glass of water on the right — the lecturer stands behind it (behind-lectern, hidden to the waist) or beside it (lectern / teacher-desk).",
         "marks": {
           "row-1": {
             "x": 0.1,
@@ -148,10 +152,123 @@
           "front-right": {
             "x": 0.75,
             "z": 0
+          },
+          "behind-lectern": {
+            "x": 0.87,
+            "z": 0.95
           }
-        }
+        },
+        "front": {
+          "z": 0.8
+        },
+        "surfaces": [
+          {
+            "x0": 0.77,
+            "x1": 0.97,
+            "z": 0.8,
+            "top": 228
+          }
+        ],
+        "slots": [
+          {
+            "mark": "behind-lectern",
+            "roles": [
+              "professor",
+              "teacher",
+              "scientist",
+              "lecturer"
+            ]
+          },
+          {
+            "mark": "row-3"
+          },
+          {
+            "mark": "row-4"
+          },
+          {
+            "mark": "row-2"
+          },
+          {
+            "mark": "row-1"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-center"
+          }
+        ]
       }
     ],
     "prompt": "school classroom, green blackboard with chalk, rows of desks, world map, teacher's table"
-  }
+  },
+  "front": {
+    "z": 0.8
+  },
+  "surfaces": [
+    {
+      "x0": 0.72,
+      "x1": 0.98,
+      "z": 0.8,
+      "top": 241
+    }
+  ],
+  "slots": [
+    {
+      "mark": "behind-desk",
+      "roles": [
+        "teacher",
+        "professor",
+        "principal"
+      ]
+    },
+    {
+      "mark": "student-desk",
+      "roles": [
+        "student",
+        "child",
+        "vovochka",
+        "fritzchen",
+        "son",
+        "daughter",
+        "teenager"
+      ]
+    },
+    {
+      "mark": "pupil-2",
+      "roles": [
+        "student",
+        "child",
+        "vovochka",
+        "fritzchen",
+        "son",
+        "daughter",
+        "teenager"
+      ]
+    },
+    {
+      "mark": "pupil-1",
+      "roles": [
+        "student",
+        "child",
+        "vovochka",
+        "fritzchen",
+        "son",
+        "daughter",
+        "teenager"
+      ]
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

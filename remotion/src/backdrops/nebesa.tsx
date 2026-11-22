@@ -1,11 +1,13 @@
 import { Canvas, Cloud, W, H, type BackdropProps } from "./parts";
+import { feetY } from "../world/depth";
 import { Glow } from "./bolnitsa";
 
 /**
  * Фон «nebesa»: врата рая на облаках (Апостол Пётр с книгой), варианты hell (пещера с огнём и котлом),
  * garden-of-eden (сад с яблоней и змеем), space (космос и лунная поверхность),
  * crossroads (развилка в облаках: дорога вверх к вратам рая и вниз в огненный провал, указатель, весы и пюпитр судьи).
- * Метки — простые доли ширины (средний план, стопы y≈1275): у пюпитра слева, у врат по центру, на облаке справа.
+ * Метки на трёх планах (content/locations/nebesa.json), у каждого вида свои. У врат пюпитр — передний слой (layer="front", front.z 0.8):
+ * Пётр стоит за ним (lectern = behind-lectern, z 0.95), книга — поверхность для предметов; Бог — на ступенях (gate-steps).
  */
 
 /** Осветлить (k>0) или затемнить (k<0) цвет #rrggbb. */
@@ -427,19 +429,36 @@ const PearlyGate = ({ gold }: { gold: string }) => {
   );
 };
 
-/** Пюпитр-ресепшен: колонна, наклонная доска с большой раскрытой книгой, закладки, чернильница с пером, звонок. */
-const Lectern = ({ x, gold, bell = true }: { x: number; gold: string; bell?: boolean }) => {
+/**
+ * Пюпитр-ресепшен: наклонная доска с большой раскрытой книгой, закладки, чернильница с пером, звонок.
+ * pulpit — сплошная тумба вместо колонны (у врат рая это передний слой: апостол Пётр стоит за ней, скрыт по пояс);
+ * dy — сдвиг вниз (низ на полу плана переднего слоя).
+ */
+const Lectern = ({ x, gold, bell = true, pulpit = false, dy = 0 }: { x: number; gold: string; bell?: boolean; pulpit?: boolean; dy?: number }) => {
   const goldD = shade(gold, -0.25);
   const goldL = shade(gold, 0.45);
   return (
-    <g transform={`translate(${x} 0)`}>
+    <g transform={`translate(${x} ${dy})`}>
       <ellipse cx={0} cy={1190} rx={100} ry={12} fill="#c9d6e6" opacity={0.75} />
       <rect x={-62} y={1164} width={124} height={24} rx={10} fill={goldD} />
       <rect x={-46} y={1146} width={92} height={22} rx={8} fill={gold} />
       <rect x={-46} y={1146} width={92} height={6} rx={3} fill={goldL} />
-      <rect x={-18} y={1004} width={36} height={146} fill="#f6efe3" />
-      <rect x={6} y={1004} width={12} height={146} fill="#e2d5bf" />
-      {[1018, 1080, 1132].map((y) => <rect key={y} x={-23} y={y} width={46} height={10} rx={5} fill={gold} />)}
+      {pulpit ? (
+        <g>
+          <path d="M-84 1004 H84 L60 1150 H-60 Z" fill="#f6efe3" />
+          <path d="M40 1004 H84 L60 1150 H30 Z" fill="#e2d5bf" />
+          <path d="M-56 1034 H56 L44 1116 H-44 Z" fill="none" stroke={gold} strokeWidth={5} />
+          <circle cx={0} cy={1075} r={15} fill={gold} />
+          <circle cx={0} cy={1075} r={7} fill={goldL} />
+          <rect x={-66} y={1136} width={132} height={12} rx={5} fill={gold} />
+        </g>
+      ) : (
+        <g>
+          <rect x={-18} y={1004} width={36} height={146} fill="#f6efe3" />
+          <rect x={6} y={1004} width={12} height={146} fill="#e2d5bf" />
+          {[1018, 1080, 1132].map((y) => <rect key={y} x={-23} y={y} width={46} height={10} rx={5} fill={gold} />)}
+        </g>
+      )}
       {/* боковые полочки */}
       <ellipse cx={128} cy={1000} rx={26} ry={7} fill={goldD} />
       {bell && <ellipse cx={-128} cy={1000} rx={26} ry={7} fill={goldD} />}
@@ -593,9 +612,8 @@ const Heaven = ({ palette }: BackdropProps) => {
       <Puff x={900} y={1310} w={300} h={70} seed={27} shadow="#ecf1f8" />
       <Puff x={-140} y={1960} w={420} h={200} seed={29} shadow="#e8eef7" />
       <Puff x={800} y={1960} w={440} h={220} seed={33} shadow="#e8eef7" />
-      {/* арфа у правой колонны и пюпитр слева */}
+      {/* арфа у правой колонны; пюпитр слева — передний слой (HeavenFront) */}
       <Harp x={936} y={1186} gold={gold} />
-      <Lectern x={150} gold={gold} />
       {/* голуби и искорки */}
       <Dove x={92} y={770} s={0.9} />
       <Dove x={150} y={812} s={0.65} />
@@ -607,6 +625,12 @@ const Heaven = ({ palette }: BackdropProps) => {
     </>
   );
 };
+
+/** План переднего слоя у врат (пюпитр): content/locations/nebesa.json → front.z. Пётр — за ним на z 0.95 (метка lectern). */
+const FRONT_Z = 0.8;
+
+/** Передний слой вида по умолчанию: пюпитр апостола Петра, низ — на полу плана FRONT_Z; книга — поверхность (surfaces). */
+const HeavenFront = ({ palette }: BackdropProps) => <Lectern x={150} gold={palette.accent} pulpit dy={feetY(FRONT_Z) - 1190} />;
 
 const Flame = ({ x, y, s = 1, o = 1 }: { x: number; y: number; s?: number; o?: number }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} opacity={o}>
@@ -1458,7 +1482,14 @@ const Crossroads = ({ palette }: BackdropProps) => {
   );
 };
 
-export const Nebesa = ({ palette, variant }: BackdropProps) => (
+/** Сублокации со своим рисунком; всё остальное — врата рая. */
+const OWN_VIEWS = ["hell", "garden-of-eden", "space", "crossroads"];
+
+export const Nebesa = ({ palette, variant, layer = "back" }: BackdropProps) =>
+  layer === "front" ? (
+    // передний слой есть только у врат (вид по умолчанию, в т.ч. неизвестный place): пюпитр перед Петром
+    OWN_VIEWS.includes(variant ?? "") ? null : <Canvas><HeavenFront palette={palette} /></Canvas>
+  ) : (
   <Canvas>
     {variant === "hell" ? (
       <Hell />

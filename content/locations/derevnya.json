@@ -22,10 +22,49 @@
     "right": 0.78,
     "house": 0.25,
     "fence": 0.55,
-    "tree": 0.82
+    "tree": 0.82,
+    "hut": {
+      "x": 0.2,
+      "z": 1
+    },
+    "bench-1": {
+      "x": 0.36,
+      "z": 1,
+      "seat": "bench"
+    },
+    "bench": {
+      "x": 0.45,
+      "z": 1,
+      "seat": "bench"
+    },
+    "bench-2": {
+      "x": 0.54,
+      "z": 1,
+      "seat": "bench"
+    },
+    "well": {
+      "x": 0.73,
+      "z": 1
+    },
+    "birches": {
+      "x": 0.9,
+      "z": 1
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Countryside: village, farm, forest, river — fishermen, hunters, farmers. Default view (village): log hut with carved window frames and chimney smoke on the left (house), picket fence with clay pots, a cat and sunflowers, a well behind the fence, hens and a rooster (fence), birches on the right (tree), a river and a church in the distance.",
+    "summary": "Countryside: village, farm, forest, river — fishermen, hunters, farmers. Default view (village): log hut with carved window frames and chimney smoke on the left (hut — at its wall, back plane; house — in front of it, middle plane), a plank bench in front of the picket fence for two (bench-1, bench-2 — old women sit there), picket fence with clay pots, a cat and sunflowers, a well behind the fence (well), hens and a rooster (fence — middle plane), birches on the right (birches — back plane; tree — middle plane), a river and a church in the distance.",
     "roles": [
       "village",
       "farm",
@@ -40,37 +79,463 @@
         "roles": [
           "forest"
         ],
-        "change": "dense forest: misty rows of pines with light rays, birches, a fallen log, ferns, a blueberry bush, stumps and mushrooms, big pines at the edges with a squirrel and a woodpecker, a path in the middle"
+        "change": "dense forest: misty rows of pines with light rays, birches, ferns, a blueberry bush, mushrooms, big pines at the edges with a squirrel and a woodpecker, a path in the middle (path); a wide stump on the left to sit on (stump), a fallen log right of the path for two (log-1, log-2 — hunters sit there), a small stump on the right; old marks house, fence, tree stand on the middle plane",
+        "marks": {
+          "stump": {
+            "x": 0.25,
+            "z": 1,
+            "seat": "stool"
+          },
+          "path": {
+            "x": 0.47,
+            "z": 1
+          },
+          "log-1": {
+            "x": 0.56,
+            "z": 1,
+            "seat": "bench"
+          },
+          "log-2": {
+            "x": 0.78,
+            "z": 1,
+            "seat": "bench"
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "house": {
+            "x": 0.25,
+            "z": 0.5
+          },
+          "fence": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "tree": {
+            "x": 0.82,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "log-1",
+            "roles": [
+              "hunter"
+            ]
+          },
+          {
+            "mark": "log-2",
+            "roles": [
+              "hunter"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "river-lake",
         "roles": [
           "river-lake"
         ],
-        "change": "river bank: far bank with a village and a church, water with reflections, lily pads, a duck with ducklings, a moored rowing boat and a wooden jetty on the right, a fishing rod with a float and a bucket, reeds on the left, sandy shore"
+        "change": "river bank: far bank with a village and a church, water with reflections, lily pads, a duck with ducklings, a moored rowing boat and a wooden jetty out on the water on the right, reeds on the left (reeds), sandy shore (shore); on the near bank on the right a fisherman's folding stool (stool — the fisherman sits there) next to a fishing rod with a float and a bucket, the second fisherman stands on the bank left of it (bank); old marks house, fence, tree stand on the middle plane",
+        "marks": {
+          "reeds": {
+            "x": 0.18,
+            "z": 1
+          },
+          "shore": {
+            "x": 0.5,
+            "z": 1
+          },
+          "stool": {
+            "x": 0.78,
+            "z": 1,
+            "seat": "stool"
+          },
+          "bank": {
+            "x": 0.6,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "house": {
+            "x": 0.25,
+            "z": 0.5
+          },
+          "fence": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "tree": {
+            "x": 0.82,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "stool",
+            "roles": [
+              "fisherman"
+            ]
+          },
+          {
+            "mark": "bank",
+            "roles": [
+              "fisherman"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "farm",
         "roles": [
           "farm"
         ],
-        "change": "farm: red barn with a hay loft and a rooster weathervane on the right, hay bales and a pitchfork, hens and a rooster, a rail fence, cows and sheep in the far field, a water tower"
+        "change": "farm: red barn with a hay loft and a rooster weathervane on the right, its big door (barn), a big hay bale on the left (hay — a cow eats there) and a small one, a pitchfork (pitchfork), hens and a rooster, a rail fence, cows and sheep in the far field, a water tower; old marks house, fence, tree stand on the middle plane",
+        "marks": {
+          "hay": {
+            "x": 0.2,
+            "z": 1
+          },
+          "pitchfork": {
+            "x": 0.38,
+            "z": 1
+          },
+          "barn": {
+            "x": 0.815,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "house": {
+            "x": 0.25,
+            "z": 0.5
+          },
+          "fence": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "tree": {
+            "x": 0.82,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "barn",
+            "roles": [
+              "farmer"
+            ]
+          },
+          {
+            "mark": "hay",
+            "roles": [
+              "cow",
+              "horse",
+              "goat",
+              "sheep"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "garden",
         "roles": [
           "garden"
         ],
-        "change": "dacha garden: greenhouse with tomatoes on the left, an apple tree, a small dacha house, a scarecrow, a birdhouse, sunflowers behind the fence, a vegetable bed with cabbages and carrots, a spade, a wheelbarrow, a watering can"
+        "change": "dacha garden: greenhouse with tomatoes on the left (greenhouse), an apple tree, a small dacha house, a scarecrow, a birdhouse, sunflowers behind the fence, a vegetable bed with cabbages and carrots across the garden (beds), a spade, a wheelbarrow (wheelbarrow), a watering can (watering-can); fence stands on the middle plane",
+        "marks": {
+          "greenhouse": {
+            "x": 0.18,
+            "z": 1
+          },
+          "wheelbarrow": {
+            "x": 0.37,
+            "z": 1
+          },
+          "beds": {
+            "x": 0.58,
+            "z": 1
+          },
+          "watering-can": {
+            "x": 0.86,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "fence": {
+            "x": 0.55,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "beds",
+            "roles": [
+              "farmer",
+              "gardener"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "mountain",
         "roles": [
           "mountain"
         ],
-        "change": "mountains: snowy ranges, a waterfall, an eagle, an alpine meadow with a hut, a signpost «ВЕРШИНА / ДОМ», pines, boulders, a trail, edelweiss"
+        "change": "mountains: snowy ranges, a waterfall, an eagle, an alpine meadow with a hut, a signpost «ВЕРШИНА / ДОМ» (signpost), pines, a trail (trail), a low flat rock to sit on (rock) and big boulders on the right (boulder), edelweiss",
+        "marks": {
+          "signpost": {
+            "x": 0.3,
+            "z": 1
+          },
+          "trail": {
+            "x": 0.58,
+            "z": 1
+          },
+          "rock": {
+            "x": 0.704,
+            "z": 1,
+            "seat": "stool"
+          },
+          "boulder": {
+            "x": 0.84,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "rock"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "simple countryside, wooden hut, fence, birch trees, river in the distance, summer"
-  }
+  },
+  "slots": [
+    {
+      "mark": "bench-1",
+      "roles": [
+        "old-woman",
+        "grandma",
+        "old-man",
+        "grandpa"
+      ]
+    },
+    {
+      "mark": "bench-2",
+      "roles": [
+        "old-woman",
+        "grandma",
+        "old-man",
+        "grandpa"
+      ]
+    },
+    {
+      "mark": "fence",
+      "roles": [
+        "farmer"
+      ]
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

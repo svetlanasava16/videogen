@@ -58,6 +58,18 @@
     "car": {
       "x": 0.78,
       "z": 0.1
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
     }
   },
   "bible": {
@@ -109,7 +121,41 @@
             "z": 1,
             "seat": "car-seat"
           }
-        }
+        },
+        "front": {
+          "z": 0.45
+        },
+        "surfaces": [
+          {
+            "x0": 0.05,
+            "x1": 0.95,
+            "z": 0.45,
+            "top": 60
+          }
+        ],
+        "slots": [
+          {
+            "mark": "driver",
+            "roles": [
+              "driver",
+              "taxi-driver",
+              "chauffeur",
+              "husband",
+              "father",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "passenger"
+          },
+          {
+            "mark": "back-left"
+          },
+          {
+            "mark": "back-right"
+          }
+        ]
       },
       {
         "id": "taxi",
@@ -143,7 +189,37 @@
             "z": 1,
             "seat": "car-seat"
           }
-        }
+        },
+        "front": {
+          "z": 0.45
+        },
+        "surfaces": [
+          {
+            "x0": 0.05,
+            "x1": 0.95,
+            "z": 0.45,
+            "top": 60
+          }
+        ],
+        "slots": [
+          {
+            "mark": "driver",
+            "roles": [
+              "driver",
+              "taxi-driver",
+              "chauffeur"
+            ]
+          },
+          {
+            "mark": "passenger"
+          },
+          {
+            "mark": "back-left"
+          },
+          {
+            "mark": "back-right"
+          }
+        ]
       },
       {
         "id": "bus",
@@ -212,7 +288,40 @@
             "x": 0.82,
             "z": 0.5
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "driver",
+            "roles": [
+              "driver",
+              "taxi-driver",
+              "chauffeur",
+              "bus-driver",
+              "tram-driver"
+            ]
+          },
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "stand-1"
+          },
+          {
+            "mark": "stand-2"
+          },
+          {
+            "mark": "front-1"
+          },
+          {
+            "mark": "front-2"
+          }
+        ]
       },
       {
         "id": "subway",
@@ -266,12 +375,43 @@
           "front": {
             "x": 0.5,
             "z": 0
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
           }
         },
         "crowd": {
           "who": "passengers",
           "size": "few"
-        }
+        },
+        "slots": [
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "stand-left"
+          },
+          {
+            "mark": "stand-right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "tram",
@@ -329,7 +469,47 @@
             "x": 0.5,
             "z": 0.3
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "cab",
+            "roles": [
+              "driver",
+              "taxi-driver",
+              "chauffeur",
+              "bus-driver",
+              "tram-driver"
+            ]
+          },
+          {
+            "mark": "validator",
+            "roles": [
+              "conductor",
+              "ticket-inspector"
+            ]
+          },
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "stand-1"
+          },
+          {
+            "mark": "stand-2"
+          },
+          {
+            "mark": "front-1"
+          },
+          {
+            "mark": "front-2"
+          }
+        ]
       },
       {
         "id": "bus-stop",
@@ -382,8 +562,43 @@
           "right": {
             "x": 0.78,
             "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "bench-2"
+          },
+          {
+            "mark": "bench-1"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "gas-station",
@@ -425,10 +640,111 @@
           "road-right": {
             "x": 0.8,
             "z": 0.1
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "pump-1",
+            "roles": [
+              "attendant",
+              "gas-station-attendant",
+              "mechanic"
+            ]
+          },
+          {
+            "mark": "shop-door",
+            "roles": [
+              "salesman",
+              "saleswoman",
+              "seller",
+              "cashier",
+              "shop-assistant",
+              "butcher",
+              "shopkeeper"
+            ]
+          },
+          {
+            "mark": "road-right",
+            "roles": [
+              "driver",
+              "taxi-driver",
+              "chauffeur",
+              "bus-driver",
+              "tram-driver"
+            ]
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "pump-2"
+          },
+          {
+            "mark": "forecourt"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "country road, road sign, fields on the horizon"
-  }
+  },
+  "slots": [
+    {
+      "mark": "right",
+      "roles": [
+        "traffic-cop",
+        "police-officer",
+        "policeman",
+        "customs-officer",
+        "soldier"
+      ]
+    },
+    {
+      "mark": "left",
+      "roles": [
+        "driver",
+        "taxi-driver",
+        "chauffeur",
+        "bus-driver",
+        "tram-driver",
+        "biker"
+      ]
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    },
+    {
+      "mark": "roadside"
+    },
+    {
+      "mark": "roadside-right"
+    }
+  ]
 }

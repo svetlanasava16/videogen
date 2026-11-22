@@ -48,6 +48,18 @@
     "front": {
       "x": 0.5,
       "z": 0
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
     }
   },
   "bible": {
@@ -81,10 +93,59 @@
           "back": {
             "x": 0.5,
             "z": 1
+          },
+          "front-left": {
+            "x": 0.3,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.7,
+            "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "back"
+          },
+          {
+            "mark": "front-center"
+          }
+        ]
       }
     ],
     "prompt": "soviet apartment block stairwell landing, two padded apartment doors with numbers, elevator doors, stairs with railing going up, painted green lower wall, bare bulb"
-  }
+  },
+  "slots": [
+    {
+      "mark": "door-right",
+      "roles": [
+        "neighbor"
+      ]
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

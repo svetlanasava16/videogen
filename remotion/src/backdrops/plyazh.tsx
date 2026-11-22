@@ -1,12 +1,17 @@
 import { Canvas, FLOOR_Y, W, H, type BackdropProps } from "./parts";
 import { useSign } from "../i18n/signs";
 import { Birds, Label, Puff, rnd, shade } from "./ulitsa";
+import { seatTopY } from "../world/depth";
 
 /**
  * Фон «plyazh»: морской пляж. Небо с солнцем и чайками, на горизонте мыс с маяком, парусники и теплоход, буйки;
  * море слоями до линии прибоя у дальнего плана, мокрый и сухой песок. Красный зонт слева (umbrella, x 0.2),
- * у воды — water (0.6), полотенце на песке справа (towel, 0.8). Все метки — средний план; песок ниже 1190 свободен.
+ * у воды — water (0.6), полотенце на песке справа (towel, 0.8). Метки — средний план; лежак под зонтом — sunbed (дальний план,
+ * сиденье), передний план — front-left/center/right. Песок ниже 1190 свободен.
  */
+
+/** Верх подушки лежака под зонтом: на нём сидит кукла на метке sunbed (z 1). */
+const SUNBED_TOP = seatTopY(1);
 
 const SEA_FAR = "#3d7fb5";
 const SEA = "#4f97c9";
@@ -125,11 +130,11 @@ export const Plyazh = ({ palette }: BackdropProps) => {
         <rect x={670} y={920} width={4} height={60} fill="#5a4636" />
         <path d="M674 922 h30 l-8 10 l8 10 h-30 z" fill="#e0602a" />
       </g>
-      {/* красный зонт (umbrella), лежак под ним */}
+      {/* красный зонт (umbrella), лежак под ним (метка sunbed, x 0.176, дальний план: верх подушки = seatTopY(1)) */}
       <g>
-        <rect x={60} y={1160} width={260} height={20} rx={8} fill="#c9a06a" />
-        <rect x={60} y={1150} width={260} height={14} rx={6} fill="#f4f1ea" />
-        {[80, 300].map((x) => <rect key={x} x={x} y={1176} width={10} height={20} fill="#a8804a" />)}
+        <rect x={60} y={SUNBED_TOP + 10} width={260} height={20} rx={8} fill="#c9a06a" />
+        <rect x={60} y={SUNBED_TOP} width={260} height={14} rx={6} fill="#f4f1ea" />
+        {[80, 300].map((x) => <rect key={x} x={x} y={SUNBED_TOP + 26} width={10} height={FLOOR_Y + 6 - SUNBED_TOP - 26} fill="#a8804a" />)}
       </g>
       <Umbrella x={0.2 * W} y={FLOOR_Y} s={0.95} a={palette.accent} b="#f4f1ea" />
       {/* полотенца на песке (towel) */}

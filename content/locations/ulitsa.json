@@ -66,10 +66,18 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "flower-shop": {
+      "x": 0.215,
+      "z": 1
+    },
+    "pharmacy": {
+      "x": 0.66,
+      "z": 1
     }
   },
   "bible": {
-    "summary": "Town street: four house facades with windows, curtains, flower boxes and balconies; ground-floor shops — «Цветы» flowers on the left behind the lamp post, the «Хлеб» bakery with a striped awning and its door in the middle (shop, shop-door), the «Аптека» pharmacy, a house entrance with a circus poster; lamp post and litter bin on the left (lamp), a cast-iron street bench under a tree on the right for two (bench-1, bench-2), pigeons, paved sidewalk and a road with a manhole in front. Variants: park, cemetery, stadium, zoo, yard, yard-night.",
+    "summary": "Town street: four house facades with windows, curtains, flower boxes and balconies; ground-floor shops — «Цветы» flowers on the left behind the lamp post (its door: flower-shop), the «Хлеб» bakery with a striped awning and its door in the middle (shop, shop-door), the «Аптека» pharmacy (its window: pharmacy), a house entrance with a circus poster; lamp post and litter bin on the left (lamp), a cast-iron street bench under a tree on the right for two (bench-1, bench-2), pigeons, paved sidewalk and a road with a manhole in front. Variants: park, cemetery, stadium, zoo, yard, yard-night.",
     "roles": [
       "street",
       "park",
@@ -88,7 +96,7 @@
         "roles": [
           "park"
         ],
-        "change": "Park: distant city, rows of trees and poplars, an ice-cream kiosk at the end of the sandy path in the middle (path), a flower bed, lamp post and bin on the left (lamp), a leafy tree with a squirrel, park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers and grass in front.",
+        "change": "Park: distant city, rows of trees and poplars, an ice-cream kiosk at the end of the sandy path in the middle (path), a flower bed, lamp post and bin on the left (lamp), a leafy tree with a squirrel, park bench on the right with a balloon tied to it for two (bench-1, bench-2), flowers and grass in front. Grown-ups with no mark sit on the bench (fathers, mothers, old people, an everyman), children and dogs stand on the grass (left, center, right).",
         "marks": {
           "lamp": {
             "x": 0.23,
@@ -137,7 +145,48 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "bench-1",
+            "roles": [
+              "father",
+              "mother",
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa",
+              "everyman"
+            ]
+          },
+          {
+            "mark": "bench-2",
+            "roles": [
+              "father",
+              "mother",
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa",
+              "everyman"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "cemetery",
@@ -206,7 +255,58 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "grave",
+            "roles": [
+              "employee",
+              "gravedigger",
+              "construction-worker",
+              "janitor",
+              "priest"
+            ]
+          },
+          {
+            "mark": "bench-1",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "bench-2",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "tree",
+            "roles": [
+              "drunk"
+            ]
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "stadium",
@@ -264,7 +364,43 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "center",
+            "roles": [
+              "football-player",
+              "player",
+              "referee",
+              "coach",
+              "goalkeeper"
+            ]
+          },
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-4"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "zoo",
@@ -314,7 +450,32 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "cage",
+            "roles": [
+              "zookeeper",
+              "keeper",
+              "guard"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "yard",
@@ -383,7 +544,65 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "bench-1",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "bench-2",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "swing",
+            "roles": [
+              "child",
+              "boy",
+              "girl",
+              "vovochka",
+              "baby"
+            ]
+          },
+          {
+            "mark": "sandbox",
+            "roles": [
+              "child",
+              "boy",
+              "girl",
+              "vovochka",
+              "baby"
+            ]
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "entrance"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "yard-night",
@@ -450,9 +669,118 @@
             "x": 0.75,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "bench-1",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "bench-2",
+            "roles": [
+              "old-woman",
+              "grandma",
+              "old-man",
+              "grandpa"
+            ]
+          },
+          {
+            "mark": "swing",
+            "roles": [
+              "child",
+              "boy",
+              "girl",
+              "vovochka",
+              "baby"
+            ]
+          },
+          {
+            "mark": "sandbox",
+            "roles": [
+              "child",
+              "boy",
+              "girl",
+              "vovochka",
+              "baby"
+            ]
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "entrance"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "simple city street, sidewalk, lamp post, bench, shop fronts, daytime"
-  }
+  },
+  "slots": [
+    {
+      "mark": "lamp",
+      "roles": [
+        "drunk"
+      ]
+    },
+    {
+      "mark": "bench-1",
+      "roles": [
+        "old-woman",
+        "grandma",
+        "old-man",
+        "grandpa"
+      ]
+    },
+    {
+      "mark": "bench-2",
+      "roles": [
+        "old-woman",
+        "grandma",
+        "old-man",
+        "grandpa"
+      ]
+    },
+    {
+      "mark": "shop-door",
+      "roles": [
+        "salesman",
+        "seller",
+        "cashier",
+        "shopkeeper",
+        "baker"
+      ]
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

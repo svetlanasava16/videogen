@@ -1,10 +1,13 @@
 import { Canvas, Fence, FLOOR_Y, W, H, type BackdropProps } from "./parts";
+import { seatTopY } from "../world/depth";
 import { useSign } from "../i18n/signs";
 import { Birds, LeafyTree, Puff, Tufts, Label, shade } from "./ulitsa";
 
 /**
- * Фон «derevnya»: деревня; варианты forest, river-lake, farm, garden, mountain. Метки общие (content/locations/derevnya.json):
- * house 0.25, fence 0.55, tree 0.82, left/center/right — средний план; сидений нет.
+ * Фон «derevnya»: деревня; варианты forest, river-lake, farm, garden, mountain. У каждого вида свои метки (content/locations/derevnya.json):
+ * три плана (back z 1 — у предметов, mid — left/center/right и старые house/fence/tree, front-*). Сиденья под метками (верх — seatTopY(1)):
+ * деревня — лавка у забора (bench-1, bench-2), лес — пень (stump) и бревно (log-1, log-2), река — складной стульчик рыбака (stool),
+ * горы — плоский камень (rock).
  * Детализация — в небе, на дальнем плане и у линии стены (y ≤ 1190); земля ниже — трава, тропинки, цветы.
  */
 
@@ -168,6 +171,27 @@ const Well = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
 );
 
 /** Мягкая тень земли у камеры (передний край кадра темнее) — не шумит под субтитрами. */
+/** Деревенская лавка без спинки на дальнем плане: доска на высоте сиденья seatTopY(1), два чурбака-ножки. x0, x1 — доли ширины. */
+const PlankBench = ({ x0, x1 }: { x0: number; x1: number }) => {
+  const l = x0 * W;
+  const r = x1 * W;
+  const top = seatTopY(1);
+  return (
+    <g>
+      <ellipse cx={(l + r) / 2} cy={FLOOR_Y} rx={(r - l) / 2 + 16} ry={9} fill="#00000020" />
+      {[l + 34, r - 34].map((x) => (
+        <g key={x}>
+          <rect x={x - 18} y={top + 16} width={36} height={FLOOR_Y - top - 16} rx={4} fill="#7a5236" />
+          <rect x={x - 18} y={top + 16} width={10} height={FLOOR_Y - top - 16} fill="#00000018" />
+        </g>
+      ))}
+      <rect x={l - 10} y={top} width={r - l + 20} height={22} rx={7} fill={WOOD} />
+      <rect x={l - 10} y={top} width={r - l + 20} height={7} rx={4} fill="#c49264" />
+      <rect x={l - 10} y={top + 18} width={r - l + 20} height={5} fill="#00000022" />
+    </g>
+  );
+};
+
 const GroundShade = () => (
   <g>
     <path d="M0 1540 Q270 1505 540 1545 T1080 1530 V1920 H0 Z" fill="#00000010" />
@@ -226,6 +250,8 @@ const Village = ({ palette }: BackdropProps) => (
     <Sunflower x={486} y={1150} h={170} />
     <Birch x={930} y={1180} s={0.95} />
     <Birch x={1045} y={1150} s={0.8} crown="#7fb050" />
+    {/* лавка у забора: сиденья bench-1 / bench-2 (x 0.36 / 0.54, дальний план) */}
+    <PlankBench x0={0.3} x1={0.6} />
     {/* куры у забора */}
     <Hen x={560} y={FLOOR_Y} s={0.6} />
     <Hen x={620} y={FLOOR_Y + 6} s={0.55} flip />
@@ -294,11 +320,11 @@ const Forest = () => {
       <rect x={0} y={1020} width={W} height={16} fill="#00000018" />
       {/* тропинка */}
       <path d="M500 1030 H580 Q700 1400 640 1920 H300 Q460 1400 500 1030 Z" fill="#8a7a50" opacity={0.45} />
-      {/* поваленное бревно у линии стены */}
-      <g>
-        <rect x={580} y={1110} width={240} height={50} rx={25} fill="#7a5236" />
-        <ellipse cx={820} cy={1135} rx={18} ry={25} fill="#d9b88a" />
-        <ellipse cx={820} cy={1135} rx={8} ry={12} fill="#c9a272" />
+      {/* поваленное бревно у линии стены: верх на высоте сиденья (log-1, log-2) */}
+      <g transform={`translate(0 ${seatTopY(1) - 1110})`}>
+        <rect x={540} y={1110} width={360} height={50} rx={25} fill="#7a5236" />
+        <ellipse cx={900} cy={1135} rx={18} ry={25} fill="#d9b88a" />
+        <ellipse cx={900} cy={1135} rx={8} ry={12} fill="#c9a272" />
         <path d="M620 1112 q20 -24 40 -30" stroke="#7a5236" strokeWidth={10} fill="none" />
         <ellipse cx={680} cy={1110} rx={40} ry={10} fill="#5b8c5a" />
       </g>
@@ -326,11 +352,14 @@ const Forest = () => {
         <circle cx={-4} cy={-24} r={10} fill="#c9773a" />
         <circle cx={-8} cy={-26} r={2} fill="#2b1d14" />
       </g>
-      <Stump x={270} y={1170} />
-      <Stump x={860} y={1120} s={0.7} />
+      {/* широкий пень-сиденье (stump, x 0.25): верх на seatTopY(1) */}
+      <g transform={`translate(270 ${FLOOR_Y}) scale(1.15 ${(FLOOR_Y - seatTopY(1)) / 90})`}>
+        <Stump x={0} y={0} />
+      </g>
+      <Stump x={975} y={1110} s={0.6} />
       <Mushroom x={340} y={1180} s={0.9} />
       <Mushroom x={372} y={1186} s={0.6} />
-      <Mushroom x={790} y={1128} s={0.6} />
+      <Mushroom x={935} y={1136} s={0.6} />
       <Mushroom x={1000} y={1260} s={0.7} cap="#8a5a2a" />
       <Mushroom x={30} y={1300} s={0.6} cap="#8a5a2a" />
       {/* шишки, хвоя, трава */}
@@ -438,6 +467,13 @@ const River = ({ palette }: BackdropProps) => (
     <rect x={629} y={994} width={22} height={10} rx={4} fill="#fff" />
     <ellipse cx={640} cy={1006} rx={24} ry={5} fill="#ffffff" opacity={0.5} />
     <ellipse cx={640} cy={1008} rx={40} ry={8} fill="none" stroke="#ffffff" strokeWidth={2} opacity={0.4} />
+    {/* складной стульчик рыбака (stool, x 0.78): сиденье на seatTopY(1) */}
+    <g>
+      <ellipse cx={842} cy={FLOOR_Y} rx={50} ry={7} fill="#00000020" />
+      <path d={`M808 ${FLOOR_Y} L872 ${seatTopY(1) + 10} M876 ${FLOOR_Y} L812 ${seatTopY(1) + 10}`} stroke="#5a5a62" strokeWidth={7} strokeLinecap="round" />
+      <rect x={800} y={seatTopY(1)} width={84} height={14} rx={5} fill="#3f7a5a" />
+      <rect x={800} y={seatTopY(1)} width={84} height={5} rx={3} fill="#5b9a76" />
+    </g>
     {/* ведёрко */}
     <path d="M1000 1200 l-8 -60 h70 l-8 60 z" fill="#9aa3ad" />
     <rect x={986} y={1136} width={82} height={10} rx={5} fill="#b8bec6" />
@@ -708,7 +744,9 @@ const Mountain = ({ palette }: BackdropProps) => {
     <path d="M800 1190 Q800 1090 880 1080 Q960 1075 970 1190 Z" fill="#9a9ca6" />
     <path d="M900 1190 Q930 1110 920 1082 Q965 1095 970 1190 Z" fill="#82848e" />
     <path d="M840 1120 q20 -16 40 -10" stroke="#b0b2bc" strokeWidth={6} fill="none" />
-    <path d="M720 1190 Q730 1150 770 1150 Q800 1160 800 1190 Z" fill="#8a8c96" />
+    {/* плоский камень-сиденье (rock, x 0.704): верх на seatTopY(1) */}
+    <path d={`M700 1190 Q704 ${seatTopY(1) + 4} 724 ${seatTopY(1)} H796 Q816 ${seatTopY(1) + 4} 820 1190 Z`} fill="#8a8c96" />
+    <path d={`M728 ${seatTopY(1) + 4} H792`} stroke="#a6a8b2" strokeWidth={5} strokeLinecap="round" />
     {[[480, 1240], [130, 1400], [900, 1440], [380, 1700]].map(([x, y], i) => <ellipse key={i} cx={x} cy={y} rx={22} ry={10} fill="#9a9ca6" />)}
     {/* эдельвейсы и колокольчики */}
     {[[260, 1300], [320, 1340], [780, 1320], [950, 1290], [180, 1560], [860, 1620]].map(([x, y], i) => (

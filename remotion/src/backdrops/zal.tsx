@@ -66,6 +66,8 @@ const Bouquet = ({ x, y, s = 1, vase = "#d6ecf5" }: { x: number; y: number; s?: 
  * Варианты (content/locations/zal.json → bible.variants): theater (сцена с красным занавесом и рампой),
  * museum (картины, статуя на постаменте, ограждение с канатом), cinema (кинозал: экран с лайнером, ряды красных кресел). Остальное — базовый зал (conference-hall).
  * Зал: сцена — дальний план (стопы на y 1190): президиум из трёх стульев (seat-1…3) и трибуна (lectern);
+ * трибуна — передний слой (layer="front", content/locations/zal.json → front.z = 0.98): оратор на метке lectern (z 1)
+ * скрыт ею ниже пояса, верх трибуны — поверхность для предметов (surfaces.top 247 → y 994).
  * средний и передний планы — пол зала перед сценой. Театр: передний ряд кресел зрителей (seat-1…4) на переднем плане.
  * Музей: банкетка посреди зала на среднем плане (bench-1, bench-2).
  * Кино: экран на дальней стене, средний ряд кресел (seat-1…4, z 0.5) и задний ряд (back-1…3, z 0.8),
@@ -193,7 +195,7 @@ const Hall = ({ palette: p }: { palette: Palette }) => {
       {[0.36, 0.47, 0.58].map((x) => (
         <SeatAt key={x} x={x} z={1} kind="chair" color={dark(WOOD, 0.05)} pad={p.accent} back={170} />
       ))}
-      <Lectern x={850} base={FLOOR_Y} accent={p.accent} />
+      {/* трибуна (lectern) — передний слой: Zal layer="front" */}
       {/* цветы в горшках по углам сцены */}
       <Bouquet x={60} y={stageTop + 4} s={1.1} vase={dark(p.accent, 0.1)} />
       <Bouquet x={1030} y={stageTop + 4} s={1.1} vase={dark(p.accent, 0.1)} />
@@ -708,17 +710,27 @@ const Cinema = ({ palette: p }: { palette: Palette }) => {
   );
 };
 
+/** x центра трибуны: оратор на метке lectern (x 0.7) стоит за ней; левый край не заходит на стул seat-3 (x 0.58). */
+const LECTERN_X = 768;
+
 /** Актовый зал: базовый вид (conference-hall) + театр (theater) + музей (museum) + кинозал (cinema). */
-export const Zal = ({ palette, variant }: BackdropProps) => (
-  <Canvas>
-    {variant === "theater" ? (
-      <Theater palette={palette} />
-    ) : variant === "museum" ? (
-      <Museum palette={palette} />
-    ) : variant === "cinema" ? (
-      <Cinema palette={palette} />
-    ) : (
-      <Hall palette={palette} />
-    )}
-  </Canvas>
-);
+export const Zal = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  if (layer === "front") {
+    // передний слой только у базового зала: трибуна перед оратором (content/locations/zal.json → front.z = 0.98)
+    if (variant === "theater" || variant === "museum" || variant === "cinema") return null;
+    return <Canvas><Lectern x={LECTERN_X} base={FLOOR_Y} accent={palette.accent} /></Canvas>;
+  }
+  return (
+    <Canvas>
+      {variant === "theater" ? (
+        <Theater palette={palette} />
+      ) : variant === "museum" ? (
+        <Museum palette={palette} />
+      ) : variant === "cinema" ? (
+        <Cinema palette={palette} />
+      ) : (
+        <Hall palette={palette} />
+      )}
+    </Canvas>
+  );
+};

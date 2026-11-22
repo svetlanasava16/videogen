@@ -178,12 +178,18 @@ const Countryside = ({ palette }: BackdropProps) => {
 };
 
 /* ---------- машина спереди: седоки сидят лицом к зрителю за лобовым стеклом ---------- */
-const CarFront = ({ palette, taxi }: BackdropProps & { taxi: boolean }) => {
+/**
+ * Машина / такси спереди. part="back" — улица, крыша, салон, кресла (layer="back");
+ * part="front" — торпедо с рулём и счётчиком, стекло, капот, фары, бампер (layer="front", doroga.json → car/taxi front.z = 0.45):
+ * седоки передних кресел (z 0.5) сидят за торпедо, руль — перед водителем, верх торпедо (y 1222) — поверхность (surfaces.top 60).
+ */
+const CarFront = ({ palette, taxi, part = "back" }: BackdropProps & { taxi: boolean; part?: "back" | "front" }) => {
   const body = taxi ? "#f2c230" : "#4a7fb0";
   const trim = "#2e2826";
   const seat = taxi ? "#3d3a38" : "#8a5a3a";
   const ws = "M180 1300 L280 690 Q540 636 800 690 L900 1300 Z";
   const back = seatTopY(1);
+  if (part === "front") return <CarFrontNear body={body} trim={trim} taxi={taxi} ws={ws} />;
   return (
     <>
       {/* улица за машиной */}
@@ -237,32 +243,6 @@ const CarFront = ({ palette, taxi }: BackdropProps & { taxi: boolean }) => {
         <rect x={250} y={668} width={230} height={44} rx={14} fill={dark(trim, 0.1)} />
         <rect x={600} y={668} width={230} height={44} rx={14} fill={dark(trim, 0.1)} />
         <rect x={290} y={676} width={70} height={26} rx={4} fill="#e8e4d8" opacity={0.6} />
-        {/* торпедо: приборы, магнитола, бардачок, руль водителя, счётчик такси */}
-        <rect x={0} y={1222} width={W} height={100} fill={trim} />
-        <rect x={0} y={1222} width={W} height={14} fill={light(trim, 0.15)} />
-        <rect x={110} y={1252} width={220} height={52} rx={10} fill={light(trim, 0.08)} />
-        <rect x={210} y={1270} width={30} height={8} rx={4} fill={dark(trim, 0.3)} />
-        <rect x={500} y={1248} width={90} height={56} rx={6} fill="#1e1a18" />
-        <rect x={510} y={1256} width={46} height={16} rx={3} fill="#5fb878" opacity={0.8} />
-        {[514, 534, 554, 574].map((x) => <rect key={x} x={x} y={1282} width={12} height={10} rx={2} fill="#8a8f98" />)}
-        {[0, 1, 2].map((i) => <rect key={i} x={600 + i * 22} y={1246} width={14} height={30} rx={4} fill="#1e1a18" />)}
-        {[730, 826].map((x) => (
-          <g key={x}>
-            <circle cx={x} cy={1262} r={24} fill="#1e1a18" />
-            <circle cx={x} cy={1262} r={18} fill="#e8e4d8" />
-            <path d={`M${x} 1262 L${x + 10} ${1250}`} stroke={RED} strokeWidth={4} strokeLinecap="round" />
-          </g>
-        ))}
-        <rect x={766} y={1180} width={24} height={60} fill="#1e1a18" />
-        <circle cx={778} cy={1160} r={112} fill="none" stroke="#1e1a18" strokeWidth={24} />
-        <rect x={680} y={1150} width={196} height={18} rx={9} fill="#1e1a18" />
-        {taxi && (
-          <g>
-            <rect x={380} y={1186} width={110} height={44} rx={6} fill="#1e1a18" />
-            <rect x={392} y={1196} width={60} height={22} rx={3} fill="#e0602a" />
-            <circle cx={472} cy={1207} r={8} fill="#5fb878" />
-          </g>
-        )}
         {/* зеркало заднего вида и ёлочка */}
         <rect x={532} y={660} width={16} height={36} fill="#1e1a18" />
         <rect x={460} y={690} width={160} height={46} rx={18} fill="#1e1a18" />
@@ -270,40 +250,77 @@ const CarFront = ({ palette, taxi }: BackdropProps & { taxi: boolean }) => {
         <rect x={538} y={736} width={4} height={44} fill="#1e1a18" />
         <path d="M540 776 l20 34 h-10 l15 26 h-50 l15 -26 h-10 z" fill="#5b8c5a" />
       </g>
-      <path d={ws} fill="#ffffff" opacity={0.05} />
-      <circle cx={850} cy={1200} r={26} fill="#f2e6d0" opacity={0.85} />
-      <circle cx={850} cy={1200} r={18} fill={taxi ? "#5fb878" : "#4a7fb0"} opacity={0.85} />
-      <path d={`M300 760 L360 700`} stroke="#ffffff" strokeWidth={14} opacity={0.25} strokeLinecap="round" />
-      {/* зеркала, капот, решётка, фары, бампер, номер */}
-      {[[70, 1220], [1010, 1220]].map(([x, y]) => (
-        <g key={x}>
-          <ellipse cx={x} cy={y} rx={50} ry={34} fill={dark(body, 0.15)} />
-          <ellipse cx={x} cy={y} rx={36} ry={22} fill="#8fa8b8" />
-        </g>
-      ))}
-      <path d="M30 1300 H1050 L1060 1580 Q540 1620 20 1580 Z" fill={body} />
-      <path d="M30 1300 H1050 V1330 H30 Z" fill={dark(body, 0.12)} />
-      {[300, 780].map((x) => <path key={x} d={`M${x} 1330 L${x + (x < 540 ? -30 : 30)} 1560`} stroke={light(body, 0.25)} strokeWidth={10} strokeLinecap="round" />)}
-      {/* дворники */}
-      <path d="M260 1292 L470 1230 M620 1292 L830 1230" stroke="#1e1a18" strokeWidth={10} strokeLinecap="round" />
-      {taxi && Array.from({ length: 26 }).map((_, i) => <rect key={i} x={30 + i * 40} y={1540 + (i % 2) * 18} width={40} height={18} fill={INK} />)}
-      <rect x={330} y={1590} width={420} height={90} rx={24} fill="#2b2522" />
-      {[0, 1, 2].map((i) => <rect key={i} x={350} y={1606 + i * 24} width={380} height={10} rx={5} fill="#4a423e" />)}
-      {[170, 910].map((x) => (
-        <g key={x}>
-          <circle cx={x} cy={1630} r={66} fill={light(body, 0.3)} />
-          <circle cx={x} cy={1630} r={48} fill="#fff4c8" />
-        </g>
-      ))}
-      <rect x={20} y={1690} width={1040} height={50} rx={24} fill="#c9ccd2" />
-      <rect x={460} y={1696} width={160} height={40} rx={6} fill={WHITE} />
-      <Label x={540} y={1728} text="A 123 BC" size={26} color="#2b2a2e" spacing={0} />
-      <circle cx={540} cy={1440} r={26} fill={light(body, 0.35)} />
-      <circle cx={540} cy={1440} r={16} fill={dark(body, 0.2)} />
-      <path d="M540 1328 l-20 40 h40 z" fill={light(body, 0.3)} />
     </>
   );
 };
+
+/** Ближняя часть машины (передний слой): торпедо с рулём, стекло, зеркала, капот, решётка, фары, бампер, номер. */
+const CarFrontNear = ({ body, trim, taxi, ws }: { body: string; trim: string; taxi: boolean; ws: string }) => (
+  <>
+    <defs>
+      <clipPath id="doroga-car-ws-near"><path d={ws} /></clipPath>
+    </defs>
+    <g clipPath="url(#doroga-car-ws-near)">
+      {/* торпедо: приборы, магнитола, бардачок, руль водителя, счётчик такси */}
+      <rect x={0} y={1222} width={W} height={100} fill={trim} />
+      <rect x={0} y={1222} width={W} height={14} fill={light(trim, 0.15)} />
+      <rect x={110} y={1252} width={220} height={52} rx={10} fill={light(trim, 0.08)} />
+      <rect x={210} y={1270} width={30} height={8} rx={4} fill={dark(trim, 0.3)} />
+      <rect x={500} y={1248} width={90} height={56} rx={6} fill="#1e1a18" />
+      <rect x={510} y={1256} width={46} height={16} rx={3} fill="#5fb878" opacity={0.8} />
+      {[514, 534, 554, 574].map((x) => <rect key={x} x={x} y={1282} width={12} height={10} rx={2} fill="#8a8f98" />)}
+      {[0, 1, 2].map((i) => <rect key={i} x={600 + i * 22} y={1246} width={14} height={30} rx={4} fill="#1e1a18" />)}
+      {[730, 826].map((x) => (
+        <g key={x}>
+          <circle cx={x} cy={1262} r={24} fill="#1e1a18" />
+          <circle cx={x} cy={1262} r={18} fill="#e8e4d8" />
+          <path d={`M${x} 1262 L${x + 10} ${1250}`} stroke={RED} strokeWidth={4} strokeLinecap="round" />
+        </g>
+      ))}
+      <rect x={766} y={1180} width={24} height={60} fill="#1e1a18" />
+      <circle cx={778} cy={1160} r={112} fill="none" stroke="#1e1a18" strokeWidth={24} />
+      <rect x={680} y={1150} width={196} height={18} rx={9} fill="#1e1a18" />
+      {taxi && (
+        <g>
+          <rect x={380} y={1186} width={110} height={44} rx={6} fill="#1e1a18" />
+          <rect x={392} y={1196} width={60} height={22} rx={3} fill="#e0602a" />
+          <circle cx={472} cy={1207} r={8} fill="#5fb878" />
+        </g>
+      )}
+    </g>
+    <path d={ws} fill="#ffffff" opacity={0.05} />
+    <circle cx={850} cy={1200} r={26} fill="#f2e6d0" opacity={0.85} />
+    <circle cx={850} cy={1200} r={18} fill={taxi ? "#5fb878" : "#4a7fb0"} opacity={0.85} />
+    <path d={`M300 760 L360 700`} stroke="#ffffff" strokeWidth={14} opacity={0.25} strokeLinecap="round" />
+    {/* зеркала, капот, решётка, фары, бампер, номер */}
+    {[[70, 1220], [1010, 1220]].map(([x, y]) => (
+      <g key={x}>
+        <ellipse cx={x} cy={y} rx={50} ry={34} fill={dark(body, 0.15)} />
+        <ellipse cx={x} cy={y} rx={36} ry={22} fill="#8fa8b8" />
+      </g>
+    ))}
+    <path d="M30 1300 H1050 L1060 1580 Q540 1620 20 1580 Z" fill={body} />
+    <path d="M30 1300 H1050 V1330 H30 Z" fill={dark(body, 0.12)} />
+    {[300, 780].map((x) => <path key={x} d={`M${x} 1330 L${x + (x < 540 ? -30 : 30)} 1560`} stroke={light(body, 0.25)} strokeWidth={10} strokeLinecap="round" />)}
+    {/* дворники */}
+    <path d="M260 1292 L470 1230 M620 1292 L830 1230" stroke="#1e1a18" strokeWidth={10} strokeLinecap="round" />
+    {taxi && Array.from({ length: 26 }).map((_, i) => <rect key={i} x={30 + i * 40} y={1540 + (i % 2) * 18} width={40} height={18} fill={INK} />)}
+    <rect x={330} y={1590} width={420} height={90} rx={24} fill="#2b2522" />
+    {[0, 1, 2].map((i) => <rect key={i} x={350} y={1606 + i * 24} width={380} height={10} rx={5} fill="#4a423e" />)}
+    {[170, 910].map((x) => (
+      <g key={x}>
+        <circle cx={x} cy={1630} r={66} fill={light(body, 0.3)} />
+        <circle cx={x} cy={1630} r={48} fill="#fff4c8" />
+      </g>
+    ))}
+    <rect x={20} y={1690} width={1040} height={50} rx={24} fill="#c9ccd2" />
+    <rect x={460} y={1696} width={160} height={40} rx={6} fill={WHITE} />
+    <Label x={540} y={1728} text="A 123 BC" size={26} color="#2b2a2e" spacing={0} />
+    <circle cx={540} cy={1440} r={26} fill={light(body, 0.35)} />
+    <circle cx={540} cy={1440} r={16} fill={dark(body, 0.2)} />
+    <path d="M540 1328 l-20 40 h40 z" fill={light(body, 0.3)} />
+  </>
+);
 
 /* ---------- салоны: общие детали ---------- */
 /** Поручень под потолком на плане z с ручками-петлями над xs (доли кадра). */
@@ -868,23 +885,27 @@ const GasStation = ({ palette }: BackdropProps) => {
   );
 };
 
-export const Doroga = ({ palette, variant }: BackdropProps) => (
-  <Canvas>
-    {variant === "car" || variant === "taxi" ? (
-      <CarFront palette={palette} taxi={variant === "taxi"} />
-    ) : variant === "bus" ? (
-      <BusInterior />
-    ) : variant === "subway" ? (
-      <SubwayInterior />
-    ) : variant === "tram" ? (
-      <TramInterior />
-    ) : variant === "bus-stop" ? (
-      <BusStop palette={palette} />
-    ) : variant === "gas-station" ? (
-      <GasStation palette={palette} />
-    ) : (
-      <Countryside palette={palette} />
-    )}
-  </Canvas>
-);
-
+export const Doroga = ({ palette, variant, layer = "back" }: BackdropProps) => {
+  const car = variant === "car" || variant === "taxi";
+  // передний слой есть только у машины и такси (торпедо и капот перед седоками), остальные виды — без него
+  if (layer === "front") return car ? <Canvas><CarFront palette={palette} taxi={variant === "taxi"} part="front" /></Canvas> : null;
+  return (
+    <Canvas>
+      {car ? (
+        <CarFront palette={palette} taxi={variant === "taxi"} />
+      ) : variant === "bus" ? (
+        <BusInterior />
+      ) : variant === "subway" ? (
+        <SubwayInterior />
+      ) : variant === "tram" ? (
+        <TramInterior />
+      ) : variant === "bus-stop" ? (
+        <BusStop palette={palette} />
+      ) : variant === "gas-station" ? (
+        <GasStation palette={palette} />
+      ) : (
+        <Countryside palette={palette} />
+      )}
+    </Canvas>
+  );
+};

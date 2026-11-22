@@ -7,7 +7,15 @@ import { FONT } from "../fonts";
 /**
  * Фон «klass»: школьный класс (парты сбоку: стул под меткой pupil-*, парта справа от него; стул учителя слева от его стола);
  * вариант university — аудитория с рядами амфитеатром и передним рядом откидных сидений (row-1…row-4).
+ *
+ * Глубина (content/locations/klass.json → front.z = 0.8): учительский стол (класс) и кафедра (аудитория) — передний слой
+ * (layer="front"), стоят на полу плана 0.8; учитель / лектор за ними на метке behind-desk / behind-lectern (z 0.95) скрыт по пояс,
+ * ученики и студенты на среднем плане — перед ними. В layer="back" стола и кафедры нет (только тень на полу).
  */
+
+/** План переднего слоя (стол учителя, кафедра) и y его низа. */
+const FRONT_Z = 0.8;
+const FRONT_FEET = feetY(FRONT_Z);
 
 const rgb = (c: string) => {
   const h = c.replace("#", "");
@@ -120,32 +128,42 @@ const SchoolDesk = ({ x, z, wood = WOOD, accent }: { x: number; z: number; wood?
   );
 };
 
-/** Учительский стол с глобусом, книгами и яблоком. */
+/**
+ * Учительский стол с глобусом, книгами и яблоком — передний слой: стоит на полу плана FRONT_Z, верх (TABLE_TOP) — учителю
+ * за ним по пояс. Глобус слева, книги и яблоко справа, середина свободна — там лицо и руки учителя.
+ */
+const TABLE_TOP = FRONT_FEET - 255;
 const TeacherTable = ({ x, w, accent }: { x: number; w: number; accent: string }) => {
-  const top = FLOOR_Y - 250;
+  const top = TABLE_TOP;
+  const legH = FRONT_FEET - top - 24;
   return (
     <g>
-      <rect x={x + 10} y={top + 24} width={w - 20} height={150} rx={6} fill={dark(WOOD, 0.15)} />
-      <rect x={x + 20} y={top + 24} width={22} height={226} fill={dark(WOOD, 0.3)} />
-      <rect x={x + w - 42} y={top + 24} width={22} height={226} fill={dark(WOOD, 0.3)} />
+      {/* передняя стенка почти до пола — ноги учителя за столом не видны */}
+      <rect x={x + 10} y={top + 24} width={w - 20} height={legH - 14} rx={6} fill={dark(WOOD, 0.15)} />
+      <rect x={x + 26} y={top + 46} width={w - 52} height={legH - 64} rx={6} fill="none" stroke={dark(WOOD, 0.28)} strokeWidth={5} />
+      <rect x={x + 10} y={top + 24} width={w - 20} height={6} fill="#000000" opacity={0.12} />
+      <rect x={x + 20} y={top + 24} width={22} height={legH} fill={dark(WOOD, 0.3)} />
+      <rect x={x + w - 42} y={top + 24} width={22} height={legH} fill={dark(WOOD, 0.3)} />
       <rect x={x} y={top} width={w} height={28} rx={8} fill={WOOD} />
-      {/* глобус */}
-      <rect x={x + 60} y={top - 12} width={60} height={12} rx={6} fill={INK} />
-      <rect x={x + 86} y={top - 40} width={8} height={30} fill={INK} />
-      <circle cx={x + 90} cy={top - 96} r={56} fill="#7fb3d5" />
-      <ellipse cx={x + 72} cy={top - 112} rx={24} ry={18} fill={accent} />
-      <ellipse cx={x + 108} cy={top - 76} rx={16} ry={20} fill={accent} />
-      <path d={`M${x + 30} ${top - 120} A62 62 0 0 1 ${x + 140} ${top - 50}`} stroke={dark(METAL, 0.2)} strokeWidth={7} fill="none" />
-      {/* книги и яблоко */}
-      <rect x={x + 160} y={top - 26} width={110} height={26} rx={4} fill={accent} />
-      <rect x={x + 168} y={top - 48} width={96} height={22} rx={4} fill="#d9b86a" />
-      <circle cx={x + 230} cy={top - 70} r={22} fill={RED} />
-      <rect x={x + 228} y={top - 100} width={5} height={14} fill="#6b4429" />
-      <ellipse cx={x + 242} cy={top - 96} rx={10} ry={5} fill={accent} />
-      {/* стакан с карандашами и классный журнал */}
-      <rect x={x + 250} y={top - 34} width={24} height={34} rx={4} fill="#4a7ab0" />
-      {[0, 1, 2].map((i) => <rect key={i} x={x + 254 + i * 6} y={top - 54 + i * 3} width={4} height={24} fill={[RED, "#e8c46a", accent][i]} transform={`rotate(${(i - 1) * 10} ${x + 256 + i * 6} ${top - 34})`} />)}
-      <rect x={x + 150} y={top - 8} width={96} height={8} rx={2} fill="#f4efe2" />
+      <rect x={x + 8} y={top + 3} width={w - 16} height={5} rx={2} fill="#ffffff" opacity={0.2} />
+      {/* глобус (левый край стола) */}
+      <rect x={x + 14} y={top - 12} width={48} height={12} rx={6} fill={INK} />
+      <rect x={x + 34} y={top - 34} width={8} height={24} fill={INK} />
+      <circle cx={x + 38} cy={top - 76} r={42} fill="#7fb3d5" />
+      <ellipse cx={x + 25} cy={top - 89} rx={18} ry={14} fill={accent} />
+      <ellipse cx={x + 52} cy={top - 60} rx={12} ry={16} fill={accent} />
+      <path d={`M${x - 8} ${top - 96} A48 48 0 0 1 ${x + 78} ${top - 40}`} stroke={dark(METAL, 0.2)} strokeWidth={6} fill="none" />
+      {/* классный журнал посередине — низкий, лицо не закрывает */}
+      <rect x={x + 104} y={top - 8} width={84} height={8} rx={2} fill="#f4efe2" />
+      <rect x={x + 104} y={top - 8} width={84} height={3} rx={1} fill={RED} opacity={0.7} />
+      {/* книги, яблоко и стакан с карандашами (правый край) */}
+      <rect x={x + 204} y={top - 24} width={80} height={24} rx={4} fill={accent} />
+      <rect x={x + 210} y={top - 44} width={70} height={20} rx={4} fill="#d9b86a" />
+      <circle cx={x + 236} cy={top - 64} r={20} fill={RED} />
+      <rect x={x + 234} y={top - 92} width={5} height={14} fill="#6b4429" />
+      <ellipse cx={x + 247} cy={top - 88} rx={9} ry={5} fill={accent} />
+      <rect x={x + 262} y={top - 76} width={22} height={32} rx={4} fill="#4a7ab0" />
+      {[0, 1, 2].map((i) => <rect key={i} x={x + 265 + i * 6} y={top - 94 + i * 3} width={4} height={22} fill={[RED, "#e8c46a", accent][i]} transform={`rotate(${(i - 1) * 10} ${x + 267 + i * 6} ${top - 76})`} />)}
     </g>
   );
 };
@@ -260,8 +278,8 @@ const Classroom = ({ wall, floor, accent }: { wall: string; floor: string; accen
     <Shadow cx={0.34 * W + 60} w={200} />
     <SchoolDesk x={0.1} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
     <SchoolDesk x={0.34} z={1} wood={mix(WOOD, wall, 0.2)} accent={mix(accent, wall, 0.3)} />
-    <Shadow cx={920} w={300} />
-    <TeacherTable x={775} w={290} accent={accent} />
+    {/* учительский стол — передний слой (ClassroomFront); здесь только его тень на полу плана 0.8 */}
+    <Shadow cx={920} w={300} y={FRONT_FEET} />
     <Shadow cx={0.66 * W} w={120} />
     <SeatAt x={0.66} z={1} kind="chair" color={dark(WOOD, 0.1)} pad={accent} />
     <Shadow cx={0.16 * W + 70} w={240} y={1275} o={0.14} />
@@ -351,26 +369,51 @@ const LectureHall = ({ wall, floor, accent }: { wall: string; floor: string; acc
       {[0.1, 0.24, 0.38, 0.62].map((x) => (
         <SeatAt key={x} x={x} z={1} kind="theater" color={mix(accent, wall, 0.15)} back={70} />
       ))}
-      {/* кафедра: ноутбук, бумаги, вода */}
-      <Shadow cx={940} w={240} />
-      <path d={`M840 ${FLOOR_Y} L860 ${FLOOR_Y - 300} L1020 ${FLOOR_Y - 300} L1040 ${FLOOR_Y} Z`} fill={dark(WOOD, 0.1)} />
-      <rect x={830} y={FLOOR_Y - 330} width={220} height={34} rx={8} fill={WOOD} />
-      <rect x={880} y={FLOOR_Y - 250} width={120} height={150} rx={8} fill={accent} />
-      <circle cx={940} cy={FLOOR_Y - 175} r={30} fill={light(accent, 0.35)} />
-      <path d={`M880 ${FLOOR_Y - 330} Q880 ${FLOOR_Y - 400} 850 ${FLOOR_Y - 420}`} stroke={INK} strokeWidth={6} fill="none" strokeLinecap="round" />
-      <ellipse cx={846} cy={FLOOR_Y - 426} rx={12} ry={16} fill={INK} />
-      <rect x={990} y={FLOOR_Y - 380} width={30} height={50} rx={6} fill="#cfe6f5" opacity={0.9} />
-      <path d={`M900 ${FLOOR_Y - 330} l12 -50 h70 l-6 50 Z`} fill="#5a5f66" />
-      <path d={`M914 ${FLOOR_Y - 336} l9 -38 h56 l-5 38 Z`} fill="#9cc6e0" />
-      <circle cx={946} cy={FLOOR_Y - 356} r={8} fill="#ffffff" opacity={0.8} />
-      <rect x={846} y={FLOOR_Y - 338} width={46} height={8} rx={2} fill="#f4efe2" />
-      <rect x={994} y={FLOOR_Y - 360} width={22} height={26} rx={4} fill="#9cc6e0" />
+      {/* кафедра — передний слой (LectureFront); здесь только её тень на полу плана 0.8 */}
+      <Shadow cx={940} w={240} y={FRONT_FEET} />
     </>
   );
 };
 
-export const Klass = ({ palette, variant }: BackdropProps) => {
+/** Передний слой класса: учительский стол (метка behind-desk за ним). */
+const ClassroomFront = ({ accent }: { accent: string }) => <TeacherTable x={775} w={290} accent={accent} />;
+
+/**
+ * Передний слой аудитории: кафедра на полу плана FRONT_Z (метка behind-lectern за ней). Микрофон и стакан слева,
+ * бумаги посередине, ноутбук низко справа — лицо лектора над ними открыто.
+ */
+const LECTERN_TOP = FRONT_FEET - 245;
+const LectureFront = ({ accent }: { accent: string }) => {
+  const f = FRONT_FEET;
+  const t = LECTERN_TOP;
+  return (
+    <g>
+      <path d={`M840 ${f} L860 ${t + 30} L1020 ${t + 30} L1040 ${f} Z`} fill={dark(WOOD, 0.1)} />
+      <path d={`M840 ${f} L860 ${t + 30} L872 ${t + 30} L854 ${f} Z`} fill="#ffffff" opacity={0.12} />
+      <rect x={830} y={t} width={220} height={34} rx={8} fill={WOOD} />
+      <rect x={838} y={t + 3} width={204} height={5} rx={2} fill="#ffffff" opacity={0.2} />
+      <rect x={880} y={t + 80} width={120} height={150} rx={8} fill={accent} />
+      <circle cx={940} cy={t + 155} r={30} fill={light(accent, 0.35)} />
+      {/* микрофон на гибкой ножке и стакан воды — у левого края */}
+      <path d={`M862 ${t} Q862 ${t - 60} 836 ${t - 80}`} stroke={INK} strokeWidth={6} fill="none" strokeLinecap="round" />
+      <ellipse cx={832} cy={t - 86} rx={11} ry={15} fill={INK} />
+      <rect x={846} y={t - 34} width={22} height={34} rx={4} fill="#cfe6f5" opacity={0.9} />
+      {/* бумаги посередине */}
+      <path d={`M900 ${t} l6 -8 h64 l-4 8 Z`} fill="#f4efe2" />
+      <path d={`M906 ${t - 8} l6 -6 h58 l-6 6 Z`} fill="#e8e0cc" />
+      {/* ноутбук низко у правого края */}
+      <path d={`M986 ${t} l8 -40 h48 l-4 40 Z`} fill="#5a5f66" />
+      <path d={`M996 ${t - 5} l6 -30 h36 l-3 30 Z`} fill="#9cc6e0" />
+      <circle cx={1018} cy={t - 22} r={5} fill="#ffffff" opacity={0.8} />
+    </g>
+  );
+};
+
+export const Klass = ({ palette, variant, layer = "back" }: BackdropProps) => {
   const { wall, floor, accent } = palette;
+  if (layer === "front") {
+    return <Canvas>{variant === "university" ? <LectureFront accent={accent} /> : <ClassroomFront accent={accent} />}</Canvas>;
+  }
   return (
     <Canvas>
       {variant === "university" ? (

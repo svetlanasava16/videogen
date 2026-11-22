@@ -4,6 +4,66 @@ import { depthScale, feetY, seatTopY } from "../world/depth";
 
 const WOOD = "#8a5a3a";
 
+/**
+ * Глубина (content/locations/tserkov.json → front.z = 0.85): алтарь с покровом, свечами, книгой и цветами — передний слой
+ * (layer="front"), стоит на полу плана 0.85 перед ступенью апсиды. Священник за ним (метки behind-altar z 0.95, altar z 1)
+ * скрыт по пояс; прихожане в проходе и на скамьях (средний план) — перед ним. В layer="back" алтаря нет.
+ */
+const FRONT_Z = 0.85;
+const ALTAR_FEET = feetY(FRONT_Z);
+/** Верх алтаря (покров) — по пояс священнику на плане 0.95–1 (ниже груди и у невысоких кукол). */
+const ALTAR_TOP = FLOOR_Y - 215;
+
+/** Алтарь — передний слой: каменный блок с вышитым покровом, свечи, раскрытая книга на аналое, цветы. */
+const AltarFront = ({ p }: { p: BackdropProps["palette"] }) => {
+  const stone = light(p.wall, 0.25);
+  const gold = p.accent;
+  const runner = mix(p.accent, "#8a2a2a", 0.7);
+  const t = ALTAR_TOP;
+  const f = ALTAR_FEET;
+  return (
+    <g>
+      <Shadow cx={540} w={380} y={f} o={0.22} />
+      <rect x={390} y={t + 12} width={300} height={f - t - 12} rx={8} fill={stone} />
+      <rect x={672} y={t + 12} width={18} height={f - t - 12} fill="#000000" opacity={0.06} />
+      <rect x={380} y={f - 28} width={320} height={28} rx={6} fill={dark(stone, 0.1)} />
+      <rect x={380} y={f - 28} width={320} height={6} rx={3} fill="#ffffff" opacity={0.25} />
+      <rect x={378} y={t} width={324} height={26} rx={8} fill="#fbf7ee" />
+      <rect x={378} y={t + 22} width={324} height={14} fill={gold} />
+      <path d={`M378 ${t + 36} h324 l-10 26 h-304 Z`} fill="#fbf7ee" />
+      {Array.from({ length: 10 }).map((_, i) => <path key={i} d={`M${392 + i * 30} ${t + 62} l15 12 l15 -12`} fill={gold} opacity={0.6} />)}
+      <rect x={450} y={t + 82} width={180} height={140} rx={6} fill={runner} />
+      <path d={`M540 ${t + 102} l34 48 l-34 48 l-34 -48 Z`} fill={gold} opacity={0.85} />
+      <circle cx={540} cy={t + 150} r={14} fill={runner} />
+      <circle cx={540} cy={t + 150} r={6} fill={light(gold, 0.3)} />
+      <rect x={450} y={t + 202} width={180} height={20} fill={gold} />
+      {/* свечи на алтаре */}
+      {[398, 682].map((x) => (
+        <g key={x}>
+          <Glow cx={x} cy={t - 138} rx={90} color="#ffd98a" opacity={0.5} />
+          <ellipse cx={x} cy={t - 2} rx={22} ry={7} fill={gold} />
+          <rect x={x - 5} y={t - 48} width={10} height={46} fill={gold} />
+          <rect x={x - 9} y={t - 118} width={18} height={70} rx={3} fill="#f8f1de" />
+          <Flame x={x} y={t - 118} s={0.8} />
+        </g>
+      ))}
+      {/* раскрытая книга плашмя посередине (низко — лицо священника над ней) и цветы по краям */}
+      <rect x={508} y={t - 10} width={64} height={10} rx={3} fill={runner} />
+      <path d={`M504 ${t - 8} q18 -10 36 -3 q18 -7 36 3 v-5 q-18 -10 -36 -3 q-18 -7 -36 3 Z`} fill="#fbf7ee" />
+      {[[440, -1], [640, 1]].map(([x, d]) => (
+        <g key={x}>
+          <path d={`M${x - 12} ${t} h24 l-4 -26 h-16 Z`} fill={light(gold, 0.3)} />
+          {[[-14, -46, "#ffffff"], [0, -58, "#f2e0a0"], [14, -44, "#ffffff"], [d * 6, -38, "#e8a0a8"]].map(([dx, dy, c], i) => (
+            <circle key={i} cx={(x as number) + (dx as number)} cy={t + (dy as number)} r={9} fill={c as string} />
+          ))}
+          <ellipse cx={(x as number) - 16} cy={t - 34} rx={5} ry={11} fill="#5b8c5a" transform={`rotate(-30 ${(x as number) - 16} ${t - 34})`} />
+          <ellipse cx={(x as number) + 16} cy={t - 34} rx={5} ry={11} fill="#5b8c5a" transform={`rotate(30 ${(x as number) + 16} ${t - 34})`} />
+        </g>
+      ))}
+    </g>
+  );
+};
+
 const Flame = ({ x, y, s = 1, glow = true }: { x: number; y: number; s?: number; glow?: boolean }) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
     {glow && <circle cx={0} cy={-10} r={46} fill="#f5d77a" opacity={0.18} />}
@@ -131,7 +191,8 @@ const SideWindow = ({ x, w = 110, y = 470, h = 300, glass, frame }: { x: number;
 );
 
 /** Нейтральный храм: апсида с цветным окном и иконостасными панелями, алтарь, лампады, подсвечники с множеством свечей, скамьи по бокам. */
-export const Tserkov = ({ palette: p }: BackdropProps) => {
+export const Tserkov = ({ palette: p, layer = "back" }: BackdropProps) => {
+  if (layer === "front") return <Canvas><AltarFront p={p} /></Canvas>;
   const stone = light(p.wall, 0.25);
   const niche = dark(p.wall, 0.12);
   const gold = p.accent;
@@ -210,44 +271,9 @@ export const Tserkov = ({ palette: p }: BackdropProps) => {
         const ch = (wh - 6) / 3;
         return <rect key={i} x={wx + 6 + col * cw} y={wy + 6 + row * ch} width={cw - 6} height={ch - 6} rx={3} fill={c} opacity={0.9} />;
       })}
-      {/* ступень и алтарь с вышитым покровом */}
-      <Shadow cx={540} w={520} o={0.2} />
+      {/* ступень апсиды; сам алтарь — передний слой (AltarFront), здесь только его тень на полу плана 0.85 */}
       <rect x={300} y={FLOOR_Y - 34} width={480} height={34} rx={6} fill={light(p.floor, 0.25)} />
       <rect x={300} y={FLOOR_Y - 34} width={480} height={7} rx={4} fill="#ffffff" opacity={0.3} />
-      <rect x={390} y={FLOOR_Y - 250} width={300} height={216} rx={8} fill={stone} />
-      <rect x={378} y={FLOOR_Y - 262} width={324} height={26} rx={8} fill="#fbf7ee" />
-      <rect x={378} y={FLOOR_Y - 240} width={324} height={14} fill={gold} />
-      <path d={`M378 ${FLOOR_Y - 226} h324 l-10 26 h-304 Z`} fill="#fbf7ee" />
-      {Array.from({ length: 10 }).map((_, i) => <path key={i} d={`M${392 + i * 30} ${FLOOR_Y - 200} l15 12 l15 -12`} fill={gold} opacity={0.6} />)}
-      <rect x={450} y={FLOOR_Y - 196} width={180} height={120} rx={6} fill={runner} />
-      <path d={`M540 ${FLOOR_Y - 180} l34 44 l-34 44 l-34 -44 Z`} fill={gold} opacity={0.85} />
-      <circle cx={540} cy={FLOOR_Y - 136} r={14} fill={runner} />
-      <circle cx={540} cy={FLOOR_Y - 136} r={6} fill={light(gold, 0.3)} />
-      <rect x={450} y={FLOOR_Y - 96} width={180} height={20} fill={gold} />
-      {/* свечи на алтаре */}
-      {[420, 660].map((x) => (
-        <g key={x}>
-          <Glow cx={x} cy={FLOOR_Y - 400} rx={90} color="#ffd98a" opacity={0.5} />
-          <ellipse cx={x} cy={FLOOR_Y - 264} rx={22} ry={7} fill={gold} />
-          <rect x={x - 5} y={FLOOR_Y - 310} width={10} height={46} fill={gold} />
-          <rect x={x - 9} y={FLOOR_Y - 380} width={18} height={70} rx={3} fill="#f8f1de" />
-          <Flame x={x} y={FLOOR_Y - 380} s={0.8} />
-        </g>
-      ))}
-      {/* раскрытая книга на аналое и цветы */}
-      <rect x={510} y={FLOOR_Y - 292} width={60} height={30} rx={4} fill={dark(WOOD, 0.1)} />
-      <path d={`M506 ${FLOOR_Y - 290} q17 -12 34 -4 q17 -8 34 4 v-6 q-17 -12 -34 -4 q-17 -8 -34 4 Z`} fill="#fbf7ee" />
-      <rect x={510} y={FLOOR_Y - 292} width={60} height={8} rx={3} fill={runner} />
-      {[[470, -1], [610, 1]].map(([x, d]) => (
-        <g key={x}>
-          <path d={`M${x - 12} ${FLOOR_Y - 262} h24 l-4 -26 h-16 Z`} fill={light(gold, 0.3)} />
-          {[[-14, -46, "#ffffff"], [0, -58, "#f2e0a0"], [14, -44, "#ffffff"], [d * 6, -38, "#e8a0a8"]].map(([dx, dy, c], i) => (
-            <circle key={i} cx={(x as number) + (dx as number)} cy={FLOOR_Y - 262 + (dy as number)} r={9} fill={c as string} />
-          ))}
-          <ellipse cx={(x as number) - 16} cy={FLOOR_Y - 296} rx={5} ry={11} fill="#5b8c5a" transform={`rotate(-30 ${(x as number) - 16} ${FLOOR_Y - 296})`} />
-          <ellipse cx={(x as number) + 16} cy={FLOOR_Y - 296} rx={5} ry={11} fill="#5b8c5a" transform={`rotate(30 ${(x as number) + 16} ${FLOOR_Y - 296})`} />
-        </g>
-      ))}
       <Candlestand x={300} gold={gold} />
       <Candlestand x={780} gold={gold} />
       {/* дорожка с каймой */}

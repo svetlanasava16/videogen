@@ -143,7 +143,41 @@
             "x": 0.92,
             "z": 0
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "aisle",
+            "roles": [
+              "guard",
+              "usher",
+              "police-officer"
+            ]
+          },
+          {
+            "mark": "center",
+            "roles": [
+              "actor",
+              "actress",
+              "singer",
+              "magician"
+            ]
+          },
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-4"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "museum",
@@ -207,7 +241,41 @@
             "x": 0.2,
             "z": 1
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "landscape",
+            "roles": [
+              "artist",
+              "painter"
+            ]
+          },
+          {
+            "mark": "right",
+            "roles": [
+              "guard",
+              "museum-guard"
+            ]
+          },
+          {
+            "mark": "bench-1"
+          },
+          {
+            "mark": "bench-2"
+          },
+          {
+            "mark": "still-life"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "cinema",
@@ -284,9 +352,92 @@
           "size": "many",
           "seated": true,
           "seatColor": "#8a2a2a"
-        }
+        },
+        "slots": [
+          {
+            "mark": "aisle",
+            "roles": [
+              "usher",
+              "guard"
+            ]
+          },
+          {
+            "mark": "seat-2"
+          },
+          {
+            "mark": "seat-3"
+          },
+          {
+            "mark": "seat-1"
+          },
+          {
+            "mark": "seat-4"
+          },
+          {
+            "mark": "back-2"
+          },
+          {
+            "mark": "back-1"
+          },
+          {
+            "mark": "back-3"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "assembly hall of a culture house, low wooden stage with lectern and microphone, red banner, presidium table with green cloth, rows of seat backs in the foreground"
-  }
+  },
+  "front": {
+    "z": 0.98
+  },
+  "surfaces": [
+    {
+      "x0": 0.63,
+      "x1": 0.79,
+      "z": 0.98,
+      "top": 247
+    }
+  ],
+  "slots": [
+    {
+      "mark": "lectern",
+      "roles": [
+        "politician",
+        "speaker",
+        "lecturer",
+        "orator",
+        "deputy",
+        "professor"
+      ]
+    },
+    {
+      "mark": "seat-2",
+      "roles": [
+        "boss",
+        "chairman",
+        "director"
+      ]
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

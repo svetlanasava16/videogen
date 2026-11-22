@@ -71,14 +71,66 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "behind-altar": {
+      "x": 0.5,
+      "z": 0.95
     }
   },
   "bible": {
-    "summary": "Church: stone-block walls, a round chandelier with candles under the vault, side arched windows with beams of light, columns, a gold-rimmed apse with a stained-glass window flanked by two gilded icon-like panels and hanging red lampadas, an altar with an embroidered cloth, candles, an open book and flowers at the back, tall brass stands full of thin candles on both sides; two pews with books in the middle plane on both sides of the red aisle runner (pew-left, pew-left-2 | pew-right-2, pew-right); people stand in the aisle (center) or at the altar.",
+    "summary": "Church: stone-block walls, a round chandelier with candles under the vault, side arched windows with beams of light, columns, a gold-rimmed apse with a stained-glass window flanked by two gilded icon-like panels and hanging red lampadas, an altar with an embroidered cloth, candles, an open book and flowers in front of the apse step — the priest stands behind it, hidden to the waist (behind-altar, altar); people before it stand in the aisle on the runner (center), things put down lie on the altar; tall brass stands full of thin candles on both sides; two pews with books in the middle plane on both sides of the red aisle runner (pew-left, pew-left-2 | pew-right-2, pew-right); people stand in the aisle (center) or at the altar.",
     "roles": [
       "church"
     ],
     "variants": [],
     "prompt": "simple neutral place of worship interior, altar with candles, wooden pews, stained glass window"
-  }
+  },
+  "front": {
+    "z": 0.85
+  },
+  "surfaces": [
+    {
+      "x0": 0.35,
+      "x1": 0.65,
+      "z": 0.85,
+      "top": 228
+    }
+  ],
+  "slots": [
+    {
+      "mark": "behind-altar",
+      "roles": [
+        "priest",
+        "pope",
+        "rabbi",
+        "pastor",
+        "vicar",
+        "bishop"
+      ]
+    },
+    {
+      "mark": "pew-left-2"
+    },
+    {
+      "mark": "pew-right-2"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "pew-left"
+    },
+    {
+      "mark": "pew-right"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

@@ -6,13 +6,15 @@ import { feetY, seatTopY } from "../world/depth";
 /**
  * Фон «ofis»: кабинет начальника. Варианты (content/locations/ofis.json → bible.variants):
  * tv-studio, police-station, bank / government-office. Остальное — базовый кабинет.
- * Сиденья под метки (content/locations/ofis.json): кресло начальника справа от стола (desk), стул посетителя (visitor);
+ * Сиденья под метки (content/locations/ofis.json): кресло начальника за столом (desk), стул посетителя (visitor);
  * студия — кресла ведущего и гостя по бокам стола; участок — стул дежурного и стул задержанного; банк — стулья ожидания.
  *
  * Глубина (content/locations/ofis.json → front.z = 0.8): в участке дежурный стол, в банке стойка с перегородкой и окошками —
  * передний слой (layer="front"): дежурный / кассир за ним (desk, teller-1…3, z 0.95), посетители (z 0.5) — перед ним.
  * Низ стола/стойки — на полу плана 0.8 (FRONT_FEET), верх — y 1015. Всё, что на среднем плане (табурет задержанного,
- * стулья ожидания, стойки очереди), тоже в переднем слое: оно ближе стойки. Кабинет и студия переднего слоя не имеют.
+ * стулья ожидания, стойки очереди), тоже в переднем слое: оно ближе стойки.
+ * В кабинете передний слой — стол начальника (front.z 0.9; начальник в кресле desk за ним по пояс, стул посетителя тоже
+ * в переднем слое), в студии — стол ведущего (front.z 0.97; ведущий на метке desk за ним).
  */
 
 const FRONT_FEET = feetY(0.8);
@@ -78,54 +80,87 @@ const Certificate = ({ x, y, accent }: { x: number; y: number; accent: string })
   </g>
 );
 
-/** Стол начальника у стены слева: монитор с клавиатурой, телефон, папки, кружка, табличка; кресло начальника — справа от стола (метка desk). */
+/** План переднего слоя кабинета (стол начальника) и y его низа; верх столешницы — начальнику в кресле desk по пояс. */
+const OFFICE_FRONT_Z = 0.9;
+const OFFICE_FEET = feetY(OFFICE_FRONT_Z);
+const BOSS_TOP = 1040;
+
+/**
+ * Стол начальника — передний слой (front.z 0.9): начальник сидит за ним в кресле desk (x 0.53, дальний план).
+ * Столешница x 330…760; монитор (виден со спины) — на левом краю, над местом начальника (x ≈ 572) только низкие вещи.
+ */
 const BossDesk = ({ accent }: { accent: string }) => {
-  const top = 965;
+  const x0 = 330, x1 = 760, top = BOSS_TOP, bottom = OFFICE_FEET;
   return (
     <g>
-      <Shadow cx={260} w={500} />
-      {/* монитор: на экране — таблица с графиком */}
-      <rect x={60} y={790} width={190} height={130} rx={12} fill="#2d3640" />
-      <rect x={72} y={802} width={166} height={106} rx={6} fill={shade(accent, 0.55)} />
-      <rect x={72} y={802} width={166} height={18} fill={shade(accent, 0.2)} />
-      {[0, 1, 2, 3].map((i) => <rect key={i} x={82} y={830 + i * 18} width={70} height={9} rx={3} fill="#ffffff" opacity={0.7} />)}
-      {[0, 1, 2, 3].map((i) => <rect key={i} x={168 + i * 16} y={896 - (i + 1) * 14} width={11} height={(i + 1) * 14} fill={i === 3 ? "#c8553d" : accent} />)}
-      <rect x={142} y={920} width={26} height={34} fill="#2d3640" />
-      <rect x={110} y={950} width={90} height={15} rx={6} fill="#2d3640" />
-      <rect x={72} y={802} width={40} height={106} fill="#ffffff" opacity={0.08} />
-      {/* клавиатура и мышь */}
-      <rect x={96} y={955} width={130} height={12} rx={4} fill="#3a4148" />
-      <ellipse cx={248} cy={960} rx={12} ry={7} fill="#3a4148" />
-      {/* телефон */}
-      <rect x={272} y={936} width={74} height={30} rx={8} fill="#2f2a2a" />
-      <path d="M268 936 q38 -22 82 0 v-10 q-42 -20 -82 0 Z" fill="#2f2a2a" />
-      <rect x={290} y={944} width={38} height={14} rx={3} fill="#4a4448" />
-      <path d="M346 952 q16 8 6 20" stroke="#2f2a2a" strokeWidth={4} fill="none" />
-      {/* стопка папок и бумаг */}
-      <rect x={360} y={940} width={92} height={26} rx={3} fill={PAPER} />
-      <rect x={364} y={930} width={88} height={10} rx={2} fill="#e8c46a" />
-      <rect x={358} y={920} width={92} height={10} rx={2} fill={accent} />
-      <rect x={362} y={910} width={86} height={10} rx={2} fill="#c8553d" />
-      <rect x={366} y={902} width={80} height={8} rx={2} fill={PAPER} />
-      {/* кружка и стакан с ручками */}
-      <rect x={462} y={926} width={22} height={39} rx={6} fill={accent} />
-      <rect x={466} y={906} width={4} height={24} fill="#c8553d" transform="rotate(-10 468 930)" />
-      <rect x={474} y={904} width={4} height={26} fill="#2d3640" transform="rotate(8 476 930)" />
+      <Shadow cx={(x0 + x1) / 2} w={x1 - x0 + 30} y={bottom - 4} o={0.18} />
+      {/* передняя панель и тумбы */}
+      <rect x={x0 + 14} y={top + 30} width={x1 - x0 - 28} height={bottom - top - 30} fill={WOOD_D} />
+      <rect x={x0 + 14} y={top + 30} width={x1 - x0 - 28} height={10} fill="#00000025" />
+      <rect x={x0 + 34} y={top + 52} width={120} height={56} rx={6} fill="#00000020" />
+      <rect x={x0 + 34} y={top + 116} width={120} height={46} rx={6} fill="#00000020" />
+      <rect x={x0 + 78} y={top + 76} width={32} height={9} rx={4} fill="#d9a630" />
+      <rect x={x0 + 78} y={top + 135} width={32} height={9} rx={4} fill="#d9a630" />
+      <rect x={x0 + 174} y={top + 52} width={x1 - x0 - 348} height={bottom - top - 76} rx={6} fill="#00000014" />
+      <rect x={x1 - 154} y={top + 52} width={120} height={56} rx={6} fill="#00000020" />
+      <rect x={x1 - 154} y={top + 116} width={120} height={46} rx={6} fill="#00000020" />
+      <rect x={x1 - 110} y={top + 76} width={32} height={9} rx={4} fill="#d9a630" />
+      <rect x={x1 - 110} y={top + 135} width={32} height={9} rx={4} fill="#d9a630" />
+      {/* столешница */}
+      <rect x={x0} y={top} width={x1 - x0} height={30} rx={8} fill={WOOD} />
+      <rect x={x0} y={top} width={x1 - x0} height={8} rx={4} fill={shade(WOOD, 0.15)} />
+      {/* монитор со спины на левом краю (экран смотрит на начальника) */}
+      <rect x={x0 + 20} y={top - 150} width={150} height={112} rx={12} fill="#2d3640" />
+      <rect x={x0 + 34} y={top - 138} width={122} height={88} rx={8} fill="#3a4550" />
+      <circle cx={x0 + 95} cy={top - 94} r={10} fill="#4a5662" />
+      <rect x={x0 + 84} y={top - 40} width={22} height={30} fill="#2d3640" />
+      <rect x={x0 + 60} y={top - 12} width={70} height={12} rx={5} fill="#2d3640" />
+      <Glow cx={x0 + 95} cy={top - 160} rx={90} ry={30} color={shade(accent, 0.5)} opacity={0.35} />
+      {/* телефон и бумаги перед начальником — низко */}
+      <rect x={x0 + 186} y={top - 8} width={80} height={10} rx={2} fill={PAPER} transform={`rotate(-3 ${x0 + 226} ${top})`} />
+      <rect x={x0 + 300} y={top - 28} width={70} height={28} rx={8} fill="#2f2a2a" />
+      <path d={`M${x0 + 296} ${top - 28} q35 -18 78 0 v-9 q-40 -18 -78 0 Z`} fill="#2f2a2a" />
+      <rect x={x0 + 316} y={top - 20} width={36} height={12} rx={3} fill="#4a4448" />
+      {/* стопка папок и кружка на правом краю */}
+      <rect x={x1 - 60} y={top - 26} width={50} height={26} rx={3} fill={PAPER} />
+      <rect x={x1 - 58} y={top - 36} width={48} height={10} rx={2} fill="#e8c46a" />
+      <rect x={x1 - 62} y={top - 46} width={50} height={10} rx={2} fill={accent} />
+      <rect x={x1 - 56} y={top - 56} width={44} height={10} rx={2} fill="#c8553d" />
       {/* табличка с именем на передней кромке */}
-      <path d="M180 965 l10 -26 h90 l10 26 Z" fill="#c9a24a" />
-      <rect x={198} y={946} width={74} height={8} rx={3} fill="#5a4030" opacity={0.6} />
-      {/* столешница и тумба */}
-      <rect x={30} y={top} width={460} height={30} rx={8} fill={WOOD} />
-      <rect x={30} y={top} width={460} height={8} rx={4} fill={shade(WOOD, 0.15)} />
-      <rect x={46} y={top + 30} width={428} height={FLOOR_Y - top - 30} fill={WOOD_D} />
-      <rect x={66} y={top + 50} width={180} height={70} rx={6} fill="#00000020" />
-      <rect x={66} y={top + 132} width={180} height={70} rx={6} fill="#00000020" />
-      <rect x={136} y={top + 80} width={40} height={10} rx={5} fill="#d9a630" />
-      <rect x={136} y={top + 162} width={40} height={10} rx={5} fill="#d9a630" />
-      <rect x={274} y={top + 50} width={180} height={152} rx={6} fill="#00000014" />
+      <path d={`M${x0 + 196} ${top + 4} l8 -22 h76 l8 22 Z`} fill="#c9a24a" />
+      <rect x={x0 + 212} y={top - 12} width={60} height={7} rx={3} fill="#5a4030" opacity={0.6} />
     </g>
   );
 };
+
+/** Шкаф для бумаг у стены слева: два ряда ящиков. */
+const FileCabinet = ({ x, w }: { x: number; w: number }) => {
+  const top = FLOOR_Y - 230;
+  return (
+    <g>
+      <Shadow cx={x + w / 2} w={w + 20} />
+      <rect x={x} y={top} width={w} height={230} rx={6} fill="#9aa5ad" />
+      <rect x={x} y={top} width={w} height={10} rx={4} fill="#b4bec4" />
+      {[0, 1].flatMap((c) => [0, 1, 2].map((r) => (
+        <g key={`${c}${r}`}>
+          <rect x={x + 10 + c * (w / 2 - 5)} y={top + 18 + r * 70} width={w / 2 - 15} height={60} rx={4} fill="#8a959d" />
+          <rect x={x + c * (w / 2 - 5) + w / 4 - 16} y={top + 40 + r * 70} width={22} height={7} rx={3} fill="#d8dcdc" />
+        </g>
+      )))}
+      <rect x={x + 20} y={top - 40} width={60} height={40} rx={4} fill="#e8c46a" />
+      <rect x={x + 90} y={top - 26} width={80} height={26} rx={3} fill={PAPER} />
+    </g>
+  );
+};
+
+/** Передний слой кабинета: стол начальника и стул посетителя (visitor, средний план — ближе стола). */
+const OfficeFront = ({ palette }: { palette: Palette }) => (
+  <>
+    <BossDesk accent={palette.accent} />
+    <Shadow cx={0.72 * W} w={140} y={feetY(0.5)} o={0.14} />
+    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD_D} pad={palette.accent} />
+  </>
+);
 
 /** График продаж на доске: столбики, ломаная вниз-вверх со стрелкой. */
 const SalesChart = ({ x, y, w, h, accent }: { x: number; y: number; w: number; h: number; accent: string }) => {
@@ -231,14 +266,13 @@ const BaseOffice = ({ palette }: { palette: Palette }) => (
     <Clock cx={522} cy={740} r={40} rim="#3a4148" h={9} m={55} />
     <BlindsWindow x={600} y={450} w={340} h={360} wall={palette.wall} />
     <Radiator x={760} w={170} y={1000} h={110} color="#eceae4" />
-    <WaterCooler x={650} />
-    <BossDesk accent={palette.accent} />
+    <FileCabinet x={40} w={200} />
+    <WaterCooler x={250} />
+    {/* кресло начальника (desk) — за столом; сам стол и стул посетителя — передний слой (OfficeFront) */}
     <Shadow cx={0.53 * W} w={140} />
     <SeatAt x={0.53} z={1} kind="office" color="#2f2a2a" back={230} />
     <Shadow cx={985} w={150} />
     <Plant x={985} scale={1.15} pot={palette.accent} />
-    <Shadow cx={0.72 * W} w={140} y={1275} o={0.14} />
-    <SeatAt x={0.72} z={0.5} kind="chair" color={WOOD_D} pad={palette.accent} />
   </>
 );
 
@@ -317,23 +351,8 @@ const TvStudio = ({ palette }: { palette: Palette }) => {
       {/* лучи света */}
       <path d="M420 140 L250 1190 L560 1190 Z" fill="#fff4cf" opacity={0.07} />
       <path d="M660 140 L520 1190 L840 1190 Z" fill="#fff4cf" opacity={0.07} />
-      {/* стол с микрофоном посередине, кресло ведущего слева (host), кресло гостя справа (guest) */}
+      {/* стол с микрофоном посередине — передний слой (TvFront, ведущий на метке desk стоит за ним); кресло ведущего слева (host), гостя справа (guest) */}
       <Shadow cx={540} w={360} o={0.3} />
-      <path d="M380 1000 Q540 976 700 1000 L690 1190 L390 1190 Z" fill="#e8e4dc" />
-      <path d="M380 1000 Q540 976 700 1000 L698 1040 Q540 1016 382 1040 Z" fill="#ffffff" opacity={0.4} />
-      <path d="M370 988 Q540 962 710 988 L710 1014 Q540 990 370 1014 Z" fill={palette.accent} />
-      <rect x={490} y={1060} width={100} height={50} rx={10} fill={shade(palette.accent, -0.1)} />
-      <circle cx={540} cy={1085} r={14} fill="#ffffff" opacity={0.8} />
-      <rect x={612} y={906} width={10} height={80} rx={4} fill="#2a2a30" />
-      <rect x={598} y={972} width={38} height={14} rx={6} fill="#2a2a30" />
-      <rect x={603} y={872} width={28} height={50} rx={14} fill="#4a4a54" />
-      <rect x={600} y={900} width={34} height={14} rx={4} fill={palette.accent} />
-      <rect x={420} y={958} width={90} height={20} rx={3} fill={PAPER} />
-      <rect x={430} y={950} width={80} height={10} rx={2} fill={shade(PAPER, -0.06)} />
-      {/* кружки ведущего и гостя */}
-      <rect x={392} y={950} width={24} height={30} rx={6} fill="#c8553d" />
-      <rect x={660} y={950} width={24} height={30} rx={6} fill="#f4f1ea" />
-      <rect x={662} y={958} width={20} height={6} fill={palette.accent} />
       <Shadow cx={0.24 * W} w={140} o={0.3} />
       <SeatAt x={0.24} z={1} kind="office" color="#3a3a44" back={210} />
       <Shadow cx={0.76 * W} w={180} o={0.3} />
@@ -351,6 +370,27 @@ const TvStudio = ({ palette }: { palette: Palette }) => {
     </>
   );
 };
+
+/** Передний слой студии (front.z 0.97): стол ведущего с микрофоном, бумагами и кружками; ведущий на метке desk (z 1) за ним. */
+const TvFront = ({ palette }: { palette: Palette }) => (
+  <>
+    <path d="M380 1000 Q540 976 700 1000 L690 1190 L390 1190 Z" fill="#e8e4dc" />
+    <path d="M380 1000 Q540 976 700 1000 L698 1040 Q540 1016 382 1040 Z" fill="#ffffff" opacity={0.4} />
+    <path d="M370 988 Q540 962 710 988 L710 1014 Q540 990 370 1014 Z" fill={palette.accent} />
+    <rect x={490} y={1060} width={100} height={50} rx={10} fill={shade(palette.accent, -0.1)} />
+    <circle cx={540} cy={1085} r={14} fill="#ffffff" opacity={0.8} />
+    <rect x={612} y={906} width={10} height={80} rx={4} fill="#2a2a30" />
+    <rect x={598} y={972} width={38} height={14} rx={6} fill="#2a2a30" />
+    <rect x={603} y={872} width={28} height={50} rx={14} fill="#4a4a54" />
+    <rect x={600} y={900} width={34} height={14} rx={4} fill={palette.accent} />
+    <rect x={420} y={958} width={90} height={20} rx={3} fill={PAPER} />
+    <rect x={430} y={950} width={80} height={10} rx={2} fill={shade(PAPER, -0.06)} />
+    {/* кружки ведущего и гостя */}
+    <rect x={392} y={950} width={24} height={30} rx={6} fill="#c8553d" />
+    <rect x={660} y={950} width={24} height={30} rx={6} fill="#f4f1ea" />
+    <rect x={662} y={958} width={20} height={6} fill={palette.accent} />
+  </>
+);
 
 /* ---------- police-station ---------- */
 
@@ -644,10 +684,11 @@ const BankFront = ({ palette }: { palette: Palette }) => {
 export const Ofis = ({ palette, variant, layer = "back" }: BackdropProps) => {
   const bank = variant === "bank" || variant === "government-office";
   if (layer === "front") {
-    // передний слой — дежурный стол участка и стойка банка; кабинет и студия без него
+    // передний слой: дежурный стол участка, стойка банка, стол студии, стол начальника в кабинете
     if (variant === "police-station") return <Canvas><PoliceFront palette={palette} /></Canvas>;
     if (bank) return <Canvas><BankFront palette={palette} /></Canvas>;
-    return null;
+    if (variant === "tv-studio") return <Canvas><TvFront palette={palette} /></Canvas>;
+    return <Canvas><OfficeFront palette={palette} /></Canvas>;
   }
   return (
     <Canvas>

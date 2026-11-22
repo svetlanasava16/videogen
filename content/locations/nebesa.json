@@ -18,12 +18,39 @@
     "left": 0.22,
     "center": 0.5,
     "right": 0.78,
-    "lectern": 0.12,
+    "lectern": {
+      "x": 0.139,
+      "z": 0.95
+    },
     "gate": 0.5,
-    "cloud": 0.82
+    "cloud": 0.82,
+    "behind-lectern": {
+      "x": 0.139,
+      "z": 0.95
+    },
+    "gate-steps": {
+      "x": 0.5,
+      "z": 1
+    },
+    "harp": {
+      "x": 0.87,
+      "z": 1
+    },
+    "front-left": {
+      "x": 0.25,
+      "z": 0
+    },
+    "front-center": {
+      "x": 0.5,
+      "z": 0
+    },
+    "front-right": {
+      "x": 0.75,
+      "z": 0
+    }
   },
   "bible": {
-    "summary": "Heaven's gate on clouds, grand: a huge pearly gate fills the frame height — two tall pearl pillars with gold capitals, pearl inlays and laurel wreaths, a pearl arch with a gold keystone and filigree curls, a gold sunburst grille, the gold gate leaves stand ajar and bright light pours through onto golden steps and a golden path on the cloud floor; behind it a city of clouds with spires, domes and golden onion towers in two depth layers, tiny distant angels and doves, sun rays; Saint Peter's reception lectern with a big open book, bookmarks, a quill in an inkpot and a desk bell on the left, a golden harp leaning on the right pillar, a big cloud on the right (and variants hell, garden of Eden, space, crossroads of souls): Saint Peter jokes.",
+    "summary": "Heaven's gate on clouds, grand: a huge pearly gate fills the frame height — two tall pearl pillars with gold capitals, pearl inlays and laurel wreaths, a pearl arch with a gold keystone and filigree curls, a gold sunburst grille, the gold gate leaves stand ajar and bright light pours through onto golden steps and a golden path on the cloud floor; behind it a city of clouds with spires, domes and golden onion towers in two depth layers, tiny distant angels and doves, sun rays; Saint Peter's reception lectern with a big open book, bookmarks, a quill in an inkpot and a desk bell on the left — Saint Peter stands BEHIND it (lectern = behind-lectern, hidden to the waist), things put down lie on the book ledge; God stands on the golden steps before the gate (gate-steps); souls stand in front (center, right, left, gate, cloud, front-*); a golden harp leaning on the right pillar (harp), a big cloud on the right (and variants hell, garden of Eden, space, crossroads of souls): Saint Peter jokes.",
     "roles": [
       "heaven",
       "hell",
@@ -37,21 +64,214 @@
         "roles": [
           "hell"
         ],
-        "change": "Red cave: stalactites, hanging chains, glowing cracks, lava falls and a lava lake at the back, flames along the walls, flying sparks, a boiling cauldron on a fire on the right, a pitchfork leaning on the left wall."
+        "change": "Red cave: stalactites, hanging chains, glowing cracks, lava falls and a lava lake at the back (lava), flames along the walls, flying sparks, a boiling cauldron on a fire on the right (cauldron — next to it; the devil stands in front of it: right), a pitchfork leaning on the left wall (pitchfork).",
+        "marks": {
+          "pitchfork": {
+            "x": 0.17,
+            "z": 1
+          },
+          "lava": {
+            "x": 0.42,
+            "z": 1
+          },
+          "cauldron": {
+            "x": 0.66,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "right",
+            "roles": [
+              "devil"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          },
+          {
+            "mark": "front-center"
+          }
+        ]
       },
       {
         "id": "garden-of-eden",
         "roles": [
           "garden-of-eden"
         ],
-        "change": "Lush garden: blue sky with sun rays and a faint rainbow, two ranges of snowy mountains, a waterfall from a cliff into a lake, hills with round trees and cypresses, a deer on the hill, a lion lying next to a lamb at the back centre, a stream; a big apple tree full of red apples with the serpent on a branch on the right and a peacock with an open tail in front of it; a palm tree and flowering bushes on the left, a rabbit, flowers in the grass, butterflies, a flock of birds."
+        "change": "Lush garden: blue sky with sun rays and a faint rainbow, two ranges of snowy mountains, a waterfall from a cliff into a lake, hills with round trees and cypresses, a deer on the hill, a lion lying next to a lamb at the back centre by the lake (lake), a stream; a big apple tree full of red apples with the serpent on a branch on the right (apple-tree — under it) and a peacock with an open tail in front of it; a palm tree and flowering bushes on the left (palm), a rabbit, flowers in the grass, butterflies, a flock of birds.",
+        "marks": {
+          "palm": {
+            "x": 0.14,
+            "z": 1
+          },
+          "lake": {
+            "x": 0.42,
+            "z": 1
+          },
+          "apple-tree": {
+            "x": 0.76,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "apple-tree",
+            "roles": [
+              "eve",
+              "serpent"
+            ]
+          },
+          {
+            "mark": "lake",
+            "roles": [
+              "god"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "space",
         "roles": [
           "space"
         ],
-        "change": "Space: starry sky with nebulae and the Milky Way, a spiral galaxy, a ringed planet with a moon, the Earth, a satellite, a shooting star; grey moon surface with craters and rocks, a small rocket on the left, footprints and a little flag."
+        "change": "Space: starry sky with nebulae and the Milky Way, a spiral galaxy, a ringed planet with a moon, the Earth, a satellite, a shooting star; grey moon surface with craters and rocks, a small rocket on the left (rocket — beside it), footprints and a little flag (flag — beside it).",
+        "marks": {
+          "rocket": {
+            "x": 0.25,
+            "z": 1
+          },
+          "flag": {
+            "x": 0.6,
+            "z": 1
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "center": {
+            "x": 0.5,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "flag",
+            "roles": [
+              "astronaut",
+              "cosmonaut"
+            ]
+          },
+          {
+            "mark": "rocket",
+            "roles": [
+              "engineer"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "crossroads",
@@ -64,7 +284,7 @@
           "crossroads-afterlife",
           "judgement"
         ],
-        "change": "Crossroads in the clouds: a pale road comes from the viewer to a fork at the back centre, where the judge of souls stands (judge) between golden scales on a cloud pedestal (a feather and a heart on the pans, left of him) and a golden lectern with the open book of souls, a quill and inkpot (right of him); behind him a tall signpost with two big arrow boards without words: up-left a white-and-gold board with a winged halo and a cloud, down-right a charred dark red board with a pitchfork and a flame; the left branch is a wide golden stairway with pearl-topped railings climbing high to a pearly gate of paradise on a cloud island in golden rays with doves and tiny angels, a golden lantern with a halo sign at its foot (left-road at its foot); the right branch is dark cobblestone with glowing cracks leading to a fiery hole in the clouds with flames, dark steps going down, smoke and sparks, a crooked post with a flame sign pointing down (right-road at its start); souls stand at center, front-left, front-center, front-right.",
+        "change": "Crossroads in the clouds: a pale road comes from the viewer to a fork at the back centre, where the judge of souls stands (judge) between golden scales on a cloud pedestal (a feather and a heart on the pans, left of him) and a golden lectern with the open book of souls, a quill and inkpot (right of him); behind him a tall signpost with two big arrow boards without words: up-left a white-and-gold board with a winged halo and a cloud, down-right a charred dark red board with a pitchfork and a flame; the left branch is a wide golden stairway with pearl-topped railings climbing high to a pearly gate of paradise on a cloud island in golden rays with doves and tiny angels, a golden lantern with a halo sign at its foot (left-road at its foot); the right branch is dark cobblestone with glowing cracks leading to a fiery hole in the clouds with flames, dark steps going down, smoke and sparks, a crooked post with a flame sign pointing down (right-road at its start); souls stand at left, center, right, front-left, front-center, front-right.",
         "marks": {
           "left-road": {
             "x": 0.2,
@@ -93,10 +313,86 @@
           "front-right": {
             "x": 0.75,
             "z": 0
+          },
+          "left": {
+            "x": 0.22,
+            "z": 0.5
+          },
+          "right": {
+            "x": 0.78,
+            "z": 0.5
           }
-        }
+        },
+        "slots": [
+          {
+            "mark": "judge",
+            "roles": [
+              "god",
+              "judge",
+              "saint-peter",
+              "traffic-cop",
+              "angel"
+            ]
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "pearly gates on fluffy clouds, soft sky, golden light"
-  }
+  },
+  "front": {
+    "z": 0.8
+  },
+  "surfaces": [
+    {
+      "x0": 0.04,
+      "x1": 0.24,
+      "z": 0.8,
+      "top": 218
+    }
+  ],
+  "slots": [
+    {
+      "mark": "lectern",
+      "roles": [
+        "saint-peter",
+        "angel"
+      ]
+    },
+    {
+      "mark": "gate-steps",
+      "roles": [
+        "god"
+      ]
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "front-right"
+    },
+    {
+      "mark": "front-left"
+    }
+  ]
 }

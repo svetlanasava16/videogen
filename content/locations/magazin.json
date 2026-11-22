@@ -110,6 +110,34 @@
             "z": 0.8,
             "top": 220
           }
+        ],
+        "slots": [
+          {
+            "mark": "behind-counter",
+            "roles": [
+              "pharmacist",
+              "salesman",
+              "saleswoman",
+              "seller",
+              "cashier",
+              "doctor"
+            ]
+          },
+          {
+            "mark": "customer"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
         ]
       },
       {
@@ -124,8 +152,56 @@
           "center": 0.5,
           "right": 0.78,
           "shelf": 0.3,
-          "counter": 0.76
-        }
+          "counter": 0.76,
+          "chair": {
+            "x": 0.667,
+            "z": 1,
+            "seat": "armchair"
+          },
+          "barber": {
+            "x": 0.47,
+            "z": 1
+          },
+          "front-left": {
+            "x": 0.25,
+            "z": 0
+          },
+          "front-center": {
+            "x": 0.5,
+            "z": 0
+          },
+          "front-right": {
+            "x": 0.75,
+            "z": 0
+          }
+        },
+        "slots": [
+          {
+            "mark": "barber",
+            "roles": [
+              "barber",
+              "hairdresser"
+            ]
+          },
+          {
+            "mark": "chair"
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "left"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       }
     ],
     "prompt": "small shop interior, counter with cash register, shelves with goods, price tags"
@@ -139,6 +215,39 @@
       "x1": 0.98,
       "z": 0.8,
       "top": 220
+    }
+  ],
+  "slots": [
+    {
+      "mark": "behind-counter",
+      "roles": [
+        "salesman",
+        "saleswoman",
+        "seller",
+        "cashier",
+        "shop-assistant",
+        "butcher",
+        "shopkeeper",
+        "pharmacist"
+      ]
+    },
+    {
+      "mark": "customer"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "center"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
     }
   ]
 }

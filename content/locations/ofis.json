@@ -58,10 +58,14 @@
     "front-right": {
       "x": 0.75,
       "z": 0
+    },
+    "behind-left": {
+      "x": 0.16,
+      "z": 0.95
     }
   },
   "bible": {
-    "summary": "Boss's office: tiled ceiling with light panels, framed certificate, shelf of binders, sales chart on the wall (line dips and shoots up), calendar, wall clock, desk at the back left with a computer, keyboard, desk phone, stack of folders, mug and a gold name plate, the boss's black office chair right of the desk (desk), window with blinds, water cooler and radiator under it, visitor's chair on a rug in the middle plane (visitor), potted plant. Variants: TV studio, police station, bank/government office.",
+    "summary": "Boss's office: tiled ceiling with light panels, framed certificate, shelf of binders, sales chart on the wall (line dips and shoots up), calendar, wall clock, filing cabinet and water cooler at the back left; the boss's desk (monitor seen from behind, desk phone, papers, stack of folders, gold name plate) stands IN FRONT of the boss — the boss sits behind it in his black office chair (desk, hidden to the waist); the visitor's chair stands on a rug in front of the desk's right end (visitor, middle plane); a secretary stands at the filing cabinet (behind-left); things put down on the desk lie on it; window with blinds and a radiator under it, potted plant. Variants: TV studio, police station, bank/government office.",
     "roles": [
       "office",
       "government-office",
@@ -80,7 +84,7 @@
         "roles": [
           "tv-studio"
         ],
-        "change": "TV studio: dark studio with acoustic wall panels, a lighting truss with spotlights, a coloured LED backdrop with a big glowing circle ringed with bulbs and a news ticker, a red 'on air' lamp, studio lights on stands at both edges, cables on the glossy floor; a small curved desk with a microphone, papers and mugs in the middle (desk — standing presenter), the host's office chair left of it (host) with a prompter monitor, the guest's armchair right of it (guest).",
+        "change": "TV studio: dark studio with acoustic wall panels, a lighting truss with spotlights, a coloured LED backdrop with a big glowing circle ringed with bulbs and a news ticker, a red 'on air' lamp, studio lights on stands at both edges, cables on the glossy floor; a small curved desk with a microphone, papers and mugs in the middle stands IN FRONT of the presenter — a standing presenter stands behind it (desk, hidden to the hips), the host's office chair left of it (host) with a prompter monitor, the guest's armchair right of it (guest).",
         "marks": {
           "host": {
             "x": 0.24,
@@ -121,7 +125,40 @@
             "z": 0
           }
         },
-        "surfaces": []
+        "surfaces": [
+          {
+            "x0": 0.35,
+            "x1": 0.65,
+            "z": 0.97,
+            "top": 240
+          }
+        ],
+        "front": {
+          "z": 0.97
+        },
+        "slots": [
+          {
+            "mark": "host",
+            "roles": [
+              "tv-host",
+              "journalist",
+              "presenter",
+              "reporter"
+            ]
+          },
+          {
+            "mark": "guest"
+          },
+          {
+            "mark": "desk"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
+        ]
       },
       {
         "id": "police-station",
@@ -183,6 +220,32 @@
             "x1": 0.6,
             "z": 0.8,
             "top": 220
+          }
+        ],
+        "slots": [
+          {
+            "mark": "desk",
+            "roles": [
+              "police-officer",
+              "policeman",
+              "detective",
+              "sheriff"
+            ]
+          },
+          {
+            "mark": "center"
+          },
+          {
+            "mark": "suspect"
+          },
+          {
+            "mark": "right"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
           }
         ]
       },
@@ -281,9 +344,104 @@
             "z": 0.8,
             "top": 220
           }
+        ],
+        "slots": [
+          {
+            "mark": "teller-2",
+            "roles": [
+              "employee",
+              "teller",
+              "cashier",
+              "clerk",
+              "banker",
+              "official",
+              "businessman"
+            ]
+          },
+          {
+            "mark": "center",
+            "roles": [
+              "customer",
+              "client"
+            ]
+          },
+          {
+            "mark": "teller-1",
+            "roles": [
+              "employee",
+              "teller",
+              "cashier",
+              "clerk",
+              "banker",
+              "official",
+              "businessman"
+            ]
+          },
+          {
+            "mark": "wait-1"
+          },
+          {
+            "mark": "queue"
+          },
+          {
+            "mark": "wait-2"
+          },
+          {
+            "mark": "wait-3"
+          },
+          {
+            "mark": "front-left"
+          },
+          {
+            "mark": "front-right"
+          }
         ]
       }
     ],
     "prompt": "boss office, big desk with computer and papers, office chair, potted plant, window with blinds"
-  }
+  },
+  "front": {
+    "z": 0.9
+  },
+  "surfaces": [
+    {
+      "x0": 0.31,
+      "x1": 0.7,
+      "z": 0.9,
+      "top": 183
+    }
+  ],
+  "slots": [
+    {
+      "mark": "desk",
+      "roles": [
+        "boss",
+        "director",
+        "manager",
+        "chief"
+      ]
+    },
+    {
+      "mark": "behind-left",
+      "roles": [
+        "secretary",
+        "assistant"
+      ]
+    },
+    {
+      "mark": "visitor"
+    },
+    {
+      "mark": "left"
+    },
+    {
+      "mark": "right"
+    },
+    {
+      "mark": "front-left"
+    },
+    {
+      "mark": "front-right"
+    }
+  ]
 }

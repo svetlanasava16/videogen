@@ -1,7 +1,7 @@
 import { Canvas, Room, Plant, FLOOR_Y, W, H, type BackdropProps, type Palette } from "./parts";
 import { VShade, Glow, FloorTiles, FloorShadow, CeilingLamp, PotPlant, WallClock } from "./gostinaya";
 import { Label } from "./ulitsa";
-import { feetY } from "../world/depth";
+import { feetY, seatTopY } from "../world/depth";
 import { useSign } from "../i18n/signs";
 import { FONT } from "../fonts";
 
@@ -11,7 +11,8 @@ import { FONT } from "../fonts";
  *
  * Глубина: прилавок магазина и аптеки — передний слой (layer="front", content/locations/magazin.json → front.z = 0.8):
  * продавец / фармацевт за ним (метка counter, z 0.95) скрыт по пояс, покупатели (z 0.5) — перед ним. Низ прилавка —
- * на полу плана 0.8 (FRONT_FEET), верх — y 1015; surfaces.top — середина столешницы. Парикмахерская без переднего слоя.
+ * на полу плана 0.8 (FRONT_FEET), верх — y 1015; surfaces.top — середина столешницы. Парикмахерская без переднего слоя:
+ * клиент — в кресле (метка chair, сиденье на seatTopY(1)), парикмахер — слева от кресла (barber).
  */
 
 const FRONT_FEET = feetY(0.8);
@@ -339,22 +340,28 @@ const BarberPole = ({ x, y, h = 340 }: { x: number; y: number; h?: number }) => 
   );
 };
 
-const BarberChair = ({ x, accent }: { x: number; accent: string }) => (
-  <g>
-    <FloorShadow cx={x} w={220} o={0.25} />
-    <ellipse cx={x} cy={FLOOR_Y - 6} rx={90} ry={14} fill="#9aa0a8" />
-    <rect x={x - 16} y={1080} width={32} height={FLOOR_Y - 1086} fill="#9aa0a8" />
-    {/* подлокотники, сиденье, спинка, подголовник */}
-    <rect x={x - 100} y={1030} width={200} height={56} rx={22} fill={accent} />
-    <rect x={x - 86} y={850} width={172} height={200} rx={34} fill={accent} />
-    <rect x={x - 62} y={872} width={124} height={150} rx={24} fill={shade(accent, -0.12)} />
-    {Array.from({ length: 3 }).map((_, i) => <rect key={i} x={x - 62} y={900 + i * 40} width={124} height={4} fill={shade(accent, -0.22)} />)}
-    <rect x={x - 110} y={990} width={40} height={20} rx={8} fill="#c9ccd4" />
-    <rect x={x + 70} y={990} width={40} height={20} rx={8} fill="#c9ccd4" />
-    <rect x={x - 40} y={808} width={80} height={46} rx={20} fill={shade(accent, -0.2)} />
-    <rect x={x - 70} y={1100} width={60} height={12} rx={6} fill="#9aa0a8" />
-  </g>
-);
+/**
+ * Кресло парикмахера (метка chair, дальний план): верх сиденья = seatTopY(1), чтобы клиент сел ровно на него;
+ * ножка — короткая стойка на круглом основании, спинка с подголовником над сиденьем.
+ */
+const BarberChair = ({ x, accent }: { x: number; accent: string }) => {
+  const top = seatTopY(1);
+  return (
+    <g>
+      <FloorShadow cx={x} w={220} o={0.25} />
+      <ellipse cx={x} cy={FLOOR_Y - 6} rx={90} ry={14} fill="#9aa0a8" />
+      <rect x={x - 16} y={top + 34} width={32} height={FLOOR_Y - 6 - top - 34} fill="#9aa0a8" />
+      {/* подлокотники, сиденье, спинка, подголовник */}
+      <rect x={x - 100} y={top} width={200} height={40} rx={18} fill={accent} />
+      <rect x={x - 86} y={top - 180} width={172} height={196} rx={34} fill={accent} />
+      <rect x={x - 62} y={top - 158} width={124} height={146} rx={24} fill={shade(accent, -0.12)} />
+      {Array.from({ length: 3 }).map((_, i) => <rect key={i} x={x - 62} y={top - 130 + i * 40} width={124} height={4} fill={shade(accent, -0.22)} />)}
+      <rect x={x - 110} y={top - 40} width={40} height={20} rx={8} fill="#c9ccd4" />
+      <rect x={x + 70} y={top - 40} width={40} height={20} rx={8} fill="#c9ccd4" />
+      <rect x={x - 40} y={top - 222} width={80} height={46} rx={20} fill={shade(accent, -0.2)} />
+    </g>
+  );
+};
 
 /** Плакат с причёской. */
 const StylePoster = ({ x, y, hair, suit }: { x: number; y: number; hair: "flat" | "side" | "pomp"; suit: string }) => (
