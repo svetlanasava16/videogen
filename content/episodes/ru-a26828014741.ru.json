@@ -3,6 +3,8 @@
   "jokeId": "ru-a26828014741",
   "locale": "ru",
   "title": "Катафалк",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -13,68 +15,48 @@
     "muzhik-ryzhy": "driver",
     "muzhik": "customer"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Пассажир такси, решив обратиться к водителю с вопросом, похлопал того по плечу. Водитель дико вскрикнул и потерял управление.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Такси чуть не врезалось в автобус, вылетело на тротуар и остановилось в сантиметре от витрины магазина.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "На секунду в кабине воцарилась тишина, после чего таксист хрипло произнёс:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
       "text": "Послушай, приятель, больше так не делай. Я чуть не обделался...",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Извините. Я и подумать не мог, что лёгкий хлопок по плечу так вас напугает.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
       "text": "Да в общем-то твоей вины здесь нет... Просто сегодня я первый день работаю на такси.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -82,12 +64,63 @@
       "text": "А до этого двадцать пять лет водил катафалк!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

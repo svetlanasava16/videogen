@@ -3,12 +3,16 @@
   "jokeId": "ru-3d66ff1cd7f6",
   "locale": "ru",
   "title": "Ситилайн",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
-    "batyushka"
+    "batyushka",
+    "ded"
   ],
   "roles": {
+    "ded": "god",
     "batyushka": "priest"
   },
   "lines": [
@@ -17,40 +21,28 @@
       "character": "narrator",
       "text": "Идёт молитва в церкви. Чинно-спокойно льётся речь. Вдруг небеса разверзаются, и оттуда в лучах небесного света появляется лицо Бога.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Сыны и дочери мои, настал момент мне предст...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Со страшным грохотом небеса захлопываются... Все прихожане в шоке! Никто не верит своим глазам... кто-то судорожно крестится...",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Вдруг небеса опять разверзаются, из сияния выглядывает омрачённый лик Господа, и он с ожесточением произносит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -58,8 +50,6 @@
       "text": "Грёбаный Ситилайн!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -112,8 +102,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",

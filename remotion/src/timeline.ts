@@ -36,7 +36,7 @@ export type TimedLine = {
 /**
  * Перемещение куклы в сцене:
  * enter — появляется (0→1) у края или у метки; exit — уходит (1→0) за край; walk — идёт к метке, оставаясь в кадре.
- * target: "slot" — автослот (старый формат), иначе id метки места.
+ * target: "slot" — автослот (move to "auto"), иначе id метки места.
  */
 export type Move = {
   id: string; from: number; to: number; kind: "enter" | "exit" | "walk"; target: string; edge?: "left" | "right";
@@ -157,7 +157,6 @@ export function buildTimeline(ep: Episode) {
     for (const b of sc.beats) {
       if (b.type === "line") {
         const l = byId.get(b.ref);
-        for (const id of l?.enter ?? []) if (!first.has(id)) first.set(id, "in");
         if (l && !l.offscreen && !first.has(l.character)) first.set(l.character, "out");
       } else if (b.type === "move" && !first.has(b.who)) first.set(b.who, b.from ? "in" : "out");
     }
@@ -181,14 +180,14 @@ export function buildTimeline(ep: Episode) {
           // начальная расстановка: кукла сразу стоит на метке (второй move той же куклы до первой реплики — уже ходьба на первых словах)
           placed.add(b.who);
           // с первого кадра сцены (а не с первой реплики), иначе в начале сцены куклы мелькают в автослотах
-          moves.push({ id: b.who, from, to: from, kind: "walk", target: b.to, z: b.plane ? PLANES[b.plane] : undefined });
+          moves.push({ id: b.who, from, to: from, kind: "walk", target: b.to === "auto" ? "slot" : b.to, z: b.plane ? PLANES[b.plane] : undefined });
         } else if (b.type === "move") {
           const s0 = startOf(b.who);
           const off = b.to.startsWith("off-");
           moves.push({
             id: b.who, from: f(s0), to: f(s0 + WALK_SEC),
             kind: b.from ? "enter" : off ? "exit" : "walk",
-            target: off ? "slot" : b.to,
+            target: off || b.to === "auto" ? "slot" : b.to,
             edge: b.from ? (b.from === "off-left" ? "left" : "right") : off ? (b.to === "off-left" ? "left" : "right") : undefined,
             z: b.plane ? PLANES[b.plane] : undefined, via: b.via,
           });
@@ -267,8 +266,6 @@ export function buildTimeline(ep: Episode) {
       if (b.type !== "line") { pending.push(b); continue; }
       const l = byId.get(b.ref);
       if (!l) continue;
-      // вход на реплике — тоже во время реплики (входит и говорит)
-      for (const id of l.enter) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "enter", target: "slot" });
       flush(t);
       started = true;
       // без цензуры — только для неозвученных реплик (озвучена чистая версия)
@@ -294,7 +291,6 @@ export function buildTimeline(ep: Episode) {
         laughCues.push({ clip, from: f(t + 0.05), frames: f(clip.durationSec) });
         laughEnd = Math.max(laughEnd, t + 0.05 + clip.durationSec);
       }
-      for (const id of l.exit) moves.push({ id, from: f(t), to: f(t + WALK_SEC), kind: "exit", target: "slot" });
       // паузы почти нет: темп живого рассказа; чуть дольше — перед панчлайном
       const nextId = order[order.findIndex((x) => x.id === l.id) + 1]?.id;
       t += l.id === lastLineId ? 0 : nextId === lastLineId ? PUNCH_GAP_SEC : GAP_SEC;

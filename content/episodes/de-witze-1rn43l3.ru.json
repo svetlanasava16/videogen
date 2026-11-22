@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rn43l3",
   "locale": "ru",
   "title": "Как дедушка",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,68 +15,48 @@
     "uchilka": "teacher",
     "vovochka": "vovochka"
   },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
       "text": "Как бы ты хотел однажды умереть?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka",
       "text": "Как мой дедушка.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "uchilka",
       "text": "А как умер твой дедушка?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "vovochka",
       "text": "Он уснул.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "uchilka",
       "text": "Да, это прекрасная смерть, я бы тоже хотела так умереть.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "uchilka",
       "text": "А как бы ты не хотел умереть?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -82,12 +64,62 @@
       "text": "Как те двое, которые ехали с дедушкой.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "vovochka"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "vovochka": "vovochka"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

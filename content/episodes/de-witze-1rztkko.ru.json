@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rztkko",
   "locale": "ru",
   "title": "Зло",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -13,41 +15,27 @@
     "tyoshcha": "wife",
     "ded": "husband"
   },
-  "looks": {
-    "tyoshcha": {
-      "add": [
-        "curlers"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Пожилые супруги вечером лежат в постели. Она беспокойно ворочается с боку на бок и то и дело его будит.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "Дед, я не могу уснуть.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Это нормально.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -55,12 +43,50 @@
       "text": "Зло никогда не спит.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "tyoshcha",
+        "ded"
+      ],
+      "roles": {
+        "tyoshcha": "wife",
+        "ded": "husband"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "curlers"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rddzy8",
   "locale": "de",
   "title": "Feierabend",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -13,41 +15,27 @@
     "paren": "employee",
     "nachalnik": "boss"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "Chef, kann ich heute drei Stunden früher Feierabend machen?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Meine Frau will unbedingt mit mir einkaufen gehen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "Das kommt überhaupt nicht infrage, ich bezahle dich doch nicht für die freie Zeit!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -55,12 +43,50 @@
       "text": "Danke, ich wusste, dass ich mich auf Sie verlassen kann!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

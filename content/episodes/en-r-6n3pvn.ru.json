@@ -3,6 +3,8 @@
   "jokeId": "en-r-6n3pvn",
   "locale": "ru",
   "title": "Оговорка",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "muzhik",
       "text": "Вчера за завтраком я хотел сказать жене: передай молоко, дорогая. И оговорился.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Я случайно сказал:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -39,12 +37,38 @@
       "uncensored": "Иди нахуй, Лена, ты испортила мне всю мою ёбаную жизнь.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

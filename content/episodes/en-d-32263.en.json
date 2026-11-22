@@ -3,6 +3,8 @@
   "jokeId": "en-d-32263",
   "locale": "en",
   "title": "I'll Cover You",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "cafe",
   "cast": [
@@ -13,43 +15,20 @@
     "muzhik-ryzhy": "everyman",
     "devushka-blondinka": "everyman"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "clothes": "#f5a623",
-      "skin": "#ffd23f",
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "devushka-blondinka": {
-      "clothes": "#b8c2cc",
-      "skin": "#e4e9f0",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "The Sun and Moon walked into a coffee shop today...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
       "text": "Oh man, I forgot my wallet!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "muzhik-ryzhy",
-        "devushka-blondinka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -57,12 +36,67 @@
       "text": "Don't worry, I'll cover you.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "cafe",
+      "cast": [
+        "muzhik-ryzhy",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "everyman",
+        "devushka-blondinka": "everyman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#f5a623",
+          "skin": "#ffd23f",
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "devushka-blondinka": {
+          "clothes": "#b8c2cc",
+          "skin": "#e4e9f0",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

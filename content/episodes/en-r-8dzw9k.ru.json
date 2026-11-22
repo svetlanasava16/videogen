@@ -3,6 +3,8 @@
   "jokeId": "en-r-8dzw9k",
   "locale": "ru",
   "title": "Двадцать килограммов",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "cast": [
     "muzhik",
@@ -16,22 +18,13 @@
     "devushka-blondinka": "woman",
     "devushka-ryzhaya": "woman"
   },
-  "looks": {
-    "muzhik": {
-      "build": "portly",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
       "text": "Если бы ты сбросил килограммов двадцать, ты был бы симпатичным.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -39,12 +32,45 @@
       "text": "Если бы я сбросил двадцать килограммов, я бы разговаривал с твоими подругами!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "devushka",
+        "devushka-blondinka",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "devushka": "woman",
+        "devushka-blondinka": "woman",
+        "devushka-ryzhaya": "woman"
+      },
+      "looks": {
+        "muzhik": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

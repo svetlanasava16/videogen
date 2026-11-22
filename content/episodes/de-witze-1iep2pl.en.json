@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1iep2pl",
   "locale": "en",
   "title": "Thanks to the Donor",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -13,70 +15,48 @@
     "sluzhivy": "pirate",
     "muzhik-sosed": "tourist"
   },
-  "looks": {
-    "muzhik-sosed": {
-      "clothes": "#e07a3c",
-      "add": [
-        "camera",
-        "straw-hat"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "In a harbour pub, a typical pirate sits at the bar: eye patch, wooden leg, hook for a hand.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Where did you lose your leg?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "It got shot off in a battle off Trinidad.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
       "text": "And what happened to your hand?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "sluzhivy",
       "text": "A sabre blow, when we boarded a frigate.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "And the eye?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -84,18 +64,14 @@
       "text": "A seagull crapped in it.",
       "uncensored": "A seagull shat in it.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "muzhik-sosed",
       "text": "But you don't lose an eye from that?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -103,12 +79,72 @@
       "text": "Oh yes you do. I'd only had the hook for two days.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "sluzhivy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "sluzhivy": "pirate",
+        "muzhik-sosed": "tourist"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "clothes": "#e07a3c",
+          "add": [
+            "camera",
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

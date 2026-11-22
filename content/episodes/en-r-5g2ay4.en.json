@@ -3,6 +3,8 @@
   "jokeId": "en-r-5g2ay4",
   "locale": "en",
   "title": "Quick at Math",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -13,59 +15,41 @@
     "nachalnik": "boss",
     "paren": "everyman"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
       "text": "I heard you were extremely quick at math.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Yes, as a matter of fact I am.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "What's fourteen times twenty-seven?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Forty-nine.",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "nachalnik",
       "text": "That's not even close.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -73,12 +57,58 @@
       "text": "Yeah, but it was fast.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "nachalnik": "boss",
+        "paren": "everyman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,12 +3,16 @@
   "jokeId": "ru-c1c54c138410",
   "locale": "de",
   "title": "Anruf beim Tierarzt",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "doctor-office",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
+    "doktor": "doctor",
     "muzhik": "everyman"
   },
   "lines": [
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "Ein Anruf beim Tierarzt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Gleich kommt meine Schwiegermutter mit einer alten Hündin zu Ihnen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Geben Sie ihr eine Spritze mit dem allerstärksten Gift, damit sie nicht leidet und gleich stirbt...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +43,6 @@
       "text": "Und findet die Hündin allein den Weg nach Hause?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

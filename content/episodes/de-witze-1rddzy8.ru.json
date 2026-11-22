@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rddzy8",
   "locale": "ru",
   "title": "Отпроситься",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -13,41 +15,27 @@
     "paren": "employee",
     "nachalnik": "boss"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "Шеф, можно я сегодня уйду с работы на три часа раньше?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Жена непременно хочет пойти со мной по магазинам.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "Об этом не может быть и речи, я тебе не за свободное время плачу!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -55,12 +43,50 @@
       "text": "Спасибо, я знал, что на вас можно положиться!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

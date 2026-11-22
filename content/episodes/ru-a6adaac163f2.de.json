@@ -3,6 +3,8 @@
   "jokeId": "ru-a6adaac163f2",
   "locale": "de",
   "title": "Hochzeit im Himmel",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -17,129 +19,83 @@
     "ded": "god",
     "batyushka": "priest"
   },
-  "looks": {
-    "zhena": {
-      "clothes": "#ffffff",
-      "add": [],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    },
-    "ded": {
-      "add": [
-        "halo"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein Brautpaar hatte auf dem Weg zur Kirche einen Unfall und kam direkt in den Himmel, zu Gott.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Wir lieben uns so sehr,",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "und wir wollen trotzdem heiraten.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "Ihr seid hier die Ersten mit so einer Bitte.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Und er verschwand für drei Wochen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Nach drei Wochen tauchte er mit einem Priester auf, der sie traute.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ded",
-        "batyushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Doch das Brautpaar ist schon wieder unzufrieden.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "muzhik",
       "text": "Also, im Himmel braucht man doch eigentlich keine Ehe.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "zhena",
       "text": "Könnten wir uns nicht scheiden lassen?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "ded",
       "text": "Macht mich nicht verrückt!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "ded",
       "text": "Ich habe drei Wochen gebraucht, um im Himmel überhaupt irgendeinen Priester zu finden!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l12",
@@ -147,12 +103,114 @@
       "text": "Habt ihr eine Ahnung, wie lange es dauert, im Himmel einen Anwalt zu finden?!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "ded",
+        "batyushka"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "ded": "god",
+        "batyushka": "priest"
+      },
+      "looks": {
+        "zhena": {
+          "clothes": "#ffffff",
+          "add": [],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "ded": {
+          "add": [
+            "halo"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

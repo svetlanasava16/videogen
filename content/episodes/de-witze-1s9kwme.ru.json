@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1s9kwme",
   "locale": "ru",
   "title": "Фотограф в самолёте",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
@@ -13,94 +15,62 @@
     "paren": "journalist",
     "sluzhivy": "pilot"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "camera"
-      ],
-      "remove": []
-    },
-    "sluzhivy": {
-      "add": [
-        "headset"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Фотограф журнала о природе и науке получил задание сфотографировать большой лесной пожар.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "У земли было слишком много дыма, и издатель арендовал для него маленький самолёт, чтобы сделать снимки с воздуха. Пилот уже ждал на местном аэродроме неподалёку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Быстрее! Вылетаем немедленно!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Пока самолёт взлетал, фотограф давал пилоту указания:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "paren",
       "text": "Я хочу, чтобы ты пролетел над северной стороной очага пожара и три или четыре раза прошёл совсем низко над ним.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "sluzhivy",
       "text": "Зачем?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "paren",
       "text": "Что значит зачем?",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l8",
       "character": "paren",
       "text": "Чтобы я мог сделать пару снимков, конечно! Я фотограф, а фотограф делает фотографии!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -108,12 +78,83 @@
       "text": "То есть... ты не лётный инструктор?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "paren",
+        "sluzhivy"
+      ],
+      "roles": {
+        "paren": "journalist",
+        "sluzhivy": "pilot"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        },
+        "sluzhivy": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

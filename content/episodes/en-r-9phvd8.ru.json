@@ -3,15 +3,21 @@
   "jokeId": "en-r-9phvd8",
   "locale": "ru",
   "title": "Рецепт",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "pharmacy",
   "cast": [
     "zhena",
-    "doktor"
+    "doktor",
+    "muzhik",
+    "devushka"
   ],
   "roles": {
     "zhena": "wife",
-    "doktor": "pharmacist"
+    "doktor": "pharmacist",
+    "muzhik": "husband",
+    "devushka": "woman"
   },
   "lines": [
     {
@@ -19,72 +25,56 @@
       "character": "narrator",
       "text": "Милая, спокойная и приличная дама вошла в аптеку, подошла прямо к фармацевту и посмотрела ему прямо в глаза.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Я бы хотела купить цианистого калия.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Да зачем же вам цианистый калий?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "zhena",
       "text": "Он мне нужен, чтобы отравить мужа.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "doktor",
       "text": "Господи помилуй! Я не могу дать вам цианид, чтобы вы убили мужа!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l6",
       "character": "doktor",
       "text": "Это противозаконно! Я лишусь лицензии! Нас обоих посадят!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "doktor",
       "text": "Будет масса всяких неприятностей. Ни в коем случае! Никакого цианида вы не получите!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Дама полезла в сумочку и достала фотографию: её муж в постели с женой фармацевта.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -92,8 +82,6 @@
       "text": "Ну что ж. Это другое дело. Вы же не сказали, что у вас есть рецепт.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

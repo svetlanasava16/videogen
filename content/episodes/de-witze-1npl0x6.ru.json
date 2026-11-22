@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1npl0x6",
   "locale": "ru",
   "title": "Развод после девяноста",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -15,32 +17,20 @@
     "tyoshcha": "old-woman",
     "nachalnik": "lawyer"
   },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "nachalnik",
       "text": "Простите за вопрос, но вам девяносто четыре и девяносто восемь лет, и вы женаты больше шестидесяти лет.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Почему вы хотите развестись именно сейчас?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -48,12 +38,48 @@
       "text": "Ну, у нас уже давно не ладится, но мы хотели подождать, пока дети умрут.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "ded",
+        "tyoshcha",
+        "nachalnik"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "tyoshcha": "old-woman",
+        "nachalnik": "lawyer"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

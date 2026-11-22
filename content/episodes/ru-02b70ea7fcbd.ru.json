@@ -3,6 +3,8 @@
   "jokeId": "ru-02b70ea7fcbd",
   "locale": "ru",
   "title": "Голосование",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -19,47 +21,35 @@
       "character": "muzhik",
       "text": "Доктор, я слышал, что можно сделать такую операцию, что потом детей уже никак не может быть.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Вот сделайте мне такую.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Ну, мой дорогой, такие решения с кондачка не принимают.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "doktor",
       "text": "Сегодня вы детей не хотите, а завтра захотите.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "doktor",
       "text": "Взвесьте все, обсудите с семьей...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -67,12 +57,56 @@
       "text": "Да уж обсуждали. Голосование такое: два против, семнадцать за.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

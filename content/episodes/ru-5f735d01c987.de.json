@@ -3,6 +3,8 @@
   "jokeId": "ru-5f735d01c987",
   "locale": "de",
   "title": "Name auf dem Glas",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -19,54 +21,42 @@
       "character": "narrator",
       "text": "Zwei Kumpel treffen sich. Einer ist schlecht gelaunt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Warum bist du so traurig?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Hab mich mit meiner Freundin gestritten.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "Weswegen?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "paren",
       "text": "Wir sind gestern mit der U-Bahn gefahren, und ich hab die ganze Fahrt aufs Glas gehaucht und ihren Namen geschrieben, und sie war beleidigt.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik",
       "text": "Komisch! Wie kann man denn deswegen beleidigt sein?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -74,12 +64,54 @@
       "text": "Na, sie mag es nicht, wenn man ihr auf die Brille haucht.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "paren": "boyfriend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

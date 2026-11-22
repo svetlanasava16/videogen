@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rleudl",
   "locale": "en",
   "title": "When One Door Closes",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "shop",
   "cast": [
@@ -13,32 +15,20 @@
     "barmen": "salesman",
     "muzhik": "customer"
   },
-  "looks": {
-    "barmen": {
-      "add": [
-        "tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "At the car dealer's, a customer slams one car door shut, and another one pops open.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "barmen",
       "text": "When one door closes, another one opens!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -46,12 +36,46 @@
       "text": "I'd still rather you fixed that before I buy the car!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "barmen": "salesman",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

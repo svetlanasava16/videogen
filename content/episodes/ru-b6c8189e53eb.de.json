@@ -3,6 +3,8 @@
   "jokeId": "ru-b6c8189e53eb",
   "locale": "de",
   "title": "Das Eis",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -21,72 +23,56 @@
       "character": "narrator",
       "text": "Im Supermarkt kommt eine ältere Frau auf einen jungen Mann zu.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "Sie sehen meinem verstorbenen Sohn so ähnlich! Würden Sie mir einen Gefallen tun?",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Na gut.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "tyoshcha",
       "text": "Wissen Sie, wenn ich mit ihm einkaufen war und schon an der Kasse stand, rief er immer im allerletzten Moment plötzlich: Mama, wir haben ja das Eis vergessen!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "tyoshcha",
       "text": "Und rannte los, um Eis zu holen. Daran denke ich immer. Rufen Sie das bitte genauso an der Kasse.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "paren",
       "text": "Na schön.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "paren",
       "text": "Mama, wir haben ja das Eis vergessen!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "tyoshcha",
       "text": "Na lauf, mein Junge, hol es.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -94,10 +80,6 @@
       "text": "Dann geh ich mal, mein Sohn bezahlt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "tyoshcha"
-      ],
       "laugh": "big"
     }
   ],
@@ -190,6 +172,11 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

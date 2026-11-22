@@ -3,6 +3,8 @@
   "jokeId": "ru-2c8ec8a88248",
   "locale": "en",
   "title": "The Fishing Lures",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -19,27 +21,21 @@
       "character": "devushka",
       "text": "Why are you so wound up? What happened?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "I gave my husband a set of fishing lures for his birthday.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devushka",
       "text": "Well, that makes sense. He's been going fishing every weekend for ten years now. So what's wrong?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -47,12 +43,42 @@
       "text": "He turned it over and over in his hands and asked: what is this?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "devushka",
+        "zhena"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

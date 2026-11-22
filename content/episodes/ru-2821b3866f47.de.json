@@ -3,6 +3,8 @@
   "jokeId": "ru-2821b3866f47",
   "locale": "de",
   "title": "Der dritte Tag",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "paren",
       "text": "Schon den dritten Tag hab ich keine Lust zu arbeiten. Was hat das wohl zu bedeuten?",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -29,12 +29,34 @@
       "text": "Wahrscheinlich ist heute Mittwoch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "employee",
+        "devushka": "employee"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

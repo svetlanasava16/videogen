@@ -3,6 +3,8 @@
   "jokeId": "ru-c714bdeb8001",
   "locale": "ru",
   "title": "Какие люди?",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -19,27 +21,21 @@
       "character": "narrator",
       "text": "Муж купил жене несколько одинаковых трусиков одного цвета.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Они же совсем одинаковые! Зачем ты их купил?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "zhena",
       "text": "Люди подумают, что я не меняю нижнее бельё!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -47,12 +43,42 @@
       "text": "Какие люди?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

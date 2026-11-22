@@ -3,6 +3,8 @@
   "jokeId": "en-d-31962",
   "locale": "en",
   "title": "Your Mother-in-Law",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "zhena",
       "text": "You hate my family and relatives!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "No, I don't hate your relatives.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -38,12 +36,38 @@
       "text": "In fact, I like your mother-in-law a lot better than I like mine.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

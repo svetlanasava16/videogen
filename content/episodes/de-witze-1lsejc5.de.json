@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lsejc5",
   "locale": "de",
   "title": "LKW",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -13,49 +15,27 @@
     "muzhik-ryzhy": "driver",
     "muzhik": "everyman"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    },
-    "muzhik": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Kommt ein LKW an eine Unterführung, die exakt drei Zentimeter zu nieder ist. Der Fahrer steht ratlos davor.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Lass doch einfach etwas Luft aus den Reifen.",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Bist deppert?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -63,12 +43,62 @@
       "text": "Es fehlt oben, nicht unten!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-ryzhy",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

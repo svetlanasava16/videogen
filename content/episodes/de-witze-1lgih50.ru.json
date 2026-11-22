@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lgih50",
   "locale": "ru",
   "title": "Заказ",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -19,45 +21,35 @@
       "character": "barmen",
       "text": "Ну, что желаете?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Мне, пожалуйста, шницель с жареной картошкой и салатом, а к нему тёплое пиво без пены.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Картошку как следует, дочерна пригоревшую, шницель пожёстче и попресней, а салат можете вообще не приносить.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "И не стесняйтесь со счётом.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "barmen",
       "text": "Знаете ли, такого мы вообще-то не подаём.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -65,12 +57,51 @@
       "text": "Странно, вчера всё было именно так...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "waiter"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

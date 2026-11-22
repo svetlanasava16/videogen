@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1bb9zna",
   "locale": "de",
   "title": "Unsere tägliche Cola",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -21,41 +23,71 @@
       "character": "barmen",
       "text": "Heiliger Vater, wir zahlen zehn Millionen Euro, wenn es im Gottesdienst ab jetzt heißt: Unsere tägliche Cola gib uns heute.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "batyushka",
       "text": "Keine Chance. Das können wir nicht machen!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "barmen",
       "text": "Wir würden der Kirche sogar hundert Millionen zahlen.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
       "character": "batyushka",
       "text": "Bruder, wie lange läuft eigentlich noch der Vertrag mit der Bäckerei?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.8
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "barmen",
+        "batyushka",
+        "batyushka-molodoy"
+      ],
+      "roles": {
+        "barmen": "salesman",
+        "batyushka": "pope",
+        "batyushka-molodoy": "monk"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

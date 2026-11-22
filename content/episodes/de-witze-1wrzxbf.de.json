@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1wrzxbf",
   "locale": "de",
   "title": "Lautlos und geruchlos",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -19,27 +21,21 @@
       "character": "narrator",
       "text": "Eine alte Frau sitzt beim Arzt und klagt über schreckliche Blähungen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "Wissen Sie, Herr Doktor, ich habe ständig Blähungen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "tyoshcha",
       "text": "Zum Glück sind sie immer lautlos und stinken überhaupt nicht.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
@@ -47,8 +43,6 @@
       "text": "Sehen Sie, gerade ist mir wieder einer entwichen. Man bekommt es gar nicht mit.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -56,49 +50,35 @@
       "character": "doktor",
       "text": "Ich verschreibe Ihnen ein Medikament. Das nehmen Sie und kommen dann in zwei Wochen wieder.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Gesagt, getan. Zwei Wochen später sitzt die Frau wieder beim Arzt und beklagt sich.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "tyoshcha",
       "text": "Herr Doktor, was haben Sie mir denn da verschrieben?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "tyoshcha",
       "text": "Die Blähungen sind nicht besser geworden, aber dafür stinken sie jetzt fürchterlich!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l9",
       "character": "doktor",
       "text": "Sehr gut, die Nase ist gesund.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -106,12 +86,77 @@
       "text": "Als Nächstes kümmern wir uns um die Ohren.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "tyoshcha",
+        "doktor"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

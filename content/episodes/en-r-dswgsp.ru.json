@@ -3,6 +3,8 @@
   "jokeId": "en-r-dswgsp",
   "locale": "ru",
   "title": "Носок",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "bus",
   "cast": [
@@ -21,18 +23,14 @@
       "character": "narrator",
       "text": "Ехал я как-то в автобусе с другом, и он рассказал мне вот такой анекдот.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Что делать, если видишь, как у эпилептика припадок в ванне?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
@@ -40,8 +38,6 @@
       "text": "Закинуть туда бельё.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -49,36 +45,28 @@
       "character": "narrator",
       "text": "Мужик, сидевший позади нас, наклонился и сказал:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
       "text": "По-моему, это отвратительно. Мой сын умер в ванне во время припадка.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Мы оба побелели и извинились.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Мужик встал, чтобы выйти, и сказал:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -86,10 +74,6 @@
       "text": "Он подавился носком.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ],
       "laugh": "big"
     }
   ],
@@ -159,6 +143,11 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
         }
       ],
       "transition": "cut"

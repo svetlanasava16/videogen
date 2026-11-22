@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1ps127e",
   "locale": "en",
   "title": "The Wish List",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,43 +15,27 @@
     "zhena": "mother",
     "vovochka": "child"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Right before Christmas.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka",
       "text": "Mommy! Mommy! Where's my wish list for Santa?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "vovochka",
       "text": "I have to cross off the train set real quick,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -57,12 +43,56 @@
       "text": "because I just found one at the very back of your closet.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "child"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

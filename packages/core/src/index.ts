@@ -44,10 +44,6 @@ export const Line = z.object({
     .optional(),
   /** Пауза после реплики, сек (комическая пауза перед панчлайном). */
   pauseAfterSec: z.number().default(0.35),
-  /** Куклы, которые входят в кадр перед этой репликой. */
-  enter: z.array(z.string()).default([]),
-  /** Куклы, которые уходят из кадра после этой реплики. */
-  exit: z.array(z.string()).default([]),
   /** Закадровый смех после реплики. Если ни у одной реплики нет — "big" после последней. */
   laugh: Laugh.optional(),
 });
@@ -223,19 +219,18 @@ export const Episode = z.object({
   jokeId: z.string(),
   locale: Locale,
   title: z.string(),
-  location: z.string(), // id фона (content/locations)
-  /** Каноническая локация сцены (например "park" для фона "ulitsa") — выбирает вариант фона. */
+  /** Вид эпизода (замороженная схема v2): joke — анекдот; meme и bridge (связка серии) — зарезервированы. */
+  kind: z.enum(["joke", "meme", "bridge"]).default("joke"),
+  /** Версия схемы эпизода. Старые файлы переводит migrateEpisodeData (pnpm migrate-episodes). */
+  v: z.literal(2).default(2),
+  /** Место первой сцены (сводка для базы и обложки; рисуют сцены). */
+  location: z.string(),
+  /** Каноническая локация из разметки (архетип: "doctor-office", "park"…) — метаданные; комнату сцены задаёт scenes[].place. */
   place: z.string().optional(),
-  /** Участники слева направо (id кукол). */
+  /** Все куклы эпизода (сводка; кто в кадре — scenes[].cast). */
   cast: z.array(z.string()).min(1),
-  /** Роль каждой куклы в этом эпизоде (castId → canonical role) — выбирает вариант костюма. */
+  /** Роли кукол (сводка; костюм в сцене — scenes[].roles). */
   roles: z.record(z.string(), z.string()).default({}),
-  /** Костюм на эпизод (без scenes): castId → патч внешности. */
-  looks: z.record(z.string(), LookPatch).optional(),
-  /** Массовка (без scenes). */
-  crowd: Crowd.optional(),
-  /** Мебель (без scenes). */
-  set: z.array(SetItem).optional(),
   lines: z.array(Line).min(1),
   /** id музыкального трека из content/audio.json; нет — выбирается по hash(id), "none" — без музыки. */
   music: z.string().optional(),
@@ -246,8 +241,8 @@ export const Episode = z.object({
    * не попадает в постинг (db sync ставит rejected) и в автосборники. Для своих анекдотов без разметки.
    */
   flags: z.array(z.enum(["ethnic", "sexual", "political", "violence", "religion", "profanity", "dark", "real-person", "drugs", "homophobia", "exclude"])).optional(),
-  /** Сцены (движок v2). Нет — эпизод из одной сцены: location/place/cast/roles + все lines по порядку. */
-  scenes: z.array(Scene).optional(),
+  /** Сцены: где, кто, что делает (биты). Каждая реплика из lines — ровно в одном бите line, по порядку. */
+  scenes: z.array(Scene).min(1),
   /** Смех персонажей после панчлайна (их голосами): играют вместе, куклы смеются. Пишет `pnpm voice run`. */
   outroLaughs: z
     .array(z.object({ character: z.string(), file: z.string(), durationSec: z.number(), provider: z.string().optional(), voiceId: z.string().optional() }))
@@ -599,46 +594,57 @@ export const ScriptDraft = z.object({
 });
 export type ScriptDraft = z.infer<typeof ScriptDraft>;
 
-/**
- * Проверка выходов и уходов: говорит только тот, кто в кадре; входит — кто отсутствует; уходит — кто присутствует.
- * Кто начинает за кадром: кукла, чьё первое событие — enter.
- */
-export function stagingProblems(cast: string[], lines: { character: string; enter?: string[]; exit?: string[]; offscreen?: boolean }[]): string[] {
-  const pr: string[] = [];
-  const first = new Map<string, "enter" | "exit">();
-  for (const l of lines) {
-    for (const id of l.enter ?? []) if (!first.has(id)) first.set(id, "enter");
-    for (const id of l.exit ?? []) if (!first.has(id)) first.set(id, "exit");
-  }
-  const on = new Set(cast.filter((id) => first.get(id) !== "enter"));
-  lines.forEach((l, i) => {
-    for (const id of [...(l.enter ?? []), ...(l.exit ?? [])]) {
-      if (id === NARRATOR) pr.push(`line ${i + 1}: narrator cannot enter/exit`);
-      else if (!cast.includes(id)) pr.push(`line ${i + 1}: ${id} not in cast`);
-    }
-    for (const id of l.enter ?? []) {
-      if (on.has(id)) pr.push(`line ${i + 1}: ${id} enters but is already on stage`);
-      on.add(id);
-    }
-    // голос из-за кадра (offscreen) может звучать, пока кукла не в кадре
-    if (l.character !== NARRATOR && !l.offscreen && !on.has(l.character)) pr.push(`line ${i + 1}: ${l.character} speaks while off stage`);
-    for (const id of l.exit ?? []) {
-      if (!on.has(id)) pr.push(`line ${i + 1}: ${id} exits but is not on stage`);
-      on.delete(id);
-    }
-  });
-  return pr;
+/** Сцены эпизода (после заморозки формата — всегда явные). */
+export function scenesOf(ep: Episode): Scene[] {
+  return ep.scenes;
 }
 
+/** Край, из-за которого кукла входит/куда уходит в старом формате: первая половина cast — слева. */
+const legacyEdge = (cast: string[], id: string) => (cast.indexOf(id) < cast.length / 2 ? "off-left" : "off-right");
 
-/** Сцены эпизода: явные (v2) или одна сцена из полей старого формата. */
-export function scenesOf(ep: Episode): Scene[] {
-  // place эпизода (архетип из разметки) в сцены НЕ переносится: сцена без place — вид по умолчанию (сценарист задаёт комнату сам)
-  if (ep.scenes?.length) return ep.scenes;
-  return [{
-    location: ep.location, place: ep.place, cast: ep.cast, roles: ep.roles, looks: ep.looks, crowd: ep.crowd, set: ep.set,
-    beats: ep.lines.map((l) => ({ type: "line" as const, ref: l.id })), transition: "cut",
-  }];
+/**
+ * Перевод старого эпизода в формат v2 — детерминированно, без LLM (pnpm migrate-episodes; materialize сценариев).
+ * Работает с сырым JSON (до Episode.parse, иначе старые поля молча отбросятся):
+ *  - нет scenes → одна сцена из location/cast/roles/looks/crowd/set; place эпизода — комната сцены, только если это
+ *    сублокация места (подбирает isPlace), иначе — вид по умолчанию, как и рисовалось раньше;
+ *  - lines[].enter → бит move {to: "auto", from: край} перед репликой; lines[].exit → move {to: край} после неё;
+ *  - looks/crowd/set верхнего уровня уходят в сцену; enter/exit из реплик удаляются; kind/v проставляются.
+ * Повторный запуск ничего не меняет.
+ */
+export function migrateEpisodeData(raw: Record<string, any>, isPlace: (location: string, place: string) => boolean = () => false): Record<string, any> {
+  const ep = JSON.parse(JSON.stringify(raw)) as Record<string, any>;
+  const lines = (ep.lines ?? []) as Record<string, any>[];
+  lines.forEach((l, i) => { if (!l.id) l.id = `l${i + 1}`; });
+  const byId = new Map(lines.map((l) => [l.id as string, l]));
+  if (!Array.isArray(ep.scenes) || !ep.scenes.length) {
+    ep.scenes = [{
+      location: ep.location,
+      ...(ep.place && isPlace(ep.location, ep.place) ? { place: ep.place } : {}),
+      cast: ep.cast, roles: ep.roles ?? {},
+      ...(ep.looks ? { looks: ep.looks } : {}), ...(ep.crowd ? { crowd: ep.crowd } : {}), ...(ep.set ? { set: ep.set } : {}),
+      beats: lines.map((l) => ({ type: "line", ref: l.id })), transition: "cut",
+    }];
+  }
+  for (const sc of ep.scenes as Record<string, any>[]) {
+    const beats: Record<string, any>[] = [];
+    for (const b of sc.beats ?? []) {
+      const l = b.type === "line" ? byId.get(b.ref) : undefined;
+      for (const id of l?.enter ?? []) if (sc.cast.includes(id)) beats.push({ type: "move", who: id, to: "auto", from: legacyEdge(sc.cast, id) });
+      beats.push(b);
+      for (const id of l?.exit ?? []) if (sc.cast.includes(id)) beats.push({ type: "move", who: id, to: legacyEdge(sc.cast, id) });
+    }
+    sc.beats = beats;
+  }
+  for (const l of lines) { delete l.enter; delete l.exit; }
+  delete ep.looks; delete ep.crowd; delete ep.set;
+  // сводка: все куклы и роли эпизода (первая сцена — первой), место — первой сцены
+  const scs = ep.scenes as Record<string, any>[];
+  ep.location = scs[0].location;
+  ep.cast = [...new Set(scs.flatMap((sc) => sc.cast as string[]))];
+  ep.roles = Object.assign({}, ...[...scs].reverse().map((sc) => sc.roles ?? {}));
+  ep.kind ??= "joke";
+  ep.v = 2;
+  return ep;
 }
 
 /** Реплики в порядке показа (по битам сцен). */
@@ -652,7 +658,7 @@ export function orderedLines(ep: Episode): Line[] {
  * входят только отсутствующие, уходят только присутствующие; метки и реквизит существуют.
  */
 export function sceneProblems(
-  ep: { lines: { id: string; character: string; enter?: string[]; exit?: string[]; offscreen?: boolean }[]; scenes?: Scene[] },
+  ep: { lines: { id: string; character: string; offscreen?: boolean }[]; scenes?: Scene[] },
   /** marksOf(location, place) — метки сублокации (place) или места; places(location) — id сублокаций (для проверки place). */
   opts: { marksOf: (location: string, place?: string) => string[] | undefined; props: string[]; places?: (location: string) => string[] | undefined },
 ): string[] {
@@ -681,14 +687,12 @@ export function sceneProblems(
     const vehicles = new Map((sc.vehicles ?? []).map((v) => [v.id, { here: !!v.at, riders: new Set(v.riders) }]));
     for (const v of sc.vehicles ?? []) if (v.at && !markOk(v.at)) pr.push(`${tag}: vehicle ${v.id} at unknown mark "${v.at}"`);
     const riding = (id: string) => [...vehicles.values()].find((v) => v.riders.has(id));
-    // кто стартует за кадром: первое событие — вход (line.enter или move с from)
+    // кто стартует за кадром: первое событие — вход (move с from)
     const first = new Map<string, "in" | "out">();
     for (const b of sc.beats) {
       if (b.type === "line") {
         const l = byId.get(b.ref);
-        for (const id of l?.enter ?? []) if (!first.has(id)) first.set(id, "in");
         if (l && !l.offscreen && !first.has(l.character)) first.set(l.character, "out");
-        for (const id of l?.exit ?? []) if (!first.has(id)) first.set(id, "out");
       } else if (b.type === "move" && !first.has(b.who)) first.set(b.who, b.from ? "in" : "out");
       // prop не решает, где кукла: можно взять цветы за кадром и войти с ними
     }
@@ -705,10 +709,8 @@ export function sceneProblems(
         const l = byId.get(b.ref);
         if (!l) { pr.push(`${tag}: line ${b.ref} does not exist`); continue; }
         used.set(b.ref, (used.get(b.ref) ?? 0) + 1);
-        for (const id of l.enter ?? []) { if (here.has(id)) pr.push(`${tag}: ${id} enters but is already on stage`); here.add(id); }
         if (!l.offscreen) need(l.character, "speaks");
         else if (l.character !== NARRATOR && !sc.cast.includes(l.character)) pr.push(`${tag}: ${l.character} speaks off screen but is not in the scene cast (needed for the voice)`);
-        for (const id of l.exit ?? []) { if (!here.has(id)) pr.push(`${tag}: ${id} exits but is not on stage`); here.delete(id); }
       } else if (b.type === "move") {
         if (!sc.cast.includes(b.who)) { pr.push(`${tag}: ${b.who} moves but is not in the scene cast`); continue; }
         if (b.from) { if (here.has(b.who)) pr.push(`${tag}: ${b.who} enters from ${b.from} but is already on stage`); here.add(b.who); }
@@ -717,8 +719,9 @@ export function sceneProblems(
         const loc = sc.split?.cast.includes(b.who) ? sc.split.location : sc.location;
         const mk = loc === sc.location ? marks : opts.marksOf(loc, sc.split?.place);
         if (b.to.startsWith("off-")) here.delete(b.who);
+        else if (b.to === "auto") { /* автослот: место по порядку в cast */ }
         else if (mk && mk.length && !mk.includes(b.to)) pr.push(`${tag}: unknown mark "${b.to}" at ${loc} (marks: ${mk.join(", ")})`);
-        else if (!mk?.length) pr.push(`${tag}: ${loc} has no marks; use enter/exit on lines instead of move`);
+        else if (!mk?.length) pr.push(`${tag}: ${loc} has no marks; use "to": "auto"`);
       } else if (b.type === "prop") {
         // взять в руки можно и за кадром (войдёт уже с предметом); отдать/уронить/положить — только в кадре
         if (b.action === "hold") { if (!sc.cast.includes(b.who)) pr.push(`${tag}: ${b.who} holds ${b.item} but is not in the scene cast`); }

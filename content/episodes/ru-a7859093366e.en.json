@@ -3,6 +3,8 @@
   "jokeId": "ru-a7859093366e",
   "locale": "en",
   "title": "Mumu",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -21,67 +23,49 @@
       "character": "narrator",
       "text": "Gerasim, a big mute yardman, rowed his little dog Mumu out on the river to drown her.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "He tied a stone around her neck and threw her into the river. Threw her in and rowed home.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Poor Mumu is thrashing about, trying to get free.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "That's how another man, swimming past, finds her.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "He pulls her out, unties the stone... and then Mumu says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "pyos-pudel",
       "text": "Thank you, kind man! You saved me!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "First time in my life I've seen a talking dog!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -89,8 +73,6 @@
       "text": "First time in my life I've seen a talking man!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -127,8 +109,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

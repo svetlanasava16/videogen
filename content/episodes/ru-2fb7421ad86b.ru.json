@@ -3,6 +3,8 @@
   "jokeId": "ru-2fb7421ad86b",
   "locale": "ru",
   "title": "Каждое утро",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -19,36 +21,28 @@
       "character": "narrator",
       "text": "Немолодые супруги, уже отметившие серебряную свадьбу, давно живущие вместе, сидят утром за столом, завтракают.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Жена смотрит на мужа долгим взглядом и спрашивает:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "zhena",
       "text": "Толик, пожалуйста, скажи мне — ты меня всё ещё любишь?",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Мужик раздражённо швыряет вилку на стол.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -57,12 +51,46 @@
       "uncensored": "Люся, ну вот объясни мне — ну на хера начинать каждое утро со скандала?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

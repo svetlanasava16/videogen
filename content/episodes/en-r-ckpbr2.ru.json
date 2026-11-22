@@ -3,6 +3,8 @@
   "jokeId": "en-r-ckpbr2",
   "locale": "ru",
   "title": "Спасение",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
@@ -19,41 +21,70 @@
       "character": "muzhik",
       "text": "Сегодня в дверь ломился какой-то придурок.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Сказал, что мне нужно спастись, иначе я сгорю.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Я его послал.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "Тупой пожарный.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.8
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "muzhik",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "sluzhivy-ryadovoy": "firefighter"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

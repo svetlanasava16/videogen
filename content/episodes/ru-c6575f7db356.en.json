@@ -3,6 +3,8 @@
   "jokeId": "ru-c6575f7db356",
   "locale": "en",
   "title": "The Game",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,61 +15,41 @@
     "vovochka": "child",
     "zhena": "maid"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A little boy is running around the apartment.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "He knocks the books off the sideboard, throws clothes everywhere, tips over the chairs.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "zhena",
       "text": "What are you doing?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "vovochka",
       "text": "I'm playing a game.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "zhena",
       "text": "Which game?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -76,12 +58,64 @@
       "uncensored": "Where the fuck are the car keys!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "zhena": "maid"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

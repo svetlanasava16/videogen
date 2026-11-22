@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1r115am",
   "locale": "de",
   "title": "Drei Tage Schweigen",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "zhena",
       "text": "Ich habe nun seit drei Tagen nicht mehr mit dir gesprochen.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Interessiert es dich denn wirklich gar nicht, warum?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -38,12 +36,38 @@
       "text": "Nein Schatz, ich vertraue dir und respektiere deine Entscheidung.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "muzhik": "husband"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

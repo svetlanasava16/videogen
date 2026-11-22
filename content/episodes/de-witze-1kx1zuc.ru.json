@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1kx1zuc",
   "locale": "ru",
   "title": "Последние додо",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "paren",
       "text": "Профессор Фёгеле, вам, как самому именитому натуралисту нашего времени, после десятилетий поисков в самой глухой, самой отдалённой части джунглей Мадагаскара удалось обнаружить последних додо.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Расскажите, пожалуйста, нашим зрителям, как вы их нашли?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -38,12 +36,39 @@
       "text": "Очень вкусными! Обоих. И яйца тоже.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "tv-studio",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "journalist",
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

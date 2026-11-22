@@ -3,6 +3,8 @@
   "jokeId": "ru-adbe01160e93",
   "locale": "en",
   "title": "At the Theater",
+  "kind": "joke",
+  "v": 2,
   "location": "zal",
   "place": "theater",
   "cast": [
@@ -25,151 +27,112 @@
       "character": "narrator",
       "text": "A theater. The audience is taking their seats.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "In the stalls a man sits sprawled out: legs on the seats in front, arms on the seats beside him, head thrown back, tongue hanging out.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Excuse me, our seats are a little further along. Would you let us through?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren",
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "The man pays no attention. They try again:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Young man, you're in our way. If you don't move your legs, we'll have to call the manager.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Not a flicker. The manager arrives.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "nachalnik",
       "text": "Mister, move your legs, you're keeping people from getting to their seats!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "No answer.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "nachalnik",
       "text": "Young man! You are breaking the rules of conduct in a public place! If you don't move your legs, I'll call the police!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "A policeman comes.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "sluzhivy",
       "text": "Right then, move your legs!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l12",
       "character": "narrator",
       "text": "The man says nothing.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l13",
       "character": "sluzhivy",
       "text": "Have you completely lost it? I said move your legs!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l14",
       "character": "narrator",
       "text": "Silence.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l15",
       "character": "sluzhivy",
       "text": "Can't you hear me? Where did you come from?",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l16",
       "character": "narrator",
       "text": "And the man, barely moving his lips, says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l17",
@@ -177,8 +140,6 @@
       "text": "From the balcony...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -230,6 +191,18 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
@@ -246,6 +219,12 @@
           "ref": "l6"
         },
         {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
         },
@@ -260,6 +239,12 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

@@ -3,6 +3,8 @@
   "jokeId": "en-d-16904",
   "locale": "en",
   "title": "That's Arson",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -21,9 +23,7 @@
       "character": "narrator",
       "text": "A kid lights his house on fire. Dad puts his arm around his wife, both tearing up.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +31,36 @@
       "text": "That's arson.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "muzhik": "father",
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

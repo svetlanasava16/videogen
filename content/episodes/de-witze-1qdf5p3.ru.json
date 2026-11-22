@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1qdf5p3",
   "locale": "ru",
   "title": "В ресторане",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,50 +15,34 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
-  "looks": {
-    "barmen": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "В ресторане официант подаёт посетителю шницель, и посетитель видит, что официант держит большой палец прямо на шницеле.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Простите, а что делает ваш палец на моём шницеле?",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Вы о гигиене когда-нибудь слышали?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "barmen",
       "text": "Да, извините, но у меня на пальце свищ, и врач сказал по возможности держать его в тепле!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -64,9 +50,7 @@
       "text": "Но не на моём же шницеле! Засуньте себе этот палец хоть в задницу!",
       "uncensored": "Но не на моём же шницеле! Засуньте себе этот палец хоть в жопу!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -74,12 +58,59 @@
       "text": "Так я обычно так и делаю, но мне же иногда ещё и подавать приходится!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

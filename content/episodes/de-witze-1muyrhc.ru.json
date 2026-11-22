@@ -3,15 +3,19 @@
   "jokeId": "de-witze-1muyrhc",
   "locale": "ru",
   "title": "Перерыв на кофе",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "hell",
   "cast": [
     "muzhik",
-    "chort"
+    "chort",
+    "paren"
   ],
   "roles": {
     "muzhik": "everyman",
-    "chort": "devil"
+    "chort": "devil",
+    "paren": "devil"
   },
   "lines": [
     {
@@ -19,47 +23,35 @@
       "character": "narrator",
       "text": "Мужик попадает в ад...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Сатана ведёт его в коридор с тремя дверями.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "chort",
       "text": "В одной из этих трёх комнат ты проведёшь вечность, но можешь сам выбрать, в какой!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Сатана открывает первую дверь. За ней десятки людей стоят на руках на раскалённых углях.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Потом Сатана показывает ему вторую комнату. В ней бесчисленные люди стоят на руках на ржавых гвоздях.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
@@ -67,18 +59,14 @@
       "text": "Наконец Сатана ведёт его к третьей комнате. Здесь все стоят по колено в навозе и пьют кофе.",
       "uncensored": "Наконец Сатана ведёт его к третьей комнате. Здесь все стоят по колено в дерьме и пьют кофе.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "А это не так уж плохо. Беру эту комнату.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
@@ -86,20 +74,14 @@
       "text": "Он встаёт к остальным в навоз и берёт себе чашку.",
       "uncensored": "Он встаёт к остальным в дерьмо и берёт себе чашку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Через пару минут в комнату входит слуга Сатаны.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -107,8 +89,6 @@
       "text": "Так, ребята! Перерыв на кофе окончен! Все обратно на руки!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -126,6 +106,12 @@
         "chort": "devil"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -244,6 +230,12 @@
           "who": "muzhik",
           "item": "glass",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

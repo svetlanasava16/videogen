@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1r8smnf",
   "locale": "en",
   "title": "The Hammer",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,58 +15,34 @@
     "zhena": "mother",
     "vovochka": "fritzchen"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    },
-    "vovochka": {
-      "add": [
-        "freckles"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Johnny comes to his mother, sobbing and crying his eyes out.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "vovochka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Johnny, what happened?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "vovochka",
       "text": "Dad hit his thumb with a hammer!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "zhena",
       "text": "Well, then there's no need for you to cry!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -72,12 +50,66 @@
       "text": "At first I did laugh...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "fritzchen"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "vovochka": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

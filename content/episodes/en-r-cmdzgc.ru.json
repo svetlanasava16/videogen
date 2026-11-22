@@ -3,13 +3,19 @@
   "jokeId": "en-r-cmdzgc",
   "locale": "ru",
   "title": "Палиндром",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "bank",
   "cast": [
     "vovochka",
-    "uchilka"
+    "uchilka",
+    "paren",
+    "vor"
   ],
   "roles": {
+    "paren": "thief",
+    "vor": "thief",
     "vovochka": "child",
     "uchilka": "teacher"
   },
@@ -19,36 +25,28 @@
       "character": "vovochka",
       "text": "А что такое палиндром?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "uchilka",
       "text": "Шалаш.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Десять лет спустя.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Где палиндром?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -56,8 +54,6 @@
       "text": "А водитель для побега сидит в каяке.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

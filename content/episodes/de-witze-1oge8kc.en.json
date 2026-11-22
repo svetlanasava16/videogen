@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1oge8kc",
   "locale": "en",
   "title": "Ladies from Scotland",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -17,79 +19,55 @@
     "devushka-blondinka": "woman",
     "devushka-ryzhaya": "woman"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A man is learning English. He's a real late bloomer: only at thirty does he start learning English at an evening class.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "His teacher urges him to practise in Britain. So he travels to a typical British village and goes into a typical British pub.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "At the next table sit three typical British women. He is very nervous, but he works up the courage to go over.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Excuse me, are you ladies from Scotland?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "The three notice right away that his English is poor. One of them answers kindly.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "devushka",
       "text": "No, dear. Wales.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "He realises his mistake and asks again.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -97,12 +75,76 @@
       "text": "Are you wales from Scotland?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "devushka",
+        "devushka-blondinka",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "paren": "tourist",
+        "devushka": "woman",
+        "devushka-blondinka": "woman",
+        "devushka-ryzhaya": "woman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

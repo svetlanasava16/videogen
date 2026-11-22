@@ -3,29 +3,35 @@
   "jokeId": "demo-001",
   "locale": "ru",
   "title": "Демо: бар",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "cast": [
     "muzhik",
     "barmen"
   ],
+  "roles": {},
   "lines": [
     {
       "id": "l0",
       "character": "narrator",
       "text": "Заходит как-то мужик в бар.",
-      "emotion": "neutral"
+      "emotion": "neutral",
+      "pauseAfterSec": 0.35
     },
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Налейте мне, пожалуйста, того, что пьёт вон тот медведь.",
-      "emotion": "neutral"
+      "emotion": "neutral",
+      "pauseAfterSec": 0.35
     },
     {
       "id": "l2",
       "character": "barmen",
       "text": "Это не медведь, это мой тестовый клиент.",
-      "emotion": "surprised"
+      "emotion": "surprised",
+      "pauseAfterSec": 0.35
     },
     {
       "id": "l3",
@@ -34,5 +40,41 @@
       "emotion": "smug",
       "pauseAfterSec": 0.8
     }
-  ]
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {},
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l0"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
 }

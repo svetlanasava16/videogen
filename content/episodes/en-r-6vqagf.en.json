@@ -3,6 +3,8 @@
   "jokeId": "en-r-6vqagf",
   "locale": "en",
   "title": "The Lamborghini",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -13,40 +15,20 @@
     "paren": "employee",
     "nachalnik": "boss"
   },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "paren": {
-      "add": [
-        "badge"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "The boss arrived at work in a brand-new Lamborghini.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Wow, that's an amazing car!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -54,12 +36,58 @@
       "text": "If you work hard, put all your hours in, and strive for excellence, I'll get another one next year.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "nachalnik"
+      ],
+      "roles": {
+        "paren": "employee",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

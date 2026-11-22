@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1pqtarg",
   "locale": "ru",
   "title": "Полудурок",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,97 +15,62 @@
     "paren": "teacher",
     "vovochka": "fritzchen"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie",
-        "glasses"
-      ],
-      "remove": []
-    },
-    "vovochka": {
-      "add": [
-        "freckles"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "pupils",
-    "size": "few"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Учитель раздаёт контрольные.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Вовочка, опять двойка!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Вот когда я был в твоём возрасте...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "vovochka",
       "text": "Не такой уж вы ещё и старый.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "paren",
       "text": "Ах вот как, ну тогда скажи, сколько же мне лет?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "vovochka",
       "text": "Вам ровно тридцать четыре года.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "paren",
       "text": "Совершенно верно, Вовочка, откуда ты знаешь?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "vovochka",
       "text": "Ну, я знаю вашего сына из десятого А.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -111,12 +78,81 @@
       "text": "Ему семнадцать, и он полудурок.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "paren",
+        "vovochka"
+      ],
+      "roles": {
+        "paren": "teacher",
+        "vovochka": "fritzchen"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie",
+            "glasses"
+          ],
+          "remove": []
+        },
+        "vovochka": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

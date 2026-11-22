@@ -3,6 +3,8 @@
   "jokeId": "ru-96fbdd97092c",
   "locale": "en",
   "title": "He's Moving!",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -17,83 +19,55 @@
     "muzhik-sosed": "everyman",
     "muzhik-ryzhy": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "stethoscope"
-      ],
-      "remove": []
-    },
-    "muzhik-sosed": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Three friends die in a car crash. Naturally, they end up straight at an interview with Saint Peter.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Peter sees that the guys are really down, crushed, and to cheer them up a little, he says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Now picture this: your funeral is underway, you're lying in the coffin, all dressed up and solemn, with your families and friends around you.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "What would you like them to say about you?",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Well, it would be nice if they said I was a wonderful family man, a good doctor, that I saved lots of people and left my mark on medicine.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "I'd like someone to say what a wonderful teacher I was, that I left my mark on the souls of the younger generation, sowing what is wise, good and eternal.",
       "emotion": "sad",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "muzhik-sosed",
       "text": "And that I was a good father and husband.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -101,12 +75,76 @@
       "text": "And I'd like everyone to suddenly shout at once: \"Look, he's moving!\"",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik",
+        "muzhik-sosed",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "ded": "saint-peter",
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stethoscope"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

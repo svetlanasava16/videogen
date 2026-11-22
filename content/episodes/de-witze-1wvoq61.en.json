@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1wvoq61",
   "locale": "en",
   "title": "Spackle",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -19,91 +21,63 @@
       "character": "narrator",
       "text": "A chicken walks into a hardware store.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "ptitsa",
       "text": "Do you have any spackle?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "barmen",
       "text": "No, sorry.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "ptitsa"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "The next day the chicken comes back.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "ptitsa",
       "text": "Do you have any spackle?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "barmen",
       "text": "No, we don't!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "ptitsa"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "On the third day the chicken comes back again.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l8",
       "character": "ptitsa",
       "text": "Do you have any spackle?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "barmen",
       "text": "Listen here, you bag of feathers!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l10",
@@ -111,10 +85,6 @@
       "text": "If you ask me for spackle one more time, I'll nail your feet to the counter!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "ptitsa"
-      ],
       "laugh": "chuckle"
     },
     {
@@ -122,29 +92,21 @@
       "character": "narrator",
       "text": "On the fourth day the chicken comes back.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l12",
       "character": "ptitsa",
       "text": "Do you have any nails?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ptitsa"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l13",
       "character": "barmen",
       "text": "No, not today.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l14",
@@ -152,8 +114,6 @@
       "text": "Good... Do you have any spackle?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -187,6 +147,12 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
@@ -195,8 +161,19 @@
           "ref": "l3"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -207,8 +184,19 @@
           "ref": "l6"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -223,8 +211,19 @@
           "ref": "l10"
         },
         {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "move",
+          "who": "ptitsa",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",

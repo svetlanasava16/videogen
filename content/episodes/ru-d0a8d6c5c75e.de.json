@@ -3,6 +3,8 @@
   "jokeId": "ru-d0a8d6c5c75e",
   "locale": "de",
   "title": "Der Hausgeist",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -15,32 +17,20 @@
     "vovochka": "vovochka",
     "domovoi": "domovoi"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "zhena",
       "text": "Fritzchen, wer hat die ganzen Bonbons gegessen?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka",
       "text": "Der Hausgeist.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -50,12 +40,48 @@
       "offscreen": true,
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "zhena",
+        "vovochka",
+        "domovoi"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "vovochka": "vovochka",
+        "domovoi": "domovoi"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

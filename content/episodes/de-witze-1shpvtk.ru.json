@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1shpvtk",
   "locale": "ru",
   "title": "Цыплята",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,89 +15,55 @@
     "barmen": "salesman",
     "muzhik": "customer"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "straw-hat"
-      ],
-      "remove": []
-    },
-    "barmen": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Приходит мужчина в зоомагазин.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Добрый день, мне сто цыплят.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Продавец удивляется, что он будет делать со всеми этими цыплятами, но пока ничего не говорит и продаёт их ему.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Через пару дней мужчина снова стоит в магазине.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Добрый день, ещё сто цыплят, пожалуйста.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Так повторяется ещё несколько раз, пока хозяин магазина наконец не спрашивает в недоумении:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "barmen",
       "text": "Да скажите же, что вы делаете со всеми этими цыплятами?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -103,12 +71,89 @@
       "text": "Да я и сам не знаю! То ли я сажаю их слишком глубоко, то ли слишком близко друг к другу!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "barmen": "salesman",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "straw-hat"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

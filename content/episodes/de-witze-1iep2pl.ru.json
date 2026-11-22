@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1iep2pl",
   "locale": "ru",
   "title": "Спасибо дарителю",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -13,70 +15,48 @@
     "sluzhivy": "pirate",
     "muzhik-sosed": "tourist"
   },
-  "looks": {
-    "muzhik-sosed": {
-      "clothes": "#e07a3c",
-      "add": [
-        "camera",
-        "straw-hat"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "В портовом кабаке у стойки сидит типичный пират: повязка на глазу, деревянная нога, крюк вместо руки.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Где же вы потеряли ногу?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "Её мне отстрелили в бою у Тринидада.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
       "text": "А что с рукой?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "sluzhivy",
       "text": "Удар саблей, когда мы брали на абордаж фрегат.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "А глаз?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -84,18 +64,14 @@
       "text": "Туда мне чайка нагадила.",
       "uncensored": "Туда мне чайка насрала.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "muzhik-sosed",
       "text": "Но от этого же глаз не теряют?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -103,12 +79,72 @@
       "text": "Ещё как теряют, у меня тогда крюк всего два дня был.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "sluzhivy",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "sluzhivy": "pirate",
+        "muzhik-sosed": "tourist"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "clothes": "#e07a3c",
+          "add": [
+            "camera",
+            "straw-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

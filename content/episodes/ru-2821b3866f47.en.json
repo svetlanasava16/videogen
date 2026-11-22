@@ -3,6 +3,8 @@
   "jokeId": "ru-2821b3866f47",
   "locale": "en",
   "title": "Day Three",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "office",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "paren",
       "text": "Third day in a row I don't feel like working. What could that mean?",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -29,12 +29,34 @@
       "text": "It's probably Wednesday today.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "employee",
+        "devushka": "employee"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "ru-fda5e1185c48",
   "locale": "en",
   "title": "The Rabbit",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,43 +15,27 @@
     "devochka": "child",
     "barmen": "salesman"
   },
-  "looks": {
-    "barmen": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A little girl walks into a pet shop.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devochka",
       "text": "I'd like to buy a rabbit.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devochka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "barmen",
       "text": "Do you want this little grey cutie with the huge sad eyes, or this fluffy lazy white rabbit?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -58,12 +44,56 @@
       "uncensored": "My boa constrictor doesn't give a fuck!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "devochka",
+        "barmen"
+      ],
+      "roles": {
+        "devochka": "child",
+        "barmen": "salesman"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

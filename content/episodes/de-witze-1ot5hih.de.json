@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1ot5hih",
   "locale": "de",
   "title": "Die Beichte",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -13,88 +15,62 @@
     "batyushka": "priest",
     "ded": "old-man"
   },
-  "looks": {
-    "ded": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "ded",
       "text": "Vergib mir Vater, ich habe gesündigt.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "batyushka",
       "text": "Was hast du getan, mein Sohn?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Im Zweiten Weltkrieg habe ich einen Juden auf meinem Dachboden versteckt.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "batyushka",
       "text": "Aber das ist doch keine Sünde.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "ded",
       "text": "Ich sagte zu ihm, dass er für zwanzig Gulden die Woche so lange bleiben kann, wie er will.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "batyushka",
       "text": "Da hast du doch etwas Gutes getan.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "ded",
       "text": "Danke, das erleichtert mich sehr. Eine Frage hätte ich aber noch.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "batyushka",
       "text": "Ja, mein Sohn?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -102,12 +78,76 @@
       "text": "Soll ich ihm sagen, dass der Krieg vorbei ist?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "batyushka",
+        "ded"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

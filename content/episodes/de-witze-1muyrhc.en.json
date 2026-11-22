@@ -3,15 +3,19 @@
   "jokeId": "de-witze-1muyrhc",
   "locale": "en",
   "title": "Coffee Break",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "hell",
   "cast": [
     "muzhik",
-    "chort"
+    "chort",
+    "paren"
   ],
   "roles": {
     "muzhik": "everyman",
-    "chort": "devil"
+    "chort": "devil",
+    "paren": "devil"
   },
   "lines": [
     {
@@ -19,47 +23,35 @@
       "character": "narrator",
       "text": "Joe goes to hell...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Satan leads him into a hallway with three doors.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "chort",
       "text": "You will spend eternity in one of these three rooms, but you get to choose which one!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Satan opens the first door. Behind it, dozens of people have to do handstands on red-hot coals.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Then Satan shows him the second room. In this one, countless people are doing handstands on rusty nails.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
@@ -67,18 +59,14 @@
       "text": "Finally Satan leads him to the third room. Here everyone is standing knee-deep in crap, drinking coffee.",
       "uncensored": "Finally Satan leads him to the third room. Here everyone is standing knee-deep in shit, drinking coffee.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "That's not so bad. I'll take this room.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
@@ -86,20 +74,14 @@
       "text": "He joins the others in the crap and grabs a cup.",
       "uncensored": "He joins the others in the shit and grabs a cup.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "After a few minutes, one of Satan's servants walks into the room.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -107,8 +89,6 @@
       "text": "All right, boys! Coffee break's over! Back on your hands, everyone!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -126,6 +106,12 @@
         "chort": "devil"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -244,6 +230,12 @@
           "who": "muzhik",
           "item": "glass",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

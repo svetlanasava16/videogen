@@ -3,6 +3,8 @@
   "jokeId": "ru-dc2f64f4e0fc",
   "locale": "ru",
   "title": "Кондишн",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -15,123 +17,76 @@
     "barmen": "waiter",
     "muzhik": "customer"
   },
-  "looks": {
-    "nachalnik": {
-      "clothes": "#a3122a",
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "barmen": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "В ресторане сидит новый русский, подзывает официанта.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Человек, ну-ка убавь кондишн, а то холодновато в натуре!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "barmen"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Через пять минут.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "nachalnik",
       "text": "Слышь, гарсон!",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "nachalnik",
       "text": "Прибавь-ка, братан, кондишен, что-то жарковато стало...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": [
-        "barmen"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Через пять минут.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "nachalnik",
       "text": "Эй, чувак...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "nachalnik",
       "text": "...ну-ка убавь кондишн, опять холодно.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": [
-        "barmen"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Сидящий за соседним столиком мужичок подзывает и спрашивает официанта:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "muzhik",
       "text": "Как ты его еще терпишь?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l11",
@@ -139,12 +94,121 @@
       "text": "Да без проблем! У нас и кондишена-то нет!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "nachalnik",
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "nachalnik": "new-russian",
+        "barmen": "waiter",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#a3122a",
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

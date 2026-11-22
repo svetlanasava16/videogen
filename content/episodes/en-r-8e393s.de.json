@@ -3,13 +3,17 @@
   "jokeId": "en-r-8e393s",
   "locale": "de",
   "title": "Die Warnung",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "theater",
   "cast": [
-    "ded"
+    "ded",
+    "muzhik"
   ],
   "roles": {
-    "ded": "grandpa"
+    "ded": "grandpa",
+    "muzhik": "customer"
   },
   "lines": [
     {
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "Mein Opa hat die Leute gewarnt, dass die Titanic sinken wird.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Die Titanic wird sinken!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Keiner hörte auf ihn, aber er warnte sie trotzdem immer weiter…",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,10 +43,6 @@
       "text": "…bis sie genug von ihm hatten und ihn aus dem Kino geworfen haben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "ded"
-      ],
       "laugh": "big"
     }
   ],
@@ -126,6 +120,11 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

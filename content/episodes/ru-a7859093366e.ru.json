@@ -3,6 +3,8 @@
   "jokeId": "ru-a7859093366e",
   "locale": "ru",
   "title": "Му-му",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -21,67 +23,49 @@
       "character": "narrator",
       "text": "Повёз Герасим Му-му топить.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Камешек на шею собачке привязал и в речку бросил. Бросил и поплыл домой.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Му-му, бедолага, барахтается, освободиться пытается.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "За этим занятием её другой, проплывающий мимо, мужичок и застал.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Вытащил он её, камень отвязал... и тут Му-му:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "pyos-pudel",
       "text": "Спасибо тебе, добрый человек! Спас ты меня!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "Первый раз в жизни вижу говорящую собаку!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -89,8 +73,6 @@
       "text": "Первый раз в жизни вижу говорящего мужика!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -127,8 +109,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

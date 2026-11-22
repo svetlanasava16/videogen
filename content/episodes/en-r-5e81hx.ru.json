@@ -3,6 +3,8 @@
   "jokeId": "en-r-5e81hx",
   "locale": "ru",
   "title": "Чили",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -15,77 +17,55 @@
     "muzhik-ryzhy": "customer",
     "devushka": "waiter"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Мужик садится в закусочной и заказывает тарелку острого чили.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka",
       "text": "Извините, но последнюю тарелку взял мужчина рядом с вами.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Он смотрит: сосед уже поел, а тарелка чили стоит полная.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "Вы будете есть этот чили?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
       "text": "Нет. Угощайтесь.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Он пододвигает тарелку и начинает есть. Где-то на середине ложка на что-то натыкается.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Он смотрит вниз, видит дохлую мышь, и его тут же выворачивает всем чили обратно в тарелку.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -93,12 +73,69 @@
       "text": "Ага, я тоже примерно досюда дошёл.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-ryzhy": "customer",
+        "devushka": "waiter"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

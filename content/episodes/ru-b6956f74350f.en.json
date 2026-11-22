@@ -3,6 +3,8 @@
   "jokeId": "ru-b6956f74350f",
   "locale": "en",
   "title": "Charm School",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -13,104 +15,76 @@
     "devushka": "woman",
     "devushka-blondinka": "woman"
   },
-  "looks": {
-    "devushka-blondinka": {
-      "add": [
-        "earrings"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
       "text": "How are you?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
       "text": "Wonderful! You know, my lover promised to buy me a mink coat...",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "devushka",
       "text": "Fantastic!",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
       "text": "...and he also promised to buy me a Jaguar...",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Fantastic!",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
       "text": "...and we're going on holiday to the Canary Islands together!",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "devushka",
       "text": "Fantastic!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "devushka-blondinka",
       "text": "And what's new with you?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "devushka",
       "text": "I'm studying at a school of good manners.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "devushka-blondinka",
       "text": "And what do they teach you there?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l11",
@@ -119,12 +93,78 @@
       "uncensored": "Well, for example, in the last class they taught us to say, instead of “Bullshit!”, “Fantastic!”",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "devushka",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "devushka-blondinka": "woman"
+      },
+      "looks": {
+        "devushka-blondinka": {
+          "add": [
+            "earrings"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

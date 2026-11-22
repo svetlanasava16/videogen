@@ -3,6 +3,8 @@
   "jokeId": "ru-e6c139796c79",
   "locale": "en",
   "title": "The Secret of Health",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -21,36 +23,28 @@
       "character": "narrator",
       "text": "A group of men got to talking about health.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "I've never been sick a single day, and that's because I've led a simple, measured life.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "From the age of twenty to forty, I went to bed at nine every day and got up at six in the morning.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "From eight to five I worked, I had lunch, plain food at that, and then I exercised for an hour...",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -58,12 +52,48 @@
       "text": "Excuse me, but what were you in for?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "ded",
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

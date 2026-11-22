@@ -3,6 +3,8 @@
   "jokeId": "en-r-7ptdps",
   "locale": "en",
   "title": "My Twin Brother",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -21,9 +23,7 @@
       "character": "paren",
       "text": "I finally realized my parents favored my twin brother.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +31,36 @@
       "text": "It hit me when they asked me to blow up balloons for his surprise birthday party.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "zhena",
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "zhena": "mother",
+        "paren": "son",
+        "muzhik": "father"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rcdang",
   "locale": "de",
   "title": "Von null auf hundert",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "paren",
       "text": "Meine Freundin wollte, dass ich ihr zum Geburtstag etwas schenke, das von null auf hundert in unter vier Sekunden geht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
@@ -29,8 +29,6 @@
       "text": "Also hab ich ihr eine Personenwaage gekauft.",
       "emotion": "smug",
       "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -39,12 +37,38 @@
       "text": "Der Streit dauert jetzt seit drei Tagen an.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

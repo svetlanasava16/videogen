@@ -3,6 +3,8 @@
   "jokeId": "en-r-8qoh2e",
   "locale": "en",
   "title": "Silent but Deadly",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -19,78 +21,56 @@
       "character": "narrator",
       "text": "A little old lady goes to the doctor and says,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "Doctor, I have a terrible problem with gas, but it doesn't bother me much.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "tyoshcha",
       "text": "My farts are always silent and never smell.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "tyoshcha",
       "text": "I probably farted fifteen times since I've been here, and you didn't realize it.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "doktor",
       "text": "Interesting. Why don't you take these pills and come see me in a week?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "The old lady returns in a week and says,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "tyoshcha",
       "text": "I don't know what the hell you gave me.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "tyoshcha",
       "text": "My farts are still silent, but my God, they stink!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -98,12 +78,79 @@
       "text": "Excellent. Now that your sinuses are cleared, let's work on your hearing.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "tyoshcha"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "tyoshcha": "old-woman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "ru-ed98cbe6a5c3",
   "locale": "de",
   "title": "Die Wachteln",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,32 +15,20 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
-  "looks": {
-    "barmen": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Herr Ober, kann man diese Wachteln noch ein bisschen braten?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "barmen",
       "text": "Sind sie denn nicht richtig durch?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -46,12 +36,47 @@
       "text": "Weiß ich nicht, aber sie fressen meinen Salat.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

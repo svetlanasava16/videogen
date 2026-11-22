@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1c3np24",
   "locale": "en",
   "title": "The Kamikaze Instructor",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -11,19 +13,13 @@
   "roles": {
     "sluzhivy": "pilot"
   },
-  "crowd": {
-    "who": "soldiers",
-    "size": "few"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A kamikaze instructor says to his students:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +27,36 @@
       "text": "Pay close attention, because I can only show you this once!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "sluzhivy"
+      ],
+      "roles": {
+        "sluzhivy": "pilot"
+      },
+      "crowd": {
+        "who": "soldiers",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

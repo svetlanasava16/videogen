@@ -3,12 +3,16 @@
   "jokeId": "en-r-4yp0ex",
   "locale": "de",
   "title": "Im Krankenhaus",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "paren"
+    "paren",
+    "zhena"
   ],
   "roles": {
+    "zhena": "mother",
     "paren": "doctor"
   },
   "lines": [
@@ -17,9 +21,7 @@
       "character": "paren",
       "text": "Mama? Keine Panik, aber ich bin im Krankenhaus...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -27,8 +29,6 @@
       "text": "Peter, du bist seit über acht Jahren Arzt, bitte hör auf, jedes unserer Telefonate damit anzufangen.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

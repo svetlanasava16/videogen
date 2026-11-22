@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1vkfg3v",
   "locale": "en",
   "title": "The Hypochondriac",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
@@ -19,11 +21,7 @@
       "character": "devushka",
       "text": "Doctor, doctor! The hypochondriac in room three has died.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +29,41 @@
       "text": "Well, now he's really overdoing it!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "place": "hospital",
+      "cast": [
+        "doktor",
+        "devushka"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "devushka": "nurse"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

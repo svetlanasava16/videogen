@@ -3,6 +3,8 @@
   "jokeId": "en-r-co190r",
   "locale": "en",
   "title": "Stepping In",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "park",
   "cast": [
@@ -21,18 +23,14 @@
       "character": "muzhik",
       "text": "I saw two kids fighting on the elementary school playground.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "And being the only adult around, I had to step in.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -41,12 +39,41 @@
       "uncensored": "Little bastards didn't stand a chance.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "vovochka",
+        "devochka",
+        "muzhik"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "devochka": "child",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lxggiz",
   "locale": "ru",
   "title": "Леггинсы",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -15,36 +17,20 @@
     "devushka": "girlfriend",
     "devushka-blondinka": "woman"
   },
-  "looks": {
-    "devushka": {
-      "clothes": "#e0609a",
-      "add": [],
-      "remove": []
-    },
-    "devushka-blondinka": {
-      "clothes": "#e0609a",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Парочка гуляет по центру города.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka",
       "text": "Смотри, у той девушки впереди такие же леггинсы, как у меня.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -52,12 +38,52 @@
       "text": "Точно, только у тебя на них цветы больше.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "devushka",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend",
+        "devushka-blondinka": "woman"
+      },
+      "looks": {
+        "devushka": {
+          "clothes": "#e0609a",
+          "add": [],
+          "remove": []
+        },
+        "devushka-blondinka": {
+          "clothes": "#e0609a",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

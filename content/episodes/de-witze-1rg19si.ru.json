@@ -3,15 +3,19 @@
   "jokeId": "de-witze-1rg19si",
   "locale": "ru",
   "title": "Охотники",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "forest",
   "cast": [
     "muzhik-sosed",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "uchilka"
   ],
   "roles": {
+    "muzhik-ryzhy": "hunter",
     "muzhik-sosed": "hunter",
-    "muzhik-ryzhy": "hunter"
+    "uchilka": "operator"
   },
   "lines": [
     {
@@ -19,45 +23,35 @@
       "character": "narrator",
       "text": "Два охотника идут по лесу, как вдруг один из них падает.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Второй в панике звонит в службу спасения.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Мой друг умер! Что мне делать?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "uchilka",
       "text": "Успокойтесь. Сначала нам нужно убедиться, что он действительно мёртв.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "В трубке тишина, потом раздаётся выстрел.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -65,8 +59,6 @@
       "text": "Так, а теперь что?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

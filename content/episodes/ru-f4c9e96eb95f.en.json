@@ -3,12 +3,22 @@
   "jokeId": "ru-f4c9e96eb95f",
   "locale": "en",
   "title": "Three Stages",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
-    "vovochka"
+    "vovochka",
+    "paren",
+    "vovochka-drug",
+    "muzhik",
+    "devochka"
   ],
   "roles": {
+    "vovochka-drug": "child",
+    "muzhik": "father",
+    "devochka": "child",
+    "paren": "teenager",
     "vovochka": "child"
   },
   "lines": [
@@ -17,27 +27,21 @@
       "character": "narrator",
       "text": "The three stages of a man growing up.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "One: he believes in Santa Claus.",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Two: he doesn't believe in Santa Claus.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +49,6 @@
       "text": "Three: he is Santa Claus.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

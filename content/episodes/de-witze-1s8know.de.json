@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1s8know",
   "locale": "de",
   "title": "Drei Väter",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -21,36 +23,28 @@
       "character": "narrator",
       "text": "Drei Jungs sitzen auf der Mauer und prahlen mit ihren Vätern.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka-drug",
       "text": "Mein Vater ist Formel-Eins-Fahrer. Der ist so schnell, wenn der auf das Gas tritt, brennt der Asphalt!",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Pah, mein Vater ist Jet-Pilot. Der ist so schnell, der überholt seinen eigenen Schall!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "vovochka",
       "text": "Alles Anfänger. Mein Vater ist Beamter.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -58,12 +52,48 @@
       "text": "Der hat zwar bis siebzehn Uhr Dienst, aber zu Hause ist er schon um sechzehn Uhr.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka-drug",
+        "paren",
+        "vovochka"
+      ],
+      "roles": {
+        "vovochka-drug": "child",
+        "paren": "teenager",
+        "vovochka": "vovochka"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

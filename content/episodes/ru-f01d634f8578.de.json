@@ -3,6 +3,8 @@
   "jokeId": "ru-f01d634f8578",
   "locale": "de",
   "title": "Fast geplatzt",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,52 +15,34 @@
     "devochka": "child",
     "devochka-podruga": "child"
   },
-  "looks": {
-    "devochka": {
-      "add": [
-        "gold-chain",
-        "earrings",
-        "bows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Die überfütterte Tochter reicher Eltern prahlt vor ihrer Mitschülerin.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devochka",
       "text": "Gestern waren Papa und ich im Restaurant, und was haben wir da nicht alles gegessen: Hummer, Steak, Barbecue!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devochka",
       "text": "Ich habe so viel gegessen, dass ich fast geplatzt wäre!",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Die dünne Mitschülerin sieht sie traurig an und sagt dann:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -66,12 +50,56 @@
       "text": "Und warum nur fast? Hat Papas Geld nicht gereicht?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "devochka",
+        "devochka-podruga"
+      ],
+      "roles": {
+        "devochka": "child",
+        "devochka-podruga": "child"
+      },
+      "looks": {
+        "devochka": {
+          "add": [
+            "gold-chain",
+            "earrings",
+            "bows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

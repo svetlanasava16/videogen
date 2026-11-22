@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1pxm0pd",
   "locale": "en",
   "title": "Widow Meyer",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
@@ -15,52 +17,27 @@
     "sluzhivy": "police-officer",
     "sluzhivy-ryadovoy": "police-officer"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    },
-    "sluzhivy-ryadovoy": {
-      "add": [
-        "police-cap"
-      ],
-      "remove": [
-        "army-cap"
-      ]
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "The doorbell rings. A woman opens the door.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "Good afternoon. Widow Meyer?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy",
-        "sluzhivy-ryadovoy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "zhena",
       "text": "Meyer, yes. But not a widow.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -68,12 +45,73 @@
       "text": "Wanna bet?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "zhena",
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "zhena": "wife",
+        "sluzhivy": "police-officer",
+        "sluzhivy-ryadovoy": "police-officer"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        },
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

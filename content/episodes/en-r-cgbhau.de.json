@@ -3,6 +3,8 @@
   "jokeId": "en-r-cgbhau",
   "locale": "de",
   "title": "Wikipedia",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,25 +15,13 @@
     "muzhik": "everyman",
     "sluzhivy": "police-officer"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "sluzhivy",
       "text": "Ich verhafte Sie, weil Sie die ganze Wikipedia heruntergeladen haben.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -39,12 +29,48 @@
       "text": "Nein, warten Sie! Ich kann alles erklären!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "sluzhivy": "police-officer"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

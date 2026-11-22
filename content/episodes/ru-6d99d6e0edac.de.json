@@ -3,6 +3,8 @@
   "jokeId": "ru-6d99d6e0edac",
   "locale": "de",
   "title": "Auf Ehrenwort",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "bank",
   "cast": [
@@ -13,59 +15,41 @@
     "muzhik": "customer",
     "nachalnik": "businessman"
   },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Gibt Ihre Bank Kredite auf Ehrenwort?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Kein Problem...",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Und wenn ich nicht zurückzahle?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "nachalnik",
       "text": "Dann werden Sie sich vor dem Allmächtigen schämen, wenn Sie vor ihn treten.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Bis dahin ist es ja noch lange hin...",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -73,12 +57,59 @@
       "text": "Na ja, wenn Sie am Fünften nicht zurückzahlen, treten Sie am Sechsten vor ihn.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "bank",
+      "cast": [
+        "muzhik",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "nachalnik": "businessman"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

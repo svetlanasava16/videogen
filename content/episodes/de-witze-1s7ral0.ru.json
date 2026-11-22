@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1s7ral0",
   "locale": "ru",
   "title": "Исповедь",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -19,68 +21,102 @@
       "character": "narrator",
       "text": "Пожилой мужчина впервые за тридцать лет пришёл на исповедь.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Ничего себе! Мини-бар, дорогие конфеты, кожаный диванчик!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "batyushka",
       "text": "Здравствуй, сын мой.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "batyushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "Святой отец, как у вас тут всё модно стало! Прямо заходить приятно!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "batyushka",
       "text": "Выйдите, пожалуйста, сын мой.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "ded",
       "text": "Почему? Я что-то не так сделал?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
       "character": "batyushka",
       "text": "Да. Вы сидите на месте священника.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.8
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "tserkov",
+      "cast": [
+        "ded",
+        "batyushka"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "batyushka": "priest"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "batyushka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

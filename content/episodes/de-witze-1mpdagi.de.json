@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1mpdagi",
   "locale": "de",
   "title": "Tretet nicht auf Hunde",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -10,14 +12,18 @@
     "muzhik",
     "tyoshcha",
     "muzhik-sosed",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "uchilka",
+    "devushka"
   ],
   "roles": {
-    "ded": "god",
+    "muzhik-ryzhy": "everyman",
+    "devushka": "woman",
     "muzhik": "everyman",
     "tyoshcha": "woman",
     "muzhik-sosed": "everyman",
-    "muzhik-ryzhy": "everyman"
+    "uchilka": "woman",
+    "ded": "god"
   },
   "lines": [
     {
@@ -25,36 +31,28 @@
       "character": "narrator",
       "text": "Drei Männer sterben und kommen in den Himmel.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Es gibt hier keine großen Regeln, nur eins: Tretet nicht auf Hunde.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Die drei denken sich, dass das ja nicht so schwer wäre, bis sie sehen: Da liegen überall Hunde.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Der Erste versucht es und tritt auf einen Hund.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -62,10 +60,6 @@
       "text": "Zur Strafe bekommt er die hässlichste Frau im Himmel an seine Seite.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -73,49 +67,35 @@
       "character": "narrator",
       "text": "Der Zweite scheitert ebenfalls und tritt auf einen Hund.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Er bekommt eine der hässlichsten Frauen im Himmel an seine Seite.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Der Dritte ist schlauer, steht den ganzen Tag rum und tritt auf keinen Hund.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Er bekommt eine wunderschöne Frau an seine Seite.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Oh, was hab ich getan, dass ich so eine schöne Frau abbekomme?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l11",
@@ -123,8 +103,6 @@
       "text": "Keine Ahnung, was du gemacht hast. Ich bin auf einen Hund getreten.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -186,6 +164,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l5"
         }
@@ -238,6 +222,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "uchilka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
         }
@@ -269,6 +259,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

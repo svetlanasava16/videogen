@@ -3,6 +3,8 @@
   "jokeId": "ru-106e895bb3a5",
   "locale": "de",
   "title": "Luftloch",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
@@ -15,41 +17,27 @@
     "sluzhivy-ryadovoy": "pilot",
     "devushka-blondinka": "flight-attendant"
   },
-  "looks": {
-    "sluzhivy-ryadovoy": {
-      "add": [],
-      "remove": [
-        "army-cap"
-      ]
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka-blondinka",
       "text": "Na, was schreit ihr denn so, warum regt ihr euch so auf!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
       "text": "Na und, es hat dreimal gerüttelt. Ein ganz normales Luftloch, eine Turbulenzzone. Kann doch jedem passieren.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devushka-blondinka",
       "text": "So, so, jetzt beruhigen wir uns… Alles gut? Na also.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -57,14 +45,58 @@
       "text": "Dann geh ich jetzt mal die Passagiere beruhigen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "devushka-blondinka"
-      ],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "devushka-blondinka"
+      ],
+      "roles": {
+        "sluzhivy": "pilot",
+        "sluzhivy-ryadovoy": "pilot",
+        "devushka-blondinka": "flight-attendant"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [],
+          "remove": [
+            "army-cap"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

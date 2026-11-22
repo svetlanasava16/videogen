@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1kx1zuc",
   "locale": "en",
   "title": "The Last Dodos",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "tv-studio",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "paren",
       "text": "Professor Vögele, as the most renowned naturalist of our time, after decades of searching in the deepest, most remote part of the jungle of Madagascar, you have managed to discover the last specimens of the dodo.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Please tell our viewers, how did you find them?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -38,12 +36,39 @@
       "text": "Delicious! Both of them. The eggs too.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "tv-studio",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "journalist",
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

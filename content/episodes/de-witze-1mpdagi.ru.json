@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1mpdagi",
   "locale": "ru",
   "title": "Не наступайте на собак",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -10,14 +12,18 @@
     "muzhik",
     "tyoshcha",
     "muzhik-sosed",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "uchilka",
+    "devushka"
   ],
   "roles": {
-    "ded": "god",
+    "muzhik-ryzhy": "everyman",
+    "devushka": "woman",
     "muzhik": "everyman",
     "tyoshcha": "woman",
     "muzhik-sosed": "everyman",
-    "muzhik-ryzhy": "everyman"
+    "uchilka": "woman",
+    "ded": "god"
   },
   "lines": [
     {
@@ -25,36 +31,28 @@
       "character": "narrator",
       "text": "Умирают трое мужчин и попадают на небеса.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Особых правил здесь нет, только одно: не наступайте на собак.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Трое думают, что это не так уж сложно, пока не видят: повсюду лежат собаки.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Первый пробует и наступает на собаку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -62,10 +60,6 @@
       "text": "В наказание ему достаётся самая страшная женщина на небесах.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -73,49 +67,35 @@
       "character": "narrator",
       "text": "Второй тоже не справляется и наступает на собаку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Ему достаётся одна из самых страшных женщин на небесах.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Третий умнее: весь день стоит на месте и не наступает ни на одну собаку.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Ему достаётся прекрасная женщина.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Ох, что же я такого сделал, что мне досталась такая красавица?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l11",
@@ -123,8 +103,6 @@
       "text": "Понятия не имею, что ты сделал. А я наступила на собаку.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -186,6 +164,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l5"
         }
@@ -238,6 +222,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "uchilka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
         }
@@ -269,6 +259,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

@@ -3,6 +3,8 @@
   "jokeId": "ru-c93469b3ee6f",
   "locale": "de",
   "title": "Das Plüschherz",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,41 +15,27 @@
     "doktor": "doctor",
     "devushka": "cashier"
   },
-  "looks": {
-    "doktor": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "doktor",
       "text": "Geben Sie mir bitte den roten Plüscharsch da drüben.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka",
       "text": "Mein Herr, das ist kein Arsch, das ist ein Herz!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Wissen Sie, ich arbeite seit zwanzig Jahren als Herzchirurg.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -55,12 +43,50 @@
       "text": "Geben Sie mir den roten Plüscharsch da drüben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "doktor",
+        "devushka"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "devushka": "cashier"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

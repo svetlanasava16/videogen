@@ -81,20 +81,14 @@ const LAUGH_TEXT: Record<Locale, string> = { ru: "[laughs heartily] Ха-ха-х
 
 /** Кто смеётся в конце: куклы последней сцены, у которых есть реплики (без рассказчика) и кто не ушёл со сцены. */
 function laughers(ep: Raw): string[] {
-  const scenes = (ep.scenes as Raw[] | undefined)?.length ? (ep.scenes as Raw[]) : [{ cast: ep.cast, beats: (ep.lines as Raw[]).map((l) => ({ type: "line", ref: l.id })) }];
+  const scenes = ep.scenes as Raw[];
   const last = scenes[scenes.length - 1];
-  const byId = new Map((ep.lines as Raw[]).map((l) => [l.id, l]));
   const speakers = new Set((ep.lines as Raw[]).map((l) => l.character as string));
   const gone = new Set<string>();
   for (const b of last.beats as Raw[]) {
-    if (b.type === "line") {
-      const l = byId.get(b.ref);
-      for (const id of l?.enter ?? []) gone.delete(id);
-      for (const id of l?.exit ?? []) gone.add(id);
-    } else if (b.type === "move") {
-      if (b.from) gone.delete(b.who);
-      if (String(b.to).startsWith("off-")) gone.add(b.who);
-    }
+    if (b.type !== "move") continue;
+    if (b.from) gone.delete(b.who);
+    if (String(b.to).startsWith("off-")) gone.add(b.who);
   }
   return (last.cast as string[]).filter((c) => c !== NARRATOR && speakers.has(c) && !gone.has(c));
 }

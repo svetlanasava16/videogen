@@ -3,6 +3,8 @@
   "jokeId": "en-r-axy53t",
   "locale": "de",
   "title": "Der erste Tag",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -13,50 +15,34 @@
     "muzhik-ryzhy": "driver",
     "paren": "customer"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein Taxifahrer, neu im Job, nimmt seinen ersten Fahrgast auf.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Ein paar Minuten vergehen, und die ganze Fahrt über ist es still. Nicht mal das Radio läuft.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Der Fahrgast ist sehr gesellig, also fängt er ein Gespräch an, um die Stille zu brechen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Hey, Ma—",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
@@ -65,8 +51,6 @@
       "uncensored": "Verdammte Scheiße!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -74,9 +58,7 @@
       "character": "narrator",
       "text": "Der Fahrer steigt abrupt in die Bremsen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -84,27 +66,21 @@
       "text": "Alter, was soll der Mist?!",
       "uncensored": "Alter, was soll die Scheiße?!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "muzhik-ryzhy",
       "text": "Tut mir leid, Mann. Ist mein erster Tag im Job, und ich hab mich von meinem alten Job noch nicht umgestellt.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "paren",
       "text": "Was hast du denn vorher gemacht?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -112,12 +88,75 @@
       "text": "Ich bin einen Leichenwagen gefahren.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik-ryzhy",
+        "paren"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "paren": "customer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

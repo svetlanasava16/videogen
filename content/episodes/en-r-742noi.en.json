@@ -3,6 +3,8 @@
   "jokeId": "en-r-742noi",
   "locale": "en",
   "title": "Glad to Be Alive",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "muzhik",
       "text": "Do you ever wake up, kiss the person sleeping beside you, and be glad that you are alive?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -29,12 +29,35 @@
       "text": "I did and apparently will not be allowed on this airline again.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "muzhik-sosed": "customer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

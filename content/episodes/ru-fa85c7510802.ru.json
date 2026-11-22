@@ -3,6 +3,8 @@
   "jokeId": "ru-fa85c7510802",
   "locale": "ru",
   "title": "Педро Перес",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -13,43 +15,27 @@
     "devushka": "nurse",
     "muzhik": "patient"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "mustache"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka",
       "text": "Ваше имя?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "П-п-п-педро П-п-п-перес.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "devushka",
       "text": "Вы заика?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -57,12 +43,56 @@
       "text": "Нет, мой папа был заика, а тот, кто меня регистрировал, был идиотом.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "devushka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka": "nurse",
+        "muzhik": "patient"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

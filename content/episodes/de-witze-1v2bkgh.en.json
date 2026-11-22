@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1v2bkgh",
   "locale": "en",
   "title": "The Interview",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -15,35 +17,20 @@
     "muzhik": "husband",
     "zhena": "wife"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "badge"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "An interviewer was asking people questions on the street. He stopped a couple and asked the man.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik",
-        "zhena"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "On a scale of one to ten, how much say do you have in your relationship?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -51,12 +38,60 @@
       "text": "Honey, am I allowed to take part in the survey?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "paren": "journalist",
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1ojc7ux",
   "locale": "de",
   "title": "Städter gegen Bauer",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -21,99 +23,77 @@
       "character": "narrator",
       "text": "Ein Stadtbewohner fährt zur Entenjagd aufs Land. Als er die erste Ente sieht, zielt er und schießt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Die getroffene Ente fällt vom Himmel herab und landet auf einem Bauernhof.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
       "text": "Die Ente rücke ich nicht heraus.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
       "text": "Das ist jetzt meine Jagdbeute!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
       "text": "Dann klären wir das nach den Sitten, die auf dem Land gelten.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "Wir machen es so: wir treten uns nacheinander gegenseitig in den Unterleib.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik-sosed",
       "text": "Derjenige, der am wenigsten schreit, bekommt die Ente.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Der Städter ist nach kurzer Überlegung einverstanden.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Der Bauer holt aus und landet einen üblen Treffer mitten in die Weichteile des Städters. Der geht zu Boden und wälzt sich stöhnend vor Schmerzen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Nach einer Viertelstunde ist der Städter wieder auf den Beinen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "muzhik-ryzhy",
       "text": "Machen Sie sich bereit, jetzt bin ich an der Reihe.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l12",
@@ -121,10 +101,6 @@
       "text": "Nee. Nehmen Sie einfach die Ente.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ],
       "laugh": "big"
     }
   ],
@@ -224,6 +200,11 @@
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

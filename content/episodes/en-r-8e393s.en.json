@@ -3,13 +3,17 @@
   "jokeId": "en-r-8e393s",
   "locale": "en",
   "title": "The Warning",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "theater",
   "cast": [
-    "ded"
+    "ded",
+    "muzhik"
   ],
   "roles": {
-    "ded": "grandpa"
+    "ded": "grandpa",
+    "muzhik": "customer"
   },
   "lines": [
     {
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "My grandfather warned people that the Titanic would sink.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "The Titanic will sink!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "No one listened, but he kept on warning them nonetheless…",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,10 +43,6 @@
       "text": "…until they got sick of him and kicked him out the movie theatre.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "ded"
-      ],
       "laugh": "big"
     }
   ],
@@ -126,6 +120,11 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

@@ -3,6 +3,8 @@
   "jokeId": "en-r-c0qpyb",
   "locale": "en",
   "title": "Are You Free Tonight?",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
@@ -21,47 +23,35 @@
       "character": "muzhik",
       "text": "My neighbor. She's single. She's shapely and beautiful and she lives right across the street.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "I watched her as she got home from work this evening.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "I was surprised when she walked across the street, up my driveway and knocked on my door.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "devushka",
       "text": "I just got home, and I have this strong urge to have a good time, get drunk, and have fun tonight. Are you doing anything?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Nope, I'm free!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -69,14 +59,65 @@
       "text": "Great. Can you watch my dog?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "pyos"
-      ],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "muzhik",
+        "devushka",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "devushka": "woman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "en-r-ckpbr2",
   "locale": "en",
   "title": "Saved",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "front-door",
   "cast": [
@@ -19,41 +21,70 @@
       "character": "muzhik",
       "text": "Some idiot knocked on my door today.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Said I needed to be saved, or else I would burn.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "I told him to get lost.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "Stupid fireman.",
       "emotion": "angry",
-      "pauseAfterSec": 0.8,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.8
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "muzhik",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "sluzhivy-ryadovoy": "firefighter"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

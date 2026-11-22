@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1x58isu",
   "locale": "en",
   "title": "Fastest Dad",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "park",
   "cast": [
@@ -15,61 +17,41 @@
     "vovochka-drug": "child",
     "vovochka": "child"
   },
-  "looks": {
-    "devochka": {
-      "clothes": "#4a6fa5",
-      "hairStyle": "short",
-      "add": [],
-      "remove": [
-        "bows"
-      ]
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Three little boys are arguing about whose dad is the fastest.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devochka",
       "text": "My dad drives a Porsche and easily does a hundred and eighty miles an hour!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "vovochka-drug",
       "text": "That's nothing.",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "vovochka-drug",
       "text": "My dad's a pilot for Lufthansa and flies a Boeing that shoots off at four hundred and thirty miles an hour at least!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "vovochka",
       "text": "That's all nothing at all. My dad's a civil servant.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -77,12 +59,63 @@
       "text": "He finishes work at five in the evening, and he's home by half past three!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "park",
+      "cast": [
+        "devochka",
+        "vovochka-drug",
+        "vovochka"
+      ],
+      "roles": {
+        "devochka": "child",
+        "vovochka-drug": "child",
+        "vovochka": "child"
+      },
+      "looks": {
+        "devochka": {
+          "clothes": "#4a6fa5",
+          "hairStyle": "short",
+          "add": [],
+          "remove": [
+            "bows"
+          ]
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

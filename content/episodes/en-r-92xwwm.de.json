@@ -3,6 +3,8 @@
   "jokeId": "en-r-92xwwm",
   "locale": "de",
   "title": "Anwalt präsent",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -19,27 +21,21 @@
       "character": "narrator",
       "text": "Ein Mann wird festgenommen und in einen Verhörraum gebracht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Ich sage kein Wort, solange mein Anwalt nicht präsent ist.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "Sie sind der Anwalt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -47,12 +43,43 @@
       "text": "Eben. Also, wo ist mein Präsent?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "police-station",
+      "cast": [
+        "nachalnik",
+        "sluzhivy"
+      ],
+      "roles": {
+        "nachalnik": "lawyer",
+        "sluzhivy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

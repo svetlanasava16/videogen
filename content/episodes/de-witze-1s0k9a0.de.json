@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1s0k9a0",
   "locale": "de",
   "title": "Rhein oder Donau",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "river-lake",
   "cast": [
@@ -13,116 +15,83 @@
     "devushka-blondinka": "blonde",
     "devushka": "blonde"
   },
-  "looks": {
-    "devushka": {
-      "hair": "#f2d16b",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Zwei Blondinen stehen auf einer Brücke.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka-blondinka",
       "text": "Das ist der Rhein!",
       "emotion": "smug",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "devushka",
       "text": "So ein Unsinn, das ist die Donau!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "devushka-blondinka",
       "text": "Rhein!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Donau!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
       "text": "Rhein!",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "devushka",
       "text": "Donau!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Nach einiger Zeit harten Wortgefechts meint die eine:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l9",
       "character": "devushka-blondinka",
       "text": "Ich gehe jetzt runter und frag mal nach.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "devushka-blondinka"
-      ]
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Zehn Minuten später kommt sie total zerzaust zurück – abgeschrammte Klamotten, Knochenbrüche, Platzwunden.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka-blondinka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "devushka",
       "text": "Und? Rhein oder Donau?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l12",
@@ -130,12 +99,92 @@
       "text": "Die A-Zwei!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "devushka-blondinka",
+        "devushka"
+      ],
+      "roles": {
+        "devushka-blondinka": "blonde",
+        "devushka": "blonde"
+      },
+      "looks": {
+        "devushka": {
+          "hair": "#f2d16b",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

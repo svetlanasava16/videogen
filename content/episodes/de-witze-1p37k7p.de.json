@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1p37k7p",
   "locale": "de",
   "title": "Uiuiui",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,27 +15,13 @@
     "vovochka": "fritzchen",
     "uchilka": "teacher"
   },
-  "looks": {
-    "vovochka": {
-      "add": [
-        "freckles"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "pupils",
-    "size": "few"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "uchilka",
       "text": "Bei jedem Atemzug, den ich mache, stirbt ein Mensch.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -41,12 +29,46 @@
       "text": "Wie wäre es denn mal mit Zähne putzen?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "vovochka",
+        "uchilka"
+      ],
+      "roles": {
+        "vovochka": "fritzchen",
+        "uchilka": "teacher"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

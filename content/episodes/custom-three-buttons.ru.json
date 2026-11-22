@@ -3,14 +3,18 @@
   "jokeId": "custom-three-buttons",
   "locale": "ru",
   "title": "Три кнопки и три унитаза",
+  "kind": "joke",
+  "v": 2,
   "location": "zal",
   "cast": [
     "nachalnik",
-    "uchilka"
+    "uchilka",
+    "tyoshcha"
   ],
   "roles": {
-    "nachalnik": "politician",
-    "uchilka": "politician"
+    "tyoshcha": "grandma",
+    "uchilka": "politician",
+    "nachalnik": "politician"
   },
   "lines": [
     {
@@ -18,9 +22,6 @@
       "character": "narrator",
       "text": "Президент Америки рассказывает канцлеру Германии:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l1.mp3",
         "durationSec": 2.873,
@@ -55,16 +56,14 @@
         "voiceId": "ogi2DyUAKJb7CEdqqvlU",
         "model": "eleven_multilingual_v2",
         "textHash": "d25a9a7d"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "У меня есть три кнопки.",
       "emotion": "smug",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l2.mp3",
         "durationSec": 1.75,
@@ -99,16 +98,14 @@
         "voiceId": "TUQNWEvVPBLzMBSVDPUA",
         "model": "eleven_multilingual_v2",
         "textHash": "d1aab493"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "Нажимаю первую — нет Москвы, вторую — нет России, третью — России и Китая…",
       "emotion": "smug",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l3.mp3",
         "durationSec": 6.034,
@@ -188,16 +185,14 @@
         "voiceId": "TUQNWEvVPBLzMBSVDPUA",
         "model": "eleven_multilingual_v2",
         "textHash": "089212ca"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "На что канцлер ответила:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l4.mp3",
         "durationSec": 1.567,
@@ -227,16 +222,14 @@
         "voiceId": "ogi2DyUAKJb7CEdqqvlU",
         "model": "eleven_multilingual_v2",
         "textHash": "89752468"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l5",
       "character": "uchilka",
       "text": "У моей бабушки было три унитаза.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l5.mp3",
         "durationSec": 2.534,
@@ -276,17 +269,15 @@
         "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
         "model": "eleven_multilingual_v2",
         "textHash": "3bccb8ef"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l6",
       "character": "uchilka",
       "text": "Золотой, серебряный и фаянсовый.",
-      "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "offscreen": true,
+      "emotion": "neutral",
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l6.mp3",
         "durationSec": 2.926,
@@ -316,17 +307,15 @@
         "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
         "model": "eleven_multilingual_v2",
         "textHash": "858ae013"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l7",
       "character": "uchilka",
       "text": "Но когда в Берлин вошли советские танки — она наложила в штаны прямо в коридоре!",
-      "emotion": "happy",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "offscreen": true,
+      "emotion": "happy",
       "audio": {
         "file": "audio/voice/custom-three-buttons.ru/l7.mp3",
         "durationSec": 5.669,
@@ -411,8 +400,14 @@
         "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
         "model": "eleven_multilingual_v2",
         "textHash": "ca36f5f9"
-      }
+      },
+      "pauseAfterSec": 0
     }
+  ],
+  "explicit": false,
+  "flags": [
+    "political",
+    "real-person"
   ],
   "scenes": [
     {
@@ -565,8 +560,9 @@
       "voiceId": "Xb7hH8MSUJpSbSDYk0k2"
     }
   ],
-  "flags": [
-    "political",
-    "real-person"
-  ]
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
 }

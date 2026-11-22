@@ -3,6 +3,8 @@
   "jokeId": "en-r-8qoh2e",
   "locale": "ru",
   "title": "Тихо, но смертельно",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -19,78 +21,56 @@
       "character": "narrator",
       "text": "Старушка приходит к врачу и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "Доктор, у меня ужасная проблема с газами, но меня она не особо беспокоит.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "tyoshcha",
       "text": "Я всегда пукаю беззвучно, и никогда ничем не пахнет.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "tyoshcha",
       "text": "Я, наверное, раз пятнадцать пукнула, пока я здесь, а вы и не заметили.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "doktor",
       "text": "Интересно. Попринимайте-ка эти таблетки и приходите ко мне через неделю.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "tyoshcha"
-      ]
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Через неделю старушка возвращается и говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "tyoshcha",
       "text": "Не знаю, что за чертовщину вы мне дали.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "tyoshcha",
       "text": "Пукаю я всё так же беззвучно, но, боже мой, как воняет!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -98,12 +78,79 @@
       "text": "Отлично. Теперь, когда пазухи прочистились, займёмся вашим слухом.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "tyoshcha"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "tyoshcha": "old-woman"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

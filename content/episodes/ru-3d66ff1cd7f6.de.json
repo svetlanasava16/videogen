@@ -3,6 +3,8 @@
   "jokeId": "ru-3d66ff1cd7f6",
   "locale": "de",
   "title": "Verbindung unterbrochen",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
@@ -19,60 +21,42 @@
       "character": "narrator",
       "text": "In der Kirche wird gebetet. Ruhig und feierlich fließen die Worte.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Plötzlich tut sich der Himmel auf, und in himmlischen Strahlen erscheint das Antlitz Gottes.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Meine Söhne und Töchter, der Moment ist gekommen, da ich vor euch tre...",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Mit fürchterlichem Krachen schlägt der Himmel wieder zu.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Alle Gemeindemitglieder stehen unter Schock! Keiner traut seinen Augen, jemand bekreuzigt sich hastig.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Plötzlich öffnet sich der Himmel erneut, aus dem Glanz blickt das finstere Antlitz des Herrn, und er sagt erbittert:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -81,8 +65,6 @@
       "uncensored": "Dieses verdammte Scheiß-WLAN!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -116,12 +98,23 @@
           "ref": "l1"
         },
         {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-right"
         },
         {
           "type": "line",
@@ -138,6 +131,12 @@
         {
           "type": "crowd",
           "react": "murmur"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

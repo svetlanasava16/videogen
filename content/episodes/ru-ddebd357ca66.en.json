@@ -3,6 +3,8 @@
   "jokeId": "ru-ddebd357ca66",
   "locale": "en",
   "title": "Deduction",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,47 +15,27 @@
     "sluzhivy": "police-officer",
     "doktor": "doctor"
   },
-  "looks": {
-    "sluzhivy": {
-      "add": [],
-      "remove": [
-        "police-cap"
-      ]
-    },
-    "doktor": {
-      "add": [
-        "mustache"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "sluzhivy",
       "text": "Watson, what's that you're smoking?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "Let me guess: Queen Virginia tobacco with cherry leaves, from the anniversary edition in the velvet box?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Astonishing, Holmes! How did you guess?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -62,12 +44,56 @@
       "uncensored": "By God, Watson! It's not as if Mrs. Hudson fucking pinched the last pack from my room!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "sluzhivy",
+        "doktor"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [],
+          "remove": [
+            "police-cap"
+          ]
+        },
+        "doktor": {
+          "add": [
+            "mustache"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

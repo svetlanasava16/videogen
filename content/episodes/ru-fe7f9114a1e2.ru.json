@@ -3,6 +3,8 @@
   "jokeId": "ru-fe7f9114a1e2",
   "locale": "ru",
   "title": "Пожар",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -15,40 +17,20 @@
     "muzhik-ryzhy": "firefighter",
     "sluzhivy-ryadovoy": "firefighter"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "helmet"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "helmet"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Начальник пожарной охраны вразвалочку, руки в карманах, заходит в комнату, где обычно в ожидании вызова сидит бригада, и спокойно так говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy-ryadovoy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy-ryadovoy",
       "text": "Мужики, давайте собирайтесь потихоньку...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -56,12 +38,61 @@
       "text": "Здание налоговой полиции горит...",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "police-station",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "muzhik": "firefighter",
+        "muzhik-ryzhy": "firefighter",
+        "sluzhivy-ryadovoy": "firefighter"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "helmet"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

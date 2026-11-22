@@ -3,6 +3,8 @@
   "jokeId": "en-r-b0llxi",
   "locale": "en",
   "title": "Quick Answers Please",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "cast": [
     "muzhik"
@@ -16,9 +18,7 @@
       "character": "muzhik",
       "text": "When you pull the pin on a grenade, how do you put it back in?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -26,12 +26,32 @@
       "text": "Quick answers please.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

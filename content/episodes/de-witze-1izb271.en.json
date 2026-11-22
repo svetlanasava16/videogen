@@ -3,14 +3,18 @@
   "jokeId": "de-witze-1izb271",
   "locale": "en",
   "title": "Nobody Listened to My Grandpa",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "theater",
   "cast": [
     "ded",
-    "muzhik-sosed"
+    "muzhik-sosed",
+    "sluzhivy"
   ],
   "roles": {
     "ded": "grandpa",
+    "sluzhivy": "guard",
     "muzhik-sosed": "customer"
   },
   "lines": [
@@ -19,36 +23,28 @@
       "character": "narrator",
       "text": "When the Titanic set sail back then, my grandpa warned everyone about the coming disaster.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "This ship is going to hit an iceberg and sink, and most of you are going to die!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "But nobody wanted to listen to him.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
       "text": "Shut your trap! You're ruining everything!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -56,11 +52,6 @@
       "text": "In the end, they threw him out of the cinema.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "ded",
-        "sluzhivy"
-      ],
       "laugh": "big"
     }
   ],
@@ -151,6 +142,16 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "off-right"
         }
       ],
       "transition": "cut"

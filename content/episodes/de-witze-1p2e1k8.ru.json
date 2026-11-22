@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1p2e1k8",
   "locale": "ru",
   "title": "Кораблекрушение",
+  "kind": "joke",
+  "v": 2,
   "location": "plyazh",
   "place": "beach",
   "cast": [
@@ -13,47 +15,27 @@
     "muzhik": "everyman",
     "muzhik-sosed": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "stubble"
-      ],
-      "remove": []
-    },
-    "muzhik-sosed": {
-      "add": [
-        "beard"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Двое потерпевших кораблекрушение выбрасывает на остров.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "О нет, мы пропали!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
       "text": "Не бойся, нас найдут.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -61,12 +43,56 @@
       "text": "Я ещё налоговой денег должен!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "plyazh",
+      "cast": [
+        "muzhik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "beard"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

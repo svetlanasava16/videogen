@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, type Location, ScriptDraft, sceneProblems, stagingProblems, type LookPatch } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, migrateEpisodeData, subLocation, type Location, ScriptDraft, sceneProblems, type LookPatch } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -168,25 +168,25 @@ const STAGES: Record<string, Stage> = {
       checkSet(row.set, row.location, "");
       for (const [i, sc] of (row.scenes ?? []).entries()) checkSet(sc.set, sc.location, `scene ${i + 1}: `, sc.place);
       if (row.scenes?.length && (row.looks || row.crowd || row.set)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
+      // сцены: свои или из старого вида (enter/exit на репликах) — тот же перевод, что в materialize
+      const props = (JSON.parse(readFileSync(join(ROOT, "content", "props.json"), "utf8")).props as { id: string }[]).map((p) => p.id);
+      const mig = migrateEpisodeData({ location: row.location, cast: row.cast, roles: row.roles, looks: row.looks, crowd: row.crowd, set: row.set, scenes: row.scenes, lines: row.lines.map((l, i) => ({ ...l, id: `l${i + 1}` })) });
+      for (const sc of mig.scenes) {
+        if (!bds.has(sc.location) || sc.location === "none") pr.push(`scene: unknown backdrop ${sc.location}`);
+        for (const c of sc.cast) if (!ids.has(c)) pr.push(`scene: unknown puppet ${c}`);
+        if (sc.split && (!bds.has(sc.split.location) || sc.split.location === "none")) pr.push(`scene: unknown split backdrop ${sc.split.location}`);
+      }
+      pr.push(...sceneProblems({ lines: mig.lines, scenes: mig.scenes }, {
+        marksOf: (loc, place) => Object.keys(marksFor(bdOf(loc), place)),
+        places: (loc) => (bdOf(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
+        props,
+      }));
       if (row.scenes?.length) {
-        // движок v2: проверка сцен, меток и реквизита
-        const props = (JSON.parse(readFileSync(join(ROOT, "content", "props.json"), "utf8")).props as { id: string }[]).map((p) => p.id);
-        const lines = row.lines.map((l, i) => ({ ...l, id: `l${i + 1}` }));
-        for (const sc of row.scenes) {
-          if (!bds.has(sc.location) || sc.location === "none") pr.push(`scene: unknown backdrop ${sc.location}`);
-          for (const c of sc.cast) if (!ids.has(c)) pr.push(`scene: unknown puppet ${c}`);
-          if (sc.split && (!bds.has(sc.split.location) || sc.split.location === "none")) pr.push(`scene: unknown split backdrop ${sc.split.location}`);
-        }
-        pr.push(...sceneProblems({ lines, scenes: row.scenes }, {
-          marksOf: (loc, place) => Object.keys(marksFor(bdOf(loc), place)),
-          places: (loc) => (bdOf(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
-          props,
-        }));
         const s0 = row.scenes[0];
         if (s0.location !== row.location) pr.push("top-level location must repeat the first scene");
         if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
         for (const c of s0.cast) if ((s0.roles ?? {})[c] !== (row.roles ?? {})[c]) pr.push(`top-level roles must repeat the first scene's roles (${c})`);
-      } else pr.push(...stagingProblems(row.cast, row.lines));
+      }
       return pr;
     },
   },
@@ -260,6 +260,7 @@ function writeScriptContext() {
 
 /** Готовые сценарии → content/episodes/<jokeId>.<locale>.json */
 function materialize() {
+  const C = loadCast();
   const rows = readJsonl(resultsPath("script")).map((r) => ScriptDraft.parse(r));
   // каноническая локация из входа стадии → вариант фона
   const places = new Map<string, string>();
@@ -277,7 +278,8 @@ function materialize() {
       const p = prev?.lines[i];
       return p?.audio && p.character === character && p.text === text ? p.audio : undefined;
     };
-    const ep = Episode.parse({
+    const isPlace = (loc: string, place: string) => !!subLocation(C.backdrops.find((b) => b.id === loc) as Location | undefined, place);
+    const ep = Episode.parse(migrateEpisodeData({
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
       location: d.location === "none" ? "gostinaya" : d.location,
       place: places.get(d.id),
@@ -287,12 +289,13 @@ function materialize() {
         audio: voiced(i, l.character, l.text.trim()),
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(0.6, Math.max(0, l.pauseAfterSec)),
       })),
-      scenes: d.scenes?.length ? d.scenes : undefined,
+      scenes: d.scenes?.length ? d.scenes : undefined, // нет — migrateEpisodeData соберёт одну сцену
       // смех в конце, музыку и режим без цензуры не теряем при пересборке (смех — только тех, кто ещё в составе)
       outroLaughs: (prev?.outroLaughs ?? []).filter((o) => [...d.cast, ...(d.scenes ?? []).flatMap((sc) => sc.cast)].includes(o.character)),
       music: prev?.music,
       explicit: prev?.explicit,
-    });
+      flags: prev?.flags,
+    }, isPlace));
     writeFileSync(file, JSON.stringify(ep, null, 2) + "\n");
     n++;
   }

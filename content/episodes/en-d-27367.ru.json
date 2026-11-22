@@ -3,6 +3,8 @@
   "jokeId": "en-d-27367",
   "locale": "ru",
   "title": "Брови",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -13,23 +15,13 @@
     "muzhik": "husband",
     "zhena": "wife"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "high-drawn-eyebrows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Я сказал жене, что сегодня она нарисовала брови немного высоковато.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,12 +29,42 @@
       "text": "Она выглядела удивлённой.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "high-drawn-eyebrows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

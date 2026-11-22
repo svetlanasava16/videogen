@@ -3,6 +3,8 @@
   "jokeId": "en-r-6sr4wy",
   "locale": "ru",
   "title": "Вазэктомия",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -21,11 +23,7 @@
       "character": "muzhik",
       "text": "Я сделал вазэктомию, потому что не хотел детей.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -33,12 +31,42 @@
       "text": "Но когда я вернулся домой, они всё ещё были там.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "vovochka",
+        "devochka"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "vovochka": "child",
+        "devochka": "child"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

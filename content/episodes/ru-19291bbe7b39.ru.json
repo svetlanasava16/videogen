@@ -3,12 +3,18 @@
   "jokeId": "ru-19291bbe7b39",
   "locale": "ru",
   "title": "Остров",
+  "kind": "joke",
+  "v": 2,
   "location": "plyazh",
   "place": "ship",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
+    "muzhik-sosed": "tourist",
+    "sluzhivy-ryadovoy": "sailor",
     "muzhik": "homeless"
   },
   "lines": [
@@ -17,27 +23,21 @@
       "character": "narrator",
       "text": "Теплоход проходит мимо небольшого острова в океане, на котором бородатый мужчина что-то кричит, отчаянно размахивая руками.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Кто это?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy-ryadovoy",
       "text": "Понятия не имею.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +45,6 @@
       "text": "Каждый год, когда мы здесь проходим, он вот так же сходит с ума.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

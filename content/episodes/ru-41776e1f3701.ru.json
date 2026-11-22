@@ -3,6 +3,8 @@
   "jokeId": "ru-41776e1f3701",
   "locale": "ru",
   "title": "Каким мальчиком",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,38 +15,20 @@
     "doktor": "professor",
     "vovochka": "child"
   },
-  "looks": {
-    "doktor": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    },
-    "vovochka": {
-      "add": [
-        "freckles"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "На уроке Закона Божьего.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "А сейчас Джимми расскажет нам, каким мальчиком надо быть, чтобы попасть в рай.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -52,12 +36,52 @@
       "text": "Мёртвым, сэр...",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "doktor",
+        "vovochka"
+      ],
+      "roles": {
+        "doktor": "professor",
+        "vovochka": "child"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        },
+        "vovochka": {
+          "add": [
+            "freckles"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "ru-adbe01160e93",
   "locale": "ru",
   "title": "В театре",
+  "kind": "joke",
+  "v": 2,
   "location": "zal",
   "place": "theater",
   "cast": [
@@ -25,151 +27,112 @@
       "character": "narrator",
       "text": "Театр. Зрители занимают свои места.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "В партере сидит, раскинувшись, мужик: ноги на передних сиденьях, руки на соседних, голова закинута, язык наружу.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Извините, у нас места немного дальше. Не позволите ли вы нам пройти?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren",
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Человек — ноль внимания. Они опять:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Молодой человек, вы нам мешаете пройти. Если вы не уберёте ноги, мы будем вынуждены позвать администратора.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Ноль эмоций. Пришёл администратор.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "nachalnik",
       "text": "Товарищ, уберите ноги, вы мешаете людям проходить на свои места!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Никакого ответа.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "nachalnik",
       "text": "Молодой человек! Вы нарушаете правила поведения в общественном месте! Если вы не уберёте ноги, я позову милиционера!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Приходит милиционер.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "sluzhivy",
       "text": "Значит так, ноги убери!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "sluzhivy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l12",
       "character": "narrator",
       "text": "Человек молчит.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l13",
       "character": "sluzhivy",
       "text": "Ты что, совсем офигел? Я сказал, ноги убери!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l14",
       "character": "narrator",
       "text": "Молчание.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l15",
       "character": "sluzhivy",
       "text": "Ты что, меня не слышишь? Откуда ты такой взялся?",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l16",
       "character": "narrator",
       "text": "Тут человек, еле шевеля губами, говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l17",
@@ -177,8 +140,6 @@
       "text": "С балкона...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -230,6 +191,18 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
         },
@@ -246,6 +219,12 @@
           "ref": "l6"
         },
         {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
         },
@@ -260,6 +239,12 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

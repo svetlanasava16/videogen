@@ -3,6 +3,8 @@
   "jokeId": "ru-607e7dca2e52",
   "locale": "de",
   "title": "Wassermelonen",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -17,27 +19,21 @@
       "character": "narrator",
       "text": "Einem Bauern wurden ständig Wassermelonen geklaut, und schließlich stellte er auf dem Feld ein Schild auf.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
       "text": "Vorsicht! In einer der Wassermelonen ist Rattengift!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Am nächsten Tag sah er, dass nichts geklaut worden war, aber auf dem Schild stand ein Zusatz.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,12 +41,41 @@
       "text": "Jetzt sind es zwei!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "farm",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "farmer"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

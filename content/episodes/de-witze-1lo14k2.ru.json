@@ -3,13 +3,17 @@
   "jokeId": "de-witze-1lo14k2",
   "locale": "ru",
   "title": "Запасной парашют",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "barmen": "plumber"
   },
   "lines": [
     {
@@ -17,83 +21,63 @@
       "character": "narrator",
       "text": "Прыгает мужик с парашютом из самолёта.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Через какое-то время хочет раскрыть парашют, но ничего не происходит. Думает:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Ничего страшного, есть же ещё запасной.",
       "emotion": "smug",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Хочет раскрыть его, но ничего не выходит.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Потихоньку его охватывает паника,",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "как вдруг снизу ему навстречу летит мужик с ящиком для инструментов.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Тогда он его спрашивает:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l8",
       "character": "muzhik",
       "text": "Вас мне небеса послали! Вы парашюты чините?",
       "emotion": "happy",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "А тот в ответ:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l10",
@@ -101,8 +85,6 @@
       "text": "Нет, газовые трубы.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -138,6 +120,11 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

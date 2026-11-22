@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lv9qon",
   "locale": "en",
   "title": "Bedtime Story",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -19,18 +21,14 @@
       "character": "vovochka",
       "text": "Mommyyy… I can't sleep…",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka",
       "text": "Will you tell me a fairy tale?",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -38,12 +36,38 @@
       "text": "…wait a little longer, Daddy will be home any minute and tell us both one…",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "zhena": "mother"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

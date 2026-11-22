@@ -3,6 +3,8 @@
   "jokeId": "custom-berlin-toilets",
   "locale": "ru",
   "title": "Три унитаза",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bathroom-wide",
   "cast": [
@@ -19,9 +21,6 @@
       "character": "narrator",
       "text": "У одной бабушки в Берлине в доме было три унитаза: белый, голубой и розовый.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l1.mp3",
         "durationSec": 5.669,
@@ -101,16 +100,14 @@
         "voiceId": "JBFqnCBsd6RMkjVDRZzb",
         "model": "eleven_multilingual_v2",
         "textHash": "b2b6ed84"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l2",
       "character": "devochka",
       "text": "Бабушка, а зачем тебе три?",
       "emotion": "surprised",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l2.mp3",
         "durationSec": 2.09,
@@ -145,16 +142,14 @@
         "voiceId": "cgSgspJ2msm6clMCkdW9",
         "model": "eleven_multilingual_v2",
         "textHash": "2c2c9e51"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l3",
       "character": "tyoshcha",
       "text": "В белый я хожу, когда звонят из банка.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l3.mp3",
         "durationSec": 2.534,
@@ -204,16 +199,14 @@
         "voiceId": "XrExE9yKIg1WjnnlVkGX",
         "model": "eleven_multilingual_v2",
         "textHash": "9f340448"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l4",
       "character": "tyoshcha",
       "text": "В голубой — когда звонит налоговая.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l4.mp3",
         "durationSec": 2.586,
@@ -253,16 +246,14 @@
         "voiceId": "XrExE9yKIg1WjnnlVkGX",
         "model": "eleven_multilingual_v2",
         "textHash": "5e6d82cf"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l5",
       "character": "tyoshcha",
       "text": "А розовый — для гостей.",
       "emotion": "happy",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l5.mp3",
         "durationSec": 1.907,
@@ -297,16 +288,14 @@
         "voiceId": "XrExE9yKIg1WjnnlVkGX",
         "model": "eleven_multilingual_v2",
         "textHash": "2fbcffec"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l6",
       "character": "devochka",
       "text": "А если придут русские?",
       "emotion": "surprised",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l6.mp3",
         "durationSec": 1.985,
@@ -336,16 +325,14 @@
         "voiceId": "cgSgspJ2msm6clMCkdW9",
         "model": "eleven_multilingual_v2",
         "textHash": "3a82aa7f"
-      }
+      },
+      "pauseAfterSec": 0
     },
     {
       "id": "l7",
       "character": "tyoshcha",
       "text": "А в сорок пятом, внученька, я ни до одного не добежала.",
       "emotion": "sad",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [],
       "audio": {
         "file": "audio/voice/custom-berlin-toilets.ru/l7.mp3",
         "durationSec": 3.474,
@@ -410,9 +397,11 @@
         "voiceId": "XrExE9yKIg1WjnnlVkGX",
         "model": "eleven_multilingual_v2",
         "textHash": "c6a9976a"
-      }
+      },
+      "pauseAfterSec": 0
     }
   ],
+  "explicit": false,
   "scenes": [
     {
       "location": "spalnya",
@@ -534,5 +523,10 @@
       "provider": "elevenlabs-free",
       "voiceId": "XrExE9yKIg1WjnnlVkGX"
     }
-  ]
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
 }

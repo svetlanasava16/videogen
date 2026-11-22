@@ -3,6 +3,8 @@
   "jokeId": "en-r-8jeput",
   "locale": "en",
   "title": "Grandpa's Walks",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,9 +19,7 @@
       "character": "muzhik",
       "text": "My grandpa started walking five miles a day when he was sixty.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -27,12 +27,32 @@
       "text": "Now he's ninety-seven years old and we have no idea where the hell he is.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

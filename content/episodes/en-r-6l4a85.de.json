@@ -3,15 +3,23 @@
   "jokeId": "en-r-6l4a85",
   "locale": "de",
   "title": "Ich weiß alles",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "home-living-room",
   "cast": [
     "vovochka",
     "vovochka-drug",
-    "devochka"
+    "devochka",
+    "zhena",
+    "muzhik",
+    "paren"
   ],
   "roles": {
+    "zhena": "mother",
     "vovochka": "vovochka",
+    "muzhik": "father",
+    "paren": "postman",
     "vovochka-drug": "child",
     "devochka": "child"
   },
@@ -21,45 +29,35 @@
       "character": "vovochka-drug",
       "text": "Fritzchen, Erwachsene haben ein dunkles Geheimnis und lassen sich leicht manipulieren.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Fritzchen beschließt, es auszuprobieren.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "vovochka",
       "text": "Mama, ich weiß alles.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Mama bringt ihn zum Schweigen und gibt ihm zehn Euro.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "zhena",
       "text": "Sag nur Papa nichts.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
@@ -67,8 +65,6 @@
       "text": "Hey, es funktioniert.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -76,63 +72,49 @@
       "character": "narrator",
       "text": "Eine Stunde später kommt Papa von der Arbeit nach Hause.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "vovochka",
       "text": "Papa, ich weiß alles.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Papa gibt Fritzchen hundert Euro.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "muzhik",
       "text": "Sag Mama nichts.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "narrator",
       "text": "Genau da klopft der Briefträger an die Tür.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l12",
       "character": "vovochka",
       "text": "Ich weiß alles, mein Herr.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l13",
       "character": "narrator",
       "text": "Der Briefträger lässt die ganze Post fallen, ihm kommen die Tränen, und er sagt:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l14",
@@ -140,8 +122,6 @@
       "text": "Na dann, Fritzchen, komm und drück deinen Papa.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

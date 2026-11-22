@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1p7hy2j",
   "locale": "ru",
   "title": "Желания с подвохом",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,74 +21,56 @@
       "character": "narrator",
       "text": "Мужчина находит джинна из бутылки.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "chort",
       "text": "Я исполню три твоих желания.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "chort"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "chort",
       "text": "Но учти: что бы ты ни пожелал, твоя тёща получит вдвойне.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "Для начала я хочу большой дом с бассейном и просторным садом.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Джинн кивает, и вот мужчина уже владелец шикарного дома, а его тёща получает сразу два поместья.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik",
       "text": "Дальше я хочу новенький Ламборгини у себя в гараже.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Джинн снова кивает, и машина тут же появляется у мужчины в гараже, а его тёща получает сразу две спортивные машины.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "chort",
       "text": "Ну, какое твоё последнее желание?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -94,8 +78,6 @@
       "text": "Ладно, тогда я бы хотел температуру тридцать восемь градусов.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -129,6 +111,12 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "chort",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

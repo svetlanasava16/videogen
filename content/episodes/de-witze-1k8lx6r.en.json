@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1k8lx6r",
   "locale": "en",
   "title": "Pulling Faces",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,36 +15,20 @@
     "uchilka": "teacher",
     "vovochka": "vovochka"
   },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "pupils",
-    "size": "few"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "At recess, the teacher sees Little Johnny pestering the other kids the whole time by pulling ugly faces.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "uchilka",
       "text": "When I was your age, my Sunday school teacher warned me that if I pulled faces, my face could simply freeze and stay that way forever.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -50,12 +36,50 @@
       "text": "Well, at least he warned you.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "vovochka"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "vovochka": "vovochka"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

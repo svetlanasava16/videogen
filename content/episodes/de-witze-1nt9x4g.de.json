@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1nt9x4g",
   "locale": "de",
   "title": "Guten Morgen",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
@@ -13,50 +15,34 @@
     "ded": "old-man",
     "paren": "journalist"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "camera"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Anlässlich seines fünfundneunzigsten Geburtstags wird ein greiser Herr im Altersheim für einen Bericht in der Lokalzeitung interviewt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Wie fühlen Sie sich in Ihrem Alter und in dieser Umgebung?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Danke, sehr gut.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Wie sieht denn Ihr Tagesablauf hier drin aus?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -64,18 +50,14 @@
       "text": "Morgens: Erst mal pinkeln!",
       "uncensored": "Morgens: Erst mal pissen!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "paren",
       "text": "Und? Keine Probleme?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -83,8 +65,6 @@
       "text": "Ach wo! Harter Strahl, kein Brennen, gesunde Farbe!",
       "emotion": "smug",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -92,45 +72,35 @@
       "character": "paren",
       "text": "Und dann?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "ded",
       "text": "Stuhlgang.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "paren",
       "text": "Irgendwelche Beschwerden?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "ded",
       "text": "Keine Spur. Ausreichender Druck, kein Blut, ganz normale Darmentleerung.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l12",
       "character": "paren",
       "text": "Wie geht es dann weiter?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l13",
@@ -138,12 +108,87 @@
       "text": "Nun ja, dann stehe ich auf.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "place": "hospital",
+      "cast": [
+        "ded",
+        "paren"
+      ],
+      "roles": {
+        "ded": "old-man",
+        "paren": "journalist"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "camera"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l13"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

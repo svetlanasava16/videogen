@@ -3,6 +3,8 @@
   "jokeId": "ru-f01d634f8578",
   "locale": "ru",
   "title": "Чуть не лопнула",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,53 +15,34 @@
     "devochka-podruga": "child",
     "devochka": "child"
   },
-  "looks": {
-    "devochka-podruga": {
-      "clothes": "#d81b60",
-      "add": [
-        "gold-chain",
-        "earrings",
-        "bows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Раскормленная дочка «новых русских» хвастается своей однокласснице:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devochka-podruga",
       "text": "Мы вчера с папой в ресторан ходили, чего мы там только не ели: омары, лангет, барбекю!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devochka-podruga",
       "text": "Я так объелась, что чуть не лопнула!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Худенькая одноклассница грустно смотрит на неё, а потом говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -67,12 +50,57 @@
       "text": "А почему чуть? Что, у папы денег не хватило?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "devochka-podruga",
+        "devochka"
+      ],
+      "roles": {
+        "devochka-podruga": "child",
+        "devochka": "child"
+      },
+      "looks": {
+        "devochka-podruga": {
+          "clothes": "#d81b60",
+          "add": [
+            "gold-chain",
+            "earrings",
+            "bows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

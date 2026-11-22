@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rqk1g6",
   "locale": "de",
   "title": "Descartes in der Bar",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -13,34 +15,20 @@
     "paren": "writer",
     "barmen": "bartender"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "mustache-curled"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "René Descartes kam in eine Bar.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "barmen",
       "text": "Wollen Sie ein Bier?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -48,14 +36,57 @@
       "text": "Nun, ich denke nicht.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "paren"
-      ],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "paren",
+        "barmen"
+      ],
+      "roles": {
+        "paren": "writer",
+        "barmen": "bartender"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "mustache-curled"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "off-left"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

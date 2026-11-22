@@ -3,15 +3,19 @@
   "jokeId": "de-witze-1muyrhc",
   "locale": "de",
   "title": "Kaffeepause",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "hell",
   "cast": [
     "muzhik",
-    "chort"
+    "chort",
+    "paren"
   ],
   "roles": {
     "muzhik": "everyman",
-    "chort": "devil"
+    "chort": "devil",
+    "paren": "devil"
   },
   "lines": [
     {
@@ -19,47 +23,35 @@
       "character": "narrator",
       "text": "Hannes kommt in die Hölle...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Satan führt ihn in einen Flur mit drei Türen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "chort",
       "text": "In einem dieser drei Zimmer wirst du nun die Ewigkeit verbringen, aber du darfst wählen, in welchem!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Satan öffnet die erste Tür. Dahinter müssen dutzende Leute Handstand auf glühenden Kohlen machen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Dann zeigt Satan ihm das zweite Zimmer. In diesem machen unzählige Menschen Handstand auf rostigen Nägeln.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
@@ -67,18 +59,14 @@
       "text": "Schließlich führt Satan ihn zum dritten Zimmer. Hier stehen alle knietief in Mist und trinken Kaffee.",
       "uncensored": "Schließlich führt Satan ihn zum dritten Zimmer. Hier stehen alle knietief in Scheiße und trinken Kaffee.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "Das ist gar nicht so schlecht. Dieses Zimmer nehme ich.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
@@ -86,20 +74,14 @@
       "text": "Er gesellt sich zu den anderen in den Mist und nimmt sich eine Tasse.",
       "uncensored": "Er gesellt sich zu den anderen in die Scheiße und nimmt sich eine Tasse.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Nach ein paar Minuten betritt ein Diener Satans das Zimmer.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -107,8 +89,6 @@
       "text": "So, Jungs! Kaffeepause vorbei! Alle wieder auf die Hände!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -126,6 +106,12 @@
         "chort": "devil"
       },
       "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
         {
           "type": "line",
           "ref": "l1"
@@ -244,6 +230,12 @@
           "who": "muzhik",
           "item": "glass",
           "action": "hold"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

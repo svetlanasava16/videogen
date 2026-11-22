@@ -3,12 +3,16 @@
   "jokeId": "ru-36cf1ce91c23",
   "locale": "ru",
   "title": "Ночь перед экзаменом",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
-    "doktor"
+    "doktor",
+    "paren"
   ],
   "roles": {
+    "paren": "student",
     "doktor": "professor"
   },
   "lines": [
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "Ночь перед экзаменом. В квартире профессора раздаётся телефонный звонок.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "Да!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Что, спишь, зараза?",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +43,6 @@
       "text": "А мы учим.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

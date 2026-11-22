@@ -3,6 +3,8 @@
   "jokeId": "ru-ee3ee630960e",
   "locale": "de",
   "title": "Das Gehalt",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -13,34 +15,20 @@
     "sluzhivy": "police-officer",
     "nachalnik": "boss"
   },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "police-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein junger Mann fängt bei der Polizei an und holt schon seit drei Monaten sein Gehalt nicht ab.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Sag mal, wie lange holst du dein Gehalt schon nicht ab?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -48,12 +36,53 @@
       "text": "Ach, ich dachte, man kriegt eine Pistole, und dann muss man selbst sehen, wie man klarkommt...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "police-station",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

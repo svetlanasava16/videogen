@@ -3,6 +3,8 @@
   "jokeId": "ru-de53c1b2a49d",
   "locale": "ru",
   "title": "Подарок",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -15,77 +17,48 @@
     "sluzhivy-ryadovoy": "customs-officer",
     "muzhik-ryzhy": "customs-officer"
   },
-  "looks": {
-    "sluzhivy-ryadovoy": {
-      "add": [
-        "police-cap",
-        "dark-glasses"
-      ],
-      "remove": [
-        "army-cap"
-      ]
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "police-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Сидят три таможенника и думают, что подарить четвертому на день рождения.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "Давайте подарим шестисотый мерс?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Да не, у него уже есть, на прошлый день рождения подарили.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "sluzhivy-ryadovoy",
       "text": "Тогда давайте подарим бунгало на Канарах.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "sluzhivy",
       "text": "Да не, у него есть уже.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
       "text": "Придумал! Давайте в подарок оставим его одного работать всю смену!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -93,12 +66,73 @@
       "text": "Да ты че, обалдел, такой дорогой подарок дарить!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "sluzhivy": "customs-officer",
+        "sluzhivy-ryadovoy": "customs-officer",
+        "muzhik-ryzhy": "customs-officer"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap",
+            "dark-glasses"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

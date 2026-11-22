@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1jwzu7a",
   "locale": "ru",
   "title": "Горе на ферме",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -19,56 +21,42 @@
       "character": "narrator",
       "text": "Фермер Эрвин со слезами на глазах приходит в местный полицейский участок.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik-ryzhy"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
       "text": "Сегодня утром я нашёл своего осла мёртвым в хлеву.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "А есть признаки преступления?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
       "text": "Нет, осёл был уже старый и больной.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-ryzhy",
       "text": "После долгих мучений он наконец-то отмучился.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "sluzhivy",
       "text": "Тогда зачем же вы пришли в полицию?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -76,12 +64,61 @@
       "text": "Ну, я просто хотел сообщить ближайшим родственникам.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "police-station",
+      "cast": [
+        "sluzhivy",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "muzhik-ryzhy": "farmer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

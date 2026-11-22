@@ -3,14 +3,18 @@
   "jokeId": "en-r-74wivp",
   "locale": "ru",
   "title": "Отстань, я женат!",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "home-kitchen",
   "cast": [
     "muzhik",
-    "zhena"
+    "zhena",
+    "paren"
   ],
   "roles": {
     "muzhik": "husband",
+    "paren": "son",
     "zhena": "wife"
   },
   "lines": [
@@ -19,18 +23,14 @@
       "character": "narrator",
       "text": "Мужик просыпается с жутким похмельем и ноющим фингалом под глазом.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Первое, что он видит, это одинокая роза на тумбочке и записка от жены.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
@@ -38,45 +38,35 @@
       "text": "Милый, завтрак готов. Я ушла по магазинам, чтобы приготовить тебе вечером твой любимый ужин. Люблю тебя!",
       "offscreen": true,
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Он плетётся на кухню, и правда, там завтрак.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Сынок, что вчера было?",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "paren",
       "text": "Ты пришёл домой в стельку пьяный и заработал фингал, когда споткнулся о стул.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "А откуда тогда роза, завтрак и нежная записка от мамы?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -84,8 +74,6 @@
       "text": "А, это. Мама затащила тебя в спальню, а когда стала тебя раздевать, ты заорал: «Отстань от меня, я женат!»",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

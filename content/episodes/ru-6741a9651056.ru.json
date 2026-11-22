@@ -3,6 +3,8 @@
   "jokeId": "ru-6741a9651056",
   "locale": "ru",
   "title": "Собака и кот",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -21,9 +23,7 @@
       "character": "pyos",
       "text": "Он меня кормит, он обо мне заботится, он даёт мне кров — должно быть, он Бог!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +31,36 @@
       "text": "Он меня кормит, он обо мне заботится, он даёт мне кров — должно быть, я Бог!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "pyos",
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "pyos": "dog",
+        "muzhik": "everyman",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

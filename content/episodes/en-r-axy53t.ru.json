@@ -3,6 +3,8 @@
   "jokeId": "en-r-axy53t",
   "locale": "ru",
   "title": "Первый день",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -13,50 +15,34 @@
     "muzhik-ryzhy": "driver",
     "paren": "customer"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Таксист, только что вышедший на работу, берёт своего первого пассажира.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Прошло несколько минут, и всю дорогу стояла тишина. Даже радио не было включено.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Пассажир очень общительный, и он решил завязать разговор, чтобы нарушить молчание.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Слышь, мужи—",
       "emotion": "happy",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
@@ -65,8 +51,6 @@
       "uncensored": "Ёб твою мать!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -74,9 +58,7 @@
       "character": "narrator",
       "text": "Водитель резко ударил по тормозам.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -84,27 +66,21 @@
       "text": "Чувак, ты что, обалдел?!",
       "uncensored": "Чувак, ты что, охуел?!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "muzhik-ryzhy",
       "text": "Извини, друг. Я первый день на этой работе и ещё не отвык от прежней.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "paren",
       "text": "А кем ты раньше работал?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -112,12 +88,75 @@
       "text": "Катафалк водил.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "muzhik-ryzhy",
+        "paren"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "driver",
+        "paren": "customer"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l10"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

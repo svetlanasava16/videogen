@@ -3,12 +3,16 @@
   "jokeId": "ru-c1c54c138410",
   "locale": "en",
   "title": "Call to the Vet",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "doctor-office",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
+    "doktor": "doctor",
     "muzhik": "everyman"
   },
   "lines": [
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "A phone call to the vet.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "My mother-in-law is about to come to you with an old dog of hers.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "So give her a shot of the strongest poison you've got, so she doesn't suffer and dies right away...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +43,6 @@
       "text": "And will the doggie find her way home by herself?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

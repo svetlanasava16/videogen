@@ -13,7 +13,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import { APPEARANCE_ROLES, GENERIC_ROLES, Character, Episode, Location, sceneProblems, stagingProblems, subLocation, marksFor, type Scene } from "@jf/core";
+import { APPEARANCE_ROLES, GENERIC_ROLES, Character, Episode, Location, sceneProblems, subLocation, marksFor, type Scene } from "@jf/core";
 import { ROOT } from "./util.js";
 
 export type Issue = { id: string; level: "error" | "warn" | "info"; kind: string; msg: string };
@@ -41,13 +41,17 @@ export function validateEpisode(id: string, A = loadAssets()): Issue[] {
   const file = join(ROOT, "content/episodes", `${id}.json`);
   if (!existsSync(file)) { add("error", "missing", `no file content/episodes/${id}.json`); return out; }
   const raw = readJson(file);
+  if (!Array.isArray(raw.scenes) || raw.lines?.some((l: Record<string, unknown>) => "enter" in l || "exit" in l)) {
+    add("error", "legacy", "old format (no scenes or enter/exit on lines): run pnpm migrate-episodes");
+    return out;
+  }
   const parsed = Episode.safeParse(raw);
   if (!parsed.success) {
     for (const i of parsed.error.issues.slice(0, 8)) add("error", "schema", `${i.path.join(".")}: ${i.message}`);
     return out;
   }
   const ep = parsed.data;
-  const scenes: Scene[] = ep.scenes ?? [];
+  const scenes: Scene[] = ep.scenes;
 
   // места и сублокации
   const checkLoc = (loc: string, place: string | undefined, tag: string, explicit: boolean) => {
@@ -57,7 +61,8 @@ export function validateEpisode(id: string, A = loadAssets()): Issue[] {
       add(explicit ? "error" : "warn", "place", `${tag}unknown place "${place}" at ${loc} (default view is shown)`);
     }
   };
-  checkLoc(ep.location, ep.place, "", false);
+  if (!A.locations.has(ep.location)) add("error", "location", `unknown location "${ep.location}"`);
+  if (ep.location !== ep.scenes[0].location) add("error", "summary", `location must repeat the first scene (${ep.scenes[0].location})`);
 
   // куклы и роли
   const checkCast = (cast: string[], roles: Record<string, string>, tag: string, looks: Record<string, { hair?: string }> = {}) => {
@@ -79,28 +84,23 @@ export function validateEpisode(id: string, A = loadAssets()): Issue[] {
       else add("error", "role", `${tag}${c} plays "${r}" — no puppet has this role (base costume is shown)`);
     }
   };
-  checkCast(ep.cast, ep.roles, "", { ...(ep.looks ?? {}), ...(scenes[0]?.looks ?? {}) });
+  for (const sc of scenes) for (const c of sc.cast) if (!ep.cast.includes(c)) add("error", "summary", `cast must list every puppet of the scenes (${c})`);
 
-  if (scenes.length) {
-    scenes.forEach((sc, i) => {
-      const tag = `scene ${i + 1}: `;
-      checkLoc(sc.location, sc.place, tag, true);
-      if (sc.split) checkLoc(sc.split.location, sc.split.place, `${tag}split: `, true);
-      checkCast(sc.cast, sc.roles, tag, sc.looks ?? {});
-    });
-    const problems = sceneProblems(
-      { lines: ep.lines, scenes },
-      {
-        marksOf: (loc, place) => Object.keys(marksFor(A.locations.get(loc), place)),
-        places: (loc) => (A.locations.get(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
-        props: A.props,
-      },
-    );
-    for (const p of problems) add("error", "staging", p);
-  } else {
-    for (const p of stagingProblems(ep.cast, ep.lines)) add("error", "staging", `${p} (legacy format)`);
-    add("warn", "legacy", "no scenes (legacy format, migrated in stage 2)");
-  }
+  scenes.forEach((sc, i) => {
+    const tag = `scene ${i + 1}: `;
+    checkLoc(sc.location, sc.place, tag, true);
+    if (sc.split) checkLoc(sc.split.location, sc.split.place, `${tag}split: `, true);
+    checkCast(sc.cast, sc.roles, tag, sc.looks ?? {});
+  });
+  const problems = sceneProblems(
+    { lines: ep.lines, scenes },
+    {
+      marksOf: (loc, place) => Object.keys(marksFor(A.locations.get(loc), place)),
+      places: (loc) => (A.locations.get(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
+      props: A.props,
+    },
+  );
+  for (const p of problems) add("error", "staging", p);
 
   // озвучка: файлы на месте
   for (const l of ep.lines) if (l.audio && !existsSync(join(ROOT, "remotion/public", l.audio.file))) add("error", "audio", `${l.id}: missing ${l.audio.file}`);

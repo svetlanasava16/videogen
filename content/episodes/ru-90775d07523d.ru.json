@@ -3,6 +3,8 @@
   "jokeId": "ru-90775d07523d",
   "locale": "ru",
   "title": "Техника безопасности",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "university",
   "cast": [
@@ -23,54 +25,42 @@
       "character": "narrator",
       "text": "Идёт в институте лекция по ОБЖ.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "Вы — прораб на стройке. На ваших глазах с лесов падает и разбивается насмерть рабочий.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Ваши первые действия?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Вызвать скорую!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Вызвать милицию!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
       "text": "Сообщить родственникам!",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -78,12 +68,59 @@
       "text": "Наденьте на труп каску и страховочный пояс, иначе милиция приедет за вами.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "place": "university",
+      "cast": [
+        "paren",
+        "devushka",
+        "devushka-blondinka",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "devushka": "student",
+        "devushka-blondinka": "student",
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

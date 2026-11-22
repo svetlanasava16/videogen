@@ -3,6 +3,8 @@
   "jokeId": "ru-6741a9651056",
   "locale": "de",
   "title": "Hund und Kater",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -21,9 +23,7 @@
       "character": "pyos",
       "text": "Er füttert mich, er kümmert sich um mich, er gibt mir ein Dach über dem Kopf. Er muss Gott sein!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -31,12 +31,36 @@
       "text": "Er füttert mich, er kümmert sich um mich, er gibt mir ein Dach über dem Kopf. Ich muss Gott sein!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "pyos",
+        "muzhik",
+        "kot"
+      ],
+      "roles": {
+        "pyos": "dog",
+        "muzhik": "everyman",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

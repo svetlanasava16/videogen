@@ -3,13 +3,19 @@
   "jokeId": "en-r-cmdzgc",
   "locale": "de",
   "title": "Das Palindrom",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "bank",
   "cast": [
     "vovochka",
-    "uchilka"
+    "uchilka",
+    "paren",
+    "vor"
   ],
   "roles": {
+    "paren": "thief",
+    "vor": "thief",
     "vovochka": "child",
     "uchilka": "teacher"
   },
@@ -19,36 +25,28 @@
       "character": "vovochka",
       "text": "Was ist ein Palindrom?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "uchilka",
       "text": "Rentner.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Zehn Jahre später.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Wo ist das Palindrom?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -56,8 +54,6 @@
       "text": "Der Fluchtwagenfahrer sitzt in einem Kajak.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

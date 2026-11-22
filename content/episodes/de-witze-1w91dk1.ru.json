@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1w91dk1",
   "locale": "ru",
   "title": "Лекция",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -13,50 +15,34 @@
     "sluzhivy": "police-officer",
     "ded": "old-man"
   },
-  "looks": {
-    "ded": {
-      "add": [
-        "red-nose"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Пожилого мужчину в два часа ночи останавливает полиция.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "И куда же вы едете в такое время ночью?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Я еду на лекцию о злоупотреблении алкоголем, его влиянии на человеческий организм, а также о вреде курения и поздних возвращений домой.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "sluzhivy",
       "text": "Правда? И кто же читает такие лекции в такое время?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -64,12 +50,55 @@
       "text": "Моя жена!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "sluzhivy",
+        "ded"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

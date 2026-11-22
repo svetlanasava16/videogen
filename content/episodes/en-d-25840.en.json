@@ -3,6 +3,8 @@
   "jokeId": "en-d-25840",
   "locale": "en",
   "title": "Too High",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -13,23 +15,13 @@
     "paren": "boyfriend",
     "devushka": "girlfriend"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "high-drawn-eyebrows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "I told my girlfriend she was drawing her eyebrows on too high the other day.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,12 +29,43 @@
       "text": "She looked surprised.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "high-drawn-eyebrows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

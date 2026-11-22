@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1pm89b4",
   "locale": "de",
   "title": "So steht es geschrieben",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -19,59 +21,91 @@
       "character": "narrator",
       "text": "Josef und Maria suchen eine Herberge. Josef klopft schon an die zwölfte Tür.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "Habt Ihr ein Quartier für mich und meine Frau?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "barmen",
       "text": "Nein, alles ausgebucht.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "Aber seht doch, meine Frau ist hochschwanger!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "barmen",
       "text": "Dafür kann ich doch nichts!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
       "character": "ded",
       "text": "Ich doch auch nicht!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.8
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "ded",
+        "barmen"
+      ],
+      "roles": {
+        "ded": "biblical-figure",
+        "barmen": "bartender"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "test",
   "locale": "ru",
   "title": "Тест выходов",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -19,25 +21,67 @@
       "character": "muzhik",
       "text": "Доктор, у меня провалы в памяти.",
       "emotion": "sad",
-      "enter": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0.35
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "И давно это у вас?",
-      "emotion": "surprised"
+      "emotion": "surprised",
+      "pauseAfterSec": 0.35
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Что давно?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "exit": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0.4
     }
-  ]
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "doktor",
+        "muzhik"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "muzhik": "patient"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
 }

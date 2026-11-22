@@ -3,6 +3,8 @@
   "jokeId": "ru-90775d07523d",
   "locale": "de",
   "title": "Arbeitsschutz",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "university",
   "cast": [
@@ -23,54 +25,42 @@
       "character": "narrator",
       "text": "An der Uni läuft eine Vorlesung über Arbeitsschutz.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "Sie sind Bauleiter auf einer Baustelle. Vor Ihren Augen stürzt ein Arbeiter vom Gerüst und ist sofort tot.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Was tun Sie als Erstes?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Einen Krankenwagen rufen!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "devushka",
       "text": "Die Polizei rufen!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l6",
       "character": "devushka-blondinka",
       "text": "Die Angehörigen benachrichtigen!",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -78,12 +68,59 @@
       "text": "Setzen Sie der Leiche einen Helm auf und legen Sie ihr den Sicherheitsgurt an, sonst holt die Polizei Sie ab.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "place": "university",
+      "cast": [
+        "paren",
+        "devushka",
+        "devushka-blondinka",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "devushka": "student",
+        "devushka-blondinka": "student",
+        "doktor": "professor"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

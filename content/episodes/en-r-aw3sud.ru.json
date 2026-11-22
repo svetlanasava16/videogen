@@ -3,6 +3,8 @@
   "jokeId": "en-r-aw3sud",
   "locale": "ru",
   "title": "Немецкий овчар",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "garden",
   "cast": [
@@ -15,14 +17,6 @@
     "muzhik-ryzhy": "farmer",
     "pyos": "dog"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "add": [
-        "tyrolean-hat"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
@@ -30,9 +24,7 @@
       "text": "Этот немецкий овчар каждый день приходит и гадит у меня на газоне.",
       "uncensored": "Этот немецкий овчар каждый день приходит и срёт у меня на газоне.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -40,15 +32,57 @@
       "text": "А вчера он привёл с собой свою собаку.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik-ryzhy",
-        "pyos"
-      ],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "place": "garden",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "farmer",
+        "pyos": "dog"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "add": [
+            "tyrolean-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

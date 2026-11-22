@@ -3,6 +3,8 @@
   "jokeId": "ru-f01d634f8578",
   "locale": "en",
   "title": "Almost Burst",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,52 +15,34 @@
     "devochka": "child",
     "devochka-podruga": "child"
   },
-  "looks": {
-    "devochka": {
-      "add": [
-        "gold-chain",
-        "earrings",
-        "bows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "The overfed daughter of rich parents is bragging to her classmate.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devochka",
       "text": "Yesterday Dad and I went to a restaurant, and what didn't we eat there: lobster, steak, barbecue!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devochka",
       "text": "I ate so much I almost burst!",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Her skinny classmate looks at her sadly, and then says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -66,12 +50,56 @@
       "text": "Why only almost? Didn't Dad have enough money?",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "devochka",
+        "devochka-podruga"
+      ],
+      "roles": {
+        "devochka": "child",
+        "devochka-podruga": "child"
+      },
+      "looks": {
+        "devochka": {
+          "add": [
+            "gold-chain",
+            "earrings",
+            "bows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

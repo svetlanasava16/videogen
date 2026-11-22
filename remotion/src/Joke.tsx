@@ -350,7 +350,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
     return (
       <div key={id} style={{ position: "absolute", left: x - b.w / 2, top: b.top, width: b.w, height: b.h, display: "flex", justifyContent: "center" }}>
         <Puppet
-          look={costumeFor(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id] ?? ep.looks?.[id])}
+          look={costumeFor(ch, sc.scene.roles[id] ?? ep.roles[id], sc.scene.looks?.[id])}
           speaking={talking || laughing}
           emotion={laughing ? "happy" : current?.character === id ? current.emotion : "neutral"}
           walk={walk}

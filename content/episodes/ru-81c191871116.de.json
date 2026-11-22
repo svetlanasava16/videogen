@@ -3,6 +3,8 @@
   "jokeId": "ru-81c191871116",
   "locale": "de",
   "title": "Sand",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -21,21 +23,14 @@
       "character": "zhena",
       "text": "Herr Doktor, mein Kind hat Sand gegessen.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena",
-        "vovochka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Ich habe ihm viel Wasser gegeben, und was jetzt?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -43,12 +38,52 @@
       "text": "Passen Sie auf, dass er nicht in die Nähe von Zement kommt!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "vovochka",
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "zhena": "mother",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1mpdagi",
   "locale": "en",
   "title": "Don't Step on the Dogs",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -10,14 +12,18 @@
     "muzhik",
     "tyoshcha",
     "muzhik-sosed",
-    "muzhik-ryzhy"
+    "muzhik-ryzhy",
+    "uchilka",
+    "devushka"
   ],
   "roles": {
-    "ded": "god",
+    "muzhik-ryzhy": "everyman",
+    "devushka": "woman",
     "muzhik": "everyman",
     "tyoshcha": "woman",
     "muzhik-sosed": "everyman",
-    "muzhik-ryzhy": "everyman"
+    "uchilka": "woman",
+    "ded": "god"
   },
   "lines": [
     {
@@ -25,36 +31,28 @@
       "character": "narrator",
       "text": "Three men die and go to heaven.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "There aren't many rules here, just one: don't step on the dogs.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "The three think that can't be too hard, until they see dogs lying everywhere.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "The first one tries and steps on a dog.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -62,10 +60,6 @@
       "text": "As punishment, he gets the ugliest woman in heaven at his side.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3,
-      "enter": [
-        "tyoshcha"
-      ],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -73,49 +67,35 @@
       "character": "narrator",
       "text": "The second one fails too and steps on a dog.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "He gets one of the ugliest women in heaven at his side.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "uchilka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "The third one is smarter, stands still all day and doesn't step on a single dog.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "He gets a gorgeous woman at his side.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "devushka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "muzhik-ryzhy",
       "text": "Oh, what did I do to deserve such a beautiful woman?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l11",
@@ -123,8 +103,6 @@
       "text": "No idea what you did. I stepped on a dog.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -186,6 +164,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l5"
         }
@@ -238,6 +222,12 @@
           "react": "scream"
         },
         {
+          "type": "move",
+          "who": "uchilka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
           "type": "line",
           "ref": "l7"
         }
@@ -269,6 +259,12 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1wbdzr5",
   "locale": "en",
   "title": "The Plumber",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "basement",
   "cast": [
@@ -19,29 +21,21 @@
       "character": "narrator",
       "text": "In the middle of the night, a plumber is called to the doctor's house: a water pipe has burst, and the cellar is flooded.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "So the plumber drives over and goes down into the cellar, which really is already half full of water.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "barmen"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "He looks left, he looks right, then throws three gaskets into the water and says to the doctor:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -49,12 +43,49 @@
       "text": "If it's not better by morning, call me again.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "basement",
+      "cast": [
+        "doktor",
+        "barmen"
+      ],
+      "roles": {
+        "doktor": "doctor",
+        "barmen": "plumber"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

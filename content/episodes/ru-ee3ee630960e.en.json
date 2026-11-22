@@ -3,6 +3,8 @@
   "jokeId": "ru-ee3ee630960e",
   "locale": "en",
   "title": "The Salary",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "police-station",
   "cast": [
@@ -13,34 +15,20 @@
     "sluzhivy": "police-officer",
     "nachalnik": "boss"
   },
-  "looks": {
-    "nachalnik": {
-      "add": [
-        "police-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A young guy joins the police, and for three months he hasn't collected his salary.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "So how long is it now that you haven't collected your salary?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "nachalnik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -48,12 +36,53 @@
       "text": "Oh, I thought they give you a pistol and you fend for yourself...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "police-station",
+      "cast": [
+        "sluzhivy",
+        "nachalnik"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

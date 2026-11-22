@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1q83q38",
   "locale": "en",
   "title": "Two Psychics",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -13,30 +15,13 @@
     "paren": "magician",
     "tyoshcha": "magician"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "turban"
-      ],
-      "remove": []
-    },
-    "tyoshcha": {
-      "add": [
-        "headscarf",
-        "earrings"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Two psychics meet. One of them says:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -44,12 +29,49 @@
       "text": "You're fine. How am I?",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "paren",
+        "tyoshcha"
+      ],
+      "roles": {
+        "paren": "magician",
+        "tyoshcha": "magician"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "turban"
+          ],
+          "remove": []
+        },
+        "tyoshcha": {
+          "add": [
+            "headscarf",
+            "earrings"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

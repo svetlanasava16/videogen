@@ -3,6 +3,8 @@
   "jokeId": "ru-de53c1b2a49d",
   "locale": "en",
   "title": "The Birthday Present",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -15,77 +17,48 @@
     "sluzhivy-ryadovoy": "customs-officer",
     "muzhik-ryzhy": "customs-officer"
   },
-  "looks": {
-    "sluzhivy-ryadovoy": {
-      "add": [
-        "police-cap",
-        "dark-glasses"
-      ],
-      "remove": [
-        "army-cap"
-      ]
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "police-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Three customs officers are sitting around, thinking what to give a fourth one for his birthday.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "How about we give him a new Mercedes?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Nah, he's already got one, we gave him that last birthday.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "sluzhivy-ryadovoy",
       "text": "Then let's give him a bungalow in the Canary Islands.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "sluzhivy",
       "text": "Nah, he's already got one.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
       "text": "I've got it! For his present, let's leave him to work the whole shift alone!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -93,12 +66,73 @@
       "text": "What, are you nuts? That's way too expensive a present!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "sluzhivy": "customs-officer",
+        "sluzhivy-ryadovoy": "customs-officer",
+        "muzhik-ryzhy": "customs-officer"
+      },
+      "looks": {
+        "sluzhivy-ryadovoy": {
+          "add": [
+            "police-cap",
+            "dark-glasses"
+          ],
+          "remove": [
+            "army-cap"
+          ]
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "police-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1qkjges",
   "locale": "ru",
   "title": "Веган",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -21,18 +23,14 @@
       "character": "muzhik-sosed",
       "text": "Ты ведь теперь питаешься по-вегански.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Уже заметил какие-нибудь положительные изменения?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -40,12 +38,40 @@
       "text": "Да, собака больше не выпрашивает еду за столом!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik",
+        "pyos"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend",
+        "muzhik": "everyman",
+        "pyos": "dog"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

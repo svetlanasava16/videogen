@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1qdf5p3",
   "locale": "de",
   "title": "Im Restaurant",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -13,50 +15,34 @@
     "muzhik": "customer",
     "barmen": "waiter"
   },
-  "looks": {
-    "barmen": {
-      "add": [
-        "bow-tie"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Im Restaurant serviert der Kellner dem Gast sein Schnitzel, und der Gast sieht, dass der Kellner seinen Daumen auf dem Schnitzel liegen hat.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Entschuldigung, aber was hat denn Ihr Daumen auf meinem Schnitzel zu suchen?",
       "emotion": "angry",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Schon mal was von Hygiene gehört?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "barmen",
       "text": "Ja, tut mir leid, aber ich hab da eine Fistel am Daumen, und der Arzt hat gesagt, ich soll ihn wenn möglich warm halten!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -64,9 +50,7 @@
       "text": "Aber doch nicht auf meinem Schnitzel, stecken Sie sich den Daumen von mir aus in den Hintern!",
       "uncensored": "Aber doch nicht auf meinem Schnitzel, stecken Sie sich den Daumen von mir aus in den Arsch!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -74,12 +58,59 @@
       "text": "Das mache ich ja auch meistens, aber ich muss ja zwischendurch auch noch servieren!",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "muzhik",
+        "barmen"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "barmen": "waiter"
+      },
+      "looks": {
+        "barmen": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

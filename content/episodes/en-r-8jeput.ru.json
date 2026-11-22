@@ -3,6 +3,8 @@
   "jokeId": "en-r-8jeput",
   "locale": "ru",
   "title": "Дедушкины прогулки",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,9 +19,7 @@
       "character": "muzhik",
       "text": "Мой дед начал проходить по восемь километров в день, когда ему было шестьдесят.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -27,12 +27,32 @@
       "text": "Сейчас ему девяносто семь, и мы понятия не имеем, где его черти носят.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

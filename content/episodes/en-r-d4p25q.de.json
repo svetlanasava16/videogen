@@ -3,6 +3,8 @@
   "jokeId": "en-r-d4p25q",
   "locale": "de",
   "title": "Die Bibliothek",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "university",
   "cast": [
@@ -13,34 +15,20 @@
     "muzhik": "customer",
     "uchilka": "clerk"
   },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein Mann ging in eine Bibliothek.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Ich hätte gern ein Buch darüber, wie man Selbstmord begeht.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -49,12 +37,53 @@
       "uncensored": "Verpiss dich, du bringst es sowieso nicht zurück.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "place": "university",
+      "cast": [
+        "muzhik",
+        "uchilka"
+      ],
+      "roles": {
+        "muzhik": "customer",
+        "uchilka": "clerk"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

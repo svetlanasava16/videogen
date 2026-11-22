@@ -3,6 +3,8 @@
   "jokeId": "en-r-dswgsp",
   "locale": "en",
   "title": "The Sock",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "bus",
   "cast": [
@@ -21,18 +23,14 @@
       "character": "narrator",
       "text": "I was sitting on a bus with a friend and he told me this joke.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "What do you do if you see an epileptic having a fit in the bath?",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
@@ -40,8 +38,6 @@
       "text": "Throw in your laundry.",
       "emotion": "happy",
       "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -49,36 +45,28 @@
       "character": "narrator",
       "text": "The guy behind us leaned over and said:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
       "text": "I think that's disgusting. My son died in the bath whilst having a fit.",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "We both went white and apologised.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "The guy got up to get off and said:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -86,10 +74,6 @@
       "text": "He choked on a sock.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ],
       "laugh": "big"
     }
   ],
@@ -159,6 +143,11 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
         }
       ],
       "transition": "cut"

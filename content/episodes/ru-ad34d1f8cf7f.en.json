@@ -3,6 +3,8 @@
   "jokeId": "ru-ad34d1f8cf7f",
   "locale": "en",
   "title": "Winnie-the-Pooh",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "cafe",
   "cast": [
@@ -19,27 +21,21 @@
       "character": "devushka-ryzhaya",
       "text": "Jessica, did you have any nicknames as a kid?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "devushka",
       "text": "Yes. Winnie-the-Pooh.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "devushka-ryzhaya",
       "text": "Is that because you're so round and chubby?!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -47,12 +43,43 @@
       "text": "No!!! My friends were just pigs...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "cafe",
+      "cast": [
+        "devushka-ryzhaya",
+        "devushka"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "woman",
+        "devushka": "woman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1oh6kll",
   "locale": "en",
   "title": "At the Doctor's",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -15,42 +17,27 @@
     "mladenets": "baby",
     "doktor": "doctor"
   },
-  "looks": {
-    "mladenets": {
-      "clothes": "#f3ead8",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A chicken and an egg have been sitting in the doctor's waiting room since early morning.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "doktor",
       "text": "Right, let's get started.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "doktor"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "doktor",
       "text": "Which of you comes first?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -58,12 +45,57 @@
       "text": "Ugh, I am so sick of that question!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "ptitsa",
+        "mladenets",
+        "doktor"
+      ],
+      "roles": {
+        "ptitsa": "chicken",
+        "mladenets": "baby",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "mladenets": {
+          "clothes": "#f3ead8",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

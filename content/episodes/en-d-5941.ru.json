@@ -3,6 +3,8 @@
   "jokeId": "en-d-5941",
   "locale": "ru",
   "title": "Проверить баланс",
+  "kind": "joke",
+  "v": 2,
   "location": "ofis",
   "place": "bank",
   "cast": [
@@ -13,24 +15,13 @@
     "paren": "employee",
     "devushka": "customer"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "tie",
-        "badge"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "Меня уволили из банка в первый же день.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -38,12 +29,44 @@
       "text": "Женщина попросила меня проверить её баланс, ну я её и толкнул.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "bank",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "employee",
+        "devushka": "customer"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "tie",
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

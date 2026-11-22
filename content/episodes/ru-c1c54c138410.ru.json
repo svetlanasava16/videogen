@@ -3,12 +3,16 @@
   "jokeId": "ru-c1c54c138410",
   "locale": "ru",
   "title": "Звонок ветеринару",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "doctor-office",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "doktor"
   ],
   "roles": {
+    "doktor": "doctor",
     "muzhik": "everyman"
   },
   "lines": [
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "Звонок ветеринару.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Сейчас к вам придёт моя тёща со старой собакой.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Так вы сделайте ей укол какого-нибудь самого сильного яда — чтоб не мучилась и сразу померла...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +43,6 @@
       "text": "А собачка одна найдёт дорогу домой?",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

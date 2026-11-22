@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1k7q09h",
   "locale": "en",
   "title": "Drunk",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -21,60 +23,42 @@
       "character": "narrator",
       "text": "Two guys are sitting at a bar on the forty-fifth floor of a skyscraper, getting plastered.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Now we've both had shooo much to drink, we can fly.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "paren"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "He opens a window, jumps out, flies once around the building and comes back in.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Your turn!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "paren"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "The other guy is still totally stunned by what he just saw, but in his state he's also totally motivated.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "He goes to the window, jumps out and… falls to his death.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -83,8 +67,6 @@
       "uncensored": "As soon as you're drunk, you turn into a real ass, Superman.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -148,8 +130,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "paren",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",
@@ -158,6 +151,11 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         },
         {
           "type": "line",

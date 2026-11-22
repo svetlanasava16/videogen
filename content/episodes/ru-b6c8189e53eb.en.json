@@ -3,6 +3,8 @@
   "jokeId": "ru-b6c8189e53eb",
   "locale": "en",
   "title": "The Ice Cream",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -21,72 +23,56 @@
       "character": "narrator",
       "text": "In a supermarket, an elderly woman comes up to a young man.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "tyoshcha",
       "text": "You look so much like my late son! Would you do me a kindness?",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Well, all right.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "tyoshcha",
       "text": "You know, when I went shopping with him and was already standing at the checkout, at the very last moment he would always suddenly shout: Mom, we forgot to buy ice cream!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "tyoshcha",
       "text": "And he'd run off for ice cream. I always remember that. Please, shout the same at the checkout.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "paren",
       "text": "Well, sure.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "paren",
       "text": "Mom, we forgot to buy ice cream!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "tyoshcha",
       "text": "Well, run along, son, go get some.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
@@ -94,10 +80,6 @@
       "text": "Well, I'll be going, my son will pay.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "tyoshcha"
-      ],
       "laugh": "big"
     }
   ],
@@ -190,6 +172,11 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

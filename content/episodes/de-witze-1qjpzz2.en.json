@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1qjpzz2",
   "locale": "en",
   "title": "Cashier Wanted",
+  "kind": "joke",
+  "v": 2,
   "location": "magazin",
   "place": "shop",
   "cast": [
@@ -13,57 +15,34 @@
     "muzhik-sosed": "boss",
     "nachalnik": "boss"
   },
-  "looks": {
-    "muzhik-sosed": {
-      "add": [
-        "badge",
-        "tie"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "add": [
-        "badge"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Two supermarket managers are chatting.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "So, how are things at your place?",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "Oh, nothing but trouble with the staff. We're looking for a cashier again!",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
       "text": "But didn't you just hire a new one?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -71,12 +50,61 @@
       "text": "Yes. She's exactly the one we're looking for!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "magazin",
+      "cast": [
+        "muzhik-sosed",
+        "nachalnik"
+      ],
+      "roles": {
+        "muzhik-sosed": "boss",
+        "nachalnik": "boss"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "badge",
+            "tie"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "badge"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

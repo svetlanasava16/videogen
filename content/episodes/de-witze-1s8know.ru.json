@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1s8know",
   "locale": "ru",
   "title": "Три папы",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -21,36 +23,28 @@
       "character": "narrator",
       "text": "Три мальчика сидят на заборе и хвастаются своими папами.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka-drug",
       "text": "Мой папа — гонщик Формулы-один. Он такой быстрый: как нажмёт на газ, так асфальт горит!",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "paren",
       "text": "Пф, а мой папа — пилот реактивного самолёта. Он такой быстрый, что обгоняет собственный звук!",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "vovochka",
       "text": "Новички вы все. Мой папа — чиновник.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -58,12 +52,48 @@
       "text": "У него хоть и рабочий день до пяти, а дома он уже в четыре.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "vovochka-drug",
+        "paren",
+        "vovochka"
+      ],
+      "roles": {
+        "vovochka-drug": "child",
+        "paren": "teenager",
+        "vovochka": "vovochka"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

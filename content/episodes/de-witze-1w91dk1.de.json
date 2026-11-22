@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1w91dk1",
   "locale": "de",
   "title": "Der Vortrag",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "car",
   "cast": [
@@ -13,50 +15,34 @@
     "sluzhivy": "police-officer",
     "ded": "old-man"
   },
-  "looks": {
-    "ded": {
-      "add": [
-        "red-nose"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein älterer Herr wird um zwei Uhr früh von der Polizei angehalten.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "sluzhivy",
       "text": "Wo fahren Sie denn um diese Zeit in der Nacht noch hin?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Ich bin auf dem Weg zu einem Vortrag über Alkoholmissbrauch, die Auswirkungen auf den menschlichen Körper, sowie die Einflüsse durch Rauchen und spätes nach Hause kommen.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "sluzhivy",
       "text": "Wirklich? Und wer hält um diese Zeit noch solche Vorträge?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -64,12 +50,55 @@
       "text": "Meine Frau!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "car",
+      "cast": [
+        "sluzhivy",
+        "ded"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "ded": "old-man"
+      },
+      "looks": {
+        "ded": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

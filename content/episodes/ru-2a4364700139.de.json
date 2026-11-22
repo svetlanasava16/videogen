@@ -3,12 +3,16 @@
   "jokeId": "ru-2a4364700139",
   "locale": "de",
   "title": "Die Posaune",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "home-living-room",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed"
   ],
   "roles": {
+    "muzhik-sosed": "neighbor",
     "muzhik": "everyman"
   },
   "lines": [
@@ -17,9 +21,7 @@
       "character": "narrator",
       "text": "Drei Uhr nachts. Ein wütender Mann hämmert gegen die Wand zum Nachbarn.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
@@ -27,9 +29,7 @@
       "text": "Wenn du Mistkerl nicht sofort aufhörst, auf deiner verdammten Posaune zu spielen, werde ich verrückt!",
       "uncensored": "Wenn du Scheißkerl nicht sofort aufhörst, auf deiner verfickten Posaune zu spielen, werde ich verrückt!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -37,8 +37,6 @@
       "text": "Ich fürchte, du kommst zu spät, mein Lieber. Ich spiele schon seit gut zwei Stunden nicht mehr...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

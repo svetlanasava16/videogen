@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1of6eg9",
   "locale": "de",
   "title": "Der Beginn des Lebens",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "cast": [
     "batyushka",
@@ -20,36 +22,28 @@
       "character": "narrator",
       "text": "Ein katholischer Priester, ein evangelischer Pfarrer und ein jüdischer Rabbi diskutieren darüber, wann der Beginn des Lebens ist.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "batyushka",
       "text": "Das Leben beginnt mit der Zeugung!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "batyushka-molodoy",
       "text": "Unsinn, das Leben beginnt mit der Geburt!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "batyushka-ravvin",
       "text": "Werte Kollegen, Sie haben ja keine Ahnung.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -57,12 +51,48 @@
       "text": "Das Leben beginnt, wenn die Kinder aus dem Haus sind.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "batyushka",
+        "batyushka-molodoy",
+        "batyushka-ravvin"
+      ],
+      "roles": {
+        "batyushka": "priest",
+        "batyushka-molodoy": "priest",
+        "batyushka-ravvin": "rabbi"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

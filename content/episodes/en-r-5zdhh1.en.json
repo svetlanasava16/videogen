@@ -3,6 +3,8 @@
   "jokeId": "en-r-5zdhh1",
   "locale": "en",
   "title": "Adopted",
+  "kind": "joke",
+  "v": 2,
   "location": "kukhnya",
   "place": "home-kitchen",
   "cast": [
@@ -13,29 +15,13 @@
     "vovochka": "child",
     "zhena": "mother"
   },
-  "looks": {
-    "vovochka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    },
-    "zhena": {
-      "add": [
-        "apron"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "vovochka",
       "text": "Mom, by any chance, was I adopted?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -43,12 +29,48 @@
       "text": "Why would we choose you?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "child",
+        "zhena": "mother"
+      },
+      "looks": {
+        "vovochka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        },
+        "zhena": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

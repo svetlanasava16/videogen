@@ -3,6 +3,8 @@
   "jokeId": "ru-1edb9435fb23",
   "locale": "de",
   "title": "Der Pelzmantel",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,32 +15,20 @@
     "vovochka": "vovochka",
     "zhena": "mother"
   },
-  "looks": {
-    "zhena": {
-      "add": [
-        "fur-coat"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Mama probiert einen neuen Mantel aus echtem Pelz an.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "vovochka",
       "text": "Mama, ist dir klar, dass dieser Pelz das Ergebnis furchtbarer Qualen eines armen, unglücklichen Tieres ist?",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -46,12 +36,46 @@
       "text": "Wie kannst du so über deinen eigenen Vater reden?!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "vovochka",
+        "zhena"
+      ],
+      "roles": {
+        "vovochka": "vovochka",
+        "zhena": "mother"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "fur-coat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

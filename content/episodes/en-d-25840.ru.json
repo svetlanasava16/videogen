@@ -3,6 +3,8 @@
   "jokeId": "en-d-25840",
   "locale": "ru",
   "title": "Слишком высоко",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -13,23 +15,13 @@
     "paren": "boyfriend",
     "devushka": "girlfriend"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "high-drawn-eyebrows"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "На днях я сказал своей девушке, что она рисует брови слишком высоко.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,12 +29,43 @@
       "text": "Она выглядела удивлённой.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "place": "bathroom",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "high-drawn-eyebrows"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

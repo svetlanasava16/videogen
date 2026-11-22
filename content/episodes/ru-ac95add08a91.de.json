@@ -3,6 +3,8 @@
   "jokeId": "ru-ac95add08a91",
   "locale": "de",
   "title": "Die Kohle",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "village",
   "cast": [
@@ -13,26 +15,13 @@
     "loshad": "horse",
     "muzhik": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Leute! Ich hab die Kohle gebracht!",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "loshad",
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -40,12 +29,54 @@
       "text": "Ja klar, DU hast sie gebracht...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "loshad",
+        "muzhik"
+      ],
+      "roles": {
+        "loshad": "horse",
+        "muzhik": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "loshad",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

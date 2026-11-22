@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1k8lx6r",
   "locale": "ru",
   "title": "Рожи",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "school-classroom",
   "cast": [
@@ -13,36 +15,20 @@
     "uchilka": "teacher",
     "vovochka": "vovochka"
   },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
-  "crowd": {
-    "who": "pupils",
-    "size": "few"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "На перемене учительница видит, как Вовочка всё время дразнит других детей, корча страшные рожи и гримасы.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "uchilka",
       "text": "Когда я была в твоём возрасте, мой учитель в воскресной школе предупреждал меня, что от гримас лицо может просто застыть и навсегда таким остаться.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -50,12 +36,50 @@
       "text": "Ну, он вас хотя бы предупредил.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "cast": [
+        "uchilka",
+        "vovochka"
+      ],
+      "roles": {
+        "uchilka": "teacher",
+        "vovochka": "vovochka"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "crowd": {
+        "who": "pupils",
+        "size": "few"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

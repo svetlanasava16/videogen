@@ -3,6 +3,8 @@
   "jokeId": "ru-65b1f22ab11e",
   "locale": "de",
   "title": "Die Webcam",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bedroom",
   "cast": [
@@ -13,23 +15,13 @@
     "muzhik": "father",
     "devushka-ryzhaya": "daughter"
   },
-  "looks": {
-    "devushka-ryzhaya": {
-      "add": [
-        "headset"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "muzhik",
       "text": "Wir haben unserem Töchterchen eine Webcam gekauft,",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,12 +29,42 @@
       "text": "und jetzt ist genau ein Drittel ihres Zimmers perfekt aufgeräumt.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "muzhik": "father",
+        "devushka-ryzhaya": "daughter"
+      },
+      "looks": {
+        "devushka-ryzhaya": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

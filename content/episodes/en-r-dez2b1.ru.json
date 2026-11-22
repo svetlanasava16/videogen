@@ -3,6 +3,8 @@
   "jokeId": "en-r-dez2b1",
   "locale": "ru",
   "title": "Невидимка",
+  "kind": "joke",
+  "v": 2,
   "location": "klass",
   "place": "university",
   "cast": [
@@ -18,9 +20,7 @@
       "text": "Все смеялись, когда я говорил, что однажды открою секрет невидимости.",
       "offscreen": true,
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -29,12 +29,33 @@
       "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "place": "university",
+      "cast": [
+        "doktor"
+      ],
+      "roles": {
+        "doktor": "scientist"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

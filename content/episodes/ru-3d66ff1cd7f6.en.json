@@ -3,12 +3,16 @@
   "jokeId": "ru-3d66ff1cd7f6",
   "locale": "en",
   "title": "Bad Connection",
+  "kind": "joke",
+  "v": 2,
   "location": "tserkov",
   "place": "church",
   "cast": [
-    "batyushka"
+    "batyushka",
+    "ded"
   ],
   "roles": {
+    "ded": "god",
     "batyushka": "priest"
   },
   "lines": [
@@ -17,40 +21,28 @@
       "character": "narrator",
       "text": "A prayer service in church. The words flow calmly and solemnly. Suddenly the heavens open, and in rays of heavenly light the face of God appears.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "My sons and daughters, the moment has come for me to rev...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": [
-        "ded"
-      ]
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "With a terrible crash the heavens slam shut... The parishioners are in shock! Nobody can believe their eyes... someone is frantically crossing himself...",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Suddenly the heavens open again, the gloomy face of the Lord peers out of the radiance, and he says furiously:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "ded"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -58,8 +50,6 @@
       "text": "Frigging Wi-Fi!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -112,8 +102,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "auto",
+          "from": "off-left"
         },
         {
           "type": "line",

@@ -3,14 +3,24 @@
   "jokeId": "ru-9cc0dee1c1f9",
   "locale": "ru",
   "title": "Воры в сарае",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "garden",
   "cast": [
     "muzhik",
-    "uchilka"
+    "uchilka",
+    "vor",
+    "paren",
+    "sluzhivy",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
+    "vor": "thief",
+    "paren": "thief",
     "muzhik": "everyman",
+    "sluzhivy": "police-officer",
+    "sluzhivy-ryadovoy": "police-officer",
     "uchilka": "operator"
   },
   "lines": [
@@ -19,108 +29,84 @@
       "character": "narrator",
       "text": "Мужик возвращается домой поздно вечером и видит сквозь щель двери сарая во дворе свет ручного фонаря.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Он тут же звонит в полицию.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Алло, полиция? У меня в сарае кто-то шарит, я подозреваю, это воры!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "uchilka",
       "text": "Сэр, к сожалению, сейчас все патрульные машины заняты.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l5",
       "character": "uchilka",
       "text": "Мы вышлем наряд, как только кто-нибудь освободится, через час-другой...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Мужик кладёт трубку и перезванивает в полицию через три минуты.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "Алло, это опять я.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l8",
       "character": "muzhik",
       "text": "Поскольку свободного патруля у вас нет, я был вынужден перестрелять воров самостоятельно.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "muzhik",
       "text": "Так что, когда патруль освободится, вышлите с ними заодно пару-тройку санитарных машин, забрать трупы.",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Через минуту к дому с воем подлетает штук пять полицейских машин.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "narrator",
       "text": "Двор мгновенно заполняется вооружёнными полицейскими, перепуганные воры вылетают из сарая и сдаются.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l12",
       "character": "sluzhivy",
       "text": "Вы говорили, что тут по крайней мере три трупа!",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l13",
@@ -128,8 +114,6 @@
       "text": "Ну, а вы говорили, что в округе нету свободного полицейского наряда...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

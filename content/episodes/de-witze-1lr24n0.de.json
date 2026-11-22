@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lr24n0",
   "locale": "de",
   "title": "Winterwitz",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -15,72 +17,41 @@
     "nachalnik": "businessman",
     "muzhik-ryzhy": "driver"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "add": [
-        "dark-glasses",
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Ein Typ in einem Porsche fährt neben einen Lastwagen und ruft dem Fahrer zu:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Mein Name ist Klausi, verdien am Tag nen Tausi, neben mir sitzt meine Mausi und du verlierst Ladung!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Der LKW-Fahrer fährt kopfschüttelnd weiter. Da kommt der Porschefahrer wieder angefahren:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "nachalnik",
       "text": "Mein Name ist Klausi, verdien am Tag nen Tausi, neben mir sitzt meine Mausi und du verlierst Ladung!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Erneut fährt der LKW-Fahrer weiter. Nachdem sich das ein paarmal wiederholt hat, wird's dem LKW-Fahrer zu bunt und er schreit zurück:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -88,12 +59,73 @@
       "text": "Mein Name ist Günter, es ist Winter und das ist ein Streufahrzeug!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "devushka",
+        "nachalnik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "nachalnik": "businessman",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "dark-glasses",
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

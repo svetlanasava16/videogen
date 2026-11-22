@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rcdang",
   "locale": "en",
   "title": "Zero to Two Hundred",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "paren",
       "text": "My girlfriend wanted me to get her something for her birthday that goes from zero to two hundred in under four seconds.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
@@ -29,8 +29,6 @@
       "text": "So I bought her a bathroom scale.",
       "emotion": "smug",
       "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": [],
       "laugh": "chuckle"
     },
     {
@@ -39,12 +37,38 @@
       "text": "The fight has been going on for three days now.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "devushka": "girlfriend"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,12 +3,16 @@
   "jokeId": "en-r-4yp0ex",
   "locale": "en",
   "title": "In the Hospital",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "hospital",
   "cast": [
-    "paren"
+    "paren",
+    "zhena"
   ],
   "roles": {
+    "zhena": "mother",
     "paren": "doctor"
   },
   "lines": [
@@ -17,9 +21,7 @@
       "character": "paren",
       "text": "Mom? Don't freak out, but I'm in the hospital...",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -27,8 +29,6 @@
       "text": "Peter, you've been a doctor for over eight years now, please stop starting every phone conversation we have with that.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

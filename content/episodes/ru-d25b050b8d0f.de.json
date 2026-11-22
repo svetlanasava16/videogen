@@ -3,11 +3,15 @@
   "jokeId": "ru-d25b050b8d0f",
   "locale": "de",
   "title": "Liebling",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "zhena"
   ],
   "roles": {
+    "zhena": "wife",
     "muzhik": "husband"
   },
   "lines": [
@@ -16,9 +20,7 @@
       "character": "muzhik",
       "text": "Bist du's, Liebling?",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -26,8 +28,6 @@
       "text": "Nein, ich bin's.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

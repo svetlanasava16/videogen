@@ -3,6 +3,8 @@
   "jokeId": "ru-7b9ed921ecae",
   "locale": "ru",
   "title": "Гости",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -23,13 +25,7 @@
       "character": "narrator",
       "text": "Приехала в гости сестра с двумя детьми двух и пяти лет...",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "devushka",
-        "vovochka",
-        "devochka"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,12 +33,56 @@
       "text": "Кот сразу притворился мёртвым!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "devushka",
+        "vovochka",
+        "devochka",
+        "kot"
+      ],
+      "roles": {
+        "devushka": "woman",
+        "vovochka": "child",
+        "devochka": "child",
+        "kot": "cat"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "vovochka",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "devochka",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1ojc7ux",
   "locale": "ru",
   "title": "Горожанин и фермер",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -21,99 +23,77 @@
       "character": "narrator",
       "text": "Городской житель едет в деревню на утиную охоту. Видит первую утку, целится и стреляет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Подстреленная утка падает с неба прямо на ферму.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
       "text": "Утку я не отдам.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
       "text": "Это теперь моя добыча!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
       "text": "Тогда решим по обычаям, которые у нас в деревне приняты.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "Делаем так: по очереди бьём друг друга ногой в пах.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik-sosed",
       "text": "Кто меньше кричит, тот и получает утку.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Горожанин, немного подумав, соглашается.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Фермер размахивается и со всей силы бьёт горожанина прямо по самому дорогому. Тот падает и катается по земле, стоная от боли.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Через четверть часа горожанин снова на ногах.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "muzhik-ryzhy",
       "text": "Приготовьтесь, теперь моя очередь.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l12",
@@ -121,10 +101,6 @@
       "text": "Не-а. Просто забирайте утку.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ],
       "laugh": "big"
     }
   ],
@@ -224,6 +200,11 @@
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

@@ -3,6 +3,8 @@
   "jokeId": "en-r-6jax8j",
   "locale": "ru",
   "title": "Невидимка",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -19,9 +21,7 @@
       "character": "muzhik-sosed",
       "text": "Если бы ты стал невидимым, что бы ты сделал первым делом?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
@@ -29,9 +29,7 @@
       "text": "Я бы поехал в Париж, нашёл уличного мима во время выступления и выбил бы из него всю дурь.",
       "uncensored": "Я бы поехал в Париж, нашёл уличного мима во время выступления и выбил бы из него всё дерьмо.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -39,12 +37,38 @@
       "text": "Аплодисменты ему были бы просто оглушительные.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "muzhik-sosed",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "friend",
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

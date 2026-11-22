@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1kajkix",
   "locale": "de",
   "title": "Nachbarn",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -13,23 +15,13 @@
     "tyoshcha": "old-woman",
     "muzhik-sosed": "neighbor"
   },
-  "looks": {
-    "tyoshcha": {
-      "add": [
-        "headscarf"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Klaus spaziert durch die Nachbarschaft, als er seine verhasste Nachbarin sieht, wie sie vor der Garage lange und heftig ihren Besen ausklopft.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -37,14 +29,48 @@
       "text": "Na, Frau Meier, springt er wieder nicht an?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik-sosed"
-      ],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "tyoshcha",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "tyoshcha": "old-woman",
+        "muzhik-sosed": "neighbor"
+      },
+      "looks": {
+        "tyoshcha": {
+          "add": [
+            "headscarf"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

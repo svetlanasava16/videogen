@@ -3,6 +3,8 @@
   "jokeId": "ru-a7859093366e",
   "locale": "de",
   "title": "Mumu",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "river-lake",
   "cast": [
@@ -21,67 +23,49 @@
       "character": "narrator",
       "text": "Gerasim, der große stumme Hausknecht, ruderte mit seiner kleinen Hündin Mumu hinaus, um sie zu ertränken.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Er band ihr einen Stein um den Hals und warf sie in den Fluss. Warf sie hinein und ruderte nach Hause.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": [
-        "muzhik-ryzhy"
-      ]
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Die arme Mumu strampelt und versucht, sich zu befreien.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Dabei findet sie ein anderer Mann, der gerade vorbeischwimmt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Er zieht sie heraus, bindet den Stein los... und da sagt Mumu:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "pyos-pudel",
       "text": "Danke dir, guter Mann! Du hast mich gerettet!",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "muzhik",
       "text": "Zum ersten Mal im Leben sehe ich einen sprechenden Hund!",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -89,8 +73,6 @@
       "text": "Zum ersten Mal im Leben sehe ich einen sprechenden Mann!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -127,8 +109,19 @@
           "ref": "l2"
         },
         {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "off-left"
+        },
+        {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

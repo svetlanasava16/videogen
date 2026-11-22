@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1rucrli",
   "locale": "ru",
   "title": "Полотенца",
+  "kind": "joke",
+  "v": 2,
   "location": "spalnya",
   "place": "bathroom",
   "cast": [
@@ -21,27 +23,21 @@
       "character": "narrator",
       "text": "Мать даёт дочери, которая только что вышла замуж, советы по хозяйству.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "Вот у меня, например, на полотенцах в ванной всегда вышита буква Л — для лица, и буква М — для мягкого места.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "zhena",
       "text": "Так я никогда не путаю полотенца.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -49,10 +45,6 @@
       "text": "Как это?! Я всегда думал, что М — это для морды.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "muzhik"
-      ],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -107,6 +99,12 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

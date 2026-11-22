@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1sggvdf",
   "locale": "de",
   "title": "Entenjagd",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "farm",
   "cast": [
@@ -21,81 +23,63 @@
       "character": "narrator",
       "text": "Ein Einwohner aus der Großstadt fährt zur Entenjagd aufs Land. Als er eine Ente sieht, zielt er und schießt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Doch der Vogel fällt auf den Hof eines Bauern, und der rückt die Beute nicht heraus.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
       "text": "Das ist mein Vogel.",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik-sosed",
       "text": "Wie auf dem Land üblich, legen wir den Streit mit einem Tritt in den Unterleib bei.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik-sosed",
       "text": "Wer weniger schreit, kriegt den Vogel.",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
       "text": "Einverstanden.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Der Bauer holt aus und landet einen gewaltigen Tritt in den Weichteilen des Mannes.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Der bricht zusammen und bleibt zwanzig Minuten am Boden liegen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l9",
       "character": "muzhik-ryzhy",
       "text": "Okay, jetzt bin ich dran.",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
@@ -103,10 +87,6 @@
       "text": "Nee. Hier, nehmen Sie die Ente.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "muzhik-sosed"
-      ],
       "laugh": "big"
     }
   ],
@@ -193,6 +173,11 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "off-right"
         }
       ],
       "transition": "cut"

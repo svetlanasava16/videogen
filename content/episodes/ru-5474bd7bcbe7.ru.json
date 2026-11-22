@@ -3,6 +3,8 @@
   "jokeId": "ru-5474bd7bcbe7",
   "locale": "ru",
   "title": "Я мама",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -13,25 +15,13 @@
     "devushka-ryzhaya": "daughter",
     "zhena": "mother"
   },
-  "looks": {
-    "devushka-ryzhaya": {
-      "add": [
-        "red-nose"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka-ryzhaya",
       "text": "Пап, ну почему ты думаешь, что если я была на дне рождения, то сразу пила?",
       "emotion": "angry",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "devushka-ryzhaya"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -39,12 +29,48 @@
       "text": "Я мама.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "devushka-ryzhaya",
+        "zhena"
+      ],
+      "roles": {
+        "devushka-ryzhaya": "daughter",
+        "zhena": "mother"
+      },
+      "looks": {
+        "devushka-ryzhaya": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-ryzhaya",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

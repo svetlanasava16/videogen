@@ -3,6 +3,8 @@
   "jokeId": "ru-da293a7f9e78",
   "locale": "en",
   "title": "Is There a Homeopath on Board?",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
@@ -13,28 +15,20 @@
     "devushka-blondinka": "flight-attendant",
     "muzhik": "customer"
   },
-  "crowd": {
-    "who": "passengers",
-    "size": "many"
-  },
   "lines": [
     {
       "id": "l1",
       "character": "devushka-blondinka",
       "text": "Is there a homeopath on board?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "What happened?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
@@ -42,12 +36,43 @@
       "text": "An astrologer is feeling sick!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "samolet",
+      "place": "plane",
+      "cast": [
+        "devushka-blondinka",
+        "muzhik"
+      ],
+      "roles": {
+        "devushka-blondinka": "flight-attendant",
+        "muzhik": "customer"
+      },
+      "crowd": {
+        "who": "passengers",
+        "size": "many"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

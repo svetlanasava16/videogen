@@ -3,12 +3,18 @@
   "jokeId": "ru-19291bbe7b39",
   "locale": "de",
   "title": "Die Insel",
+  "kind": "joke",
+  "v": 2,
   "location": "plyazh",
   "place": "ship",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
+    "muzhik-sosed": "tourist",
+    "sluzhivy-ryadovoy": "sailor",
     "muzhik": "homeless"
   },
   "lines": [
@@ -17,27 +23,21 @@
       "character": "narrator",
       "text": "Ein Dampfer fährt an einer kleinen Insel im Ozean vorbei, auf der ein bärtiger Mann etwas schreit und verzweifelt mit den Armen fuchtelt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Wer ist das?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy-ryadovoy",
       "text": "Keine Ahnung.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +45,6 @@
       "text": "Jedes Jahr, wenn wir hier vorbeifahren, dreht er genauso durch.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

@@ -3,13 +3,17 @@
   "jokeId": "de-witze-1lo14k2",
   "locale": "de",
   "title": "Der Notschirm",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "plane",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "barmen"
   ],
   "roles": {
-    "muzhik": "everyman"
+    "muzhik": "everyman",
+    "barmen": "plumber"
   },
   "lines": [
     {
@@ -17,83 +21,63 @@
       "character": "narrator",
       "text": "Springt ein Mann mit dem Fallschirm aus dem Flugzeug.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": [
-        "muzhik"
-      ]
+      "pauseAfterSec": 0
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Nach einiger Zeit will er den Fallschirm öffnen, aber nichts passiert. Denkt er:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "Macht nix, hab ja den Notschirm noch.",
       "emotion": "smug",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Er will ihn öffnen, doch nichts tut sich.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "So langsam wird er panisch,",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "als ihm plötzlich von unten ein Mann mit Werkzeugkiste entgegengeflogen kommt.",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Da fragt er ihn:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l8",
       "character": "muzhik",
       "text": "Sie schickt der Himmel, reparieren Sie Fallschirme?",
       "emotion": "happy",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Darauf dieser:",
       "emotion": "neutral",
-      "pauseAfterSec": 0,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0
     },
     {
       "id": "l10",
@@ -101,8 +85,6 @@
       "text": "Nein, Gasleitungen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -138,6 +120,11 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1o3rt1v",
   "locale": "de",
   "title": "Übertrieben sexy",
+  "kind": "joke",
+  "v": 2,
   "location": "ulitsa",
   "place": "street",
   "cast": [
@@ -19,50 +21,34 @@
     "devushka-blondinka": "woman",
     "devushka-ryzhaya": "woman"
   },
-  "looks": {
-    "paren": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "sluzhivy",
       "text": "Halt, Stopp! Sie wissen, warum ich Sie anhalte?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "paren",
       "text": "Übertrieben sexy?",
       "emotion": "smug",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "sluzhivy",
       "text": "Sehr witzig. Sie wissen schon, dass Sie zu fünft auf einem E-Roller fahren?",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "paren",
       "text": "Warten Sie. Sagten Sie zu fünft?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l5",
@@ -70,12 +56,60 @@
       "text": "Leute, wir haben Nadine verloren!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "cast": [
+        "sluzhivy",
+        "paren",
+        "devushka",
+        "devushka-blondinka",
+        "devushka-ryzhaya"
+      ],
+      "roles": {
+        "sluzhivy": "police-officer",
+        "paren": "everyman",
+        "devushka": "woman",
+        "devushka-blondinka": "woman",
+        "devushka-ryzhaya": "woman"
+      },
+      "looks": {
+        "paren": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

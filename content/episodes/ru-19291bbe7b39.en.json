@@ -3,12 +3,18 @@
   "jokeId": "ru-19291bbe7b39",
   "locale": "en",
   "title": "The Island",
+  "kind": "joke",
+  "v": 2,
   "location": "plyazh",
   "place": "ship",
   "cast": [
-    "muzhik"
+    "muzhik",
+    "muzhik-sosed",
+    "sluzhivy-ryadovoy"
   ],
   "roles": {
+    "muzhik-sosed": "tourist",
+    "sluzhivy-ryadovoy": "sailor",
     "muzhik": "homeless"
   },
   "lines": [
@@ -17,27 +23,21 @@
       "character": "narrator",
       "text": "A steamship sails past a small island in the ocean, where a bearded man is shouting something, waving his arms desperately.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l2",
       "character": "muzhik-sosed",
       "text": "Who's that?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy-ryadovoy",
       "text": "No idea.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,8 +45,6 @@
       "text": "Every year when we sail past here, he goes crazy just like that.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],

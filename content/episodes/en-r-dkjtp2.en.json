@@ -3,6 +3,8 @@
   "jokeId": "en-r-dkjtp2",
   "locale": "en",
   "title": "Coming Home",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "bar",
   "cast": [
@@ -23,29 +25,21 @@
       "character": "narrator",
       "text": "A wife storms into the pub as her husband and the boys are downing shots of tequila.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
       "text": "You're coming home now!",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [
-        "zhena"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
       "text": "No, I'm not.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -53,8 +47,6 @@
       "text": "I'm talking to the kids.",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
@@ -96,6 +88,12 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "auto",
+          "from": "off-right"
         },
         {
           "type": "line",

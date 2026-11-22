@@ -3,13 +3,17 @@
   "jokeId": "en-r-8e393s",
   "locale": "ru",
   "title": "Предупреждение",
+  "kind": "joke",
+  "v": 2,
   "location": "samolet",
   "place": "theater",
   "cast": [
-    "ded"
+    "ded",
+    "muzhik"
   ],
   "roles": {
-    "ded": "grandpa"
+    "ded": "grandpa",
+    "muzhik": "customer"
   },
   "lines": [
     {
@@ -17,27 +21,21 @@
       "character": "narrator",
       "text": "Мой дед предупреждал людей, что «Титаник» утонет.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "ded",
       "text": "«Титаник» утонет!",
       "emotion": "angry",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Никто его не слушал, но он всё равно продолжал их предупреждать…",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
@@ -45,10 +43,6 @@
       "text": "…пока они от него не устали и не выгнали его из кинотеатра.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [
-        "ded"
-      ],
       "laugh": "big"
     }
   ],
@@ -126,6 +120,11 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "move",
+          "who": "ded",
+          "to": "off-left"
         }
       ],
       "transition": "cut"

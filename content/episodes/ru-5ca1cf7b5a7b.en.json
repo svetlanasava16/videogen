@@ -3,6 +3,8 @@
   "jokeId": "ru-5ca1cf7b5a7b",
   "locale": "en",
   "title": "The Fourth Bodyguard",
+  "kind": "joke",
+  "v": 2,
   "location": "bar",
   "place": "restaurant",
   "cast": [
@@ -17,95 +19,55 @@
     "nachalnik": "new-russian",
     "paren": "guard"
   },
-  "looks": {
-    "sluzhivy": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "muzhik": {
-      "clothes": "#9e1b32",
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "add": [
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "paren": {
-      "clothes": "#2f2f35",
-      "add": [],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A meeting of New Russians. Each one has brought a huge bodyguard. Only one has a puny, short, sickly-looking one.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
       "text": "Is he some tough fighter?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "nachalnik",
       "text": "No, not at all.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
       "text": "A sniper?",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "nachalnik",
       "text": "Never held a gun in his life.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "muzhik",
       "text": "So why do you drag him around with you?",
       "emotion": "angry",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
       "character": "narrator",
       "text": "Patting the bodyguard on the head:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -113,12 +75,89 @@
       "text": "He's already my fourth one like this. Everyone takes him for me.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "place": "restaurant",
+      "cast": [
+        "sluzhivy",
+        "muzhik",
+        "nachalnik",
+        "paren"
+      ],
+      "roles": {
+        "sluzhivy": "guard",
+        "muzhik": "new-russian",
+        "nachalnik": "new-russian",
+        "paren": "guard"
+      },
+      "looks": {
+        "sluzhivy": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "clothes": "#9e1b32",
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "clothes": "#2f2f35",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

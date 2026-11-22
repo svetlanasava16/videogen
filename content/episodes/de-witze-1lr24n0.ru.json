@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lr24n0",
   "locale": "ru",
   "title": "Зимний анекдот",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -15,72 +17,41 @@
     "nachalnik": "businessman",
     "muzhik-ryzhy": "driver"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "add": [
-        "dark-glasses",
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Тип на «Порше» равняется с грузовиком и кричит водителю:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "Меня зовут Серёжка, я деньги гребу ложкой, рядом моя крошка, а ты груз теряешь!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Водитель грузовика качает головой и едет дальше. Тут «Порше» снова его догоняет:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "nachalnik",
       "text": "Меня зовут Серёжка, я деньги гребу ложкой, рядом моя крошка, а ты груз теряешь!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Грузовик снова едет дальше. Так повторяется несколько раз, пока водителю это не надоедает, и он кричит в ответ:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -88,12 +59,73 @@
       "text": "Меня зовут Кузьма, на дворе зима, и это пескоразбрасыватель!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "devushka",
+        "nachalnik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "nachalnik": "businessman",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "dark-glasses",
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

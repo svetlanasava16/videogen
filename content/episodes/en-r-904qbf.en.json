@@ -3,6 +3,8 @@
   "jokeId": "en-r-904qbf",
   "locale": "en",
   "title": "Identical",
+  "kind": "joke",
+  "v": 2,
   "location": "gostinaya",
   "place": "home-living-room",
   "cast": [
@@ -15,26 +17,13 @@
     "pyos": "dog",
     "devushka": "girlfriend"
   },
-  "looks": {
-    "pyos": {
-      "add": [
-        "halo"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "paren",
       "text": "My girlfriend's dog died, so to cheer her up I got her an identical one.",
       "emotion": "smug",
-      "pauseAfterSec": 0.6,
-      "enter": [
-        "paren",
-        "pyos"
-      ],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -42,12 +31,56 @@
       "text": "What am I going to do with two dead dogs?",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "paren",
+        "pyos",
+        "devushka"
+      ],
+      "roles": {
+        "paren": "boyfriend",
+        "pyos": "dog",
+        "devushka": "girlfriend"
+      },
+      "looks": {
+        "pyos": {
+          "add": [
+            "halo"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "move",
+          "who": "pyos",
+          "to": "auto",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

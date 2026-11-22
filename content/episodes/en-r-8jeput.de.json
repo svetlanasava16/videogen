@@ -3,6 +3,8 @@
   "jokeId": "en-r-8jeput",
   "locale": "de",
   "title": "Opas Spaziergänge",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -17,9 +19,7 @@
       "character": "muzhik",
       "text": "Mein Opa hat mit sechzig angefangen, jeden Tag acht Kilometer zu laufen.",
       "emotion": "happy",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -27,12 +27,32 @@
       "text": "Jetzt ist er siebenundneunzig, und wir haben keine Ahnung, wo zum Teufel er steckt.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik": "everyman"
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

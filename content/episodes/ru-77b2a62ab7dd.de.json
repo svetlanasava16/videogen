@@ -3,6 +3,8 @@
   "jokeId": "ru-77b2a62ab7dd",
   "locale": "de",
   "title": "Der Rückenaufnäher",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -11,25 +13,13 @@
   "roles": {
     "muzhik-ryzhy": "biker"
   },
-  "looks": {
-    "muzhik-ryzhy": {
-      "clothes": "#1f1f1f",
-      "add": [
-        "big-beard",
-        "dark-glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Auf dem Rücken eines Bikers steht:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
@@ -38,12 +28,42 @@
       "uncensored": "Wenn du das gerade liest, ist meine Schlampe vom Motorrad gefallen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik-ryzhy": "biker"
+      },
+      "looks": {
+        "muzhik-ryzhy": {
+          "clothes": "#1f1f1f",
+          "add": [
+            "big-beard",
+            "dark-glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

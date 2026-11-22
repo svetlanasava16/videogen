@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1icpswn",
   "locale": "de",
   "title": "Sie schon wieder?",
+  "kind": "joke",
+  "v": 2,
   "location": "bolnitsa",
   "place": "doctor-office",
   "cast": [
@@ -15,74 +17,48 @@
     "zhena": "wife",
     "doktor": "therapist"
   },
-  "looks": {
-    "uchilka": {
-      "add": [
-        "headset"
-      ],
-      "remove": []
-    },
-    "doktor": {
-      "add": [
-        "goatee"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Frau Müller hat nach zehn Jahren Ehe ihren Mann betrogen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Weil sie der Fehler sehr belastet, will sie sich die Erinnerung daran bei einem Hypnotiseur löschen lassen.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Der Empfangsdame in der Praxis erklärt sie ihre Gründe.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "zhena",
       "text": "Ich habe ein einziges Mal in zehn Jahren einen Fehler gemacht.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "zhena",
       "text": "Ich möchte nicht, dass er mein ganzes Leben ruiniert.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Plötzlich betritt der Hypnotiseur den Raum.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
@@ -90,14 +66,76 @@
       "text": "Ach, Frau Müller! Sie schon wieder?!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [
-        "doktor"
-      ],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "uchilka",
+        "zhena",
+        "doktor"
+      ],
+      "roles": {
+        "uchilka": "clerk",
+        "zhena": "wife",
+        "doktor": "therapist"
+      },
+      "looks": {
+        "uchilka": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        },
+        "doktor": {
+          "add": [
+            "goatee"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "auto",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

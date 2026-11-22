@@ -3,6 +3,8 @@
   "jokeId": "ru-96fbdd97092c",
   "locale": "ru",
   "title": "Шевелится!",
+  "kind": "joke",
+  "v": 2,
   "location": "nebesa",
   "place": "heaven",
   "cast": [
@@ -17,83 +19,55 @@
     "muzhik-sosed": "everyman",
     "muzhik-ryzhy": "everyman"
   },
-  "looks": {
-    "muzhik": {
-      "add": [
-        "stethoscope"
-      ],
-      "remove": []
-    },
-    "muzhik-sosed": {
-      "add": [
-        "glasses"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "Три приятеля погибают в автокатастрофе. Попадают, ясное дело, прямо на интервью к святому Петру.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
       "text": "Пётр видит, что мужики совсем грустные, пришибленные, и, чтобы как-то их подбодрить, говорит:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "ded",
       "text": "Ну вот представьте себе: идут ваши похороны, вы лежите в гробу, такие нарядные, торжественные, вокруг семьи, друзья.",
       "emotion": "happy",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "ded",
       "text": "Что бы вы хотели, чтобы они о вас сказали?",
       "emotion": "happy",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
       "text": "Ну, хорошо было бы, если бы сказали, что я был прекрасным семьянином, хорошим доктором, спас множество людей и оставил след в медицине.",
       "emotion": "sad",
-      "pauseAfterSec": 0.4,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
       "text": "Я бы хотел, чтобы кто-нибудь сказал, каким я был замечательным учителем, что оставил след в душах подрастающего поколения, сеял разумное, доброе, вечное.",
       "emotion": "sad",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l7",
       "character": "muzhik-sosed",
       "text": "Ну и что был хорошим отцом, мужем.",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l8",
@@ -101,12 +75,76 @@
       "text": "А я бы хотел, чтобы все вдруг разом закричали: «Гляди, шевелится!»",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "nebesa",
+      "cast": [
+        "ded",
+        "muzhik",
+        "muzhik-sosed",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "ded": "saint-peter",
+        "muzhik": "everyman",
+        "muzhik-sosed": "everyman",
+        "muzhik-ryzhy": "everyman"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "stethoscope"
+          ],
+          "remove": []
+        },
+        "muzhik-sosed": {
+          "add": [
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l8"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

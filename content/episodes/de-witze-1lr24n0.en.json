@@ -3,6 +3,8 @@
   "jokeId": "de-witze-1lr24n0",
   "locale": "en",
   "title": "Winter Joke",
+  "kind": "joke",
+  "v": 2,
   "location": "doroga",
   "place": "road",
   "cast": [
@@ -15,72 +17,41 @@
     "nachalnik": "businessman",
     "muzhik-ryzhy": "driver"
   },
-  "looks": {
-    "devushka": {
-      "add": [
-        "dark-glasses"
-      ],
-      "remove": []
-    },
-    "nachalnik": {
-      "add": [
-        "dark-glasses",
-        "gold-chain"
-      ],
-      "remove": []
-    },
-    "muzhik-ryzhy": {
-      "add": [
-        "flat-cap"
-      ],
-      "remove": []
-    }
-  },
   "lines": [
     {
       "id": "l1",
       "character": "narrator",
       "text": "A guy in a Porsche pulls up next to a truck and shouts to the driver:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l2",
       "character": "nachalnik",
       "text": "My name is Ray, I make a grand a day, next to me sits my bae, and you're losing your load!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "The truck driver shakes his head and drives on. Then the Porsche pulls up again:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "nachalnik",
       "text": "My name is Ray, I make a grand a day, next to me sits my bae, and you're losing your load!",
       "emotion": "smug",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "narrator",
       "text": "Again the truck driver drives on. After this happens a few more times, the driver has had enough and shouts back:",
       "emotion": "neutral",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l6",
@@ -88,12 +59,73 @@
       "text": "My name is Pete, there's snow and sleet, and this is a salt truck!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
   "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "devushka",
+        "nachalnik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "devushka": "girlfriend",
+        "nachalnik": "businessman",
+        "muzhik-ryzhy": "driver"
+      },
+      "looks": {
+        "devushka": {
+          "add": [
+            "dark-glasses"
+          ],
+          "remove": []
+        },
+        "nachalnik": {
+          "add": [
+            "dark-glasses",
+            "gold-chain"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l6"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
   "outroLaughs": [],
   "format": {
     "width": 1080,

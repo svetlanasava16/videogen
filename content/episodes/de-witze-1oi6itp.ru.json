@@ -3,15 +3,19 @@
   "jokeId": "de-witze-1oi6itp",
   "locale": "ru",
   "title": "Цыплята в лесу",
+  "kind": "joke",
+  "v": 2,
   "location": "derevnya",
   "place": "forest",
   "cast": [
     "muzhik",
-    "ptitsa"
+    "ptitsa",
+    "muzhik-ryzhy"
   ],
   "roles": {
     "muzhik": "everyman",
-    "ptitsa": "chicken"
+    "ptitsa": "chicken",
+    "muzhik-ryzhy": "farmer"
   },
   "lines": [
     {
@@ -19,9 +23,7 @@
       "character": "narrator",
       "text": "Мужик после магазина идёт через лес с полным пакетом покупок.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
@@ -29,27 +31,21 @@
       "text": "Навстречу ему маленький цыплёнок — весь обкаканный.",
       "uncensored": "Навстречу ему маленький цыплёнок — весь обосранный.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
       "text": "Мужику стало жалко цыплёнка.",
       "emotion": "sad",
-      "pauseAfterSec": 0.2,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.2
     },
     {
       "id": "l4",
       "character": "narrator",
       "text": "Он достаёт из пакета рулон туалетной бумаги и вытирает его дочиста.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
@@ -57,18 +53,14 @@
       "text": "Вскоре навстречу ему ещё три цыплёнка, тоже все обкаканные.",
       "uncensored": "Вскоре навстречу ему ещё три цыплёнка, тоже все обосранные.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
       "text": "Мужик вытирает дочиста и их.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l7",
@@ -76,45 +68,35 @@
       "text": "Чуть подальше он встречает ещё пятерых цыплят, опять все обкаканные.",
       "uncensored": "Чуть подальше он встречает ещё пятерых цыплят, опять все обосранные.",
       "emotion": "surprised",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l8",
       "character": "narrator",
       "text": "Он вытирает и их, но на последнем цыплёнке туалетная бумага кончается.",
       "emotion": "sad",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l9",
       "character": "narrator",
       "text": "Последнего цыплёнка ему жалко, и он идёт дальше в лес, чтобы найти, чем бы ещё его вытереть.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l10",
       "character": "narrator",
       "text": "Тут навстречу ему едет фермер на тракторе.",
       "emotion": "neutral",
-      "pauseAfterSec": 0.3,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.3
     },
     {
       "id": "l11",
       "character": "muzhik",
       "text": "Извините, у вас не найдётся туалетной бумаги?",
       "emotion": "sad",
-      "pauseAfterSec": 0.6,
-      "enter": [],
-      "exit": []
+      "pauseAfterSec": 0.6
     },
     {
       "id": "l12",
@@ -122,8 +104,6 @@
       "text": "Туалетной бумаги? Да возьмите просто цыплёнка!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
-      "enter": [],
-      "exit": [],
       "laugh": "big"
     }
   ],
