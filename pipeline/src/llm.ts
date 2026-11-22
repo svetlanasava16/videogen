@@ -15,6 +15,8 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { z, type ZodType } from "zod";
 import { DATA, ROOT, readJsonl, writeJsonl } from "./util.js";
+import { fixEpisode, lintAssets, lintEpisode } from "./lint.js";
+import { checkSchema, scriptSchema } from "./schema.js";
 
 type Stage = {
   prompt: string;
@@ -187,6 +189,11 @@ const STAGES: Record<string, Stage> = {
         if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
         for (const c of s0.cast) if ((s0.roles ?? {})[c] !== (row.roles ?? {})[c]) pr.push(`top-level roles must repeat the first scene's roles (${c})`);
       }
+      // линтер (ROADMAP §6): то, что код не исправит сам — «это моя жена» без жены в кадре, машина закрывает говорящего
+      if (!pr.length) {
+        const ep = Episode.parse({ ...mig, id: row.id, jokeId: row.jokeId, locale: row.locale, title: row.title, location: mig.scenes[0].location, cast: mig.scenes[0].cast, roles: mig.scenes[0].roles });
+        for (const f of lintEpisode(ep, lintAssets())) if (f.rule === "mentioned-offscreen" || f.rule === "vehicle-covers") pr.push(`lint ${f.rule}: ${f.msg}`);
+      }
       return pr;
     },
   },
@@ -257,6 +264,7 @@ function writeScriptContext() {
 /** Готовые сценарии → content/episodes/<jokeId>.<locale>.json */
 function materialize() {
   const C = loadCast();
+  const lintA = lintAssets();
   const rows = readJsonl(resultsPath("script")).map((r) => ScriptDraft.parse(r));
   // каноническая локация из входа стадии → вариант фона
   const places = new Map<string, string>();
@@ -274,6 +282,7 @@ function materialize() {
       const p = prev?.lines[i];
       return p?.audio && p.character === character && p.text === text ? p.audio : undefined;
     };
+    const wasVoiced = !!prev?.lines.some((l) => l.audio);
     const isPlace = (loc: string, place: string) => !!subLocation(C.backdrops.find((b) => b.id === loc) as Location | undefined, place);
     const ep = Episode.parse(migrateEpisodeData({
       id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
@@ -282,7 +291,6 @@ function materialize() {
       cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd, set: d.set,
       lines: d.lines.map((l, i) => ({
         id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, offscreen: l.offscreen || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
-        audio: voiced(i, l.character, l.text.trim()),
         pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(0.6, Math.max(0, l.pauseAfterSec)),
       })),
       scenes: d.scenes?.length ? d.scenes : undefined, // нет — migrateEpisodeData соберёт одну сцену
@@ -292,7 +300,12 @@ function materialize() {
       explicit: prev?.explicit,
       flags: prev?.flags,
     }, isPlace));
-    writeFileSync(file, JSON.stringify(ep, null, 2) + "\n");
+    // исправления линтера по правилам (pnpm lint-scripts): сиденья, порядок действий; деление длинных реплик —
+    // только если прежняя версия не озвучена. Потом — озвучка прежней версии для реплик с тем же текстом и голосом.
+    const fixedEp = fixEpisode(ep, lintA, { textFixes: !wasVoiced }).ep;
+    fixedEp.lines.forEach((l, i) => { const a = voiced(i, l.character, l.text); if (a) l.audio = a; });
+    // повторный parse — порядок ключей как в схеме (audio на своём месте), файл не меняется зря
+    writeFileSync(file, JSON.stringify(Episode.parse(fixedEp), null, 2) + "\n");
     n++;
   }
   console.log(`${n} episodes → content/episodes/ (${rows.length - n} unfit skipped)`);
@@ -453,8 +466,8 @@ const { positionals, values } = parseArgs({
 });
 const [cmd, s] = positionals;
 const stage = s ? STAGES[s] : undefined;
-if (!stage || !["prepare", "collect", "status", "check", "materialize", "needs"].includes(cmd)) {
-  console.error(`usage: llm prepare|collect|status|check|materialize|needs <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
+if (!stage || !["prepare", "collect", "status", "check", "materialize", "needs", "schema"].includes(cmd)) {
+  console.error(`usage: llm prepare|collect|status|check|materialize|needs|schema <${Object.keys(STAGES).join("|")}> [--per-lang N] [--lang ru|en|de] [--size 50]`);
   process.exit(2);
 }
 if (!existsSync(join(ROOT, stage.prompt))) throw new Error(`prompt missing: ${stage.prompt}`);
@@ -462,6 +475,18 @@ if (cmd === "prepare")
   prepare(s, stage, values["per-lang"] ? Number(values["per-lang"]) : undefined, values.size ? Number(values.size) : 50, values.lang,
     values.ids ? new Set(values.ids.split(",").map((x) => x.trim()).filter(Boolean)) : undefined);
 if (cmd === "collect") collect(s, stage);
+if (cmd === "schema") {
+  // схема ответа с перечнями из реестра (ROADMAP §6) + самопроверка: готовые сценарии проходят её
+  if (s !== "script") throw new Error("schema is only for the script stage");
+  const sch = scriptSchema();
+  writeFileSync(join(stageDir("script"), "schema.json"), JSON.stringify(sch, null, 2) + "\n");
+  const rows = readJsonl<Record<string, unknown>>(resultsPath("script"));
+  const bad = rows.map((r) => ({ id: r.id as string, pr: checkSchema(sch, ScriptDraft.parse(r)) })).filter((x) => x.pr.length);
+  const kinds = new Map<string, number>();
+  for (const b of bad) for (const p of b.pr) { const k = p.replace(/\[\d+\]/g, "[]").replace(/"[^"]*"/, '"…"'); kinds.set(k, (kinds.get(k) ?? 0) + 1); }
+  console.log(`data/llm/script/schema.json written (${(JSON.stringify(sch).length / 1024).toFixed(0)} KB); ${rows.length - bad.length}/${rows.length} existing scripts pass it`);
+  for (const [k, n] of [...kinds].sort((a, b) => b[1] - a[1]).slice(0, 15)) console.log(`  ${n}× ${k}`);
+}
 if (cmd === "status") status(s);
 if (cmd === "materialize") {
   if (s !== "script") throw new Error("materialize is only for the script stage");

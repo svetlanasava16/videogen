@@ -128,5 +128,13 @@ JSONL, exactly one line per input line, same order, same `id`:
 13. **Show what the joke depends on.** Read `characters[].looks`: if the point needs it (blind → `dark-glasses` and a `cane`; drunk → `red-nose` and a `bottle`; a doctor → the doctor role costume), put it on screen with `looks`, `roles` and props. If the right puppet has a wrong costume item for this joke (an army cap on a pilot), `remove` it. If nothing available shows it, use the closest thing and add a `needs` item.
 14. Keep `text` clean enough for YouTube Shorts (soft replacements per rule 0): no slurs, nothing sexual about minors, no real people's names unless the input already uses them (the pool you receive is pre-filtered). `uncensored` keeps the source wording.
 
+15. **Lint rules** (`pnpm llm check` reports the first two; code fixes the rest by itself, but write it right):
+   - "this is my wife / это моя жена / das ist meine Frau" → the wife is on screen in that scene (a puppet with that role);
+   - a car never stands in front of someone while he talks (front marks for talkers, cars to one side or on the back plane);
+   - one seat mark holds one puppet: two people sitting → two seat marks (bench-1, bench-2);
+   - an act goes right before the narrator line that names it (rule 4);
+   - a line longer than about 44 characters (70 for the narrator) is shown in parts; split long speech at sentence ends into several lines of the same speaker — same words, same order.
+   The output must also pass `data/llm/script/schema.json` (`pnpm llm schema script`): only existing puppets, roles, places, marks, props, acts and wardrobe items.
+
 ## Process
 Read context.md and the whole input file, write all scripts, then write the output file. Do not skip lines, do not merge lines, do not add fields. Strings must be valid JSON.
