@@ -15,6 +15,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { APPEARANCE_ROLES, GENERIC_ROLES, Character, Episode, Location, WardrobeFile, sceneProblems, subLocation, marksFor, type Scene } from "@jf/core";
 import { ROOT } from "./util.js";
+import { checkWorld } from "./world.js";
 
 export type Issue = { id: string; level: "error" | "warn" | "info"; kind: string; msg: string };
 
@@ -139,7 +140,7 @@ function main() {
   const { values, positionals } = parseArgs({ options: { debug: { type: "boolean" }, json: { type: "boolean" }, quiet: { type: "boolean" } }, allowPositionals: true });
   const ids = positionals.length ? positionals : values.debug ? debugSet() : dir("episodes").map((f) => f.replace(/\.json$/, ""));
   const A = loadAssets();
-  const issues = [...validateCharacters(A), ...ids.flatMap((id) => validateEpisode(id, A))];
+  const issues = [...validateCharacters(A), ...checkWorld(A), ...ids.flatMap((id) => validateEpisode(id, A))];
   if (values.json) { console.log(JSON.stringify(issues, null, 2)); process.exitCode = issues.some((i) => i.level === "error") ? 1 : 0; return; }
   const errors = issues.filter((i) => i.level === "error"), warns = issues.filter((i) => i.level === "warn"), infos = issues.filter((i) => i.level === "info");
   const byKind = (xs: Issue[]) => Object.entries(xs.reduce<Record<string, number>>((a, i) => ((a[i.kind] = (a[i.kind] ?? 0) + 1), a), {})).map(([k, n]) => `${k} ${n}`).join(", ");

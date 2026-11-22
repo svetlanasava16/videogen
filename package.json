@@ -27,7 +27,9 @@
     "lint-scripts": "pnpm --filter @jf/pipeline lint-scripts",
     "compile-episode": "pnpm --filter @jf/pipeline compile-episode",
     "migrate-episodes": "pnpm --filter @jf/pipeline migrate-episodes",
-    "golden:docker": "bash tests/golden-env/golden.sh"
+    "golden:docker": "bash tests/golden-env/golden.sh",
+    "world": "pnpm --filter @jf/pipeline world",
+    "canon-cast": "pnpm --filter @jf/pipeline world cast"
   },
   "packageManager": "pnpm@10.0.0"
 }
