@@ -198,7 +198,18 @@
   - `Joke` — эпизод: компилирует сам, один раз (кэш), и проигрывает;
   - `Performance` — готовый `{perf}` из `pnpm compile-episode <id>|--debug|--all` (→ `out/perf/<id>.json`).
 - `pnpm render` пишет `renders/<id>/<hash>.performance.json` рядом с видео и рендерит его.
-- **Новая логика постановки** — в компилятор (или в geometry/timeline/camera), а не в Play: Play только рисует.
+- **Новая логика постановки** — в компилятор (или в geometry/timeline/camera), а не в проигрыватель: он только рисует.
+
+## 11б. Плеер: `@jf/player` и обёртки
+- **`packages/player`** — чистый TS без React и Remotion:
+  - формат и треки (`types.ts`, `tracks.ts`);
+  - `sample(perf, frame)` → `FrameState`: сцена на экране, состояния кукол и машин, видимые предметы, порядок отрисовки, камера, тряска, текущий субтитр, переходы;
+  - `audioPlan(perf)` и `musicGain(perf, frame)` — звук как данные.
+- **Отрисовка** — `remotion/src/perf/Frame.tsx` (`FrameView`): `FrameState` → React SVG, без Remotion. Арт берёт время пропсом (кукла, массовка, субтитры, переходы, пролёт). Из пакета `remotion` арт использует только чистые `interpolate`/`Easing` (`lib/anim.ts`), фон рисуется в `lib/Fill.tsx` вместо `AbsoluteFill`, шрифт грузит `loadFonts.ts` (в вебе — `@font-face`).
+- **Обёртки:**
+  - Remotion (`perf/Play.tsx`): кадр видео → `sample` → `FrameView` + звук (`PerfSoundtrack`);
+  - веб (`remotion/src/web/`): часы `requestAnimationFrame` по `AudioContext`, звук WebAudio по плану, заранее загружается и раскодируется. Годится для браузера, Tauri и мобильного webview.
+- **`pnpm player [--port 4173]`** — локальный веб-плеер: http://localhost:4173/?id=<эпизод>. Он собирает страницу esbuild'ом (1,4 МБ), компилирует исполнение на лету и отдаёт `remotion/public` (озвучка, смех, шрифт). Управление: пробел — пуск/пауза, стрелки — по кадру (с Shift — по секунде).
 
 ## 12. Проверка и превью
 - **Шрифт** — Inter (OFL), вшит в `remotion/public/fonts` и грузится явно (`remotion/src/fonts.ts`, `FONT`): субтитры, логотип и надписи в фонах не зависят от шрифтов компьютера, рендер одинаков на Маке и Linux. Новые надписи — только `fontFamily={FONT}`.
