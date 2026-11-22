@@ -19,6 +19,7 @@ import { AudioLibrary, CompilationSpec, Episode, pick } from "@jf/core";
 import { connect, schema as T } from "@jf/db";
 import { sha } from "./db.js";
 import { ROOT } from "./util.js";
+import { compileEpisode } from "../../remotion/src/perf/compile.js";
 
 const REMOTION = join(ROOT, "remotion");
 
@@ -160,7 +161,10 @@ async function main() {
       mkdirSync(join(ROOT, "renders", id), { recursive: true });
       const t0 = Date.now();
       try {
-        remotion(["render", bundleDir, "Joke", out, `--props=${episodePath(id)}`, "--codec=h264"]);
+        // постановка компилируется здесь, один раз (performance.json рядом с видео); Remotion только проигрывает трек
+        const perfFile = join(ROOT, "renders", id, `${hash}.performance.json`);
+        writeFileSync(perfFile, JSON.stringify({ perf: compileEpisode(ep) }));
+        remotion(["render", bundleDir, "Performance", out, `--props=${perfFile}`, "--codec=h264"]);
         // обложка Reel рядом с видео
         remotion(["still", bundleDir, "Cover", join(ROOT, "renders", id, `${hash}.cover.jpg`), `--props=${episodePath(id)}`, "--image-format=jpeg", "--jpeg-quality=90"]);
       } catch (e) {
