@@ -1,6 +1,6 @@
-import { useCurrentFrame } from "remotion";
 import type { Locale } from "@jf/core";
-import type { TimedLine } from "../timeline";
+/** Реплика для субтитров: слова с кадрами (CaptionLine плеера или TimedLine таймлайна). */
+type Line = { offscreen?: boolean; words: { text: string; startFrame: number; endFrame: number }[] };
 import { FONT } from "../fonts";
 
 /** Зазор между словами, px (≈0,45 em при 76px). */
@@ -34,8 +34,7 @@ function chunkAt<W extends { text: string; startFrame: number }>(words: W[], fra
 /** Субтитры-караоке: слово подсвечивается, когда звучит. Безопасная зона — выше нижних 20% (UI шортсов). */
 /** Рассказчик: голос без куклы, субтитры курсивом в верхней части кадра. */
 /** top — своё место по вертикали (px), например полоса между половинами разделённого экрана. */
-export const Captions = ({ line, locale, narrator = false, top }: { line?: TimedLine; locale: Locale; narrator?: boolean; top?: number }) => {
-  const frame = useCurrentFrame();
+export const Captions = ({ frame, line, locale, narrator = false, top }: { frame: number; line?: Line; locale: Locale; narrator?: boolean; top?: number }) => {
   if (!line) return null;
   const words = chunkAt(line.words, frame, narrator ? CHUNK_CHARS.narrator : CHUNK_CHARS.line);
   return (

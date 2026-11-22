@@ -94,10 +94,5 @@ export function cameraAt(
   return { scale: prev.scale + (cur.scale - prev.scale) * k, fx: prev.fx + (cur.fx - prev.fx) * k, fy: prev.fy + (cur.fy - prev.fy) * k };
 }
 
-/** CSS-трансформация холста сцены: фокус в центр кадра, края не вылезают. */
-export function cameraTransform(c: Cam, width: number, height: number, stageW = width) {
-  const s = c.scale;
-  const tx = Math.min(0, Math.max(width - stageW * s, width / 2 - c.fx * s));
-  const ty = Math.min(0, Math.max(height - height * s, height / 2 - c.fy * s));
-  return `translate(${tx}px, ${ty}px) scale(${s})`;
-}
+/** CSS-трансформация холста сцены: одна реализация — в плеере. */
+export { cameraTransform } from "@jf/player";

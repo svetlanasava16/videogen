@@ -14,8 +14,8 @@ import { costumeFor } from "../puppet/costume";
 import { PROP_REST, PUPPET_H, TABLE_TOP, stageGeometry } from "../stage/geometry";
 import { pieceWidth } from "../world/SetPieces";
 import { depthScale, feetY } from "../world/depth";
-import { encodeLin, encodeStep, sec } from "./tracks";
-import { PERF_VERSION, type ActorMode, type PerfActor, type PerfProp, type PerfScene, type PerfVehicle, type PerfView, type Performance } from "./types";
+import { encodeLin, encodeStep, sec } from "@jf/player";
+import { PERF_VERSION, type ActorMode, type PerfActor, type PerfProp, type PerfScene, type PerfVehicle, type PerfView, type Performance } from "@jf/player";
 import type { Act, Emotion } from "@jf/core";
 
 /**

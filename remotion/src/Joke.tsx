@@ -6,7 +6,7 @@
 import type { Episode } from "@jf/core";
 import { compileEpisode } from "./perf/compile";
 import { Play } from "./perf/Play";
-import type { Performance } from "./perf/types";
+import type { Performance } from "@jf/player";
 
 export { SPLIT } from "./perf/Play";
 

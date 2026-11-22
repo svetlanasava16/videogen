@@ -1,9 +1,9 @@
 import { Composition } from "remotion";
-import "./fonts"; // Inter из remotion/public/fonts — до любой композиции
+import "./loadFonts"; // Inter из remotion/public/fonts — до любой композиции
 import { Episode } from "@jf/core";
 import demo from "../../content/episodes/demo-ru.json";
 import { Joke, PerformanceView, performanceOf } from "./Joke";
-import type { Performance } from "./perf/types";
+import type { Performance } from "@jf/player";
 import { Cast } from "./Cast";
 import { Acts } from "./Acts";
 import { Outfits, outfitsSize } from "./Outfits";

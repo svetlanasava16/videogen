@@ -1,4 +1,4 @@
-import { AbsoluteFill, Sequence } from "remotion";
+import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { CompilationProps, scenesOf, type Episode } from "@jf/core";
 import { Joke } from "./Joke";
 import { buildTimeline } from "./timeline";
@@ -28,6 +28,7 @@ const firstScene = (ep: Episode) => scenesOf(ep)[0];
 const lastScene = (ep: Episode) => scenesOf(ep)[scenesOf(ep).length - 1];
 
 export const Compilation = (p: CompilationProps) => {
+  const frame = useCurrentFrame();
   const { items } = compilationLayout(p);
   const first = firstScene(items[0].ep);
   return (
@@ -42,11 +43,11 @@ export const Compilation = (p: CompilationProps) => {
         const end = prev.from + prev.frames;
         const a = lastScene(prev.ep), b = firstScene(ep);
         return (
-          <Flyover key={ep.id} at={end + Math.round(FLY * 0.35)} frames={FLY} locale={p.locale}
+          <Flyover key={ep.id} frame={frame} at={end + Math.round(FLY * 0.35)} frames={FLY} locale={p.locale}
             from={buildingFor(a.location, a.place)} to={buildingFor(b.location, b.place)} />
         );
       })}
-      <TownIntro frames={INTRO} to={buildingFor(first.location, first.place)} locale={p.locale} title={p.title} />
+      <TownIntro frame={frame} frames={INTRO} to={buildingFor(first.location, first.place)} locale={p.locale} title={p.title} />
     </AbsoluteFill>
   );
 };

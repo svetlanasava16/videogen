@@ -10,7 +10,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { Episode } from "@jf/core";
 import { compileEpisode, type ActorSample } from "../../remotion/src/perf/compile.js";
-import { sampleLin, sampleStep, sec } from "../../remotion/src/perf/tracks.js";
+import { sampleLin, sampleStep, sec } from "@jf/player";
 import { debugSet } from "./validate.js";
 import { ROOT } from "./util.js";
 

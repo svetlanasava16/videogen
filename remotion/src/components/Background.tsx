@@ -1,4 +1,4 @@
-import { AbsoluteFill } from "remotion";
+import { Fill } from "../lib/Fill";
 import { subLocation, type Location } from "@jf/core";
 import { BACKDROPS } from "../backdrops";
 import { Canvas, Room } from "../backdrops/parts";
@@ -12,7 +12,7 @@ export const Background = ({ location, place, layer = "back" }: { location: Loca
   const Comp = BACKDROPS[location.id];
   const variant = subLocation(location, place)?.id ?? (place && place !== location.id ? place : undefined);
   return (
-    <AbsoluteFill>
+    <Fill>
       {Comp ? (
         <Comp palette={location.palette} variant={variant} layer={layer} />
       ) : layer === "front" ? null : location.kit ? (
@@ -20,6 +20,6 @@ export const Background = ({ location, place, layer = "back" }: { location: Loca
       ) : (
         <Canvas><Room wall={location.palette.wall} floor={location.palette.floor} /></Canvas>
       )}
-    </AbsoluteFill>
+    </Fill>
   );
 };

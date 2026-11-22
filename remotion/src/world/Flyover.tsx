@@ -1,4 +1,5 @@
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
+import { Easing, interpolate } from "../lib/anim";
+import { Fill } from "../lib/Fill";
 import type { Locale } from "@jf/core";
 import { TownMap, TOWN_H, TOWN_W } from "./TownMap";
 import type { Building } from "./town";
@@ -31,8 +32,7 @@ const mix = (a: Box, b: Box, k: number): Box => ({ cx: a.cx + (b.cx - a.cx) * k,
  * Пролёт над городом между сценами/анекдотами. Перекрывает стык at на frames кадров:
  * сцена растворяется в карту у здания from, камера отъезжает и летит к зданию to, приближается, карта растворяется в новую сцену.
  */
-export const Flyover = ({ at, frames, from, to, locale }: { at: number; frames: number; from: Building; to: Building; locale: Locale }) => {
-  const frame = useCurrentFrame();
+export const Flyover = ({ frame, at, frames, from, to, locale }: { frame: number; at: number; frames: number; from: Building; to: Building; locale: Locale }) => {
   const start = at - frames / 2;
   if (frame < start || frame > at + frames / 2) return null;
   const p = interpolate(frame, [start, at + frames / 2], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -40,33 +40,32 @@ export const Flyover = ({ at, frames, from, to, locale }: { at: number; frames: 
   const box = p < 0.5 ? mix(A, M, ease(p / 0.5)) : mix(M, B, ease((p - 0.5) / 0.5));
   const opacity = interpolate(p, [0, 0.14, 0.86, 1], [0, 1, 1, 0]);
   return (
-    <AbsoluteFill style={{ opacity }}>
+    <Fill style={{ opacity }}>
       <TownMap viewBox={viewBox(box)} locale={locale} highlight={p < 0.5 ? from.id : to.id} />
       <Watermark />
-    </AbsoluteFill>
+    </Fill>
   );
 };
 
 /** Заставка сборника: город сверху, плавный наезд к первому зданию. */
 /** Заставка сборника: пролёт над картой города к первому зданию. Без названия поверх (пользователь убрал «Анекдоты из Анекдотска»). */
-export const TownIntro = ({ frames, to, locale }: { frames: number; to: Building; locale: Locale; title?: string }) => {
-  const frame = useCurrentFrame();
+export const TownIntro = ({ frame, frames, to, locale }: { frame: number; frames: number; to: Building; locale: Locale; title?: string }) => {
   if (frame > frames) return null;
   const p = ease(Math.min(1, frame / frames));
   const all: Box = { cx: TOWN_W / 2, cy: TOWN_H / 2, w: TOWN_H / ASPECT };
   const box = mix(all, focus(to), p);
   const fade = interpolate(p, [0.85, 1], [1, 0], { extrapolateLeft: "clamp" });
   return (
-    <AbsoluteFill style={{ opacity: fade }}>
+    <Fill style={{ opacity: fade }}>
       <TownMap viewBox={viewBox(box)} locale={locale} labels={p > 0.3} />
       <Watermark />
-    </AbsoluteFill>
+    </Fill>
   );
 };
 
 /** Превью карты целиком (композиция Town). */
 export const TownPreview = ({ locale = "ru" as Locale }: { locale?: Locale }) => (
-  <AbsoluteFill>
+  <Fill>
     <TownMap viewBox={`0 0 ${TOWN_W} ${TOWN_H}`} locale={locale} />
-  </AbsoluteFill>
+  </Fill>
 );

@@ -21,7 +21,7 @@ import { parseArgs } from "node:util";
 import { Character, Episode, Location, NARRATOR, markOf, marksFor, type Act, type Beat, type Scene } from "@jf/core";
 import { compileEpisode } from "../../remotion/src/perf/compile.js";
 import { VEHICLE_SPECS } from "../../remotion/src/world/vehicleSpecs.js";
-import { sampleLin, sampleStep, sec } from "../../remotion/src/perf/tracks.js";
+import { sampleLin, sampleStep, sec } from "@jf/player";
 import { debugSet } from "./validate.js";
 import { ROOT } from "./util.js";
 
