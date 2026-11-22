@@ -56,7 +56,14 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "Oh no, the amateurs have long been out in the corridor. Only the professionals are left in here!",
+      "text": "Oh no, the amateurs have long been out in the corridor.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "doktor",
+      "text": "Only the professionals are left in here!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -128,6 +135,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         }
       ],
       "transition": "cut"

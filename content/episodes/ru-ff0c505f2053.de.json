@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Angus MacDonald kam aus Schottland zum Studium an eine englische Universität und bekam ein Zimmer mit zwei anderen Studenten. Nach etwa einem Monat besuchte ihn seine Mutter.",
+      "text": "Angus MacDonald kam aus Schottland zum Studium an eine englische Universität und bekam ein Zimmer mit zwei anderen Studenten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Nach etwa einem Monat besuchte ihn seine Mutter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Der auf dieser Seite schlägt die ganze Nacht ohne Pause mit dem Kopf gegen die Wand, und der auf der anderen Seite schreit und schreit, und das jede Nacht.",
+      "text": "Der auf dieser Seite schlägt die ganze Nacht ohne Pause mit dem Kopf gegen die Wand,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "paren",
+      "text": "und der auf der anderen Seite schreit und schreit, und das jede Nacht.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -90,6 +104,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "move",
           "who": "zhena",
           "to": "left",
@@ -106,6 +124,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

@@ -19,35 +19,70 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Herr Doktor, ich bin völlig fertig. Ich lege mich schlafen, und mir kommt vor, unter dem Bett ist jemand.",
+      "text": "Herr Doktor, ich bin völlig fertig.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "Ich lege mich schlafen, und mir kommt vor, unter dem Bett ist jemand.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ich krieche unters Bett, schaue genau hin, und da spüre ich, dass jemand auf meinem Bett liegt.",
+      "text": "Ich krieche unters Bett, schaue genau hin,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "und da spüre ich, dass jemand auf meinem Bett liegt.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ich krieche raus, oben ist niemand, ich lege mich hin und spüre: Unter dem Bett ist doch jemand.",
+      "text": "Ich krieche raus, oben ist niemand,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "ich lege mich hin und spüre: Unter dem Bett ist doch jemand.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Und wenn ich wieder unters Bett krieche, kommt mir vor, oben ist jemand. Und so die ganze Nacht.",
+      "text": "Und wenn ich wieder unters Bett krieche, kommt mir vor, oben ist jemand.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "Und so die ganze Nacht.",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Ja, das ist ein komplexes Syndrom. Wir werden Sie intensiv behandeln, zwei, drei Monate lang.",
+      "text": "Ja, das ist ein komplexes Syndrom.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "doktor",
+      "text": "Wir werden Sie intensiv behandeln, zwei, drei Monate lang.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -132,7 +167,15 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "line",
@@ -140,11 +183,23 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

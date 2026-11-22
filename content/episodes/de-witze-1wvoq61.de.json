@@ -82,7 +82,14 @@
     {
       "id": "l10",
       "character": "barmen",
-      "text": "Wenn du mich noch einmal nach Spachtelmasse fragst, dann nagel ich deine Füße am Tresen fest!",
+      "text": "Wenn du mich noch einmal nach Spachtelmasse fragst,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "barmen",
+      "text": "dann nagel ich deine Füße am Tresen fest!",
       "emotion": "angry",
       "pauseAfterSec": 0.4,
       "laugh": "chuckle"
@@ -209,6 +216,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l10b"
         },
         {
           "type": "move",

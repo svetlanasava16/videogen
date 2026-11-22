@@ -54,14 +54,28 @@
     {
       "id": "l6",
       "character": "doktor",
-      "text": "I'm a neurosurgeon, I studied my specialty for twelve years, and nobody pays me two hundred dollars for five minutes of work.",
+      "text": "I'm a neurosurgeon, I studied my specialty for twelve years,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "doktor",
+      "text": "and nobody pays me two hundred dollars for five minutes of work.",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Well, that's normal. When I was a neurosurgeon, they didn't pay me that either.",
+      "text": "Well, that's normal.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "barmen",
+      "text": "When I was a neurosurgeon, they didn't pay me that either.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -137,7 +151,15 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

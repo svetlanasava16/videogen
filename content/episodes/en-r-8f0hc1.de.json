@@ -25,14 +25,28 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Das kenne ich schon. Was immer ich mir wünsche, es kommt zurück und beißt mich irgendwie.",
+      "text": "Das kenne ich schon.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "Was immer ich mir wünsche, es kommt zurück und beißt mich irgendwie.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "chort",
-      "text": "Ich verspreche dir, das passiert nicht. Ich bin mir so sicher, dass ich dir unendlich viele Wünsche gebe, wenn doch.",
+      "text": "Ich verspreche dir, das passiert nicht.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "chort",
+      "text": "Ich bin mir so sicher, dass ich dir unendlich viele Wünsche gebe, wenn doch.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -75,7 +89,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",

@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Listen, since you're a psychologist, guess my thoughts. I'll pay you a hundred bucks for every one you get right.",
+      "text": "Listen, since you're a psychologist, guess my thoughts.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "I'll pay you a hundred bucks for every one you get right.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -54,14 +61,28 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Buddy, didn't you hear me? A hundred bucks each! Come on, concentrate, what am I thinking right now?",
+      "text": "Buddy, didn't you hear me? A hundred bucks each!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "nachalnik",
+      "text": "Come on, concentrate, what am I thinking right now?",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Well, you're coming back from the south. You're probably thinking about what a great vacation you had!",
+      "text": "Well, you're coming back from the south.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "You're probably thinking about what a great vacation you had!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -75,7 +96,14 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "And if you had a great vacation, it was with a beautiful woman. You're probably thinking about her.",
+      "text": "And if you had a great vacation, it was with a beautiful woman.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "doktor",
+      "text": "You're probably thinking about her.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -204,6 +232,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
@@ -212,7 +244,15 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "prop",
@@ -227,6 +267,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         },
         {
           "type": "line",

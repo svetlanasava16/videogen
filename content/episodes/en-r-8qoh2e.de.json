@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "tyoshcha",
-      "text": "Herr Doktor, ich habe ein schreckliches Problem mit Blähungen, aber es stört mich nicht besonders.",
+      "text": "Herr Doktor, ich habe ein schreckliches Problem mit Blähungen,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "tyoshcha",
+      "text": "aber es stört mich nicht besonders.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,14 +47,28 @@
     {
       "id": "l4",
       "character": "tyoshcha",
-      "text": "Ich habe bestimmt fünfzehnmal gepupst, seit ich hier bin, und Sie haben es nicht gemerkt.",
+      "text": "Ich habe bestimmt fünfzehnmal gepupst,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "tyoshcha",
+      "text": "seit ich hier bin, und Sie haben es nicht gemerkt.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Interessant. Nehmen Sie doch diese Tabletten und kommen Sie in einer Woche wieder.",
+      "text": "Interessant.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "doktor",
+      "text": "Nehmen Sie doch diese Tabletten und kommen Sie in einer Woche wieder.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -110,6 +131,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -118,7 +143,15 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "move",

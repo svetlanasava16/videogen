@@ -37,7 +37,14 @@
     {
       "id": "l3",
       "character": "ded",
-      "text": "Now picture this: your funeral is underway, you're lying in the coffin, all dressed up and solemn, with your families and friends around you.",
+      "text": "Now picture this: your funeral is underway, you're lying in the coffin,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "ded",
+      "text": "all dressed up and solemn, with your families and friends around you.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -51,14 +58,35 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Well, it would be nice if they said I was a wonderful family man, a good doctor, that I saved lots of people and left my mark on medicine.",
+      "text": "Well, it would be nice if they said I was a wonderful family man,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "a good doctor, that I saved lots of people and left my mark on medicine.",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik-sosed",
-      "text": "I'd like someone to say what a wonderful teacher I was, that I left my mark on the souls of the younger generation, sowing what is wise, good and eternal.",
+      "text": "I'd like someone to say what a wonderful teacher I was,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik-sosed",
+      "text": "that I left my mark on the souls of the younger generation,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6c",
+      "character": "muzhik-sosed",
+      "text": "sowing what is wise, good and eternal.",
       "emotion": "sad",
       "pauseAfterSec": 0.2
     },
@@ -123,6 +151,10 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
@@ -131,7 +163,19 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
+          "ref": "l6c"
         },
         {
           "type": "line",

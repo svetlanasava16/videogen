@@ -35,14 +35,35 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "И очень удивился, когда она перешла через дорогу, подошла к моему дому и постучала в дверь.",
+      "text": "И очень удивился, когда она перешла через дорогу,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "подошла к моему дому и постучала в дверь.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "devushka",
-      "text": "Я только что пришла домой, и мне ужасно хочется оторваться, напиться и повеселиться сегодня вечером. Ты чем-нибудь занят?",
+      "text": "Я только что пришла домой, и мне ужасно хочется оторваться,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4c",
+      "character": "devushka",
+      "text": "напиться и повеселиться сегодня вечером.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "devushka",
+      "text": "Ты чем-нибудь занят?",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -91,6 +112,10 @@
           "ref": "l3"
         },
         {
+          "type": "line",
+          "ref": "l3b"
+        },
+        {
           "type": "move",
           "who": "devushka",
           "to": "auto",
@@ -99,6 +124,14 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4c"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

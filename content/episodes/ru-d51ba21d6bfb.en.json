@@ -75,7 +75,14 @@
     {
       "id": "l9",
       "character": "sluzhivy",
-      "text": "I work here Tuesdays and Thursdays, from eight in the morning till three in the afternoon.",
+      "text": "I work here Tuesdays and Thursdays,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "sluzhivy",
+      "text": "from eight in the morning till three in the afternoon.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -96,7 +103,14 @@
     {
       "id": "l12",
       "character": "sluzhivy",
-      "text": "Happiness and health to you, smart kids, success in business, and may your dog win every show...",
+      "text": "Happiness and health to you, smart kids,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l12b",
+      "character": "sluzhivy",
+      "text": "success in business, and may your dog win every show...",
       "emotion": "happy",
       "pauseAfterSec": 0.4
     },
@@ -207,6 +221,10 @@
         },
         {
           "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
           "ref": "l10"
         },
         {
@@ -223,6 +241,10 @@
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l12b"
         },
         {
           "type": "line",

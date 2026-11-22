@@ -35,7 +35,23 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Schatz, das Frühstück ist fertig. Ich bin einkaufen, damit ich dir heute Abend dein Lieblingsessen kochen kann. Ich liebe dich!",
+      "text": "Schatz, das Frühstück ist fertig.",
+      "offscreen": true,
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "zhena",
+      "text": "Ich bin einkaufen, damit ich dir heute Abend dein Lieblingsessen kochen kann.",
+      "offscreen": true,
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3c",
+      "character": "zhena",
+      "text": "Ich liebe dich!",
       "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.4
@@ -57,7 +73,14 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Du bist sturzbetrunken nach Hause gekommen und hast dir das blaue Auge geholt, als du über einen Stuhl gestolpert bist.",
+      "text": "Du bist sturzbetrunken nach Hause gekommen und hast dir das blaue Auge geholt,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "paren",
+      "text": "als du über einen Stuhl gestolpert bist.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -71,7 +94,21 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "Ach, das. Mama hat dich ins Schlafzimmer geschleppt, und als sie dich ausziehen wollte, hast du geschrien: Lass mich in Ruhe, ich bin verheiratet!",
+      "text": "Ach, das.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "paren",
+      "text": "Mama hat dich ins Schlafzimmer geschleppt, und als sie dich ausziehen wollte,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8c",
+      "character": "paren",
+      "text": "hast du geschrien: Lass mich in Ruhe, ich bin verheiratet!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -127,6 +164,14 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
+          "ref": "l3c"
         }
       ],
       "transition": "cut"
@@ -182,11 +227,23 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
+          "ref": "l8c"
         }
       ],
       "transition": "wipe"

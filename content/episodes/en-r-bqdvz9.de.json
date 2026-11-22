@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "paren",
-      "text": "Ich war heute bei einem Vorstellungsgespräch, da hat mir der Manager seinen Laptop gegeben und gesagt:",
+      "text": "Ich war heute bei einem Vorstellungsgespräch,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "paren",
+      "text": "da hat mir der Manager seinen Laptop gegeben und gesagt:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -33,7 +40,14 @@
     {
       "id": "l3",
       "character": "paren",
-      "text": "Also hab ich ihn mir unter den Arm geklemmt, bin aus dem Gebäude marschiert und nach Hause gegangen.",
+      "text": "Also hab ich ihn mir unter den Arm geklemmt,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "paren",
+      "text": "bin aus dem Gebäude marschiert und nach Hause gegangen.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -89,11 +103,19 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "move",

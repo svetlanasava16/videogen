@@ -26,7 +26,21 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He walks in, and everything is full of salt. All the shelves, top to bottom, the counter, even the floor: the whole shop is crammed with these little packets of salt. Nothing else, just salt.",
+      "text": "He walks in, and everything is full of salt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "All the shelves, top to bottom, the counter, even the floor: the whole shop is crammed with these little packets of salt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2c",
+      "character": "narrator",
+      "text": "Nothing else, just salt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -47,7 +61,14 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Oh, I see. Then you must be a real sales genius if you always manage to sell all of it.",
+      "text": "Oh, I see.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "Then you must be a real sales genius if you always manage to sell all of it.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -108,6 +129,14 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
+          "ref": "l2c"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -117,6 +146,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

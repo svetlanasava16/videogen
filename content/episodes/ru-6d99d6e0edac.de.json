@@ -54,7 +54,14 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Na ja, wenn Sie am Fünften nicht zurückzahlen, treten Sie am Sechsten vor ihn.",
+      "text": "Na ja, wenn Sie am Fünften nicht zurückzahlen,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "nachalnik",
+      "text": "treten Sie am Sechsten vor ihn.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -105,6 +112,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         }
       ],
       "transition": "cut"

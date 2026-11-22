@@ -48,7 +48,14 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Ich verschreibe Ihnen ein Medikament. Das nehmen Sie und kommen dann in zwei Wochen wieder.",
+      "text": "Ich verschreibe Ihnen ein Medikament.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "doktor",
+      "text": "Das nehmen Sie und kommen dann in zwei Wochen wieder.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -121,6 +128,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "move",

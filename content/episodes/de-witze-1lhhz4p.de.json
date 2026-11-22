@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Sprechen Sie sie von hinten an. Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
+      "text": "Sprechen Sie sie von hinten an.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "doktor",
+      "text": "Je nachdem, in welchem Abstand sie reagiert, kann man das beurteilen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -111,6 +118,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

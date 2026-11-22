@@ -54,7 +54,14 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Schon wieder hab ich den Geldbeutel vergessen. Leih mir noch vierzig, dann schulde ich dir genau fünfzig.",
+      "text": "Schon wieder hab ich den Geldbeutel vergessen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik",
+      "text": "Leih mir noch vierzig, dann schulde ich dir genau fünfzig.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -89,7 +96,14 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Heute schon wieder ohne Geldbeutel. Komm, leih mir noch hundertfünfzig, dann geb ich dir zweihundert zurück.",
+      "text": "Heute schon wieder ohne Geldbeutel.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik",
+      "text": "Komm, leih mir noch hundertfünfzig, dann geb ich dir zweihundert zurück.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -124,7 +138,14 @@
     {
       "id": "l16",
       "character": "muzhik",
-      "text": "Komm, der runden Summe wegen leih ich mir noch dreihundert, und dann geb ich dir gleich fünfhundert zurück.",
+      "text": "Komm, der runden Summe wegen leih ich mir noch dreihundert,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l16b",
+      "character": "muzhik",
+      "text": "und dann geb ich dir gleich fünfhundert zurück.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -203,6 +224,10 @@
           "ref": "l6"
         },
         {
+          "type": "line",
+          "ref": "l6b"
+        },
+        {
           "type": "prop",
           "who": "muzhik-sosed",
           "item": "money",
@@ -230,6 +255,10 @@
           "ref": "l11"
         },
         {
+          "type": "line",
+          "ref": "l11b"
+        },
+        {
           "type": "prop",
           "who": "muzhik-sosed",
           "item": "money",
@@ -255,6 +284,10 @@
         {
           "type": "line",
           "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l16b"
         },
         {
           "type": "prop",

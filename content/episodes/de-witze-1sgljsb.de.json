@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Ein Angler steht auf, nimmt den Hut ab und senkt den Kopf, bis die Trauergemeinde vorbeigezogen ist, und geht dann wieder zurück zum Angeln.",
+      "text": "Ein Angler steht auf, nimmt den Hut ab und senkt den Kopf,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "bis die Trauergemeinde vorbeigezogen ist, und geht dann wieder zurück zum Angeln.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -78,6 +85,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "pause",

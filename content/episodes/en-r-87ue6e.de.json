@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Der Junge hebt die Schlange auf, sie beißt ihn, und er bekommt Krämpfe und Schaum vor dem Mund, während die anderen Kinder entsetzt zusehen.",
+      "text": "Der Junge hebt die Schlange auf, sie beißt ihn,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "und er bekommt Krämpfe und Schaum vor dem Mund, während die anderen Kinder entsetzt zusehen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -112,6 +119,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "crowd",

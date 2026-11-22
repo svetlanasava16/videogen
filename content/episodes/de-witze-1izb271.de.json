@@ -28,7 +28,14 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Das Schiff wird auf einen Eisberg krachen und untergehen, und die meisten werden sterben!",
+      "text": "Das Schiff wird auf einen Eisberg krachen und untergehen,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "ded",
+      "text": "und die meisten werden sterben!",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -88,6 +95,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "crowd",

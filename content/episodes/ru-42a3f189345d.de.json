@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Auf der Straße kommt ein Traktor, bremst vor der Brücke, biegt rechts ab, fährt durch die Furt, biegt links auf die Straße und fährt weiter.",
+      "text": "Auf der Straße kommt ein Traktor, bremst vor der Brücke, biegt rechts ab,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "fährt durch die Furt, biegt links auf die Straße und fährt weiter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -47,14 +54,28 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "Auf der Straße kommt ein kleiner Lada, bremst vor der Brücke, biegt rechts ab, fährt durch die Furt, biegt links auf die Straße und fährt weiter.",
+      "text": "Auf der Straße kommt ein kleiner Lada, bremst vor der Brücke, biegt rechts ab,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "narrator",
+      "text": "fährt durch die Furt, biegt links auf die Straße und fährt weiter.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Auf der Straße rast ein Mercedes heran, ohne abzubremsen, fliegt auf die Brücke, die Brücke stürzt krachend ein, der Mercedes fällt in den Fluss.",
+      "text": "Auf der Straße rast ein Mercedes heran, ohne abzubremsen, fliegt auf die Brücke,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "narrator",
+      "text": "die Brücke stürzt krachend ein, der Mercedes fällt in den Fluss.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
@@ -115,6 +136,10 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
@@ -123,7 +148,15 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "move",

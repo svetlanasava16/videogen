@@ -47,7 +47,21 @@
     {
       "id": "l5",
       "character": "devushka",
-      "text": "Не сейчас. Оно у меня в морозильном ларе в гараже, а там сейчас слишком темно и холодно, чтобы туда идти.",
+      "text": "Не сейчас.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "devushka",
+      "text": "Оно у меня в морозильном ларе в гараже,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5c",
+      "character": "devushka",
+      "text": "а там сейчас слишком темно и холодно, чтобы туда идти.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -85,6 +99,14 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
+          "ref": "l5c"
         }
       ],
       "transition": "cut"

@@ -51,7 +51,14 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Gott steh mir bei! Ich kann Ihnen doch kein Zyankali geben, damit Sie Ihren Mann umbringen!",
+      "text": "Gott steh mir bei!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "doktor",
+      "text": "Ich kann Ihnen doch kein Zyankali geben, damit Sie Ihren Mann umbringen!",
       "emotion": "surprised",
       "pauseAfterSec": 0.2
     },
@@ -65,7 +72,14 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Alle möglichen schlimmen Dinge werden passieren. Auf keinen Fall! Sie bekommen kein Zyankali!",
+      "text": "Alle möglichen schlimmen Dinge werden passieren.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "Auf keinen Fall! Sie bekommen kein Zyankali!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -79,7 +93,14 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "Na, so was. Das ist natürlich etwas anderes. Sie haben mir nicht gesagt, dass Sie ein Rezept haben.",
+      "text": "Na, so was. Das ist natürlich etwas anderes.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "doktor",
+      "text": "Sie haben mir nicht gesagt, dass Sie ein Rezept haben.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -146,11 +167,19 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "prop",
@@ -241,6 +270,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         }
       ],
       "transition": "cut"

@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "muzhik-ryzhy",
-      "text": "Пожалуйста, если вас увидит мой бык, может, вы даже успеете на электричку в семнадцать десять.",
+      "text": "Пожалуйста, если вас увидит мой бык, может,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik-ryzhy",
+      "text": "вы даже успеете на электричку в семнадцать десять.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -94,6 +101,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

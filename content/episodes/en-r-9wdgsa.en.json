@@ -33,14 +33,28 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Well, we fill up a bathtub, then we offer a teaspoon, a teacup and a bucket to the patient and ask him or her to empty the bathtub.",
+      "text": "Well, we fill up a bathtub, then we offer a teaspoon,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "doktor",
+      "text": "a teacup and a bucket to the patient and ask him or her to empty the bathtub.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Oh, I understand. A normal person would use the bucket because it's bigger than the spoon or the teacup.",
+      "text": "Oh, I understand.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "A normal person would use the bucket because it's bigger than the spoon or the teacup.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -94,7 +108,15 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

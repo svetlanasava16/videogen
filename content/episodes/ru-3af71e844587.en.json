@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A totally drunk guy in a torn shirt, with lipstick marks on his face and empty bottles in his pockets, gets on a bus and sits down next to a priest.",
+      "text": "A totally drunk guy in a torn shirt, with lipstick marks on his face and empty bottles in his pockets,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "gets on a bus and sits down next to a priest.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "batyushka",
-      "text": "Arthritis, my son, comes to those who have strayed from the true path, who sleep with fallen women and abuse alcohol!",
+      "text": "Arthritis, my son, comes to those who have strayed from the true path,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "batyushka",
+      "text": "who sleep with fallen women and abuse alcohol!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -68,7 +82,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "What are you talking about! I don't have arthritis! It says here in the paper that the Pope has arthritis!",
+      "text": "What are you talking about! I don't have arthritis!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "It says here in the paper that the Pope has arthritis!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -112,6 +133,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "newspaper",
@@ -131,6 +156,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
@@ -144,6 +173,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

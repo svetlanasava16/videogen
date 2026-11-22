@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Let me guess: Queen Virginia tobacco with cherry leaves, from the anniversary edition in the velvet box?",
+      "text": "Let me guess: Queen Virginia tobacco with cherry leaves,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "sluzhivy",
+      "text": "from the anniversary edition in the velvet box?",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -40,8 +47,16 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "By God, Watson! It's not as if Mrs. Hudson freaking pinched the last pack from my room!",
-      "uncensored": "By God, Watson! It's not as if Mrs. Hudson fucking pinched the last pack from my room!",
+      "text": "By God, Watson! It's not as if Mrs.",
+      "uncensored": "By God, Watson! It's not as if Mrs.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "sluzhivy",
+      "text": "Hudson freaking pinched the last pack from my room!",
+      "uncensored": "Hudson fucking pinched the last pack from my room!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -84,11 +99,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

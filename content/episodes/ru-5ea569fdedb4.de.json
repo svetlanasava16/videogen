@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Sohn, warum hast du der ganzen Klasse erzählt, dass sich die Mathelehrerin und der Sportlehrer im Kino geküsst haben?",
+      "text": "Sohn, warum hast du der ganzen Klasse erzählt,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "dass sich die Mathelehrerin und der Sportlehrer im Kino geküsst haben?",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "vovochka",
-      "text": "Sie hat zu mir gesagt: Fritzchen, du lachst die ganze Zeit in der letzten Bank! Erzähl es allen, dann lachen wir auch!",
+      "text": "Sie hat zu mir gesagt: Fritzchen, du lachst die ganze Zeit in der letzten Bank!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "vovochka",
+      "text": "Erzähl es allen, dann lachen wir auch!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -65,6 +79,10 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
@@ -74,6 +92,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

@@ -42,7 +42,14 @@
     {
       "id": "l4",
       "character": "vovochka-drug",
-      "text": "Мой папа лётчик в Аэрофлоте и летает на Боинге, который несётся минимум семьсот километров в час!",
+      "text": "Мой папа лётчик в Аэрофлоте и летает на Боинге,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "vovochka-drug",
+      "text": "который несётся минимум семьсот километров в час!",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -56,7 +63,14 @@
     {
       "id": "l6",
       "character": "vovochka",
-      "text": "Рабочий день у него заканчивается в пять вечера, а в половине четвёртого он уже дома!",
+      "text": "Рабочий день у него заканчивается в пять вечера,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "vovochka",
+      "text": "а в половине четвёртого он уже дома!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -106,11 +120,19 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         }
       ],
       "transition": "cut"

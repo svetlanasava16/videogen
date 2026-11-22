@@ -26,14 +26,28 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ich hätte gern das Schnitzel mit Bratkartoffeln und Salat, dazu ein lauwarmes Bier ohne Krone.",
+      "text": "Ich hätte gern das Schnitzel mit Bratkartoffeln und Salat,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "dazu ein lauwarmes Bier ohne Krone.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Die Kartoffeln richtig schwarz angebrannt, das Schnitzel möglichst zäh und fade, den Salat können Sie ganz weglassen.",
+      "text": "Die Kartoffeln richtig schwarz angebrannt,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "das Schnitzel möglichst zäh und fade, den Salat können Sie ganz weglassen.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -84,7 +98,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",

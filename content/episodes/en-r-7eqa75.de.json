@@ -28,7 +28,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Ich schlafe mit der Frau vom Pfarrer. Kannst du ihn nach dem Gottesdienst eine Stunde in der Kirche aufhalten?",
+      "text": "Ich schlafe mit der Frau vom Pfarrer.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "Kannst du ihn nach dem Gottesdienst eine Stunde in der Kirche aufhalten?",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -70,7 +77,14 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Mein Freund schläft gerade mit Ihrer Frau, deshalb hat er mich gebeten, Sie zu beschäftigen.",
+      "text": "Mein Freund schläft gerade mit Ihrer Frau,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik-sosed",
+      "text": "deshalb hat er mich gebeten, Sie zu beschäftigen.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -84,7 +98,14 @@
     {
       "id": "l10",
       "character": "batyushka",
-      "text": "Du beeilst dich jetzt besser, nach Hause zu kommen. Meine Frau ist vor einem Jahr gestorben.",
+      "text": "Du beeilst dich jetzt besser, nach Hause zu kommen.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "batyushka",
+      "text": "Meine Frau ist vor einem Jahr gestorben.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -110,6 +131,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "line",
@@ -151,11 +176,19 @@
         },
         {
           "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
           "ref": "l9"
         },
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l10b"
         }
       ],
       "transition": "flyover"

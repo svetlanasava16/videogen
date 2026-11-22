@@ -21,7 +21,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "My neighbor. She's single. She's shapely and beautiful and she lives right across the street.",
+      "text": "My neighbor. She's single.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "She's shapely and beautiful and she lives right across the street.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -35,14 +42,35 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "I was surprised when she walked across the street, up my driveway and knocked on my door.",
+      "text": "I was surprised when she walked across the street,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "up my driveway and knocked on my door.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "devushka",
-      "text": "I just got home, and I have this strong urge to have a good time, get drunk, and have fun tonight. Are you doing anything?",
+      "text": "I just got home, and I have this strong urge to have a good time,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4c",
+      "character": "devushka",
+      "text": "get drunk, and have fun tonight.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "devushka",
+      "text": "Are you doing anything?",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -84,11 +112,19 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "move",
@@ -99,6 +135,14 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4c"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

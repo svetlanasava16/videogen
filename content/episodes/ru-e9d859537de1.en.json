@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A new drug is being tested. The patients are split into two groups, the test group and the control group. One of the patients comes in to see the doctor.",
+      "text": "A new drug is being tested. The patients are split into two groups, the test group and the control group.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "One of the patients comes in to see the doctor.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Well, you see, before, when I threw these pills down the toilet, they floated, and now all of a sudden they sink.",
+      "text": "Well, you see, before, when I threw these pills down the toilet,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "they floated, and now all of a sudden they sink.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -64,6 +78,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "move",
           "who": "muzhik",
           "to": "auto",
@@ -80,6 +98,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

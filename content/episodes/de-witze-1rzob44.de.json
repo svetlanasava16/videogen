@@ -77,7 +77,14 @@
     {
       "id": "l9",
       "character": "barmen",
-      "text": "Oh, das ist ein noch begabterer Vogel, der spricht fließend drei Sprachen und kann die gesamten Werke von Goethe auswendig!",
+      "text": "Oh, das ist ein noch begabterer Vogel,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "barmen",
+      "text": "der spricht fließend drei Sprachen und kann die gesamten Werke von Goethe auswendig!",
       "emotion": "happy",
       "pauseAfterSec": 0.4
     },
@@ -112,7 +119,14 @@
     {
       "id": "l14",
       "character": "barmen",
-      "text": "Ich weiß es auch nicht, der hat noch nie gesprochen, aber die beiden anderen nennen ihn „Chef“.",
+      "text": "Ich weiß es auch nicht, der hat noch nie gesprochen,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l14b",
+      "character": "barmen",
+      "text": "aber die beiden anderen nennen ihn „Chef“.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -213,6 +227,10 @@
         },
         {
           "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
           "ref": "l10"
         },
         {
@@ -230,6 +248,10 @@
         {
           "type": "line",
           "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l14b"
         }
       ],
       "transition": "cut"

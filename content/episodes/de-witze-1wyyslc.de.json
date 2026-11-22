@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Weißt du noch damals, als ich mir das Bein gebrochen habe? Du warst damals an meiner Seite.",
+      "text": "Weißt du noch damals, als ich mir das Bein gebrochen habe?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "Du warst damals an meiner Seite.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -54,7 +61,14 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Auch wie wir den schweren Autounfall hatten, wegen dem ich mehrere Wochen im Koma lag, warst du bei mir.",
+      "text": "Auch wie wir den schweren Autounfall hatten,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik",
+      "text": "wegen dem ich mehrere Wochen im Koma lag, warst du bei mir.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -68,7 +82,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Weißt du was, ich glaube, du bringst mir kein Glück. Verschwinde und lass mich allein!",
+      "text": "Weißt du was, ich glaube, du bringst mir kein Glück.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "Verschwinde und lass mich allein!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -107,6 +128,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -123,11 +148,19 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
         },
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

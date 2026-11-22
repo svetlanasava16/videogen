@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Mein Nachbar hat heute Nacht um halb drei an meine Tür geklopft, könnt ihr euch das vorstellen, um halb drei?!",
+      "text": "Mein Nachbar hat heute Nacht um halb drei an meine Tür geklopft,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "könnt ihr euch das vorstellen, um halb drei?!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
@@ -58,6 +65,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "prop",

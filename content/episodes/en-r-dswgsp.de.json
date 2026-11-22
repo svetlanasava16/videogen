@@ -28,7 +28,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Was machst du, wenn du einen Epileptiker siehst, der in der Badewanne einen Anfall hat?",
+      "text": "Was machst du, wenn du einen Epileptiker siehst,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "der in der Badewanne einen Anfall hat?",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -50,7 +57,14 @@
     {
       "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Ich finde das widerlich. Mein Sohn ist in der Badewanne gestorben, als er einen Anfall hatte.",
+      "text": "Ich finde das widerlich.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik-sosed",
+      "text": "Mein Sohn ist in der Badewanne gestorben, als er einen Anfall hatte.",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -122,6 +136,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -131,6 +149,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

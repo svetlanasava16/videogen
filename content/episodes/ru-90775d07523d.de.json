@@ -30,7 +30,14 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "Sie sind Bauleiter auf einer Baustelle. Vor Ihren Augen stürzt ein Arbeiter vom Gerüst und ist sofort tot.",
+      "text": "Sie sind Bauleiter auf einer Baustelle.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "doktor",
+      "text": "Vor Ihren Augen stürzt ein Arbeiter vom Gerüst und ist sofort tot.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -65,7 +72,14 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Setzen Sie der Leiche einen Helm auf und legen Sie ihr den Sicherheitsgurt an, sonst holt die Polizei Sie ab.",
+      "text": "Setzen Sie der Leiche einen Helm auf und legen Sie ihr den Sicherheitsgurt an,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "sonst holt die Polizei Sie ab.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -99,6 +113,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -116,6 +134,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

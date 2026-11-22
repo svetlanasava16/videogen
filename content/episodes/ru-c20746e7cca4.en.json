@@ -26,14 +26,28 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "He slams on the brakes, tries every way to swerve, but still clips the sparrow with his helmet. The sparrow flies off to the side and falls.",
+      "text": "He slams on the brakes, tries every way to swerve, but still clips the sparrow with his helmet.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "The sparrow flies off to the side and falls.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "narrator",
-      "text": "The motorcyclist feels sorry for the poor little bird. After some searching he finds the sparrow lying on the ground and takes it with him.",
+      "text": "The motorcyclist feels sorry for the poor little bird.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "After some searching he finds the sparrow lying on the ground and takes it with him.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -125,6 +139,10 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l2b"
+        },
+        {
           "type": "move",
           "who": "muzhik-ryzhy",
           "to": "center"
@@ -132,6 +150,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

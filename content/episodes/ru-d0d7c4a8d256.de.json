@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Als ich rauskam, sah ich einen Bullen auf dem Motorrad, der einen Strafzettel fürs Falschparken schrieb.",
+      "text": "Als ich rauskam, sah ich einen Bullen auf dem Motorrad,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "der einen Strafzettel fürs Falschparken schrieb.",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
@@ -68,7 +75,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Er schrieb den zweiten Zettel, klemmte ihn unter den Scheibenwischer und fing mit dem dritten an.",
+      "text": "Er schrieb den zweiten Zettel,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "klemmte ihn unter den Scheibenwischer und fing mit dem dritten an.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -145,6 +159,10 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l2b"
+        },
+        {
           "type": "move",
           "who": "muzhik",
           "to": "center"
@@ -172,6 +190,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         },
         {
           "type": "line",

@@ -17,7 +17,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Ich bin am Freitagabend mit dem Fahrrad zum Schnapsladen gefahren, habe eine Flasche Whisky gekauft und sie in meinen Fahrradkorb gelegt.",
+      "text": "Ich bin am Freitagabend mit dem Fahrrad zum Schnapsladen gefahren,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "habe eine Flasche Whisky gekauft und sie in meinen Fahrradkorb gelegt.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -31,14 +38,28 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Deshalb habe ich beschlossen, die ganze Flasche sofort auszutrinken, bevor ich nach Hause fahre.",
+      "text": "Deshalb habe ich beschlossen,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "die ganze Flasche sofort auszutrinken, bevor ich nach Hause fahre.",
       "emotion": "smug",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Und wissen Sie, das war eine verdammt richtige Entscheidung, denn ich bin auf dem Heimweg siebenmal hingefallen.",
+      "text": "Und wissen Sie, das war eine verdammt richtige Entscheidung,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "denn ich bin auf dem Heimweg siebenmal hingefallen.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -79,6 +100,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "bottle",
@@ -91,6 +116,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"
@@ -124,6 +153,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

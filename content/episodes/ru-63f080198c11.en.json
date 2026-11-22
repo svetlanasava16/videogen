@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Ladies and gentlemen, this is your captain speaking. Here is some information about our flight.",
+      "text": "Ladies and gentlemen, this is your captain speaking.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "sluzhivy",
+      "text": "Here is some information about our flight.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -55,7 +62,14 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "My apologies to our dear passengers. It's just that our flight attendant spilled hot coffee on me.",
+      "text": "My apologies to our dear passengers.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "sluzhivy",
+      "text": "It's just that our flight attendant spilled hot coffee on me.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -129,6 +143,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -146,6 +164,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",

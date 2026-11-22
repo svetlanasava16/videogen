@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Eins führte zum anderen, ich hatte ein paar Cocktails zu viel und bin dann auf Wein umgestiegen.",
+      "text": "Eins führte zum anderen,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "ich hatte ein paar Cocktails zu viel und bin dann auf Wein umgestiegen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -40,14 +47,29 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Weil ich wusste, dass ich über der Grenze war, hab ich beschlossen, mein Auto an der Kneipe stehen zu lassen, und bin mit dem Bus nach Hause gefahren.",
+      "text": "Weil ich wusste, dass ich über der Grenze war, hab ich beschlossen,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "mein Auto an der Kneipe stehen zu lassen, und bin mit dem Bus nach Hause gefahren.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Und tatsächlich kam ich an einer Polizeikontrolle vorbei, wo sie Fahrer rausgewinkt und Alkoholtests gemacht haben.",
+      "text": "Und tatsächlich kam ich an einer Polizeikontrolle vorbei,",
+      "offscreen": true,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "wo sie Fahrer rausgewinkt und Alkoholtests gemacht haben.",
       "offscreen": true,
       "emotion": "neutral",
       "pauseAfterSec": 0.3
@@ -70,7 +92,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "was mich echt überrascht hat, denn ich bin noch nie einen Bus gefahren und weiß nicht mal genau, wo ich ihn herhatte.",
+      "text": "was mich echt überrascht hat,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "denn ich bin noch nie einen Bus gefahren und weiß nicht mal genau, wo ich ihn herhatte.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -116,11 +145,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"
@@ -155,6 +192,10 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         }
       ],
@@ -185,6 +226,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

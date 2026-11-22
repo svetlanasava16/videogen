@@ -42,7 +42,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes. Till eleven.",
+      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "Till eleven.",
       "emotion": "neutral",
       "pauseAfterSec": 0
     },
@@ -70,7 +77,14 @@
     {
       "id": "l8",
       "character": "nachalnik",
-      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes. Till eleven.",
+      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "nachalnik",
+      "text": "Till eleven.",
       "emotion": "neutral",
       "pauseAfterSec": 0
     },
@@ -84,7 +98,14 @@
     {
       "id": "l10",
       "character": "nachalnik",
-      "text": "A trip to the Canaries? Fifty thousand?? Well, all right... you know where the money is...",
+      "text": "A trip to the Canaries? Fifty thousand??",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "nachalnik",
+      "text": "Well, all right... you know where the money is...",
       "emotion": "smug",
       "pauseAfterSec": 0
     },
@@ -98,7 +119,14 @@
     {
       "id": "l12",
       "character": "nachalnik",
-      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes. Till eleven.",
+      "text": "Hello... yes, darling... yes, in the sauna... yes, with the guys... yes.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l12b",
+      "character": "nachalnik",
+      "text": "Till eleven.",
       "emotion": "neutral",
       "pauseAfterSec": 0
     },
@@ -112,7 +140,14 @@
     {
       "id": "l14",
       "character": "nachalnik",
-      "text": "To show off in front of your mom? How much??? Three hundred thousand bucks??? Well, all right... buy it... you know where the money is...",
+      "text": "To show off in front of your mom? How much??? Three hundred thousand bucks???",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l14b",
+      "character": "nachalnik",
+      "text": "Well, all right... buy it... you know where the money is...",
       "emotion": "smug",
       "pauseAfterSec": 0
     },
@@ -250,6 +285,10 @@
           "ref": "l4"
         },
         {
+          "type": "line",
+          "ref": "l4b"
+        },
+        {
           "type": "act",
           "who": "nachalnik",
           "act": "shake-head"
@@ -281,6 +320,10 @@
           "ref": "l8"
         },
         {
+          "type": "line",
+          "ref": "l8b"
+        },
+        {
           "type": "act",
           "who": "nachalnik",
           "act": "shake-head"
@@ -299,6 +342,10 @@
           "ref": "l10"
         },
         {
+          "type": "line",
+          "ref": "l10b"
+        },
+        {
           "type": "act",
           "who": "muzhik",
           "act": "drink"
@@ -310,6 +357,10 @@
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l12b"
         },
         {
           "type": "act",
@@ -328,6 +379,10 @@
         {
           "type": "line",
           "ref": "l14"
+        },
+        {
+          "type": "line",
+          "ref": "l14b"
         },
         {
           "type": "prop",

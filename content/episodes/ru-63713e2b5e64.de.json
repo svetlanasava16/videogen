@@ -26,14 +26,35 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Mein Nachbar schuldet mir fünfhundert Euro und gibt sie nicht zurück. Kann ich das Geld irgendwie bei ihm einklagen?",
+      "text": "Mein Nachbar schuldet mir fünfhundert Euro und gibt sie nicht zurück.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "Kann ich das Geld irgendwie bei ihm einklagen?",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Können Sie, aber dafür brauchen Sie einen schriftlichen Beweis, dass er Ihnen etwas schuldet. Haben Sie so einen Beweis?",
+      "text": "Können Sie, aber dafür brauchen Sie einen schriftlichen Beweis,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3c",
+      "character": "nachalnik",
+      "text": "dass er Ihnen etwas schuldet.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "nachalnik",
+      "text": "Haben Sie so einen Beweis?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -47,7 +68,14 @@
     {
       "id": "l5",
       "character": "nachalnik",
-      "text": "Dann schreiben Sie ihm einen Brief und verlangen Sie in diesem Brief, dass er Ihnen sofort tausend Euro zurückgibt.",
+      "text": "Dann schreiben Sie ihm einen Brief und verlangen Sie in diesem Brief,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "nachalnik",
+      "text": "dass er Ihnen sofort tausend Euro zurückgibt.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -104,7 +132,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3c"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",
@@ -113,6 +153,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

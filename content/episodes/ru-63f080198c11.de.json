@@ -26,14 +26,28 @@
     {
       "id": "l2",
       "character": "sluzhivy",
-      "text": "Sehr geehrte Damen und Herren, hier spricht Ihr Kapitän. Hören Sie einige Informationen zu unserem Flug.",
+      "text": "Sehr geehrte Damen und Herren, hier spricht Ihr Kapitän.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "sluzhivy",
+      "text": "Hören Sie einige Informationen zu unserem Flug.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "sluzhivy",
-      "text": "Wir fliegen in einer Höhe von zehntausend Metern mit neunhundert Kilometern pro Stunde, die Außentemperatur beträgt...",
+      "text": "Wir fliegen in einer Höhe von zehntausend Metern mit neunhundert Kilometern pro Stunde,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "sluzhivy",
+      "text": "die Außentemperatur beträgt...",
       "emotion": "neutral",
       "pauseAfterSec": 0.2
     },
@@ -55,7 +69,14 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Ich bitte unsere verehrten Passagiere um Entschuldigung. Unsere Stewardess hat mir nur heißen Kaffee übergekippt.",
+      "text": "Ich bitte unsere verehrten Passagiere um Entschuldigung.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "sluzhivy",
+      "text": "Unsere Stewardess hat mir nur heißen Kaffee übergekippt.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -129,7 +150,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",
@@ -146,6 +175,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",

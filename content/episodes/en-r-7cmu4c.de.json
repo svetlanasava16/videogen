@@ -24,7 +24,14 @@
     {
       "id": "l2",
       "character": "barmen",
-      "text": "Wenn niemand zu Hause war, habe ich einfach eine Broschüre auf dem Küchentisch liegen lassen.",
+      "text": "Wenn niemand zu Hause war,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "barmen",
+      "text": "habe ich einfach eine Broschüre auf dem Küchentisch liegen lassen.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -78,6 +85,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         }
       ],
       "transition": "cut"

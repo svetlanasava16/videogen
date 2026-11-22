@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "Du erinnerst dich einfach an nichts! Dein zweiter Wunsch war, alles genau so zu machen, wie es vor dem ersten Wunsch war.",
+      "text": "Du erinnerst dich einfach an nichts!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "chort",
+      "text": "Dein zweiter Wunsch war, alles genau so zu machen, wie es vor dem ersten Wunsch war.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -54,7 +61,14 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Na gut, ich überleg mir gleich was... Ah, ich will für alle Frauen der Unwiderstehlichste werden!",
+      "text": "Na gut, ich überleg mir gleich was...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik",
+      "text": "Ah, ich will für alle Frauen der Unwiderstehlichste werden!",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -126,11 +140,19 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",

@@ -33,14 +33,28 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Ну хорошо, но сегодня воскресенье, вечер, льёт как из ведра, и я уже второе пиво допиваю...",
+      "text": "Ну хорошо, но сегодня воскресенье, вечер,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "barmen",
+      "text": "льёт как из ведра, и я уже второе пиво допиваю...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Любезный! Я врач. Если у меня экстренный случай, я тоже должен ехать, что бы ни было!",
+      "text": "Любезный! Я врач.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "doktor",
+      "text": "Если у меня экстренный случай, я тоже должен ехать, что бы ни было!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -127,7 +141,15 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

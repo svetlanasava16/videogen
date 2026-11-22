@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Вы, должно быть, инженер. Ваш ответ абсолютно правильный, но совершенно бесполезный.",
+      "text": "Вы, должно быть, инженер.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "Ваш ответ абсолютно правильный, но совершенно бесполезный.",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -54,7 +61,14 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Вы не знаете, где вы, вы совершенно беспомощны, и при этом вдруг во всём виноват я.",
+      "text": "Вы не знаете, где вы, вы совершенно беспомощны,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "paren",
+      "text": "и при этом вдруг во всём виноват я.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -105,11 +119,19 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         }
       ],
       "transition": "cut"

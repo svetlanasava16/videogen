@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ich habe seit drei Tagen nichts gegessen, guter Mann! Da kaue ich wenigstens ein bisschen Gras!",
+      "text": "Ich habe seit drei Tagen nichts gegessen, guter Mann!",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "Da kaue ich wenigstens ein bisschen Gras!",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -61,7 +68,21 @@
     {
       "id": "l7",
       "character": "nachalnik",
-      "text": "Schon gut, Bruder! Gleich sind wir bei mir in der Villa, dann siehst du selbst, wie saftig und ungemäht mein Rasen ist!",
+      "text": "Schon gut, Bruder!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "nachalnik",
+      "text": "Gleich sind wir bei mir in der Villa, dann siehst du selbst,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7c",
+      "character": "nachalnik",
+      "text": "wie saftig und ungemäht mein Rasen ist!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -113,6 +134,10 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
@@ -131,6 +156,14 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
+        },
+        {
+          "type": "line",
+          "ref": "l7c"
         }
       ],
       "transition": "cut"

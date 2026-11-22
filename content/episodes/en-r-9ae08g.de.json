@@ -49,7 +49,14 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Ich habe gesehen, dass die Schmidts sich eine geholt haben, also wollte ich auch eine.",
+      "text": "Ich habe gesehen, dass die Schmidts sich eine geholt haben,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "zhena",
+      "text": "also wollte ich auch eine.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -91,7 +98,14 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Ich habe drei Tage bei den Schmidts wie ein Idiot herumgestanden, und keiner hat mir was zu essen angeboten!",
+      "text": "Ich habe drei Tage bei den Schmidts wie ein Idiot herumgestanden,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik",
+      "text": "und keiner hat mir was zu essen angeboten!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -179,6 +193,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "move",
@@ -295,6 +313,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "wipe"

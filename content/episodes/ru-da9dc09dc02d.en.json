@@ -62,7 +62,14 @@
     {
       "id": "l7",
       "character": "nachalnik",
-      "text": "One time it's show us your first-aid kit, the next time it's your fire extinguisher...",
+      "text": "One time it's show us your first-aid kit,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "nachalnik",
+      "text": "the next time it's your fire extinguisher...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -118,6 +125,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

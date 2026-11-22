@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Ständig war er mit allem unzufrieden: mal verdiente die Familie zu wenig, mal schmeckte das Essen nicht, mal bekam er zu wenig Aufmerksamkeit.",
+      "text": "Ständig war er mit allem unzufrieden: mal verdiente die Familie zu wenig,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "mal schmeckte das Essen nicht, mal bekam er zu wenig Aufmerksamkeit.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -63,7 +70,14 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Ich muss dir gestehen, Liebling: Wenn ich dich nicht so sehr lieben würde, hätte ich diesen Onkel von dir längst rausgeworfen.",
+      "text": "Ich muss dir gestehen, Liebling: Wenn ich dich nicht so sehr lieben würde,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "muzhik",
+      "text": "hätte ich diesen Onkel von dir längst rausgeworfen.",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
@@ -113,6 +127,10 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         }
       ],
@@ -155,6 +173,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "line",

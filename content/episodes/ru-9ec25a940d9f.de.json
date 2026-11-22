@@ -28,14 +28,35 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Bist du verrückt geworden? Wir haben doch nichts im Haus, womit wir ihn bewirten können.",
+      "text": "Bist du verrückt geworden?",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "zhena",
+      "text": "Wir haben doch nichts im Haus, womit wir ihn bewirten können.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Na, lass dir was einfallen. Wir müssen ihn unbedingt empfangen, morgen wird entschieden, wer eine Gehaltserhöhung bekommt.",
+      "text": "Na, lass dir was einfallen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "Wir müssen ihn unbedingt empfangen,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3c",
+      "character": "muzhik",
+      "text": "morgen wird entschieden, wer eine Gehaltserhöhung bekommt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -70,7 +91,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Ich frage dich, was los ist, und du rufst, du hast die Schnitzel in den Müll fallen lassen.",
+      "text": "Ich frage dich, was los ist, und du rufst,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "du hast die Schnitzel in den Müll fallen lassen.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -174,7 +202,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
+          "ref": "l3c"
         },
         {
           "type": "line",
@@ -195,6 +235,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         },
         {
           "type": "line",

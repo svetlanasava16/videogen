@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Naja, es läuft schon länger nicht mehr, aber wir wollten warten, bis die Kinder tot sind.",
+      "text": "Naja, es läuft schon länger nicht mehr,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "tyoshcha",
+      "text": "aber wir wollten warten, bis die Kinder tot sind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -75,6 +82,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

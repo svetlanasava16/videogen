@@ -40,14 +40,29 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Knowing I was over the limit, I decided to leave my car at the pub and took a bus home.",
+      "text": "Knowing I was over the limit,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "I decided to leave my car at the pub and took a bus home.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Sure enough, I passed a police checkpoint, where they were pulling over drivers and performing breathalyzer tests.",
+      "text": "Sure enough, I passed a police checkpoint,",
+      "offscreen": true,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "where they were pulling over drivers and performing breathalyzer tests.",
       "offscreen": true,
       "emotion": "neutral",
       "pauseAfterSec": 0.3
@@ -121,6 +136,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"
@@ -152,6 +171,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

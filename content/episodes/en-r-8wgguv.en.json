@@ -40,14 +40,28 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Well, you could have broken the news to me when I got home. I can't enjoy my vacation now.",
+      "text": "Well, you could have broken the news to me when I got home.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "zhena",
+      "text": "I can't enjoy my vacation now.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "zhena",
-      "text": "You could've just said a little white lie, like the cat's on the roof and you can't get her down.",
+      "text": "You could've just said a little white lie,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "zhena",
+      "text": "like the cat's on the roof and you can't get her down.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -136,7 +150,15 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

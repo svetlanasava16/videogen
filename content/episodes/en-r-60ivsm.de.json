@@ -40,14 +40,28 @@
     {
       "id": "l4",
       "character": "sluzhivy",
-      "text": "Sie haben da hinten am Stoppschild nicht vollständig angehalten. Sie haben nur abgebremst.",
+      "text": "Sie haben da hinten am Stoppschild nicht vollständig angehalten.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "sluzhivy",
+      "text": "Sie haben nur abgebremst.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "nachalnik",
-      "text": "Wenn Sie mir den Unterschied zwischen Anhalten und Abbremsen beweisen können, übernehme ich die volle Verantwortung.",
+      "text": "Wenn Sie mir den Unterschied zwischen Anhalten und Abbremsen beweisen können,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "nachalnik",
+      "text": "übernehme ich die volle Verantwortung.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -131,7 +145,15 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

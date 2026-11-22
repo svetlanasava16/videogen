@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Stellen Sie sich vor, Herr Kollege, ich habe dieses Problem ein für alle Mal gelöst!",
+      "text": "Stellen Sie sich vor, Herr Kollege,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "doktor",
+      "text": "ich habe dieses Problem ein für alle Mal gelöst!",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -54,14 +61,28 @@
     {
       "id": "l6",
       "character": "ded",
-      "text": "Und was hat die Wahrscheinlichkeitstheorie damit zu tun, wenn man sie alle mit einem Schlüssel öffnen kann?!",
+      "text": "Und was hat die Wahrscheinlichkeitstheorie damit zu tun,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "ded",
+      "text": "wenn man sie alle mit einem Schlüssel öffnen kann?!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Sagen Sie das nicht, Herr Kollege! Wenn ich aus dem Haus gehe, schließe ich drei Schlösser ab und drei nicht!",
+      "text": "Sagen Sie das nicht, Herr Kollege!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "Wenn ich aus dem Haus gehe, schließe ich drei Schlösser ab und drei nicht!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -109,6 +130,10 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
@@ -121,7 +146,15 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

@@ -19,14 +19,28 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Man sagt, eine Geburt ist das Schmerzhafteste, was ein Mensch erleben kann...",
+      "text": "Man sagt, eine Geburt ist das Schmerzhafteste,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "was ein Mensch erleben kann...",
       "emotion": "neutral",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Na ja, vielleicht war ich zu jung, um mich zu erinnern, aber ich fand nicht, dass es so weh getan hat.",
+      "text": "Na ja, vielleicht war ich zu jung, um mich zu erinnern,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "aber ich fand nicht, dass es so weh getan hat.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -51,7 +65,15 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         }
       ],
       "transition": "cut"

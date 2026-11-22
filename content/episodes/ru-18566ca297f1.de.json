@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein riesiger Deutscher Schäferhund kommt in die Post, nimmt ein Telegrammformular und schreibt: Wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff.",
+      "text": "Ein riesiger Deutscher Schäferhund kommt in die Post, nimmt ein Telegrammformular und schreibt:",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff... wuff.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -81,6 +88,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "prop",

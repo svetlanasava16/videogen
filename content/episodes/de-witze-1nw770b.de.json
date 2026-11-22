@@ -93,7 +93,14 @@
     {
       "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'ne Kasten is, aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
+      "text": "Jürgen, ich hab keine Ahnung, wat dat für 'ne Kasten is,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik-ryzhy",
+      "text": "aber du fährst jetzt sofort zurück zum Hof und holst deine Mutter her!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -207,6 +214,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "cut"

@@ -89,7 +89,14 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "No wallet on me again today. Come on, lend me another hundred and fifty, and then I'll pay you back two hundred.",
+      "text": "No wallet on me again today.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik",
+      "text": "Come on, lend me another hundred and fifty, and then I'll pay you back two hundred.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -124,7 +131,14 @@
     {
       "id": "l16",
       "character": "muzhik",
-      "text": "Let me borrow another three hundred, just to round it off, and then I'll pay you back five hundred in one go.",
+      "text": "Let me borrow another three hundred, just to round it off,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l16b",
+      "character": "muzhik",
+      "text": "and then I'll pay you back five hundred in one go.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -230,6 +244,10 @@
           "ref": "l11"
         },
         {
+          "type": "line",
+          "ref": "l11b"
+        },
+        {
           "type": "prop",
           "who": "muzhik-sosed",
           "item": "money",
@@ -255,6 +273,10 @@
         {
           "type": "line",
           "ref": "l16"
+        },
+        {
+          "type": "line",
+          "ref": "l16b"
         },
         {
           "type": "prop",

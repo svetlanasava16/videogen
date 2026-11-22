@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Ich habe eine gute und eine schlechte Nachricht für Sie. Welche möchten Sie zuerst hören?",
+      "text": "Ich habe eine gute und eine schlechte Nachricht für Sie.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "nachalnik",
+      "text": "Welche möchten Sie zuerst hören?",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Ein Besucher hat mich gefragt, ob die Gemälde nach dem Tod des Künstlers im Wert noch beträchtlich steigen würden.",
+      "text": "Ein Besucher hat mich gefragt,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "ob die Gemälde nach dem Tod des Künstlers im Wert noch beträchtlich steigen würden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.2
     },
@@ -114,11 +128,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "There was so much smoke near the ground that his publisher rented him a small plane for some aerial shots. The pilot was already waiting at a local airfield nearby.",
+      "text": "There was so much smoke near the ground that his publisher rented him a small plane for some aerial shots.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "The pilot was already waiting at a local airfield nearby.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -68,7 +75,14 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "So I can take some pictures, of course! I'm a photographer, and a photographer takes photos!",
+      "text": "So I can take some pictures, of course!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "paren",
+      "text": "I'm a photographer, and a photographer takes photos!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
@@ -118,6 +132,10 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l2b"
+        },
+        {
           "type": "move",
           "who": "paren",
           "to": "auto",
@@ -146,6 +164,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         },
         {
           "type": "line",

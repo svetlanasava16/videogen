@@ -84,7 +84,14 @@
     {
       "id": "l10",
       "character": "sluzhivy-ryadovoy",
-      "text": "You know what? One day they're going to scream too late, and we're all going to die.",
+      "text": "You know what?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "sluzhivy-ryadovoy",
+      "text": "One day they're going to scream too late, and we're all going to die.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -389,6 +396,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l10b"
         }
       ],
       "transition": "cut"

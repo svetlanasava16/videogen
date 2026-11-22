@@ -93,7 +93,14 @@
     {
       "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Юрген, понятия не имею, что это за ящик, но ты сейчас же едешь обратно на ферму и везёшь сюда мать!",
+      "text": "Юрген, понятия не имею, что это за ящик,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik-ryzhy",
+      "text": "но ты сейчас же едешь обратно на ферму и везёшь сюда мать!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -207,6 +214,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "cut"

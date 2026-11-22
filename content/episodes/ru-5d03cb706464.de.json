@@ -28,7 +28,14 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Ob der Kater schon zu alt geworden war oder ob er die saure Sahne geklaut hatte, jedenfalls befahl die Frau des Mannes, ihn weit in den Wald zu tragen und dort seinem Schicksal zu überlassen.",
+      "text": "Ob der Kater schon zu alt geworden war oder ob er die saure Sahne geklaut hatte,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "jedenfalls befahl die Frau des Mannes, ihn weit in den Wald zu tragen und dort seinem Schicksal zu überlassen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -70,7 +77,21 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Ja, hab ich, Mist! Und wenn ich ihm nicht hinterhergelaufen wäre, hätte ich mich verdammt noch mal verlaufen...",
+      "text": "Ja, hab ich, Mist!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "Und wenn ich ihm nicht hinterhergelaufen wäre,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8c",
+      "character": "muzhik",
+      "text": "hätte ich mich verdammt noch mal verlaufen...",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -98,6 +119,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "line",
@@ -188,6 +213,14 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
+          "ref": "l8c"
         }
       ],
       "transition": "flyover"

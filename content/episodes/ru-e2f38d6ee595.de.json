@@ -61,8 +61,16 @@
     {
       "id": "l7",
       "character": "barmen",
-      "text": "Mir ist es einfacher, dir den Fünfziger zu geben, als mir wegen solcher Idioten die geübte Hand zu verderben...",
-      "uncensored": "Mir ist es einfacher, dir den Fünfziger zu geben, als mir wegen solcher Arschlöcher die geübte Hand zu verderben...",
+      "text": "Mir ist es einfacher, dir den Fünfziger zu geben,",
+      "uncensored": "Mir ist es einfacher, dir den Fünfziger zu geben,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "barmen",
+      "text": "als mir wegen solcher Idioten die geübte Hand zu verderben...",
+      "uncensored": "als mir wegen solcher Arschlöcher die geübte Hand zu verderben...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -163,6 +171,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "wipe"

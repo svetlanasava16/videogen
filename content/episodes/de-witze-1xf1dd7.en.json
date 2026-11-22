@@ -70,7 +70,14 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "You know what, just hit me right now. If I tell you I'm waiting for the tram, you'll do it anyway.",
+      "text": "You know what, just hit me right now.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik-sosed",
+      "text": "If I tell you I'm waiting for the tram, you'll do it anyway.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -150,6 +157,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

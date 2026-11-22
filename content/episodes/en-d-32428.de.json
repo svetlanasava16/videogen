@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "paren",
-      "text": "Ich wollte nicht glauben, dass mein Vater als Straßenarbeiter wegen Diebstahls gefeuert wurde.",
+      "text": "Ich wollte nicht glauben,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "paren",
+      "text": "dass mein Vater als Straßenarbeiter wegen Diebstahls gefeuert wurde.",
       "emotion": "sad",
       "pauseAfterSec": 0.6
     },
@@ -46,6 +53,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         }
       ],
       "transition": "cut"

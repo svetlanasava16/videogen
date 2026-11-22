@@ -91,7 +91,14 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "I stood like an idiot for three days at the Smiths, and no one offered me anything to eat!",
+      "text": "I stood like an idiot for three days at the Smiths,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik",
+      "text": "and no one offered me anything to eat!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -295,6 +302,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "wipe"

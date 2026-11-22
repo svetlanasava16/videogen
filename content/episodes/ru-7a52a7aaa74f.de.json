@@ -30,7 +30,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Iss deine Suppe ordentlich! Was stocherst du da so lustlos rum, das ist ja widerlich anzusehen!",
+      "text": "Iss deine Suppe ordentlich!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "Was stocherst du da so lustlos rum, das ist ja widerlich anzusehen!",
       "emotion": "angry",
       "pauseAfterSec": 0
     },
@@ -58,7 +65,21 @@
     {
       "id": "l6",
       "character": "vovochka-drug",
-      "text": "Papa, wenn jemand nicht essen will, warum zwingst du ihn dann und schlägst ihn auch noch? Du bist ja wie ein Tyrann.",
+      "text": "Papa, wenn jemand nicht essen will,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6c",
+      "character": "vovochka-drug",
+      "text": "warum zwingst du ihn dann und schlägst ihn auch noch?",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "vovochka-drug",
+      "text": "Du bist ja wie ein Tyrann.",
       "emotion": "sad",
       "pauseAfterSec": 0
     },
@@ -86,15 +107,37 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Und warum hältst du dir die Ohren zu? Du isst schön, bist höflich, widersprichst deinem Vater nicht, wovor hast du denn Angst?",
+      "text": "Und warum hältst du dir die Ohren zu?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "muzhik",
+      "text": "Du isst schön, bist höflich,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10c",
+      "character": "muzhik",
+      "text": "widersprichst deinem Vater nicht, wovor hast du denn Angst?",
       "emotion": "surprised",
       "pauseAfterSec": 0
     },
     {
       "id": "l11",
       "character": "vovochka",
-      "text": "Ich weiß ja, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Blödmann...",
-      "uncensored": "Ich weiß ja, dass ich höflich bin. Das ist nur für alle Fälle, du bist ja so ein Arschloch...",
+      "text": "Ich weiß ja, dass ich höflich bin.",
+      "uncensored": "Ich weiß ja, dass ich höflich bin.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "vovochka",
+      "text": "Das ist nur für alle Fälle, du bist ja so ein Blödmann...",
+      "uncensored": "Das ist nur für alle Fälle, du bist ja so ein Arschloch...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -151,6 +194,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -170,6 +217,14 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6c"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",
@@ -200,7 +255,19 @@
         },
         {
           "type": "line",
+          "ref": "l10b"
+        },
+        {
+          "type": "line",
+          "ref": "l10c"
+        },
+        {
+          "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "cut"

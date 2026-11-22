@@ -33,14 +33,28 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Ja gut, aber es ist Sonntagabend, es gießt wie aus Eimern und ich hab' auch schon das zweite Bier am Wickel...",
+      "text": "Ja gut, aber es ist Sonntagabend,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "barmen",
+      "text": "es gießt wie aus Eimern und ich hab' auch schon das zweite Bier am Wickel...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "doktor",
-      "text": "Guter Mann! Ich bin Arzt. Wenn bei mir ein Notfall ist, muss ich auch raus, egal was ist!",
+      "text": "Guter Mann! Ich bin Arzt.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "doktor",
+      "text": "Wenn bei mir ein Notfall ist, muss ich auch raus, egal was ist!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -127,7 +141,15 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

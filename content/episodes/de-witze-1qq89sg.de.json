@@ -26,7 +26,21 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Er betritt den Laden, und alles ist voller Salz. Sämtliche Regale, von oben bis unten, der Tresen, selbst der Boden: der ganze Laden ist gerammelt voll mit diesen kleinen Salzpäckchen. Nix anderes, nur Salz.",
+      "text": "Er betritt den Laden, und alles ist voller Salz.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "Sämtliche Regale, von oben bis unten, der Tresen, selbst der Boden: der ganze Laden ist gerammelt voll mit diesen kleinen Salzpäckchen.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2c",
+      "character": "narrator",
+      "text": "Nix anderes, nur Salz.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -47,7 +61,21 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Ah so. Dann sind Sie jedenfalls ein echtes Verkaufsgenie, wenn Sie das alles immer an den Mann bringen.",
+      "text": "Ah so.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "Dann sind Sie jedenfalls ein echtes Verkaufsgenie,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5c",
+      "character": "muzhik",
+      "text": "wenn Sie das alles immer an den Mann bringen.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -68,7 +96,14 @@
     {
       "id": "l8",
       "character": "barmen",
-      "text": "Naja, der Mann, von dem ich das Salz beziehe, der ist ein richtig guter Verkäufer.",
+      "text": "Naja, der Mann, von dem ich das Salz beziehe,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "barmen",
+      "text": "der ist ein richtig guter Verkäufer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -108,6 +143,14 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
+          "ref": "l2c"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -120,6 +163,14 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
+          "ref": "l5c"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
@@ -129,6 +180,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

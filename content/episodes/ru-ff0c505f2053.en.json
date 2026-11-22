@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Angus MacDonald came from Scotland to study at an English university, where he was put in a room with two other students. After about a month there, his mother came to visit him.",
+      "text": "Angus MacDonald came from Scotland to study at an English university, where he was put in a room with two other students.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "After about a month there, his mother came to visit him.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "The one on this side bangs his head against the wall all night without a break, and the one on that side screams and screams, and it's like that every night.",
+      "text": "The one on this side bangs his head against the wall all night without a break,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "paren",
+      "text": "and the one on that side screams and screams, and it's like that every night.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -90,6 +104,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "move",
           "who": "zhena",
           "to": "left",
@@ -106,6 +124,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

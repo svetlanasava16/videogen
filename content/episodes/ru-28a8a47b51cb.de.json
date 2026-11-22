@@ -21,14 +21,28 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ihr Liebhaber hat einer Frau einen Nerzmantel geschenkt. Sie überlegt, wie sie es ihrem Mann sagen soll. Sie überlegte und überlegte und hatte eine Idee.",
+      "text": "Ihr Liebhaber hat einer Frau einen Nerzmantel geschenkt.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Sie überlegt, wie sie es ihrem Mann sagen soll. Sie überlegte und überlegte und hatte eine Idee.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Liebling, stell dir vor, ich habe auf der Straße einen Schein von der Gepäckaufbewahrung gefunden.",
+      "text": "Liebling, stell dir vor,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "zhena",
+      "text": "ich habe auf der Straße einen Schein von der Gepäckaufbewahrung gefunden.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -85,6 +99,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "move",
           "who": "zhena",
           "to": "left",
@@ -99,6 +117,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "prop",

@@ -21,7 +21,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Doctor, I'm begging you, come right away. My wife is having a terrible appendicitis attack!",
+      "text": "Doctor, I'm begging you, come right away.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "My wife is having a terrible appendicitis attack!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
@@ -101,6 +108,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "line",

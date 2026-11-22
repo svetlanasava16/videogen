@@ -47,7 +47,21 @@
     {
       "id": "l5",
       "character": "devushka",
-      "text": "Not now. I keep it in the chest freezer in the garage, and right now it's too dark and too cold to go out there.",
+      "text": "Not now.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "devushka",
+      "text": "I keep it in the chest freezer in the garage,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5c",
+      "character": "devushka",
+      "text": "and right now it's too dark and too cold to go out there.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -85,6 +99,14 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
+          "ref": "l5c"
         }
       ],
       "transition": "cut"

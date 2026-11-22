@@ -70,7 +70,14 @@
     {
       "id": "l8",
       "character": "tyoshcha",
-      "text": "Ты посмотри в хирургическом отделении, там уже давно какой-то мужик сидит, может, твой?",
+      "text": "Ты посмотри в хирургическом отделении,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "tyoshcha",
+      "text": "там уже давно какой-то мужик сидит, может, твой?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -225,6 +232,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "flyover"

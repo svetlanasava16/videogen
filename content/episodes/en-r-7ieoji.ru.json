@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Девять долларов шестьдесят семь центов? Зачем тебе десять долларов тридцать два цента?",
+      "text": "Девять долларов шестьдесят семь центов?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "Зачем тебе десять долларов тридцать два цента?",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -87,6 +94,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

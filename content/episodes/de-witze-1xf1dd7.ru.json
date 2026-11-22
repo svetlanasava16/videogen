@@ -70,7 +70,14 @@
     {
       "id": "l8",
       "character": "muzhik-sosed",
-      "text": "Знаешь что, сразу бей. Если я тебе сейчас скажу, что жду трамвая, ты всё равно ударишь.",
+      "text": "Знаешь что, сразу бей.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik-sosed",
+      "text": "Если я тебе сейчас скажу, что жду трамвая, ты всё равно ударишь.",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -150,6 +157,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

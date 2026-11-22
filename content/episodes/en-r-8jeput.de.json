@@ -24,7 +24,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Jetzt ist er siebenundneunzig, und wir haben keine Ahnung, wo zum Teufel er steckt.",
+      "text": "Jetzt ist er siebenundneunzig,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "und wir haben keine Ahnung, wo zum Teufel er steckt.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -48,6 +55,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         }
       ],
       "transition": "cut"

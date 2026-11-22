@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "muzhik-ryzhy",
-      "text": "Chef, sorry, dass ich Sie wecke, aber ich hatte einen Unfall und kann die Lieferung nicht machen.",
+      "text": "Chef, sorry, dass ich Sie wecke,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik-ryzhy",
+      "text": "aber ich hatte einen Unfall und kann die Lieferung nicht machen.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Ja, alles gut, aber ich kann nicht weiter, der Rückspiegel auf der Beifahrerseite ist kaputt.",
+      "text": "Ja, alles gut, aber ich kann nicht weiter,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik-ryzhy",
+      "text": "der Rückspiegel auf der Beifahrerseite ist kaputt.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -127,11 +141,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",

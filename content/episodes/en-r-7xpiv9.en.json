@@ -49,7 +49,21 @@
     {
       "id": "l5",
       "character": "ded",
-      "text": "He knows I have poor eyesight, so He's fixed it so when I get up in the middle of the night to go to the bathroom, poof! The light goes on.",
+      "text": "He knows I have poor eyesight,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5c",
+      "character": "ded",
+      "text": "so He's fixed it so when I get up in the middle of the night to go to the bathroom, poof!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "ded",
+      "text": "The light goes on.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -91,7 +105,14 @@
     {
       "id": "l11",
       "character": "doktor",
-      "text": "Is it true that he gets up during the night, and poof, the light goes on in the bathroom, and when he's done, poof, the light goes off?",
+      "text": "Is it true that he gets up during the night, and poof,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "doktor",
+      "text": "the light goes on in the bathroom, and when he's done, poof, the light goes off?",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
@@ -164,6 +185,14 @@
         },
         {
           "type": "line",
+          "ref": "l5c"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
@@ -230,6 +259,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         },
         {
           "type": "line",

@@ -77,7 +77,14 @@
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Ach, irgendein Trottel hängt fest und wollte, dass ich ihn anschubse. Ich hab ihn zum Teufel geschickt.",
+      "text": "Ach, irgendein Trottel hängt fest und wollte, dass ich ihn anschubse.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "muzhik",
+      "text": "Ich hab ihn zum Teufel geschickt.",
       "emotion": "smug",
       "pauseAfterSec": 0
     },
@@ -91,7 +98,14 @@
     {
       "id": "l11",
       "character": "zhena",
-      "text": "Weißt du noch, wie uns der Motor abgesoffen ist, mitten im Regen, und irgendein junger Kerl uns eine ganze Stunde angeschoben hat?",
+      "text": "Weißt du noch, wie uns der Motor abgesoffen ist, mitten im Regen,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "zhena",
+      "text": "und irgendein junger Kerl uns eine ganze Stunde angeschoben hat?",
       "emotion": "angry",
       "pauseAfterSec": 0
     },
@@ -333,6 +347,10 @@
           "ref": "l9"
         },
         {
+          "type": "line",
+          "ref": "l9b"
+        },
+        {
           "type": "act",
           "who": "zhena",
           "act": "point"
@@ -349,6 +367,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         },
         {
           "type": "act",

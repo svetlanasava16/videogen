@@ -33,14 +33,42 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "Nun, wir füllen eine Badewanne. Dann bieten wir dem Patienten einen Teelöffel, eine Teetasse und einen Eimer an und bitten ihn oder sie, die Badewanne zu leeren.",
+      "text": "Nun, wir füllen eine Badewanne.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "doktor",
+      "text": "Dann bieten wir dem Patienten einen Teelöffel,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3c",
+      "character": "doktor",
+      "text": "eine Teetasse und einen Eimer an und bitten ihn oder sie, die Badewanne zu leeren.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Ah, ich verstehe. Ein normaler Mensch würde den Eimer nehmen, weil er größer ist als der Löffel oder die Teetasse.",
+      "text": "Ah, ich verstehe.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "Ein normaler Mensch würde den Eimer nehmen,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4c",
+      "character": "muzhik",
+      "text": "weil er größer ist als der Löffel oder die Teetasse.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -88,7 +116,23 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
+          "ref": "l3c"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
+          "ref": "l4c"
         },
         {
           "type": "line",

@@ -17,7 +17,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "On Friday evening I rode my bike to the liquor store, bought a bottle of whiskey and put it in my bike basket.",
+      "text": "On Friday evening I rode my bike to the liquor store,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "bought a bottle of whiskey and put it in my bike basket.",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -38,7 +45,14 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "And you know, it was a damn good decision, because I fell off seven times on the way home.",
+      "text": "And you know, it was a damn good decision,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "because I fell off seven times on the way home.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -77,6 +91,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "prop",
@@ -124,6 +142,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

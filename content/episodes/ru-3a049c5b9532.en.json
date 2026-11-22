@@ -91,7 +91,14 @@
     {
       "id": "l11",
       "character": "zhena",
-      "text": "Remember when our engine died, in the pouring rain, and some young guy pushed us for a whole hour?",
+      "text": "Remember when our engine died, in the pouring rain,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "zhena",
+      "text": "and some young guy pushed us for a whole hour?",
       "emotion": "angry",
       "pauseAfterSec": 0
     },
@@ -349,6 +356,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         },
         {
           "type": "act",

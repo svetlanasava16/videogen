@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "muzhik",
-      "text": "Ich habe eine hübsche, junge Obdachlose gefragt, ob ich sie mit nach Hause nehmen darf.",
+      "text": "Ich habe eine hübsche, junge Obdachlose gefragt,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "muzhik",
+      "text": "ob ich sie mit nach Hause nehmen darf.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -33,7 +40,14 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Ihr Gesicht änderte sich schnell, als ich ihr Zuhause mitgenommen habe, ihren Pappkarton.",
+      "text": "Ihr Gesicht änderte sich schnell,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "als ich ihr Zuhause mitgenommen habe, ihren Pappkarton.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -58,11 +72,19 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "move",

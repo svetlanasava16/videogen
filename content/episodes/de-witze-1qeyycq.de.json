@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Hast du denn eine gute Tat vorzuweisen, die dich zur Aufnahme ins Himmelreich berechtigen würde?",
+      "text": "Hast du denn eine gute Tat vorzuweisen,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "ded",
+      "text": "die dich zur Aufnahme ins Himmelreich berechtigen würde?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -47,7 +54,14 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Na, ich habe mich mutig vor sie gestellt und den Rockern klar gemacht, dass ich das nicht zulassen werde!",
+      "text": "Na, ich habe mich mutig vor sie gestellt und den Rockern klar gemacht,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "paren",
+      "text": "dass ich das nicht zulassen werde!",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -90,6 +104,10 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
@@ -99,6 +117,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

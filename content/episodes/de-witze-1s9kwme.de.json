@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Sein Verleger hatte ein kleines Flugzeug für ihn gemietet, damit er ein paar Luftaufnahmen machen konnte. Der Pilot wartete bereits auf einem lokalen Flugplatz in der Nähe.",
+      "text": "Sein Verleger hatte ein kleines Flugzeug für ihn gemietet, damit er ein paar Luftaufnahmen machen konnte.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "Der Pilot wartete bereits auf einem lokalen Flugplatz in der Nähe.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -68,7 +75,14 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "Damit ich ein paar Fotos machen kann natürlich! Ich bin Fotograf, und ein Fotograf macht Fotos!",
+      "text": "Damit ich ein paar Fotos machen kann natürlich!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "paren",
+      "text": "Ich bin Fotograf, und ein Fotograf macht Fotos!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
@@ -118,6 +132,10 @@
           "ref": "l2"
         },
         {
+          "type": "line",
+          "ref": "l2b"
+        },
+        {
           "type": "move",
           "who": "paren",
           "to": "auto",
@@ -146,6 +164,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         },
         {
           "type": "line",

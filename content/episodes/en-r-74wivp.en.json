@@ -35,7 +35,15 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Dear, breakfast is made. I've gone shopping to make you your favorite dinner tonight. I love you!",
+      "text": "Dear, breakfast is made.",
+      "offscreen": true,
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "zhena",
+      "text": "I've gone shopping to make you your favorite dinner tonight. I love you!",
       "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.4
@@ -71,7 +79,21 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "Oh, that. Mom dragged you to the bedroom, and when she tried to take off your clothes, you screamed, 'Leave me alone, I'm married!'",
+      "text": "Oh, that.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "paren",
+      "text": "Mom dragged you to the bedroom, and when she tried to take off your clothes,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8c",
+      "character": "paren",
+      "text": "you screamed, 'Leave me alone, I'm married!'",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -127,6 +149,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"
@@ -187,6 +213,14 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
+          "ref": "l8c"
         }
       ],
       "transition": "wipe"

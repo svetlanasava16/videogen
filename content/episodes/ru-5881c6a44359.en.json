@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "paren",
-      "text": "Boss, with all your experience and foresight, could you really have hired an idiot?",
+      "text": "Boss, with all your experience and foresight,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "paren",
+      "text": "could you really have hired an idiot?",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -88,6 +95,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

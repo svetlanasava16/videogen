@@ -26,14 +26,28 @@
     {
       "id": "l2",
       "character": "ded",
-      "text": "Als wir damals in Paris waren, haben wir gesoffen bis zum Umfallen, die schönsten Frauen klargemacht, gefressen ohne Ende,",
+      "text": "Als wir damals in Paris waren, haben wir gesoffen bis zum Umfallen,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "ded",
+      "text": "die schönsten Frauen klargemacht, gefressen ohne Ende,",
       "emotion": "happy",
       "pauseAfterSec": 0.2
     },
     {
       "id": "l3",
       "character": "ded",
-      "text": "im Café gegen die Theke gepinkelt, alles kurz und klein gehauen, uns geprügelt und sind abgehauen, ohne zu bezahlen.",
+      "text": "im Café gegen die Theke gepinkelt, alles kurz und klein gehauen,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "ded",
+      "text": "uns geprügelt und sind abgehauen, ohne zu bezahlen.",
       "emotion": "happy",
       "pauseAfterSec": 0.4
     },
@@ -114,7 +128,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

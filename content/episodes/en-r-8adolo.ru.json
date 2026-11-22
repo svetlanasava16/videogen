@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Вы не представляете, какое счастье я испытал, когда увидел, как он убирает пистолет обратно в карман.",
+      "text": "Вы не представляете, какое счастье я испытал,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "когда увидел, как он убирает пистолет обратно в карман.",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -65,6 +72,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         }
       ],
       "transition": "cut"

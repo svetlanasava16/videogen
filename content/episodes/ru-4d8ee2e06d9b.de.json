@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "Sie stellt die Ohren auf, macht Glupschaugen und klappert mit dem Schnabel...",
+      "text": "Sie stellt die Ohren auf,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "macht Glupschaugen und klappert mit dem Schnabel...",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -63,6 +70,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

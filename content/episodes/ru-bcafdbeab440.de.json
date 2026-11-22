@@ -68,14 +68,35 @@
     {
       "id": "l8",
       "character": "sluzhivy",
-      "text": "Deshalb habe ich keine große Lust, Strafzettel zu schreiben. Wenn Ihnen eine gute Erklärung einfällt, lasse ich Sie fahren.",
+      "text": "Deshalb habe ich keine große Lust, Strafzettel zu schreiben.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "sluzhivy",
+      "text": "Wenn Ihnen eine gute Erklärung einfällt, lasse ich Sie fahren.",
       "emotion": "smug",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Oh! Wissen Sie, vor einer Woche ist meine Frau mit einem Polizisten durchgebrannt, und ich dachte, Sie wollen sie mir zurückbringen...",
+      "text": "Oh!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "muzhik",
+      "text": "Wissen Sie, vor einer Woche ist meine Frau mit einem Polizisten durchgebrannt,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9c",
+      "character": "muzhik",
+      "text": "und ich dachte, Sie wollen sie mir zurückbringen...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -153,7 +174,19 @@
         },
         {
           "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
+          "ref": "l9c"
         }
       ],
       "transition": "cut"

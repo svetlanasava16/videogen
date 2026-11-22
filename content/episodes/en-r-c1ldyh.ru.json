@@ -40,14 +40,29 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "Понимая, что я уже выше нормы, я решил оставить машину у бара и поехал домой на автобусе.",
+      "text": "Понимая, что я уже выше нормы,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "я решил оставить машину у бара и поехал домой на автобусе.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "И точно, по дороге я проехал полицейский пост, где тормозили водителей и проверяли их алкотестером.",
+      "text": "И точно, по дороге я проехал полицейский пост,",
+      "offscreen": true,
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "где тормозили водителей и проверяли их алкотестером.",
       "offscreen": true,
       "emotion": "neutral",
       "pauseAfterSec": 0.3
@@ -70,7 +85,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "что стало для меня настоящим сюрпризом, ведь я никогда раньше не водил автобус и даже не уверен, где я его взял.",
+      "text": "что стало для меня настоящим сюрпризом,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "ведь я никогда раньше не водил автобус и даже не уверен, где я его взял.",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -121,6 +143,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"
@@ -155,6 +181,10 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         }
       ],
@@ -185,6 +215,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

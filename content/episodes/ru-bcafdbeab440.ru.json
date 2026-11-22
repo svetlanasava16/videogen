@@ -68,14 +68,35 @@
     {
       "id": "l8",
       "character": "sluzhivy",
-      "text": "Так что мне не очень-то хочется выписывать штрафы. Если вы придумаете хорошее объяснение ваших действий — я вас отпущу.",
+      "text": "Так что мне не очень-то хочется выписывать штрафы.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "sluzhivy",
+      "text": "Если вы придумаете хорошее объяснение ваших действий — я вас отпущу.",
       "emotion": "smug",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "О! Дело в том, что неделю назад моя жена сбежала с полицейским, и я подумал, что мне пытаются ее вернуть...",
+      "text": "О!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "muzhik",
+      "text": "Дело в том, что неделю назад моя жена сбежала с полицейским,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9c",
+      "character": "muzhik",
+      "text": "и я подумал, что мне пытаются ее вернуть...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -153,7 +174,19 @@
         },
         {
           "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
+          "ref": "l9c"
         }
       ],
       "transition": "cut"

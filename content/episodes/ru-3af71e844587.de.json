@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein sturzbetrunkener Typ mit zerrissenem Hemd, Lippenstift im Gesicht und leeren Flaschen in den Taschen steigt in den Bus und setzt sich neben einen Pfarrer.",
+      "text": "Ein sturzbetrunkener Typ mit zerrissenem Hemd,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Lippenstift im Gesicht und leeren Flaschen in den Taschen steigt in den Bus und setzt sich neben einen Pfarrer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "batyushka",
-      "text": "Arthritis, mein Sohn, bekommen Menschen, die vom rechten Weg abgekommen sind, die mit gefallenen Frauen schlafen und Alkohol missbrauchen!",
+      "text": "Arthritis, mein Sohn, bekommen Menschen, die vom rechten Weg abgekommen sind,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "batyushka",
+      "text": "die mit gefallenen Frauen schlafen und Alkohol missbrauchen!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -68,7 +82,14 @@
     {
       "id": "l8",
       "character": "muzhik",
-      "text": "Was reden Sie denn da! Ich habe keine Arthritis! Hier in der Zeitung steht, dass der Papst Arthritis hat!",
+      "text": "Was reden Sie denn da! Ich habe keine Arthritis!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "muzhik",
+      "text": "Hier in der Zeitung steht, dass der Papst Arthritis hat!",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -112,6 +133,10 @@
           "ref": "l1"
         },
         {
+          "type": "line",
+          "ref": "l1b"
+        },
+        {
           "type": "prop",
           "who": "muzhik",
           "item": "newspaper",
@@ -131,6 +156,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
@@ -144,6 +173,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "cut"

@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "tyoshcha",
-      "text": "Well, it hasn't been working for a long time, but we wanted to wait until the children were dead.",
+      "text": "Well, it hasn't been working for a long time,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "tyoshcha",
+      "text": "but we wanted to wait until the children were dead.",
       "emotion": "neutral",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -75,6 +82,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

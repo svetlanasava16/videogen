@@ -54,7 +54,14 @@
     {
       "id": "l6",
       "character": "narrator",
-      "text": "A Mercedes comes racing down the road, doesn't slow down, flies onto the bridge, the bridge collapses with a crash, and the Mercedes falls into the river.",
+      "text": "A Mercedes comes racing down the road, doesn't slow down, flies onto the bridge,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "narrator",
+      "text": "the bridge collapses with a crash, and the Mercedes falls into the river.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
@@ -124,6 +131,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "move",

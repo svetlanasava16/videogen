@@ -75,14 +75,28 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "Ну, продать-то вы их можете, и какие-то деньги за них дадут, как за диковинку. Но не миллионы.",
+      "text": "Ну, продать-то вы их можете, и какие-то деньги за них дадут, как за диковинку.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "doktor",
+      "text": "Но не миллионы.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l10",
       "character": "doktor",
-      "text": "Видите ли, по правде говоря, Страдивари был так себе художник... а Ван Гог делал паршивые скрипки.",
+      "text": "Видите ли, по правде говоря,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "doktor",
+      "text": "Страдивари был так себе художник... а Ван Гог делал паршивые скрипки.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -192,7 +206,15 @@
         },
         {
           "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l10b"
         }
       ],
       "transition": "flyover"

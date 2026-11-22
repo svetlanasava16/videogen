@@ -23,7 +23,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Farmer Hein and his son Jürgen come in from the countryside to the edge of town for the first time, to visit the shopping mall that has just opened there.",
+      "text": "Farmer Hein and his son Jürgen come in from the countryside to the edge of town for the first time,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "to visit the shopping mall that has just opened there.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -93,7 +100,14 @@
     {
       "id": "l11",
       "character": "muzhik-ryzhy",
-      "text": "Jürgen, I've no idea what kind of box that is, but you're driving straight back to the farm right now and fetching your mother!",
+      "text": "Jürgen, I've no idea what kind of box that is,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik-ryzhy",
+      "text": "but you're driving straight back to the farm right now and fetching your mother!",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -139,6 +153,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "move",
@@ -207,6 +225,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "cut"

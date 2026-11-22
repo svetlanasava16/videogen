@@ -42,7 +42,14 @@
     {
       "id": "l4",
       "character": "narrator",
-      "text": "Der Mann geht runter an die Bar, setzt sich auf einen riesigen Barhocker und bestellt ein Bier. Man stellt ihm einen Krug zwischen die Hände.",
+      "text": "Der Mann geht runter an die Bar, setzt sich auf einen riesigen Barhocker und bestellt ein Bier.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "narrator",
+      "text": "Man stellt ihm einen Krug zwischen die Hände.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -77,7 +84,14 @@
     {
       "id": "l9",
       "character": "narrator",
-      "text": "Der Blinde macht sich auf den Weg zur Toilette, geht aber aus Versehen durch die dritte Tür, die zum Schwimmbad führt, und fällt hinein.",
+      "text": "Der Blinde macht sich auf den Weg zur Toilette,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "narrator",
+      "text": "geht aber aus Versehen durch die dritte Tür, die zum Schwimmbad führt, und fällt hinein.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -197,6 +211,10 @@
           "ref": "l4"
         },
         {
+          "type": "line",
+          "ref": "l4b"
+        },
+        {
           "type": "prop",
           "who": "barmen",
           "item": "glass",
@@ -233,6 +251,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         }
       ],
       "transition": "wipe"

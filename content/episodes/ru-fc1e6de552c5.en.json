@@ -47,7 +47,14 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "You want a beer, kitten? Look, I bought you twenty-five kinds of beer, light and dark...",
+      "text": "You want a beer, kitten?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "zhena",
+      "text": "Look, I bought you twenty-five kinds of beer, light and dark...",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -82,7 +89,21 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "How can I explain it, blue eyes, it's totally different at the bar, you can let loose sometimes and nobody judges you, people even swear freely there...",
+      "text": "How can I explain it, blue eyes, it's totally different at the bar,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "muzhik",
+      "text": "you can let loose sometimes and nobody judges you,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10c",
+      "character": "muzhik",
+      "text": "people even swear freely there...",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
@@ -96,8 +117,16 @@
     {
       "id": "l12",
       "character": "zhena",
-      "text": "Go on, drink your freaking beer with your crappy chips and those darn shrimp, because you're not going freaking anywhere, you jerk!",
-      "uncensored": "Go on, drink your fucking beer with your shitty chips and those goddamn shrimp, because you're not going fucking anywhere, you jerk!",
+      "text": "Go on, drink your freaking beer with your crappy chips and those darn shrimp,",
+      "uncensored": "Go on, drink your fucking beer with your shitty chips and those goddamn shrimp,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l12b",
+      "character": "zhena",
+      "text": "because you're not going freaking anywhere, you jerk!",
+      "uncensored": "because you're not going fucking anywhere, you jerk!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -146,6 +175,10 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
@@ -166,11 +199,23 @@
         },
         {
           "type": "line",
+          "ref": "l10b"
+        },
+        {
+          "type": "line",
+          "ref": "l10c"
+        },
+        {
+          "type": "line",
           "ref": "l11"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l12b"
         }
       ],
       "transition": "cut"

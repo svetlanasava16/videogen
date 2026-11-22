@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "narrator",
-      "text": "Nach einer Weile hält ein Streifenwagen, ein Polizist steigt aus, geht zum Fahrer der Walze, nimmt ihn beiseite und flüstert vertraulich:",
+      "text": "Nach einer Weile hält ein Streifenwagen, ein Polizist steigt aus,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "narrator",
+      "text": "geht zum Fahrer der Walze, nimmt ihn beiseite und flüstert vertraulich:",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -111,6 +118,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "move",

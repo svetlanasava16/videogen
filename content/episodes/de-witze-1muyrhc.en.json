@@ -35,7 +35,14 @@
     {
       "id": "l3",
       "character": "chort",
-      "text": "You will spend eternity in one of these three rooms, but you get to choose which one!",
+      "text": "You will spend eternity in one of these three rooms,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "chort",
+      "text": "but you get to choose which one!",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -123,6 +130,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

@@ -53,7 +53,14 @@
     {
       "id": "l5",
       "character": "devushka",
-      "text": "Young man, you're in our way. If you don't move your legs, we'll have to call the manager.",
+      "text": "Young man, you're in our way.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "devushka",
+      "text": "If you don't move your legs, we'll have to call the manager.",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -81,7 +88,14 @@
     {
       "id": "l9",
       "character": "nachalnik",
-      "text": "Young man! You are breaking the rules of conduct in a public place! If you don't move your legs, I'll call the police!",
+      "text": "Young man! You are breaking the rules of conduct in a public place!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "nachalnik",
+      "text": "If you don't move your legs, I'll call the police!",
       "emotion": "angry",
       "pauseAfterSec": 0.3
     },
@@ -216,6 +230,10 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
@@ -235,6 +253,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         },
         {
           "type": "line",

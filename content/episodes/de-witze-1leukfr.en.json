@@ -33,14 +33,28 @@
     {
       "id": "l3",
       "character": "barmen",
-      "text": "Fine, but it's Sunday evening, it's pouring buckets, and I'm already on my second beer...",
+      "text": "Fine, but it's Sunday evening, it's pouring buckets,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "barmen",
+      "text": "and I'm already on my second beer...",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l4",
       "character": "doktor",
-      "text": "My good man! I'm a doctor. When I have an emergency, I have to go out too, no matter what!",
+      "text": "My good man! I'm a doctor.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "doktor",
+      "text": "When I have an emergency, I have to go out too, no matter what!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -127,7 +141,15 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

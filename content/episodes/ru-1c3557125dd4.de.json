@@ -49,14 +49,28 @@
     {
       "id": "l5",
       "character": "muzhik-sosed",
-      "text": "Ich hab kein Geld, ich brauche sechsundfünfzig Euro, damit sie mich rauslassen.",
+      "text": "Ich hab kein Geld, ich brauche sechsundfünfzig Euro,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik-sosed",
+      "text": "damit sie mich rauslassen.",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "narrator",
-      "text": "Der Mann verspricht es, legt auf, nimmt seine letzten Kräfte zusammen, steht auf und zieht sich langsam an, immer bemüht, nicht umzufallen.",
+      "text": "Der Mann verspricht es, legt auf, nimmt seine letzten Kräfte zusammen,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "narrator",
+      "text": "steht auf und zieht sich langsam an, immer bemüht, nicht umzufallen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -174,6 +188,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         }
       ],
       "transition": "cut"
@@ -217,6 +235,10 @@
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "move",

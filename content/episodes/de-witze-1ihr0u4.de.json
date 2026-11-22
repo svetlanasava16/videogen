@@ -42,7 +42,14 @@
     {
       "id": "l4",
       "character": "devushka-blondinka",
-      "text": "Der Chef hat keine Ohren, und er kann es auf den Tod nicht leiden, wenn man ihn darauf anspricht.",
+      "text": "Der Chef hat keine Ohren, und er kann es auf den Tod nicht leiden,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "devushka-blondinka",
+      "text": "wenn man ihn darauf anspricht.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -78,7 +85,14 @@
     {
       "id": "l9",
       "character": "nachalnik",
-      "text": "Donnerwetter, Sie sind ja ein guter Beobachter! Woran haben Sie das denn so schnell bemerkt?",
+      "text": "Donnerwetter, Sie sind ja ein guter Beobachter!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "nachalnik",
+      "text": "Woran haben Sie das denn so schnell bemerkt?",
       "emotion": "surprised",
       "pauseAfterSec": 0.6
     },
@@ -152,6 +166,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         }
       ],
@@ -202,6 +220,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         },
         {
           "type": "line",

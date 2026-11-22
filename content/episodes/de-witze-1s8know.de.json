@@ -28,14 +28,28 @@
     {
       "id": "l2",
       "character": "vovochka-drug",
-      "text": "Mein Vater ist Formel-Eins-Fahrer. Der ist so schnell, wenn der auf das Gas tritt, brennt der Asphalt!",
+      "text": "Mein Vater ist Formel-Eins-Fahrer.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "vovochka-drug",
+      "text": "Der ist so schnell, wenn der auf das Gas tritt, brennt der Asphalt!",
       "emotion": "happy",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "paren",
-      "text": "Pah, mein Vater ist Jet-Pilot. Der ist so schnell, der überholt seinen eigenen Schall!",
+      "text": "Pah, mein Vater ist Jet-Pilot.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "paren",
+      "text": "Der ist so schnell, der überholt seinen eigenen Schall!",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -80,7 +94,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",

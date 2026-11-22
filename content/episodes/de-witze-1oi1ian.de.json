@@ -56,7 +56,14 @@
     {
       "id": "l6",
       "character": "sluzhivy",
-      "text": "Leider muss ich dir einen Strafzettel geben, denn das Christkind hat vergessen, dein Fahrrad mit Reflektoren auszustatten.",
+      "text": "Leider muss ich dir einen Strafzettel geben,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "sluzhivy",
+      "text": "denn das Christkind hat vergessen, dein Fahrrad mit Reflektoren auszustatten.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -77,8 +84,16 @@
     {
       "id": "l9",
       "character": "devochka",
-      "text": "Na, dann sagen Sie dem Christkind nächstes Jahr, das Hinterteil kommt hinten hin, und nicht oben drauf!",
-      "uncensored": "Na, dann sagen Sie dem Christkind nächstes Jahr, das Arschloch kommt hinten hin, und nicht oben drauf!",
+      "text": "Na, dann sagen Sie dem Christkind nächstes Jahr,",
+      "uncensored": "Na, dann sagen Sie dem Christkind nächstes Jahr,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "devochka",
+      "text": "das Hinterteil kommt hinten hin, und nicht oben drauf!",
+      "uncensored": "das Arschloch kommt hinten hin, und nicht oben drauf!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -154,6 +169,10 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
         },
         {
@@ -163,6 +182,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         }
       ],
       "transition": "cut"

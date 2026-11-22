@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Can you go down to the store, and get a gallon of milk, and if they have eggs, get six.",
+      "text": "Can you go down to the store, and get a gallon of milk,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "zhena",
+      "text": "and if they have eggs, get six.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -82,6 +89,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "move",

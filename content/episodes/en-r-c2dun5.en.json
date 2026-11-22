@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "muzhik",
-      "text": "We've spent a lot of money getting this house just the way we want it. I'm not going to get rid of my house. I guess she would.",
+      "text": "We've spent a lot of money getting this house just the way we want it.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik",
+      "text": "I'm not going to get rid of my house. I guess she would.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -54,14 +61,28 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Well, the bed is brand new, and it cost us two thousand dollars. It's going to last a long time, so I guess she would.",
+      "text": "Well, the bed is brand new, and it cost us two thousand dollars.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik",
+      "text": "It's going to last a long time, so I guess she would.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "zhena",
-      "text": "If I died and you remarried, and she lived in this house and slept in our bed, would she use my golf clubs?",
+      "text": "If I died and you remarried,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "zhena",
+      "text": "and she lived in this house and slept in our bed, would she use my golf clubs?",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
@@ -105,6 +126,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
@@ -113,7 +138,15 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "line",

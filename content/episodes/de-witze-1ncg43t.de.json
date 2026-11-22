@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "muzhik-ryzhy",
-      "text": "Ich muss oben was ausliefern, und mein Chef hat gesagt, man kann dort oben nicht wenden.",
+      "text": "Ich muss oben was ausliefern, und mein Chef hat gesagt,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "muzhik-ryzhy",
+      "text": "man kann dort oben nicht wenden.",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -112,6 +119,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         }
       ],
       "transition": "cut"

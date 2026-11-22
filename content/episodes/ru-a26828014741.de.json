@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Taxifahrgast wollte dem Fahrer eine Frage stellen und tippte ihm auf die Schulter. Der Fahrer schrie wild auf und verlor die Kontrolle über den Wagen.",
+      "text": "Ein Taxifahrgast wollte dem Fahrer eine Frage stellen und tippte ihm auf die Schulter.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Der Fahrer schrie wild auf und verlor die Kontrolle über den Wagen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -47,14 +54,35 @@
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Entschuldigung. Ich hätte nie gedacht, dass ein leichtes Klopfen auf die Schulter Sie so erschrecken kann.",
+      "text": "Entschuldigung.",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "Ich hätte nie gedacht,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5c",
+      "character": "muzhik",
+      "text": "dass ein leichtes Klopfen auf die Schulter Sie so erschrecken kann.",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l6",
       "character": "muzhik-ryzhy",
-      "text": "Eigentlich bist du gar nicht schuld... Heute ist einfach mein erster Tag als Taxifahrer.",
+      "text": "Eigentlich bist du gar nicht schuld...",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik-ryzhy",
+      "text": "Heute ist einfach mein erster Tag als Taxifahrer.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6
     },
@@ -95,6 +123,10 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
@@ -111,7 +143,19 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
+          "ref": "l5c"
+        },
+        {
+          "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",

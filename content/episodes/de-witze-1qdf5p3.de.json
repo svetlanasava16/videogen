@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Im Restaurant serviert der Kellner dem Gast sein Schnitzel, und der Gast sieht, dass der Kellner seinen Daumen auf dem Schnitzel liegen hat.",
+      "text": "Im Restaurant serviert der Kellner dem Gast sein Schnitzel,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "und der Gast sieht, dass der Kellner seinen Daumen auf dem Schnitzel liegen hat.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -40,15 +47,30 @@
     {
       "id": "l4",
       "character": "barmen",
-      "text": "Ja, tut mir leid, aber ich hab da eine Fistel am Daumen, und der Arzt hat gesagt, ich soll ihn wenn möglich warm halten!",
+      "text": "Ja, tut mir leid, aber ich hab da eine Fistel am Daumen,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "barmen",
+      "text": "und der Arzt hat gesagt, ich soll ihn wenn möglich warm halten!",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l5",
       "character": "muzhik",
-      "text": "Aber doch nicht auf meinem Schnitzel, stecken Sie sich den Daumen von mir aus in den Hintern!",
-      "uncensored": "Aber doch nicht auf meinem Schnitzel, stecken Sie sich den Daumen von mir aus in den Arsch!",
+      "text": "Aber doch nicht auf meinem Schnitzel,",
+      "uncensored": "Aber doch nicht auf meinem Schnitzel,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "muzhik",
+      "text": "stecken Sie sich den Daumen von mir aus in den Hintern!",
+      "uncensored": "stecken Sie sich den Daumen von mir aus in den Arsch!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
@@ -89,6 +111,10 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
         },
         {
@@ -101,7 +127,15 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

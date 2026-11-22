@@ -42,8 +42,16 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "In the American one you have to eat a bucket of crap every day, and in the Russian one, two.",
-      "uncensored": "In the American one you have to eat a bucket of shit every day, and in the Russian one, two.",
+      "text": "In the American one you have to eat a bucket of crap every day,",
+      "uncensored": "In the American one you have to eat a bucket of shit every day,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "chort",
+      "text": "and in the Russian one, two.",
+      "uncensored": "and in the Russian one, two.",
       "emotion": "smug",
       "pauseAfterSec": 0.4
     },
@@ -93,8 +101,16 @@
     {
       "id": "l11",
       "character": "muzhik",
-      "text": "Same as always: either they didn't deliver the crap, or there aren't enough buckets to go around.",
-      "uncensored": "Same as always: either they didn't deliver the shit, or there aren't enough buckets to go around.",
+      "text": "Same as always: either they didn't deliver the crap,",
+      "uncensored": "Same as always: either they didn't deliver the shit,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l11b",
+      "character": "muzhik",
+      "text": "or there aren't enough buckets to go around.",
+      "uncensored": "or there aren't enough buckets to go around.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -131,6 +147,10 @@
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "line",
@@ -185,6 +205,10 @@
         {
           "type": "line",
           "ref": "l11"
+        },
+        {
+          "type": "line",
+          "ref": "l11b"
         }
       ],
       "transition": "wipe"

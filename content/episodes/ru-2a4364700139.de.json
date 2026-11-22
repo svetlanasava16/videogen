@@ -26,15 +26,30 @@
     {
       "id": "l2",
       "character": "muzhik",
-      "text": "Wenn du Mistkerl nicht sofort aufhörst, auf deiner verdammten Posaune zu spielen, werde ich verrückt!",
-      "uncensored": "Wenn du Scheißkerl nicht sofort aufhörst, auf deiner verfickten Posaune zu spielen, werde ich verrückt!",
+      "text": "Wenn du Mistkerl nicht sofort aufhörst,",
+      "uncensored": "Wenn du Scheißkerl nicht sofort aufhörst,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "muzhik",
+      "text": "auf deiner verdammten Posaune zu spielen, werde ich verrückt!",
+      "uncensored": "auf deiner verfickten Posaune zu spielen, werde ich verrückt!",
       "emotion": "angry",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l3",
       "character": "muzhik-sosed",
-      "text": "Ich fürchte, du kommst zu spät, mein Lieber. Ich spiele schon seit gut zwei Stunden nicht mehr...",
+      "text": "Ich fürchte, du kommst zu spät, mein Lieber.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik-sosed",
+      "text": "Ich spiele schon seit gut zwei Stunden nicht mehr...",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -63,6 +78,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         }
       ],
       "transition": "cut"
@@ -79,6 +98,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"

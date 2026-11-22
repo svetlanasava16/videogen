@@ -47,7 +47,14 @@
     {
       "id": "l5",
       "character": "paren",
-      "text": "Tell me, professor, when you go to bed, do you put your beard over the blanket or under the blanket?",
+      "text": "Tell me, professor, when you go to bed,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "paren",
+      "text": "do you put your beard over the blanket or under the blanket?",
       "emotion": "neutral",
       "pauseAfterSec": 0
     },
@@ -103,7 +110,14 @@
     {
       "id": "l13",
       "character": "doktor",
-      "text": "I haven't slept for a week — it's uncomfortable this way, and it's uncomfortable that way!",
+      "text": "I haven't slept for a week — it's uncomfortable this way,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l13b",
+      "character": "doktor",
+      "text": "and it's uncomfortable that way!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -178,6 +192,10 @@
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "pause",
@@ -285,6 +303,10 @@
         {
           "type": "line",
           "ref": "l13"
+        },
+        {
+          "type": "line",
+          "ref": "l13b"
         }
       ],
       "transition": "wipe"

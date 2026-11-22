@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "doktor",
-      "text": "I want you to eat regularly for two days, then skip a day, and repeat the procedure for two weeks.",
+      "text": "I want you to eat regularly for two days,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "doktor",
+      "text": "then skip a day, and repeat the procedure for two weeks.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -101,6 +108,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "line",

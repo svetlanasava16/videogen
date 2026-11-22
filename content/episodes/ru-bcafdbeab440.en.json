@@ -47,7 +47,14 @@
     {
       "id": "l5",
       "character": "narrator",
-      "text": "A hundred and twenty on the speedometer, the police don't fall behind. He kicks it all the way down and hits a full hundred and fifty. The police don't fall behind.",
+      "text": "A hundred and twenty on the speedometer, the police don't fall behind.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "narrator",
+      "text": "He kicks it all the way down and hits a full hundred and fifty. The police don't fall behind.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -68,14 +75,35 @@
     {
       "id": "l8",
       "character": "sluzhivy",
-      "text": "So I don't really feel like writing tickets. If you can come up with a good explanation for what you did, I'll let you go.",
+      "text": "So I don't really feel like writing tickets.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "sluzhivy",
+      "text": "If you can come up with a good explanation for what you did, I'll let you go.",
       "emotion": "smug",
       "pauseAfterSec": 0.6
     },
     {
       "id": "l9",
       "character": "muzhik",
-      "text": "Oh! You see, a week ago my wife ran off with a policeman, and I thought you were trying to bring her back...",
+      "text": "Oh!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "muzhik",
+      "text": "You see, a week ago my wife ran off with a policeman,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9c",
+      "character": "muzhik",
+      "text": "and I thought you were trying to bring her back...",
       "emotion": "surprised",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -135,6 +163,10 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
@@ -153,7 +185,19 @@
         },
         {
           "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
+        },
+        {
+          "type": "line",
+          "ref": "l9c"
         }
       ],
       "transition": "cut"

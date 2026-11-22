@@ -35,7 +35,15 @@
     {
       "id": "l3",
       "character": "zhena",
-      "text": "Милый, завтрак готов. Я ушла по магазинам, чтобы приготовить тебе вечером твой любимый ужин. Люблю тебя!",
+      "text": "Милый, завтрак готов.",
+      "offscreen": true,
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "zhena",
+      "text": "Я ушла по магазинам, чтобы приготовить тебе вечером твой любимый ужин. Люблю тебя!",
       "offscreen": true,
       "emotion": "happy",
       "pauseAfterSec": 0.4
@@ -71,7 +79,21 @@
     {
       "id": "l8",
       "character": "paren",
-      "text": "А, это. Мама затащила тебя в спальню, а когда стала тебя раздевать, ты заорал: «Отстань от меня, я женат!»",
+      "text": "А, это.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "paren",
+      "text": "Мама затащила тебя в спальню, а когда стала тебя раздевать,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8c",
+      "character": "paren",
+      "text": "ты заорал: «Отстань от меня, я женат!»",
       "emotion": "happy",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -127,6 +149,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         }
       ],
       "transition": "cut"
@@ -187,6 +213,14 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
+        },
+        {
+          "type": "line",
+          "ref": "l8c"
         }
       ],
       "transition": "wipe"

@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "doktor",
-      "text": "First: according to your latest test results, there is no longer any chance of a cure.",
+      "text": "First: according to your latest test results,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "doktor",
+      "text": "there is no longer any chance of a cure.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -99,6 +106,10 @@
         {
           "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",

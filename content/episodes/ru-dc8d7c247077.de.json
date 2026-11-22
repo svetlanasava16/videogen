@@ -19,7 +19,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Es ist heiß, die Straße geht bergauf, er ist fix und fertig. Auf der Brücke beschließt er, sich auszuruhen.",
+      "text": "Ein Mann fährt mit dem Fahrrad in sein Dorf. Es ist heiß, die Straße geht bergauf, er ist fix und fertig.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Auf der Brücke beschließt er, sich auszuruhen.",
       "emotion": "neutral",
       "pauseAfterSec": 0
     },
@@ -157,6 +164,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "act",

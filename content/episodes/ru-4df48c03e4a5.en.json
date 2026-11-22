@@ -61,7 +61,14 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Oh, but it does, colleague! When I leave the house, I lock three of them, and three I don't!",
+      "text": "Oh, but it does, colleague!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "When I leave the house, I lock three of them, and three I don't!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -122,6 +129,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

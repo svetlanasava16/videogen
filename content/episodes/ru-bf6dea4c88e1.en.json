@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Oh, you poor thing! Come on, hop in! I'm feeling generous today! You're coming with me!",
+      "text": "Oh, you poor thing! Come on, hop in!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "I'm feeling generous today! You're coming with me!",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -61,7 +68,21 @@
     {
       "id": "l7",
       "character": "nachalnik",
-      "text": "Don't mention it, bro! We'll be at my villa in a minute, you'll see for yourself how juicy and uncut my lawn is!",
+      "text": "Don't mention it, bro!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "nachalnik",
+      "text": "We'll be at my villa in a minute,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7c",
+      "character": "nachalnik",
+      "text": "you'll see for yourself how juicy and uncut my lawn is!",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -116,6 +137,10 @@
           "ref": "l4"
         },
         {
+          "type": "line",
+          "ref": "l4b"
+        },
+        {
           "type": "move",
           "who": "muzhik",
           "to": "right"
@@ -131,6 +156,14 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
+        },
+        {
+          "type": "line",
+          "ref": "l7c"
         }
       ],
       "transition": "cut"

@@ -47,7 +47,14 @@
     {
       "id": "l5",
       "character": "zhena",
-      "text": "Du willst Bier, Kätzchen? Schau mal, ich hab dir fünfundzwanzig Sorten Bier gekauft, helles und dunkles...",
+      "text": "Du willst Bier, Kätzchen?",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "zhena",
+      "text": "Schau mal, ich hab dir fünfundzwanzig Sorten Bier gekauft, helles und dunkles...",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -61,7 +68,14 @@
     {
       "id": "l7",
       "character": "zhena",
-      "text": "Liebster, schau mal in den Schrank, da hab ich dir eine ganze Auswahl an Chips hingelegt...",
+      "text": "Liebster, schau mal in den Schrank,",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "zhena",
+      "text": "da hab ich dir eine ganze Auswahl an Chips hingelegt...",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -82,7 +96,21 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Wie soll ich dir das erklären, Blauäuglein, in der Kneipe ist alles ganz anders, da kann man sich mal gehen lassen, und keiner verurteilt einen, da wird sogar frei geflucht...",
+      "text": "Wie soll ich dir das erklären, Blauäuglein, in der Kneipe ist alles ganz anders,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "muzhik",
+      "text": "da kann man sich mal gehen lassen,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10c",
+      "character": "muzhik",
+      "text": "und keiner verurteilt einen, da wird sogar frei geflucht...",
       "emotion": "sad",
       "pauseAfterSec": 0.4
     },
@@ -96,8 +124,16 @@
     {
       "id": "l12",
       "character": "zhena",
-      "text": "Dann trink doch dein bescheuertes Bier mit deinen Mist-Chips und diesen verdammten Garnelen, weil du verdammt noch mal nirgendwohin gehst, du Mistkerl!",
-      "uncensored": "Dann trink doch dein beschissenes Bier mit deinen Scheiß-Chips und diesen verfickten Garnelen, weil du verdammt noch mal nirgendwohin gehst, du Mistkerl!",
+      "text": "Dann trink doch dein bescheuertes Bier mit deinen Mist-Chips und diesen verdammten Garnelen,",
+      "uncensored": "Dann trink doch dein beschissenes Bier mit deinen Scheiß-Chips und diesen verfickten Garnelen,",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l12b",
+      "character": "zhena",
+      "text": "weil du verdammt noch mal nirgendwohin gehst, du Mistkerl!",
+      "uncensored": "weil du verdammt noch mal nirgendwohin gehst, du Mistkerl!",
       "emotion": "angry",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -146,11 +182,19 @@
         },
         {
           "type": "line",
+          "ref": "l5b"
+        },
+        {
+          "type": "line",
           "ref": "l6"
         },
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "line",
@@ -166,11 +210,23 @@
         },
         {
           "type": "line",
+          "ref": "l10b"
+        },
+        {
+          "type": "line",
+          "ref": "l10c"
+        },
+        {
+          "type": "line",
           "ref": "l11"
         },
         {
           "type": "line",
           "ref": "l12"
+        },
+        {
+          "type": "line",
+          "ref": "l12b"
         }
       ],
       "transition": "cut"

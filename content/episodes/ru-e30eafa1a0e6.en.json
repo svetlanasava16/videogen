@@ -70,7 +70,14 @@
     {
       "id": "l8",
       "character": "tyoshcha",
-      "text": "Have a look in the surgical ward, some man's been sitting there for ages, maybe he's yours?",
+      "text": "Have a look in the surgical ward,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l8b",
+      "character": "tyoshcha",
+      "text": "some man's been sitting there for ages, maybe he's yours?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -225,6 +232,10 @@
         {
           "type": "line",
           "ref": "l8"
+        },
+        {
+          "type": "line",
+          "ref": "l8b"
         }
       ],
       "transition": "flyover"

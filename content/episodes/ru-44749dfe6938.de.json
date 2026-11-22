@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "Und stell dir vor, Sofie, ich komme in unser Schlafzimmer, und da wälzt er sich mit der Nachbarin auf unserem Bett!",
+      "text": "Und stell dir vor, Sofie, ich komme in unser Schlafzimmer,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "zhena",
+      "text": "und da wälzt er sich mit der Nachbarin auf unserem Bett!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Oh, Sofie, meine Haltestelle! Ich fahre um sechs von der Arbeit zurück und erzähl dir den Rest.",
+      "text": "Oh, Sofie, meine Haltestelle!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "zhena",
+      "text": "Ich fahre um sechs von der Arbeit zurück und erzähl dir den Rest.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
@@ -109,11 +123,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "move",

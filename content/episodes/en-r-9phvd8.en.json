@@ -65,7 +65,14 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "All kinds of bad things will happen. Absolutely not! You cannot have any cyanide!",
+      "text": "All kinds of bad things will happen.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "Absolutely not! You cannot have any cyanide!",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -151,6 +158,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "prop",

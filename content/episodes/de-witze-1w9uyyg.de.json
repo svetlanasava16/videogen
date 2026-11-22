@@ -26,8 +26,16 @@
     {
       "id": "l2",
       "character": "nachalnik",
-      "text": "Also, Herr Meier, der Angeklagte hat behauptet, Sie seien ein Mistkerl. Stimmt das?",
-      "uncensored": "Also, Herr Meier, der Angeklagte hat behauptet, Sie seien ein Arschloch. Stimmt das?",
+      "text": "Also, Herr Meier, der Angeklagte hat behauptet, Sie seien ein Mistkerl.",
+      "uncensored": "Also, Herr Meier, der Angeklagte hat behauptet, Sie seien ein Arschloch.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "nachalnik",
+      "text": "Stimmt das?",
+      "uncensored": "Stimmt das?",
       "emotion": "neutral",
       "pauseAfterSec": 0.4
     },
@@ -85,6 +93,10 @@
         {
           "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "line",

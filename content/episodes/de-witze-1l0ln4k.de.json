@@ -26,14 +26,28 @@
     {
       "id": "l2",
       "character": "paren",
-      "text": "Das ist aber ein toller, neuer Wagen, den Sie da haben. Da wird man ja direkt neidisch.",
+      "text": "Das ist aber ein toller, neuer Wagen, den Sie da haben.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "paren",
+      "text": "Da wird man ja direkt neidisch.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l3",
       "character": "nachalnik",
-      "text": "Wissen Sie, wenn Sie das ganze Jahr hart arbeiten, alles für den Erfolg der Firma in die Waagschale schmeißen und das Ergebnis vom vergangenen Geschäftsjahr toppen,",
+      "text": "Wissen Sie, wenn Sie das ganze Jahr hart arbeiten,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "nachalnik",
+      "text": "alles für den Erfolg der Firma in die Waagschale schmeißen und das Ergebnis vom vergangenen Geschäftsjahr toppen,",
       "emotion": "smug",
       "pauseAfterSec": 0.6
     },
@@ -100,7 +114,15 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l3b"
         },
         {
           "type": "line",

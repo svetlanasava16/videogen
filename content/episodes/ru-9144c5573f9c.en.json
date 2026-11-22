@@ -33,7 +33,14 @@
     {
       "id": "l3",
       "character": "muzhik",
-      "text": "I crawl out, there's nobody up there, I lie down, and I feel it: someone is under the bed after all.",
+      "text": "I crawl out, there's nobody up there, I lie down,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l3b",
+      "character": "muzhik",
+      "text": "and I feel it: someone is under the bed after all.",
       "emotion": "sad",
       "pauseAfterSec": 0.3
     },
@@ -47,7 +54,14 @@
     {
       "id": "l5",
       "character": "doktor",
-      "text": "Yes, that's a complicated syndrome. We'll treat you intensively, for two or three months.",
+      "text": "Yes, that's a complicated syndrome.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l5b",
+      "character": "doktor",
+      "text": "We'll treat you intensively, for two or three months.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -140,11 +154,19 @@
         },
         {
           "type": "line",
+          "ref": "l3b"
+        },
+        {
+          "type": "line",
           "ref": "l4"
         },
         {
           "type": "line",
           "ref": "l5"
+        },
+        {
+          "type": "line",
+          "ref": "l5b"
         },
         {
           "type": "line",

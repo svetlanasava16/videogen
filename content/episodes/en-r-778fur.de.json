@@ -61,7 +61,14 @@
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Es besteht nicht der geringste Zweifel: Sie besitzen einen echten Van Gogh und eine echte Stradivari.",
+      "text": "Es besteht nicht der geringste Zweifel:",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "Sie besitzen einen echten Van Gogh und eine echte Stradivari.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -75,7 +82,14 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "Nun ja, verkaufen können Sie sie, und als Kuriosität bringen sie auch etwas Geld. Aber keine Millionen.",
+      "text": "Nun ja, verkaufen können Sie sie, und als Kuriosität bringen sie auch etwas Geld.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "doktor",
+      "text": "Aber keine Millionen.",
       "emotion": "neutral",
       "pauseAfterSec": 0.6
     },
@@ -184,11 +198,19 @@
         },
         {
           "type": "line",
+          "ref": "l7b"
+        },
+        {
+          "type": "line",
           "ref": "l8"
         },
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         },
         {
           "type": "line",

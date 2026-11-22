@@ -19,14 +19,28 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "Während des Ausverkaufs versucht ein Mann, mit ein paar reduzierten Artikeln zur Kasse zu gelangen, aber er hat nicht den Hauch einer Chance.",
+      "text": "Während des Ausverkaufs versucht ein Mann,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "mit ein paar reduzierten Artikeln zur Kasse zu gelangen, aber er hat nicht den Hauch einer Chance.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
     {
       "id": "l2",
       "character": "narrator",
-      "text": "Jedes Mal, wenn er in der Menge ein Stück weiter nach vorne gekommen ist, wird er von den noch stärker drängelnden Damen wieder nach hinten geschoben.",
+      "text": "Jedes Mal, wenn er in der Menge ein Stück weiter nach vorne gekommen ist,",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "narrator",
+      "text": "wird er von den noch stärker drängelnden Damen wieder nach hinten geschoben.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -61,7 +75,14 @@
     {
       "id": "l7",
       "character": "muzhik",
-      "text": "Aber als ich damit nicht weiterkam, habe ich angefangen, mich wie eine Dame zu verhalten.",
+      "text": "Aber als ich damit nicht weiterkam,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "muzhik",
+      "text": "habe ich angefangen, mich wie eine Dame zu verhalten.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -108,7 +129,15 @@
         },
         {
           "type": "line",
+          "ref": "l1b"
+        },
+        {
+          "type": "line",
           "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l2b"
         },
         {
           "type": "crowd",
@@ -142,6 +171,10 @@
         {
           "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         }
       ],
       "transition": "cut"

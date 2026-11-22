@@ -23,7 +23,14 @@
     {
       "id": "l1",
       "character": "narrator",
-      "text": "A Volvo clips a jeep at an intersection. Everyone stops, a bunch of guys in tracksuits pile out of the jeep and walk up to the Volvo driver.",
+      "text": "A Volvo clips a jeep at an intersection.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l1b",
+      "character": "narrator",
+      "text": "Everyone stops, a bunch of guys in tracksuits pile out of the jeep and walk up to the Volvo driver.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -112,6 +119,10 @@
         {
           "type": "line",
           "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l1b"
         },
         {
           "type": "move",

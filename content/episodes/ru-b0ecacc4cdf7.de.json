@@ -82,7 +82,14 @@
     {
       "id": "l10",
       "character": "muzhik",
-      "text": "Ich habe überhaupt keine Angst vorm Fliegen, ich versuche, mit dem Trinken aufzuhören!",
+      "text": "Ich habe überhaupt keine Angst vorm Fliegen,",
+      "emotion": "sad",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l10b",
+      "character": "muzhik",
+      "text": "ich versuche, mit dem Trinken aufzuhören!",
       "emotion": "sad",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -185,6 +192,10 @@
         {
           "type": "line",
           "ref": "l10"
+        },
+        {
+          "type": "line",
+          "ref": "l10b"
         }
       ],
       "transition": "cut"

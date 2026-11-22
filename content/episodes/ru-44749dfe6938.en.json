@@ -26,7 +26,14 @@
     {
       "id": "l2",
       "character": "zhena",
-      "text": "And can you imagine, Sophie, I walk into our bedroom, and there he is, rolling around with the neighbour on our bed!",
+      "text": "And can you imagine, Sophie, I walk into our bedroom,",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l2b",
+      "character": "zhena",
+      "text": "and there he is, rolling around with the neighbour on our bed!",
       "emotion": "surprised",
       "pauseAfterSec": 0.3
     },
@@ -40,7 +47,14 @@
     {
       "id": "l4",
       "character": "zhena",
-      "text": "Oh, Sophie, this is my stop! I'll take the bus home from work at six and tell you the rest.",
+      "text": "Oh, Sophie, this is my stop!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "zhena",
+      "text": "I'll take the bus home from work at six and tell you the rest.",
       "emotion": "surprised",
       "pauseAfterSec": 0.4
     },
@@ -109,11 +123,19 @@
         },
         {
           "type": "line",
+          "ref": "l2b"
+        },
+        {
+          "type": "line",
           "ref": "l3"
         },
         {
           "type": "line",
           "ref": "l4"
+        },
+        {
+          "type": "line",
+          "ref": "l4b"
         },
         {
           "type": "move",

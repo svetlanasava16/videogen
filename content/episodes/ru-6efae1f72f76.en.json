@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "chort",
-      "text": "You just don't remember anything! Your second wish was to make everything exactly the way it was before the first wish.",
+      "text": "You just don't remember anything!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "chort",
+      "text": "Your second wish was to make everything exactly the way it was before the first wish.",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -54,7 +61,14 @@
     {
       "id": "l6",
       "character": "muzhik",
-      "text": "Okay then, let me think... Ah, I want to become the most irresistible man to all women!",
+      "text": "Okay then, let me think...",
+      "emotion": "happy",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "muzhik",
+      "text": "Ah, I want to become the most irresistible man to all women!",
       "emotion": "happy",
       "pauseAfterSec": 0.3
     },
@@ -126,11 +140,19 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         },
         {
           "type": "line",

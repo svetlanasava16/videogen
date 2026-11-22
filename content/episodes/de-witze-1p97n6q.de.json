@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Sie müssen ein Ingenieur sein. Ihre Antwort war absolut korrekt, aber überhaupt nicht hilfreich.",
+      "text": "Sie müssen ein Ingenieur sein.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "Ihre Antwort war absolut korrekt, aber überhaupt nicht hilfreich.",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
@@ -54,7 +61,14 @@
     {
       "id": "l6",
       "character": "paren",
-      "text": "Sie wissen nicht, wo Sie sind, Sie sind absolut hilflos, und trotzdem ist auf einmal alles meine Schuld.",
+      "text": "Sie wissen nicht, wo Sie sind, Sie sind absolut hilflos,",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "paren",
+      "text": "und trotzdem ist auf einmal alles meine Schuld.",
       "emotion": "smug",
       "pauseAfterSec": 0.8,
       "laugh": "big"
@@ -105,11 +119,19 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
           "type": "line",
           "ref": "l6"
+        },
+        {
+          "type": "line",
+          "ref": "l6b"
         }
       ],
       "transition": "cut"

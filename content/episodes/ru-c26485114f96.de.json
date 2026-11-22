@@ -40,7 +40,14 @@
     {
       "id": "l4",
       "character": "nachalnik",
-      "text": "Hör mal, wenn du Psychologe bist, dann errate meine Gedanken. Für jeden erratenen zahle ich dir hundert Euro.",
+      "text": "Hör mal, wenn du Psychologe bist, dann errate meine Gedanken.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l4b",
+      "character": "nachalnik",
+      "text": "Für jeden erratenen zahle ich dir hundert Euro.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -54,14 +61,28 @@
     {
       "id": "l6",
       "character": "nachalnik",
-      "text": "Mann, hast du nicht verstanden? Hundert Euro pro Stück! Los, streng dich an, woran denke ich gerade?",
+      "text": "Mann, hast du nicht verstanden? Hundert Euro pro Stück!",
+      "emotion": "angry",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l6b",
+      "character": "nachalnik",
+      "text": "Los, streng dich an, woran denke ich gerade?",
       "emotion": "angry",
       "pauseAfterSec": 0.4
     },
     {
       "id": "l7",
       "character": "doktor",
-      "text": "Also, du kommst aus dem Süden. Bestimmt denkst du daran, wie toll du Urlaub gemacht hast!",
+      "text": "Also, du kommst aus dem Süden.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l7b",
+      "character": "doktor",
+      "text": "Bestimmt denkst du daran, wie toll du Urlaub gemacht hast!",
       "emotion": "neutral",
       "pauseAfterSec": 0.3
     },
@@ -75,7 +96,14 @@
     {
       "id": "l9",
       "character": "doktor",
-      "text": "Und wenn du toll Urlaub gemacht hast, dann mit einer schönen Frau. Bestimmt denkst du an sie.",
+      "text": "Und wenn du toll Urlaub gemacht hast, dann mit einer schönen Frau.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.15
+    },
+    {
+      "id": "l9b",
+      "character": "doktor",
+      "text": "Bestimmt denkst du an sie.",
       "emotion": "smug",
       "pauseAfterSec": 0.3
     },
@@ -204,6 +232,10 @@
         },
         {
           "type": "line",
+          "ref": "l4b"
+        },
+        {
+          "type": "line",
           "ref": "l5"
         },
         {
@@ -212,7 +244,15 @@
         },
         {
           "type": "line",
+          "ref": "l6b"
+        },
+        {
+          "type": "line",
           "ref": "l7"
+        },
+        {
+          "type": "line",
+          "ref": "l7b"
         },
         {
           "type": "prop",
@@ -227,6 +267,10 @@
         {
           "type": "line",
           "ref": "l9"
+        },
+        {
+          "type": "line",
+          "ref": "l9b"
         },
         {
           "type": "line",
