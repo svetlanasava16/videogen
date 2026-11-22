@@ -54,7 +54,7 @@ const Tile = ({ kind, i, grid, moving }: { kind: VehicleKind; i: number; grid: b
           const fy = FLOOR - s.dy * sc;
           return (
             <div key={k} style={{ position: "absolute", left: fx - w / 2, top: fy - (h * 585) / BOX_H, width: w, height: h, display: "flex", justifyContent: "center" }}>
-              <Puppet look={ch.look} emotion="neutral" speaking={false} seed={k} seated={1} facing={1} />
+              <Puppet look={ch.look} emotion="neutral" speaking={false} seed={k} t={0} seated={1} facing={1} />
             </div>
           );
         })}

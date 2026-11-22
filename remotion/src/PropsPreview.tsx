@@ -26,7 +26,7 @@ const Tile = ({ id, rest, i }: { id: string; rest: boolean; i: number }) => {
     <div style={{ position: "relative", width: TW, height: TH, background: i % 2 ? "#f2e6d0" : "#f6ecd9", overflow: "hidden", outline: "1px solid #e0cfae" }}>
       <div style={{ position: "absolute", left: 0, right: 0, top: FLOOR, bottom: 0, background: "#d8c4a0" }} />
       <div style={{ position: "absolute", left: 10, top: FLOOR - (PH * 585) / BOX_H, width: pw, height: PH, display: "flex", justifyContent: "center" }}>
-        <Puppet look={characters.muzhik.look} emotion="neutral" speaking={false} seed={0} facing={1} hold={id} />
+        <Puppet look={characters.muzhik.look} emotion="neutral" speaking={false} seed={0} t={0} facing={1} hold={id} />
       </div>
       <svg width={TW} height={TH} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
         <rect x={TABLE_X - 110} y={surf} width={220} height={14} rx={4} fill="#8a5a3a" />
@@ -75,7 +75,7 @@ const SetTile = ({ item, i, sit }: { item: string; i: number; sit?: boolean }) =
       <div style={{ position: "absolute", left: px - pw / 2, top: SET_FLOOR - (ph * 585) / BOX_H, width: pw, height: ph, display: "flex", justifyContent: "center" }}>
         <Puppet
           look={item === "towel" ? { ...characters.muzhik.look, clothes: characters.muzhik.look.skin, accessories: ["towel-wrap", "bath-hat"] } : characters.muzhik.look}
-          emotion="neutral" speaking={false} seed={0} facing={-1} seated={sit ? 1 : 0} hold={item === "sink" ? "dishes" : undefined}
+          emotion="neutral" speaking={false} seed={0} t={0} facing={-1} seated={sit ? 1 : 0} hold={item === "sink" ? "dishes" : undefined}
         />
       </div>
       <div style={{ position: "absolute", left: 16, top: 10, fontFamily: FONT, fontWeight: 800, fontSize: 40, color: "#2b1d14" }}>{item === "towel" ? "towel-wrap + bath-hat" : item}</div>

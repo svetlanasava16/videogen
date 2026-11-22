@@ -50,7 +50,7 @@ const Tile = ({ look, label, act, t, facing, hold, bg }: { look: Look; label: st
     <div style={{ position: "relative", width: TW, height: TH, background: bg, overflow: "hidden" }}>
       <div style={{ position: "absolute", left: 0, right: 0, top: TH - 40, bottom: 0, background: "#d8c4a0" }} />
       <div style={{ position: "absolute", left: (TW - pw) / 2, top: TH - 40 - (PH * 585) / BOX_H, width: pw, height: PH, display: "flex", justifyContent: "center" }}>
-        <Puppet look={look} emotion="neutral" speaking={false} seed={0} facing={facing ?? 1} hold={hold} act={act ? { name: act, k: 1, t: t ?? 1 } : undefined} />
+        <Puppet look={look} emotion="neutral" speaking={false} seed={0} t={0} facing={facing ?? 1} hold={hold} act={act ? { name: act, k: 1, t: t ?? 1 } : undefined} />
       </div>
       <div style={{ position: "absolute", left: 10, top: 6, fontFamily: FONT, fontWeight: 800, fontSize: 22, color: "#2b1d14" }}>{label}</div>
     </div>

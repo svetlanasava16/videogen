@@ -1,11 +1,10 @@
 import { useId } from "react";
-import { useCurrentFrame } from "remotion";
 import type { Act, Emotion, Look } from "@jf/core";
 import { ANIMALS, Accessory, BACK, BOTH, DEFAULT_HAIR, FRONT, FUR, FUR_TRIM, GhostSheet, HAND, HairBack, HairTop, LAYER, OVER, PLASTER, RIG, ROBES, defaultBuild, isChild, isDark as isDarkC, outfitOf, spotColor } from "./Accessories";
 import type { BodyGeo } from "./Accessories";
 import { Face } from "./Face";
 import { PropItem } from "../props/Props";
-import { BODY_TOP, BUILDS, armAngles, asBuild, blink, bodyBob, legAngles, mouthOpen } from "./motion";
+import { BODY_TOP, BUILDS, armAngles, asBuild, blink, bodyBob, frameAt, legAngles, mouthOpen } from "./motion";
 import { HAND_ITEM, basePose, mR, mT, mmul, resolvePose } from "./acts";
 import type { ArmP, HandShape, LegP, RigGeo } from "./acts";
 import { FxLayer } from "./Fx";
@@ -36,6 +35,8 @@ export type PuppetProps = {
   /** Реквизит в правой руке (content/props.json). */
   hold?: string;
   seed: number;
+  /** Время, секунды (с начала сцены или ролика): от него — моргание, речь, шаг. Риг не зависит от Remotion. */
+  t: number;
   /**
    * Действие (бит act): name — из ACTS (@jf/core), k — сила позы 0..1 (плавный вход/выход),
    * t — секунды с начала действия (для циклов: машет, хлопает, смеётся, бежит, дрожит).
@@ -55,8 +56,8 @@ export type PuppetProps = {
  * Позы действий (act, seated, flinch) — в acts.ts: там поза — набор углов, здесь она только рисуется.
  * Руки и ноги — по два звена (плечо+предплечье, бедро+голень); без действия звенья на одной линии и фигура как прежде.
  */
-export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, act, base, seated = 0, flinch = 0 }: PuppetProps) => {
-  const frame = useCurrentFrame();
+export const Puppet = ({ look, emotion, speaking, walk = 0, facing = 1, hold, seed, t, act, base, seated = 0, flinch = 0 }: PuppetProps) => {
+  const frame = frameAt(t);
   const uid = useId().replace(/:/g, "");
   const { kind, skin, clothes, accent } = look;
   const acc = look.accessories ?? [];

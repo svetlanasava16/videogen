@@ -1,8 +1,8 @@
-import { useCurrentFrame } from "remotion";
 import { lookForRole, type Crowd as CrowdSpec, type Emotion, type Look } from "@jf/core";
 import { characters } from "../registry";
 import { BOX_H, BOX_W, Puppet } from "../components/Puppet";
 import type { CrowdEvent } from "../timeline";
+import { frameAt } from "../puppet/motion";
 
 /** Одежда массовки: приглушённые цвета, чтобы фигуры не спорили с героями. */
 const CLOTHES = ["#7a8a9a", "#9a7f6a", "#6f8a72", "#8c7aa0", "#a08a5a", "#6a7f9a", "#9a6f6f", "#7f7f7f"];
@@ -55,10 +55,11 @@ function pose(react: CrowdEvent["react"] | undefined, frame: number, i: number) 
  * Массовка: задний ряд молчаливых фигур за героями (пассажиры, ученики, гости).
  * floorY — линия пола героев; фигуры меньше и выше по кадру — стоят дальше.
  */
-export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
-  spec: CrowdSpec; events: CrowdEvent[]; seed: string; width: number; floorY: number; heroH: number;
+export const Crowd = ({ spec, events, seed, width, floorY, heroH, t }: {
+  /** t — время, секунды; события (events) — в кадрах той же шкалы (FPS). */
+  spec: CrowdSpec; events: CrowdEvent[]; seed: string; width: number; floorY: number; heroH: number; t: number;
 }) => {
-  const frame = useCurrentFrame();
+  const frame = frameAt(t);
   const looks = figures(spec, seed);
   // убежали — больше не показываем
   if (events.some((e) => e.react === "flee" && frame > e.to)) return null;
@@ -89,7 +90,7 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
             position: "absolute", left: x - w / 2 + q.dx, top: feet - (h * 585) / BOX_H + q.dy, width: w, height: h,
             display: "flex", justifyContent: "center",
           }}>
-            <Puppet look={look} emotion={q.emotion} speaking={q.speaking} seed={i * 31 + 7}
+            <Puppet look={look} emotion={q.emotion} speaking={q.speaking} seed={i * 31 + 7} t={t}
               walk={ev?.react === "flee" && !delay ? 1 : 0}
               seated={seated && !(ev?.react === "flee" && !delay) ? 1 : 0}
               facing={ev?.react === "flee" && !delay ? (x < width / 2 ? -1 : 1) : i % 2 ? -1 : 1} />
@@ -110,10 +111,10 @@ export const Crowd = ({ spec, events, seed, width, floorY, heroH }: {
  * Зрители в зале (crowd.at = "front"): два ряда тёмных силуэтов голов и плеч в нижней части кадра,
  * спиной к нам, смотрят на сцену. Реагируют покачиванием, подпрыгиванием, руками вверх.
  */
-export const CrowdFront = ({ spec, events, seed, width, height }: {
-  spec: CrowdSpec; events: CrowdEvent[]; seed: string; width: number; height: number;
+export const CrowdFront = ({ spec, events, seed, width, height, t }: {
+  spec: CrowdSpec; events: CrowdEvent[]; seed: string; width: number; height: number; t: number;
 }) => {
-  const frame = useCurrentFrame();
+  const frame = frameAt(t);
   if (events.some((e) => e.react === "flee" && frame > e.to)) return null;
   const ev = events.find((e) => frame >= e.from && frame <= e.to + 6);
   const kids = KID_CROWDS.includes(spec.who);

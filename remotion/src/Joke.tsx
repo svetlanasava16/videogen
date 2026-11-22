@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { NARRATOR, PLANES, lookForRole, markOf, marksFor, subLocation, type Episode, type SetItem } from "@jf/core";
 import { costumeFor } from "./puppet/costume";
+import { FPS } from "./puppet/motion";
 import { characters, locations } from "./registry";
 import { buildTimeline, type SceneTL, type Timeline } from "./timeline";
 import { Background } from "./components/Background";
@@ -396,6 +397,7 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
           facing={facing}
           hold={tl.holding(sc, id, frame)}
           seed={sc.scene.cast.indexOf(id) * 17 + i}
+          t={frame / FPS}
           act={act}
           base={base}
           seated={geo.seatedAt(id, frame)}
@@ -511,11 +513,11 @@ const Stage = ({ ep, tl, sc }: { ep: Episode; tl: Timeline; sc: SceneTL }) => {
         <Background location={locations[sc.scene.location]} place={sc.scene.place} />
       </div>
       {crowd && crowd.at !== "front" && (
-        <Crowd spec={crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} />
+        <Crowd spec={crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} floorY={geo.floorY} heroH={height * PUPPET_H} t={frame / FPS} />
       )}
       {draw.map((d) => d.node)}
       {sc.scene.crowd?.at === "front" && (
-        <CrowdFront spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} height={height} />
+        <CrowdFront spec={sc.scene.crowd} events={sc.crowd} seed={`${ep.id}:${sc.index}`} width={geo.stageW} height={height} t={frame / FPS} />
       )}
     </div>
   );

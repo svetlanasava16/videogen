@@ -46,6 +46,7 @@ export const Acts = ({ who = "muzhik" }: { who?: string }) => {
               emotion="neutral"
               speaking={false}
               seed={0}
+              t={0}
               facing={tile.facing ?? 1}
               hold={tile.hold}
               seated={tile.seated}

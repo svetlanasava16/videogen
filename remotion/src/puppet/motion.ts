@@ -26,6 +26,11 @@ const hash = (n: number) => {
 };
 
 /** Моргание: раз в 3–5 с закрытые глаза на 4 кадра. */
+/** Частота кадров, в которой заданы периоды анимации (циклы ниже считаются в кадрах этой частоты). */
+export const FPS = 30;
+/** Время (секунды) → номер кадра для формул анимации; округление убирает погрешность t·FPS (7/30·30 = 7.000…1). */
+export const frameAt = (t: number) => Math.round(t * FPS * 1e6) / 1e6;
+
 export function blink(frame: number, seed: number, fps = 30): boolean {
   const period = Math.round(fps * (3 + hash(seed) * 2));
   const phase = (frame + Math.round(hash(seed + 1) * period)) % period;

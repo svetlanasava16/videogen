@@ -14,7 +14,7 @@ export const Cast = () => {
       {list.map((c) => (
         <div key={c.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ height: 360 }}>
-            <Puppet look={c.look} speaking={false} emotion="neutral" seed={0} />
+            <Puppet look={c.look} speaking={false} emotion="neutral" seed={0} t={0} />
           </div>
           <div style={{ fontFamily: FONT, fontWeight: 800, fontSize: 30, color: "#2b1d14", textAlign: "center" }}>
             {c.name.ru}
