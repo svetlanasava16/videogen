@@ -11,6 +11,7 @@ import { Locations } from "./Locations";
 import { BackdropLayer } from "./art/BackdropLayer";
 import { Cover } from "./Cover";
 import { TownPreview } from "./world/Flyover";
+import { FlyoverPreview } from "./world/FlyoverPreview";
 import { Compilation, CompilationProps, compilationLayout } from "./Compilation";
 import demo2 from "../../content/episodes/test-scenes.ru.json";
 import { buildTimeline } from "./timeline";
@@ -41,6 +42,8 @@ export const Root = () => (
       return { durationInFrames: compilationLayout(p).durationInFrames, props: p };
     }}
   />
+  <Composition id="Flyover" component={FlyoverPreview} width={1080} height={1920} fps={30} durationInFrames={48} defaultProps={{ from: "home", to: "heaven", locale: "ru" as const, frames: 48, straight: false }}
+    calculateMetadata={({ props }) => ({ durationInFrames: (props as { frames?: number }).frames ?? 48 })} />
   <Composition id="Town" component={TownPreview} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ locale: "ru" as const }} />
   <Composition id="Cover" component={Cover} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={defaultEpisode}
     calculateMetadata={({ props }) => ({ props: Episode.parse(props) })} />

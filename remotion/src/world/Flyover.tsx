@@ -3,6 +3,7 @@ import { Fill } from "../lib/Fill";
 import type { Locale } from "@jf/core";
 import { TownMap, TOWN_H, TOWN_W } from "./TownMap";
 import type { Building } from "./town";
+import { routeBetween, type TownRoute } from "./route";
 import { Watermark } from "../components/Branding";
 
 const ease = Easing.inOut(Easing.cubic);
@@ -26,22 +27,35 @@ const viewBox = (b: Box) => {
   return `${x} ${y} ${b.w} ${h}`;
 };
 
+/** Окно, в которое помещается весь маршрут по графу (с полями), в пропорции кадра. */
+function around(r: TownRoute): Box {
+  const xs = r.legs.flatMap((l) => [l.x1, l.x2]), ys = r.legs.flatMap((l) => [l.y1, l.y2]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const pad = 380;
+  const w = Math.max(x1 - x0 + pad * 2, (y1 - y0 + pad * 2) / ASPECT, CLOSE_W * 1.6);
+  return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2 - 60, w: Math.min(w, TOWN_H / ASPECT) };
+}
+
 const mix = (a: Box, b: Box, k: number): Box => ({ cx: a.cx + (b.cx - a.cx) * k, cy: a.cy + (b.cy - a.cy) * k, w: a.w + (b.w - a.w) * k });
 
 /**
  * Пролёт над городом между сценами/анекдотами. Перекрывает стык at на frames кадров:
- * сцена растворяется в карту у здания from, камера отъезжает и летит к зданию to, приближается, карта растворяется в новую сцену.
+ * сцена растворяется в карту у здания from, камера отъезжает, по пути графа городка (content/world/map.json: улицы, мост,
+ * автобус, самолёт, небо) бежит метка, камера приближается к зданию to, карта растворяется в новую сцену.
+ * Нет пути (то же здание) — прямой пролёт, как раньше.
  */
-export const Flyover = ({ frame, at, frames, from, to, locale }: { frame: number; at: number; frames: number; from: Building; to: Building; locale: Locale }) => {
+export const Flyover = ({ frame, at, frames, from, to, locale, straight }: { frame: number; at: number; frames: number; from: Building; to: Building; locale: Locale; straight?: boolean }) => {
   const start = at - frames / 2;
   if (frame < start || frame > at + frames / 2) return null;
   const p = interpolate(frame, [start, at + frames / 2], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const A = focus(from), B = focus(to), M = both(from, to);
+  const route = straight ? undefined : routeBetween(from.id, to.id);
+  const A = focus(from), B = focus(to), M = route ? around(route) : both(from, to);
   const box = p < 0.5 ? mix(A, M, ease(p / 0.5)) : mix(M, B, ease((p - 0.5) / 0.5));
   const opacity = interpolate(p, [0, 0.14, 0.86, 1], [0, 1, 1, 0]);
+  const progress = ease(interpolate(p, [0.22, 0.78], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
   return (
     <Fill style={{ opacity }}>
-      <TownMap viewBox={viewBox(box)} locale={locale} highlight={p < 0.5 ? from.id : to.id} />
+      <TownMap viewBox={viewBox(box)} locale={locale} highlight={p < 0.5 ? from.id : to.id} route={route && { route, progress }} />
       <Watermark />
     </Fill>
   );
@@ -69,3 +83,4 @@ export const TownPreview = ({ locale = "ru" as Locale }: { locale?: Locale }) =>
     <TownMap viewBox={`0 0 ${TOWN_W} ${TOWN_H}`} locale={locale} />
   </Fill>
 );
+

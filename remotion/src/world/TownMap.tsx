@@ -5,6 +5,7 @@
  */
 import type { Locale } from "@jf/core";
 import { town, type Building } from "./town";
+import { pointOn, type TownRoute } from "./route";
 import { FONT } from "../fonts";
 
 const W = town.size.w;
@@ -179,8 +180,29 @@ function Icon({ b }: { b: Building }) {
   }
 }
 
-/** Карта целиком; highlight — здание, к которому летим (подсветка). */
-export const TownMap = ({ viewBox, locale, highlight, labels = true }: { viewBox: string; locale: Locale; highlight?: string; labels?: boolean }) => (
+/** Вид пути → штрих линии маршрута: по земле — сплошная, транспорт — пунктир, небо/самолёт — точки. */
+const LEG_DASH: Record<string, string | undefined> = { street: undefined, road: undefined, bridge: undefined, bus: "60 30", tram: "60 30", boat: "60 30", underground: "20 30", plane: "4 36", sky: "4 36" };
+
+/** Маршрут пролёта: весь путь бледно, пройденная доля progress — ярко, метка в текущей точке. */
+const RouteLine = ({ route, progress, marker }: { route: TownRoute; progress: number; marker?: boolean }) => {
+  const head = pointOn(route, progress);
+  if (marker) return <circle cx={head.x} cy={head.y} r={34} fill="#e8473c" stroke="#fff" strokeWidth={10} />;
+  let left = progress * route.len;
+  return (
+    <g strokeLinecap="round" fill="none">
+      {route.legs.map((l, i) => <line key={`a${i}`} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="#fff" strokeWidth={26} strokeDasharray={LEG_DASH[l.kind]} opacity={0.55} />)}
+      {route.legs.map((l, i) => {
+        const k = Math.max(0, Math.min(1, left / (l.len || 1)));
+        left -= l.len;
+        if (k <= 0) return null;
+        return <line key={`b${i}`} x1={l.x1} y1={l.y1} x2={l.x1 + (l.x2 - l.x1) * k} y2={l.y1 + (l.y2 - l.y1) * k} stroke={C.ink} strokeWidth={16} strokeDasharray={LEG_DASH[l.kind]} />;
+      })}
+    </g>
+  );
+};
+
+/** Карта целиком; highlight — здание, к которому летим (подсветка); route — путь пролёта по графу и пройденная доля. */
+export const TownMap = ({ viewBox, locale, highlight, labels = true, route }: { viewBox: string; locale: Locale; highlight?: string; labels?: boolean; route?: { route: TownRoute; progress: number } }) => (
   <svg viewBox={viewBox} width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: 0 }}>
     {/* небо и облака небес */}
     <rect x={-W} y={-H} width={W * 3} height={H * 3} fill={C.sky} />
@@ -204,6 +226,7 @@ export const TownMap = ({ viewBox, locale, highlight, labels = true }: { viewBox
     <path d={`M${-W} 3200 Q ${W / 2} 3150 ${W * 2} 3200`} fill={C.dark} />
     {/* деревья для уюта */}
     {[[150, 1480], [1900, 1500], [150, 1950], [1950, 2400], [700, 2800], [1300, 2820]].map(([x, y]) => <Tree key={`${x}${y}`} x={x} y={y} s={1.2} />)}
+    {route && <RouteLine {...route} />}
     {/* здания */}
     {town.buildings.map((b) => (
       <g key={b.id} transform={`translate(${b.x} ${b.y})`}>
@@ -217,6 +240,7 @@ export const TownMap = ({ viewBox, locale, highlight, labels = true }: { viewBox
         )}
       </g>
     ))}
+    {route && <RouteLine {...route} marker />}
   </svg>
 );
 
