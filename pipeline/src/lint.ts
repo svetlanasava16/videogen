@@ -4,7 +4,8 @@
  *
  * Правила:
  *  - mentioned-offscreen — в реплике «это моя жена» / «this is my wife», а куклы с этой ролью в сцене нет, хотя место есть;
- *  - long-line           — реплика длиннее трёх строк субтитров (показывается частями); fix — делим по границе предложения;
+ *  - long-line           — реплика длиннее трёх строк субтитров (показывается частями); fix — делим по границе предложения
+ *                          или запятой, слова не меняются; что так не делится — остаётся как есть (в redo не идёт);
  *  - no-voice            — у говорящей куклы нет голоса для языка эпизода (кастинг, не сценарий: в redo не идёт);
  *  - seat-shared         — на одну метку-сиденье садятся двое; fix — второй садится на ближайшее свободное сиденье;
  *  - vehicle-covers      — машина стоит перед говорящим и закрывает его, пока он говорит;
@@ -26,8 +27,12 @@ import { ROOT } from "./util.js";
 
 export type Rule = "mentioned-offscreen" | "long-line" | "no-voice" | "seat-shared" | "vehicle-covers" | "act-after-line";
 export type Finding = { id: string; rule: Rule; level: "error" | "warn" | "info"; msg: string; fixable?: boolean };
-/** Правила, которые чинит LLM (переписать сценарий); no-voice — дело кастинга. */
-const REDO_RULES: Rule[] = ["mentioned-offscreen", "long-line", "seat-shared", "vehicle-covers", "act-after-line"];
+/**
+ * Правила, которые чинит LLM (переписать сценарий). no-voice — дело кастинга. long-line — никогда: слова анекдота
+ * не меняем (в подборе и игре слов часто вся суть), длинную реплику код делит только без изменения слов, а то,
+ * что так не делится, остаётся как есть и показывается частями.
+ */
+const REDO_RULES: Rule[] = ["mentioned-offscreen", "seat-shared", "vehicle-covers", "act-after-line"];
 
 const readJson = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const dir = (d: string) => readdirSync(join(ROOT, "content", d)).filter((f) => f.endsWith(".json"));
@@ -140,7 +145,8 @@ function mentionedOffscreen(ep: Episode): Finding[] {
 function longLines(ep: Episode): Finding[] {
   return ep.lines.flatMap((l) => {
     const n = captionChunks(l.text, l.character === NARRATOR);
-    return n > 1 ? [{ id: ep.id, rule: "long-line" as const, level: n > 2 ? "warn" as const : "info" as const, msg: `${l.id} (${l.character}): shown in ${n} parts (${l.text.length} chars)` }] : [];
+    // только сведения: текст не переписываем ради длины, код делит без изменения слов (fixEpisode)
+    return n > 1 ? [{ id: ep.id, rule: "long-line" as const, level: "info" as const, msg: `${l.id} (${l.character}): shown in ${n} parts (${l.text.length} chars)` }] : [];
   });
 }
 
@@ -242,7 +248,7 @@ function actAfterLine(ep: Episode): Finding[] {
 export function lintEpisode(ep: Episode, A: Assets): Finding[] {
   // у озвученного эпизода длинная реплика — только сведения: переписывать текст значит переозвучивать (платно)
   const voiced = ep.lines.some((l) => l.audio);
-  const longs = longLines(ep).map((f) => (voiced ? { ...f, level: "info" as const, msg: `${f.msg}; voiced — keep` } : { ...f, fixable: f.level === "warn" }));
+  const longs = longLines(ep).map((f) => (voiced ? { ...f, msg: `${f.msg}; voiced — keep` } : f));
   return [...mentionedOffscreen(ep), ...longs, ...noVoice(ep, A), ...seatShared(ep, A), ...vehicleCovers(ep), ...actAfterLine(ep)];
 }
 
@@ -289,7 +295,8 @@ export function fixEpisode(ep0: Episode, A: Assets, opts: { textFixes?: boolean 
     beats.splice(x.lineBi, 0, a);
     fixed.push({ id: ep.id, rule: "act-after-line", level: "warn", msg: `scene ${x.si + 1}: act "${x.act}" moved before ${x.line}` });
   }
-  // 3. длинная реплика (больше двух кусков субтитров): делим по границе предложения — только у неозвученных эпизодов
+  // 3. длинная реплика (больше двух кусков субтитров): делим по границе предложения (иначе по запятой) — только у
+  //    неозвученных эпизодов. Слова и знаки не меняются: части — срезы исходного текста, подряд тем же голосом.
   // textFixes: false — эпизод уже озвучен (materialize передаёт это по прежней версии файла)
   if (opts.textFixes ?? !ep.lines.some((l) => l.audio)) {
     for (let i = 0; i < ep.lines.length; i++) {

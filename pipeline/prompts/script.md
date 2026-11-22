@@ -133,7 +133,7 @@ JSONL, exactly one line per input line, same order, same `id`:
    - a car never stands in front of someone while he talks (front marks for talkers, cars to one side or on the back plane);
    - one seat mark holds one puppet: two people sitting → two seat marks (bench-1, bench-2);
    - an act goes right before the narrator line that names it (rule 4);
-   - a line longer than about 44 characters (70 for the narrator) is shown in parts; split long speech at sentence ends into several lines of the same speaker — same words, same order.
+   - a long line is fine: never shorten or re-word it to fit the subtitles. Where the source has several sentences in one speech, you may split it at sentence ends into lines of the same speaker — same words, same order (the code does this too).
    The output must also pass `data/llm/script/schema.json` (`pnpm llm schema script`): only existing puppets, roles, places, marks, props, acts and wardrobe items.
 
 ## Process
