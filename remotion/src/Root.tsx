@@ -2,7 +2,8 @@ import { Composition } from "remotion";
 import "./fonts"; // Inter из remotion/public/fonts — до любой композиции
 import { Episode } from "@jf/core";
 import demo from "../../content/episodes/demo-ru.json";
-import { Joke } from "./Joke";
+import { Joke, PerformanceView, performanceOf } from "./Joke";
+import type { Performance } from "./perf/types";
 import { Cast } from "./Cast";
 import { Acts } from "./Acts";
 import { Outfits, outfitsSize } from "./Outfits";
@@ -41,6 +42,19 @@ export const Root = () => (
   <Composition id="Town" component={TownPreview} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ locale: "ru" as const }} />
   <Composition id="Cover" component={Cover} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={defaultEpisode}
     calculateMetadata={({ props }) => ({ props: Episode.parse(props) })} />
+  <Composition
+    id="Performance"
+    component={PerformanceView}
+    width={1080}
+    height={1920}
+    fps={30}
+    durationInFrames={1}
+    defaultProps={{ perf: performanceOf(defaultEpisode) }}
+    calculateMetadata={({ props }) => {
+      const p = (props as { perf: Performance }).perf;
+      return { durationInFrames: p.frames, width: p.width, height: p.height, fps: p.fps };
+    }}
+  />
   <Composition
     id="Joke"
     component={Joke}

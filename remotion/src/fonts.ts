@@ -10,8 +10,11 @@ import { staticFile } from "remotion";
 /** Имя семейства для fontFamily везде в проекте. Без системных запасных шрифтов. */
 export const FONT = "Inter";
 
-for (const [file, style] of [["InterVariable.woff2", "normal"], ["InterVariable-Italic.woff2", "italic"]] as const) {
-  loadFont({ family: FONT, url: staticFile(`fonts/${file}`), weight: "100 900", style, format: "woff2" });
+// только в браузере: в Node (компилятор эпизода, pnpm compile-episode) шрифт не нужен, а staticFile там не работает
+if (typeof document !== "undefined") {
+  for (const [file, style] of [["InterVariable.woff2", "normal"], ["InterVariable-Italic.woff2", "italic"]] as const) {
+    loadFont({ family: FONT, url: staticFile(`fonts/${file}`), weight: "100 900", style, format: "woff2" });
+  }
 }
 
 // Запасной вариант для текста без явного fontFamily: всё на странице рендера — Inter, а не системный шрифт браузера
