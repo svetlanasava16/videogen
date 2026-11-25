@@ -1,0 +1,131 @@
+{
+  "id": "ru-s40012a1a.b4",
+  "jokeId": "series:ru-s40012a1a",
+  "locale": "ru",
+  "title": "Закрываемся",
+  "kind": "bridge",
+  "v": 2,
+  "location": "bar",
+  "cast": [
+    "barmen",
+    "muzhik"
+  ],
+  "roles": {
+    "barmen": "bartender",
+    "muzhik": "customer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "barmen",
+      "text": "Всё, Вася, бар закрываю. Мне ещё вечером в мясной лавке за прилавком стоять.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Ой! Мне ж Люся курицу велела купить!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "barmen",
+      "text": "Беги следом, может, успеешь.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Сейчас. Только стаканчик допью.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bar",
+      "cast": [
+        "barmen",
+        "muzhik"
+      ],
+      "roles": {
+        "barmen": "bartender",
+        "muzhik": "customer"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "behind-counter"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "stool-3"
+        },
+        {
+          "type": "prop",
+          "who": "barmen",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "scratch-head"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "barmen",
+          "to": "off-right"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "glass",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "drink"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

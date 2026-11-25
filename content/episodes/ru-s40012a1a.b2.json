@@ -1,0 +1,111 @@
+{
+  "id": "ru-s40012a1a.b2",
+  "jokeId": "series:ru-s40012a1a",
+  "locale": "ru",
+  "title": "Отбой",
+  "kind": "bridge",
+  "v": 2,
+  "location": "spalnya",
+  "cast": [
+    "muzhik",
+    "zhena"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Ну что, успел на свою встречу?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Успел. Чуть было помощи сверху не попросил, да сам место нашёл.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Герой. Завтра курицу купи, не забудь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Куплю. Спи.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "spalnya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "bed-2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bed-1"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "sleep"
+        },
+        {
+          "type": "act",
+          "who": "zhena",
+          "act": "sleep"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "ru-s40012a1a.b1",
+  "jokeId": "series:ru-s40012a1a",
+  "locale": "ru",
+  "title": "Утро",
+  "kind": "bridge",
+  "v": 2,
+  "location": "gostinaya",
+  "cast": [
+    "muzhik",
+    "zhena"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Вася, встреча в десять, а ты всё у зеркала крутишься!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Успею, Люся. Машина под окном, домчу за пять минут.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "Смотри. Опоздаешь — опять будешь сказки рассказывать.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Я сегодня, Люся, как часы.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "place": "front-door",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "inside"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "muzhik",
+          "item": "keys",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "zhena",
+          "act": "point",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "door"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

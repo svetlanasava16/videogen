@@ -1,0 +1,127 @@
+{
+  "id": "ru-s6a0f323f.b2",
+  "jokeId": "series:ru-s6a0f323f",
+  "locale": "ru",
+  "title": "Обновки",
+  "kind": "bridge",
+  "v": 2,
+  "location": "doroga",
+  "cast": [
+    "muzhik-sosed",
+    "devushka"
+  ],
+  "roles": {
+    "muzhik-sosed": "neighbor",
+    "devushka": "woman"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik-sosed",
+      "text": "Даша, тебя не узнать! Откуда такая красота?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "devushka",
+      "text": "Повезло вчера, Коля. Еду в деревню, пусть посмотрят, как в городе одеваются.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-sosed",
+      "text": "Ты бы лучше замуж вышла, вот что я тебе скажу.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "devushka",
+      "text": "Вот и мой автобус. Пока, Коля!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "place": "bus-stop",
+      "cast": [
+        "muzhik-sosed",
+        "devushka"
+      ],
+      "roles": {
+        "muzhik-sosed": "neighbor",
+        "devushka": "woman"
+      },
+      "looks": {
+        "devushka": {
+          "clothes": "#e85d9a",
+          "add": [
+            "dark-glasses",
+            "earrings",
+            "lipstick"
+          ],
+          "remove": []
+        }
+      },
+      "vehicles": [
+        {
+          "id": "bus",
+          "kind": "bus",
+          "riders": []
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "bench-1"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "front-right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "drive",
+          "vehicle": "bus",
+          "to": "road-left",
+          "from": "off-left"
+        },
+        {
+          "type": "act",
+          "who": "devushka",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

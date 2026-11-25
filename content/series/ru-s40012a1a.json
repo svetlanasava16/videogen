@@ -1,0 +1,102 @@
+{
+  "id": "ru-s40012a1a",
+  "locale": "ru",
+  "title": "Васины сутки",
+  "district": "quarter-ru",
+  "arc": {
+    "premise": "Обычные сутки Васи: утром важная встреча, ночью пьяный Рыжий Фёдор у двери, днём бар у Петровича.",
+    "goal": "Успеть на встречу, выспаться и купить Люсе курицу, как она велела.",
+    "turn": "Фёдор поднимает его в три часа ночи, а наутро Вася засиживается у Петровича, пока тот уходит за прилавок мясной лавки, и опаздывает.",
+    "ending": "Последних кур забирает Даша, и Вася приходит домой без курицы, но с историей и после двух стаканчиков."
+  },
+  "parts": [
+    {
+      "kind": "bridge",
+      "episode": "ru-s40012a1a.b1"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-19a7da93045c.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s40012a1a.b2"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-3a049c5b9532.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s40012a1a.b3"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-e83b816c03db.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s40012a1a.b4"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-82366d379093.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s40012a1a.b5"
+    }
+  ],
+  "cast": {
+    "vasya": "muzhik",
+    "lyusya": "zhena",
+    "fyodor": "muzhik-ryzhy",
+    "petrovich": "barmen",
+    "dasha": "devushka"
+  },
+  "stateChanges": [
+    {
+      "fact": "petrovich-evening-butcher",
+      "text": {
+        "ru": "По вечерам Петрович стоит за прилавком мясной лавки",
+        "en": "In the evenings Pete works the counter at the butcher's",
+        "de": "Abends steht Pit hinter der Theke der Metzgerei"
+      },
+      "actors": [
+        "petrovich"
+      ],
+      "place": {
+        "location": "magazin"
+      }
+    },
+    {
+      "fact": "fyodor-likes-yard-swings",
+      "text": {
+        "ru": "Рыжий Фёдор облюбовал качели во дворе Васиного дома",
+        "en": "Red has taken a liking to the swings in the courtyard of Joe's block",
+        "de": "Rudi hat die Schaukel im Hof von Horsts Wohnblock für sich entdeckt"
+      },
+      "actors": [
+        "fyodor",
+        "vasya"
+      ],
+      "place": {
+        "location": "ulitsa",
+        "place": "yard"
+      }
+    },
+    {
+      "fact": "lyusya-waits-for-chicken",
+      "text": {
+        "ru": "Люся всё ещё ждёт, когда Вася купит курицу",
+        "en": "Linda is still waiting for Joe to buy a chicken",
+        "de": "Gabi wartet immer noch darauf, dass Horst ein Hähnchen kauft"
+      },
+      "actors": [
+        "lyusya",
+        "vasya"
+      ]
+    }
+  ],
+  "accepted": false
+}

@@ -1,0 +1,117 @@
+{
+  "id": "ru-s40012a1a.b5",
+  "jokeId": "series:ru-s40012a1a",
+  "locale": "ru",
+  "title": "Без курицы",
+  "kind": "bridge",
+  "v": 2,
+  "location": "gostinaya",
+  "cast": [
+    "muzhik",
+    "zhena"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Явился! Курицу принёс?",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Не успел, Люсь. Кур больше нет, Даша последних забрала. Обеих.",
+      "emotion": "sad",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "zhena",
+      "text": "А где ты был, пока лавка работала? Опять у Петровича?",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Да всего стаканчик, Люся. Ну, два.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "laugh": "laugh"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "zhena",
+          "act": "point",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

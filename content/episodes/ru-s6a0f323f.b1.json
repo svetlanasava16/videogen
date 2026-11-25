@@ -1,0 +1,106 @@
+{
+  "id": "ru-s6a0f323f.b1",
+  "jokeId": "series:ru-s6a0f323f",
+  "locale": "ru",
+  "title": "Утренний эфир",
+  "kind": "bridge",
+  "v": 2,
+  "location": "ofis",
+  "cast": [
+    "devushka-blondinka",
+    "nachalnik"
+  ],
+  "roles": {
+    "devushka-blondinka": "secretary",
+    "nachalnik": "tv-host"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "nachalnik",
+      "text": "Доброе утро, Анекдотск! В эфире «Песня по заявке», с вами Иван Палыч.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "devushka-blondinka",
+      "text": "Иван Палыч, первый звонок на линии.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "nachalnik",
+      "text": "Давай. Только чтобы в эфире без глупостей!",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ofis",
+      "place": "tv-studio",
+      "cast": [
+        "devushka-blondinka",
+        "nachalnik"
+      ],
+      "roles": {
+        "devushka-blondinka": "secretary",
+        "nachalnik": "tv-host"
+      },
+      "looks": {
+        "nachalnik": {
+          "add": [
+            "headset"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "devushka-blondinka",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "prop",
+          "who": "devushka-blondinka",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "point",
+          "to": "devushka-blondinka"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "ru-s6a0f323f.b5",
+  "jokeId": "series:ru-s6a0f323f",
+  "locale": "ru",
+  "title": "Мужчина слова",
+  "kind": "bridge",
+  "v": 2,
+  "location": "gostinaya",
+  "cast": [
+    "muzhik",
+    "zhena",
+    "tyoshcha"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife",
+    "tyoshcha": "mother-in-law"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Мама, смотри, какая шуба! Это мне Вася по телефону разрешил.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "tyoshcha",
+      "text": "Надо же. Первый раз зять что-то путное сделал.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Люся, не разрешал я ничего! Это Палыч в бане мою трубку взял!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "tyoshcha",
+      "text": "Вот, Люся. Палыч — мужчина слова. Я тебе всегда говорила, за кого выходить надо.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "gostinaya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "tyoshcha"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "tyoshcha": "mother-in-law"
+      },
+      "looks": {
+        "zhena": {
+          "add": [
+            "fur-coat"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "stubble"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "armchair"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "facepalm"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "id": "ru-s6a0f323f.b3",
+  "jokeId": "series:ru-s6a0f323f",
+  "locale": "ru",
+  "title": "С лёгким паром",
+  "kind": "bridge",
+  "v": 2,
+  "location": "derevnya",
+  "cast": [
+    "tyoshcha",
+    "zhena",
+    "muzhik",
+    "nachalnik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "new-russian",
+    "nachalnik": "new-russian",
+    "muzhik-sosed": "new-russian",
+    "tyoshcha": "grandma",
+    "zhena": "wife"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "tyoshcha",
+      "text": "Люся, ко мне тут городская краля приехала. Вся в новом, в очках, как артистка.",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "zhena",
+      "text": "Мама, ну и что?",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "tyoshcha",
+      "text": "А то, что я свою дочь в новом сто лет не видела!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Ладно, мама. Будет тебе новое.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l5",
+      "character": "muzhik-sosed",
+      "text": "Ну, мужики, с лёгким паром!",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "derevnya",
+      "cast": [
+        "tyoshcha",
+        "zhena"
+      ],
+      "roles": {
+        "tyoshcha": "grandma",
+        "zhena": "wife"
+      },
+      "split": {
+        "location": "gostinaya",
+        "cast": [
+          "zhena"
+        ]
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "tyoshcha",
+          "to": "bench-1"
+        },
+        {
+          "type": "prop",
+          "who": "tyoshcha",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "phone",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    },
+    {
+      "location": "banya",
+      "cast": [
+        "muzhik",
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "new-russian",
+        "nachalnik": "new-russian",
+        "muzhik-sosed": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#e6b48c",
+          "add": [
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": [
+            "suit",
+            "tie"
+          ]
+        },
+        "muzhik": {
+          "clothes": "#efc8a0",
+          "add": [
+            "gold-chain",
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        },
+        "muzhik-sosed": {
+          "clothes": "#e6b48c",
+          "add": [
+            "gold-chain",
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bench-1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bench-2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "bench-3"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "flyover"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "id": "ru-s6a0f323f.b4",
+  "jokeId": "series:ru-s6a0f323f",
+  "locale": "ru",
+  "title": "Чей телефон",
+  "kind": "bridge",
+  "v": 2,
+  "location": "banya",
+  "cast": [
+    "muzhik",
+    "nachalnik",
+    "muzhik-sosed"
+  ],
+  "roles": {
+    "muzhik": "new-russian",
+    "nachalnik": "new-russian",
+    "muzhik-sosed": "new-russian"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "muzhik",
+      "text": "Мой, Палыч. Это мой телефон.",
+      "emotion": "sad",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-sosed",
+      "text": "Поздравляю, Вася. Платье, шуба, Канары и машина.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Палыч, ты не начальник, ты пень в банной шапке!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "nachalnik",
+      "text": "Это ты кого пнём назвал? Я лицо государственное! Увидимся в суде.",
+      "emotion": "angry",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "banya",
+      "cast": [
+        "muzhik",
+        "nachalnik",
+        "muzhik-sosed"
+      ],
+      "roles": {
+        "muzhik": "new-russian",
+        "nachalnik": "new-russian",
+        "muzhik-sosed": "new-russian"
+      },
+      "looks": {
+        "nachalnik": {
+          "clothes": "#e6b48c",
+          "add": [
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": [
+            "suit",
+            "tie"
+          ]
+        },
+        "muzhik": {
+          "clothes": "#efc8a0",
+          "add": [
+            "gold-chain",
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": [
+            "flat-cap"
+          ]
+        },
+        "muzhik-sosed": {
+          "clothes": "#e6b48c",
+          "add": [
+            "gold-chain",
+            "towel-wrap",
+            "bath-hat"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "bench-1"
+        },
+        {
+          "type": "move",
+          "who": "nachalnik",
+          "to": "bench-2"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "bench-3"
+        },
+        {
+          "type": "prop",
+          "who": "nachalnik",
+          "item": "phone",
+          "action": "give",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "point",
+          "to": "nachalnik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "nachalnik",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

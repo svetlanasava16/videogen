@@ -1,0 +1,121 @@
+{
+  "id": "ru-s40012a1a.b3",
+  "jokeId": "series:ru-s40012a1a",
+  "locale": "ru",
+  "title": "Наутро",
+  "kind": "bridge",
+  "v": 2,
+  "location": "ulitsa",
+  "cast": [
+    "muzhik",
+    "muzhik-ryzhy"
+  ],
+  "roles": {
+    "muzhik": "everyman",
+    "muzhik-ryzhy": "drunk"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "narrator",
+      "text": "Наутро во дворе.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik-ryzhy",
+      "text": "Вася, доброе утро! Спасибо, что ночью выручил.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "muzhik",
+      "text": "Фёдор, я из-за тебя всю ночь не спал. Всё, я к Петровичу.",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik-ryzhy",
+      "text": "А я ещё покачаюсь.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "ulitsa",
+      "place": "yard",
+      "cast": [
+        "muzhik",
+        "muzhik-ryzhy"
+      ],
+      "roles": {
+        "muzhik": "everyman",
+        "muzhik-ryzhy": "drunk"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "flat-cap"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "red-nose"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "swing"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "entrance"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "center"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
