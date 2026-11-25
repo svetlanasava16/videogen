@@ -1022,3 +1022,44 @@ export function activeFacts(state: z.infer<typeof WorldState>): z.infer<typeof W
   const undone = new Set(state.facts.map((f) => f.undoes).filter(Boolean) as string[]);
   return state.facts.filter((f) => !undone.has(f.id) && !f.undoes);
 }
+
+/* ============================== Сериал (ROADMAP §9) ============================== */
+/** Арка серии: завязка, цель, поворот, развязка (по одному-два предложения). */
+export const SeriesArc = z.object({ premise: z.string().min(1), goal: z.string().min(1), turn: z.string().min(1), ending: z.string().min(1) });
+/** Изменение мира после серии: попадает в content/world/state.json по `pnpm series accept`. */
+export const StateChange = z.object({ fact: z.string().min(1), text: Names3.partial().default({}), actors: z.array(z.string()).default([]), place: PlaceRef.optional(), undoes: z.string().optional() });
+
+/**
+ * Серия: готовые анекдоты (эпизоды как есть, с их озвучкой) и связки между ними (эпизоды kind "bridge").
+ * content/series/<id>.json; рядом content/compilations/<id>.json — те же части по порядку для рендера и озвучки.
+ */
+export const Series = z.object({
+  id: z.string(),
+  locale: Locale,
+  title: z.string(),
+  /** Район серии (canon.districts; квартал языка или общий). */
+  district: z.string(),
+  arc: SeriesArc,
+  parts: z.array(z.object({ kind: z.enum(["joke", "bridge"]), episode: z.string() })).min(2),
+  /** Житель канона → кукла в этой серии. */
+  cast: z.record(z.string(), z.string()),
+  stateChanges: z.array(StateChange).default([]),
+  /** Принята: изменения записаны в журнал мира (pnpm series accept). */
+  accepted: z.boolean().default(false),
+});
+export type Series = z.infer<typeof Series>;
+
+/** Связка, как её пишет LLM: сцена(ы) и реплики в формате сценария; before — перед каким анекдотом (0…n, n — после последнего). */
+export const BridgeDraft = ScriptDraft.pick({ title: true, location: true, cast: true, roles: true, looks: true, crowd: true, set: true, lines: true, scenes: true }).extend({ before: z.number().int().min(0) });
+export type BridgeDraft = z.infer<typeof BridgeDraft>;
+/** Выход стадии series: арка, связки, изменения мира. */
+export const SeriesDraft = z.object({
+  id: z.string(),
+  locale: Locale,
+  title: z.string().min(1),
+  notes: z.string().default(""),
+  arc: SeriesArc,
+  bridges: z.array(BridgeDraft).min(1),
+  stateChanges: z.array(StateChange).default([]),
+});
+export type SeriesDraft = z.infer<typeof SeriesDraft>;

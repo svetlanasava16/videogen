@@ -100,7 +100,8 @@ function episodeRows(): Row[] {
   const adaptation = new Map(readJsonl<any>(join(DATA, "llm", "script", "results.jsonl")).map((r) => [r.id, r.adaptation]));
   return jsonFiles("content/episodes")
     .map((f) => Episode.parse(readJson(join(ROOT, "content/episodes", f))))
-    .filter((e) => !e.id.startsWith("demo-") && !e.id.startsWith("test-"))
+    // связки серий (kind bridge) не публикуются отдельно — только в составе серии (сборник content/compilations/<серия>.json)
+    .filter((e) => !e.id.startsWith("demo-") && !e.id.startsWith("test-") && e.kind === "joke")
     .map((e) => ({
       id: e.id, jokeId: e.jokeId, locale: e.locale, title: e.title, location: e.location, place: e.place ?? null,
       cast: e.cast, roles: e.roles, lines: e.lines, scenes: e.scenes ?? null, music: e.music ?? null, adaptation: adaptation.get(e.id) ?? null,
