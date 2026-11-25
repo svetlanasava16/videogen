@@ -1,6 +1,6 @@
 # ANEK.: план движка, сериала и игры
 
-Статус: этапы 1–8 сделаны (обёртка Pixi — когда начнём игру; проверка противоречий журнала по эпизодам — с сериалом, этап 9) (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md), [stage-5](reports/stage-5/README.md), [stage-6](reports/stage-6/README.md), [stage-7](reports/stage-7/README.md), [stage-8](reports/stage-8/README.md)).
+Статус: этапы 1–9 сделаны (обёртка Pixi — когда начнём игру; сериал — пилот из 2 серий, полный прогон после оценки) (отчёты: [stage-1](reports/stage-1/README.md), [stage-2](reports/stage-2/README.md), [stage-3](reports/stage-3/README.md), [stage-4](reports/stage-4/README.md), [stage-5](reports/stage-5/README.md), [stage-6](reports/stage-6/README.md), [stage-7](reports/stage-7/README.md), [stage-8](reports/stage-8/README.md), [stage-9](reports/stage-9/README.md)).
 Принцип: LLM пишет только текст — сценарий анекдота, связки серии, арку. Всё остальное — детерминированный код и данные: постановка, раскладка, камера, рендер, проверки. Масштабирование почти не должно тратить токены.
 
 ## 0. Где мы сейчас

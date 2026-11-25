@@ -58,3 +58,15 @@ Scripts may include `scenes` (several places, walking to marks, props, flyover/w
 - `pnpm lint-scripts --all [--dry-run|--fix] [--redo]` — rules without an LLM: someone named «это моя жена» but not on screen, lines longer than three subtitle lines, puppets without a voice for the language, two puppets on one seat, a car covering a speaker, an act placed after the narrator line that names it. `--fix` repairs seats, act order and long lines (split at sentence ends, same words, unvoiced episodes only); `materialize` applies the same fixes. Never re-word a line to make it shorter: a long line that cannot be split as is stays as is (shown in parts) and never goes to an LLM rewrite. `--redo` writes what is left for the LLM to `data/llm/script/lint-redo.txt` (append to `redo.txt` before `pnpm llm prepare script` — name the volume and token estimate to the user first).
 - `pnpm llm schema script` — `data/llm/script/schema.json`, the ScriptDraft JSON Schema with enums from the registry (puppets, roles, places, marks, props, acts, wardrobe) for constrained generation; it self-checks all existing scripts.
 
+## Series (several jokes + bridges)
+A series reuses finished episodes as they are and adds short bridge scenes written by the `series` LLM stage (ENGINE §11г):
+```bash
+pnpm series pick --locale ru --voiced            # joke sets chosen by code (shared residents, different places)
+pnpm llm prepare series --lang ru --per-lang 2 --voiced
+# agents: pipeline/prompts/series.md, `pnpm llm check series --batch …` (see llm-batch-run)
+pnpm llm collect series && pnpm llm materialize series
+pnpm render --compilation <series id>            # bridges are unvoiced until `pnpm voice run --compilation <id>` (paid: ask first)
+pnpm series accept <series id>                   # its state changes go to content/world/state.json
+```
+Never edit the jokes of a series; fix a bridge by re-running its batch.
+
