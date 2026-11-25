@@ -8,7 +8,7 @@
  *   pnpm llm status analyze
  *   pnpm llm prepare script [--per-lang 20] && … && pnpm llm collect script && pnpm llm materialize script
  */
-import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, migrateEpisodeData, subLocation, type Location, ScriptDraft, sceneProblems, type LookPatch, WardrobeFile } from "@jf/core";
+import { Episode, JokeAnalysis, Joke, Locale, NARRATOR, SET_ITEMS, ACTS, STATE_ACTS, TARGET_ACTS, VEHICLES, marksFor, markOf, migrateEpisodeData, subLocation, type Location, ScriptDraft, SeriesDraft, sceneProblems, type LookPatch, WardrobeFile } from "@jf/core";
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { loadCast } from "./cast.js";
 import { join } from "node:path";
@@ -17,12 +17,14 @@ import { z, type ZodType } from "zod";
 import { DATA, ROOT, readJsonl, writeJsonl } from "./util.js";
 import { fixEpisode, lintAssets, lintEpisode } from "./lint.js";
 import { checkSchema, scriptSchema } from "./schema.js";
+import { accessoryIds, draftProblems, draftToEpisode } from "./drafts.js";
+import { materializeSeries, seriesInputs, seriesProblems } from "./series.js";
 
 type Stage = {
   prompt: string;
   output: ZodType<{ id: string }, any, any>;
   /** Все кандидаты стадии по порядку приоритета. */
-  inputs: (opts: { perLang?: number; lang?: string }) => { id: string; [k: string]: unknown }[];
+  inputs: (opts: { perLang?: number; lang?: string; voiced?: boolean }) => { id: string; [k: string]: unknown }[];
   /** Доп. проверки строки ответа поверх схемы (input — соответствующая входная строка). */
   validate?: (row: any, input: any) => string[];
   /** Вызывается перед prepare: например, записать справочник для исполнителя. */
@@ -127,84 +129,20 @@ const STAGES: Record<string, Stage> = {
       }
       return items;
     },
-    validate: (row: ScriptDraft, input: Record<string, unknown>) => {
-      const C = loadCast();
-      const ids = new Set(C.puppets.map((p) => p.id));
-      const bds = new Set(["none", ...C.backdrops.map((b) => b.id)]);
-      const pr: string[] = [];
-      if (row.jokeId !== input.jokeId || row.locale !== input.locale) pr.push("jokeId/locale do not match input");
-      if (!bds.has(row.location)) pr.push(`unknown backdrop ${row.location}`);
-      for (const c of row.cast) if (!ids.has(c)) pr.push(`unknown puppet ${c}`);
-      if (new Set(row.cast).size !== row.cast.length) pr.push("duplicate puppet in cast");
-      // метка говорящего — только имя/id куклы или «рассказчик» с двоеточием в начале («Слушай:» — нормальная речь)
-      const labels = new Set(
-        [...C.puppets.flatMap((p) => [p.id, ...Object.values(p.name)]), "narrator", "рассказчик", "erzähler", "автор"].map((s) => s.toLowerCase()),
-      );
-      for (const l of row.lines) {
-        // со сценами состав проверяется по каждой сцене (sceneProblems): говорящий может появиться только во второй
-        if (!row.scenes?.length && l.character !== NARRATOR && !row.cast.includes(l.character)) pr.push(`line by ${l.character} not in cast`);
-        const label = l.text.match(/^\s*([\p{L}-]+)\s*:/u)?.[1]?.toLowerCase();
-        if (/[()\[\]*#]/u.test(l.text) || (label && labels.has(label))) pr.push(`stage direction or label: "${l.text.slice(0, 40)}"`);
-        if (l.uncensored !== undefined && l.uncensored.trim() === l.text.trim()) pr.push(`uncensored equals text — omit it: "${l.text.slice(0, 40)}"`);
-      }
-      for (const [p, r] of Object.entries(row.roles)) if (!row.cast.includes(p)) pr.push(`roles: ${p} not in cast (${r})`);
-      // костюмы на эпизод: только существующие аксессуары и только для кукол в составе
-      const acc = new Set(accessoryIds());
-      const checkLooks = (looks: Record<string, LookPatch> | undefined, cast: string[], tag: string) => {
-        for (const [p, l] of Object.entries(looks ?? {})) {
-          if (!cast.includes(p)) pr.push(`${tag}looks: ${p} not in cast`);
-          for (const a of [...l.add, ...l.remove]) if (!acc.has(a)) pr.push(`${tag}looks: unknown accessory "${a}" (see the accessories list in context.md; ask for a new one in needs)`);
-        }
-      };
-      checkLooks(row.looks, row.cast, "");
-      for (const [i, sc] of (row.scenes ?? []).entries()) checkLooks(sc.looks, sc.cast, `scene ${i + 1}: `);
-      // мебель: известные предметы, метки места
-      const bdOf = (loc: string) => C.backdrops.find((b) => b.id === loc) as Location | undefined;
-      const checkSet = (set: { item: string; at?: string }[] | undefined, loc: string, tag: string, place?: string) => {
-        const marks = Object.keys(marksFor(bdOf(loc), place));
-        for (const it of set ?? []) {
-          if (!(SET_ITEMS as readonly string[]).includes(it.item)) pr.push(`${tag}set: unknown item "${it.item}" (items: ${SET_ITEMS.join(", ")}; ask for a new one in needs, kind "backdrop")`);
-          if (it.at && !["left", "center", "right", ...marks].includes(it.at)) pr.push(`${tag}set: unknown mark "${it.at}" at ${loc}`);
-        }
-      };
-      checkSet(row.set, row.location, "");
-      for (const [i, sc] of (row.scenes ?? []).entries()) checkSet(sc.set, sc.location, `scene ${i + 1}: `, sc.place);
-      if (row.scenes?.length && (row.looks || row.crowd || row.set)) pr.push("with scenes put looks and crowd inside the scenes, not at the top level");
-      // сцены: свои или из старого вида (enter/exit на репликах) — тот же перевод, что в materialize
-      const props = (JSON.parse(readFileSync(join(ROOT, "content", "props.json"), "utf8")).props as { id: string }[]).map((p) => p.id);
-      const mig = migrateEpisodeData({ location: row.location, cast: row.cast, roles: row.roles, looks: row.looks, crowd: row.crowd, set: row.set, scenes: row.scenes, lines: row.lines.map((l, i) => ({ ...l, id: `l${i + 1}` })) });
-      for (const sc of mig.scenes) {
-        if (!bds.has(sc.location) || sc.location === "none") pr.push(`scene: unknown backdrop ${sc.location}`);
-        for (const c of sc.cast) if (!ids.has(c)) pr.push(`scene: unknown puppet ${c}`);
-        if (sc.split && (!bds.has(sc.split.location) || sc.split.location === "none")) pr.push(`scene: unknown split backdrop ${sc.split.location}`);
-      }
-      pr.push(...sceneProblems({ lines: mig.lines, scenes: mig.scenes }, {
-        marksOf: (loc, place) => Object.keys(marksFor(bdOf(loc), place)),
-        places: (loc) => (bdOf(loc)?.bible?.variants ?? []).flatMap((v) => [...(v.id ? [v.id] : []), ...v.roles]),
-        props,
-      }));
-      if (row.scenes?.length) {
-        const s0 = row.scenes[0];
-        if (s0.location !== row.location) pr.push("top-level location must repeat the first scene");
-        if (s0.cast.join(",") !== row.cast.join(",")) pr.push("top-level cast must repeat the first scene's cast");
-        for (const c of s0.cast) if ((s0.roles ?? {})[c] !== (row.roles ?? {})[c]) pr.push(`top-level roles must repeat the first scene's roles (${c})`);
-      }
-      // линтер (ROADMAP §6): то, что код не исправит сам — «это моя жена» без жены в кадре, машина закрывает говорящего
-      if (!pr.length) {
-        const ep = Episode.parse({ ...mig, id: row.id, jokeId: row.jokeId, locale: row.locale, title: row.title, location: mig.scenes[0].location, cast: mig.scenes[0].cast, roles: mig.scenes[0].roles });
-        for (const f of lintEpisode(ep, lintAssets())) if (f.rule === "mentioned-offscreen" || f.rule === "vehicle-covers") pr.push(`lint ${f.rule}: ${f.msg}`);
-      }
-      return pr;
-    },
+    validate: (row: ScriptDraft, input: Record<string, unknown>) => [
+      ...(row.jokeId !== input.jokeId || row.locale !== input.locale ? ["jokeId/locale do not match input"] : []),
+      ...draftProblems(row),
+    ],
+  },
+  // серия (ROADMAP §9): наборы анекдотов подбирает код (pipeline/src/series.ts), LLM пишет арку, связки и изменения мира
+  series: {
+    prompt: "pipeline/prompts/series.md",
+    output: SeriesDraft,
+    beforePrepare: writeScriptContext, // связки — сцены в формате сценария: тот же справочник data/llm/script/context.md
+    inputs: (o) => { const done = doneIds("series"); return seriesInputs(o).filter((i) => !done.has(i.id as string)) as { id: string }[]; },
+    validate: (row: SeriesDraft, input) => seriesProblems(row, input),
   },
 };
-
-/** id вещей гардероба (content/wardrobe/*.json), кроме причёсок (hairStyle): то, что можно добавить кукле через looks. */
-function accessoryIds(): string[] {
-  const dir = join(ROOT, "content", "wardrobe");
-  const items = readdirSync(dir).filter((f) => f.endsWith(".json")).flatMap((f) => WardrobeFile.parse(JSON.parse(readFileSync(join(dir, f), "utf8"))).items);
-  return items.filter((i) => i.slot !== "hair").map((i) => i.id).sort();
-}
 
 /** Строки справочника для фона: вид по умолчанию и сублокации с метками (план, сиденье). */
 function placeLines(b: Location): string[] {
@@ -275,36 +213,9 @@ function materialize() {
   let n = 0;
   for (const d of rows) {
     if (d.adaptation === "unfit") continue;
-    // озвучку уже существующего эпизода сохраняем для реплик, чей текст и говорящий не изменились
     const file = join(dir, `${d.id}.json`);
     const prev = existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Episode) : undefined;
-    const voiced = (i: number, character: string, text: string) => {
-      const p = prev?.lines[i];
-      return p?.audio && p.character === character && p.text === text ? p.audio : undefined;
-    };
-    const wasVoiced = !!prev?.lines.some((l) => l.audio);
-    const isPlace = (loc: string, place: string) => !!subLocation(C.backdrops.find((b) => b.id === loc) as Location | undefined, place);
-    const ep = Episode.parse(migrateEpisodeData({
-      id: d.id, jokeId: d.jokeId, locale: d.locale, title: d.title,
-      location: d.location === "none" ? "gostinaya" : d.location,
-      place: places.get(d.id),
-      cast: d.cast, roles: d.roles, looks: d.looks, crowd: d.crowd, set: d.set,
-      lines: d.lines.map((l, i) => ({
-        id: `l${i + 1}`, character: l.character, text: l.text.trim(), uncensored: l.uncensored?.trim() || undefined, offscreen: l.offscreen || undefined, emotion: l.emotion, enter: l.enter, exit: l.exit, laugh: l.laugh,
-        pauseAfterSec: i === d.lines.length - 1 ? 0.8 : Math.min(0.6, Math.max(0, l.pauseAfterSec)),
-      })),
-      scenes: d.scenes?.length ? d.scenes : undefined, // нет — migrateEpisodeData соберёт одну сцену
-      // смех в конце, музыку и режим без цензуры не теряем при пересборке (смех — только тех, кто ещё в составе)
-      outroLaughs: (prev?.outroLaughs ?? []).filter((o) => [...d.cast, ...(d.scenes ?? []).flatMap((sc) => sc.cast)].includes(o.character)),
-      music: prev?.music,
-      explicit: prev?.explicit,
-      flags: prev?.flags,
-    }, isPlace));
-    // исправления линтера по правилам (pnpm lint-scripts): сиденья, порядок действий; деление длинных реплик —
-    // только если прежняя версия не озвучена. Потом — озвучка прежней версии для реплик с тем же текстом и голосом.
-    const fixedEp = fixEpisode(ep, lintA, { textFixes: !wasVoiced }).ep;
-    fixedEp.lines.forEach((l, i) => { const a = voiced(i, l.character, l.text); if (a) l.audio = a; });
-    // повторный parse — порядок ключей как в схеме (audio на своём месте), файл не меняется зря
+    const fixedEp = draftToEpisode(d, { place: places.get(d.id), prev, C, lintA });
     writeFileSync(file, JSON.stringify(Episode.parse(fixedEp), null, 2) + "\n");
     n++;
   }
@@ -332,11 +243,11 @@ function pendingIds(s: string) {
   return ids;
 }
 
-function prepare(s: string, stage: Stage, perLang?: number, size = 50, lang?: string, only?: Set<string>) {
+function prepare(s: string, stage: Stage, perLang?: number, size = 50, lang?: string, only?: Set<string>, voiced?: boolean) {
   stage.beforePrepare?.();
   const pending = pendingIds(s);
   // --ids: только эти задачи (id задачи или jokeId) — для пилотов на выбранных анекдотах
-  const items = stage.inputs({ perLang, lang }).filter((i) => !pending.has(i.id) && (!only || only.has(i.id) || only.has(String(i.jokeId))));
+  const items = stage.inputs({ perLang, lang, voiced }).filter((i) => !pending.has(i.id) && (!only || only.has(i.id) || only.has(String(i.jokeId))));
   // номер — после самого большого существующего (архивные пачки оставляют дыры, перезаписывать нельзя)
   let n = Math.max(0, ...batches(s).map((b) => Number(b.match(/\d+/)![0])));
   const created: string[] = [];
@@ -462,7 +373,7 @@ function needsReport() {
 
 const { positionals, values } = parseArgs({
   allowPositionals: true,
-  options: { "per-lang": { type: "string" }, size: { type: "string" }, lang: { type: "string" }, batch: { type: "string" }, ids: { type: "string" } },
+  options: { "per-lang": { type: "string" }, size: { type: "string" }, lang: { type: "string" }, batch: { type: "string" }, ids: { type: "string" }, voiced: { type: "boolean" } },
 });
 const [cmd, s] = positionals;
 const stage = s ? STAGES[s] : undefined;
@@ -473,7 +384,7 @@ if (!stage || !["prepare", "collect", "status", "check", "materialize", "needs",
 if (!existsSync(join(ROOT, stage.prompt))) throw new Error(`prompt missing: ${stage.prompt}`);
 if (cmd === "prepare")
   prepare(s, stage, values["per-lang"] ? Number(values["per-lang"]) : undefined, values.size ? Number(values.size) : 50, values.lang,
-    values.ids ? new Set(values.ids.split(",").map((x) => x.trim()).filter(Boolean)) : undefined);
+    values.ids ? new Set(values.ids.split(",").map((x) => x.trim()).filter(Boolean)) : undefined, values.voiced);
 if (cmd === "collect") collect(s, stage);
 if (cmd === "schema") {
   // схема ответа с перечнями из реестра (ROADMAP §6) + самопроверка: готовые сценарии проходят её
@@ -489,8 +400,11 @@ if (cmd === "schema") {
 }
 if (cmd === "status") status(s);
 if (cmd === "materialize") {
-  if (s !== "script") throw new Error("materialize is only for the script stage");
-  materialize();
+  if (s === "series") {
+    const inputs = new Map(batches("series").flatMap((b) => readJsonl<any>(join(stageDir("series"), b))).map((r) => [r.id, r]));
+    materializeSeries(readJsonl(resultsPath("series")).map((r) => SeriesDraft.parse(r)), inputs);
+  } else if (s === "script") materialize();
+  else throw new Error("materialize is only for the script and series stages");
 }
 if (cmd === "needs") needsReport();
 if (cmd === "check") {
