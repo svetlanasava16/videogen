@@ -1,0 +1,95 @@
+{
+  "id": "ru-sa45ccefa.b2",
+  "jokeId": "series:ru-sa45ccefa",
+  "locale": "ru",
+  "title": "Во сне",
+  "kind": "bridge",
+  "v": 2,
+  "location": "doroga",
+  "cast": [
+    "sluzhivy",
+    "sluzhivy-ryadovoy"
+  ],
+  "roles": {
+    "sluzhivy": "traffic-cop",
+    "sluzhivy-ryadovoy": "police-officer"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "sluzhivy",
+      "text": "Кричите... кричите раньше...",
+      "emotion": "sad",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Товарищ сержант, вы чего? Бледный какой.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Ладно, спите. Я смотрю в оба.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "sluzhivy-ryadovoy": "police-officer"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "front-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "front-right"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "sleep"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

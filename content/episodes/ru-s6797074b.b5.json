@@ -1,0 +1,151 @@
+{
+  "id": "ru-s6797074b.b5",
+  "jokeId": "series:ru-s6797074b",
+  "locale": "ru",
+  "title": "Чистая посуда",
+  "kind": "bridge",
+  "v": 2,
+  "location": "kukhnya",
+  "cast": [
+    "muzhik",
+    "zhena",
+    "kot",
+    "paren"
+  ],
+  "roles": {
+    "muzhik": "husband",
+    "zhena": "wife",
+    "kot": "cat",
+    "paren": "son"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "zhena",
+      "text": "Кто посуду помыл? И Барсик сытый лежит, не мяукает.",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Не я, Люся. Я весь день по врачам да по музеям. Культурно отдыхал.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Это мы с Жорой, мам. Он нам дверь открыл, а потом всё прибрал.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "zhena",
+      "text": "Какой ещё Жора?!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l5",
+      "character": "muzhik",
+      "text": "Люся, не шуми. Пусть заходит почаще.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "kukhnya",
+      "cast": [
+        "muzhik",
+        "zhena",
+        "kot",
+        "paren"
+      ],
+      "roles": {
+        "muzhik": "husband",
+        "zhena": "wife",
+        "kot": "cat",
+        "paren": "son"
+      },
+      "looks": {
+        "kot": {
+          "build": "portly",
+          "add": [],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "kot",
+          "to": "stool-2"
+        },
+        {
+          "type": "move",
+          "who": "zhena",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "front-right"
+        },
+        {
+          "type": "prop",
+          "who": "zhena",
+          "item": "dishes",
+          "action": "hold"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "zhena",
+          "act": "point",
+          "to": "paren"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

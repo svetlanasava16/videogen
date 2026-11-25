@@ -1,0 +1,117 @@
+{
+  "id": "ru-s6797074b.b4",
+  "jokeId": "series:ru-s6797074b",
+  "locale": "ru",
+  "title": "Рецепт",
+  "kind": "bridge",
+  "v": 2,
+  "location": "bolnitsa",
+  "cast": [
+    "muzhik",
+    "doktor"
+  ],
+  "roles": {
+    "muzhik": "patient",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "doktor",
+      "text": "Вася, вы к кому? Только не к практиканту!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Так я к сыну хотел. Он у меня теперь доктор!",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Не надо к сыну. Вам, Вася, нужен отдых. Культурный. Сходите в музей.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "В музей так в музей. Фёдора с собой возьму.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "place": "waiting-room",
+      "cast": [
+        "muzhik",
+        "doktor"
+      ],
+      "roles": {
+        "muzhik": "patient",
+        "doktor": "doctor"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "bandages"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "chair-1"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "front-center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "point",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

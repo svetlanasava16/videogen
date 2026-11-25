@@ -1,0 +1,105 @@
+{
+  "id": "ru-s6797074b",
+  "locale": "ru",
+  "title": "Практикант",
+  "district": "quarter-ru",
+  "arc": {
+    "premise": "Неделя из жизни Кости: он слушает лекции профессора Семёнова, и тот берёт его практикантом в поликлинику.",
+    "goal": "Костя хочет задать профессору свой вопрос, попасть домой без ключей и не опозориться на первом приёме.",
+    "turn": "Вопрос про бороду лишает профессора сна, домой Костю пускает вежливый вор Жора, а на приёме Костя лечит икоту, объявив пожилую пациентку беременной.",
+    "ending": "Злой Семёнов отправляет Васю в музей на культурный отдых, Вася жалеет спирт в банках с лягушками, а дома Люся находит чистую посуду и узнаёт про Жору."
+  },
+  "parts": [
+    {
+      "kind": "bridge",
+      "episode": "ru-s6797074b.b1"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-095e7c23ed09.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s6797074b.b2"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-71e51faf9c06.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s6797074b.b3"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-4b75a0e1bc8d.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s6797074b.b4"
+    },
+    {
+      "kind": "joke",
+      "episode": "ru-6785d1199739.ru"
+    },
+    {
+      "kind": "bridge",
+      "episode": "ru-s6797074b.b5"
+    }
+  ],
+  "cast": {
+    "kostya": "paren",
+    "semyonov": "doktor",
+    "zhora": "vor",
+    "barsik": "kot",
+    "zinaida": "tyoshcha",
+    "vasya": "muzhik",
+    "matvey": "ded",
+    "dasha": "devushka",
+    "fyodor": "muzhik-ryzhy"
+  },
+  "stateChanges": [
+    {
+      "fact": "semyonov-shaved-beard",
+      "text": {
+        "ru": "Доктор Семёнов сбрил бороду, чтобы снова спать спокойно",
+        "en": "Dr. Simmons shaved off his beard so he could sleep again",
+        "de": "Dr. Sommer hat sich den Bart abrasiert, um wieder schlafen zu können"
+      },
+      "actors": [
+        "semyonov"
+      ]
+    },
+    {
+      "fact": "kostya-intern-clinic",
+      "text": {
+        "ru": "Костя проходит практику в поликлинике у доктора Семёнова",
+        "en": "Kevin is doing his internship at the clinic under Dr. Simmons",
+        "de": "Tobi macht sein Praktikum in der Praxis bei Dr. Sommer"
+      },
+      "actors": [
+        "kostya",
+        "semyonov"
+      ],
+      "place": {
+        "location": "bolnitsa"
+      }
+    },
+    {
+      "fact": "zhora-respects-vasya-flat",
+      "text": {
+        "ru": "Жора принял хозяина Васиной квартиры за бывалого сидельца и теперь его уважает",
+        "en": "Slim took the owner of Joe's flat for a hardened ex-con and now treats him with respect",
+        "de": "Ede hält den Besitzer von Horsts Wohnung für einen alten Knastbruder und begegnet ihm jetzt mit Respekt"
+      },
+      "actors": [
+        "zhora",
+        "vasya"
+      ],
+      "place": {
+        "location": "kukhnya"
+      }
+    }
+  ],
+  "accepted": false
+}

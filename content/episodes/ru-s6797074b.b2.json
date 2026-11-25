@@ -1,0 +1,112 @@
+{
+  "id": "ru-s6797074b.b2",
+  "jokeId": "series:ru-s6797074b",
+  "locale": "ru",
+  "title": "Ключи",
+  "kind": "bridge",
+  "v": 2,
+  "location": "podyezd",
+  "cast": [
+    "paren",
+    "vor"
+  ],
+  "roles": {
+    "paren": "son",
+    "vor": "thief"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "paren",
+      "text": "Ну и профессор! Чуть пиджак не порвал. А ключи-то где?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "vor",
+      "text": "Молодой человек, ключики потеряли? Я по замкам большой специалист.",
+      "emotion": "smug",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "paren",
+      "text": "Правда? Вот спасибо! Только у нас брать нечего, один кот.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "vor",
+      "text": "Тогда маску наденьте. Для порядка.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "podyezd",
+      "cast": [
+        "paren",
+        "vor"
+      ],
+      "roles": {
+        "paren": "son",
+        "vor": "thief"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "door-right"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "scratch-head"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "center",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "vor",
+          "to": "front-right"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "nod"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

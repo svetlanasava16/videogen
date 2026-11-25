@@ -1,0 +1,116 @@
+{
+  "id": "ru-s6797074b.b1",
+  "jokeId": "series:ru-s6797074b",
+  "locale": "ru",
+  "title": "Последняя лекция",
+  "kind": "bridge",
+  "v": 2,
+  "location": "klass",
+  "cast": [
+    "paren",
+    "doktor"
+  ],
+  "roles": {
+    "paren": "student",
+    "doktor": "professor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "doktor",
+      "text": "Лекция окончена. С понедельника, Костя, вы у меня практикант в поликлинике.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Спасибо, профессор! А можно вопрос?",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Вопросы потом, Костя. Я тороплюсь.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Ничего. Подожду его в коридоре.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "klass",
+      "place": "university",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "student",
+        "doktor": "professor"
+      },
+      "looks": {
+        "doktor": {
+          "add": [
+            "white-beard",
+            "glasses"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "row-2"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "behind-lectern"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "paren",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

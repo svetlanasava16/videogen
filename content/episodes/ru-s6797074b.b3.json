@@ -1,0 +1,119 @@
+{
+  "id": "ru-s6797074b.b3",
+  "jokeId": "series:ru-s6797074b",
+  "locale": "ru",
+  "title": "Первый приём",
+  "kind": "bridge",
+  "v": 2,
+  "location": "bolnitsa",
+  "cast": [
+    "paren",
+    "doktor"
+  ],
+  "roles": {
+    "paren": "doctor",
+    "doktor": "doctor"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "doktor",
+      "text": "Вот ваш кабинет, практикант. Принимайте больных.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "paren",
+      "text": "Профессор! А где ваша борода?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "doktor",
+      "text": "Сбрил. Наконец-то высплюсь. И больше никаких вопросов!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "paren",
+      "text": "Понял. Только по медицине.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "paren",
+        "doktor"
+      ],
+      "roles": {
+        "paren": "doctor",
+        "doktor": "doctor"
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "left"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "center"
+        },
+        {
+          "type": "prop",
+          "who": "doktor",
+          "item": "clipboard",
+          "action": "give",
+          "to": "paren"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "doktor",
+          "act": "point",
+          "to": "paren"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "move",
+          "who": "doktor",
+          "to": "off-right"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "desk"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

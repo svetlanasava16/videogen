@@ -1,0 +1,171 @@
+{
+  "id": "ru-sa45ccefa.b3",
+  "jokeId": "series:ru-sa45ccefa",
+  "locale": "ru",
+  "title": "Добрый сержант",
+  "kind": "bridge",
+  "v": 2,
+  "location": "doroga",
+  "cast": [
+    "sluzhivy",
+    "sluzhivy-ryadovoy",
+    "muzhik"
+  ],
+  "roles": {
+    "sluzhivy": "traffic-cop",
+    "sluzhivy-ryadovoy": "police-officer",
+    "muzhik": "father"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Товарищ сержант, проснитесь! Утро уже!",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "sluzhivy",
+      "text": "Сидоров? Я живой? И на своём перекрёстке?",
+      "emotion": "surprised",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "sluzhivy-ryadovoy",
+      "text": "Так точно, живой. А вон нарушитель летит!",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Петренко, не свисти! У меня жена рожает!",
+      "emotion": "angry",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l5",
+      "character": "sluzhivy",
+      "text": "Проезжай, Вася! Я теперь людям только добро делаю.",
+      "emotion": "happy",
+      "pauseAfterSec": 0.8
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "doroga",
+      "cast": [
+        "sluzhivy",
+        "sluzhivy-ryadovoy",
+        "muzhik"
+      ],
+      "roles": {
+        "sluzhivy": "traffic-cop",
+        "sluzhivy-ryadovoy": "police-officer",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "vehicles": [
+        {
+          "id": "car",
+          "kind": "car",
+          "riders": [
+            "muzhik"
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "type": "move",
+          "who": "sluzhivy",
+          "to": "front-left"
+        },
+        {
+          "type": "move",
+          "who": "sluzhivy-ryadovoy",
+          "to": "left"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "sleep"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy-ryadovoy",
+          "act": "grab",
+          "to": "sluzhivy"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "stand"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "drive",
+          "vehicle": "car",
+          "to": "road-right",
+          "from": "off-right"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "prop",
+          "who": "sluzhivy",
+          "item": "whistle",
+          "action": "hold"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "whistle"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        },
+        {
+          "type": "drive",
+          "vehicle": "car",
+          "to": "off-left"
+        },
+        {
+          "type": "act",
+          "who": "sluzhivy",
+          "act": "wave"
+        },
+        {
+          "type": "line",
+          "ref": "l5"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

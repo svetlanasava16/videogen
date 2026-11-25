@@ -18,6 +18,7 @@ JSONL, one series per line:
 ```
 - `jokes` are in the order they will play; the code picked them because they share residents and happen in different places.
 - `cast` is fixed: in this series each resident is played by this puppet, in the jokes and in your bridges. A resident who is not in the jokes may appear in a bridge with his own puppet from `canon.residents` (only if that puppet is not already playing someone else in this series).
+- A joke may cast a resident in a role outside his canon job (Kostya as a doctor's intern) or end with something final (a death, a birth, a wedding). The bridges may explain it lightly for this series (a dream, a day job, a false alarm), but the canon itself does not change: never turn such a joke event into a state change. Jobs, families and lives change only by a deliberate `stateChanges` fact that the series is about.
 - `facts` — what is true in the town now (from earlier series). Do not contradict them; you may build on them.
 
 ## Output

@@ -1,0 +1,167 @@
+{
+  "id": "ru-sa45ccefa.b4",
+  "jokeId": "series:ru-sa45ccefa",
+  "locale": "ru",
+  "title": "Ложная тревога",
+  "kind": "bridge",
+  "v": 2,
+  "location": "bolnitsa",
+  "cast": [
+    "muzhik-sosed",
+    "devushka",
+    "muzhik-ryzhy",
+    "paren",
+    "muzhik"
+  ],
+  "roles": {
+    "muzhik-sosed": "father",
+    "devushka": "nurse",
+    "muzhik-ryzhy": "father",
+    "paren": "father",
+    "muzhik": "father"
+  },
+  "lines": [
+    {
+      "id": "l1",
+      "character": "devushka",
+      "text": "Папаша, да не дрожите вы. У вашей жены ложная тревога, её домой отпустили.",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l2",
+      "character": "muzhik",
+      "text": "Ложная? Фу-ух! Мужики, тогда все к Петровичу, я угощаю!",
+      "emotion": "happy",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l3",
+      "character": "muzhik-ryzhy",
+      "text": "Вася, так ты ж за рулём.",
+      "emotion": "neutral",
+      "pauseAfterSec": 0
+    },
+    {
+      "id": "l4",
+      "character": "muzhik",
+      "text": "Ничего. Петренко сегодня добрый.",
+      "emotion": "smug",
+      "pauseAfterSec": 0.8,
+      "laugh": "big"
+    }
+  ],
+  "explicit": false,
+  "scenes": [
+    {
+      "location": "bolnitsa",
+      "cast": [
+        "muzhik-sosed",
+        "devushka",
+        "muzhik-ryzhy",
+        "paren",
+        "muzhik"
+      ],
+      "roles": {
+        "muzhik-sosed": "father",
+        "devushka": "nurse",
+        "muzhik-ryzhy": "father",
+        "paren": "father",
+        "muzhik": "father"
+      },
+      "looks": {
+        "muzhik-sosed": {
+          "add": [
+            "chef-hat"
+          ],
+          "remove": []
+        },
+        "muzhik-ryzhy": {
+          "add": [
+            "tie"
+          ],
+          "remove": []
+        },
+        "paren": {
+          "add": [
+            "bow-tie"
+          ],
+          "remove": []
+        },
+        "muzhik": {
+          "add": [
+            "apron"
+          ],
+          "remove": []
+        }
+      },
+      "beats": [
+        {
+          "type": "move",
+          "who": "muzhik-sosed",
+          "to": "couch"
+        },
+        {
+          "type": "move",
+          "who": "muzhik-ryzhy",
+          "to": "center"
+        },
+        {
+          "type": "move",
+          "who": "paren",
+          "to": "right"
+        },
+        {
+          "type": "move",
+          "who": "muzhik",
+          "to": "skeleton"
+        },
+        {
+          "type": "move",
+          "who": "devushka",
+          "to": "left",
+          "from": "off-left"
+        },
+        {
+          "type": "line",
+          "ref": "l1"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "jump"
+        },
+        {
+          "type": "line",
+          "ref": "l2"
+        },
+        {
+          "type": "act",
+          "who": "muzhik-ryzhy",
+          "act": "point",
+          "to": "muzhik"
+        },
+        {
+          "type": "line",
+          "ref": "l3"
+        },
+        {
+          "type": "act",
+          "who": "muzhik",
+          "act": "shrug"
+        },
+        {
+          "type": "line",
+          "ref": "l4"
+        }
+      ],
+      "transition": "cut"
+    }
+  ],
+  "outroLaughs": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}
